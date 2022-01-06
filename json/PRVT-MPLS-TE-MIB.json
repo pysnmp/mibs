@@ -1,0 +1,5303 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressIPv4",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "MPLS-TC-PRIV-STDEXT-MIB": [
+      "TeHopAddressType",
+      "MplsBitRate",
+      "TeHopAddressAS",
+      "MplsTunnelIndex",
+      "MplsTunnelAffinity",
+      "MplsExtendedTunnelId",
+      "MplsOwner",
+      "MplsPathIndex",
+      "MplsBurstSize",
+      "MplsLSPID",
+      "MplsTunnelInstanceIndex",
+      "MplsPathIndexOrZero",
+      "TeHopAddress",
+      "TeHopAddressUnnum"
+    ],
+    "PRVT-CR-LDP-MIB": [
+      "mpls"
+    ],
+    "PRVT-TEMIB-ENTITY-MIB": [
+      "prvtMplsTeMibEntityIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "zeroDotZero",
+      "transmission",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp",
+      "RowStatus",
+      "StorageType",
+      "RowPointer",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mplsTeMIB": {
+    "name": "mplsTeMIB",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-02-17 00:00",
+        "description": "Removed references to undefined OBJECT-GROUPs."
+      },
+      {
+        "revision": "2008-11-20 00:00",
+        "description": "Added additional timer (mplsTunnelMBBTimeOut) in the tunnel mib."
+      },
+      {
+        "revision": "2008-08-28 00:00",
+        "description": "mplsTunnelReoptimized notification updates."
+      },
+      {
+        "revision": "2008-03-03 00:00",
+        "description": "mplsTunnelRebuildTimer updates."
+      },
+      {
+        "revision": "2007-12-06 00:00",
+        "description": "Minor TC updates."
+      },
+      {
+        "revision": "2007-12-02 09:59",
+        "description": "The attribute for guarded destination has IPv4 TC."
+      }
+    ]
+  },
+  "MplsTunnelIndexSyntax": {
+    "name": "MplsTunnelIndexSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsLsrId": {
+    "name": "MplsLsrId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "MplsGeneralizedLabelType": {
+    "name": "MplsGeneralizedLabelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mplsLabel": 1,
+          "generalizedLabel": 2,
+          "wavebandLabel": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MplsTunnelPrivateDataSyntax": {
+    "name": "MplsTunnelPrivateDataSyntax",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsTunnelTNAAddress": {
+    "name": "MplsTunnelTNAAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MplsGeneralizedLabel": {
+    "name": "MplsGeneralizedLabel",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255x",
+    "status": "current"
+  },
+  "mplsTeObjects": {
+    "name": "mplsTeObjects",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1",
+    "class": "objectidentity"
+  },
+  "mplsTeNotifications": {
+    "name": "mplsTeNotifications",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.2",
+    "class": "objectidentity"
+  },
+  "mplsTeNotifyPrefix": {
+    "name": "mplsTeNotifyPrefix",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.2.0",
+    "class": "objectidentity"
+  },
+  "mplsTeConformance": {
+    "name": "mplsTeConformance",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3",
+    "class": "objectidentity"
+  },
+  "mplsTunnelIndexNextTable": {
+    "name": "mplsTunnelIndexNextTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelIndexNextEntry": {
+    "name": "mplsTunnelIndexNextEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelIndexNextIndex": {
+    "name": "mplsTunnelIndexNextIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelTable": {
+    "name": "mplsTunnelTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelEntry": {
+    "name": "mplsTunnelEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIngressLSRId",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelEgressLSRId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelIndex": {
+    "name": "mplsTunnelIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndexSyntax",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelInstance": {
+    "name": "mplsTunnelInstance",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelInstanceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelIngressLSRId": {
+    "name": "mplsTunnelIngressLSRId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsExtendedTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelEgressLSRId": {
+    "name": "mplsTunnelEgressLSRId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsExtendedTunnelId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelName": {
+    "name": "mplsTunnelName",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelDescr": {
+    "name": "mplsTunnelDescr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelIsIf": {
+    "name": "mplsTunnelIsIf",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelIfIndex": {
+    "name": "mplsTunnelIfIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelOwner": {
+    "name": "mplsTunnelOwner",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsOwner",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelRole": {
+    "name": "mplsTunnelRole",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "head": 1,
+          "transit": 2,
+          "tail": 3,
+          "headTail": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "head",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelXCPointer": {
+    "name": "mplsTunnelXCPointer",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSignallingProto": {
+    "name": "mplsTunnelSignallingProto",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rsvp": 2,
+          "crldp": 3,
+          "other": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSetupPrio": {
+    "name": "mplsTunnelSetupPrio",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHoldingPrio": {
+    "name": "mplsTunnelHoldingPrio",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSessionAttributes": {
+    "name": "mplsTunnelSessionAttributes",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "fastReroute": 0,
+        "mergingPermitted": 1,
+        "isPersistent": 2,
+        "isPinned": 3,
+        "recordRoute": 4,
+        "reserved5": 5,
+        "bandwidthProtect": 6,
+        "nodeProtect": 7
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelLocalProtectInUse": {
+    "name": "mplsTunnelLocalProtectInUse",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelResourcePointer": {
+    "name": "mplsTunnelResourcePointer",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelPrimaryInstance": {
+    "name": "mplsTunnelPrimaryInstance",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelInstanceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelInstancePriority": {
+    "name": "mplsTunnelInstancePriority",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopTableIndex": {
+    "name": "mplsTunnelHopTableIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelPathInUse": {
+    "name": "mplsTunnelPathInUse",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelARHopTableIndex": {
+    "name": "mplsTunnelARHopTableIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopTableIndex": {
+    "name": "mplsTunnelCHopTableIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelIncludeAnyAffinity": {
+    "name": "mplsTunnelIncludeAnyAffinity",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelAffinity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelIncludeAllAffinity": {
+    "name": "mplsTunnelIncludeAllAffinity",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelAffinity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelExcludeAnyAffinity": {
+    "name": "mplsTunnelExcludeAnyAffinity",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelAffinity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelTotalUpTime": {
+    "name": "mplsTunnelTotalUpTime",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelInstanceUpTime": {
+    "name": "mplsTunnelInstanceUpTime",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelPrimaryUpTime": {
+    "name": "mplsTunnelPrimaryUpTime",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelPathChanges": {
+    "name": "mplsTunnelPathChanges",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelLastPathChange": {
+    "name": "mplsTunnelLastPathChange",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCreationTime": {
+    "name": "mplsTunnelCreationTime",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelStateTransitions": {
+    "name": "mplsTunnelStateTransitions",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelAdminStatus": {
+    "name": "mplsTunnelAdminStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelOperStatus": {
+    "name": "mplsTunnelOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3,
+          "unknown": 4,
+          "dormant": 5,
+          "notPresent": 6,
+          "lowerLayerDown": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelRowStatus": {
+    "name": "mplsTunnelRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelStorageType": {
+    "name": "mplsTunnelStorageType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUnnumIf": {
+    "name": "mplsTunnelUnnumIf",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelAttributes": {
+    "name": "mplsTunnelAttributes",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "reserved0": 0,
+        "reserved1": 1,
+        "reserved2": 2,
+        "reserved3": 3,
+        "reserved4": 4,
+        "labelRecordingDesired": 5
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelLSPEncoding": {
+    "name": "mplsTunnelLSPEncoding",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInUse": 0,
+          "tunnelLspPacket": 1,
+          "tunnelLspEthernet": 2,
+          "tunnelLspAnsiEtsiPdh": 3,
+          "tunnelLspSdhSonet": 5,
+          "tunnelLspDigitalWrapper": 7,
+          "tunnelLspLambda": 8,
+          "tunnelLspFiber": 9,
+          "tunnelLspFiberChannel": 11
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notInUse",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSwitchingType": {
+    "name": "mplsTunnelSwitchingType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelLinkProtection": {
+    "name": "mplsTunnelLinkProtection",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "extraTraffic": 0,
+        "unprotected": 1,
+        "shared": 2,
+        "dedicatedOneToOne": 3,
+        "dedicatedOnePlusOne": 4,
+        "enhanced": 5
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelGPid": {
+    "name": "mplsTunnelGPid",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ds1SF": 1,
+          "ds1ESF": 2,
+          "ds3M23": 3,
+          "ds3Cbit": 4,
+          "asyncE4": 5,
+          "asyncDS3": 6,
+          "asyncE3": 7,
+          "bitSyncE3": 8,
+          "byteSyncE3": 9,
+          "asyncDS2": 10,
+          "bitSyncDS2": 11,
+          "byteSyncDS2": 12,
+          "asyncE1": 13,
+          "byteSyncE1": 14,
+          "byteSync31DS0": 15,
+          "asyncDS1": 16,
+          "bitSyncDS1": 17,
+          "byteSyncDS1": 18,
+          "vcByteSyncDS2": 19,
+          "vcAsyncE1": 20,
+          "vcByteSyncE1": 21,
+          "ds1SFAsync": 22,
+          "ds1ESFAsync": 23,
+          "ds3M23Async": 24,
+          "ds3CbitAsync": 25,
+          "vt": 26,
+          "sts": 27,
+          "pos16CRC": 28,
+          "pos32CRC": 29,
+          "posScrambling16CRC": 30,
+          "posScrambling32CRC": 31,
+          "atmMapping": 32,
+          "ethernet": 33,
+          "sdh": 34,
+          "sonet": 35,
+          "digitalWrapper": 36,
+          "lambda": 37,
+          "etsiPdh": 38,
+          "ansiPdh": 39,
+          "laps": 40,
+          "fddi": 41,
+          "dqdb": 42,
+          "fiberch3": 43,
+          "hdlc": 44,
+          "etherV2di": 45,
+          "ether8023": 46,
+          "etherGfpSonet": 56
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSecondary": {
+    "name": "mplsTunnelSecondary",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelDirection": {
+    "name": "mplsTunnelDirection",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "out": 0,
+          "outbidir": 1,
+          "in": 2,
+          "hwbidir": 3,
+          "inbidir": 4,
+          "transuni": 5,
+          "transbi": 6,
+          "transbih": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "out",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelPathComp": {
+    "name": "mplsTunnelPathComp",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamicFull": 1,
+          "explicit": 2,
+          "dynamicPartial": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dynamicFull",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUpNotRecipType": {
+    "name": "mplsTunnelUpNotRecipType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUpNotRecip": {
+    "name": "mplsTunnelUpNotRecip",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelDownNotRecipType": {
+    "name": "mplsTunnelDownNotRecipType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelDownNotRecip": {
+    "name": "mplsTunnelDownNotRecip",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelAdminStatusFlags": {
+    "name": "mplsTunnelAdminStatusFlags",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "delInProgress": 0,
+        "adminDown": 1,
+        "testing": 2,
+        "reserved3": 3,
+        "reserved4": 4,
+        "reserved5": 5,
+        "reserved6": 6,
+        "reserved7": 7,
+        "reserved8": 8,
+        "reserved9": 9,
+        "reserved10": 10,
+        "reserved11": 11,
+        "reserved12": 12,
+        "reserved13": 13,
+        "reserved14": 14,
+        "reserved15": 15,
+        "reserved16": 16,
+        "reserved17": 17,
+        "reserved18": 18,
+        "reserved19": 19,
+        "reserved20": 20,
+        "reserved21": 21,
+        "reserved22": 22,
+        "reserved23": 23,
+        "reserved24": 24,
+        "reserved25": 25,
+        "reserved26": 26,
+        "reserved27": 27,
+        "reserved28": 28,
+        "reserved29": 29,
+        "reserved30": 30,
+        "reflect": 31
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelExtraParamsPtr": {
+    "name": "mplsTunnelExtraParamsPtr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUseEgressLabel": {
+    "name": "mplsTunnelUseEgressLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelEgressLabel": {
+    "name": "mplsTunnelEgressLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelEgressLabelType": {
+    "name": "mplsTunnelEgressLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelOmitEROIfOneHop": {
+    "name": "mplsTunnelOmitEROIfOneHop",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelPrivateData": {
+    "name": "mplsTunnelPrivateData",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelPrivateDataSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSrcTNAAddressType": {
+    "name": "mplsTunnelSrcTNAAddressType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "nsap": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSrcTNAAddress": {
+    "name": "mplsTunnelSrcTNAAddress",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelTNAAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelDestTNAAddressType": {
+    "name": "mplsTunnelDestTNAAddressType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ipv4": 1,
+          "ipv6": 2,
+          "nsap": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelDestTNAAddress": {
+    "name": "mplsTunnelDestTNAAddress",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelTNAAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelEndToEndRerouting": {
+    "name": "mplsTunnelEndToEndRerouting",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelIsUni": {
+    "name": "mplsTunnelIsUni",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniServiceLevel": {
+    "name": "mplsTunnelUniServiceLevel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniEgressLabel": {
+    "name": "mplsTunnelUniEgressLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniEgressLabelType": {
+    "name": "mplsTunnelUniEgressLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniEgressLabelPort": {
+    "name": "mplsTunnelUniEgressLabelPort",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniRvsEgressLabel": {
+    "name": "mplsTunnelUniRvsEgressLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniRvsEgressLabelType": {
+    "name": "mplsTunnelUniRvsEgressLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniRvsEgressLabelPort": {
+    "name": "mplsTunnelUniRvsEgressLabelPort",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelDeletionMode": {
+    "name": "mplsTunnelDeletionMode",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forced": 1,
+          "graceful": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "forced",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniDiversityListIndex": {
+    "name": "mplsTunnelUniDiversityListIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelDiffServIndex": {
+    "name": "mplsTunnelDiffServIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelReversePrivateData": {
+    "name": "mplsTunnelReversePrivateData",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelPrivateDataSyntax",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelFastRerouteMode": {
+    "name": "mplsTunnelFastRerouteMode",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noFastReroute": 0,
+          "detourFastReroute": 1,
+          "facilityFastReroute": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noFastReroute",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelBackupSetupPrio": {
+    "name": "mplsTunnelBackupSetupPrio",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelBackupHoldingPriority": {
+    "name": "mplsTunnelBackupHoldingPriority",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelBackupIncAny": {
+    "name": "mplsTunnelBackupIncAny",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelAffinity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelBackupIncAll": {
+    "name": "mplsTunnelBackupIncAll",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelAffinity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelBackupExcAny": {
+    "name": "mplsTunnelBackupExcAny",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelAffinity",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelBackupBandwidth": {
+    "name": "mplsTunnelBackupBandwidth",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsBitRate",
+      "class": "type"
+    },
+    "units": "1000s of bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelBackupMaxHops": {
+    "name": "mplsTunnelBackupMaxHops",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelIsSpc": {
+    "name": "mplsTunnelIsSpc",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniIngressLabel": {
+    "name": "mplsTunnelUniIngressLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniIngressLabelType": {
+    "name": "mplsTunnelUniIngressLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniIngressLabelPort": {
+    "name": "mplsTunnelUniIngressLabelPort",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniRvsIngrLabel": {
+    "name": "mplsTunnelUniRvsIngrLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniRvsIngrLabelType": {
+    "name": "mplsTunnelUniRvsIngrLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelUniRvsIngrLabelPort": {
+    "name": "mplsTunnelUniRvsIngrLabelPort",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelDiffServClassType": {
+    "name": "mplsTunnelDiffServClassType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelExtendedProtection": {
+    "name": "mplsTunnelExtendedProtection",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelProtecting": {
+    "name": "mplsTunnelProtecting",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelNotification": {
+    "name": "mplsTunnelNotification",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelLspProtection": {
+    "name": "mplsTunnelLspProtection",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelAssociatedLspId": {
+    "name": "mplsTunnelAssociatedLspId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelInstanceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelCallIdType": {
+    "name": "mplsTunnelCallIdType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operatorSpecific": 1,
+          "globallyUnique": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelCallId": {
+    "name": "mplsTunnelCallId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelIsIpv6": {
+    "name": "mplsTunnelIsIpv6",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelMtu": {
+    "name": "mplsTunnelMtu",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelRebuildTimer": {
+    "name": "mplsTunnelRebuildTimer",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.104",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelOperStatusFlags": {
+    "name": "mplsTunnelOperStatusFlags",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "empty": 0,
+        "tunnelResignalling": 1,
+        "tunnelSuppressed": 2
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelGuardedDest": {
+    "name": "mplsTunnelGuardedDest",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelMBBTimeOut": {
+    "name": "mplsTunnelMBBTimeOut",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.2.1.107",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopIndexNextTable": {
+    "name": "mplsTunnelHopIndexNextTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelHopIndexNextEntry": {
+    "name": "mplsTunnelHopIndexNextEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelHopIndexNextIndex": {
+    "name": "mplsTunnelHopIndexNextIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelHopTable": {
+    "name": "mplsTunnelHopTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelHopEntry": {
+    "name": "mplsTunnelHopEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopListIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopPathOptionIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelHopListIndex": {
+    "name": "mplsTunnelHopListIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelHopPathOptionIndex": {
+    "name": "mplsTunnelHopPathOptionIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelHopIndex": {
+    "name": "mplsTunnelHopIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelHopAddrType": {
+    "name": "mplsTunnelHopAddrType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopIpAddr": {
+    "name": "mplsTunnelHopIpAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopIpPrefixLen": {
+    "name": "mplsTunnelHopIpPrefixLen",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopAsNumber": {
+    "name": "mplsTunnelHopAsNumber",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddressAS",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopAddrUnnum": {
+    "name": "mplsTunnelHopAddrUnnum",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddressUnnum",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopLspId": {
+    "name": "mplsTunnelHopLspId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLSPID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopType": {
+    "name": "mplsTunnelHopType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 1,
+          "loose": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopInclude": {
+    "name": "mplsTunnelHopInclude",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopPathOptionName": {
+    "name": "mplsTunnelHopPathOptionName",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopEntryPathComp": {
+    "name": "mplsTunnelHopEntryPathComp",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "explicit": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopRowStatus": {
+    "name": "mplsTunnelHopRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopStorageType": {
+    "name": "mplsTunnelHopStorageType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopLabelStatuses": {
+    "name": "mplsTunnelHopLabelStatuses",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "forwardPresent": 0,
+        "reversePresent": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelHopExpLabelType": {
+    "name": "mplsTunnelHopExpLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopExpLabel": {
+    "name": "mplsTunnelHopExpLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopExpRvrsLabelType": {
+    "name": "mplsTunnelHopExpRvrsLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelHopExpRvrsLabel": {
+    "name": "mplsTunnelHopExpRvrsLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelResourceIndexNextTable": {
+    "name": "mplsTunnelResourceIndexNextTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelResourceIndexNextEntry": {
+    "name": "mplsTunnelResourceIndexNextEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelResourceIndexNextIndex": {
+    "name": "mplsTunnelResourceIndexNextIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelResourceTable": {
+    "name": "mplsTunnelResourceTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelResourceEntry": {
+    "name": "mplsTunnelResourceEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelResourceIndex": {
+    "name": "mplsTunnelResourceIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelResourceMaxRate": {
+    "name": "mplsTunnelResourceMaxRate",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsBitRate",
+      "class": "type"
+    },
+    "units": "1000s of bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelResourceMeanRate": {
+    "name": "mplsTunnelResourceMeanRate",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsBitRate",
+      "class": "type"
+    },
+    "units": "1000s of bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelResourceMaxBurstSize": {
+    "name": "mplsTunnelResourceMaxBurstSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsBurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelResourceMeanBurstSize": {
+    "name": "mplsTunnelResourceMeanBurstSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsBurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelResourceExBurstSize": {
+    "name": "mplsTunnelResourceExBurstSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsBurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelResourceFrequency": {
+    "name": "mplsTunnelResourceFrequency",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecified": 1,
+          "frequent": 2,
+          "veryFrequent": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unspecified",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelResourceWeight": {
+    "name": "mplsTunnelResourceWeight",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelResourceRowStatus": {
+    "name": "mplsTunnelResourceRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelResourceStorageType": {
+    "name": "mplsTunnelResourceStorageType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelARHopTable": {
+    "name": "mplsTunnelARHopTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelARHopEntry": {
+    "name": "mplsTunnelARHopEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopListIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelARHopListIndex": {
+    "name": "mplsTunnelARHopListIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelARHopIndex": {
+    "name": "mplsTunnelARHopIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelARHopAddrType": {
+    "name": "mplsTunnelARHopAddrType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelARHopIpAddr": {
+    "name": "mplsTunnelARHopIpAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelARHopAddrUnnum": {
+    "name": "mplsTunnelARHopAddrUnnum",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddressUnnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelARHopLspId": {
+    "name": "mplsTunnelARHopLspId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLSPID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelARHopLabelStatuses": {
+    "name": "mplsTunnelARHopLabelStatuses",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "forwardPresent": 0,
+        "reversePresent": 1,
+        "forwardGlobal": 2,
+        "reverseGlobal": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelARHopExpLabelType": {
+    "name": "mplsTunnelARHopExpLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelARHopExpLabel": {
+    "name": "mplsTunnelARHopExpLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelARHopExpRvrsLabelType": {
+    "name": "mplsTunnelARHopExpRvrsLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelARHopExpRvrsLabel": {
+    "name": "mplsTunnelARHopExpRvrsLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelARHopProtection": {
+    "name": "mplsTunnelARHopProtection",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "localAvailable": 0,
+        "localInUse": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopTable": {
+    "name": "mplsTunnelCHopTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelCHopEntry": {
+    "name": "mplsTunnelCHopEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopListIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelCHopListIndex": {
+    "name": "mplsTunnelCHopListIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelCHopIndex": {
+    "name": "mplsTunnelCHopIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsPathIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelCHopAddrType": {
+    "name": "mplsTunnelCHopAddrType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopIpAddr": {
+    "name": "mplsTunnelCHopIpAddr",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopIpPrefixLen": {
+    "name": "mplsTunnelCHopIpPrefixLen",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopAsNumber": {
+    "name": "mplsTunnelCHopAsNumber",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddressAS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopAddrUnnum": {
+    "name": "mplsTunnelCHopAddrUnnum",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TeHopAddressUnnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopLspId": {
+    "name": "mplsTunnelCHopLspId",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLSPID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopType": {
+    "name": "mplsTunnelCHopType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "strict": 1,
+          "loose": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopLabelStatuses": {
+    "name": "mplsTunnelCHopLabelStatuses",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "forwardPresent": 0,
+        "reversePresent": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopExpLabelType": {
+    "name": "mplsTunnelCHopExpLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopExpLabel": {
+    "name": "mplsTunnelCHopExpLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopExpRvrsLabelType": {
+    "name": "mplsTunnelCHopExpRvrsLabelType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabelType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCHopExpRvrsLabel": {
+    "name": "mplsTunnelCHopExpRvrsLabel",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsGeneralizedLabel",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelPerfTable": {
+    "name": "mplsTunnelPerfTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelPerfEntry": {
+    "name": "mplsTunnelPerfEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mplsTunnelPerfEntry",
+      "module": "PRVT-MPLS-TE-MIB",
+      "object": "mplsTunnelEntry"
+    },
+    "status": "current"
+  },
+  "mplsTunnelPerfPackets": {
+    "name": "mplsTunnelPerfPackets",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelPerfHCPackets": {
+    "name": "mplsTunnelPerfHCPackets",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelPerfErrors": {
+    "name": "mplsTunnelPerfErrors",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelPerfBytes": {
+    "name": "mplsTunnelPerfBytes",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelPerfHCBytes": {
+    "name": "mplsTunnelPerfHCBytes",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelCRLDPResTable": {
+    "name": "mplsTunnelCRLDPResTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelCRLDPResEntry": {
+    "name": "mplsTunnelCRLDPResEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelCRLDPResMeanBurstSize": {
+    "name": "mplsTunnelCRLDPResMeanBurstSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsBurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelCRLDPResExBurstSize": {
+    "name": "mplsTunnelCRLDPResExBurstSize",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsBurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelCRLDPResFrequency": {
+    "name": "mplsTunnelCRLDPResFrequency",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecified": 1,
+          "frequent": 2,
+          "veryFrequent": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelCRLDPResWeight": {
+    "name": "mplsTunnelCRLDPResWeight",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelCRLDPResFlags": {
+    "name": "mplsTunnelCRLDPResFlags",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelCRLDPResRowStatus": {
+    "name": "mplsTunnelCRLDPResRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelCRLDPResStorageType": {
+    "name": "mplsTunnelCRLDPResStorageType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServIndexNextTable": {
+    "name": "mplsDiffServIndexNextTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsDiffServIndexNextEntry": {
+    "name": "mplsDiffServIndexNextEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsDiffServIndexNextIndex": {
+    "name": "mplsDiffServIndexNextIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsDiffServTable": {
+    "name": "mplsDiffServTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsDiffServEntry": {
+    "name": "mplsDiffServEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsDiffServIndex": {
+    "name": "mplsDiffServIndex",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsDiffServType": {
+    "name": "mplsDiffServType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "elsp": 0,
+          "llsp": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServLLSPPSC": {
+    "name": "mplsDiffServLLSPPSC",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServELSPNumPHBs": {
+    "name": "mplsDiffServELSPNumPHBs",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServELSPPHB0": {
+    "name": "mplsDiffServELSPPHB0",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServELSPPHB1": {
+    "name": "mplsDiffServELSPPHB1",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServELSPPHB2": {
+    "name": "mplsDiffServELSPPHB2",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServELSPPHB3": {
+    "name": "mplsDiffServELSPPHB3",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServELSPPHB4": {
+    "name": "mplsDiffServELSPPHB4",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServELSPPHB5": {
+    "name": "mplsDiffServELSPPHB5",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServELSPPHB6": {
+    "name": "mplsDiffServELSPPHB6",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServELSPPHB7": {
+    "name": "mplsDiffServELSPPHB7",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsDiffServRowStatus": {
+    "name": "mplsDiffServRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDvLstIdxNxtTable": {
+    "name": "prvtMplsTunnelUNIDvLstIdxNxtTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDvLstIdxNxtEntry": {
+    "name": "prvtMplsTunnelUNIDvLstIdxNxtEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDivListIdxNext": {
+    "name": "prvtMplsTunnelUNIDivListIdxNext",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDiversityTable": {
+    "name": "prvtMplsTunnelUNIDiversityTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDiversityEntry": {
+    "name": "prvtMplsTunnelUNIDiversityEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "prvtMplsTunnelUNIDivListIdx",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "prvtMplsTunnelUNIDivIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDivListIdx": {
+    "name": "prvtMplsTunnelUNIDivListIdx",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDivIdx": {
+    "name": "prvtMplsTunnelUNIDivIdx",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDivRowPointer": {
+    "name": "prvtMplsTunnelUNIDivRowPointer",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtMplsTunnelOperStatus": {
+    "name": "prvtMplsTunnelOperStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDivRowStatus": {
+    "name": "prvtMplsTunnelUNIDivRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDivRequirement": {
+    "name": "prvtMplsTunnelUNIDivRequirement",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nodeDiverse": 1,
+          "linkDiverse": 2,
+          "srlg": 3,
+          "sharedPath": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "prvtMplsTunnelUNIDivAccess": {
+    "name": "prvtMplsTunnelUNIDivAccess",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prvtMplsTunnelTrapEnableTable": {
+    "name": "prvtMplsTunnelTrapEnableTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "prvtMplsTunnelTrapEnableEntry": {
+    "name": "prvtMplsTunnelTrapEnableEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelTrapEnable": {
+    "name": "mplsTunnelTrapEnable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mplsTunnelHoldTimer": {
+    "name": "mplsTunnelHoldTimer",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mplsTeMibEntityScalarTable": {
+    "name": "mplsTeMibEntityScalarTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTeMibEntityScalarEntry": {
+    "name": "mplsTeMibEntityScalarEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelConfigured": {
+    "name": "mplsTunnelConfigured",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelActive": {
+    "name": "mplsTunnelActive",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelTEDistProto": {
+    "name": "mplsTunnelTEDistProto",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "other": 0,
+        "ospf": 1,
+        "isis": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelMaxHops": {
+    "name": "mplsTunnelMaxHops",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelNotificationMaxRate": {
+    "name": "mplsTunnelNotificationMaxRate",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelSonetResTable": {
+    "name": "mplsTunnelSonetResTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelSonetResEntry": {
+    "name": "mplsTunnelSonetResEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PRVT-TEMIB-ENTITY-MIB",
+        "object": "prvtMplsTeMibEntityIndex",
+        "implied": 0
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelSonetResRCC": {
+    "name": "mplsTunnelSonetResRCC",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSonetResNCC": {
+    "name": "mplsTunnelSonetResNCC",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSonetResNVC": {
+    "name": "mplsTunnelSonetResNVC",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSonetResMultiplier": {
+    "name": "mplsTunnelSonetResMultiplier",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSonetResTransparency": {
+    "name": "mplsTunnelSonetResTransparency",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSonetResRowStatus": {
+    "name": "mplsTunnelSonetResRowStatus",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelSonetResSignalType": {
+    "name": "mplsTunnelSonetResSignalType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mplsTunnelErrorTable": {
+    "name": "mplsTunnelErrorTable",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mplsTunnelErrorEntry": {
+    "name": "mplsTunnelErrorEntry",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mplsTunnelErrorEntry",
+      "module": "PRVT-MPLS-TE-MIB",
+      "object": "mplsTunnelEntry"
+    },
+    "status": "current"
+  },
+  "mplsTunnelErrorLastErrorType": {
+    "name": "mplsTunnelErrorLastErrorType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noError": 0,
+          "unknown": 1,
+          "protocol": 2,
+          "pathComputation": 3,
+          "localConfiguration": 4,
+          "localResources": 5,
+          "localOther": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelErrorLastTime": {
+    "name": "mplsTunnelErrorLastTime",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelErrorReporterType": {
+    "name": "mplsTunnelErrorReporterType",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelErrorReporter": {
+    "name": "mplsTunnelErrorReporter",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelErrorCode": {
+    "name": "mplsTunnelErrorCode",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelErrorSubcode": {
+    "name": "mplsTunnelErrorSubcode",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelErrorTLVs": {
+    "name": "mplsTunnelErrorTLVs",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelErrorHelpString": {
+    "name": "mplsTunnelErrorHelpString",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mplsTunnelUp": {
+    "name": "mplsTunnelUp",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelAdminStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelDown": {
+    "name": "mplsTunnelDown",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelAdminStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelRerouted": {
+    "name": "mplsTunnelRerouted",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelAdminStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelOperStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopTableIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelReoptimized": {
+    "name": "mplsTunnelReoptimized",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelAdminStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelOperStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopTableIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTeGroups": {
+    "name": "mplsTeGroups",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1",
+    "class": "objectidentity"
+  },
+  "mplsTeCompliances": {
+    "name": "mplsTeCompliances",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.2",
+    "class": "objectidentity"
+  },
+  "mplsTeModuleFullCompliance": {
+    "name": "mplsTeModuleFullCompliance",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifGeneralInformationGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ifCounterDiscontinuityGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "mplsTunnelGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelScalarGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelManualGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelSignaledGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelIsNotIntfcGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelIsIntfcGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelCRLDPResOptionalGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelSonetGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelUniGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelBackupGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelARHopGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelCHopGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsDiffServGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTeNotificationGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTeModuleReadOnlyCompliance": {
+    "name": "mplsTeModuleReadOnlyCompliance",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mplsTunnelGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelScalarGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelManualGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelSignaledGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelIsNotIntfcGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelIsIntfcGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTunnelCRLDPResOptionalGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      },
+      {
+        "object": "mplsTeNotificationGroup",
+        "module": "PRVT-MPLS-TE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelGroup": {
+    "name": "mplsTunnelGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIndexNextIndex"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelName"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelDescr"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelOwner"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelXCPointer"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIfIndex"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopTableIndex"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopTableIndex"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopTableIndex"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelAdminStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelOperStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelRowStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelStorageType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelDirection"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelLSPEncoding"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelLinkProtection"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelGPid"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUseEgressLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelEgressLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelEgressLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelOmitEROIfOneHop"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelPrivateData"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSrcTNAAddressType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSrcTNAAddress"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelDestTNAAddressType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelDestTNAAddress"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSecondary"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUnnumIf"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelAttributes"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelEndToEndRerouting"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIsUni"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniServiceLevel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniEgressLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniEgressLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniEgressLabelPort"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsEgressLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsEgressLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsEgressLabelPort"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSwitchingType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelDeletionMode"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniDiversityListIndex"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelDiffServIndex"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelReversePrivateData"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelAdminStatusFlags"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelFastRerouteMode"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupSetupPrio"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupHoldingPriority"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupIncAny"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupIncAll"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupExcAny"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupBandwidth"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupMaxHops"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelDownNotRecipType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelDownNotRecip"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelPathComp"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUpNotRecipType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUpNotRecip"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelExtraParamsPtr"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIsSpc"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniIngressLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniIngressLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniIngressLabelPort"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsIngrLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsIngrLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsIngrLabelPort"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelDiffServClassType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelExtendedProtection"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelProtecting"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelNotification"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelLspProtection"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelAssociatedLspId"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCallIdType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCallId"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIsIpv6"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelConfigured"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelActive"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelPrimaryInstance"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelPrimaryUpTime"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelPathChanges"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelLastPathChange"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCreationTime"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelStateTransitions"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIncludeAnyAffinity"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIncludeAllAffinity"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelExcludeAnyAffinity"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourcePointer"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelInstancePriority"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelPathInUse"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelRole"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelTotalUpTime"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelInstanceUpTime"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceMaxRate"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceMeanRate"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceMaxBurstSize"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceMeanBurstSize"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceExBurstSize"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceFrequency"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceWeight"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceRowStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceStorageType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelResourceIndexNextIndex"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResRCC"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResNCC"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResNVC"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResMultiplier"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResTransparency"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResRowStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopAddrType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopIpAddr"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopAddrUnnum"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopLspId"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopAddrType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopIpAddr"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopIpPrefixLen"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopAsNumber"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopAddrUnnum"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopLspId"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelTrapEnable"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelErrorLastErrorType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelErrorLastTime"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelErrorReporterType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelErrorReporter"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelErrorCode"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelErrorSubcode"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelErrorTLVs"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelErrorHelpString"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelManualGroup": {
+    "name": "mplsTunnelManualGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSignallingProto"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelSignaledGroup": {
+    "name": "mplsTunnelSignaledGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSetupPrio"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHoldingPrio"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSignallingProto"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelLocalProtectInUse"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSessionAttributes"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopAddrType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopIpAddr"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopIpPrefixLen"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopAddrUnnum"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopAsNumber"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopLspId"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopInclude"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopPathOptionName"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopEntryPathComp"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopRowStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopStorageType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopLabelStatuses"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopExpLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopExpLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopExpRvrsLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopExpRvrsLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelHopIndexNextIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelScalarGroup": {
+    "name": "mplsTunnelScalarGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelConfigured"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelActive"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelTEDistProto"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelMaxHops"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelNotificationMaxRate"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelIsIntfcGroup": {
+    "name": "mplsTunnelIsIntfcGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIsIf"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelIsNotIntfcGroup": {
+    "name": "mplsTunnelIsNotIntfcGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIsIf"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelCRLDPResOptionalGroup": {
+    "name": "mplsTunnelCRLDPResOptionalGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCRLDPResMeanBurstSize"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCRLDPResExBurstSize"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCRLDPResFrequency"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCRLDPResWeight"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCRLDPResFlags"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCRLDPResRowStatus"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCRLDPResStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelSonetGroup": {
+    "name": "mplsTunnelSonetGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResSignalType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResRCC"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResNCC"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResNVC"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResMultiplier"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelSonetResTransparency"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelUniGroup": {
+    "name": "mplsTunnelUniGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelIsUni"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniServiceLevel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniEgressLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniEgressLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniEgressLabelPort"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsEgressLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsEgressLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsEgressLabelPort"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniDiversityListIndex"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniIngressLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniIngressLabelPort"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniIngressLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsIngrLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsIngrLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUniRvsIngrLabelPort"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelBackupGroup": {
+    "name": "mplsTunnelBackupGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupSetupPrio"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupHoldingPriority"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupIncAny"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupIncAll"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupExcAny"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupBandwidth"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelBackupMaxHops"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelARHopGroup": {
+    "name": "mplsTunnelARHopGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopAddrType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopIpAddr"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopAddrUnnum"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopLspId"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopLabelStatuses"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopExpLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopExpLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopExpRvrsLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopExpRvrsLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelARHopProtection"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTunnelCHopGroup": {
+    "name": "mplsTunnelCHopGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopAddrType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopIpAddr"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopIpPrefixLen"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopAsNumber"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopAddrUnnum"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopLspId"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopLabelStatuses"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopExpLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopExpLabel"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopExpRvrsLabelType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelCHopExpRvrsLabel"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsDiffServGroup": {
+    "name": "mplsDiffServGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServIndexNextIndex"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServType"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServLLSPPSC"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServELSPNumPHBs"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServELSPPHB0"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServELSPPHB1"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServELSPPHB2"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServELSPPHB3"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServELSPPHB4"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServELSPPHB5"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServELSPPHB6"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServELSPPHB7"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsDiffServRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mplsTeNotificationGroup": {
+    "name": "mplsTeNotificationGroup",
+    "oid": "1.3.6.1.4.1.738.1.6.5.2.3.1.15",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelUp"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelDown"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelRerouted"
+      },
+      {
+        "module": "PRVT-MPLS-TE-MIB",
+        "object": "mplsTunnelReoptimized"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-MPLS-TE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PRVT-MPLS-TE-MIB"
+  }
+}

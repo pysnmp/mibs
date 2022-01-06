@@ -1,0 +1,1780 @@
+{
+  "imports": {
+    "class": "imports",
+    "DIFFSERV-DSCP-TC": [
+      "Dscp"
+    ],
+    "LLDP-MIB": [
+      "lldpExtensions",
+      "lldpRemTimeMark",
+      "lldpLocPortNum",
+      "lldpRemIndex",
+      "lldpRemLocalPortNum",
+      "lldpRemChassisId",
+      "lldpPortConfigEntry",
+      "lldpRemChassisIdSubtype"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "lldpXMedMIB": {
+    "name": "lldpXMedMIB",
+    "oid": "1.0.8802.1.1.2.1.5.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-07-28 00:00",
+        "description": "Published as part of ANSI/TIA-1057."
+      }
+    ]
+  },
+  "lldpXMedNotifications": {
+    "name": "lldpXMedNotifications",
+    "oid": "1.0.8802.1.1.2.1.5.1.0",
+    "class": "objectidentity"
+  },
+  "lldpXMedObjects": {
+    "name": "lldpXMedObjects",
+    "oid": "1.0.8802.1.1.2.1.5.1.1",
+    "class": "objectidentity"
+  },
+  "lldpXMedTopologyChangeDetected": {
+    "name": "lldpXMedTopologyChangeDetected",
+    "oid": "1.0.8802.1.1.2.1.5.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemChassisIdSubtype"
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemChassisId"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemDeviceClass"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedConfig": {
+    "name": "lldpXMedConfig",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.1",
+    "class": "objectidentity"
+  },
+  "lldpXMedLocalData": {
+    "name": "lldpXMedLocalData",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2",
+    "class": "objectidentity"
+  },
+  "lldpXMedRemoteData": {
+    "name": "lldpXMedRemoteData",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3",
+    "class": "objectidentity"
+  },
+  "LldpXMedDeviceClass": {
+    "name": "LldpXMedDeviceClass",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notDefined": 0,
+          "endpointClass1": 1,
+          "endpointClass2": 2,
+          "endpointClass3": 3,
+          "networkConnectivity": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LldpXMedCapabilities": {
+    "name": "LldpXMedCapabilities",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "capabilities": 0,
+        "networkPolicy": 1,
+        "location": 2,
+        "extendedPSE": 3,
+        "extendedPD": 4,
+        "inventory": 5
+      }
+    },
+    "status": "current"
+  },
+  "LocationSubtype": {
+    "name": "LocationSubtype",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "coordinateBased": 2,
+          "civicAddress": 3,
+          "elin": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PolicyAppType": {
+    "name": "PolicyAppType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unknown": 0,
+        "voice": 1,
+        "voiceSignaling": 2,
+        "guestVoice": 3,
+        "guestVoiceSignaling": 4,
+        "softPhoneVoice": 5,
+        "videoconferencing": 6,
+        "streamingVideo": 7,
+        "videoSignaling": 8
+      }
+    },
+    "status": "current"
+  },
+  "lldpXMedLocDeviceClass": {
+    "name": "lldpXMedLocDeviceClass",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXMedDeviceClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedPortConfigTable": {
+    "name": "lldpXMedPortConfigTable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedPortConfigEntry": {
+    "name": "lldpXMedPortConfigEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpXMedPortConfigEntry",
+      "module": "LLDP-EXT-MED-MIB",
+      "object": "lldpPortConfigEntry"
+    },
+    "status": "current"
+  },
+  "lldpXMedPortCapSupported": {
+    "name": "lldpXMedPortCapSupported",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXMedCapabilities",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedPortConfigTLVsTxEnable": {
+    "name": "lldpXMedPortConfigTLVsTxEnable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXMedCapabilities",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXMedPortConfigNotifEnable": {
+    "name": "lldpXMedPortConfigNotifEnable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXMedFastStartRepeatCount": {
+    "name": "lldpXMedFastStartRepeatCount",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXMedLocMediaPolicyTable": {
+    "name": "lldpXMedLocMediaPolicyTable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedLocMediaPolicyEntry": {
+    "name": "lldpXMedLocMediaPolicyEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocMediaPolicyAppType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedLocMediaPolicyAppType": {
+    "name": "lldpXMedLocMediaPolicyAppType",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyAppType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedLocMediaPolicyVlanID": {
+    "name": "lldpXMedLocMediaPolicyVlanID",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          },
+          {
+            "min": 4095,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocMediaPolicyPriority": {
+    "name": "lldpXMedLocMediaPolicyPriority",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocMediaPolicyDscp": {
+    "name": "lldpXMedLocMediaPolicyDscp",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocMediaPolicyUnknown": {
+    "name": "lldpXMedLocMediaPolicyUnknown",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocMediaPolicyTagged": {
+    "name": "lldpXMedLocMediaPolicyTagged",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocHardwareRev": {
+    "name": "lldpXMedLocHardwareRev",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocFirmwareRev": {
+    "name": "lldpXMedLocFirmwareRev",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocSoftwareRev": {
+    "name": "lldpXMedLocSoftwareRev",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocSerialNum": {
+    "name": "lldpXMedLocSerialNum",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocMfgName": {
+    "name": "lldpXMedLocMfgName",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocModelName": {
+    "name": "lldpXMedLocModelName",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocAssetID": {
+    "name": "lldpXMedLocAssetID",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocLocationTable": {
+    "name": "lldpXMedLocLocationTable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedLocLocationEntry": {
+    "name": "lldpXMedLocLocationEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocLocationSubtype",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedLocLocationSubtype": {
+    "name": "lldpXMedLocLocationSubtype",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocationSubtype",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedLocLocationInfo": {
+    "name": "lldpXMedLocLocationInfo",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpXMedLocXPoEDeviceType": {
+    "name": "lldpXMedLocXPoEDeviceType",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "pseDevice": 2,
+          "pdDevice": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocXPoEPSEPortTable": {
+    "name": "lldpXMedLocXPoEPSEPortTable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedLocXPoEPSEPortEntry": {
+    "name": "lldpXMedLocXPoEPSEPortEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpLocPortNum",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedLocXPoEPSEPortPowerAv": {
+    "name": "lldpXMedLocXPoEPSEPortPowerAv",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "units": "tenth of watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocXPoEPSEPortPDPriority": {
+    "name": "lldpXMedLocXPoEPSEPortPDPriority",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "critical": 2,
+          "high": 3,
+          "low": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocXPoEPSEPowerSource": {
+    "name": "lldpXMedLocXPoEPSEPowerSource",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "primary": 2,
+          "backup": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocXPoEPDPowerReq": {
+    "name": "lldpXMedLocXPoEPDPowerReq",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "units": "tenth of watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocXPoEPDPowerSource": {
+    "name": "lldpXMedLocXPoEPDPowerSource",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "fromPSE": 2,
+          "local": 3,
+          "localAndPSE": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedLocXPoEPDPowerPriority": {
+    "name": "lldpXMedLocXPoEPDPowerPriority",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "critical": 2,
+          "high": 3,
+          "low": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemCapabilitiesTable": {
+    "name": "lldpXMedRemCapabilitiesTable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedRemCapabilitiesEntry": {
+    "name": "lldpXMedRemCapabilitiesEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedRemCapSupported": {
+    "name": "lldpXMedRemCapSupported",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXMedCapabilities",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemCapCurrent": {
+    "name": "lldpXMedRemCapCurrent",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXMedCapabilities",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemDeviceClass": {
+    "name": "lldpXMedRemDeviceClass",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpXMedDeviceClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemMediaPolicyTable": {
+    "name": "lldpXMedRemMediaPolicyTable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedRemMediaPolicyEntry": {
+    "name": "lldpXMedRemMediaPolicyEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemMediaPolicyAppType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedRemMediaPolicyAppType": {
+    "name": "lldpXMedRemMediaPolicyAppType",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicyAppType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedRemMediaPolicyVlanID": {
+    "name": "lldpXMedRemMediaPolicyVlanID",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          },
+          {
+            "min": 4095,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemMediaPolicyPriority": {
+    "name": "lldpXMedRemMediaPolicyPriority",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemMediaPolicyDscp": {
+    "name": "lldpXMedRemMediaPolicyDscp",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dscp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemMediaPolicyUnknown": {
+    "name": "lldpXMedRemMediaPolicyUnknown",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemMediaPolicyTagged": {
+    "name": "lldpXMedRemMediaPolicyTagged",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemInventoryTable": {
+    "name": "lldpXMedRemInventoryTable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedRemInventoryEntry": {
+    "name": "lldpXMedRemInventoryEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedRemHardwareRev": {
+    "name": "lldpXMedRemHardwareRev",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemFirmwareRev": {
+    "name": "lldpXMedRemFirmwareRev",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemSoftwareRev": {
+    "name": "lldpXMedRemSoftwareRev",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemSerialNum": {
+    "name": "lldpXMedRemSerialNum",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemMfgName": {
+    "name": "lldpXMedRemMfgName",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemModelName": {
+    "name": "lldpXMedRemModelName",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemAssetID": {
+    "name": "lldpXMedRemAssetID",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemLocationTable": {
+    "name": "lldpXMedRemLocationTable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedRemLocationEntry": {
+    "name": "lldpXMedRemLocationEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemLocationSubtype",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedRemLocationSubtype": {
+    "name": "lldpXMedRemLocationSubtype",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LocationSubtype",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedRemLocationInfo": {
+    "name": "lldpXMedRemLocationInfo",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemXPoETable": {
+    "name": "lldpXMedRemXPoETable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedRemXPoEEntry": {
+    "name": "lldpXMedRemXPoEEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedRemXPoEDeviceType": {
+    "name": "lldpXMedRemXPoEDeviceType",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "pseDevice": 2,
+          "pdDevice": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemXPoEPSETable": {
+    "name": "lldpXMedRemXPoEPSETable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedRemXPoEPSEEntry": {
+    "name": "lldpXMedRemXPoEPSEEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedRemXPoEPSEPowerAv": {
+    "name": "lldpXMedRemXPoEPSEPowerAv",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "units": "tenth of watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemXPoEPSEPowerSource": {
+    "name": "lldpXMedRemXPoEPSEPowerSource",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "primary": 2,
+          "backup": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemXPoEPSEPowerPriority": {
+    "name": "lldpXMedRemXPoEPSEPowerPriority",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "critical": 2,
+          "high": 3,
+          "low": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemXPoEPDTable": {
+    "name": "lldpXMedRemXPoEPDTable",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpXMedRemXPoEPDEntry": {
+    "name": "lldpXMedRemXPoEPDEntry",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemLocalPortNum",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-MIB",
+        "object": "lldpRemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedRemXPoEPDPowerReq": {
+    "name": "lldpXMedRemXPoEPDPowerReq",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "units": "tenth of watt",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemXPoEPDPowerSource": {
+    "name": "lldpXMedRemXPoEPDPowerSource",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "fromPSE": 2,
+          "local": 3,
+          "localAndPSE": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedRemXPoEPDPowerPriority": {
+    "name": "lldpXMedRemXPoEPDPowerPriority",
+    "oid": "1.0.8802.1.1.2.1.5.1.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "critical": 2,
+          "high": 3,
+          "low": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpXMedConformance": {
+    "name": "lldpXMedConformance",
+    "oid": "1.0.8802.1.1.2.1.5.1.2",
+    "class": "objectidentity"
+  },
+  "lldpXMedCompliances": {
+    "name": "lldpXMedCompliances",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.1",
+    "class": "objectidentity"
+  },
+  "lldpXMedGroups": {
+    "name": "lldpXMedGroups",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.2",
+    "class": "objectidentity"
+  },
+  "lldpXMedCompliance": {
+    "name": "lldpXMedCompliance",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpXMedConfigGroup",
+        "module": "LLDP-EXT-MED-MIB"
+      },
+      {
+        "object": "lldpXMedRemSysGroup",
+        "module": "LLDP-EXT-MED-MIB"
+      },
+      {
+        "object": "lldpXMedNotificationsGroup",
+        "module": "LLDP-EXT-MED-MIB"
+      },
+      {
+        "object": "lldpXMedOptMediaPolicyGroup",
+        "module": "LLDP-EXT-MED-MIB"
+      },
+      {
+        "object": "lldpXMedOptInventoryGroup",
+        "module": "LLDP-EXT-MED-MIB"
+      },
+      {
+        "object": "lldpXMedOptLocationGroup",
+        "module": "LLDP-EXT-MED-MIB"
+      },
+      {
+        "object": "lldpXMedOptPoEPSEGroup",
+        "module": "LLDP-EXT-MED-MIB"
+      },
+      {
+        "object": "lldpXMedOptPoEPDGroup",
+        "module": "LLDP-EXT-MED-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedConfigGroup": {
+    "name": "lldpXMedConfigGroup",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedPortCapSupported"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedPortConfigTLVsTxEnable"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedPortConfigNotifEnable"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedFastStartRepeatCount"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocXPoEDeviceType"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocDeviceClass"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedOptMediaPolicyGroup": {
+    "name": "lldpXMedOptMediaPolicyGroup",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocMediaPolicyVlanID"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocMediaPolicyPriority"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocMediaPolicyDscp"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocMediaPolicyUnknown"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocMediaPolicyTagged"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedOptInventoryGroup": {
+    "name": "lldpXMedOptInventoryGroup",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocHardwareRev"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocFirmwareRev"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocSoftwareRev"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocSerialNum"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocMfgName"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocModelName"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocAssetID"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedOptLocationGroup": {
+    "name": "lldpXMedOptLocationGroup",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocLocationInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedOptPoEPSEGroup": {
+    "name": "lldpXMedOptPoEPSEGroup",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocXPoEPSEPortPowerAv"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocXPoEPSEPortPDPriority"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocXPoEPSEPowerSource"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedOptPoEPDGroup": {
+    "name": "lldpXMedOptPoEPDGroup",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocXPoEPDPowerReq"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocXPoEPDPowerSource"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedLocXPoEPDPowerPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedRemSysGroup": {
+    "name": "lldpXMedRemSysGroup",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemCapSupported"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemCapCurrent"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemDeviceClass"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemMediaPolicyVlanID"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemMediaPolicyPriority"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemMediaPolicyDscp"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemMediaPolicyUnknown"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemMediaPolicyTagged"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemHardwareRev"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemFirmwareRev"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemSoftwareRev"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemSerialNum"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemMfgName"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemModelName"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemAssetID"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemLocationInfo"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemXPoEDeviceType"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemXPoEPSEPowerAv"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemXPoEPSEPowerSource"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemXPoEPSEPowerPriority"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemXPoEPDPowerReq"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemXPoEPDPowerSource"
+      },
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedRemXPoEPDPowerPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpXMedNotificationsGroup": {
+    "name": "lldpXMedNotificationsGroup",
+    "oid": "1.0.8802.1.1.2.1.5.1.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "LLDP-EXT-MED-MIB",
+        "object": "lldpXMedTopologyChangeDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/LLDP-EXT-MED-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LLDP-EXT-MED-MIB"
+  }
+}

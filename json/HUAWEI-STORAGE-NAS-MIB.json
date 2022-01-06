@@ -1,0 +1,1382 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "enterprises",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwStorage": {
+    "name": "hwStorage",
+    "oid": "1.3.6.1.4.1.34774.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-11-06 15:32",
+        "description": " "
+      }
+    ]
+  },
+  "NodeCodeString": {
+    "name": "NodeCodeString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 15,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "displayhint": "255a",
+    "status": "current"
+  },
+  "huaweistorage": {
+    "name": "huaweistorage",
+    "oid": "1.3.6.1.4.1.34774",
+    "class": "objectidentity"
+  },
+  "hwISM": {
+    "name": "hwISM",
+    "oid": "1.3.6.1.4.1.34774.4.1",
+    "class": "objectidentity"
+  },
+  "hwStorageDevice": {
+    "name": "hwStorageDevice",
+    "oid": "1.3.6.1.4.1.34774.4.1.23",
+    "class": "objectidentity"
+  },
+  "hwNasInfo": {
+    "name": "hwNasInfo",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7",
+    "class": "objectidentity"
+  },
+  "hwInfoShareNFSTable": {
+    "name": "hwInfoShareNFSTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoShareNFSEntry": {
+    "name": "hwInfoShareNFSEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareNFSShareID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoShareNFSShareID": {
+    "name": "hwInfoShareNFSShareID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareNFSFileSystemID": {
+    "name": "hwInfoShareNFSFileSystemID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareNFSDescription": {
+    "name": "hwInfoShareNFSDescription",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareNFSLocalPath": {
+    "name": "hwInfoShareNFSLocalPath",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareCIFSTable": {
+    "name": "hwInfoShareCIFSTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoShareCIFSEntry": {
+    "name": "hwInfoShareCIFSEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareCIFSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoShareCIFSID": {
+    "name": "hwInfoShareCIFSID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareCIFSName": {
+    "name": "hwInfoShareCIFSName",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareCIFSFileSystemID": {
+    "name": "hwInfoShareCIFSFileSystemID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareCIFSDescription": {
+    "name": "hwInfoShareCIFSDescription",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareCIFSLocalPath": {
+    "name": "hwInfoShareCIFSLocalPath",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareCIFSOplockEnabled": {
+    "name": "hwInfoShareCIFSOplockEnabled",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareCIFSNotifyEnabled": {
+    "name": "hwInfoShareCIFSNotifyEnabled",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoShareCIFSContAvailableEna": {
+    "name": "hwInfoShareCIFSContAvailableEna",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsNFSTable": {
+    "name": "hwInfoSharePermsNFSTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoSharePermsNFSEntry": {
+    "name": "hwInfoSharePermsNFSEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsNFSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoSharePermsNFSID": {
+    "name": "hwInfoSharePermsNFSID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsNFSAccessName": {
+    "name": "hwInfoSharePermsNFSAccessName",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsNFSShareID": {
+    "name": "hwInfoSharePermsNFSShareID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsNFSAccessType": {
+    "name": "hwInfoSharePermsNFSAccessType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsNFSSyncEnabled": {
+    "name": "hwInfoSharePermsNFSSyncEnabled",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsNFSAllSquashEna": {
+    "name": "hwInfoSharePermsNFSAllSquashEna",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsNFSRootSquashEna": {
+    "name": "hwInfoSharePermsNFSRootSquashEna",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsCIFSTable": {
+    "name": "hwInfoSharePermsCIFSTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoSharePermsCIFSEntry": {
+    "name": "hwInfoSharePermsCIFSEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsCIFSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoSharePermsCIFSID": {
+    "name": "hwInfoSharePermsCIFSID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsCIFSAccessName": {
+    "name": "hwInfoSharePermsCIFSAccessName",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsCIFSShareID": {
+    "name": "hwInfoSharePermsCIFSShareID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsCIFSDomainType": {
+    "name": "hwInfoSharePermsCIFSDomainType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoSharePermsCIFSPermsType": {
+    "name": "hwInfoSharePermsCIFSPermsType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortTable": {
+    "name": "hwInfoLogicalPortTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoLogicalPortEntry": {
+    "name": "hwInfoLogicalPortEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoLogicalPortID": {
+    "name": "hwInfoLogicalPortID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPorttName": {
+    "name": "hwInfoLogicalPorttName",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortRunStatus": {
+    "name": "hwInfoLogicalPortRunStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortIPv4Addr": {
+    "name": "hwInfoLogicalPortIPv4Addr",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortIPv4Mask": {
+    "name": "hwInfoLogicalPortIPv4Mask",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortIPv4Gateway": {
+    "name": "hwInfoLogicalPortIPv4Gateway",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortIPv6Addr": {
+    "name": "hwInfoLogicalPortIPv6Addr",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortIPv6Mask": {
+    "name": "hwInfoLogicalPortIPv6Mask",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortIPv6Gateway": {
+    "name": "hwInfoLogicalPortIPv6Gateway",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortRole": {
+    "name": "hwInfoLogicalPortRole",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortSupportProt": {
+    "name": "hwInfoLogicalPortSupportProt",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortHomePortType": {
+    "name": "hwInfoLogicalPortHomePortType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortHomePortID": {
+    "name": "hwInfoLogicalPortHomePortID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortOwnerCtrlID": {
+    "name": "hwInfoLogicalPortOwnerCtrlID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortCurrPortType": {
+    "name": "hwInfoLogicalPortCurrPortType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortCurrPortID": {
+    "name": "hwInfoLogicalPortCurrPortID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortWorkCtrlID": {
+    "name": "hwInfoLogicalPortWorkCtrlID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortActState": {
+    "name": "hwInfoLogicalPortActState",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortAddrFamily": {
+    "name": "hwInfoLogicalPortAddrFamily",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortIsPrivate": {
+    "name": "hwInfoLogicalPortIsPrivate",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortFailOVGID": {
+    "name": "hwInfoLogicalPortFailOVGID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortFailOVEnable": {
+    "name": "hwInfoLogicalPortFailOVEnable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortFailBackMode": {
+    "name": "hwInfoLogicalPortFailBackMode",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoLogicalPortFailOVGName": {
+    "name": "hwInfoLogicalPortFailOVGName",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysTable": {
+    "name": "hwInfoFileSysTable",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwInfoFileSysEntry": {
+    "name": "hwInfoFileSysEntry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwInfoFileSysID": {
+    "name": "hwInfoFileSysID",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysName": {
+    "name": "hwInfoFileSysName",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysHeathStatus": {
+    "name": "hwInfoFileSysHeathStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysRunningStatus": {
+    "name": "hwInfoFileSysRunningStatus",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysDescription": {
+    "name": "hwInfoFileSysDescription",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysSubType": {
+    "name": "hwInfoFileSysSubType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysAllocType": {
+    "name": "hwInfoFileSysAllocType",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysCapacity": {
+    "name": "hwInfoFileSysCapacity",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysSnapshotReservePer": {
+    "name": "hwInfoFileSysSnapshotReservePer",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysSnapshotUseCapacity": {
+    "name": "hwInfoFileSysSnapshotUseCapacity",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysSectorSize": {
+    "name": "hwInfoFileSysSectorSize",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysOwningContrller": {
+    "name": "hwInfoFileSysOwningContrller",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysWorkingController": {
+    "name": "hwInfoFileSysWorkingController",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysIOPriotiry": {
+    "name": "hwInfoFileSysIOPriotiry",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysEnableCompression": {
+    "name": "hwInfoFileSysEnableCompression",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysCompression": {
+    "name": "hwInfoFileSysCompression",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysIsShowSnapDir": {
+    "name": "hwInfoFileSysIsShowSnapDir",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysAvailableCapacity": {
+    "name": "hwInfoFileSysAvailableCapacity",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysAvAndAllcCapRatio": {
+    "name": "hwInfoFileSysAvAndAllcCapRatio",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysSCCachedSize": {
+    "name": "hwInfoFileSysSCCachedSize",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysSCHitRage": {
+    "name": "hwInfoFileSysSCHitRage",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwInfoFileSysCompressSavedRatio": {
+    "name": "hwInfoFileSysCompressSavedRatio",
+    "oid": "1.3.6.1.4.1.34774.4.1.23.7.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "isoConformance": {
+    "name": "isoConformance",
+    "oid": "1.6",
+    "class": "objectidentity"
+  },
+  "isoGroups": {
+    "name": "isoGroups",
+    "oid": "1.6.1",
+    "class": "objectidentity"
+  },
+  "currentObjectGroup": {
+    "name": "currentObjectGroup",
+    "oid": "1.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareCIFSContAvailableEna"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsNFSID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsNFSAccessName"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsNFSShareID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsNFSAccessType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsNFSSyncEnabled"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsNFSAllSquashEna"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsNFSRootSquashEna"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsCIFSID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsCIFSAccessName"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsCIFSShareID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsCIFSDomainType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoSharePermsCIFSPermsType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortSupportProt"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortHomePortType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortFailBackMode"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysName"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysHeathStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysRunningStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysDescription"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysSubType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysAllocType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysCapacity"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysSnapshotReservePer"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysSnapshotUseCapacity"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysSectorSize"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysOwningContrller"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysWorkingController"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysIOPriotiry"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysEnableCompression"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysCompression"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysIsShowSnapDir"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysAvailableCapacity"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysAvAndAllcCapRatio"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysSCCachedSize"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysSCHitRage"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoFileSysCompressSavedRatio"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareNFSShareID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareNFSFileSystemID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareNFSDescription"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareCIFSID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareCIFSFileSystemID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareCIFSDescription"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareNFSLocalPath"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareCIFSName"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareCIFSLocalPath"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareCIFSOplockEnabled"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoShareCIFSNotifyEnabled"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPorttName"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortRunStatus"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortIPv4Addr"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortIPv4Mask"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortIPv4Gateway"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortIPv6Addr"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortIPv6Mask"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortIPv6Gateway"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortRole"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortHomePortID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortOwnerCtrlID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortCurrPortType"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortCurrPortID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortWorkCtrlID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortActState"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortAddrFamily"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortIsPrivate"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortFailOVGID"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortFailOVEnable"
+      },
+      {
+        "module": "HUAWEI-STORAGE-NAS-MIB",
+        "object": "hwInfoLogicalPortFailOVGName"
+      }
+    ],
+    "status": "current"
+  },
+  "isoCompliances": {
+    "name": "isoCompliances",
+    "oid": "1.6.2",
+    "class": "objectidentity"
+  },
+  "basicCompliance": {
+    "name": "basicCompliance",
+    "oid": "1.6.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "currentObjectGroup",
+        "module": "HUAWEI-STORAGE-NAS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-STORAGE-NAS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-STORAGE-NAS-MIB"
+  }
+}

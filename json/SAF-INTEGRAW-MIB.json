@@ -1,0 +1,2352 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANAifType-MIB": [
+      "IANAifType"
+    ],
+    "SAF-ENTERPRISE": [
+      "pointToPoint"
+    ],
+    "SAF-INTEGRA-MIB": [
+      "safIntegra"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "DateAndTime"
+    ]
+  },
+  "integraW": {
+    "name": "integraW",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-05-11 00:00",
+        "description": "Rx Level State added"
+      },
+      {
+        "revision": "2015-09-17 00:00",
+        "description": "Conformance updated"
+      },
+      {
+        "revision": "2015-09-15 00:00",
+        "description": "Local/remote IP address, mask, gateway OIDs added"
+      },
+      {
+        "revision": "2015-08-12 00:00",
+        "description": "Syntax error fixes"
+      },
+      {
+        "revision": "2015-07-29 00:00",
+        "description": "No modem distortion data is available on Integra-W"
+      },
+      {
+        "revision": "2015-05-29 00:00",
+        "description": "No carrier offset and modem temp. data are available on Integra-W"
+      },
+      {
+        "revision": "2015-05-20 00:00",
+        "description": "Public Release 1.04. Radio PLL status, free physical memory, CPU idle objects added"
+      },
+      {
+        "revision": "2015-04-21 00:00",
+        "description": "Public Release 1.03. Added OIDs for modem signal quality and distortion"
+      },
+      {
+        "revision": "2015-04-14 00:00",
+        "description": "Descriptions updated"
+      },
+      {
+        "revision": "2015-03-24 00:00",
+        "description": "Public Release 1.02. Removed integraWifLinkUpDownTrapEnable OID"
+      },
+      {
+        "revision": "2015-02-04 00:00",
+        "description": "Syntax fix for integraWmodemRadialMse"
+      },
+      {
+        "revision": "2015-01-20 00:00",
+        "description": "Small typographic error fix"
+      },
+      {
+        "revision": "2015-01-08 00:00",
+        "description": "Public Release 1.01. Syntax & units fixed"
+      },
+      {
+        "revision": "2015-01-06 00:00",
+        "description": "Public Release 1.0"
+      }
+    ]
+  },
+  "integraWtimestamp": {
+    "name": "integraWtimestamp",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradio": {
+    "name": "integraWradio",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2",
+    "class": "objectidentity"
+  },
+  "integraWradioTxPower": {
+    "name": "integraWradioTxPower",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraWradioTxFrequency": {
+    "name": "integraWradioTxFrequency",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraWradioRxLevel": {
+    "name": "integraWradioRxLevel",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioSide": {
+    "name": "integraWradioSide",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "low": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioTxMute": {
+    "name": "integraWradioTxMute",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioDuplexShift": {
+    "name": "integraWradioDuplexShift",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioRxFrequency": {
+    "name": "integraWradioRxFrequency",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioTemperature": {
+    "name": "integraWradioTemperature",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioTxMuteDuration": {
+    "name": "integraWradioTxMuteDuration",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 214748364
+          }
+        ]
+      }
+    },
+    "units": "s",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraWradioRangesTable": {
+    "name": "integraWradioRangesTable",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "integraWradioRangeEntry": {
+    "name": "integraWradioRangeEntry",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioRangeEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "integraWradioRangeEntryIndex": {
+    "name": "integraWradioRangeEntryIndex",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioRangeDescr": {
+    "name": "integraWradioRangeDescr",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioRangeTxPower": {
+    "name": "integraWradioRangeTxPower",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioRangeTxFrequency": {
+    "name": "integraWradioRangeTxFrequency",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioPLL": {
+    "name": "integraWradioPLL",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 1,
+          "ok": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWradioRxLevelState": {
+    "name": "integraWradioRxLevelState",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "low": 2,
+          "high": 3,
+          "error": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodem": {
+    "name": "integraWmodem",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3",
+    "class": "objectidentity"
+  },
+  "integraWmodemAcquireStatus": {
+    "name": "integraWmodemAcquireStatus",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acquireInProgress": 1,
+          "acquireLocked": 2,
+          "acquireFailed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemMse": {
+    "name": "integraWmodemMse",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemFecLoad": {
+    "name": "integraWmodemFecLoad",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemSyncLoss": {
+    "name": "integraWmodemSyncLoss",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 1,
+          "unlocked": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemBandwidth": {
+    "name": "integraWmodemBandwidth",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemModulation": {
+    "name": "integraWmodemModulation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemRxModulation": {
+    "name": "integraWmodemRxModulation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemTxModulation": {
+    "name": "integraWmodemTxModulation",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemRxCapacity": {
+    "name": "integraWmodemRxCapacity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kb/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemTxCapacity": {
+    "name": "integraWmodemTxCapacity",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kb/s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemAcmEngine": {
+    "name": "integraWmodemAcmEngine",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWmodemSignalQuality": {
+    "name": "integraWmodemSignalQuality",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWsystem": {
+    "name": "integraWsystem",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.4",
+    "class": "objectidentity"
+  },
+  "integraWsysCPUtemperature": {
+    "name": "integraWsysCPUtemperature",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWsysLicenseExpire": {
+    "name": "integraWsysLicenseExpire",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "s",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWsysLicenseGenStatus": {
+    "name": "integraWsysLicenseGenStatus",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "expired": 2,
+          "unknown": 3,
+          "unlimitedTime": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWsysPSUvoltage": {
+    "name": "integraWsysPSUvoltage",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mV",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWsysPSUcurrent": {
+    "name": "integraWsysPSUcurrent",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mA",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWsysPSUpower": {
+    "name": "integraWsysPSUpower",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "mW",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWsysBoardTemperature": {
+    "name": "integraWsysBoardTemperature",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "C",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWsysFreeMemory": {
+    "name": "integraWsysFreeMemory",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWsysCPUidle": {
+    "name": "integraWsysCPUidle",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWethernet": {
+    "name": "integraWethernet",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5",
+    "class": "objectidentity"
+  },
+  "integraWifStatusTable": {
+    "name": "integraWifStatusTable",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "integraWifPortEntry": {
+    "name": "integraWifPortEntry",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortStatIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "integraWifPortStatIndex": {
+    "name": "integraWifPortStatIndex",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortStatDescr": {
+    "name": "integraWifPortStatDescr",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortType": {
+    "name": "integraWifPortType",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAifType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortMtu": {
+    "name": "integraWifPortMtu",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortSpeed": {
+    "name": "integraWifPortSpeed",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortPhysAddress": {
+    "name": "integraWifPortPhysAddress",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortAdminStatus": {
+    "name": "integraWifPortAdminStatus",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortOperStatus": {
+    "name": "integraWifPortOperStatus",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortLastChange": {
+    "name": "integraWifPortLastChange",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortAutoneg": {
+    "name": "integraWifPortAutoneg",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortDuplex": {
+    "name": "integraWifPortDuplex",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortSyncEthActive": {
+    "name": "integraWifPortSyncEthActive",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortSyncEthPrio": {
+    "name": "integraWifPortSyncEthPrio",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortFlowControl": {
+    "name": "integraWifPortFlowControl",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifStatisticsTable": {
+    "name": "integraWifStatisticsTable",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "integraWifPortStcEntry": {
+    "name": "integraWifPortStcEntry",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortStcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "integraWifPortStcIndex": {
+    "name": "integraWifPortStcIndex",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifPortStcDescr": {
+    "name": "integraWifPortStcDescr",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWifTimePassed": {
+    "name": "integraWifTimePassed",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "units": "s/100",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxDetected": {
+    "name": "integraWrxDetected",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxDropped": {
+    "name": "integraWrxDropped",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxDetected": {
+    "name": "integraWtxDetected",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxDropped": {
+    "name": "integraWtxDropped",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxBytes": {
+    "name": "integraWrxBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxBytes": {
+    "name": "integraWtxBytes",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "B",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrx64Frames": {
+    "name": "integraWrx64Frames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrx65to127Frames": {
+    "name": "integraWrx65to127Frames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrx128to255Frames": {
+    "name": "integraWrx128to255Frames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrx256to511Frames": {
+    "name": "integraWrx256to511Frames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrx512to1023Frames": {
+    "name": "integraWrx512to1023Frames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrx1024toMaxFrames": {
+    "name": "integraWrx1024toMaxFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxUsizeFrames": {
+    "name": "integraWrxUsizeFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxOsizeFrames": {
+    "name": "integraWrxOsizeFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtx64Frames": {
+    "name": "integraWtx64Frames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtx65to127Frames": {
+    "name": "integraWtx65to127Frames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtx128to255Frames": {
+    "name": "integraWtx128to255Frames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtx256to511Frames": {
+    "name": "integraWtx256to511Frames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtx512to1023Frames": {
+    "name": "integraWtx512to1023Frames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtx1024toMaxFrames": {
+    "name": "integraWtx1024toMaxFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxUsizeFrames": {
+    "name": "integraWtxUsizeFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxOsizeFrames": {
+    "name": "integraWtxOsizeFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxGoodFrames": {
+    "name": "integraWrxGoodFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxErrors": {
+    "name": "integraWrxErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxFifoErr": {
+    "name": "integraWrxFifoErr",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxCRCErrors": {
+    "name": "integraWrxCRCErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxBcastFrames": {
+    "name": "integraWrxBcastFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxMcastFrames": {
+    "name": "integraWrxMcastFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxCntrlFrames": {
+    "name": "integraWrxCntrlFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxLenErrors": {
+    "name": "integraWrxLenErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxVlanFrames": {
+    "name": "integraWrxVlanFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxPauseFrames": {
+    "name": "integraWrxPauseFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxOpErrors": {
+    "name": "integraWrxOpErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWrxFrameErrors": {
+    "name": "integraWrxFrameErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxGoodFrames": {
+    "name": "integraWtxGoodFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxErrors": {
+    "name": "integraWtxErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxFifoErr": {
+    "name": "integraWtxFifoErr",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxBcastFrames": {
+    "name": "integraWtxBcastFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxMcastFrames": {
+    "name": "integraWtxMcastFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxUrunErrors": {
+    "name": "integraWtxUrunErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxCntrlFrames": {
+    "name": "integraWtxCntrlFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxVlanFrames": {
+    "name": "integraWtxVlanFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxPauseFrames": {
+    "name": "integraWtxPauseFrames",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frame",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxSingleCollisions": {
+    "name": "integraWtxSingleCollisions",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxMultiCollisions": {
+    "name": "integraWtxMultiCollisions",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxDeferred": {
+    "name": "integraWtxDeferred",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxLateCollisions": {
+    "name": "integraWtxLateCollisions",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxExcessCollisions": {
+    "name": "integraWtxExcessCollisions",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxExcessDeferral": {
+    "name": "integraWtxExcessDeferral",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxAlignErrors": {
+    "name": "integraWtxAlignErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxCarrierErrors": {
+    "name": "integraWtxCarrierErrors",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWtxCollisions": {
+    "name": "integraWtxCollisions",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.5.2.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packet",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWexecuteConfig": {
+    "name": "integraWexecuteConfig",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "execute": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraWneedStore": {
+    "name": "integraWneedStore",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWstoreConfig": {
+    "name": "integraWstoreConfig",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "store": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraWnetCfg": {
+    "name": "integraWnetCfg",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.9",
+    "class": "objectidentity"
+  },
+  "integraWnetCfgIPaddress": {
+    "name": "integraWnetCfgIPaddress",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraWnetCfgIPmask": {
+    "name": "integraWnetCfgIPmask",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraWnetCfgIPgateway": {
+    "name": "integraWnetCfgIPgateway",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "integraWnetCfgRemoteIPaddress": {
+    "name": "integraWnetCfgRemoteIPaddress",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "integraWConformance": {
+    "name": "integraWConformance",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.10",
+    "class": "objectidentity"
+  },
+  "integraWCompliances": {
+    "name": "integraWCompliances",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.10.1",
+    "class": "objectidentity"
+  },
+  "integraWCompliance": {
+    "name": "integraWCompliance",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.10.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "integraWMiscGroup",
+        "module": "SAF-INTEGRAW-MIB"
+      },
+      {
+        "object": "integraWRadioGroup",
+        "module": "SAF-INTEGRAW-MIB"
+      },
+      {
+        "object": "integraWModemGroup",
+        "module": "SAF-INTEGRAW-MIB"
+      },
+      {
+        "object": "integraWSystemGroup",
+        "module": "SAF-INTEGRAW-MIB"
+      },
+      {
+        "object": "integraWEthernetGeneralGroup",
+        "module": "SAF-INTEGRAW-MIB"
+      },
+      {
+        "object": "integraWEthernetMiiPortGroup",
+        "module": "SAF-INTEGRAW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "integraWGroups": {
+    "name": "integraWGroups",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.10.2",
+    "class": "objectidentity"
+  },
+  "integraWMiscGroup": {
+    "name": "integraWMiscGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.10.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "integraWRadioGroup": {
+    "name": "integraWRadioGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.10.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioTxPower"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioTxFrequency"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioRxLevel"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioSide"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioTxMute"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioDuplexShift"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioRxFrequency"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioTemperature"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioTxMuteDuration"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioRangeEntryIndex"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioRangeDescr"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioRangeTxPower"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioRangeTxFrequency"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWradioPLL"
+      }
+    ],
+    "status": "current"
+  },
+  "integraWModemGroup": {
+    "name": "integraWModemGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.10.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemAcquireStatus"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemMse"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemFecLoad"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemSyncLoss"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemBandwidth"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemModulation"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemRxModulation"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemTxModulation"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemRxCapacity"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemTxCapacity"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemAcmEngine"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWmodemSignalQuality"
+      }
+    ],
+    "status": "current"
+  },
+  "integraWSystemGroup": {
+    "name": "integraWSystemGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.10.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWsysCPUtemperature"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWsysLicenseExpire"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWsysLicenseGenStatus"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWsysPSUvoltage"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWsysPSUcurrent"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWsysPSUpower"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWsysBoardTemperature"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWsysFreeMemory"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWsysCPUidle"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWexecuteConfig"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWneedStore"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWstoreConfig"
+      }
+    ],
+    "status": "current"
+  },
+  "integraWEthernetGeneralGroup": {
+    "name": "integraWEthernetGeneralGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.10.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortStatIndex"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortStatDescr"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortType"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortMtu"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortSpeed"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortPhysAddress"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortAdminStatus"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortOperStatus"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortLastChange"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortAutoneg"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortDuplex"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortSyncEthActive"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortSyncEthPrio"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortFlowControl"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortStcIndex"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifPortStcDescr"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWifTimePassed"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWnetCfgIPaddress"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWnetCfgIPmask"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWnetCfgIPgateway"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWnetCfgRemoteIPaddress"
+      }
+    ],
+    "status": "current"
+  },
+  "integraWEthernetMiiPortGroup": {
+    "name": "integraWEthernetMiiPortGroup",
+    "oid": "1.3.6.1.4.1.7571.100.1.1.7.2.10.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxDetected"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxDropped"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxDetected"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxDropped"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxBytes"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxBytes"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrx64Frames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrx65to127Frames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrx128to255Frames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrx256to511Frames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrx512to1023Frames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrx1024toMaxFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxUsizeFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxOsizeFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtx64Frames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtx65to127Frames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtx128to255Frames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtx256to511Frames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtx512to1023Frames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtx1024toMaxFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxUsizeFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxOsizeFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxGoodFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxErrors"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxFifoErr"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxCRCErrors"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxBcastFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxMcastFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxCntrlFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxLenErrors"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxVlanFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxPauseFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxOpErrors"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWrxFrameErrors"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxGoodFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxErrors"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxFifoErr"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxBcastFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxMcastFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxUrunErrors"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxCntrlFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxVlanFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxPauseFrames"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxSingleCollisions"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxMultiCollisions"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxDeferred"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxLateCollisions"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxExcessCollisions"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxExcessDeferral"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxAlignErrors"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxCarrierErrors"
+      },
+      {
+        "module": "SAF-INTEGRAW-MIB",
+        "object": "integraWtxCollisions"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/saf/SAF-INTEGRAW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SAF-INTEGRAW-MIB"
+  }
+}

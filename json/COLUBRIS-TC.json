@@ -1,0 +1,293 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-SMI": [
+      "colubrisModules"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "colubrisTextualConventions": {
+    "name": "colubrisTextualConventions",
+    "oid": "1.3.6.1.4.1.8744.4.1",
+    "class": "moduleidentity"
+  },
+  "ColubrisAuthenticationMode": {
+    "name": "ColubrisAuthenticationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "profile": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisUsersAuthenticationMode": {
+    "name": "ColubrisUsersAuthenticationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "local": 1,
+          "profile": 2,
+          "localAndProfile": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisUsersAuthenticationType": {
+    "name": "ColubrisUsersAuthenticationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "ieee802dot1x": 2,
+          "html": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisNotificationEnable": {
+    "name": "ColubrisNotificationEnable",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisProfileIndex": {
+    "name": "ColubrisProfileIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisProfileIndexOrZero": {
+    "name": "ColubrisProfileIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisServerIndex": {
+    "name": "ColubrisServerIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisServerIndexOrZero": {
+    "name": "ColubrisServerIndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisSSID": {
+    "name": "ColubrisSSID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisSSIDOrNone": {
+    "name": "ColubrisSSIDOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisSecurity": {
+    "name": "ColubrisSecurity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "none": 1,
+          "wep": 2,
+          "ieee802dot1x": 3,
+          "ieee802dot1xWithWep": 4,
+          "wpa": 5,
+          "wpaPsk": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisPriorityQueue": {
+    "name": "ColubrisPriorityQueue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "normal": 2,
+          "high": 3,
+          "veryHigh": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisDataRate": {
+    "name": "ColubrisDataRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "rateLowestAvailable": 1,
+          "rate1Meg": 2,
+          "rate2Meg": 3,
+          "rate5dot5Meg": 4,
+          "rate6Meg": 5,
+          "rate9Meg": 6,
+          "rate11Meg": 7,
+          "rate12Meg": 8,
+          "rate18Meg": 9,
+          "rate24Meg": 10,
+          "rate36Meg": 11,
+          "rate48Meg": 12,
+          "rate54Meg": 13,
+          "rateHighestAvailable": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ColubrisRadioType": {
+    "name": "ColubrisRadioType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cm6": 1,
+          "cm9": 2,
+          "sunfish": 3,
+          "mb82": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-TC.my",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:36:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COLUBRIS-TC"
+  }
+}

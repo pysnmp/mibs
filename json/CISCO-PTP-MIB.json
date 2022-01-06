@@ -1,0 +1,3141 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoPtpMIB": {
+    "name": "ciscoPtpMIB",
+    "oid": "1.3.6.1.4.1.9.9.760",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-01-28 00:00",
+        "description": "Initial Version"
+      }
+    ]
+  },
+  "ClockDomainType": {
+    "name": "ClockDomainType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ClockIdentity": {
+    "name": "ClockIdentity",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ClockIntervalBase2": {
+    "name": "ClockIntervalBase2",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ClockMechanismType": {
+    "name": "ClockMechanismType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e2e": 1,
+          "p2p": 2,
+          "disabled": 254
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockInstanceType": {
+    "name": "ClockInstanceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ClockPortNumber": {
+    "name": "ClockPortNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ClockPortState": {
+    "name": "ClockPortState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializing": 1,
+          "faulty": 2,
+          "disabled": 3,
+          "listening": 4,
+          "preMaster": 5,
+          "master": 6,
+          "passive": 7,
+          "uncalibrated": 8,
+          "slave": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockProfileType": {
+    "name": "ClockProfileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "telecom": 2,
+          "vendorspecific": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockQualityAccuracyType": {
+    "name": "ClockQualityAccuracyType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved00": 1,
+          "nanoSecond25": 32,
+          "nanoSecond100": 33,
+          "nanoSecond250": 34,
+          "microSec1": 35,
+          "microSec2dot5": 36,
+          "microSec10": 37,
+          "microSec25": 38,
+          "microSec100": 39,
+          "microSec250": 40,
+          "milliSec1": 41,
+          "milliSec2dot5": 42,
+          "milliSec10": 43,
+          "milliSec25": 44,
+          "milliSec100": 45,
+          "milliSec250": 46,
+          "second1": 47,
+          "second10": 48,
+          "secondGreater10": 49,
+          "unknown": 254,
+          "reserved255": 255
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockQualityClassType": {
+    "name": "ClockQualityClassType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "ClockRoleType": {
+    "name": "ClockRoleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "master": 1,
+          "slave": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockStateType": {
+    "name": "ClockStateType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "freerun": 1,
+          "holdover": 2,
+          "acquiring": 3,
+          "frequencyLocked": 4,
+          "phaseAligned": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockTimeSourceType": {
+    "name": "ClockTimeSourceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "atomicClock": 16,
+          "gps": 32,
+          "terrestrialRadio": 48,
+          "ptp": 64,
+          "ntp": 80,
+          "handSet": 96,
+          "other": 144,
+          "internalOsillator": 160
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockTimeInterval": {
+    "name": "ClockTimeInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ClockTxModeType": {
+    "name": "ClockTxModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "multicast": 2,
+          "multicastmix": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClockType": {
+    "name": "ClockType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ordinaryClock": 1,
+          "boundaryClock": 2,
+          "transparentClock": 3,
+          "boundaryNode": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoPtpMIBNotifs": {
+    "name": "ciscoPtpMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.760.0",
+    "class": "objectidentity"
+  },
+  "ciscoPtpMIBObjects": {
+    "name": "ciscoPtpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.760.1",
+    "class": "objectidentity"
+  },
+  "ciscoPtpMIBConformance": {
+    "name": "ciscoPtpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.760.2",
+    "class": "objectidentity"
+  },
+  "ciscoPtpMIBSystemInfo": {
+    "name": "ciscoPtpMIBSystemInfo",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoPtpMIBCompliances": {
+    "name": "ciscoPtpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.760.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoPtpMIBGroups": {
+    "name": "ciscoPtpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoPtpMIBCompliances1": {
+    "name": "ciscoPtpMIBCompliances1",
+    "oid": "1.3.6.1.4.1.9.9.760.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPtpMIBSystemInfoGroup",
+        "module": "CISCO-PTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBCompliances2": {
+    "name": "ciscoPtpMIBCompliances2",
+    "oid": "1.3.6.1.4.1.9.9.760.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPtpMIBClockCurrentDSGroup",
+        "module": "CISCO-PTP-MIB"
+      },
+      {
+        "object": "ciscoPtpMIBClockParentDSGroup",
+        "module": "CISCO-PTP-MIB"
+      },
+      {
+        "object": "ciscoPtpMIBClockDefaultDSGroup",
+        "module": "CISCO-PTP-MIB"
+      },
+      {
+        "object": "ciscoPtpMIBClockRunningGroup",
+        "module": "CISCO-PTP-MIB"
+      },
+      {
+        "object": "ciscoPtpMIBClockTimepropertiesGroup",
+        "module": "CISCO-PTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBCompliances3": {
+    "name": "ciscoPtpMIBCompliances3",
+    "oid": "1.3.6.1.4.1.9.9.760.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPtpMIBClockPortGroup",
+        "module": "CISCO-PTP-MIB"
+      },
+      {
+        "object": "ciscoPtpMIBClockPortDSGroup",
+        "module": "CISCO-PTP-MIB"
+      },
+      {
+        "object": "ciscoPtpMIBClockPortRunningGroup",
+        "module": "CISCO-PTP-MIB"
+      },
+      {
+        "object": "ciscoPtpMIBClockPortAssociateGroup",
+        "module": "CISCO-PTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBCompliances4": {
+    "name": "ciscoPtpMIBCompliances4",
+    "oid": "1.3.6.1.4.1.9.9.760.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoPtpMIBClockTranparentDSGroup",
+        "module": "CISCO-PTP-MIB"
+      },
+      {
+        "object": "ciscoPtpMIBClockPortTransDSGroup",
+        "module": "CISCO-PTP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBSystemInfoGroup": {
+    "name": "ciscoPtpMIBSystemInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpSystemDomainTotals"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpDomainClockPortsTotal"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpDomainClockPortPhysicalInterfacesTotal"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockInput1ppsEnabled"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockOutput1ppsEnabled"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockOutput1ppsOffsetEnabled"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockInputFrequencyEnabled"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTODEnabled"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockOutput1ppsOffsetValue"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockOutput1ppsOffsetNegative"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpSystemProfile"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockInput1ppsInterface"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockOutput1ppsInterface"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTODInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockCurrentDSGroup": {
+    "name": "ciscoPtpMIBClockCurrentDSGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockCurrentDSStepsRemoved"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockCurrentDSOffsetFromMaster"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockCurrentDSMeanPathDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockParentDSGroup": {
+    "name": "ciscoPtpMIBClockParentDSGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSParentPortIdentity"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSParentStats"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSOffset"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSClockPhChRate"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSGMClockIdentity"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSGMClockPriority1"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSGMClockPriority2"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSGMClockQualityClass"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSGMClockQualityAccuracy"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSGMClockQualityOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockDefaultDSGroup": {
+    "name": "ciscoPtpMIBClockDefaultDSGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSTwoStepFlag"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSClockIdentity"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSPriority1"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSPriority2"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSSlaveOnly"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSQualityClass"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSQualityAccuracy"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSQualityOffset"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockRunningGroup": {
+    "name": "ciscoPtpMIBClockRunningGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockRunningState"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockRunningPacketsSent"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockRunningPacketsReceived"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockTimepropertiesGroup": {
+    "name": "ciscoPtpMIBClockTimepropertiesGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSCurrentUTCOffsetValid"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSCurrentUTCOffset"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSLeap59"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSLeap61"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSTimeTraceable"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSFreqTraceable"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSPTPTimescale"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSSource"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockTranparentDSGroup": {
+    "name": "ciscoPtpMIBClockTranparentDSGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTransDefaultDSClockIdentity"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTransDefaultDSNumOfPorts"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTransDefaultDSDelay"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTransDefaultDSPrimaryDomain"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockPortGroup": {
+    "name": "ciscoPtpMIBClockPortGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortName"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortSyncOneStep"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortCurrentPeerAddress"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortNumOfAssociatedPorts"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortCurrentPeerAddressType"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRole"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockPortDSGroup": {
+    "name": "ciscoPtpMIBClockPortDSGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSName"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSPortIdentity"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSAnnouncementInterval"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSAnnounceRctTimeout"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSSyncInterval"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSMinDelayReqInterval"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSPeerDelayReqInterval"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSDelayMech"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSPeerMeanPathDelay"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSGrantDuration"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSPTPVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockPortRunningGroup": {
+    "name": "ciscoPtpMIBClockPortRunningGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningName"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningState"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningRole"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningInterfaceIndex"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningIPversion"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningEncapsulationType"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningTxMode"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningRxMode"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningPacketsReceived"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningPacketsSent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockPortTransDSGroup": {
+    "name": "ciscoPtpMIBClockPortTransDSGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortTransDSPortIdentity"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortTransDSlogMinPdelayReqInt"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortTransDSFaultyFlag"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortTransDSPeerMeanPathDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockPortAssociateGroup": {
+    "name": "ciscoPtpMIBClockPortAssociateGroup",
+    "oid": "1.3.6.1.4.1.9.9.760.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortAssociatePacketsSent"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortAssociatePacketsReceived"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortAssociateAddress"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortAssociateAddressType"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortAssociateInErrors"
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortAssociateOutErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoPtpMIBClockInfo": {
+    "name": "ciscoPtpMIBClockInfo",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2",
+    "class": "objectidentity"
+  },
+  "cPtpSystemTable": {
+    "name": "cPtpSystemTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpSystemEntry": {
+    "name": "cPtpSystemEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpDomainIndex": {
+    "name": "cPtpDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpInstanceIndex": {
+    "name": "cPtpInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpDomainClockPortsTotal": {
+    "name": "cPtpDomainClockPortsTotal",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ptp ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpDomainClockPortPhysicalInterfacesTotal": {
+    "name": "cPtpDomainClockPortPhysicalInterfacesTotal",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "physical ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpSystemDomainTable": {
+    "name": "cPtpSystemDomainTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpSystemDomainEntry": {
+    "name": "cPtpSystemDomainEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpSystemDomainClockTypeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpSystemDomainClockTypeIndex": {
+    "name": "cPtpSystemDomainClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpSystemDomainTotals": {
+    "name": "cPtpSystemDomainTotals",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "domains",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockNodeTable": {
+    "name": "cPtpClockNodeTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockNodeEntry": {
+    "name": "cPtpClockNodeEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockDomainIndex": {
+    "name": "cPtpClockDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockTypeIndex": {
+    "name": "cPtpClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockInstanceIndex": {
+    "name": "cPtpClockInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockInput1ppsEnabled": {
+    "name": "cPtpClockInput1ppsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockInputFrequencyEnabled": {
+    "name": "cPtpClockInputFrequencyEnabled",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTODEnabled": {
+    "name": "cPtpClockTODEnabled",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockOutput1ppsEnabled": {
+    "name": "cPtpClockOutput1ppsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockOutput1ppsOffsetEnabled": {
+    "name": "cPtpClockOutput1ppsOffsetEnabled",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockOutput1ppsOffsetValue": {
+    "name": "cPtpClockOutput1ppsOffsetValue",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockOutput1ppsOffsetNegative": {
+    "name": "cPtpClockOutput1ppsOffsetNegative",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockInput1ppsInterface": {
+    "name": "cPtpClockInput1ppsInterface",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockOutput1ppsInterface": {
+    "name": "cPtpClockOutput1ppsInterface",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTODInterface": {
+    "name": "cPtpClockTODInterface",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpSystemProfile": {
+    "name": "cPtpSystemProfile",
+    "oid": "1.3.6.1.4.1.9.9.760.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockProfileType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockCurrentDSTable": {
+    "name": "cPtpClockCurrentDSTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockCurrentDSEntry": {
+    "name": "cPtpClockCurrentDSEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockCurrentDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockCurrentDSClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockCurrentDSInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockCurrentDSDomainIndex": {
+    "name": "cPtpClockCurrentDSDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockCurrentDSClockTypeIndex": {
+    "name": "cPtpClockCurrentDSClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockCurrentDSInstanceIndex": {
+    "name": "cPtpClockCurrentDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockCurrentDSStepsRemoved": {
+    "name": "cPtpClockCurrentDSStepsRemoved",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "steps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockCurrentDSOffsetFromMaster": {
+    "name": "cPtpClockCurrentDSOffsetFromMaster",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockTimeInterval",
+      "class": "type"
+    },
+    "units": "Time Interval",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockCurrentDSMeanPathDelay": {
+    "name": "cPtpClockCurrentDSMeanPathDelay",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockParentDSTable": {
+    "name": "cPtpClockParentDSTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockParentDSEntry": {
+    "name": "cPtpClockParentDSEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockParentDSInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockParentDSDomainIndex": {
+    "name": "cPtpClockParentDSDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockParentDSClockTypeIndex": {
+    "name": "cPtpClockParentDSClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockParentDSInstanceIndex": {
+    "name": "cPtpClockParentDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockParentDSParentPortIdentity": {
+    "name": "cPtpClockParentDSParentPortIdentity",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockParentDSParentStats": {
+    "name": "cPtpClockParentDSParentStats",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockParentDSOffset": {
+    "name": "cPtpClockParentDSOffset",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockIntervalBase2",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockParentDSClockPhChRate": {
+    "name": "cPtpClockParentDSClockPhChRate",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockParentDSGMClockIdentity": {
+    "name": "cPtpClockParentDSGMClockIdentity",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockIdentity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockParentDSGMClockPriority1": {
+    "name": "cPtpClockParentDSGMClockPriority1",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockParentDSGMClockPriority2": {
+    "name": "cPtpClockParentDSGMClockPriority2",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockParentDSGMClockQualityClass": {
+    "name": "cPtpClockParentDSGMClockQualityClass",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityClassType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockParentDSGMClockQualityAccuracy": {
+    "name": "cPtpClockParentDSGMClockQualityAccuracy",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityAccuracyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockParentDSGMClockQualityOffset": {
+    "name": "cPtpClockParentDSGMClockQualityOffset",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSTable": {
+    "name": "cPtpClockDefaultDSTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSEntry": {
+    "name": "cPtpClockDefaultDSEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockDefaultDSInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockDefaultDSDomainIndex": {
+    "name": "cPtpClockDefaultDSDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSClockTypeIndex": {
+    "name": "cPtpClockDefaultDSClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSInstanceIndex": {
+    "name": "cPtpClockDefaultDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSTwoStepFlag": {
+    "name": "cPtpClockDefaultDSTwoStepFlag",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSClockIdentity": {
+    "name": "cPtpClockDefaultDSClockIdentity",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockIdentity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSPriority1": {
+    "name": "cPtpClockDefaultDSPriority1",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSPriority2": {
+    "name": "cPtpClockDefaultDSPriority2",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSSlaveOnly": {
+    "name": "cPtpClockDefaultDSSlaveOnly",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSQualityClass": {
+    "name": "cPtpClockDefaultDSQualityClass",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityClassType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSQualityAccuracy": {
+    "name": "cPtpClockDefaultDSQualityAccuracy",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockQualityAccuracyType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockDefaultDSQualityOffset": {
+    "name": "cPtpClockDefaultDSQualityOffset",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockRunningTable": {
+    "name": "cPtpClockRunningTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockRunningEntry": {
+    "name": "cPtpClockRunningEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockRunningDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockRunningClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockRunningInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockRunningDomainIndex": {
+    "name": "cPtpClockRunningDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockRunningClockTypeIndex": {
+    "name": "cPtpClockRunningClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockRunningInstanceIndex": {
+    "name": "cPtpClockRunningInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockRunningState": {
+    "name": "cPtpClockRunningState",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockStateType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockRunningPacketsSent": {
+    "name": "cPtpClockRunningPacketsSent",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockRunningPacketsReceived": {
+    "name": "cPtpClockRunningPacketsReceived",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSTable": {
+    "name": "cPtpClockTimePropertiesDSTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSEntry": {
+    "name": "cPtpClockTimePropertiesDSEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTimePropertiesDSInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSDomainIndex": {
+    "name": "cPtpClockTimePropertiesDSDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSClockTypeIndex": {
+    "name": "cPtpClockTimePropertiesDSClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSInstanceIndex": {
+    "name": "cPtpClockTimePropertiesDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSCurrentUTCOffsetValid": {
+    "name": "cPtpClockTimePropertiesDSCurrentUTCOffsetValid",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSCurrentUTCOffset": {
+    "name": "cPtpClockTimePropertiesDSCurrentUTCOffset",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSLeap59": {
+    "name": "cPtpClockTimePropertiesDSLeap59",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSLeap61": {
+    "name": "cPtpClockTimePropertiesDSLeap61",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSTimeTraceable": {
+    "name": "cPtpClockTimePropertiesDSTimeTraceable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSFreqTraceable": {
+    "name": "cPtpClockTimePropertiesDSFreqTraceable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSPTPTimescale": {
+    "name": "cPtpClockTimePropertiesDSPTPTimescale",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTimePropertiesDSSource": {
+    "name": "cPtpClockTimePropertiesDSSource",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockTimeSourceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTransDefaultDSTable": {
+    "name": "cPtpClockTransDefaultDSTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockTransDefaultDSEntry": {
+    "name": "cPtpClockTransDefaultDSEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTransDefaultDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockTransDefaultDSInstanceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockTransDefaultDSDomainIndex": {
+    "name": "cPtpClockTransDefaultDSDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockTransDefaultDSInstanceIndex": {
+    "name": "cPtpClockTransDefaultDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockTransDefaultDSClockIdentity": {
+    "name": "cPtpClockTransDefaultDSClockIdentity",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockIdentity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTransDefaultDSNumOfPorts": {
+    "name": "cPtpClockTransDefaultDSNumOfPorts",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTransDefaultDSDelay": {
+    "name": "cPtpClockTransDefaultDSDelay",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockMechanismType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockTransDefaultDSPrimaryDomain": {
+    "name": "cPtpClockTransDefaultDSPrimaryDomain",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortTable": {
+    "name": "cPtpClockPortTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortEntry": {
+    "name": "cPtpClockPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortClockInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortTablePortNumberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockPortDomainIndex": {
+    "name": "cPtpClockPortDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortClockTypeIndex": {
+    "name": "cPtpClockPortClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortClockInstanceIndex": {
+    "name": "cPtpClockPortClockInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortTablePortNumberIndex": {
+    "name": "cPtpClockPortTablePortNumberIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortName": {
+    "name": "cPtpClockPortName",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRole": {
+    "name": "cPtpClockPortRole",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockRoleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortSyncOneStep": {
+    "name": "cPtpClockPortSyncOneStep",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortCurrentPeerAddressType": {
+    "name": "cPtpClockPortCurrentPeerAddressType",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortCurrentPeerAddress": {
+    "name": "cPtpClockPortCurrentPeerAddress",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortNumOfAssociatedPorts": {
+    "name": "cPtpClockPortNumOfAssociatedPorts",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSTable": {
+    "name": "cPtpClockPortDSTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortDSEntry": {
+    "name": "cPtpClockPortDSEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSClockInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortDSPortNumberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockPortDSDomainIndex": {
+    "name": "cPtpClockPortDSDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortDSClockTypeIndex": {
+    "name": "cPtpClockPortDSClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortDSClockInstanceIndex": {
+    "name": "cPtpClockPortDSClockInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortDSPortNumberIndex": {
+    "name": "cPtpClockPortDSPortNumberIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortDSName": {
+    "name": "cPtpClockPortDSName",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSPortIdentity": {
+    "name": "cPtpClockPortDSPortIdentity",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSAnnouncementInterval": {
+    "name": "cPtpClockPortDSAnnouncementInterval",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSAnnounceRctTimeout": {
+    "name": "cPtpClockPortDSAnnounceRctTimeout",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSSyncInterval": {
+    "name": "cPtpClockPortDSSyncInterval",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSMinDelayReqInterval": {
+    "name": "cPtpClockPortDSMinDelayReqInterval",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSPeerDelayReqInterval": {
+    "name": "cPtpClockPortDSPeerDelayReqInterval",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSDelayMech": {
+    "name": "cPtpClockPortDSDelayMech",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockMechanismType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSPeerMeanPathDelay": {
+    "name": "cPtpClockPortDSPeerMeanPathDelay",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSGrantDuration": {
+    "name": "cPtpClockPortDSGrantDuration",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortDSPTPVersion": {
+    "name": "cPtpClockPortDSPTPVersion",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRunningTable": {
+    "name": "cPtpClockPortRunningTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortRunningEntry": {
+    "name": "cPtpClockPortRunningEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningClockInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortRunningPortNumberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockPortRunningDomainIndex": {
+    "name": "cPtpClockPortRunningDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortRunningClockTypeIndex": {
+    "name": "cPtpClockPortRunningClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortRunningClockInstanceIndex": {
+    "name": "cPtpClockPortRunningClockInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortRunningPortNumberIndex": {
+    "name": "cPtpClockPortRunningPortNumberIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortRunningName": {
+    "name": "cPtpClockPortRunningName",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRunningState": {
+    "name": "cPtpClockPortRunningState",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockPortState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRunningRole": {
+    "name": "cPtpClockPortRunningRole",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockRoleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRunningInterfaceIndex": {
+    "name": "cPtpClockPortRunningInterfaceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRunningIPversion": {
+    "name": "cPtpClockPortRunningIPversion",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRunningEncapsulationType": {
+    "name": "cPtpClockPortRunningEncapsulationType",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRunningTxMode": {
+    "name": "cPtpClockPortRunningTxMode",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockTxModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRunningRxMode": {
+    "name": "cPtpClockPortRunningRxMode",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockTxModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRunningPacketsReceived": {
+    "name": "cPtpClockPortRunningPacketsReceived",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortRunningPacketsSent": {
+    "name": "cPtpClockPortRunningPacketsSent",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortTransDSTable": {
+    "name": "cPtpClockPortTransDSTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortTransDSEntry": {
+    "name": "cPtpClockPortTransDSEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortTransDSDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortTransDSInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortTransDSPortNumberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockPortTransDSDomainIndex": {
+    "name": "cPtpClockPortTransDSDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortTransDSInstanceIndex": {
+    "name": "cPtpClockPortTransDSInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortTransDSPortNumberIndex": {
+    "name": "cPtpClockPortTransDSPortNumberIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockPortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortTransDSPortIdentity": {
+    "name": "cPtpClockPortTransDSPortIdentity",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockIdentity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortTransDSlogMinPdelayReqInt": {
+    "name": "cPtpClockPortTransDSlogMinPdelayReqInt",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortTransDSFaultyFlag": {
+    "name": "cPtpClockPortTransDSFaultyFlag",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortTransDSPeerMeanPathDelay": {
+    "name": "cPtpClockPortTransDSPeerMeanPathDelay",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockTimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortAssociateTable": {
+    "name": "cPtpClockPortAssociateTable",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortAssociateEntry": {
+    "name": "cPtpClockPortAssociateEntry",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortCurrentDomainIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortCurrentClockTypeIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortCurrentClockInstanceIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortCurrentPortNumberIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-PTP-MIB",
+        "object": "cPtpClockPortAssociatePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cPtpClockPortCurrentDomainIndex": {
+    "name": "cPtpClockPortCurrentDomainIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockDomainType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortCurrentClockTypeIndex": {
+    "name": "cPtpClockPortCurrentClockTypeIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortCurrentClockInstanceIndex": {
+    "name": "cPtpClockPortCurrentClockInstanceIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockInstanceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortCurrentPortNumberIndex": {
+    "name": "cPtpClockPortCurrentPortNumberIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClockPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortAssociatePortIndex": {
+    "name": "cPtpClockPortAssociatePortIndex",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cPtpClockPortAssociateAddressType": {
+    "name": "cPtpClockPortAssociateAddressType",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortAssociateAddress": {
+    "name": "cPtpClockPortAssociateAddress",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortAssociatePacketsSent": {
+    "name": "cPtpClockPortAssociatePacketsSent",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortAssociatePacketsReceived": {
+    "name": "cPtpClockPortAssociatePacketsReceived",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortAssociateInErrors": {
+    "name": "cPtpClockPortAssociateInErrors",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cPtpClockPortAssociateOutErrors": {
+    "name": "cPtpClockPortAssociateOutErrors",
+    "oid": "1.3.6.1.4.1.9.9.760.1.2.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-PTP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-PTP-MIB"
+  }
+}

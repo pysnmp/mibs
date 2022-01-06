@@ -1,0 +1,747 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ITP-TC-MIB": [
+      "CItpTcNumberingPlan",
+      "CItpTcPointCodeMask",
+      "CItpTcSubSystemNumber",
+      "CItpTcNAI",
+      "CItpTcPointCode",
+      "CItpTcServiceIndicator",
+      "CItpTcSubSystemNumberMask",
+      "CItpTcAclId",
+      "CItpTcGlobalTitleSelector",
+      "CItpTcTranslationType",
+      "CItpTcEncodingSchemeValue"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoItpAclMIB": {
+    "name": "ciscoItpAclMIB",
+    "oid": "1.3.6.1.4.1.9.9.227",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-08-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cItpAclMIBNotifs": {
+    "name": "cItpAclMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.227.0",
+    "class": "objectidentity"
+  },
+  "cItpAclMIBObjects": {
+    "name": "cItpAclMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.227.1",
+    "class": "objectidentity"
+  },
+  "cItpAclMIBConformance": {
+    "name": "cItpAclMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.227.2",
+    "class": "objectidentity"
+  },
+  "cItpAclScalars": {
+    "name": "cItpAclScalars",
+    "oid": "1.3.6.1.4.1.9.9.227.1.1",
+    "class": "objectidentity"
+  },
+  "cItpAclConfig": {
+    "name": "cItpAclConfig",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2",
+    "class": "objectidentity"
+  },
+  "CItpAclAction": {
+    "name": "CItpAclAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "accept": 1,
+          "discard": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cItpAclConfigLastChanged": {
+    "name": "cItpAclConfigLastChanged",
+    "oid": "1.3.6.1.4.1.9.9.227.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cItpAclTable": {
+    "name": "cItpAclTable",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpAclTableEntry": {
+    "name": "cItpAclTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclEntryType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclEntryNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cItpAclId": {
+    "name": "cItpAclId",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcAclId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpAclEntryType": {
+    "name": "cItpAclEntryType",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "comment": 1,
+          "entry": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpAclEntryNumber": {
+    "name": "cItpAclEntryNumber",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cItpAclAction": {
+    "name": "cItpAclAction",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpAclAction",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "accept",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclParameters": {
+    "name": "cItpAclParameters",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "si": 0,
+        "dpc": 1,
+        "dpcMask": 2,
+        "opc": 3,
+        "opcMask": 4,
+        "pattern": 5,
+        "comment": 6,
+        "cgpa": 7,
+        "cgpaMask": 8,
+        "cdpa": 9,
+        "cdpaMask": 10,
+        "selector": 11,
+        "aft": 12,
+        "aftMask": 13,
+        "all": 14
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclDpc": {
+    "name": "cItpAclDpc",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclDpcMask": {
+    "name": "cItpAclDpcMask",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCodeMask",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclOpc": {
+    "name": "cItpAclOpc",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclOpcMask": {
+    "name": "cItpAclOpcMask",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCodeMask",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclSi": {
+    "name": "cItpAclSi",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcServiceIndicator",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclPattern": {
+    "name": "cItpAclPattern",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclOffset": {
+    "name": "cItpAclOffset",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclComment": {
+    "name": "cItpAclComment",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclCgpa": {
+    "name": "cItpAclCgpa",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclCgpaMask": {
+    "name": "cItpAclCgpaMask",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCodeMask",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclCgpaSsn": {
+    "name": "cItpAclCgpaSsn",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSubSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclCgpaSsnMask": {
+    "name": "cItpAclCgpaSsnMask",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSubSystemNumberMask",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclCdpa": {
+    "name": "cItpAclCdpa",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclCdpaMask": {
+    "name": "cItpAclCdpaMask",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCodeMask",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclCdpaSsn": {
+    "name": "cItpAclCdpaSsn",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSubSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclCdpaSsnMask": {
+    "name": "cItpAclCdpaSsnMask",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSubSystemNumberMask",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclGtiSelector": {
+    "name": "cItpAclGtiSelector",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcGlobalTitleSelector",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclGtiTranslateType": {
+    "name": "cItpAclGtiTranslateType",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTranslationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclGtiNumberingPlan": {
+    "name": "cItpAclGtiNumberingPlan",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNumberingPlan",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclGtiNai": {
+    "name": "cItpAclGtiNai",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNAI",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclGtiEsv": {
+    "name": "cItpAclGtiEsv",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcEncodingSchemeValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclAft": {
+    "name": "cItpAclAft",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclAftMask": {
+    "name": "cItpAclAftMask",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCodeMask",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclAftSsn": {
+    "name": "cItpAclAftSsn",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSubSystemNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclAftSsnMask": {
+    "name": "cItpAclAftSsnMask",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSubSystemNumberMask",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclRowStatus": {
+    "name": "cItpAclRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.227.1.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cItpAclMIBCompliances": {
+    "name": "cItpAclMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.227.2.1",
+    "class": "objectidentity"
+  },
+  "cItpAclMIBGroups": {
+    "name": "cItpAclMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.227.2.2",
+    "class": "objectidentity"
+  },
+  "cItpAclMIBCompliance": {
+    "name": "cItpAclMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.227.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cItpAclScalarGroup",
+        "module": "CISCO-ITP-ACL-MIB"
+      },
+      {
+        "object": "cItpAclAccessListGroup",
+        "module": "CISCO-ITP-ACL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cItpAclScalarGroup": {
+    "name": "cItpAclScalarGroup",
+    "oid": "1.3.6.1.4.1.9.9.227.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclConfigLastChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "cItpAclAccessListGroup": {
+    "name": "cItpAclAccessListGroup",
+    "oid": "1.3.6.1.4.1.9.9.227.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclAction"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclParameters"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclDpc"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclDpcMask"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclOpc"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclOpcMask"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclSi"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclPattern"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclOffset"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclComment"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclCgpa"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclCgpaMask"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclCgpaSsn"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclCgpaSsnMask"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclCdpa"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclCdpaMask"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclCdpaSsn"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclCdpaSsnMask"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclGtiSelector"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclGtiTranslateType"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclGtiNumberingPlan"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclGtiNai"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclGtiEsv"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclAft"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclAftMask"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclAftSsn"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclAftSsnMask"
+      },
+      {
+        "module": "CISCO-ITP-ACL-MIB",
+        "object": "cItpAclRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-ACL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ITP-ACL-MIB"
+  }
+}

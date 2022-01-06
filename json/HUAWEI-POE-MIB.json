@@ -1,0 +1,1297 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hwPoeMIB": {
+    "name": "hwPoeMIB",
+    "oid": "1.3.6.1.4.1.2011.5.25.195",
+    "class": "moduleidentity"
+  },
+  "hwPoeGlobalObjects": {
+    "name": "hwPoeGlobalObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.1",
+    "class": "objectidentity"
+  },
+  "hwPoePower": {
+    "name": "hwPoePower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePowerRsvPercent": {
+    "name": "hwPoePowerRsvPercent",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoePowerUtilizationThreshold": {
+    "name": "hwPoePowerUtilizationThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoeSlotTable": {
+    "name": "hwPoeSlotTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPoeSlotEntry": {
+    "name": "hwPoeSlotEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoeSlotId": {
+    "name": "hwPoeSlotId",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPoeSlotMaximumPower": {
+    "name": "hwPoeSlotMaximumPower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1600000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "1776000",
+        "format": "hex"
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoeSlotAvailablePower": {
+    "name": "hwPoeSlotAvailablePower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoeSlotReferencePower": {
+    "name": "hwPoeSlotReferencePower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoeSlotConsumingPower": {
+    "name": "hwPoeSlotConsumingPower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoeSlotPeakPower": {
+    "name": "hwPoeSlotPeakPower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoeSlotLegacyDetect": {
+    "name": "hwPoeSlotLegacyDetect",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoeSlotPowerManagementManner": {
+    "name": "hwPoeSlotPowerManagementManner",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "auto": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoeSlotIsPoeDevice": {
+    "name": "hwPoeSlotIsPoeDevice",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoeDimmId": {
+    "name": "hwPoeDimmId",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPoeSlotPowerRsvPercent": {
+    "name": "hwPoeSlotPowerRsvPercent",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoeSlotPowerUtilizationThreshold": {
+    "name": "hwPoeSlotPowerUtilizationThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoePortTable": {
+    "name": "hwPoePortTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPoePortEntry": {
+    "name": "hwPoePortEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePortIfIndex": {
+    "name": "hwPoePortIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwPoePortName": {
+    "name": "hwPoePortName",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePortEnable": {
+    "name": "hwPoePortEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {}
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoePortPriority": {
+    "name": "hwPoePortPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "high": 2,
+          "low": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "low",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoePortMaximumPower": {
+    "name": "hwPoePortMaximumPower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "37000",
+        "format": "hex"
+      }
+    },
+    "units": "mW",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoePortPowerOnStatus": {
+    "name": "hwPoePortPowerOnStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePortPowerStatus": {
+    "name": "hwPoePortPowerStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePortPdClass": {
+    "name": "hwPoePortPdClass",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePortReferencePower": {
+    "name": "hwPoePortReferencePower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePortConsumingPower": {
+    "name": "hwPoePortConsumingPower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePortPeakPower": {
+    "name": "hwPoePortPeakPower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePortAveragePower": {
+    "name": "hwPoePortAveragePower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePortCurrent": {
+    "name": "hwPoePortCurrent",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePortVoltage": {
+    "name": "hwPoePortVoltage",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwPoePortManualOperation": {
+    "name": "hwPoePortManualOperation",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerOff": 1,
+          "powerOn": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwPoeTrapObjects": {
+    "name": "hwPoeTrapObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39",
+    "class": "objectidentity"
+  },
+  "hwPoePdPriority": {
+    "name": "hwPoePdPriority",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "high": 2,
+          "low": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPoeSlotNum": {
+    "name": "hwPoeSlotNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPoeCurConsumPower": {
+    "name": "hwPoeCurConsumPower",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPoeConsumPowerThreshold": {
+    "name": "hwPoeConsumPowerThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPoeDeviceID": {
+    "name": "hwPoeDeviceID",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwFrameID": {
+    "name": "hwFrameID",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.39.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hwPoeNotification": {
+    "name": "hwPoeNotification",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40",
+    "class": "objectidentity"
+  },
+  "hwPoeDimmError": {
+    "name": "hwPoeDimmError",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDimmId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePowerOff": {
+    "name": "hwPoePowerOff",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePowerOn": {
+    "name": "hwPoePowerOn",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoeSlotPowerOverload": {
+    "name": "hwPoeSlotPowerOverload",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotConsumingPower"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoeSlotPowerOverloadResume": {
+    "name": "hwPoeSlotPowerOverloadResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotConsumingPower"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePdPowerOverload": {
+    "name": "hwPoePdPowerOverload",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortConsumingPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortMaximumPower"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePdPowerOverloadResume": {
+    "name": "hwPoePdPowerOverloadResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortConsumingPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortMaximumPower"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePdConnected": {
+    "name": "hwPoePdConnected",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePdDisconnected": {
+    "name": "hwPoePdDisconnected",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePdClassInvalid": {
+    "name": "hwPoePdClassInvalid",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePdClassOvercurrent": {
+    "name": "hwPoePdClassOvercurrent",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePdPowerOvercurrent": {
+    "name": "hwPoePdPowerOvercurrent",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePdPowerOvercurrentResume": {
+    "name": "hwPoePdPowerOvercurrentResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePowerOnFail": {
+    "name": "hwPoePowerOnFail",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePowerOffCurrentLimits": {
+    "name": "hwPoePowerOffCurrentLimits",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePdPriorityDifferent": {
+    "name": "hwPoePdPriorityDifferent",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPriority"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePowerOverUtilizationThreshold": {
+    "name": "hwPoePowerOverUtilizationThreshold",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDeviceID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeCurConsumPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeConsumPowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePowerOverUtilizationThresholdResume": {
+    "name": "hwPoePowerOverUtilizationThresholdResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDeviceID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeCurConsumPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeConsumPowerThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoeBoardInsertedWrongFrame": {
+    "name": "hwPoeBoardInsertedWrongFrame",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwFrameID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePowerAbsent": {
+    "name": "hwPoePowerAbsent",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwFrameID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePowerAbsentResume": {
+    "name": "hwPoePowerAbsentResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwFrameID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoeRpsPowerOutputAlarm": {
+    "name": "hwPoeRpsPowerOutputAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoeRpsPowerOutputAlarmResume": {
+    "name": "hwPoeRpsPowerOutputAlarmResume",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.40.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoeConformance": {
+    "name": "hwPoeConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100",
+    "class": "objectidentity"
+  },
+  "hwPoeGroups": {
+    "name": "hwPoeGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1",
+    "class": "objectidentity"
+  },
+  "hwPoeSlotGroup": {
+    "name": "hwPoeSlotGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotMaximumPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotReferencePower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotConsumingPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPeakPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPowerManagementManner"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotIsPoeDevice"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotLegacyDetect"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPowerRsvPercent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPowerUtilizationThreshold"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDimmId"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotAvailablePower"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoePortGroup": {
+    "name": "hwPoePortGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortEnable"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPriority"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortMaximumPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPowerOnStatus"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPowerStatus"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortReferencePower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortName"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortConsumingPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPeakPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortAveragePower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortCurrent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortVoltage"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortManualOperation"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePortPdClass"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoeGlobalGroup": {
+    "name": "hwPoeGlobalGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerUtilizationThreshold"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerRsvPercent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePower"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoeNotificationGroup": {
+    "name": "hwPoeNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDimmError"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOff"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOn"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPowerOverload"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPowerOverloadResume"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdConnected"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdDisconnected"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdClassInvalid"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdClassOvercurrent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPowerOvercurrent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPowerOvercurrentResume"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOnFail"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOffCurrentLimits"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOverUtilizationThresholdResume"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerOverUtilizationThreshold"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPriorityDifferent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPowerOverload"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotPowerOverloadResume"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeBoardInsertedWrongFrame"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerAbsent"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePowerAbsentResume"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeRpsPowerOutputAlarm"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeRpsPowerOutputAlarmResume"
+      }
+    ],
+    "status": "current"
+  },
+  "hwPoeTrapObjectsGroup": {
+    "name": "hwPoeTrapObjectsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.195.100.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoePdPriority"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeSlotNum"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeCurConsumPower"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeConsumPowerThreshold"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwPoeDeviceID"
+      },
+      {
+        "module": "HUAWEI-POE-MIB",
+        "object": "hwFrameID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-POE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-POE-MIB"
+  }
+}

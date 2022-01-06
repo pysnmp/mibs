@@ -1,0 +1,2617 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "softentIND1MultiChassisManager"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "MacAddress"
+    ]
+  },
+  "alcatelIND1MultiChassisMIB": {
+    "name": "alcatelIND1MultiChassisMIB",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-11-10 00:00",
+        "description": "Addressing discrepancies with Alcatel Standard."
+      }
+    ]
+  },
+  "alcatelIND1MultiChassisMIBNotifications": {
+    "name": "alcatelIND1MultiChassisMIBNotifications",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1MultiChassisMIBObjects": {
+    "name": "alcatelIND1MultiChassisMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1MultiChassisMIBConformance": {
+    "name": "alcatelIND1MultiChassisMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1MultiChassisMIBGroups": {
+    "name": "alcatelIND1MultiChassisMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "alcatelIND1MultiChassisMIBCompliances": {
+    "name": "alcatelIND1MultiChassisMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "MultiChassisId": {
+    "name": "MultiChassisId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MultiChassisLinkIfIndex": {
+    "name": "MultiChassisLinkIfIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "link0": 40000128
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MultiChassisConsistency": {
+    "name": "MultiChassisConsistency",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inconsistent": 0,
+          "consistent": 1,
+          "na": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MultiChassisLocaleType": {
+    "name": "MultiChassisLocaleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "peer": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MultiChassisGroup": {
+    "name": "MultiChassisGroup",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MultiChassisType": {
+    "name": "MultiChassisType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "rushmore": 1,
+          "tor": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "multiChassisConfig": {
+    "name": "multiChassisConfig",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.1",
+    "class": "objectidentity"
+  },
+  "multiChassisConfigChassisId": {
+    "name": "multiChassisConfigChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "multiChassisConfigHelloInterval": {
+    "name": "multiChassisConfigHelloInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "multiChassisConfigIpcVlan": {
+    "name": "multiChassisConfigIpcVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4094,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "multiChassisConfigChassisGroup": {
+    "name": "multiChassisConfigChassisGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "multiChassisOperation": {
+    "name": "multiChassisOperation",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.2",
+    "class": "objectidentity"
+  },
+  "multiChassisOperChassisId": {
+    "name": "multiChassisOperChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisOperChassisRole": {
+    "name": "multiChassisOperChassisRole",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unassigned": 0,
+          "primary": 1,
+          "secondary": 2,
+          "inconsistent": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisOperStatus": {
+    "name": "multiChassisOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1,
+          "inconsistent": 2,
+          "standalone": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisOperHelloInterval": {
+    "name": "multiChassisOperHelloInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisOperIpcVlan": {
+    "name": "multiChassisOperIpcVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisOperChassisGroup": {
+    "name": "multiChassisOperChassisGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisOperChassisType": {
+    "name": "multiChassisOperChassisType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkTable": {
+    "name": "multiChassisLinkTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkEntry": {
+    "name": "multiChassisLinkEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisLinkIfIndex": {
+    "name": "multiChassisLinkIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisLinkIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkAdminStatus": {
+    "name": "multiChassisLinkAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "multiChassisLinkOperDefaultVlan": {
+    "name": "multiChassisLinkOperDefaultVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "multiChassisLinkOperStatus": {
+    "name": "multiChassisLinkOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkPrimaryPort": {
+    "name": "multiChassisLinkPrimaryPort",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkActivePortNum": {
+    "name": "multiChassisLinkActivePortNum",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkConfigPortNum": {
+    "name": "multiChassisLinkConfigPortNum",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkRowStatus": {
+    "name": "multiChassisLinkRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "multiChassisLinkMemberPortTable": {
+    "name": "multiChassisLinkMemberPortTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkMemberPortEntry": {
+    "name": "multiChassisLinkMemberPortEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkMemberPortLinkIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkMemberPortIfindex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisLinkMemberPortLinkIfIndex": {
+    "name": "multiChassisLinkMemberPortLinkIfIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisLinkIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkMemberPortIfindex": {
+    "name": "multiChassisLinkMemberPortIfindex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkMemberPortIsPrimay": {
+    "name": "multiChassisLinkMemberPortIsPrimay",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkMemberOperStatus": {
+    "name": "multiChassisLinkMemberOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkMemberPortRowStatus": {
+    "name": "multiChassisLinkMemberPortRowStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "multiChassisLoopDetection": {
+    "name": "multiChassisLoopDetection",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.5",
+    "class": "objectidentity"
+  },
+  "multiChassisLoopDetectionAdminStatus": {
+    "name": "multiChassisLoopDetectionAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "multiChassisLoopDetectionTransmitInterval": {
+    "name": "multiChassisLoopDetectionTransmitInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "multiChassisLoopDetectionTransmitCount": {
+    "name": "multiChassisLoopDetectionTransmitCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLoopDetectionCount": {
+    "name": "multiChassisLoopDetectionCount",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLoopDetectionPortDownList": {
+    "name": "multiChassisLoopDetectionPortDownList",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLoopDetectionClear": {
+    "name": "multiChassisLoopDetectionClear",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonClear": 0,
+          "clear": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nonClear",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "multiChassisGlobalConsistency": {
+    "name": "multiChassisGlobalConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6",
+    "class": "objectidentity"
+  },
+  "multiChassisLocalChassisId": {
+    "name": "multiChassisLocalChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisPeerChassisId": {
+    "name": "multiChassisPeerChassisId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisIdConsistency": {
+    "name": "multiChassisIdConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLocalHelloInterval": {
+    "name": "multiChassisLocalHelloInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisPeerHelloInterval": {
+    "name": "multiChassisPeerHelloInterval",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisHelloIntervalConsistency": {
+    "name": "multiChassisHelloIntervalConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLocalIpcVlan": {
+    "name": "multiChassisLocalIpcVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisPeerIpcVlan": {
+    "name": "multiChassisPeerIpcVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisIpcVlanConsistency": {
+    "name": "multiChassisIpcVlanConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLocalStpPathCostMode": {
+    "name": "multiChassisLocalStpPathCostMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "thrityTwoBit": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisPeerStpPathCostMode": {
+    "name": "multiChassisPeerStpPathCostMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "thrityTwoBit": 1,
+          "auto": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisStpPathCostModeConsistency": {
+    "name": "multiChassisStpPathCostModeConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLocalStpMode": {
+    "name": "multiChassisLocalStpMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flat": 1,
+          "onePerVlan": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisPeerStpMode": {
+    "name": "multiChassisPeerStpMode",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "flat": 1,
+          "onePerVlan": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisStpModeConsistency": {
+    "name": "multiChassisStpModeConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLocalChassisGroup": {
+    "name": "multiChassisLocalChassisGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisPeerChassisGroup": {
+    "name": "multiChassisPeerChassisGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisGroup",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisGroupConsistency": {
+    "name": "multiChassisGroupConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLocalChassisType": {
+    "name": "multiChassisLocalChassisType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisPeerChassisType": {
+    "name": "multiChassisPeerChassisType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisTypeConsistency": {
+    "name": "multiChassisTypeConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.6.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyTable": {
+    "name": "multiChassisLinkaggConsistencyTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyEntry": {
+    "name": "multiChassisLinkaggConsistencyEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyAggIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyAggIndex": {
+    "name": "multiChassisLinkaggConsistencyAggIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistency": {
+    "name": "multiChassisLinkaggConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggLocalAggType": {
+    "name": "multiChassisLinkaggLocalAggType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "lacp": 2,
+          "mcStatic": 3,
+          "mcLacp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggPeerAggType": {
+    "name": "multiChassisLinkaggPeerAggType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "static": 1,
+          "lacp": 2,
+          "mcStatic": 3,
+          "mcLacp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggAggTypeConsistency": {
+    "name": "multiChassisLinkaggAggTypeConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggLocalDefaultVlan": {
+    "name": "multiChassisLinkaggLocalDefaultVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggPeerDefaultVlan": {
+    "name": "multiChassisLinkaggPeerDefaultVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggDefaultVlanConsistency": {
+    "name": "multiChassisLinkaggDefaultVlanConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggLocalVlanListConfigured": {
+    "name": "multiChassisLinkaggLocalVlanListConfigured",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggPeerVlanListConfigured": {
+    "name": "multiChassisLinkaggPeerVlanListConfigured",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggVlanListConfiguredConsistency": {
+    "name": "multiChassisLinkaggVlanListConfiguredConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggLocalAggActorSystemID": {
+    "name": "multiChassisLinkaggLocalAggActorSystemID",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggPeerAggActorSystemID": {
+    "name": "multiChassisLinkaggPeerAggActorSystemID",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggAggActorSystemIDConsistency": {
+    "name": "multiChassisLinkaggAggActorSystemIDConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggLocalAggActorSystemPriority": {
+    "name": "multiChassisLinkaggLocalAggActorSystemPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggPeerAggActorSystemPriority": {
+    "name": "multiChassisLinkaggPeerAggActorSystemPriority",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggAggActorSystemPriorityConsistency": {
+    "name": "multiChassisLinkaggAggActorSystemPriorityConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggLocalExist": {
+    "name": "multiChassisLinkaggLocalExist",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggPeerExist": {
+    "name": "multiChassisLinkaggPeerExist",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggAggAllConsistency": {
+    "name": "multiChassisLinkaggAggAllConsistency",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggLocalListVlanSize": {
+    "name": "multiChassisLinkaggLocalListVlanSize",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggPeerListVlanSize": {
+    "name": "multiChassisLinkaggPeerListVlanSize",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.7.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisTrapInfo": {
+    "name": "multiChassisTrapInfo",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.8",
+    "class": "objectidentity"
+  },
+  "multiChassisTrapIpcVlan": {
+    "name": "multiChassisTrapIpcVlan",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisTrapStpBlockingVlanList": {
+    "name": "multiChassisTrapStpBlockingVlanList",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisTrapFailure": {
+    "name": "multiChassisTrapFailure",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "failure": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisTrapVFL": {
+    "name": "multiChassisTrapVFL",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisLinkIfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisTrapVFLMemberPort": {
+    "name": "multiChassisTrapVFLMemberPort",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisTrapDiagnostic": {
+    "name": "multiChassisTrapDiagnostic",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "duplexMode": 1,
+          "speed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisStpStatus": {
+    "name": "multiChassisStpStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwarding": 0,
+          "blocking": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisTrapRecovered": {
+    "name": "multiChassisTrapRecovered",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "recovered": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanTable": {
+    "name": "multiChassisLinkaggConsistencyVlanTable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanEntry": {
+    "name": "multiChassisLinkaggConsistencyVlanEntry",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanAggIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanId",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanLocaleType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanAggIndex": {
+    "name": "multiChassisLinkaggConsistencyVlanAggIndex",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanId": {
+    "name": "multiChassisLinkaggConsistencyVlanId",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanLocaleType": {
+    "name": "multiChassisLinkaggConsistencyVlanLocaleType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisLocaleType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanType": {
+    "name": "multiChassisLinkaggConsistencyVlanType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "service": 1,
+          "multicastEnt": 2,
+          "multicastService": 3,
+          "dynamic": 4,
+          "standard": 5,
+          "ipc": 6,
+          "vipVlan": 7,
+          "erpVlan": 8,
+          "mtpVlan": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanAdminStatus": {
+    "name": "multiChassisLinkaggConsistencyVlanAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanOperStatus": {
+    "name": "multiChassisLinkaggConsistencyVlanOperStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanIpEnable": {
+    "name": "multiChassisLinkaggConsistencyVlanIpEnable",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanMtu": {
+    "name": "multiChassisLinkaggConsistencyVlanMtu",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 512,
+            "max": 10222
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanSrcLearningStatus": {
+    "name": "multiChassisLinkaggConsistencyVlanSrcLearningStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanVpaType": {
+    "name": "multiChassisLinkaggConsistencyVlanVpaType",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "cfgDefault": 1,
+          "qTagged": 2,
+          "dynamic": 3,
+          "vstkDoubleTag": 4,
+          "vstkTranslate": 5,
+          "forbidden": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanVpaState": {
+    "name": "multiChassisLinkaggConsistencyVlanVpaState",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forwarding": 0,
+          "blocking": 1,
+          "inactive": 2,
+          "invalid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanVRF": {
+    "name": "multiChassisLinkaggConsistencyVlanVRF",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanIcmpRedirectStatus": {
+    "name": "multiChassisLinkaggConsistencyVlanIcmpRedirectStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanStatus": {
+    "name": "multiChassisLinkaggConsistencyVlanStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MultiChassisConsistency",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "multiChassisIpcVlanDown": {
+    "name": "multiChassisIpcVlanDown",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapIpcVlan"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "multiChassisIpcVlanUp": {
+    "name": "multiChassisIpcVlanUp",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapIpcVlan"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "multiChassisMisconfigurationFailure": {
+    "name": "multiChassisMisconfigurationFailure",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisHelloIntervalConsisFailure": {
+    "name": "multiChassisHelloIntervalConsisFailure",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisStpModeConsisFailure": {
+    "name": "multiChassisStpModeConsisFailure",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisStpPathCostModeConsisFailure": {
+    "name": "multiChassisStpPathCostModeConsisFailure",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisVflinkStatusConsisFailure": {
+    "name": "multiChassisVflinkStatusConsisFailure",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "multiChassisStpBlockingStatus": {
+    "name": "multiChassisStpBlockingStatus",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapStpBlockingVlanList"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapVFL"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisStpStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisLoopDetected": {
+    "name": "multiChassisLoopDetected",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisHelloTimeout": {
+    "name": "multiChassisHelloTimeout",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisVflinkDown": {
+    "name": "multiChassisVflinkDown",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisVFLMemberJoinFailure": {
+    "name": "multiChassisVFLMemberJoinFailure",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapVFL"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapVFLMemberPort"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapDiagnostic"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisGroupConsisFailure": {
+    "name": "multiChassisGroupConsisFailure",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisTypeConsisFailure": {
+    "name": "multiChassisTypeConsisFailure",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisConsisFailureRecovered": {
+    "name": "multiChassisConsisFailureRecovered",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapRecovered"
+      }
+    ],
+    "status": "current"
+  },
+  "alcatelIND1MultiChassisMIBCompliance": {
+    "name": "alcatelIND1MultiChassisMIBCompliance",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "multiChassisConfigGroup",
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB"
+      },
+      {
+        "object": "multiChassisOperationGroup",
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB"
+      },
+      {
+        "object": "multiChassisLinkGroup",
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB"
+      },
+      {
+        "object": "multiChassisLinkMemberPortGroup",
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB"
+      },
+      {
+        "object": "multiChassisLoopDetectionGroup",
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB"
+      },
+      {
+        "object": "multiChassisGlobalConsistencyGroup",
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB"
+      },
+      {
+        "object": "multiChassisLinkaggConsistencyGroup",
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisConfigGroup": {
+    "name": "multiChassisConfigGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisConfigChassisId"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisConfigHelloInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisConfigIpcVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisConfigChassisGroup"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisOperationGroup": {
+    "name": "multiChassisOperationGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisOperChassisId"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisOperChassisRole"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisOperHelloInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisOperIpcVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisOperChassisGroup"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisOperChassisType"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisLinkGroup": {
+    "name": "multiChassisLinkGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkOperDefaultVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkPrimaryPort"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkActivePortNum"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkConfigPortNum"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisLinkMemberPortGroup": {
+    "name": "multiChassisLinkMemberPortGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkMemberPortIsPrimay"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkMemberOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkMemberPortRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisLoopDetectionGroup": {
+    "name": "multiChassisLoopDetectionGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLoopDetectionAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLoopDetectionTransmitInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLoopDetectionTransmitCount"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLoopDetectionCount"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLoopDetectionPortDownList"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLoopDetectionClear"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisGlobalConsistencyGroup": {
+    "name": "multiChassisGlobalConsistencyGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLocalChassisId"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisPeerChassisId"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisIdConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLocalHelloInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisPeerHelloInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisHelloIntervalConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLocalIpcVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisPeerIpcVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisIpcVlanConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLocalStpPathCostMode"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisPeerStpPathCostMode"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisStpPathCostModeConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLocalStpMode"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisPeerStpMode"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisStpModeConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLocalChassisGroup"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisPeerChassisGroup"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisGroupConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLocalChassisType"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisPeerChassisType"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTypeConsistency"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyGroup": {
+    "name": "multiChassisLinkaggConsistencyGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggLocalAggType"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggPeerAggType"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggAggTypeConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggLocalDefaultVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggPeerDefaultVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggDefaultVlanConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggLocalVlanListConfigured"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggPeerVlanListConfigured"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggVlanListConfiguredConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggLocalAggActorSystemID"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggPeerAggActorSystemID"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggAggActorSystemIDConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggLocalAggActorSystemPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggPeerAggActorSystemPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggAggActorSystemPriorityConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggLocalExist"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggPeerExist"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggAggAllConsistency"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggLocalListVlanSize"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggPeerListVlanSize"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisTrapInfoGroup": {
+    "name": "multiChassisTrapInfoGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapIpcVlan"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapStpBlockingVlanList"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapFailure"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapVFL"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapVFLMemberPort"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapDiagnostic"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisStpStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTrapRecovered"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisTrapOBJGroup": {
+    "name": "multiChassisTrapOBJGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisIpcVlanDown"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisIpcVlanUp"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisMisconfigurationFailure"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisHelloIntervalConsisFailure"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisStpModeConsisFailure"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisStpPathCostModeConsisFailure"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisVflinkStatusConsisFailure"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisStpBlockingStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLoopDetected"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisHelloTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisVflinkDown"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisVFLMemberJoinFailure"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisGroupConsisFailure"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisTypeConsisFailure"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisConsisFailureRecovered"
+      }
+    ],
+    "status": "current"
+  },
+  "multiChassisLinkaggConsistencyVlanGroup": {
+    "name": "multiChassisLinkaggConsistencyVlanGroup",
+    "oid": "1.3.6.1.4.1.6486.801.1.2.1.55.1.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanType"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanOperStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanIpEnable"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanMtu"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanSrcLearningStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanVpaType"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanVpaState"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanVRF"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanIcmpRedirectStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB",
+        "object": "multiChassisLinkaggConsistencyVlanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-MULTI-CHASSIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:46 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-MULTI-CHASSIS-MIB"
+  }
+}

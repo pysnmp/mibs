@@ -1,0 +1,1374 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "ISIS-MIB": [
+      "IsisSystemID"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfEvi": {
+    "name": "hpnicfEvi",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-28 00:00",
+        "description": "HPN-ICF-EVI-MIB module for managing EVI-capable switches."
+      }
+    ]
+  },
+  "hpnicfEviNotifications": {
+    "name": "hpnicfEviNotifications",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.0",
+    "class": "objectidentity"
+  },
+  "hpnicfEviObjects": {
+    "name": "hpnicfEviObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEviBase": {
+    "name": "hpnicfEviBase",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfEviIf": {
+    "name": "hpnicfEviIf",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfEviMac": {
+    "name": "hpnicfEviMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfEviProcess": {
+    "name": "hpnicfEviProcess",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4",
+    "class": "objectidentity"
+  },
+  "hpnicfEviISIS": {
+    "name": "hpnicfEviISIS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5",
+    "class": "objectidentity"
+  },
+  "hpnicfEviEnable": {
+    "name": "hpnicfEviEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.6",
+    "class": "objectidentity"
+  },
+  "hpnicfEviNbr": {
+    "name": "hpnicfEviNbr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7",
+    "class": "objectidentity"
+  },
+  "HpnicfEviMacType": {
+    "name": "HpnicfEviMacType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "dynamic": 2,
+          "static": 3,
+          "flood": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfEviNeighborStatus": {
+    "name": "HpnicfEviNeighborStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfEviDesignatedVlan": {
+    "name": "hpnicfEviDesignatedVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviSiteID": {
+    "name": "hpnicfEviSiteID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviIfExtendVlanTable": {
+    "name": "hpnicfEviIfExtendVlanTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviIfExtendVlanEntry": {
+    "name": "hpnicfEviIfExtendVlanEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviIfExtendVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviIfExtendVlanIndex": {
+    "name": "hpnicfEviIfExtendVlanIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviIfExtendVlanLAV": {
+    "name": "hpnicfEviIfExtendVlanLAV",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviIfExtendVlanRowStatus": {
+    "name": "hpnicfEviIfExtendVlanRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEviIfVlanMappingTable": {
+    "name": "hpnicfEviIfVlanMappingTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviIfVlanMappingEntry": {
+    "name": "hpnicfEviIfVlanMappingEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviIfVlanMappingSiteId",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviIfVlanMappingSrc",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviIfVlanMappingDst",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviIfVlanMappingSiteId": {
+    "name": "hpnicfEviIfVlanMappingSiteId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviIfVlanMappingSrc": {
+    "name": "hpnicfEviIfVlanMappingSrc",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviIfVlanMappingDst": {
+    "name": "hpnicfEviIfVlanMappingDst",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviIfVlanMappingRowStatus": {
+    "name": "hpnicfEviIfVlanMappingRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEviIfAttributeTable": {
+    "name": "hpnicfEviIfAttributeTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviIfAttributeEntry": {
+    "name": "hpnicfEviIfAttributeEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviIfFloodingMode": {
+    "name": "hpnicfEviIfFloodingMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviIfARPSuppression": {
+    "name": "hpnicfEviIfARPSuppression",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviIfFloodingMacTable": {
+    "name": "hpnicfEviIfFloodingMacTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviIfFloodingMacEntry": {
+    "name": "hpnicfEviIfFloodingMacEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviIfFloodingMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviIfFloodMacVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviIfFloodingMacAddress": {
+    "name": "hpnicfEviIfFloodingMacAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviIfFloodMacVlanIndex": {
+    "name": "hpnicfEviIfFloodMacVlanIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviIfFloodingMacRowStatus": {
+    "name": "hpnicfEviIfFloodingMacRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEviMacCountTable": {
+    "name": "hpnicfEviMacCountTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviMacCountEntry": {
+    "name": "hpnicfEviMacCountEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviMacLocalMacs": {
+    "name": "hpnicfEviMacLocalMacs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviMacLocalConflicts": {
+    "name": "hpnicfEviMacLocalConflicts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviMacRemoteMacs": {
+    "name": "hpnicfEviMacRemoteMacs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviMacRemoteConflicts": {
+    "name": "hpnicfEviMacRemoteConflicts",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviMacLocalTable": {
+    "name": "hpnicfEviMacLocalTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviMacLocalEntry": {
+    "name": "hpnicfEviMacLocalEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviMacLocalVlan",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviMacLocalMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviMacLocalVlan": {
+    "name": "hpnicfEviMacLocalVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviMacLocalMacAddr": {
+    "name": "hpnicfEviMacLocalMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviMacLocalMacType": {
+    "name": "hpnicfEviMacLocalMacType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfEviMacType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviMacLocalConflict": {
+    "name": "hpnicfEviMacLocalConflict",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviMacLocalFiltered": {
+    "name": "hpnicfEviMacLocalFiltered",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviMacRemoteTable": {
+    "name": "hpnicfEviMacRemoteTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviMacRemoteEntry": {
+    "name": "hpnicfEviMacRemoteEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviMacRemoteVlan",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviMacRemoteMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviMacRemoteVlan": {
+    "name": "hpnicfEviMacRemoteVlan",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviMacRemoteMacAddr": {
+    "name": "hpnicfEviMacRemoteMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviMacRemoteMacEffect": {
+    "name": "hpnicfEviMacRemoteMacEffect",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviMacRemoteConflict": {
+    "name": "hpnicfEviMacRemoteConflict",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviProcessPolicyTable": {
+    "name": "hpnicfEviProcessPolicyTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviProcessPolicyEntry": {
+    "name": "hpnicfEviProcessPolicyEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviProcessId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviProcessId": {
+    "name": "hpnicfEviProcessId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfEviProcessPolicy": {
+    "name": "hpnicfEviProcessPolicy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviProcessGrTable": {
+    "name": "hpnicfEviProcessGrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviProcessGrEntry": {
+    "name": "hpnicfEviProcessGrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviProcessId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviProcessGrEnable": {
+    "name": "hpnicfEviProcessGrEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviProcessGrInterval": {
+    "name": "hpnicfEviProcessGrInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviProcessVSysTable": {
+    "name": "hpnicfEviProcessVSysTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviProcessVSysEntry": {
+    "name": "hpnicfEviProcessVSysEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviProcessId",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviVirtualSysId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviVirtualSysId": {
+    "name": "hpnicfEviVirtualSysId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsisSystemID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviVirtualSysRowStatus": {
+    "name": "hpnicfEviVirtualSysRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEviISISNbrSummaryTable": {
+    "name": "hpnicfEviISISNbrSummaryTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviISISNbrSummaryEntry": {
+    "name": "hpnicfEviISISNbrSummaryEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviProcessId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviISISNbrMaxMultiHomes": {
+    "name": "hpnicfEviISISNbrMaxMultiHomes",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviISISNbrSiteNbrs": {
+    "name": "hpnicfEviISISNbrSiteNbrs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviISISNbrLinkNbrs": {
+    "name": "hpnicfEviISISNbrLinkNbrs",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviISISNbrTable": {
+    "name": "hpnicfEviISISNbrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviISISNbrEntry": {
+    "name": "hpnicfEviISISNbrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviProcessId",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviISISNbrSysId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviISISNbrSysId": {
+    "name": "hpnicfEviISISNbrSysId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IsisSystemID",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfEviISISNbrMacAddr": {
+    "name": "hpnicfEviISISNbrMacAddr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviISISNbrSiteId": {
+    "name": "hpnicfEviISISNbrSiteId",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviISISNbrTransStatus": {
+    "name": "hpnicfEviISISNbrTransStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviEnableTable": {
+    "name": "hpnicfEviEnableTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviEnableEntry": {
+    "name": "hpnicfEviEnableEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviEnableStatus": {
+    "name": "hpnicfEviEnableStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviNbrBaseTable": {
+    "name": "hpnicfEviNbrBaseTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviNbrBaseEntry": {
+    "name": "hpnicfEviNbrBaseEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviNbrSelfServerStatus": {
+    "name": "hpnicfEviNbrSelfServerStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviNbrAuthPassword": {
+    "name": "hpnicfEviNbrAuthPassword",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviNbrClientRegisterInterval": {
+    "name": "hpnicfEviNbrClientRegisterInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfEviNbrRemoteServerTable": {
+    "name": "hpnicfEviNbrRemoteServerTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviNbrRemoteServerEntry": {
+    "name": "hpnicfEviNbrRemoteServerEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviNbrRemoteServerType",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviNbrRemoteServer",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviNbrRemoteServerType": {
+    "name": "hpnicfEviNbrRemoteServerType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviNbrRemoteServer": {
+    "name": "hpnicfEviNbrRemoteServer",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviNbrRemoteServerRowStatus": {
+    "name": "hpnicfEviNbrRemoteServerRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfEviNbrTable": {
+    "name": "hpnicfEviNbrTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviNbrEntry": {
+    "name": "hpnicfEviNbrEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviNbrAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviNbrAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviNbrAddressType": {
+    "name": "hpnicfEviNbrAddressType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviNbrAddress": {
+    "name": "hpnicfEviNbrAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfEviNbrSystemID": {
+    "name": "hpnicfEviNbrSystemID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviNbrExpireTime": {
+    "name": "hpnicfEviNbrExpireTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviNbrStatus": {
+    "name": "hpnicfEviNbrStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfEviNeighborStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfEviNewDed": {
+    "name": "hpnicfEviNewDed",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviProcessId"
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviISISNbrSysId"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviSiteEDTopoChange": {
+    "name": "hpnicfEviSiteEDTopoChange",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviProcessId"
+      },
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviISISNbrSiteNbrs"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfEviEDLinkDisconnect": {
+    "name": "hpnicfEviEDLinkDisconnect",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.132.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-EVI-MIB",
+        "object": "hpnicfEviProcessId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-EVI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-EVI-MIB"
+  }
+}

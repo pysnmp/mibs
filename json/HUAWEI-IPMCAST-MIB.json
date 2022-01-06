@@ -1,0 +1,2025 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "IANA-RTPROTO-MIB": [
+      "IANAipMRouteProtocol",
+      "IANAipRouteProtocol"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetVersion",
+      "InetAddress",
+      "InetAddressType",
+      "InetZoneIndex",
+      "InetAddressPrefixLength"
+    ],
+    "P-BRIDGE-MIB": [
+      "EnabledStatus"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "mib-2",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType",
+      "DisplayString",
+      "TimeStamp"
+    ]
+  },
+  "hwMcast": {
+    "name": "hwMcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.149",
+    "class": "objectidentity"
+  },
+  "hwIpMcastMib": {
+    "name": "hwIpMcastMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-16 00:00",
+        "description": "The initial revision of this Mib module."
+      }
+    ]
+  },
+  "hwIpMcastMibObjects": {
+    "name": "hwIpMcastMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1",
+    "class": "objectidentity"
+  },
+  "hwIpMcastNotifications": {
+    "name": "hwIpMcastNotifications",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2",
+    "class": "objectidentity"
+  },
+  "hwIpMcast": {
+    "name": "hwIpMcast",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1",
+    "class": "objectidentity"
+  },
+  "hwIpMcastEnable": {
+    "name": "hwIpMcastEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIpMcastRouteEntryCount": {
+    "name": "hwIpMcastRouteEntryCount",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceTable": {
+    "name": "hwIpMcastInterfaceTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceEntry": {
+    "name": "hwIpMcastInterfaceEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceIpVersion",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastInterfaceIpVersion": {
+    "name": "hwIpMcastInterfaceIpVersion",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetVersion",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceIfIndex": {
+    "name": "hwIpMcastInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceTtl": {
+    "name": "hwIpMcastInterfaceTtl",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceRateLimit": {
+    "name": "hwIpMcastInterfaceRateLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceInMcastOctets": {
+    "name": "hwIpMcastInterfaceInMcastOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceOutMcastOctets": {
+    "name": "hwIpMcastInterfaceOutMcastOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceInMcastPkts": {
+    "name": "hwIpMcastInterfaceInMcastPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceOutMcastPkts": {
+    "name": "hwIpMcastInterfaceOutMcastPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastInterfaceDiscontinuityTime": {
+    "name": "hwIpMcastInterfaceDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteTable": {
+    "name": "hwIpMcastRouteTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteEntry": {
+    "name": "hwIpMcastRouteEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteGroup",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteGroupPrefixLength",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteSourceAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteSource",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteSourcePrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastRouteGroupAddressType": {
+    "name": "hwIpMcastRouteGroupAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteGroup": {
+    "name": "hwIpMcastRouteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteGroupPrefixLength": {
+    "name": "hwIpMcastRouteGroupPrefixLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteSourceAddressType": {
+    "name": "hwIpMcastRouteSourceAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteSource": {
+    "name": "hwIpMcastRouteSource",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteSourcePrefixLength": {
+    "name": "hwIpMcastRouteSourcePrefixLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteUpstreamNeighborType": {
+    "name": "hwIpMcastRouteUpstreamNeighborType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteUpstreamNeighbor": {
+    "name": "hwIpMcastRouteUpstreamNeighbor",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteInIfIndex": {
+    "name": "hwIpMcastRouteInIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteTimeStamp": {
+    "name": "hwIpMcastRouteTimeStamp",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteExpiryTime": {
+    "name": "hwIpMcastRouteExpiryTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteProtocol": {
+    "name": "hwIpMcastRouteProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipMRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteRtProtocol": {
+    "name": "hwIpMcastRouteRtProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteRtAddressType": {
+    "name": "hwIpMcastRouteRtAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteRtAddress": {
+    "name": "hwIpMcastRouteRtAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteRtPrefixLength": {
+    "name": "hwIpMcastRouteRtPrefixLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteRtType": {
+    "name": "hwIpMcastRouteRtType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "multicast": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteOctets": {
+    "name": "hwIpMcastRouteOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRoutePkts": {
+    "name": "hwIpMcastRoutePkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteTtlDropOctets": {
+    "name": "hwIpMcastRouteTtlDropOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteTtlDropPackets": {
+    "name": "hwIpMcastRouteTtlDropPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteDifferentInIfOctets": {
+    "name": "hwIpMcastRouteDifferentInIfOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteDifferentInIfPackets": {
+    "name": "hwIpMcastRouteDifferentInIfPackets",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopTable": {
+    "name": "hwIpMcastRouteNextHopTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopEntry": {
+    "name": "hwIpMcastRouteNextHopEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopGroup",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopGroupPrefixLength",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopSourceAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopSource",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopSourcePrefixLength",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopGroupAddressType": {
+    "name": "hwIpMcastRouteNextHopGroupAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopGroup": {
+    "name": "hwIpMcastRouteNextHopGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopGroupPrefixLength": {
+    "name": "hwIpMcastRouteNextHopGroupPrefixLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopSourceAddressType": {
+    "name": "hwIpMcastRouteNextHopSourceAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopSource": {
+    "name": "hwIpMcastRouteNextHopSource",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopSourcePrefixLength": {
+    "name": "hwIpMcastRouteNextHopSourcePrefixLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopIfIndex": {
+    "name": "hwIpMcastRouteNextHopIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopAddressType": {
+    "name": "hwIpMcastRouteNextHopAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopAddress": {
+    "name": "hwIpMcastRouteNextHopAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopState": {
+    "name": "hwIpMcastRouteNextHopState",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pruned": 1,
+          "forwarding": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopTimeStamp": {
+    "name": "hwIpMcastRouteNextHopTimeStamp",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopExpiryTime": {
+    "name": "hwIpMcastRouteNextHopExpiryTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopClosestMemberHops": {
+    "name": "hwIpMcastRouteNextHopClosestMemberHops",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopProtocol": {
+    "name": "hwIpMcastRouteNextHopProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAipMRouteProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopOctets": {
+    "name": "hwIpMcastRouteNextHopOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastRouteNextHopPkts": {
+    "name": "hwIpMcastRouteNextHopPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryTable": {
+    "name": "hwIpMcastBoundaryTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryEntry": {
+    "name": "hwIpMcastBoundaryEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryAddressType",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryAddress",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryAddressPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastBoundaryIfIndex": {
+    "name": "hwIpMcastBoundaryIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryAddressType": {
+    "name": "hwIpMcastBoundaryAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryAddress": {
+    "name": "hwIpMcastBoundaryAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryAddressPrefixLength": {
+    "name": "hwIpMcastBoundaryAddressPrefixLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryTimeStamp": {
+    "name": "hwIpMcastBoundaryTimeStamp",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryDroppedMcastOctets": {
+    "name": "hwIpMcastBoundaryDroppedMcastOctets",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryDroppedMcastPkts": {
+    "name": "hwIpMcastBoundaryDroppedMcastPkts",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryStatus": {
+    "name": "hwIpMcastBoundaryStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpMcastBoundaryStorageType": {
+    "name": "hwIpMcastBoundaryStorageType",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwIpMcastChannelName": {
+    "name": "hwIpMcastChannelName",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastChannelGroup": {
+    "name": "hwIpMcastChannelGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastChannelSource": {
+    "name": "hwIpMcastChannelSource",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastChannelDownstreamEntries": {
+    "name": "hwIpMcastChannelDownstreamEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastChannelDownstreamBandWidth": {
+    "name": "hwIpMcastChannelDownstreamBandWidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastChannelGlobalEntries": {
+    "name": "hwIpMcastChannelGlobalEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastChannelDownstreamLimitBandWidth": {
+    "name": "hwIpMcastChannelDownstreamLimitBandWidth",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastChannelDownstreamLimitEntries": {
+    "name": "hwIpMcastChannelDownstreamLimitEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastChannelGlobalLimitEntries": {
+    "name": "hwIpMcastChannelGlobalLimitEntries",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastChannelInterfaceIfIndex": {
+    "name": "hwIpMcastChannelInterfaceIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwIpMcastDownstreamChannelLimit": {
+    "name": "hwIpMcastDownstreamChannelLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamBandWidth"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastDownstreamTotalLimit": {
+    "name": "hwIpMcastDownstreamTotalLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamBandWidth"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastGlobalChannelLimit": {
+    "name": "hwIpMcastGlobalChannelLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastGlobalTotalLimit": {
+    "name": "hwIpMcastGlobalTotalLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastOutChannelExceededLimit": {
+    "name": "hwIpMcastOutChannelExceededLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitBandWidth"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastOutTotalExceededLimit": {
+    "name": "hwIpMcastOutTotalExceededLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitBandWidth"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastGlobalChannelExceededLimit": {
+    "name": "hwIpMcastGlobalChannelExceededLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalLimitEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastGlobalTotalExceededLimit": {
+    "name": "hwIpMcastGlobalTotalExceededLimit",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalLimitEntries"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibConformance": {
+    "name": "hwIpMcastMibConformance",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3",
+    "class": "objectidentity"
+  },
+  "hwIpMcastMibCompliances": {
+    "name": "hwIpMcastMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.1",
+    "class": "objectidentity"
+  },
+  "hwIpMcastMibGroups": {
+    "name": "hwIpMcastMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2",
+    "class": "objectidentity"
+  },
+  "hwIpMcastMibComplianceHost": {
+    "name": "hwIpMcastMibComplianceHost",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwIpMcastMibBasicGroup",
+        "module": "HUAWEI-IPMCAST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibComplianceRouter": {
+    "name": "hwIpMcastMibComplianceRouter",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwIpMcastMibRouteProtoGroup",
+        "module": "HUAWEI-IPMCAST-MIB"
+      },
+      {
+        "object": "hwIpMcastMibBasicGroup",
+        "module": "HUAWEI-IPMCAST-MIB"
+      },
+      {
+        "object": "hwIpMcastMibRouteGroup",
+        "module": "HUAWEI-IPMCAST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibComplianceBorderRouter": {
+    "name": "hwIpMcastMibComplianceBorderRouter",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwIpMcastMibRouteProtoGroup",
+        "module": "HUAWEI-IPMCAST-MIB"
+      },
+      {
+        "object": "hwIpMcastMibBasicGroup",
+        "module": "HUAWEI-IPMCAST-MIB"
+      },
+      {
+        "object": "hwIpMcastMibRouteGroup",
+        "module": "HUAWEI-IPMCAST-MIB"
+      },
+      {
+        "object": "hwIpMcastMibBoundaryIfGroup",
+        "module": "HUAWEI-IPMCAST-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibBasicGroup": {
+    "name": "hwIpMcastMibBasicGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastEnable"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteEntryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibRouteGroup": {
+    "name": "hwIpMcastMibRouteGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceTtl"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceRateLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceInMcastOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceOutMcastOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceDiscontinuityTime"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteUpstreamNeighborType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteUpstreamNeighbor"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteInIfIndex"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteExpiryTime"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRoutePkts"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteTtlDropPackets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteDifferentInIfPackets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopState"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopExpiryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibIfPktsGroup": {
+    "name": "hwIpMcastMibIfPktsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceInMcastPkts"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceOutMcastPkts"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastInterfaceDiscontinuityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibPktsOutGroup": {
+    "name": "hwIpMcastMibPktsOutGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibHopCountGroup": {
+    "name": "hwIpMcastMibHopCountGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopClosestMemberHops"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibRouteOctetsGroup": {
+    "name": "hwIpMcastMibRouteOctetsGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteTtlDropOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteDifferentInIfOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibRouteProtoGroup": {
+    "name": "hwIpMcastMibRouteProtoGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteProtocol"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteRtProtocol"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteRtAddressType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteRtAddress"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteRtPrefixLength"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteRtType"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastRouteNextHopProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibBoundaryIfGroup": {
+    "name": "hwIpMcastMibBoundaryIfGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryTimeStamp"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryDroppedMcastOctets"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryDroppedMcastPkts"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryStatus"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastBoundaryStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibNotificationObjects": {
+    "name": "hwIpMcastMibNotificationObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelName"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGroup"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelSource"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitBandWidth"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelDownstreamLimitEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelGlobalLimitEntries"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastChannelInterfaceIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "hwIpMcastMibNotificationGroup": {
+    "name": "hwIpMcastMibNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.149.1.3.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastDownstreamChannelLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastDownstreamTotalLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastGlobalChannelLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastGlobalTotalLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOutChannelExceededLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastOutTotalExceededLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastGlobalChannelExceededLimit"
+      },
+      {
+        "module": "HUAWEI-IPMCAST-MIB",
+        "object": "hwIpMcastGlobalTotalExceededLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-IPMCAST-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-IPMCAST-MIB"
+  }
+}

@@ -1,0 +1,2758 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoMldSnoopingMIB": {
+    "name": "ciscoMldSnoopingMIB",
+    "oid": "1.3.6.1.4.1.9.9.721",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-07-02 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "ciscoMldSnoopingMIBNotifs": {
+    "name": "ciscoMldSnoopingMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.721.0",
+    "class": "objectidentity"
+  },
+  "ciscoMldSnoopingMIBObjects": {
+    "name": "ciscoMldSnoopingMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.721.1",
+    "class": "objectidentity"
+  },
+  "ciscoMldSnoopingMIBConform": {
+    "name": "ciscoMldSnoopingMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.721.2",
+    "class": "objectidentity"
+  },
+  "CiscoMldPortType": {
+    "name": "CiscoMldPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "interface": 2,
+          "pw": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoMldPortIdentifier": {
+    "name": "CiscoMldPortIdentifier",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoMldPortInterface": {
+    "name": "CiscoMldPortInterface",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoMldPortPseudowire": {
+    "name": "CiscoMldPortPseudowire",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CiscoMldSnoopingVersion": {
+    "name": "CiscoMldSnoopingVersion",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2": 2,
+          "v3": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cmsConfiguration": {
+    "name": "cmsConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1",
+    "class": "objectidentity"
+  },
+  "cmsSystemInfo": {
+    "name": "cmsSystemInfo",
+    "oid": "1.3.6.1.4.1.9.9.721.1.2",
+    "class": "objectidentity"
+  },
+  "cmsOperInfo": {
+    "name": "cmsOperInfo",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3",
+    "class": "objectidentity"
+  },
+  "cmsSystemStats": {
+    "name": "cmsSystemStats",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4",
+    "class": "objectidentity"
+  },
+  "cmsPortStats": {
+    "name": "cmsPortStats",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5",
+    "class": "objectidentity"
+  },
+  "cmsProfileTable": {
+    "name": "cmsProfileTable",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsProfileEntry": {
+    "name": "cmsProfileEntry",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmsProfileName": {
+    "name": "cmsProfileName",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsProfileStatus": {
+    "name": "cmsProfileStatus",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmsProfileStorageType": {
+    "name": "cmsProfileStorageType",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmsProfileSnoopMinVersion": {
+    "name": "cmsProfileSnoopMinVersion",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMldSnoopingVersion",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "v3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmsProfileIPAddrType": {
+    "name": "cmsProfileIPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmsProfileIPAddress": {
+    "name": "cmsProfileIPAddress",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmsProfileRobustnessVariable": {
+    "name": "cmsProfileRobustnessVariable",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmsProfileInternalQuerier": {
+    "name": "cmsProfileInternalQuerier",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileLastMemberQueryCount": {
+    "name": "cmsProfileLastMemberQueryCount",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "queries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileLastMemberQueryInterval": {
+    "name": "cmsProfileLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileSuppressReport": {
+    "name": "cmsProfileSuppressReport",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileUnsolicitedReportTimer": {
+    "name": "cmsProfileUnsolicitedReportTimer",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileFloodQueryCount": {
+    "name": "cmsProfileFloodQueryCount",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileQuerySolicit": {
+    "name": "cmsProfileQuerySolicit",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileTTLCheck": {
+    "name": "cmsProfileTTLCheck",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileRouterAlertCheck": {
+    "name": "cmsProfileRouterAlertCheck",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileIntQuerierMaxRespTime": {
+    "name": "cmsProfileIntQuerierMaxRespTime",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileIntQuerierQueryInterval": {
+    "name": "cmsProfileIntQuerierQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileIntQuerierTCNQueryCount": {
+    "name": "cmsProfileIntQuerierTCNQueryCount",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileIntQuerierTCNQueryInterval": {
+    "name": "cmsProfileIntQuerierTCNQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileIntQuerierExpiry": {
+    "name": "cmsProfileIntQuerierExpiry",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileIntQuerierVersion": {
+    "name": "cmsProfileIntQuerierVersion",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMldSnoopingVersion",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "v3",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmsProfileRouterGuard": {
+    "name": "cmsProfileRouterGuard",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileStaticMRouter": {
+    "name": "cmsProfileStaticMRouter",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsProfileImmediateLeave": {
+    "name": "cmsProfileImmediateLeave",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsConfigPortTable": {
+    "name": "cmsConfigPortTable",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsConfigPortEntry": {
+    "name": "cmsConfigPortEntry",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsPortType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmsPortType": {
+    "name": "cmsPortType",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMldPortType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsPortId": {
+    "name": "cmsPortId",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMldPortIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsConfigPortStatus": {
+    "name": "cmsConfigPortStatus",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmsConfigPortStorageType": {
+    "name": "cmsConfigPortStorageType",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmsConfigPortProfileName": {
+    "name": "cmsConfigPortProfileName",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cmsConfigSystemProfileName": {
+    "name": "cmsConfigSystemProfileName",
+    "oid": "1.3.6.1.4.1.9.9.721.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsQuerierIPAddrType": {
+    "name": "cmsQuerierIPAddrType",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsQuerierIPAddr": {
+    "name": "cmsQuerierIPAddr",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsQuerierPortType": {
+    "name": "cmsQuerierPortType",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMldPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsQuerierPortId": {
+    "name": "cmsQuerierPortId",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMldPortIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsQuerierVersion": {
+    "name": "cmsQuerierVersion",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoMldSnoopingVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsQuerierQueryInterval": {
+    "name": "cmsQuerierQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsQuerierRobustness": {
+    "name": "cmsQuerierRobustness",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsQuerierMaxRespTime": {
+    "name": "cmsQuerierMaxRespTime",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsQuerierTimeSinceLastGQuery": {
+    "name": "cmsQuerierTimeSinceLastGQuery",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsMcastInfoTable": {
+    "name": "cmsMcastInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsMcastInfoEntry": {
+    "name": "cmsMcastInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsPortType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsMcastInfoGroupAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsMcastInfoGroupAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsMcastInfoSourceAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmsMcastInfoGroupAddrType": {
+    "name": "cmsMcastInfoGroupAddrType",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsMcastInfoGroupAddr": {
+    "name": "cmsMcastInfoGroupAddr",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsMcastInfoSourceAddr": {
+    "name": "cmsMcastInfoSourceAddr",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsMcastInfoGroupFilter": {
+    "name": "cmsMcastInfoGroupFilter",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "exclude": 1,
+          "include": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsMcastInfoExpiry": {
+    "name": "cmsMcastInfoExpiry",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsMcastInfoFlag": {
+    "name": "cmsMcastInfoFlag",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2,
+          "staticAndDynamic": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsMRouterPortInfoTable": {
+    "name": "cmsMRouterPortInfoTable",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsMRouterPortInfoEntry": {
+    "name": "cmsMRouterPortInfoEntry",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsPortType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmsMRouterType": {
+    "name": "cmsMRouterType",
+    "oid": "1.3.6.1.4.1.9.9.721.1.3.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2,
+          "staticAndDynamic": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxGeneralQueries": {
+    "name": "cmsSysIntQuerierRxGeneralQueries",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxGeneralQueriesWhenDisabled": {
+    "name": "cmsSysIntQuerierRxGeneralQueriesWhenDisabled",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxGeneralQueriesAsQuerier": {
+    "name": "cmsSysIntQuerierRxGeneralQueriesAsQuerier",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxGeneralQueriesAsNonQuerier": {
+    "name": "cmsSysIntQuerierRxGeneralQueriesAsNonQuerier",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxGeneralQueriesAsWinner": {
+    "name": "cmsSysIntQuerierRxGeneralQueriesAsWinner",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxGeneralQueriesAsLoser": {
+    "name": "cmsSysIntQuerierRxGeneralQueriesAsLoser",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxGlobalLeaves": {
+    "name": "cmsSysIntQuerierRxGlobalLeaves",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxGlobalLeavesWhenDisabled": {
+    "name": "cmsSysIntQuerierRxGlobalLeavesWhenDisabled",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxGlobalLeavsAsNonQuerier": {
+    "name": "cmsSysIntQuerierRxGlobalLeavsAsNonQuerier",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxGlobalLeavesIgnored": {
+    "name": "cmsSysIntQuerierRxGlobalLeavesIgnored",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxPimEnabledNotifications": {
+    "name": "cmsSysIntQuerierRxPimEnabledNotifications",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxPimDisabledNotifications": {
+    "name": "cmsSysIntQuerierRxPimDisabledNotifications",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierRxLocalQuerySolicitations": {
+    "name": "cmsSysIntQuerierRxLocalQuerySolicitations",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysIntQuerierTxGeneralQueries": {
+    "name": "cmsSysIntQuerierTxGeneralQueries",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGeneralQueriesReceived": {
+    "name": "cmsSysTrfGeneralQueriesReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGeneralQueriesReinjected": {
+    "name": "cmsSysTrfGeneralQueriesReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGeneralQueriesGenerated": {
+    "name": "cmsSysTrfGeneralQueriesGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGrpSpecificQueriesReceived": {
+    "name": "cmsSysTrfGrpSpecificQueriesReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGrpSpecificQueriesReinjected": {
+    "name": "cmsSysTrfGrpSpecificQueriesReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGrpSpecificQueriesGenerated": {
+    "name": "cmsSysTrfGrpSpecificQueriesGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGSSpecificQueriesReceived": {
+    "name": "cmsSysTrfGSSpecificQueriesReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGSSpecificQueriesReinjected": {
+    "name": "cmsSysTrfGSSpecificQueriesReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGSSpecificQueriesGenerated": {
+    "name": "cmsSysTrfGSSpecificQueriesGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfV2ReportReceived": {
+    "name": "cmsSysTrfV2ReportReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfV2ReportReinjected": {
+    "name": "cmsSysTrfV2ReportReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfV2ReportGenerated": {
+    "name": "cmsSysTrfV2ReportGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfV3ReportReceived": {
+    "name": "cmsSysTrfV3ReportReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfV3ReportReinjected": {
+    "name": "cmsSysTrfV3ReportReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfV3ReportGenerated": {
+    "name": "cmsSysTrfV3ReportGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGlobalLeavesReceived": {
+    "name": "cmsSysTrfGlobalLeavesReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGlobalLeavesReinjected": {
+    "name": "cmsSysTrfGlobalLeavesReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfGlobalLeavesGenerated": {
+    "name": "cmsSysTrfGlobalLeavesGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfPIMHellosReceived": {
+    "name": "cmsSysTrfPIMHellosReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfPIMHellosReinjected": {
+    "name": "cmsSysTrfPIMHellosReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfPIMHellosGenerated": {
+    "name": "cmsSysTrfPIMHellosGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfRxPcktsFlooded": {
+    "name": "cmsSysTrfRxPcktsFlooded",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfRxPcktsFwdToMembers": {
+    "name": "cmsSysTrfRxPcktsFwdToMembers",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfRxPcktsFwdToMrouters": {
+    "name": "cmsSysTrfRxPcktsFwdToMrouters",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfRxPcktsConsumed": {
+    "name": "cmsSysTrfRxPcktsConsumed",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfRxErrors": {
+    "name": "cmsSysTrfRxErrors",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfRxOther": {
+    "name": "cmsSysTrfRxOther",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysTrfTxErrors": {
+    "name": "cmsSysTrfTxErrors",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysRxV3RepIsInclude": {
+    "name": "cmsSysRxV3RepIsInclude",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysRxV3RepChangeToInclude": {
+    "name": "cmsSysRxV3RepChangeToInclude",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysRxV3RepIsExclude": {
+    "name": "cmsSysRxV3RepIsExclude",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysRxV3RepChangeToExclude": {
+    "name": "cmsSysRxV3RepChangeToExclude",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysRxV3RepAllowNewSrc": {
+    "name": "cmsSysRxV3RepAllowNewSrc",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsSysRxV3RepBlockOldSrc": {
+    "name": "cmsSysRxV3RepBlockOldSrc",
+    "oid": "1.3.6.1.4.1.9.9.721.1.4.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStatsPortTrfTable": {
+    "name": "cmsStatsPortTrfTable",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmsStatsPortTrfEntry": {
+    "name": "cmsStatsPortTrfEntry",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsPortType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmsStsPortTrfGeneralQueriesReceived": {
+    "name": "cmsStsPortTrfGeneralQueriesReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGeneralQueriesReinjected": {
+    "name": "cmsStsPortTrfGeneralQueriesReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGeneralQueriesGenerated": {
+    "name": "cmsStsPortTrfGeneralQueriesGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGrpSpecificQueriesReceived": {
+    "name": "cmsStsPortTrfGrpSpecificQueriesReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGrpSpecificQueriesReinjected": {
+    "name": "cmsStsPortTrfGrpSpecificQueriesReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGrpSpecificQueriesGenerated": {
+    "name": "cmsStsPortTrfGrpSpecificQueriesGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGSSpecificQueriesReceived": {
+    "name": "cmsStsPortTrfGSSpecificQueriesReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGSSpecificQueriesReinjected": {
+    "name": "cmsStsPortTrfGSSpecificQueriesReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGSSpecificQueriesGenerated": {
+    "name": "cmsStsPortTrfGSSpecificQueriesGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfV2ReportReceived": {
+    "name": "cmsStsPortTrfV2ReportReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfV2ReportReinjected": {
+    "name": "cmsStsPortTrfV2ReportReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfV2ReportGenerated": {
+    "name": "cmsStsPortTrfV2ReportGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfV3ReportReceived": {
+    "name": "cmsStsPortTrfV3ReportReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfV3ReportReinjected": {
+    "name": "cmsStsPortTrfV3ReportReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfV3ReportGenerated": {
+    "name": "cmsStsPortTrfV3ReportGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGlobalLeavesReceived": {
+    "name": "cmsStsPortTrfGlobalLeavesReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGlobalLeavesReinjected": {
+    "name": "cmsStsPortTrfGlobalLeavesReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfGlobalLeavesGenerated": {
+    "name": "cmsStsPortTrfGlobalLeavesGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfPIMHellosReceived": {
+    "name": "cmsStsPortTrfPIMHellosReceived",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfPIMHellosReinjected": {
+    "name": "cmsStsPortTrfPIMHellosReinjected",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfPIMHellosGenerated": {
+    "name": "cmsStsPortTrfPIMHellosGenerated",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfRxPcktsFlooded": {
+    "name": "cmsStsPortTrfRxPcktsFlooded",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfRxPcktsFwdToMembers": {
+    "name": "cmsStsPortTrfRxPcktsFwdToMembers",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfRxPcktsFwdToMrouters": {
+    "name": "cmsStsPortTrfRxPcktsFwdToMrouters",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfRxPcktsConsumed": {
+    "name": "cmsStsPortTrfRxPcktsConsumed",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfRxErrors": {
+    "name": "cmsStsPortTrfRxErrors",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfRxOther": {
+    "name": "cmsStsPortTrfRxOther",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortTrfTxErrors": {
+    "name": "cmsStsPortTrfTxErrors",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortRxV3RepIsInclude": {
+    "name": "cmsStsPortRxV3RepIsInclude",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortRxV3RepChangeToInclude": {
+    "name": "cmsStsPortRxV3RepChangeToInclude",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortRxV3RepIsExclude": {
+    "name": "cmsStsPortRxV3RepIsExclude",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortRxV3RepChangeToExclude": {
+    "name": "cmsStsPortRxV3RepChangeToExclude",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortRxV3RepAllowNewSrc": {
+    "name": "cmsStsPortRxV3RepAllowNewSrc",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortRxV3RepBlockOldSrc": {
+    "name": "cmsStsPortRxV3RepBlockOldSrc",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortGrps": {
+    "name": "cmsStsPortGrps",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "groups",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmsStsPortSGs": {
+    "name": "cmsStsPortSGs",
+    "oid": "1.3.6.1.4.1.9.9.721.1.5.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sources",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoMldSnoopingMIBCompliances": {
+    "name": "ciscoMldSnoopingMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.721.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoMldSnoopingMIBGroups": {
+    "name": "ciscoMldSnoopingMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.721.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoMldSnoopingMIBCompliance": {
+    "name": "ciscoMldSnoopingMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.721.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoMldSnoopingMIBConfigMainObjectGroup",
+        "module": "CISCO-MLD-SNOOPING-MIB"
+      },
+      {
+        "object": "ciscoMldSnoopingMIBInfoMainObjectGroup",
+        "module": "CISCO-MLD-SNOOPING-MIB"
+      },
+      {
+        "object": "ciscoMldSnoopingMIBStatsMainObjectGroup",
+        "module": "CISCO-MLD-SNOOPING-MIB"
+      },
+      {
+        "object": "ciscoMldSnoopingMIBConfigDetailedObjectGroup",
+        "module": "CISCO-MLD-SNOOPING-MIB"
+      },
+      {
+        "object": "ciscoMldSnoopingMIBStatsDetailedObjectGroup",
+        "module": "CISCO-MLD-SNOOPING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMldSnoopingMIBConfigMainObjectGroup": {
+    "name": "ciscoMldSnoopingMIBConfigMainObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.721.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileInternalQuerier"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileSuppressReport"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileRouterGuard"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileStaticMRouter"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileImmediateLeave"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsConfigSystemProfileName"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsConfigPortProfileName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMldSnoopingMIBConfigDetailedObjectGroup": {
+    "name": "ciscoMldSnoopingMIBConfigDetailedObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.721.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileSnoopMinVersion"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileStatus"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileStorageType"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileIPAddress"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileRobustnessVariable"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileLastMemberQueryCount"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileLastMemberQueryInterval"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileUnsolicitedReportTimer"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileFloodQueryCount"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileQuerySolicit"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileTTLCheck"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileRouterAlertCheck"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileIntQuerierMaxRespTime"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileIntQuerierQueryInterval"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileIntQuerierTCNQueryCount"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileIntQuerierTCNQueryInterval"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileIntQuerierExpiry"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileIntQuerierVersion"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsProfileIPAddrType"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsConfigPortStatus"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsConfigPortStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMldSnoopingMIBInfoMainObjectGroup": {
+    "name": "ciscoMldSnoopingMIBInfoMainObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.721.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsMcastInfoGroupFilter"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsMcastInfoExpiry"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsMcastInfoFlag"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsQuerierPortId"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsQuerierVersion"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsQuerierQueryInterval"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsQuerierRobustness"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsQuerierMaxRespTime"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsQuerierTimeSinceLastGQuery"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsMRouterType"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsQuerierIPAddr"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsQuerierIPAddrType"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsQuerierPortType"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMldSnoopingMIBStatsMainObjectGroup": {
+    "name": "ciscoMldSnoopingMIBStatsMainObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.721.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGeneralQueriesReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGeneralQueriesReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGeneralQueriesGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGlobalLeavesReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGlobalLeavesReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGlobalLeavesGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfPIMHellosReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfPIMHellosReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfPIMHellosGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfRxErrors"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfTxErrors"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfV2ReportReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfV2ReportReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfV2ReportGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfV3ReportReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfV3ReportReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfV3ReportGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfRxErrors"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfTxErrors"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysRxV3RepIsInclude"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysRxV3RepChangeToInclude"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysRxV3RepIsExclude"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysRxV3RepChangeToExclude"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysRxV3RepAllowNewSrc"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysRxV3RepBlockOldSrc"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortRxV3RepIsInclude"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortRxV3RepChangeToInclude"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortRxV3RepIsExclude"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortRxV3RepChangeToExclude"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortRxV3RepAllowNewSrc"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortRxV3RepBlockOldSrc"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortGrps"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortSGs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoMldSnoopingMIBStatsDetailedObjectGroup": {
+    "name": "ciscoMldSnoopingMIBStatsDetailedObjectGroup",
+    "oid": "1.3.6.1.4.1.9.9.721.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGrpSpecificQueriesReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGrpSpecificQueriesReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGrpSpecificQueriesGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGSSpecificQueriesReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGSSpecificQueriesReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfGSSpecificQueriesGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfV2ReportReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfV2ReportReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfV2ReportGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfV3ReportReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfV3ReportReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfV3ReportGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfRxPcktsFlooded"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfRxPcktsFwdToMembers"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfRxPcktsFwdToMrouters"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfRxPcktsConsumed"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysTrfRxOther"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGeneralQueriesReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGeneralQueriesReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGeneralQueriesGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGrpSpecificQueriesReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGrpSpecificQueriesReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGrpSpecificQueriesGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGSSpecificQueriesReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGSSpecificQueriesReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGSSpecificQueriesGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGlobalLeavesReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGlobalLeavesReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfGlobalLeavesGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfPIMHellosReceived"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfPIMHellosReinjected"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfPIMHellosGenerated"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfRxPcktsFlooded"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfRxPcktsFwdToMembers"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfRxPcktsFwdToMrouters"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfRxPcktsConsumed"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsStsPortTrfRxOther"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxGeneralQueries"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxGeneralQueriesWhenDisabled"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxGeneralQueriesAsQuerier"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxGeneralQueriesAsNonQuerier"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxGeneralQueriesAsWinner"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxGeneralQueriesAsLoser"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxGlobalLeaves"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxGlobalLeavesWhenDisabled"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxGlobalLeavsAsNonQuerier"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxGlobalLeavesIgnored"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxPimEnabledNotifications"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxPimDisabledNotifications"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierRxLocalQuerySolicitations"
+      },
+      {
+        "module": "CISCO-MLD-SNOOPING-MIB",
+        "object": "cmsSysIntQuerierTxGeneralQueries"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MLD-SNOOPING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MLD-SNOOPING-MIB"
+  }
+}

@@ -1,0 +1,2055 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-SMI-v1": [
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "SNMPv2-TC-v1": [
+      "DateAndTime",
+      "TruthValue"
+    ]
+  },
+  "ibmServeRaidMIB": {
+    "name": "ibmServeRaidMIB",
+    "oid": "1.3.6.1.4.1.2.6.167.2",
+    "class": "objectidentity"
+  },
+  "ibm": {
+    "name": "ibm",
+    "oid": "1.3.6.1.4.1.2",
+    "class": "objectidentity"
+  },
+  "ibmProd": {
+    "name": "ibmProd",
+    "oid": "1.3.6.1.4.1.2.6",
+    "class": "objectidentity"
+  },
+  "ibmServeRaid": {
+    "name": "ibmServeRaid",
+    "oid": "1.3.6.1.4.1.2.6.167",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidNotifications": {
+    "name": "ibmServeRaidNotifications",
+    "oid": "1.3.6.1.4.1.2.6.167.2.0",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidMibObjects": {
+    "name": "ibmServeRaidMibObjects",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidConformance": {
+    "name": "ibmServeRaidConformance",
+    "oid": "1.3.6.1.4.1.2.6.167.2.2",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidAgentInfo": {
+    "name": "ibmServeRaidAgentInfo",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.1",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidInfo": {
+    "name": "ibmServeRaidInfo",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidTrapInfo": {
+    "name": "ibmServeRaidTrapInfo",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidCompliances": {
+    "name": "ibmServeRaidCompliances",
+    "oid": "1.3.6.1.4.1.2.6.167.2.2.1",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidGroups": {
+    "name": "ibmServeRaidGroups",
+    "oid": "1.3.6.1.4.1.2.6.167.2.2.2",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidAgentKeyIndex": {
+    "name": "ibmServeRaidAgentKeyIndex",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidAgentId": {
+    "name": "ibmServeRaidAgentId",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidAgentCompany": {
+    "name": "ibmServeRaidAgentCompany",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidAgentVersion": {
+    "name": "ibmServeRaidAgentVersion",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidAgentBuildDate": {
+    "name": "ibmServeRaidAgentBuildDate",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidAgentVersionMajor": {
+    "name": "ibmServeRaidAgentVersionMajor",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidAgentVersionMinor": {
+    "name": "ibmServeRaidAgentVersionMinor",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidControllerTable": {
+    "name": "ibmServeRaidControllerTable",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidControllerEntry": {
+    "name": "ibmServeRaidControllerEntry",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibmServeRaidKeyIndex": {
+    "name": "ibmServeRaidKeyIndex",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidControllerId": {
+    "name": "ibmServeRaidControllerId",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidModel": {
+    "name": "ibmServeRaidModel",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidFirmwareVersion": {
+    "name": "ibmServeRaidFirmwareVersion",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidBiosVersion": {
+    "name": "ibmServeRaidBiosVersion",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidDefaultRebuildRate": {
+    "name": "ibmServeRaidDefaultRebuildRate",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidNumChannels": {
+    "name": "ibmServeRaidNumChannels",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidMaxChannels": {
+    "name": "ibmServeRaidMaxChannels",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidNumLogicalDrives": {
+    "name": "ibmServeRaidNumLogicalDrives",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidMaxLogicalDrives": {
+    "name": "ibmServeRaidMaxLogicalDrives",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidNumPhysicalDevices": {
+    "name": "ibmServeRaidNumPhysicalDevices",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidMaxPhysicalDevices": {
+    "name": "ibmServeRaidMaxPhysicalDevices",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidStripeSize": {
+    "name": "ibmServeRaidStripeSize",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidSlotNumber": {
+    "name": "ibmServeRaidSlotNumber",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidVendorName": {
+    "name": "ibmServeRaidVendorName",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidGeneralStatus": {
+    "name": "ibmServeRaidGeneralStatus",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "fail": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDeviceTable": {
+    "name": "ibmServeRaidPhysDeviceTable",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDeviceEntry": {
+    "name": "ibmServeRaidPhysDeviceEntry",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidPhysDeviceKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDeviceKeyIndex": {
+    "name": "ibmServeRaidPhysDeviceKeyIndex",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDeviceChannelNr": {
+    "name": "ibmServeRaidPhysDeviceChannelNr",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDeviceDevNr": {
+    "name": "ibmServeRaidPhysDeviceDevNr",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDeviceModel": {
+    "name": "ibmServeRaidPhysDeviceModel",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDeviceCapacity": {
+    "name": "ibmServeRaidPhysDeviceCapacity",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDeviceStatus": {
+    "name": "ibmServeRaidPhysDeviceStatus",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dead": 1,
+          "online": 2,
+          "standby": 3,
+          "rebuild": 4,
+          "spare": 5,
+          "ready": 6,
+          "empty": 7,
+          "unknown": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDeviceDiskConfigured": {
+    "name": "ibmServeRaidPhysDeviceDiskConfigured",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDeviceScsiType": {
+    "name": "ibmServeRaidPhysDeviceScsiType",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disk": 1,
+          "tape": 2,
+          "printer": 3,
+          "processor": 4,
+          "writeOnce": 5,
+          "cdRom": 6,
+          "scanner": 7,
+          "optical": 8,
+          "jukebox": 9,
+          "commDev": 10,
+          "enclosure": 97,
+          "host": 98,
+          "unknown": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidPhysDevicePfaStatus": {
+    "name": "ibmServeRaidPhysDevicePfaStatus",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "failurePredicted": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidLogicalTable": {
+    "name": "ibmServeRaidLogicalTable",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidLogicalEntry": {
+    "name": "ibmServeRaidLogicalEntry",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidLogicalKeyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "ibmServeRaidLogicalKeyIndex": {
+    "name": "ibmServeRaidLogicalKeyIndex",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidLogicalDriveNum": {
+    "name": "ibmServeRaidLogicalDriveNum",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidLogicalStatus": {
+    "name": "ibmServeRaidLogicalStatus",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "online": 1,
+          "critical": 2,
+          "offline": 3,
+          "migrating": 4,
+          "free": 5,
+          "unknown": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidLogicalSize": {
+    "name": "ibmServeRaidLogicalSize",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidLogicalRaidLevel": {
+    "name": "ibmServeRaidLogicalRaidLevel",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidLogicalWriteCacheMode": {
+    "name": "ibmServeRaidLogicalWriteCacheMode",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "writeBack": 1,
+          "writeThrough": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ibmServeRaidTrapController": {
+    "name": "ibmServeRaidTrapController",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidTrapLogicalDrive": {
+    "name": "ibmServeRaidTrapLogicalDrive",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidTrapChannel": {
+    "name": "ibmServeRaidTrapChannel",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidTrapScsiId": {
+    "name": "ibmServeRaidTrapScsiId",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidTrapFan": {
+    "name": "ibmServeRaidTrapFan",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidTrapPowerSupply": {
+    "name": "ibmServeRaidTrapPowerSupply",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidTrapErrorCode": {
+    "name": "ibmServeRaidTrapErrorCode",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidTrapServerName": {
+    "name": "ibmServeRaidTrapServerName",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidTrapArray": {
+    "name": "ibmServeRaidTrapArray",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidTrapFru": {
+    "name": "ibmServeRaidTrapFru",
+    "oid": "1.3.6.1.4.1.2.6.167.2.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "ibmServeRaidNoControllers": {
+    "name": "ibmServeRaidNoControllers",
+    "oid": "1.3.6.1.4.1.2.6.167.20.201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      }
+    ]
+  },
+  "ibmServeRaidControllerFail": {
+    "name": "ibmServeRaidControllerFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.202",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidDeadBattery": {
+    "name": "ibmServeRaidDeadBattery",
+    "oid": "1.3.6.1.4.1.2.6.167.20.203",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidDeadBatteryCache": {
+    "name": "ibmServeRaidDeadBatteryCache",
+    "oid": "1.3.6.1.4.1.2.6.167.20.204",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidPollingFail": {
+    "name": "ibmServeRaidPollingFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidConfigFail": {
+    "name": "ibmServeRaidConfigFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.206",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      }
+    ]
+  },
+  "ibmServeRaidControllerAdded": {
+    "name": "ibmServeRaidControllerAdded",
+    "oid": "1.3.6.1.4.1.2.6.167.20.207",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidControllerReplaced": {
+    "name": "ibmServeRaidControllerReplaced",
+    "oid": "1.3.6.1.4.1.2.6.167.20.208",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidControllerFailover": {
+    "name": "ibmServeRaidControllerFailover",
+    "oid": "1.3.6.1.4.1.2.6.167.20.209",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidLogicalDriveCritical": {
+    "name": "ibmServeRaidLogicalDriveCritical",
+    "oid": "1.3.6.1.4.1.2.6.167.20.301",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidLogicalDriveBlocked": {
+    "name": "ibmServeRaidLogicalDriveBlocked",
+    "oid": "1.3.6.1.4.1.2.6.167.20.302",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidLogicalDriveOffLine": {
+    "name": "ibmServeRaidLogicalDriveOffLine",
+    "oid": "1.3.6.1.4.1.2.6.167.20.303",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidRebuildDetected": {
+    "name": "ibmServeRaidRebuildDetected",
+    "oid": "1.3.6.1.4.1.2.6.167.20.304",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidRebuildComplete": {
+    "name": "ibmServeRaidRebuildComplete",
+    "oid": "1.3.6.1.4.1.2.6.167.20.305",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidRebuildFail": {
+    "name": "ibmServeRaidRebuildFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.306",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidSyncDetected": {
+    "name": "ibmServeRaidSyncDetected",
+    "oid": "1.3.6.1.4.1.2.6.167.20.307",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidSyncComplete": {
+    "name": "ibmServeRaidSyncComplete",
+    "oid": "1.3.6.1.4.1.2.6.167.20.308",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidSyncFail": {
+    "name": "ibmServeRaidSyncFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.309",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidMigrationDetected": {
+    "name": "ibmServeRaidMigrationDetected",
+    "oid": "1.3.6.1.4.1.2.6.167.20.310",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidMigrationComplete": {
+    "name": "ibmServeRaidMigrationComplete",
+    "oid": "1.3.6.1.4.1.2.6.167.20.311",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidMigrationFail": {
+    "name": "ibmServeRaidMigrationFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.312",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidCompressionDetected": {
+    "name": "ibmServeRaidCompressionDetected",
+    "oid": "1.3.6.1.4.1.2.6.167.20.313",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidCompressionComplete": {
+    "name": "ibmServeRaidCompressionComplete",
+    "oid": "1.3.6.1.4.1.2.6.167.20.314",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidcompressionFail": {
+    "name": "ibmServeRaidcompressionFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.315",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidDecompressionDetected": {
+    "name": "ibmServeRaidDecompressionDetected",
+    "oid": "1.3.6.1.4.1.2.6.167.20.316",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidDecompressionComplete": {
+    "name": "ibmServeRaidDecompressionComplete",
+    "oid": "1.3.6.1.4.1.2.6.167.20.317",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidDecompressionFail": {
+    "name": "ibmServeRaidDecompressionFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.318",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidFlashCopyDetected": {
+    "name": "ibmServeRaidFlashCopyDetected",
+    "oid": "1.3.6.1.4.1.2.6.167.20.319",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidFlashCopyComplete": {
+    "name": "ibmServeRaidFlashCopyComplete",
+    "oid": "1.3.6.1.4.1.2.6.167.20.320",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidFlashCopyFail": {
+    "name": "ibmServeRaidFlashCopyFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.321",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidArrayRebuildDetected": {
+    "name": "ibmServeRaidArrayRebuildDetected",
+    "oid": "1.3.6.1.4.1.2.6.167.20.322",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapArray"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidArrayRebuildComplete": {
+    "name": "ibmServeRaidArrayRebuildComplete",
+    "oid": "1.3.6.1.4.1.2.6.167.20.323",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapArray"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidArrayRebuildFail": {
+    "name": "ibmServeRaidArrayRebuildFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.324",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapArray"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidArraySyncDetected": {
+    "name": "ibmServeRaidArraySyncDetected",
+    "oid": "1.3.6.1.4.1.2.6.167.20.325",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapArray"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidArraySyncComplete": {
+    "name": "ibmServeRaidArraySyncComplete",
+    "oid": "1.3.6.1.4.1.2.6.167.20.326",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapArray"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidArraySyncFail": {
+    "name": "ibmServeRaidArraySyncFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.327",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapArray"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidArrayFlashCopyDetected": {
+    "name": "ibmServeRaidArrayFlashCopyDetected",
+    "oid": "1.3.6.1.4.1.2.6.167.20.328",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapArray"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidArrayFlashCopyComplete": {
+    "name": "ibmServeRaidArrayFlashCopyComplete",
+    "oid": "1.3.6.1.4.1.2.6.167.20.329",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapArray"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidArrayFlashCopyFail": {
+    "name": "ibmServeRaidArrayFlashCopyFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.330",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapArray"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapErrorCode"
+      }
+    ]
+  },
+  "ibmServeRaidLogicalDriveUnblocked": {
+    "name": "ibmServeRaidLogicalDriveUnblocked",
+    "oid": "1.3.6.1.4.1.2.6.167.20.331",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapLogicalDrive"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      }
+    ]
+  },
+  "ibmServeRaidDefunctDrive": {
+    "name": "ibmServeRaidDefunctDrive",
+    "oid": "1.3.6.1.4.1.2.6.167.20.401",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapScsiId"
+      }
+    ]
+  },
+  "ibmServeRaidPfaDrive": {
+    "name": "ibmServeRaidPfaDrive",
+    "oid": "1.3.6.1.4.1.2.6.167.20.402",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapScsiId"
+      }
+    ]
+  },
+  "ibmServeRaidDefunctReplaced": {
+    "name": "ibmServeRaidDefunctReplaced",
+    "oid": "1.3.6.1.4.1.2.6.167.20.403",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapScsiId"
+      }
+    ]
+  },
+  "ibmServeRaidDefunctDriveFru": {
+    "name": "ibmServeRaidDefunctDriveFru",
+    "oid": "1.3.6.1.4.1.2.6.167.20.404",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapFru"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapScsiId"
+      }
+    ]
+  },
+  "ibmServeRaidPfaDriveFru": {
+    "name": "ibmServeRaidPfaDriveFru",
+    "oid": "1.3.6.1.4.1.2.6.167.20.405",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapFru"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapScsiId"
+      }
+    ]
+  },
+  "ibmServeRaidUnsupportedDrive": {
+    "name": "ibmServeRaidUnsupportedDrive",
+    "oid": "1.3.6.1.4.1.2.6.167.20.406",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapScsiId"
+      }
+    ]
+  },
+  "ibmServeRaidEnclosureOK": {
+    "name": "ibmServeRaidEnclosureOK",
+    "oid": "1.3.6.1.4.1.2.6.167.20.501",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidEnclosureFail": {
+    "name": "ibmServeRaidEnclosureFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.502",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidFanOk": {
+    "name": "ibmServeRaidFanOk",
+    "oid": "1.3.6.1.4.1.2.6.167.20.503",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapFan"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidFanFail": {
+    "name": "ibmServeRaidFanFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.504",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapFan"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidFanInstalled": {
+    "name": "ibmServeRaidFanInstalled",
+    "oid": "1.3.6.1.4.1.2.6.167.20.505",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapFan"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidFanRemoved": {
+    "name": "ibmServeRaidFanRemoved",
+    "oid": "1.3.6.1.4.1.2.6.167.20.506",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapFan"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidTempOk": {
+    "name": "ibmServeRaidTempOk",
+    "oid": "1.3.6.1.4.1.2.6.167.20.507",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidTempFail": {
+    "name": "ibmServeRaidTempFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.508",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidPowerSupplyOk": {
+    "name": "ibmServeRaidPowerSupplyOk",
+    "oid": "1.3.6.1.4.1.2.6.167.20.509",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapPowerSupply"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidPowerSupplyFail": {
+    "name": "ibmServeRaidPowerSupplyFail",
+    "oid": "1.3.6.1.4.1.2.6.167.20.510",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapPowerSupply"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidPowerSupplyInstalled": {
+    "name": "ibmServeRaidPowerSupplyInstalled",
+    "oid": "1.3.6.1.4.1.2.6.167.20.511",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapPowerSupply"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidPowerSupplyRemoved": {
+    "name": "ibmServeRaidPowerSupplyRemoved",
+    "oid": "1.3.6.1.4.1.2.6.167.20.512",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapPowerSupply"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapController"
+      },
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapChannel"
+      }
+    ]
+  },
+  "ibmServeRaidTestTrap": {
+    "name": "ibmServeRaidTestTrap",
+    "oid": "1.3.6.1.4.1.2.6.167.20.601",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IBM-SERVERAID-MIB",
+        "object": "ibmServeRaidTrapServerName"
+      }
+    ]
+  },
+  "ibmServeRaidAgentGroup": {
+    "name": "ibmServeRaidAgentGroup",
+    "oid": "1.3.6.1.4.1.2.6.167.2.2.2.1",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidControllerGroup": {
+    "name": "ibmServeRaidControllerGroup",
+    "oid": "1.3.6.1.4.1.2.6.167.2.2.2.2",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidPhysicalGroup": {
+    "name": "ibmServeRaidPhysicalGroup",
+    "oid": "1.3.6.1.4.1.2.6.167.2.2.2.3",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidLogicalGroup": {
+    "name": "ibmServeRaidLogicalGroup",
+    "oid": "1.3.6.1.4.1.2.6.167.2.2.2.4",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidTrapInfoGroup": {
+    "name": "ibmServeRaidTrapInfoGroup",
+    "oid": "1.3.6.1.4.1.2.6.167.2.2.2.5",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidNotificationsGroup": {
+    "name": "ibmServeRaidNotificationsGroup",
+    "oid": "1.3.6.1.4.1.2.6.167.2.2.2.6",
+    "class": "objectidentity"
+  },
+  "ibmServeRaidCompliance": {
+    "name": "ibmServeRaidCompliance",
+    "oid": "1.3.6.1.4.1.2.6.167.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ibm/IBM-SERVERAID-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:38:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IBM-SERVERAID-MIB"
+  }
+}

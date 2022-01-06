@@ -1,0 +1,3051 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoURLString"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressDNS"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "ciscoCcaMIB": {
+    "name": "ciscoCcaMIB",
+    "oid": "1.3.6.1.4.1.9.9.473",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-05-06 17:00",
+        "description": "This is the second version of this MIB module; this revision aligns with release 8.0 of Cisco Unified Intelligent Contact Management and Contact Center Enterprise and Hosted products."
+      },
+      {
+        "revision": "2005-04-05 17:00",
+        "description": "This is the initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoCcaMIBNotifs": {
+    "name": "ciscoCcaMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.473.0",
+    "class": "objectidentity"
+  },
+  "ciscoCcaMIBObjects": {
+    "name": "ciscoCcaMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.473.1",
+    "class": "objectidentity"
+  },
+  "cccaGeneralInfo": {
+    "name": "cccaGeneralInfo",
+    "oid": "1.3.6.1.4.1.9.9.473.1.1",
+    "class": "objectidentity"
+  },
+  "cccaComponents": {
+    "name": "cccaComponents",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2",
+    "class": "objectidentity"
+  },
+  "cccaComponentInfo": {
+    "name": "cccaComponentInfo",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3",
+    "class": "objectidentity"
+  },
+  "cccaNotificationInfo": {
+    "name": "cccaNotificationInfo",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4",
+    "class": "objectidentity"
+  },
+  "ciscoCcaMIBConform": {
+    "name": "ciscoCcaMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.473.2",
+    "class": "objectidentity"
+  },
+  "ciscoCcaMIBCompliances": {
+    "name": "ciscoCcaMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.473.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoCcaMIBGroups": {
+    "name": "ciscoCcaMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2",
+    "class": "objectidentity"
+  },
+  "CcaIndex": {
+    "name": "CcaIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "CcaComponentType": {
+    "name": "CcaComponentType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "router": 1,
+          "logger": 2,
+          "distAW": 3,
+          "pg": 4,
+          "cg": 5,
+          "ctios": 6,
+          "campaign": 7,
+          "dialer": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CcaComponentStatus": {
+    "name": "CcaComponentStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "disabled": 2,
+          "stopped": 3,
+          "started": 4,
+          "active": 5,
+          "standby": 6,
+          "disconnected": 7,
+          "uninitialized": 8,
+          "notRoutable": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CcaComponentSide": {
+    "name": "CcaComponentSide",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sideA": 1,
+          "sideB": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CcaPeripheralType": {
+    "name": "CcaPeripheralType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aspect": 1,
+          "meridian": 2,
+          "dms100": 3,
+          "g2": 4,
+          "g3": 5,
+          "galaxy": 6,
+          "spectrum": 7,
+          "neax2400": 8,
+          "acp1000": 9,
+          "rolm9005": 10,
+          "siemensHicom": 11,
+          "ericssonMD110": 12,
+          "alcatel": 13,
+          "mediaRouting": 14,
+          "nonVoiceAgent": 15,
+          "symposium": 16,
+          "callManager": 17,
+          "acmiIPCC": 18,
+          "acmiCRS": 19,
+          "vru": 20,
+          "softACD": 21,
+          "systemIPCC": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cccaName": {
+    "name": "cccaName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDescription": {
+    "name": "cccaDescription",
+    "oid": "1.3.6.1.4.1.9.9.473.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaVersion": {
+    "name": "cccaVersion",
+    "oid": "1.3.6.1.4.1.9.9.473.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaTimeZoneName": {
+    "name": "cccaTimeZoneName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaTimeZoneOffsetHours": {
+    "name": "cccaTimeZoneOffsetHours",
+    "oid": "1.3.6.1.4.1.9.9.473.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaTimeZoneOffsetMinutes": {
+    "name": "cccaTimeZoneOffsetMinutes",
+    "oid": "1.3.6.1.4.1.9.9.473.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -59,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaSupportToolsURL": {
+    "name": "cccaSupportToolsURL",
+    "oid": "1.3.6.1.4.1.9.9.473.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaWebSetupURL": {
+    "name": "cccaWebSetupURL",
+    "oid": "1.3.6.1.4.1.9.9.473.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoURLString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaNotificationsEnabled": {
+    "name": "cccaNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.473.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cccaInstanceTable": {
+    "name": "cccaInstanceTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaInstanceEntry": {
+    "name": "cccaInstanceEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaInstanceNumber": {
+    "name": "cccaInstanceNumber",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaInstanceName": {
+    "name": "cccaInstanceName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaComponentTable": {
+    "name": "cccaComponentTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaComponentEntry": {
+    "name": "cccaComponentEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaComponentIndex": {
+    "name": "cccaComponentIndex",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaComponentType": {
+    "name": "cccaComponentType",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaComponentName": {
+    "name": "cccaComponentName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaComponentStatus": {
+    "name": "cccaComponentStatus",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaComponentElmtTable": {
+    "name": "cccaComponentElmtTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaComponentElmtEntry": {
+    "name": "cccaComponentElmtEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentElmtIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaComponentElmtIndex": {
+    "name": "cccaComponentElmtIndex",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaComponentElmtName": {
+    "name": "cccaComponentElmtName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaComponentElmtRunID": {
+    "name": "cccaComponentElmtRunID",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaComponentElmtStatus": {
+    "name": "cccaComponentElmtStatus",
+    "oid": "1.3.6.1.4.1.9.9.473.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterTable": {
+    "name": "cccaRouterTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaRouterEntry": {
+    "name": "cccaRouterEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaRouterSide": {
+    "name": "cccaRouterSide",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentSide",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterCallsPerSec": {
+    "name": "cccaRouterCallsPerSec",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterAgentsLoggedOn": {
+    "name": "cccaRouterAgentsLoggedOn",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterCallsInProgress": {
+    "name": "cccaRouterCallsInProgress",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterDuplexPairName": {
+    "name": "cccaRouterDuplexPairName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterNicCount": {
+    "name": "cccaRouterNicCount",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "units": "entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterPGsEnabledCount": {
+    "name": "cccaRouterPGsEnabledCount",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "units": "peripherals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterCallsInQueue": {
+    "name": "cccaRouterCallsInQueue",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterAppGwEnabled": {
+    "name": "cccaRouterAppGwEnabled",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterDBWorkerEnabled": {
+    "name": "cccaRouterDBWorkerEnabled",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterPublicHighAddr": {
+    "name": "cccaRouterPublicHighAddr",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterPublicNonHighAddr": {
+    "name": "cccaRouterPublicNonHighAddr",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterPrivateHighAddr": {
+    "name": "cccaRouterPrivateHighAddr",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaRouterPrivateNonHighAddr": {
+    "name": "cccaRouterPrivateNonHighAddr",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaNicTable": {
+    "name": "cccaNicTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaNicEntry": {
+    "name": "cccaNicEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaNicIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaNicIndex": {
+    "name": "cccaNicIndex",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaNicType": {
+    "name": "cccaNicType",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "generic": 1,
+          "att": 2,
+          "aucsINAP": 3,
+          "cain": 4,
+          "crsp": 5,
+          "cwc": 6,
+          "gktmp": 7,
+          "incrp": 8,
+          "mci": 9,
+          "nortel": 10,
+          "ntl": 11,
+          "sprint": 12,
+          "ss7in": 13,
+          "stentor": 14,
+          "timINAP": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaNicStatus": {
+    "name": "cccaNicStatus",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaLoggerTable": {
+    "name": "cccaLoggerTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaLoggerEntry": {
+    "name": "cccaLoggerEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaLoggerSide": {
+    "name": "cccaLoggerSide",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentSide",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaLoggerType": {
+    "name": "cccaLoggerType",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 1,
+          "nam": 2,
+          "cicm": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaLoggerRouterSideAName": {
+    "name": "cccaLoggerRouterSideAName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaLoggerRouterSideBName": {
+    "name": "cccaLoggerRouterSideBName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaLoggerDuplexPairName": {
+    "name": "cccaLoggerDuplexPairName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaLoggerHDSReplication": {
+    "name": "cccaLoggerHDSReplication",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaLoggerAvgDBWriteTime": {
+    "name": "cccaLoggerAvgDBWriteTime",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "hundred nanoseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDistAwTable": {
+    "name": "cccaDistAwTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaDistAwEntry": {
+    "name": "cccaDistAwEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaDistAwSide": {
+    "name": "cccaDistAwSide",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentSide",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cccaDistAwType": {
+    "name": "cccaDistAwType",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "standard": 0,
+          "nam": 1,
+          "cicm": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDistAwAdminSiteName": {
+    "name": "cccaDistAwAdminSiteName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDistAwRouterSideAName": {
+    "name": "cccaDistAwRouterSideAName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDistAwRouterSideBName": {
+    "name": "cccaDistAwRouterSideBName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDistAwLoggerSideAName": {
+    "name": "cccaDistAwLoggerSideAName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDistAwLoggerSideBName": {
+    "name": "cccaDistAwLoggerSideBName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDistAwDuplexPairName": {
+    "name": "cccaDistAwDuplexPairName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cccaDistAwHDSEnabled": {
+    "name": "cccaDistAwHDSEnabled",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDistAwWebViewEnabled": {
+    "name": "cccaDistAwWebViewEnabled",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDistAwWebViewServerName": {
+    "name": "cccaDistAwWebViewServerName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDistAwWebReskillingURL": {
+    "name": "cccaDistAwWebReskillingURL",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPgTable": {
+    "name": "cccaPgTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaPgEntry": {
+    "name": "cccaPgEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaPgNumber": {
+    "name": "cccaPgNumber",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cccaPgSide": {
+    "name": "cccaPgSide",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentSide",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPgRouterSideAName": {
+    "name": "cccaPgRouterSideAName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPgRouterSideBName": {
+    "name": "cccaPgRouterSideBName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPgDuplexPairName": {
+    "name": "cccaPgDuplexPairName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPgPimCount": {
+    "name": "cccaPgPimCount",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPgCallsInProgress": {
+    "name": "cccaPgCallsInProgress",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPgAgentsLoggedOn": {
+    "name": "cccaPgAgentsLoggedOn",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPgAgentsReady": {
+    "name": "cccaPgAgentsReady",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPgAgentsTalking": {
+    "name": "cccaPgAgentsTalking",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPgID": {
+    "name": "cccaPgID",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPimTable": {
+    "name": "cccaPimTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaPimEntry": {
+    "name": "cccaPimEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPimNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaPimNumber": {
+    "name": "cccaPimNumber",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaPimPeripheralName": {
+    "name": "cccaPimPeripheralName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPimPeripheralType": {
+    "name": "cccaPimPeripheralType",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaPeripheralType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPimStatus": {
+    "name": "cccaPimStatus",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaPimPeripheralHostName": {
+    "name": "cccaPimPeripheralHostName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCgTable": {
+    "name": "cccaCgTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaCgEntry": {
+    "name": "cccaCgEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaCgNumber": {
+    "name": "cccaCgNumber",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cccaCgSide": {
+    "name": "cccaCgSide",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentSide",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCgPgSideAName": {
+    "name": "cccaCgPgSideAName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCgPgSideBName": {
+    "name": "cccaCgPgSideBName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCgDuplexPairName": {
+    "name": "cccaCgDuplexPairName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCgOpenSessions": {
+    "name": "cccaCgOpenSessions",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCgOtherSessions": {
+    "name": "cccaCgOtherSessions",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCgID": {
+    "name": "cccaCgID",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCtiOsTable": {
+    "name": "cccaCtiOsTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaCtiOsEntry": {
+    "name": "cccaCtiOsEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaCtiOsServerName": {
+    "name": "cccaCtiOsServerName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCtiOsPeripheralName": {
+    "name": "cccaCtiOsPeripheralName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCtiOsPeripheralType": {
+    "name": "cccaCtiOsPeripheralType",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaPeripheralType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCtiOsCgSideAName": {
+    "name": "cccaCtiOsCgSideAName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCtiOsCgSideBName": {
+    "name": "cccaCtiOsCgSideBName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCtiOsPeerName": {
+    "name": "cccaCtiOsPeerName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCtiOsActiveClients": {
+    "name": "cccaCtiOsActiveClients",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCtiOsActiveMonitors": {
+    "name": "cccaCtiOsActiveMonitors",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCtiOsCallsInProgress": {
+    "name": "cccaCtiOsCallsInProgress",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCtiOsCallsFailed": {
+    "name": "cccaCtiOsCallsFailed",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCampaignMgrTable": {
+    "name": "cccaCampaignMgrTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaCampaignMgrEntry": {
+    "name": "cccaCampaignMgrEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaCampaignMgrDbUtilization": {
+    "name": "cccaCampaignMgrDbUtilization",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCampaignMgrQueueDepth": {
+    "name": "cccaCampaignMgrQueueDepth",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCampaignMgrAvgQueueTime": {
+    "name": "cccaCampaignMgrAvgQueueTime",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaCampaignMgrActiveDialers": {
+    "name": "cccaCampaignMgrActiveDialers",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "dialers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerTable": {
+    "name": "cccaDialerTable",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cccaDialerEntry": {
+    "name": "cccaDialerEntry",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cccaDialerCampaignMgrName": {
+    "name": "cccaDialerCampaignMgrName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerCampaignMgrStatus": {
+    "name": "cccaDialerCampaignMgrStatus",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerCtiServerAName": {
+    "name": "cccaDialerCtiServerAName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerCtiServerBName": {
+    "name": "cccaDialerCtiServerBName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressDNS",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerCtiServerStatus": {
+    "name": "cccaDialerCtiServerStatus",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerMediaRouterStatus": {
+    "name": "cccaDialerMediaRouterStatus",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerQueueDepth": {
+    "name": "cccaDialerQueueDepth",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerAvgQueueTime": {
+    "name": "cccaDialerAvgQueueTime",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerTalkingAgents": {
+    "name": "cccaDialerTalkingAgents",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "agents",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerCallAttemptsPerSec": {
+    "name": "cccaDialerCallAttemptsPerSec",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerConfiguredPorts": {
+    "name": "cccaDialerConfiguredPorts",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerBusyCustomerPorts": {
+    "name": "cccaDialerBusyCustomerPorts",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerBusyReservationPorts": {
+    "name": "cccaDialerBusyReservationPorts",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerIdlePorts": {
+    "name": "cccaDialerIdlePorts",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaDialerBlockedPorts": {
+    "name": "cccaDialerBlockedPorts",
+    "oid": "1.3.6.1.4.1.9.9.473.1.3.10.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "ports",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cccaEventComponentId": {
+    "name": "cccaEventComponentId",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaEventState": {
+    "name": "cccaEventState",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 0,
+          "applicationError": 2,
+          "raise": 4,
+          "singleStateRaise": 9
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaEventMessageId": {
+    "name": "cccaEventMessageId",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaEventOriginatingNode": {
+    "name": "cccaEventOriginatingNode",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaEventOriginatingNodeType": {
+    "name": "cccaEventOriginatingNodeType",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "router": 1,
+          "pg": 2,
+          "nic": 3,
+          "aw": 4,
+          "logger": 5,
+          "listener": 6,
+          "cg": 7,
+          "ba": 8
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaEventOriginatingProcessName": {
+    "name": "cccaEventOriginatingProcessName",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaEventOriginatingSide": {
+    "name": "cccaEventOriginatingSide",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CcaComponentSide",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaEventDmpId": {
+    "name": "cccaEventDmpId",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaEventSeverity": {
+    "name": "cccaEventSeverity",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 1,
+          "warning": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaEventTimestamp": {
+    "name": "cccaEventTimestamp",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaEventText": {
+    "name": "cccaEventText",
+    "oid": "1.3.6.1.4.1.9.9.473.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cccaIcmEvent": {
+    "name": "cccaIcmEvent",
+    "oid": "1.3.6.1.4.1.9.9.473.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventComponentId"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventState"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventMessageId"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventOriginatingNode"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventOriginatingNodeType"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventOriginatingProcessName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventOriginatingSide"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventDmpId"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventSeverity"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventTimestamp"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventText"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCccaMIBComplianceRev1": {
+    "name": "ciscoCccaMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.473.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cccaGeneralInfoGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaInstanceTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaComponentTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaComponentElmtTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaRouterTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaNicTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaLoggerTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaDistAwTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaPgTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaPimTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaCgTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaCtiOsTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaIcmNotificationInfoGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaIcmEventsGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoCccaMIBComplianceRev2": {
+    "name": "ciscoCccaMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.473.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cccaGeneralInfoGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaGeneralInfoGroupSup1",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaInstanceTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaComponentTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaComponentElmtTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaRouterTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaRouterTableGroupSup1",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaNicTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaLoggerTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaLoggerTableGroupSup1",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaDistAwTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaDistAwTableGroupSup1",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaPgTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaPgTableGroupSup1",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaPimTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaCgTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaCgTableGroupSup1",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaCtiOsTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaCtiOsTableGroupSup1",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaIcmNotificationInfoGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaIcmEventsGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaCampaignMgrTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      },
+      {
+        "object": "cccaDialerTableGroup",
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaGeneralInfoGroup": {
+    "name": "cccaGeneralInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDescription"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaVersion"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaTimeZoneName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaTimeZoneOffsetHours"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaTimeZoneOffsetMinutes"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaSupportToolsURL"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaInstanceTableGroup": {
+    "name": "cccaInstanceTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaInstanceName"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaComponentTableGroup": {
+    "name": "cccaComponentTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentType"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaComponentElmtTableGroup": {
+    "name": "cccaComponentElmtTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentElmtName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentElmtRunID"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaComponentElmtStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaRouterTableGroup": {
+    "name": "cccaRouterTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterSide"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterCallsPerSec"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterAgentsLoggedOn"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterCallsInProgress"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterDuplexPairName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterNicCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaNicTableGroup": {
+    "name": "cccaNicTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaNicType"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaNicStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaLoggerTableGroup": {
+    "name": "cccaLoggerTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaLoggerSide"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaLoggerType"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaLoggerRouterSideAName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaLoggerRouterSideBName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaLoggerDuplexPairName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaLoggerHDSReplication"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaDistAwTableGroup": {
+    "name": "cccaDistAwTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwSide"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwType"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwAdminSiteName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwRouterSideAName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwRouterSideBName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwLoggerSideAName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwLoggerSideBName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwDuplexPairName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwHDSEnabled"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwWebViewEnabled"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwWebViewServerName"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaPgTableGroup": {
+    "name": "cccaPgTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgNumber"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgSide"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgRouterSideAName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgRouterSideBName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgDuplexPairName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgPimCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaPimTableGroup": {
+    "name": "cccaPimTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPimPeripheralName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPimPeripheralType"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPimStatus"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPimPeripheralHostName"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaCgTableGroup": {
+    "name": "cccaCgTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCgNumber"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCgSide"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCgPgSideAName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCgPgSideBName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCgDuplexPairName"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaCtiOsTableGroup": {
+    "name": "cccaCtiOsTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCtiOsServerName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCtiOsPeripheralName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCtiOsPeripheralType"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCtiOsCgSideAName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCtiOsCgSideBName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCtiOsPeerName"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaIcmNotificationInfoGroup": {
+    "name": "cccaIcmNotificationInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventComponentId"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventState"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventMessageId"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventOriginatingNode"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventOriginatingNodeType"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventOriginatingProcessName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventOriginatingSide"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventDmpId"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventSeverity"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventTimestamp"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaEventText"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaIcmEventsGroup": {
+    "name": "cccaIcmEventsGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.14",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaIcmEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaCampaignMgrTableGroup": {
+    "name": "cccaCampaignMgrTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCampaignMgrDbUtilization"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCampaignMgrQueueDepth"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCampaignMgrAvgQueueTime"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCampaignMgrActiveDialers"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaDialerTableGroup": {
+    "name": "cccaDialerTableGroup",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerCampaignMgrName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerCampaignMgrStatus"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerCtiServerAName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerCtiServerBName"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerCtiServerStatus"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerMediaRouterStatus"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerQueueDepth"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerAvgQueueTime"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerTalkingAgents"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerCallAttemptsPerSec"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerConfiguredPorts"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerBusyCustomerPorts"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerBusyReservationPorts"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerIdlePorts"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDialerBlockedPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaGeneralInfoGroupSup1": {
+    "name": "cccaGeneralInfoGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaWebSetupURL"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaNotificationsEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaRouterTableGroupSup1": {
+    "name": "cccaRouterTableGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterPGsEnabledCount"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterCallsInQueue"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterAppGwEnabled"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterDBWorkerEnabled"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterPublicHighAddr"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterPublicNonHighAddr"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterPrivateHighAddr"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaRouterPrivateNonHighAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaLoggerTableGroupSup1": {
+    "name": "cccaLoggerTableGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaLoggerAvgDBWriteTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaDistAwTableGroupSup1": {
+    "name": "cccaDistAwTableGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaDistAwWebReskillingURL"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaPgTableGroupSup1": {
+    "name": "cccaPgTableGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgCallsInProgress"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgAgentsLoggedOn"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgAgentsReady"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgAgentsTalking"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaPgID"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaCgTableGroupSup1": {
+    "name": "cccaCgTableGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCgOpenSessions"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCgOtherSessions"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCgID"
+      }
+    ],
+    "status": "current"
+  },
+  "cccaCtiOsTableGroupSup1": {
+    "name": "cccaCtiOsTableGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.473.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCtiOsActiveClients"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCtiOsActiveMonitors"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCtiOsCallsInProgress"
+      },
+      {
+        "module": "CISCO-CONTACT-CENTER-APPS-MIB",
+        "object": "cccaCtiOsCallsFailed"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CONTACT-CENTER-APPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CONTACT-CENTER-APPS-MIB"
+  }
+}

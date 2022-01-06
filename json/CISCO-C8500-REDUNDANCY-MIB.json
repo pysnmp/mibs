@@ -1,0 +1,653 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoC8500RedundancyMIB": {
+    "name": "ciscoC8500RedundancyMIB",
+    "oid": "1.3.6.1.4.1.9.9.105",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-05-04 00:00",
+        "description": "Added the following scalar objects to ccrCpu group: ccrCpuStandbyEnableMode, ccrCpuSwitchoverTime, ccrForceCounterSync, ccrIfCounterSyncFreq, ccrVcCounterSyncFreq, ccrSigCounterSyncEnable."
+      },
+      {
+        "revision": "1998-06-22 00:00",
+        "description": "Initial version of the MIB Module."
+      }
+    ]
+  },
+  "RedundancyStatus": {
+    "name": "RedundancyStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPresent": 1,
+          "ok": 2,
+          "fault": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RedundancyMode": {
+    "name": "RedundancyMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "standby": 2,
+          "unused": 3,
+          "notPresent": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RedundancySlotIndex": {
+    "name": "RedundancySlotIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ciscoC8500RedundancyMIBObjects": {
+    "name": "ciscoC8500RedundancyMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.105.1",
+    "class": "objectidentity"
+  },
+  "ccrCpu": {
+    "name": "ccrCpu",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1",
+    "class": "objectidentity"
+  },
+  "ccrSwitch": {
+    "name": "ccrSwitch",
+    "oid": "1.3.6.1.4.1.9.9.105.1.2",
+    "class": "objectidentity"
+  },
+  "ccrCpuTable": {
+    "name": "ccrCpuTable",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrCpuEntry": {
+    "name": "ccrCpuEntry",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrCpuSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccrCpuSlotIndex": {
+    "name": "ccrCpuSlotIndex",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RedundancySlotIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrCpuMode": {
+    "name": "ccrCpuMode",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RedundancyMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrCpuStatus": {
+    "name": "ccrCpuStatus",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RedundancyStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrSyncConfigOnSet": {
+    "name": "ccrSyncConfigOnSet",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "runningConfig": 0,
+        "startupConfig": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrCpuStandbyEnableMode": {
+    "name": "ccrCpuStandbyEnableMode",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrCpuSwitchoverTime": {
+    "name": "ccrCpuSwitchoverTime",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrForceCounterSync": {
+    "name": "ccrForceCounterSync",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "forcesync": 1,
+          "noop": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrIfCounterSyncFreq": {
+    "name": "ccrIfCounterSyncFreq",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrVcCounterSyncFreq": {
+    "name": "ccrVcCounterSyncFreq",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1440
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrSigCounterSyncEnable": {
+    "name": "ccrSigCounterSyncEnable",
+    "oid": "1.3.6.1.4.1.9.9.105.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrSwitchTable": {
+    "name": "ccrSwitchTable",
+    "oid": "1.3.6.1.4.1.9.9.105.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrSwitchEntry": {
+    "name": "ccrSwitchEntry",
+    "oid": "1.3.6.1.4.1.9.9.105.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSwitchSlotIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccrSwitchSlotIndex": {
+    "name": "ccrSwitchSlotIndex",
+    "oid": "1.3.6.1.4.1.9.9.105.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RedundancySlotIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccrSwitchMode": {
+    "name": "ccrSwitchMode",
+    "oid": "1.3.6.1.4.1.9.9.105.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RedundancyMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccrSwitchStatus": {
+    "name": "ccrSwitchStatus",
+    "oid": "1.3.6.1.4.1.9.9.105.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RedundancyStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrSwitchLastSwitchoverTime": {
+    "name": "ccrSwitchLastSwitchoverTime",
+    "oid": "1.3.6.1.4.1.9.9.105.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrSwitchLastSwitchoverReason": {
+    "name": "ccrSwitchLastSwitchoverReason",
+    "oid": "1.3.6.1.4.1.9.9.105.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "notKnown": 2,
+          "userInitiated": 3,
+          "cardFailed": 4,
+          "cardRecovered": 5,
+          "cardRemoved": 6,
+          "cardInserted": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrSwitchBw": {
+    "name": "ccrSwitchBw",
+    "oid": "1.3.6.1.4.1.9.9.105.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenGbps": 1,
+          "twentyGbps": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccrDesiredSwitchBw": {
+    "name": "ccrDesiredSwitchBw",
+    "oid": "1.3.6.1.4.1.9.9.105.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenGbps": 1,
+          "twentyGbps": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoC8500RedundancyMIBNotificationPrefix": {
+    "name": "ciscoC8500RedundancyMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.105.2",
+    "class": "objectidentity"
+  },
+  "ccrMIBNotifications": {
+    "name": "ccrMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.105.2.0",
+    "class": "objectidentity"
+  },
+  "ccrCpuStatusChange": {
+    "name": "ccrCpuStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.105.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrCpuStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrSwitchStatusChange": {
+    "name": "ccrSwitchStatusChange",
+    "oid": "1.3.6.1.4.1.9.9.105.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSwitchStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrSwitchModeChange": {
+    "name": "ccrSwitchModeChange",
+    "oid": "1.3.6.1.4.1.9.9.105.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSwitchMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoC8500RedundancyMIBConformance": {
+    "name": "ciscoC8500RedundancyMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.105.3",
+    "class": "objectidentity"
+  },
+  "ciscoC8500RedundancyMIBCompliances": {
+    "name": "ciscoC8500RedundancyMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.105.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoC8500RedundancyMIBGroups": {
+    "name": "ciscoC8500RedundancyMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.105.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoC8500RedundancyMIBCompliance": {
+    "name": "ciscoC8500RedundancyMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.105.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccrCpuMibGroup",
+        "module": "CISCO-C8500-REDUNDANCY-MIB"
+      },
+      {
+        "object": "ccrSwitchMibGroup",
+        "module": "CISCO-C8500-REDUNDANCY-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoC8500RedundancyMIBComplianceRev1": {
+    "name": "ciscoC8500RedundancyMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.105.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ccrCpuMibGroup1",
+        "module": "CISCO-C8500-REDUNDANCY-MIB"
+      },
+      {
+        "object": "ccrSwitchMibGroup",
+        "module": "CISCO-C8500-REDUNDANCY-MIB"
+      },
+      {
+        "object": "ccrNotificationsGroup",
+        "module": "CISCO-C8500-REDUNDANCY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrCpuMibGroup": {
+    "name": "ccrCpuMibGroup",
+    "oid": "1.3.6.1.4.1.9.9.105.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrCpuMode"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrCpuStatus"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSyncConfigOnSet"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ccrSwitchMibGroup": {
+    "name": "ccrSwitchMibGroup",
+    "oid": "1.3.6.1.4.1.9.9.105.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSwitchMode"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSwitchStatus"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSwitchLastSwitchoverTime"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSwitchLastSwitchoverReason"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSwitchBw"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrDesiredSwitchBw"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrNotificationsGroup": {
+    "name": "ccrNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.105.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrCpuStatusChange"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSwitchStatusChange"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSwitchModeChange"
+      }
+    ],
+    "status": "current"
+  },
+  "ccrCpuMibGroup1": {
+    "name": "ccrCpuMibGroup1",
+    "oid": "1.3.6.1.4.1.9.9.105.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrCpuMode"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrCpuStatus"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSyncConfigOnSet"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrCpuStandbyEnableMode"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrCpuSwitchoverTime"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrForceCounterSync"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrIfCounterSyncFreq"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrVcCounterSyncFreq"
+      },
+      {
+        "module": "CISCO-C8500-REDUNDANCY-MIB",
+        "object": "ccrSigCounterSyncEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-C8500-REDUNDANCY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-C8500-REDUNDANCY-MIB"
+  }
+}

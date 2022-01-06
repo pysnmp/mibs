@@ -1,0 +1,1780 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "OSPF-MIB": [
+      "RouterID",
+      "ospfLsdbAreaId",
+      "ospfIfEntry",
+      "PositiveInteger",
+      "UpToMaxAge",
+      "AreaID",
+      "ospfLsdbRouterId",
+      "ospfLsdbLsid",
+      "ospfVirtIfEntry",
+      "Metric",
+      "ospfAreaEntry",
+      "HelloRange"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cospf": {
+    "name": "cospf",
+    "oid": "1.3.6.1.4.1.9.10.99",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-07-18 00:00",
+        "description": "+Deprecated cospfShamLinkTable. +Added cospfShamLinksTable. +Added cospfShamLinkNbrTable. +Fixed indentation and spelling."
+      },
+      {
+        "revision": "2003-01-28 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "cospfGeneralGroup": {
+    "name": "cospfGeneralGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.1",
+    "class": "objectidentity"
+  },
+  "cospfRFC1583Compatibility": {
+    "name": "cospfRFC1583Compatibility",
+    "oid": "1.3.6.1.4.1.9.10.99.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfOpaqueLsaSupport": {
+    "name": "cospfOpaqueLsaSupport",
+    "oid": "1.3.6.1.4.1.9.10.99.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfTrafficEngineeringSupport": {
+    "name": "cospfTrafficEngineeringSupport",
+    "oid": "1.3.6.1.4.1.9.10.99.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfOpaqueASLsaCount": {
+    "name": "cospfOpaqueASLsaCount",
+    "oid": "1.3.6.1.4.1.9.10.99.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfOpaqueASLsaCksumSum": {
+    "name": "cospfOpaqueASLsaCksumSum",
+    "oid": "1.3.6.1.4.1.9.10.99.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfAreaTable": {
+    "name": "cospfAreaTable",
+    "oid": "1.3.6.1.4.1.9.10.99.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfAreaEntry": {
+    "name": "cospfAreaEntry",
+    "oid": "1.3.6.1.4.1.9.10.99.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cospfAreaEntry",
+      "module": "CISCO-OSPF-MIB",
+      "object": "ospfAreaEntry"
+    },
+    "status": "current"
+  },
+  "cospfOpaqueAreaLsaCount": {
+    "name": "cospfOpaqueAreaLsaCount",
+    "oid": "1.3.6.1.4.1.9.10.99.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfOpaqueAreaLsaCksumSum": {
+    "name": "cospfOpaqueAreaLsaCksumSum",
+    "oid": "1.3.6.1.4.1.9.10.99.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfAreaNssaTranslatorRole": {
+    "name": "cospfAreaNssaTranslatorRole",
+    "oid": "1.3.6.1.4.1.9.10.99.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "always": 1,
+          "candidate": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "candidate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfAreaNssaTranslatorState": {
+    "name": "cospfAreaNssaTranslatorState",
+    "oid": "1.3.6.1.4.1.9.10.99.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "elected": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfAreaNssaTranslatorEvents": {
+    "name": "cospfAreaNssaTranslatorEvents",
+    "oid": "1.3.6.1.4.1.9.10.99.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfLsdbTable": {
+    "name": "cospfLsdbTable",
+    "oid": "1.3.6.1.4.1.9.10.99.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfLsdbEntry": {
+    "name": "cospfLsdbEntry",
+    "oid": "1.3.6.1.4.1.9.10.99.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbAreaId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cospfLsdbType": {
+    "name": "cospfLsdbType",
+    "oid": "1.3.6.1.4.1.9.10.99.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "areaOpaqueLink": 10,
+          "asOpaqueLink": 11
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfLsdbSequence": {
+    "name": "cospfLsdbSequence",
+    "oid": "1.3.6.1.4.1.9.10.99.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfLsdbAge": {
+    "name": "cospfLsdbAge",
+    "oid": "1.3.6.1.4.1.9.10.99.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfLsdbChecksum": {
+    "name": "cospfLsdbChecksum",
+    "oid": "1.3.6.1.4.1.9.10.99.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfLsdbAdvertisement": {
+    "name": "cospfLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.9.10.99.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfIfTable": {
+    "name": "cospfIfTable",
+    "oid": "1.3.6.1.4.1.9.10.99.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfIfEntry": {
+    "name": "cospfIfEntry",
+    "oid": "1.3.6.1.4.1.9.10.99.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cospfIfEntry",
+      "module": "CISCO-OSPF-MIB",
+      "object": "ospfIfEntry"
+    },
+    "status": "current"
+  },
+  "cospfIfLsaCount": {
+    "name": "cospfIfLsaCount",
+    "oid": "1.3.6.1.4.1.9.10.99.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfIfLsaCksumSum": {
+    "name": "cospfIfLsaCksumSum",
+    "oid": "1.3.6.1.4.1.9.10.99.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfVirtIfTable": {
+    "name": "cospfVirtIfTable",
+    "oid": "1.3.6.1.4.1.9.10.99.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfVirtIfEntry": {
+    "name": "cospfVirtIfEntry",
+    "oid": "1.3.6.1.4.1.9.10.99.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cospfVirtIfEntry",
+      "module": "CISCO-OSPF-MIB",
+      "object": "ospfVirtIfEntry"
+    },
+    "status": "current"
+  },
+  "cospfVirtIfLsaCount": {
+    "name": "cospfVirtIfLsaCount",
+    "oid": "1.3.6.1.4.1.9.10.99.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfVirtIfLsaCksumSum": {
+    "name": "cospfVirtIfLsaCksumSum",
+    "oid": "1.3.6.1.4.1.9.10.99.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinkTable": {
+    "name": "cospfShamLinkTable",
+    "oid": "1.3.6.1.4.1.9.10.99.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cospfShamLinkEntry": {
+    "name": "cospfShamLinkEntry",
+    "oid": "1.3.6.1.4.1.9.10.99.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkAreaId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkLocalIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkNeighborId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cospfShamLinkAreaId": {
+    "name": "cospfShamLinkAreaId",
+    "oid": "1.3.6.1.4.1.9.10.99.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cospfShamLinkLocalIpAddress": {
+    "name": "cospfShamLinkLocalIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.99.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cospfShamLinkNeighborId": {
+    "name": "cospfShamLinkNeighborId",
+    "oid": "1.3.6.1.4.1.9.10.99.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cospfShamLinkRetransInterval": {
+    "name": "cospfShamLinkRetransInterval",
+    "oid": "1.3.6.1.4.1.9.10.99.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cospfShamLinkHelloInterval": {
+    "name": "cospfShamLinkHelloInterval",
+    "oid": "1.3.6.1.4.1.9.10.99.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cospfShamLinkRtrDeadInterval": {
+    "name": "cospfShamLinkRtrDeadInterval",
+    "oid": "1.3.6.1.4.1.9.10.99.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cospfShamLinkState": {
+    "name": "cospfShamLinkState",
+    "oid": "1.3.6.1.4.1.9.10.99.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "pointToPoint": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cospfShamLinkEvents": {
+    "name": "cospfShamLinkEvents",
+    "oid": "1.3.6.1.4.1.9.10.99.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cospfShamLinkMetric": {
+    "name": "cospfShamLinkMetric",
+    "oid": "1.3.6.1.4.1.9.10.99.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cospfShamLinksTable": {
+    "name": "cospfShamLinksTable",
+    "oid": "1.3.6.1.4.1.9.10.99.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfShamLinksEntry": {
+    "name": "cospfShamLinksEntry",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksAreaId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksLocalIpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksLocalIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksRemoteIpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksRemoteIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cospfShamLinksAreaId": {
+    "name": "cospfShamLinksAreaId",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfShamLinksLocalIpAddrType": {
+    "name": "cospfShamLinksLocalIpAddrType",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfShamLinksLocalIpAddr": {
+    "name": "cospfShamLinksLocalIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfShamLinksRemoteIpAddrType": {
+    "name": "cospfShamLinksRemoteIpAddrType",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfShamLinksRemoteIpAddr": {
+    "name": "cospfShamLinksRemoteIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfShamLinksRetransInterval": {
+    "name": "cospfShamLinksRetransInterval",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinksHelloInterval": {
+    "name": "cospfShamLinksHelloInterval",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinksRtrDeadInterval": {
+    "name": "cospfShamLinksRtrDeadInterval",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinksState": {
+    "name": "cospfShamLinksState",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "pointToPoint": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinksEvents": {
+    "name": "cospfShamLinksEvents",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinksMetric": {
+    "name": "cospfShamLinksMetric",
+    "oid": "1.3.6.1.4.1.9.10.99.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinkNbrTable": {
+    "name": "cospfShamLinkNbrTable",
+    "oid": "1.3.6.1.4.1.9.10.99.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfShamLinkNbrEntry": {
+    "name": "cospfShamLinkNbrEntry",
+    "oid": "1.3.6.1.4.1.9.10.99.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksLocalIpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksLocalIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkNbrArea",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkNbrIpAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkNbrIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cospfShamLinkNbrArea": {
+    "name": "cospfShamLinkNbrArea",
+    "oid": "1.3.6.1.4.1.9.10.99.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfShamLinkNbrIpAddrType": {
+    "name": "cospfShamLinkNbrIpAddrType",
+    "oid": "1.3.6.1.4.1.9.10.99.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfShamLinkNbrIpAddr": {
+    "name": "cospfShamLinkNbrIpAddr",
+    "oid": "1.3.6.1.4.1.9.10.99.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfShamLinkNbrRtrId": {
+    "name": "cospfShamLinkNbrRtrId",
+    "oid": "1.3.6.1.4.1.9.10.99.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinkNbrOptions": {
+    "name": "cospfShamLinkNbrOptions",
+    "oid": "1.3.6.1.4.1.9.10.99.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinkNbrState": {
+    "name": "cospfShamLinkNbrState",
+    "oid": "1.3.6.1.4.1.9.10.99.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "twoWay": 4,
+          "exchangeStart": 5,
+          "exchange": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinkNbrEvents": {
+    "name": "cospfShamLinkNbrEvents",
+    "oid": "1.3.6.1.4.1.9.10.99.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinkNbrLsRetransQLen": {
+    "name": "cospfShamLinkNbrLsRetransQLen",
+    "oid": "1.3.6.1.4.1.9.10.99.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfShamLinkNbrHelloSuppressed": {
+    "name": "cospfShamLinkNbrHelloSuppressed",
+    "oid": "1.3.6.1.4.1.9.10.99.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfLocalLsdbTable": {
+    "name": "cospfLocalLsdbTable",
+    "oid": "1.3.6.1.4.1.9.10.99.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfLocalLsdbEntry": {
+    "name": "cospfLocalLsdbEntry",
+    "oid": "1.3.6.1.4.1.9.10.99.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLocalLsdbIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLocalLsdbAddressLessIf",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLocalLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLocalLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLocalLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cospfLocalLsdbIpAddress": {
+    "name": "cospfLocalLsdbIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.99.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfLocalLsdbAddressLessIf": {
+    "name": "cospfLocalLsdbAddressLessIf",
+    "oid": "1.3.6.1.4.1.9.10.99.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfLocalLsdbType": {
+    "name": "cospfLocalLsdbType",
+    "oid": "1.3.6.1.4.1.9.10.99.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localOpaqueLink": 9
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfLocalLsdbLsid": {
+    "name": "cospfLocalLsdbLsid",
+    "oid": "1.3.6.1.4.1.9.10.99.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfLocalLsdbRouterId": {
+    "name": "cospfLocalLsdbRouterId",
+    "oid": "1.3.6.1.4.1.9.10.99.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfLocalLsdbSequence": {
+    "name": "cospfLocalLsdbSequence",
+    "oid": "1.3.6.1.4.1.9.10.99.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfLocalLsdbAge": {
+    "name": "cospfLocalLsdbAge",
+    "oid": "1.3.6.1.4.1.9.10.99.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfLocalLsdbChecksum": {
+    "name": "cospfLocalLsdbChecksum",
+    "oid": "1.3.6.1.4.1.9.10.99.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfLocalLsdbAdvertisement": {
+    "name": "cospfLocalLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.9.10.99.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbTable": {
+    "name": "cospfVirtLocalLsdbTable",
+    "oid": "1.3.6.1.4.1.9.10.99.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbEntry": {
+    "name": "cospfVirtLocalLsdbEntry",
+    "oid": "1.3.6.1.4.1.9.10.99.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtLocalLsdbTransitArea",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtLocalLsdbNeighbor",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtLocalLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtLocalLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtLocalLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbTransitArea": {
+    "name": "cospfVirtLocalLsdbTransitArea",
+    "oid": "1.3.6.1.4.1.9.10.99.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbNeighbor": {
+    "name": "cospfVirtLocalLsdbNeighbor",
+    "oid": "1.3.6.1.4.1.9.10.99.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbType": {
+    "name": "cospfVirtLocalLsdbType",
+    "oid": "1.3.6.1.4.1.9.10.99.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localOpaqueLink": 9
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbLsid": {
+    "name": "cospfVirtLocalLsdbLsid",
+    "oid": "1.3.6.1.4.1.9.10.99.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbRouterId": {
+    "name": "cospfVirtLocalLsdbRouterId",
+    "oid": "1.3.6.1.4.1.9.10.99.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbSequence": {
+    "name": "cospfVirtLocalLsdbSequence",
+    "oid": "1.3.6.1.4.1.9.10.99.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbAge": {
+    "name": "cospfVirtLocalLsdbAge",
+    "oid": "1.3.6.1.4.1.9.10.99.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbChecksum": {
+    "name": "cospfVirtLocalLsdbChecksum",
+    "oid": "1.3.6.1.4.1.9.10.99.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbAdvertisement": {
+    "name": "cospfVirtLocalLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.9.10.99.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cospfConformance": {
+    "name": "cospfConformance",
+    "oid": "1.3.6.1.4.1.9.10.99.9",
+    "class": "objectidentity"
+  },
+  "cospfGroups": {
+    "name": "cospfGroups",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1",
+    "class": "objectidentity"
+  },
+  "cospfCompliances": {
+    "name": "cospfCompliances",
+    "oid": "1.3.6.1.4.1.9.10.99.9.2",
+    "class": "objectidentity"
+  },
+  "cospfCompliance": {
+    "name": "cospfCompliance",
+    "oid": "1.3.6.1.4.1.9.10.99.9.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cospfBasicGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfAreaGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfIfGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfVirtIfGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfShamLinkGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfLsdbGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfLocalLsdbGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfVirtLocalLsdbGroup",
+        "module": "CISCO-OSPF-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cospfComplianceRev1": {
+    "name": "cospfComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.10.99.9.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cospfBasicGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfAreaGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfIfGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfVirtIfGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfShamLinksGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfShamLinkNbrGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfLsdbGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfLocalLsdbGroup",
+        "module": "CISCO-OSPF-MIB"
+      },
+      {
+        "object": "cospfVirtLocalLsdbGroup",
+        "module": "CISCO-OSPF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cospfLsdbGroup": {
+    "name": "cospfLsdbGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLsdbSequence"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLsdbAge"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLsdbChecksum"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLsdbAdvertisement"
+      }
+    ],
+    "status": "current"
+  },
+  "cospfLocalLsdbGroup": {
+    "name": "cospfLocalLsdbGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLocalLsdbSequence"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLocalLsdbAge"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLocalLsdbChecksum"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfLocalLsdbAdvertisement"
+      }
+    ],
+    "status": "current"
+  },
+  "cospfVirtLocalLsdbGroup": {
+    "name": "cospfVirtLocalLsdbGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtLocalLsdbSequence"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtLocalLsdbAge"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtLocalLsdbChecksum"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtLocalLsdbAdvertisement"
+      }
+    ],
+    "status": "current"
+  },
+  "cospfBasicGroup": {
+    "name": "cospfBasicGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfRFC1583Compatibility"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfOpaqueLsaSupport"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfTrafficEngineeringSupport"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfOpaqueASLsaCount"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfOpaqueASLsaCksumSum"
+      }
+    ],
+    "status": "current"
+  },
+  "cospfAreaGroup": {
+    "name": "cospfAreaGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfOpaqueAreaLsaCount"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfOpaqueAreaLsaCksumSum"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfAreaNssaTranslatorRole"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfAreaNssaTranslatorState"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfAreaNssaTranslatorEvents"
+      }
+    ],
+    "status": "current"
+  },
+  "cospfIfGroup": {
+    "name": "cospfIfGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfIfLsaCount"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfIfLsaCksumSum"
+      }
+    ],
+    "status": "current"
+  },
+  "cospfVirtIfGroup": {
+    "name": "cospfVirtIfGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtIfLsaCount"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfVirtIfLsaCksumSum"
+      }
+    ],
+    "status": "current"
+  },
+  "cospfShamLinkGroup": {
+    "name": "cospfShamLinkGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkRetransInterval"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkHelloInterval"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkRtrDeadInterval"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkState"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkEvents"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkMetric"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cospfShamLinkNbrGroup": {
+    "name": "cospfShamLinkNbrGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkNbrRtrId"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkNbrOptions"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkNbrState"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkNbrEvents"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkNbrLsRetransQLen"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinkNbrHelloSuppressed"
+      }
+    ],
+    "status": "current"
+  },
+  "cospfShamLinksGroup": {
+    "name": "cospfShamLinksGroup",
+    "oid": "1.3.6.1.4.1.9.10.99.9.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksRetransInterval"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksHelloInterval"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksRtrDeadInterval"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksState"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksEvents"
+      },
+      {
+        "module": "CISCO-OSPF-MIB",
+        "object": "cospfShamLinksMetric"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OSPF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:23 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-OSPF-MIB"
+  }
+}

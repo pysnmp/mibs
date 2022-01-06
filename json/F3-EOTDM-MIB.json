@@ -1,0 +1,745 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "SecondaryState",
+      "OperationalState",
+      "AdminState"
+    ],
+    "CM-ENTITY-MIB": [
+      "slotIndex",
+      "neIndex",
+      "shelfIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Gauge32",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "VariablePointer"
+    ]
+  },
+  "f3EOTDMMIB": {
+    "name": "f3EOTDMMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.17",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-05-10 00:00",
+        "description": "Notes from release 201205100000Z, (1)MIB version ready for release FSP150CM 5.5."
+      }
+    ]
+  },
+  "f3EotdmObjects": {
+    "name": "f3EotdmObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1",
+    "class": "objectidentity"
+  },
+  "f3EotdmConformance": {
+    "name": "f3EotdmConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.2",
+    "class": "objectidentity"
+  },
+  "VcgType": {
+    "name": "VcgType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "t1": 1,
+          "e1": 2,
+          "t3": 3,
+          "e3": 4,
+          "vc12": 5,
+          "vc3": 6,
+          "vc4": 7,
+          "vt15": 8,
+          "sts1": 9,
+          "sts3c": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "WtrTime": {
+    "name": "WtrTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HoldOffTime": {
+    "name": "HoldOffTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CtrlState": {
+    "name": "CtrlState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ctrlNotAppl": 0,
+          "ctrlFixed": 1,
+          "ctrlAdd": 2,
+          "ctrlNorm": 3,
+          "ctrlEos": 4,
+          "ctrlIdle": 5,
+          "ctrlDnu": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LcasSoState": {
+    "name": "LcasSoState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "srcNotAppl": 0,
+          "srcIdle": 1,
+          "srcAdd": 2,
+          "srcNorm": 3,
+          "srcDnu": 4,
+          "srcRemove": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MstState": {
+    "name": "MstState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mstNotAppl": 0,
+          "mstOk": 1,
+          "mstFail": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LcasSkState": {
+    "name": "LcasSkState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sinkNotAppl": 0,
+          "sinkIdle": 1,
+          "sinkOk": 2,
+          "sinkFail": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "vcgTable": {
+    "name": "vcgTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcgEntry": {
+    "name": "vcgEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcgIndex": {
+    "name": "vcgIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgIfIndex": {
+    "name": "vcgIfIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgAssociatedEthernetPort": {
+    "name": "vcgAssociatedEthernetPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgAdminState": {
+    "name": "vcgAdminState",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vcgOperationalState": {
+    "name": "vcgOperationalState",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgSecondaryState": {
+    "name": "vcgSecondaryState",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SecondaryState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgType": {
+    "name": "vcgType",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcgType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgLcasEnabled": {
+    "name": "vcgLcasEnabled",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vcgWtrTimer": {
+    "name": "vcgWtrTimer",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "WtrTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vcgHoldOffTimer": {
+    "name": "vcgHoldOffTimer",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HoldOffTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vcgClearWtrTimer": {
+    "name": "vcgClearWtrTimer",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vcgRowStatus": {
+    "name": "vcgRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vcgMemberTable": {
+    "name": "vcgMemberTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcgMemberEntry": {
+    "name": "vcgMemberEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcgMemberIndex": {
+    "name": "vcgMemberIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgMemberIfIndex": {
+    "name": "vcgMemberIfIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vcgMemberRowStatus": {
+    "name": "vcgMemberRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vcgMemberSoSendSeq": {
+    "name": "vcgMemberSoSendSeq",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgMemberSoLcasSendCtrl": {
+    "name": "vcgMemberSoLcasSendCtrl",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtrlState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgMemberSoLcasRecvMst": {
+    "name": "vcgMemberSoLcasRecvMst",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MstState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgMemberSoLcasState": {
+    "name": "vcgMemberSoLcasState",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LcasSoState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgMemberSkRecvSeq": {
+    "name": "vcgMemberSkRecvSeq",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgMemberSkRecvExpectSeq": {
+    "name": "vcgMemberSkRecvExpectSeq",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgMemberSkLcasRecvCtrl": {
+    "name": "vcgMemberSkLcasRecvCtrl",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CtrlState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgMemberSkLcasSendMst": {
+    "name": "vcgMemberSkLcasSendMst",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MstState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcgMemberSkLcasState": {
+    "name": "vcgMemberSkLcasState",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LcasSkState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3EotdmCompliances": {
+    "name": "f3EotdmCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.2.1",
+    "class": "objectidentity"
+  },
+  "f3EotdmGroups": {
+    "name": "f3EotdmGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.2.2",
+    "class": "objectidentity"
+  },
+  "f3EotdmCompliance": {
+    "name": "f3EotdmCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3EotdmObjectGroup",
+        "module": "F3-EOTDM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3EotdmObjectGroup": {
+    "name": "f3EotdmObjectGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.17.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgIndex"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgIfIndex"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgAssociatedEthernetPort"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgAdminState"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgOperationalState"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgSecondaryState"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgType"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgLcasEnabled"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgWtrTimer"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgHoldOffTimer"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgClearWtrTimer"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgRowStatus"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberIndex"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberIfIndex"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberRowStatus"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberSoSendSeq"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberSoLcasSendCtrl"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberSoLcasRecvMst"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberSoLcasState"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberSkRecvSeq"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberSkRecvExpectSeq"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberSkLcasRecvCtrl"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberSkLcasSendMst"
+      },
+      {
+        "module": "F3-EOTDM-MIB",
+        "object": "vcgMemberSkLcasState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-EOTDM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:16:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "F3-EOTDM-MIB"
+  }
+}

@@ -1,0 +1,1891 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "EntPhysicalIndexOrZero"
+    ],
+    "ENTITY-MIB": [
+      "entPhysicalName",
+      "PhysicalIndex",
+      "entPhysicalIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFabricC12kMIB": {
+    "name": "ciscoFabricC12kMIB",
+    "oid": "1.3.6.1.4.1.9.9.281",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-20 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFabricC12kMIBNotifs": {
+    "name": "ciscoFabricC12kMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.281.0",
+    "class": "objectidentity"
+  },
+  "ciscoFabricC12kMIBObjects": {
+    "name": "ciscoFabricC12kMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.281.1",
+    "class": "objectidentity"
+  },
+  "ciscoFabricC12kMIBConform": {
+    "name": "ciscoFabricC12kMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.281.2",
+    "class": "objectidentity"
+  },
+  "cfcGeneric": {
+    "name": "cfcGeneric",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1",
+    "class": "objectidentity"
+  },
+  "cfcGenericGlobal": {
+    "name": "cfcGenericGlobal",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.1",
+    "class": "objectidentity"
+  },
+  "cfcGenericFab": {
+    "name": "cfcGenericFab",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2",
+    "class": "objectidentity"
+  },
+  "cfcGenericSca": {
+    "name": "cfcGenericSca",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3",
+    "class": "objectidentity"
+  },
+  "cfcGenericXbar": {
+    "name": "cfcGenericXbar",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.4",
+    "class": "objectidentity"
+  },
+  "cfcPreOc192": {
+    "name": "cfcPreOc192",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2",
+    "class": "objectidentity"
+  },
+  "cfcPreOc192Fab": {
+    "name": "cfcPreOc192Fab",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1",
+    "class": "objectidentity"
+  },
+  "cfcPreOc192Sca": {
+    "name": "cfcPreOc192Sca",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.2",
+    "class": "objectidentity"
+  },
+  "cfcPreOc192Xbar": {
+    "name": "cfcPreOc192Xbar",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.3",
+    "class": "objectidentity"
+  },
+  "cfcOc192": {
+    "name": "cfcOc192",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3",
+    "class": "objectidentity"
+  },
+  "cfcOc192Fab": {
+    "name": "cfcOc192Fab",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1",
+    "class": "objectidentity"
+  },
+  "cfcOc192Sca": {
+    "name": "cfcOc192Sca",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.2",
+    "class": "objectidentity"
+  },
+  "cfcOc192Xbar": {
+    "name": "cfcOc192Xbar",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.3",
+    "class": "objectidentity"
+  },
+  "cfcNotif": {
+    "name": "cfcNotif",
+    "oid": "1.3.6.1.4.1.9.9.281.1.4",
+    "class": "objectidentity"
+  },
+  "CfcFabricConfigMode": {
+    "name": "CfcFabricConfigMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalidMode": 1,
+          "quarterBwNonRedundant": 2,
+          "quarterBwRedundant": 3,
+          "fullBwNonRedundant": 4,
+          "fullBwRedundant": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CfcFabricFiaState": {
+    "name": "CfcFabricFiaState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "halted": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CfcScaInterrupts": {
+    "name": "CfcScaInterrupts",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "lossOfSync": 0,
+        "parityError": 1,
+        "overflow": 2
+      }
+    },
+    "status": "current"
+  },
+  "CfcSlotMask": {
+    "name": "CfcSlotMask",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cfcGenericGlobalFabConfigMode": {
+    "name": "cfcGenericGlobalFabConfigMode",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcFabricConfigMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericGlobalFabMasterSched": {
+    "name": "cfcGenericGlobalFabMasterSched",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntPhysicalIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericFabToFabTable": {
+    "name": "cfcGenericFabToFabTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcGenericFabToFabEntry": {
+    "name": "cfcGenericFabToFabEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcGenericFabToFabState": {
+    "name": "cfcGenericFabToFabState",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcFabricFiaState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericFabToFabGrantPEs": {
+    "name": "cfcGenericFabToFabGrantPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericFabToFabRequestPEs": {
+    "name": "cfcGenericFabToFabRequestPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericFabToFabCellFifoPEs": {
+    "name": "cfcGenericFabToFabCellFifoPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericFabFrFabTable": {
+    "name": "cfcGenericFabFrFabTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcGenericFabFrFabEntry": {
+    "name": "cfcGenericFabFrFabEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcGenericFabFrFabState": {
+    "name": "cfcGenericFabFrFabState",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcFabricFiaState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericFabFrFabSliTable": {
+    "name": "cfcGenericFabFrFabSliTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcGenericFabFrFabSliEntry": {
+    "name": "cfcGenericFabFrFabSliEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericFabFrFabSliFabIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcGenericFabFrFabSliFabIndex": {
+    "name": "cfcGenericFabFrFabSliFabIndex",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcGenericFabFrFabSliLOSErrors": {
+    "name": "cfcGenericFabFrFabSliLOSErrors",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericFabFrFabSliCRCErrors": {
+    "name": "cfcGenericFabFrFabSliCRCErrors",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericFabFrFabSliLOSState": {
+    "name": "cfcGenericFabFrFabSliLOSState",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "losOff": 1,
+          "losOn": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericScaTable": {
+    "name": "cfcGenericScaTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcGenericScaEntry": {
+    "name": "cfcGenericScaEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcGenericScaIdentifier": {
+    "name": "cfcGenericScaIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericScaIntrStatus": {
+    "name": "cfcGenericScaIntrStatus",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcScaInterrupts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericScaIntrsEnabled": {
+    "name": "cfcGenericScaIntrsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcScaInterrupts",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericScaConfig": {
+    "name": "cfcGenericScaConfig",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "quarterBandwidth": 0,
+        "halfBandwidth": 1,
+        "fullBandwidth": 2,
+        "enableParity": 3,
+        "priMcast": 4,
+        "priUnicast": 5,
+        "priAlternating": 6,
+        "earlyIntrOnLOS": 7,
+        "noEarlyIntrOnLOS": 8,
+        "forceXbarParityXer": 9,
+        "forceGrantParityXer": 10,
+        "unicastAcceptMode": 11,
+        "forceXbarCrcOnCtlLink0": 12,
+        "forceXbarCrcOnCtlLink1": 13,
+        "forceXbarCrcOnCtlLink2": 14,
+        "forceXbarCrcOnCtlLink3": 15
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericScaPELog": {
+    "name": "cfcGenericScaPELog",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcSlotMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericScaFifoOverflowLog": {
+    "name": "cfcGenericScaFifoOverflowLog",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcSlotMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericScaLCsEnabled": {
+    "name": "cfcGenericScaLCsEnabled",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcSlotMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericScaForcedBackPressure": {
+    "name": "cfcGenericScaForcedBackPressure",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcSlotMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericScaOc192LCsPresent": {
+    "name": "cfcGenericScaOc192LCsPresent",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcSlotMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericScaPreOc192LCsPresent": {
+    "name": "cfcGenericScaPreOc192LCsPresent",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcSlotMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcGenericXbarTable": {
+    "name": "cfcGenericXbarTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcGenericXbarEntry": {
+    "name": "cfcGenericXbarEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcGenericXbarIdentifier": {
+    "name": "cfcGenericXbarIdentifier",
+    "oid": "1.3.6.1.4.1.9.9.281.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabTable": {
+    "name": "cfcPreOc192FabToFabTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabEntry": {
+    "name": "cfcPreOc192FabToFabEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabScaLosts": {
+    "name": "cfcPreOc192FabToFabScaLosts",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabUCFifoOvFlws": {
+    "name": "cfcPreOc192FabToFabUCFifoOvFlws",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabUCFifoUnFlws": {
+    "name": "cfcPreOc192FabToFabUCFifoUnFlws",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabMCFifoErrs": {
+    "name": "cfcPreOc192FabToFabMCFifoErrs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabBmaPEs": {
+    "name": "cfcPreOc192FabToFabBmaPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabBmaHskErrs": {
+    "name": "cfcPreOc192FabToFabBmaHskErrs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabUniDestMCRqs": {
+    "name": "cfcPreOc192FabToFabUniDestMCRqs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabMultiDstUCRqs": {
+    "name": "cfcPreOc192FabToFabMultiDstUCRqs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabToFabEmptyDestRqs": {
+    "name": "cfcPreOc192FabToFabEmptyDestRqs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabFrFabTable": {
+    "name": "cfcPreOc192FabFrFabTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcPreOc192FabFrFabEntry": {
+    "name": "cfcPreOc192FabFrFabEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcPreOc192FabFrFabCellFifoPEs": {
+    "name": "cfcPreOc192FabFrFabCellFifoPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabFrFabRedFifoPEs": {
+    "name": "cfcPreOc192FabFrFabRedFifoPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabFrFabRedFifoOvflws": {
+    "name": "cfcPreOc192FabFrFabRedFifoOvflws",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192FabFrFabCellDrops": {
+    "name": "cfcPreOc192FabFrFabCellDrops",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192ScaTable": {
+    "name": "cfcPreOc192ScaTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcPreOc192ScaEntry": {
+    "name": "cfcPreOc192ScaEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcPreOc192ScaReSyncDelay": {
+    "name": "cfcPreOc192ScaReSyncDelay",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192ScaLOSLog": {
+    "name": "cfcPreOc192ScaLOSLog",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcSlotMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192XbarTable": {
+    "name": "cfcPreOc192XbarTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcPreOc192XbarEntry": {
+    "name": "cfcPreOc192XbarEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcPreOc192XbarIntrStatus": {
+    "name": "cfcPreOc192XbarIntrStatus",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "frameLossOfSync": 0,
+        "parityErrorFromSca": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcPreOc192XbarParityChkStatus": {
+    "name": "cfcPreOc192XbarParityChkStatus",
+    "oid": "1.3.6.1.4.1.9.9.281.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabToFabTable": {
+    "name": "cfcOc192FabToFabTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcOc192FabToFabEntry": {
+    "name": "cfcOc192FabToFabEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcOc192FabToFabMccDataPEs": {
+    "name": "cfcOc192FabToFabMccDataPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabToFabMccCmdPEs": {
+    "name": "cfcOc192FabToFabMccCmdPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabToFabBackPressurePEs": {
+    "name": "cfcOc192FabToFabBackPressurePEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabToFabCellFifoOvFlws": {
+    "name": "cfcOc192FabToFabCellFifoOvFlws",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabToFabCellFifoUnFlws": {
+    "name": "cfcOc192FabToFabCellFifoUnFlws",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabToFabMccCmdSeqEndErrs": {
+    "name": "cfcOc192FabToFabMccCmdSeqEndErrs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabToFabMccCmdSeqStrErrs": {
+    "name": "cfcOc192FabToFabMccCmdSeqStrErrs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabTable": {
+    "name": "cfcOc192FabFrFabTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabEntry": {
+    "name": "cfcOc192FabFrFabEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcOc192FabFrFabPktLenErrs": {
+    "name": "cfcOc192FabFrFabPktLenErrs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabExtRamPEs": {
+    "name": "cfcOc192FabFrFabExtRamPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabPktLenPEs": {
+    "name": "cfcOc192FabFrFabPktLenPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabHdrSramPEs": {
+    "name": "cfcOc192FabFrFabHdrSramPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabTxCtrlPEs": {
+    "name": "cfcOc192FabFrFabTxCtrlPEs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabHdrFifoOvFlws": {
+    "name": "cfcOc192FabFrFabHdrFifoOvFlws",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabExtSramOvFlws": {
+    "name": "cfcOc192FabFrFabExtSramOvFlws",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabFirstLastErrs": {
+    "name": "cfcOc192FabFrFabFirstLastErrs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabSeqErrs": {
+    "name": "cfcOc192FabFrFabSeqErrs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabSliTable": {
+    "name": "cfcOc192FabFrFabSliTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabSliEntry": {
+    "name": "cfcOc192FabFrFabSliEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabSliSwitchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcOc192FabFrFabSliSwitchIndex": {
+    "name": "cfcOc192FabFrFabSliSwitchIndex",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabSliXorErrs": {
+    "name": "cfcOc192FabFrFabSliXorErrs",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabSliCellDrops": {
+    "name": "cfcOc192FabFrFabSliCellDrops",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabStatTable": {
+    "name": "cfcOc192FabFrFabStatTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabStatEntry": {
+    "name": "cfcOc192FabFrFabStatEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabStatLCIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcOc192FabFrFabStatLCIndex": {
+    "name": "cfcOc192FabFrFabStatLCIndex",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysicalIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabStatUCHiPktDrops": {
+    "name": "cfcOc192FabFrFabStatUCHiPktDrops",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabStatUCLoPktDrops": {
+    "name": "cfcOc192FabFrFabStatUCLoPktDrops",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabStatMCHiPktDrops": {
+    "name": "cfcOc192FabFrFabStatMCHiPktDrops",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192FabFrFabStatMCLoPktDrops": {
+    "name": "cfcOc192FabFrFabStatMCLoPktDrops",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192ScaTable": {
+    "name": "cfcOc192ScaTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcOc192ScaEntry": {
+    "name": "cfcOc192ScaEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcOc192ScaRotationPeriod": {
+    "name": "cfcOc192ScaRotationPeriod",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192ScaDisableGrants": {
+    "name": "cfcOc192ScaDisableGrants",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CfcSlotMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192XbarTable": {
+    "name": "cfcOc192XbarTable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfcOc192XbarEntry": {
+    "name": "cfcOc192XbarEntry",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfcOc192XbarCtrlLOSStatus": {
+    "name": "cfcOc192XbarCtrlLOSStatus",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "frameLosErr": 0,
+        "sliErrorOnControlLink0": 1,
+        "sliErrorOnControlLink1": 2,
+        "sliErrorOnControlLink2": 3,
+        "sliErrorOnControlLink3": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcOc192XbarCtrlCRCErr": {
+    "name": "cfcOc192XbarCtrlCRCErr",
+    "oid": "1.3.6.1.4.1.9.9.281.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ctlCrcErrorLink0": 0,
+        "ctlCrcErrorLink1": 1,
+        "ctlCrcErrorLink2": 2,
+        "ctlCrcErrorLink3": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfcNotifEnable": {
+    "name": "cfcNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.281.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoFabricC12kMIBFabMasterSchCh": {
+    "name": "ciscoFabricC12kMIBFabMasterSchCh",
+    "oid": "1.3.6.1.4.1.9.9.281.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericGlobalFabMasterSched"
+      },
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kMIBCompliances": {
+    "name": "ciscoFabricC12kMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.281.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoFabricC12kMIBGroups": {
+    "name": "ciscoFabricC12kMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoFabricC12kMIBCompliance": {
+    "name": "ciscoFabricC12kMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.281.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFabricC12kGlobalGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kFiaGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kScaGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kXbarGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kPreOc192FiaGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kNotifEnableGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kNotifGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kPreOc192ScaGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kPreOc192XbarGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kOc192FiaGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kOc192LCGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kOc192ScaGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      },
+      {
+        "object": "ciscoFabricC12kOc192XbarGroup",
+        "module": "CISCO-FABRIC-C12K-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kGlobalGroup": {
+    "name": "ciscoFabricC12kGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericGlobalFabConfigMode"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericGlobalFabMasterSched"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kFiaGroup": {
+    "name": "ciscoFabricC12kFiaGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericFabToFabState"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericFabToFabGrantPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericFabToFabRequestPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericFabToFabCellFifoPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericFabFrFabState"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericFabFrFabSliLOSErrors"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericFabFrFabSliCRCErrors"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericFabFrFabSliLOSState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kScaGroup": {
+    "name": "ciscoFabricC12kScaGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericScaIdentifier"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericScaIntrStatus"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericScaIntrsEnabled"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericScaConfig"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericScaPELog"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericScaFifoOverflowLog"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericScaLCsEnabled"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericScaForcedBackPressure"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericScaPreOc192LCsPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kXbarGroup": {
+    "name": "ciscoFabricC12kXbarGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericXbarIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kPreOc192FiaGroup": {
+    "name": "ciscoFabricC12kPreOc192FiaGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabToFabScaLosts"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabToFabUCFifoOvFlws"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabToFabUCFifoUnFlws"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabToFabMCFifoErrs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabToFabBmaPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabToFabBmaHskErrs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabToFabUniDestMCRqs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabToFabMultiDstUCRqs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabToFabEmptyDestRqs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabFrFabCellFifoPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabFrFabRedFifoPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabFrFabRedFifoOvflws"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192FabFrFabCellDrops"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kPreOc192ScaGroup": {
+    "name": "ciscoFabricC12kPreOc192ScaGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192ScaReSyncDelay"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192ScaLOSLog"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kPreOc192XbarGroup": {
+    "name": "ciscoFabricC12kPreOc192XbarGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192XbarIntrStatus"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcPreOc192XbarParityChkStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kOc192FiaGroup": {
+    "name": "ciscoFabricC12kOc192FiaGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabToFabMccDataPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabToFabMccCmdPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabToFabBackPressurePEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabToFabCellFifoOvFlws"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabToFabCellFifoUnFlws"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabToFabMccCmdSeqEndErrs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabToFabMccCmdSeqStrErrs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabPktLenErrs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabExtRamPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabPktLenPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabHdrSramPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabTxCtrlPEs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabHdrFifoOvFlws"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabExtSramOvFlws"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabFirstLastErrs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabSeqErrs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabSliXorErrs"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabSliCellDrops"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabStatUCHiPktDrops"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabStatUCLoPktDrops"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabStatMCHiPktDrops"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192FabFrFabStatMCLoPktDrops"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kOc192LCGroup": {
+    "name": "ciscoFabricC12kOc192LCGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcGenericScaOc192LCsPresent"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kOc192ScaGroup": {
+    "name": "ciscoFabricC12kOc192ScaGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192ScaRotationPeriod"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192ScaDisableGrants"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kOc192XbarGroup": {
+    "name": "ciscoFabricC12kOc192XbarGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192XbarCtrlLOSStatus"
+      },
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcOc192XbarCtrlCRCErr"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kNotifEnableGroup": {
+    "name": "ciscoFabricC12kNotifEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "cfcNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFabricC12kNotifGroup": {
+    "name": "ciscoFabricC12kNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.281.2.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FABRIC-C12K-MIB",
+        "object": "ciscoFabricC12kMIBFabMasterSchCh"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FABRIC-C12K-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FABRIC-C12K-MIB"
+  }
+}

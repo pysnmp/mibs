@@ -1,0 +1,4967 @@
+{
+  "imports": {
+    "class": "imports",
+    "BARRACUDA-REF": [
+      "barracuda"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetPortNumber",
+      "InetAddress"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "bws": {
+    "name": "bws",
+    "oid": "1.3.6.1.4.1.20632.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-02-12 12:00",
+        "description": "Updated: Added bwsStats object"
+      }
+    ]
+  },
+  "bwstraps": {
+    "name": "bwstraps",
+    "oid": "1.3.6.1.4.1.20632.8.1",
+    "class": "objectidentity"
+  },
+  "bwsStats": {
+    "name": "bwsStats",
+    "oid": "1.3.6.1.4.1.20632.8.50",
+    "class": "objectidentity"
+  },
+  "bwsMIBConformance": {
+    "name": "bwsMIBConformance",
+    "oid": "1.3.6.1.4.1.20632.8.51",
+    "class": "objectidentity"
+  },
+  "bwsMIBCompliances": {
+    "name": "bwsMIBCompliances",
+    "oid": "1.3.6.1.4.1.20632.8.51.1",
+    "class": "objectidentity"
+  },
+  "bwsMIBGroups": {
+    "name": "bwsMIBGroups",
+    "oid": "1.3.6.1.4.1.20632.8.51.2",
+    "class": "objectidentity"
+  },
+  "totalApplications": {
+    "name": "totalApplications",
+    "oid": "1.3.6.1.4.1.20632.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalServers": {
+    "name": "totalServers",
+    "oid": "1.3.6.1.4.1.20632.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalAttacks": {
+    "name": "totalAttacks",
+    "oid": "1.3.6.1.4.1.20632.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeApplications": {
+    "name": "activeApplications",
+    "oid": "1.3.6.1.4.1.20632.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "activeServers": {
+    "name": "activeServers",
+    "oid": "1.3.6.1.4.1.20632.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsMessage": {
+    "name": "bwsMessage",
+    "oid": "1.3.6.1.4.1.20632.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "systemLoad": {
+    "name": "systemLoad",
+    "oid": "1.3.6.1.4.1.20632.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuFanSpeed": {
+    "name": "cpuFanSpeed",
+    "oid": "1.3.6.1.4.1.20632.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemFanSpeed": {
+    "name": "systemFanSpeed",
+    "oid": "1.3.6.1.4.1.20632.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuTemperature": {
+    "name": "cpuTemperature",
+    "oid": "1.3.6.1.4.1.20632.8.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "firmwareStorage": {
+    "name": "firmwareStorage",
+    "oid": "1.3.6.1.4.1.20632.8.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "logStorage": {
+    "name": "logStorage",
+    "oid": "1.3.6.1.4.1.20632.8.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "highAvailabilityStatus": {
+    "name": "highAvailabilityStatus",
+    "oid": "1.3.6.1.4.1.20632.8.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "operationalMode": {
+    "name": "operationalMode",
+    "oid": "1.3.6.1.4.1.20632.8.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dataPathStatus": {
+    "name": "dataPathStatus",
+    "oid": "1.3.6.1.4.1.20632.8.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkStatus": {
+    "name": "linkStatus",
+    "oid": "1.3.6.1.4.1.20632.8.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vipStatus": {
+    "name": "vipStatus",
+    "oid": "1.3.6.1.4.1.20632.8.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "memUtilization": {
+    "name": "memUtilization",
+    "oid": "1.3.6.1.4.1.20632.8.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpuUtilization": {
+    "name": "cpuUtilization",
+    "oid": "1.3.6.1.4.1.20632.8.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalBandwidth": {
+    "name": "totalBandwidth",
+    "oid": "1.3.6.1.4.1.20632.8.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "uptime": {
+    "name": "uptime",
+    "oid": "1.3.6.1.4.1.20632.8.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "totalMem": {
+    "name": "totalMem",
+    "oid": "1.3.6.1.4.1.20632.8.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "freeMem": {
+    "name": "freeMem",
+    "oid": "1.3.6.1.4.1.20632.8.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentFirmwareVersion": {
+    "name": "currentFirmwareVersion",
+    "oid": "1.3.6.1.4.1.20632.8.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "virusDefUpdates": {
+    "name": "virusDefUpdates",
+    "oid": "1.3.6.1.4.1.20632.8.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "securityDefUpdates": {
+    "name": "securityDefUpdates",
+    "oid": "1.3.6.1.4.1.20632.8.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemSerialNumber": {
+    "name": "systemSerialNumber",
+    "oid": "1.3.6.1.4.1.20632.8.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsHttpProxyStatsTable": {
+    "name": "bwsHttpProxyStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsHttpProxyStatsEntry": {
+    "name": "bwsHttpProxyStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "httpProxyAddressType": {
+    "name": "httpProxyAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "httpProxyAddress": {
+    "name": "httpProxyAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "httpProxyPort": {
+    "name": "httpProxyPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "httpProxyActiveConn": {
+    "name": "httpProxyActiveConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyTotalConn": {
+    "name": "httpProxyTotalConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyTotalReq": {
+    "name": "httpProxyTotalReq",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyServerReq": {
+    "name": "httpProxyServerReq",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyServerErr": {
+    "name": "httpProxyServerErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyClientAbrt": {
+    "name": "httpProxyClientAbrt",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyServerAbrt": {
+    "name": "httpProxyServerAbrt",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxySessionTimeOut": {
+    "name": "httpProxySessionTimeOut",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyParseErr": {
+    "name": "httpProxyParseErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyUnknownRsp": {
+    "name": "httpProxyUnknownRsp",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyInBytes": {
+    "name": "httpProxyInBytes",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyOutBytes": {
+    "name": "httpProxyOutBytes",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyWAFBlockedIntrusions": {
+    "name": "httpProxyWAFBlockedIntrusions",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyWAFMonitoredIntrusions": {
+    "name": "httpProxyWAFMonitoredIntrusions",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpProxyWAFWarnings": {
+    "name": "httpProxyWAFWarnings",
+    "oid": "1.3.6.1.4.1.20632.8.50.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsSslProxyStatsTable": {
+    "name": "bwsSslProxyStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsSslProxyStatsEntry": {
+    "name": "bwsSslProxyStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sslProxyAddressType": {
+    "name": "sslProxyAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslProxyAddress": {
+    "name": "sslProxyAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslProxyPort": {
+    "name": "sslProxyPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslProxyActiveConn": {
+    "name": "sslProxyActiveConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyFullHandshakes": {
+    "name": "sslProxyFullHandshakes",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyResumptionHandshakes": {
+    "name": "sslProxyResumptionHandshakes",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyHandshakeAttempts": {
+    "name": "sslProxyHandshakeAttempts",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyCacheHits": {
+    "name": "sslProxyCacheHits",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyCacheMiss": {
+    "name": "sslProxyCacheMiss",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyCacheTimeouts": {
+    "name": "sslProxyCacheTimeouts",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyErrPms": {
+    "name": "sslProxyErrPms",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyAuthBadCertErr": {
+    "name": "sslProxyAuthBadCertErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyAuthBadCNErr": {
+    "name": "sslProxyAuthBadCNErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyBadDNCErr": {
+    "name": "sslProxyBadDNCErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyBadCRLErr": {
+    "name": "sslProxyBadCRLErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyInBytes": {
+    "name": "sslProxyInBytes",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyOutBytes": {
+    "name": "sslProxyOutBytes",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyTotalReq": {
+    "name": "sslProxyTotalReq",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyTotalConn": {
+    "name": "sslProxyTotalConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslProxyCurrentConn": {
+    "name": "sslProxyCurrentConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsCompressionStatsTable": {
+    "name": "bwsCompressionStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsCompressionStatsEntry": {
+    "name": "bwsCompressionStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "webCmprProtocol",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCmprAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCmprAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCmprPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "webCmprProtocol": {
+    "name": "webCmprProtocol",
+    "oid": "1.3.6.1.4.1.20632.8.50.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "webCmprAddressType": {
+    "name": "webCmprAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "webCmprAddress": {
+    "name": "webCmprAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "webCmprPort": {
+    "name": "webCmprPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "webCmprNoOfReqCompressed": {
+    "name": "webCmprNoOfReqCompressed",
+    "oid": "1.3.6.1.4.1.20632.8.50.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCmprCompressibleDataSize": {
+    "name": "webCmprCompressibleDataSize",
+    "oid": "1.3.6.1.4.1.20632.8.50.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCmprCompressedDataSize": {
+    "name": "webCmprCompressedDataSize",
+    "oid": "1.3.6.1.4.1.20632.8.50.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsCacheStatsTable": {
+    "name": "bwsCacheStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsCacheStatsEntry": {
+    "name": "bwsCacheStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheProtocol",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCachePort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "webCacheProtocol": {
+    "name": "webCacheProtocol",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "webCacheAddressType": {
+    "name": "webCacheAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "webCacheAddress": {
+    "name": "webCacheAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "webCachePort": {
+    "name": "webCachePort",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "webCacheHits": {
+    "name": "webCacheHits",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCacheMiss": {
+    "name": "webCacheMiss",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCacheStale": {
+    "name": "webCacheStale",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCacheCacheableRes": {
+    "name": "webCacheCacheableRes",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCacheReq": {
+    "name": "webCacheReq",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCacheCachedObjects": {
+    "name": "webCacheCachedObjects",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCacheLongHdrs": {
+    "name": "webCacheLongHdrs",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "webCacheBytesOut": {
+    "name": "webCacheBytesOut",
+    "oid": "1.3.6.1.4.1.20632.8.50.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsHttpSrvrStatsTable": {
+    "name": "bwsHttpSrvrStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsHttpSrvrStatsEntry": {
+    "name": "bwsHttpSrvrStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrSrvcAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrSrvcAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrSrvcPort",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "httpSrvrSrvcAddressType": {
+    "name": "httpSrvrSrvcAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "httpSrvrSrvcAddress": {
+    "name": "httpSrvrSrvcAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "httpSrvrSrvcPort": {
+    "name": "httpSrvrSrvcPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "httpSrvrAddressType": {
+    "name": "httpSrvrAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "httpSrvrAddress": {
+    "name": "httpSrvrAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "httpSrvrPort": {
+    "name": "httpSrvrPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "httpSrvrTotReqAccepted": {
+    "name": "httpSrvrTotReqAccepted",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrTotReqActive": {
+    "name": "httpSrvrTotReqActive",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrTotReqRejected": {
+    "name": "httpSrvrTotReqRejected",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrTotSuccess": {
+    "name": "httpSrvrTotSuccess",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrTotRefused": {
+    "name": "httpSrvrTotRefused",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrTotTimedout": {
+    "name": "httpSrvrTotTimedout",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrAvgReqPerConn": {
+    "name": "httpSrvrAvgReqPerConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrTotResponse": {
+    "name": "httpSrvrTotResponse",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrAvgResTime": {
+    "name": "httpSrvrAvgResTime",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrMaxResTime": {
+    "name": "httpSrvrMaxResTime",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrMinResTime": {
+    "name": "httpSrvrMinResTime",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrNumReqEnqueue": {
+    "name": "httpSrvrNumReqEnqueue",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrNumFreeConn": {
+    "name": "httpSrvrNumFreeConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrNumOpeningConn": {
+    "name": "httpSrvrNumOpeningConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrNumConn": {
+    "name": "httpSrvrNumConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrNumIBDisabled": {
+    "name": "httpSrvrNumIBDisabled",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrNumOOBDisabled": {
+    "name": "httpSrvrNumOOBDisabled",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrNumOOBEnabled": {
+    "name": "httpSrvrNumOOBEnabled",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrLastDisabledTime": {
+    "name": "httpSrvrLastDisabledTime",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrState": {
+    "name": "httpSrvrState",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrInBytes": {
+    "name": "httpSrvrInBytes",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "httpSrvrOutBytes": {
+    "name": "httpSrvrOutBytes",
+    "oid": "1.3.6.1.4.1.20632.8.50.5.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsSslSrvrStatsTable": {
+    "name": "bwsSslSrvrStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsSslSrvrStatsEntry": {
+    "name": "bwsSslSrvrStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrSrvcAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrSrvcAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrSrvcPort",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sslSrvrSrvcAddressType": {
+    "name": "sslSrvrSrvcAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslSrvrSrvcAddress": {
+    "name": "sslSrvrSrvcAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslSrvrSrvcPort": {
+    "name": "sslSrvrSrvcPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslSrvrAddressType": {
+    "name": "sslSrvrAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslSrvrAddress": {
+    "name": "sslSrvrAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslSrvrPort": {
+    "name": "sslSrvrPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sslSrvrTotReqAccepted": {
+    "name": "sslSrvrTotReqAccepted",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrTotReqActive": {
+    "name": "sslSrvrTotReqActive",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrTotReqRejected": {
+    "name": "sslSrvrTotReqRejected",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrTotSuccess": {
+    "name": "sslSrvrTotSuccess",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrTotRefused": {
+    "name": "sslSrvrTotRefused",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrTotTimedout": {
+    "name": "sslSrvrTotTimedout",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrAvgReqPerConn": {
+    "name": "sslSrvrAvgReqPerConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrTotResponse": {
+    "name": "sslSrvrTotResponse",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrAvgResTime": {
+    "name": "sslSrvrAvgResTime",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrMaxResTime": {
+    "name": "sslSrvrMaxResTime",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrMinResTime": {
+    "name": "sslSrvrMinResTime",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrNumReqEnqueue": {
+    "name": "sslSrvrNumReqEnqueue",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrNumFreeConn": {
+    "name": "sslSrvrNumFreeConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrNumOpeningConn": {
+    "name": "sslSrvrNumOpeningConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrNumConn": {
+    "name": "sslSrvrNumConn",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrNumIBDisabled": {
+    "name": "sslSrvrNumIBDisabled",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrNumOOBDisabled": {
+    "name": "sslSrvrNumOOBDisabled",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrNumOOBEnabled": {
+    "name": "sslSrvrNumOOBEnabled",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrLastDisabledTime": {
+    "name": "sslSrvrLastDisabledTime",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrState": {
+    "name": "sslSrvrState",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrInBytes": {
+    "name": "sslSrvrInBytes",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sslSrvrOutBytes": {
+    "name": "sslSrvrOutBytes",
+    "oid": "1.3.6.1.4.1.20632.8.50.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsReqSrvcStatsTable": {
+    "name": "bwsIpsReqSrvcStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsReqSrvcStatsEntry": {
+    "name": "bwsIpsReqSrvcStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqSrvcAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqSrvcAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqSrvcPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsReqSrvcAddressType": {
+    "name": "ipsReqSrvcAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsReqSrvcAddress": {
+    "name": "ipsReqSrvcAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsReqSrvcPort": {
+    "name": "ipsReqSrvcPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsReqSrvcNoOfUrlProfMatched": {
+    "name": "ipsReqSrvcNoOfUrlProfMatched",
+    "oid": "1.3.6.1.4.1.20632.8.50.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsReqSrvcNoOfAppProfViol": {
+    "name": "ipsReqSrvcNoOfAppProfViol",
+    "oid": "1.3.6.1.4.1.20632.8.50.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsReqSrvcTotProfViol": {
+    "name": "ipsReqSrvcTotProfViol",
+    "oid": "1.3.6.1.4.1.20632.8.50.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsLrnSrvcStatsTable": {
+    "name": "bwsIpsLrnSrvcStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsLrnSrvcStatsEntry": {
+    "name": "bwsIpsLrnSrvcStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsLrnSrvcAddressType": {
+    "name": "ipsLrnSrvcAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsLrnSrvcAddress": {
+    "name": "ipsLrnSrvcAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsLrnSrvcPort": {
+    "name": "ipsLrnSrvcPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsLrnSrvcUpdatesByReq": {
+    "name": "ipsLrnSrvcUpdatesByReq",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsLrnSrvcUpdatesByRsp": {
+    "name": "ipsLrnSrvcUpdatesByRsp",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsLrnSrvcTotUpdatesByReq": {
+    "name": "ipsLrnSrvcTotUpdatesByReq",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsLrnSrvcTotUpdatesByRsp": {
+    "name": "ipsLrnSrvcTotUpdatesByRsp",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsLrnSrvcTotUrlUpdated": {
+    "name": "ipsLrnSrvcTotUrlUpdated",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsLrnSrvcTotParamsLearned": {
+    "name": "ipsLrnSrvcTotParamsLearned",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsLrnSrvcTimeLastUpdated": {
+    "name": "ipsLrnSrvcTimeLastUpdated",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsLrnSrvcTimeLocked": {
+    "name": "ipsLrnSrvcTimeLocked",
+    "oid": "1.3.6.1.4.1.20632.8.50.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsReqLimitStatsTable": {
+    "name": "bwsIpsReqLimitStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsReqLimitStatsEntry": {
+    "name": "bwsIpsReqLimitStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsReqLimitAddressType": {
+    "name": "ipsReqLimitAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsReqLimitAddress": {
+    "name": "ipsReqLimitAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsReqLimitPort": {
+    "name": "ipsReqLimitPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsReqLimitUrlLenOFErr": {
+    "name": "ipsReqLimitUrlLenOFErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsReqLimitQueryLenOFErr": {
+    "name": "ipsReqLimitQueryLenOFErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsReqLimitReqLenOFErr": {
+    "name": "ipsReqLimitReqLenOFErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsReqLimitCookieLenOFErr": {
+    "name": "ipsReqLimitCookieLenOFErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsReqLimitHdrCntOFErr": {
+    "name": "ipsReqLimitHdrCntOFErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsReqLimitHdrLenOFErr": {
+    "name": "ipsReqLimitHdrLenOFErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsReqLimitContentLenErr": {
+    "name": "ipsReqLimitContentLenErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsReqLimitBlkdMethodErr": {
+    "name": "ipsReqLimitBlkdMethodErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsUrlNormStatsTable": {
+    "name": "bwsIpsUrlNormStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsUrlNormStatsEntry": {
+    "name": "bwsIpsUrlNormStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlNormAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlNormAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlNormPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsUrlNormAddressType": {
+    "name": "ipsUrlNormAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsUrlNormAddress": {
+    "name": "ipsUrlNormAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsUrlNormPort": {
+    "name": "ipsUrlNormPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsUrlNormEncodingErr": {
+    "name": "ipsUrlNormEncodingErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlNormSlashDotInUrlErr": {
+    "name": "ipsUrlNormSlashDotInUrlErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlNormTildaInUrl": {
+    "name": "ipsUrlNormTildaInUrl",
+    "oid": "1.3.6.1.4.1.20632.8.50.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlNormCharSetEncodingErr": {
+    "name": "ipsUrlNormCharSetEncodingErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsCookieSecStatsTable": {
+    "name": "bwsIpsCookieSecStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsCookieSecStatsEntry": {
+    "name": "bwsIpsCookieSecStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsCookieSecAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsCookieSecAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsCookieSecPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsCookieSecAddressType": {
+    "name": "ipsCookieSecAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsCookieSecAddress": {
+    "name": "ipsCookieSecAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsCookieSecPort": {
+    "name": "ipsCookieSecPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsCookieSecEncrypted": {
+    "name": "ipsCookieSecEncrypted",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsCookieSecTampered": {
+    "name": "ipsCookieSecTampered",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsCookieSecNumCookieAllow": {
+    "name": "ipsCookieSecNumCookieAllow",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsCookieSecNumCookieSet": {
+    "name": "ipsCookieSecNumCookieSet",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsCookieSecNumCookieErr": {
+    "name": "ipsCookieSecNumCookieErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsCookieSecCookieDecErr": {
+    "name": "ipsCookieSecCookieDecErr",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsCookieSecCookieDecrypted": {
+    "name": "ipsCookieSecCookieDecrypted",
+    "oid": "1.3.6.1.4.1.20632.8.50.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsUrlAclStatsTable": {
+    "name": "bwsIpsUrlAclStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsUrlAclStatsEntry": {
+    "name": "bwsIpsUrlAclStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlAclAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlAclAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlAclPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsUrlAclAddressType": {
+    "name": "ipsUrlAclAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsUrlAclAddress": {
+    "name": "ipsUrlAclAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsUrlAclPort": {
+    "name": "ipsUrlAclPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsUrlAclProcessAclHits": {
+    "name": "ipsUrlAclProcessAclHits",
+    "oid": "1.3.6.1.4.1.20632.8.50.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlAclPolicyHits": {
+    "name": "ipsUrlAclPolicyHits",
+    "oid": "1.3.6.1.4.1.20632.8.50.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlAclTimeStamp": {
+    "name": "ipsUrlAclTimeStamp",
+    "oid": "1.3.6.1.4.1.20632.8.50.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlAclReserved": {
+    "name": "ipsUrlAclReserved",
+    "oid": "1.3.6.1.4.1.20632.8.50.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlAclAllowAclHits": {
+    "name": "ipsUrlAclAllowAclHits",
+    "oid": "1.3.6.1.4.1.20632.8.50.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsHdrAclStatsTable": {
+    "name": "bwsIpsHdrAclStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsHdrAclStatsEntry": {
+    "name": "bwsIpsHdrAclStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsHdrAclAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsHdrAclAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsHdrAclPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsHdrAclAddressType": {
+    "name": "ipsHdrAclAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsHdrAclAddress": {
+    "name": "ipsHdrAclAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsHdrAclPort": {
+    "name": "ipsHdrAclPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsHdrAclHits": {
+    "name": "ipsHdrAclHits",
+    "oid": "1.3.6.1.4.1.20632.8.50.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsHdrAclTimeStamp": {
+    "name": "ipsHdrAclTimeStamp",
+    "oid": "1.3.6.1.4.1.20632.8.50.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsWebAddrTransStatsTable": {
+    "name": "bwsIpsWebAddrTransStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsWebAddrTransStatsEntry": {
+    "name": "bwsIpsWebAddrTransStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsWebAddrTransAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsWebAddrTransAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsWebAddrTransPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsWebAddrTransAddressType": {
+    "name": "ipsWebAddrTransAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsWebAddrTransAddress": {
+    "name": "ipsWebAddrTransAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsWebAddrTransPort": {
+    "name": "ipsWebAddrTransPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsWebAddrTransReqUrlTrans": {
+    "name": "ipsWebAddrTransReqUrlTrans",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsWebAddrTransRspUrlTrans": {
+    "name": "ipsWebAddrTransRspUrlTrans",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsWebAddrTransReqUrlReWritten": {
+    "name": "ipsWebAddrTransReqUrlReWritten",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsWebAddrTransReqHdrReWritten": {
+    "name": "ipsWebAddrTransReqHdrReWritten",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsWebAddrTransRspHdrReWritten": {
+    "name": "ipsWebAddrTransRspHdrReWritten",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsWebAddrTransReqReDirection": {
+    "name": "ipsWebAddrTransReqReDirection",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsWebAddrTransTimeStamp": {
+    "name": "ipsWebAddrTransTimeStamp",
+    "oid": "1.3.6.1.4.1.20632.8.50.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsAccessCtrlStatsTable": {
+    "name": "bwsIpsAccessCtrlStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsAccessCtrlStatsEntry": {
+    "name": "bwsIpsAccessCtrlStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsAccessCtrlAddressType": {
+    "name": "ipsAccessCtrlAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsAccessCtrlAddress": {
+    "name": "ipsAccessCtrlAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsAccessCtrlPort": {
+    "name": "ipsAccessCtrlPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsAccessCtrlMissingCookie": {
+    "name": "ipsAccessCtrlMissingCookie",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlNoAuthHdr": {
+    "name": "ipsAccessCtrlNoAuthHdr",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlInvalidCookie": {
+    "name": "ipsAccessCtrlInvalidCookie",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlExpiredCookie": {
+    "name": "ipsAccessCtrlExpiredCookie",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlAccessDenied": {
+    "name": "ipsAccessCtrlAccessDenied",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlGenFailure": {
+    "name": "ipsAccessCtrlGenFailure",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlAccessAttempts": {
+    "name": "ipsAccessCtrlAccessAttempts",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlAccessAttemptsTotRtt": {
+    "name": "ipsAccessCtrlAccessAttemptsTotRtt",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlInvalidSrcIp": {
+    "name": "ipsAccessCtrlInvalidSrcIp",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlAuthCacheHits": {
+    "name": "ipsAccessCtrlAuthCacheHits",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlAuthCacheMiss": {
+    "name": "ipsAccessCtrlAuthCacheMiss",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlAuthCacheExp": {
+    "name": "ipsAccessCtrlAuthCacheExp",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsAccessCtrlTimeStamp": {
+    "name": "ipsAccessCtrlTimeStamp",
+    "oid": "1.3.6.1.4.1.20632.8.50.15.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsRCStatsTable": {
+    "name": "bwsIpsRCStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsRCStatsEntry": {
+    "name": "bwsIpsRCStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsRCAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsRCAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsRCPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsRCAddressType": {
+    "name": "ipsRCAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsRCAddress": {
+    "name": "ipsRCAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsRCPort": {
+    "name": "ipsRCPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsRCTotServed": {
+    "name": "ipsRCTotServed",
+    "oid": "1.3.6.1.4.1.20632.8.50.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsRCTotQueued": {
+    "name": "ipsRCTotQueued",
+    "oid": "1.3.6.1.4.1.20632.8.50.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsRCTotDropped": {
+    "name": "ipsRCTotDropped",
+    "oid": "1.3.6.1.4.1.20632.8.50.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsRCTotOutOfResource": {
+    "name": "ipsRCTotOutOfResource",
+    "oid": "1.3.6.1.4.1.20632.8.50.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsRCTimeStamp": {
+    "name": "ipsRCTimeStamp",
+    "oid": "1.3.6.1.4.1.20632.8.50.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsIpsUrlPolicyStatsTable": {
+    "name": "bwsIpsUrlPolicyStatsTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsIpsUrlPolicyStatsEntry": {
+    "name": "bwsIpsUrlPolicyStatsEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlPolicyAddressType",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlPolicyAddress",
+        "implied": 0
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlPolicyPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipsUrlPolicyAddressType": {
+    "name": "ipsUrlPolicyAddressType",
+    "oid": "1.3.6.1.4.1.20632.8.50.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsUrlPolicyAddress": {
+    "name": "ipsUrlPolicyAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsUrlPolicyPort": {
+    "name": "ipsUrlPolicyPort",
+    "oid": "1.3.6.1.4.1.20632.8.50.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipsUrlPolicyTotServed": {
+    "name": "ipsUrlPolicyTotServed",
+    "oid": "1.3.6.1.4.1.20632.8.50.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlPolicyTotQueued": {
+    "name": "ipsUrlPolicyTotQueued",
+    "oid": "1.3.6.1.4.1.20632.8.50.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlPolicyTotDropped": {
+    "name": "ipsUrlPolicyTotDropped",
+    "oid": "1.3.6.1.4.1.20632.8.50.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlPolicyTotOutOfResource": {
+    "name": "ipsUrlPolicyTotOutOfResource",
+    "oid": "1.3.6.1.4.1.20632.8.50.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlPolicyEntryCtrlAuth": {
+    "name": "ipsUrlPolicyEntryCtrlAuth",
+    "oid": "1.3.6.1.4.1.20632.8.50.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipsUrlPolicyTimeStamp": {
+    "name": "ipsUrlPolicyTimeStamp",
+    "oid": "1.3.6.1.4.1.20632.8.50.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsSMUserSessionTable": {
+    "name": "bwsSMUserSessionTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsSMUserSessionEntry": {
+    "name": "bwsSMUserSessionEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "smRealmName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "smRealmName": {
+    "name": "smRealmName",
+    "oid": "1.3.6.1.4.1.20632.8.50.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "smAgentName": {
+    "name": "smAgentName",
+    "oid": "1.3.6.1.4.1.20632.8.50.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smNumUserSessions": {
+    "name": "smNumUserSessions",
+    "oid": "1.3.6.1.4.1.20632.8.50.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bwsServiceStatusTable": {
+    "name": "bwsServiceStatusTable",
+    "oid": "1.3.6.1.4.1.20632.8.50.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bwsServiceStatusEntry": {
+    "name": "bwsServiceStatusEntry",
+    "oid": "1.3.6.1.4.1.20632.8.50.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BWS-MIB",
+        "object": "srvcName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "srvcName": {
+    "name": "srvcName",
+    "oid": "1.3.6.1.4.1.20632.8.50.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "serviceName": {
+    "name": "serviceName",
+    "oid": "1.3.6.1.4.1.20632.8.50.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceAddress": {
+    "name": "serviceAddress",
+    "oid": "1.3.6.1.4.1.20632.8.50.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "servicePort": {
+    "name": "servicePort",
+    "oid": "1.3.6.1.4.1.20632.8.50.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serviceStatus": {
+    "name": "serviceStatus",
+    "oid": "1.3.6.1.4.1.20632.8.50.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tempCritical": {
+    "name": "tempCritical",
+    "oid": "1.3.6.1.4.1.20632.8.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "tempHigh": {
+    "name": "tempHigh",
+    "oid": "1.3.6.1.4.1.20632.8.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "systemFailOver": {
+    "name": "systemFailOver",
+    "oid": "1.3.6.1.4.1.20632.8.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "switchingToMaintMode": {
+    "name": "switchingToMaintMode",
+    "oid": "1.3.6.1.4.1.20632.8.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "fanDead": {
+    "name": "fanDead",
+    "oid": "1.3.6.1.4.1.20632.8.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "dataPortLinkDown": {
+    "name": "dataPortLinkDown",
+    "oid": "1.3.6.1.4.1.20632.8.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "serverDown": {
+    "name": "serverDown",
+    "oid": "1.3.6.1.4.1.20632.8.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "peerDown": {
+    "name": "peerDown",
+    "oid": "1.3.6.1.4.1.20632.8.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "dataPortLinkUp": {
+    "name": "dataPortLinkUp",
+    "oid": "1.3.6.1.4.1.20632.8.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "serverUp": {
+    "name": "serverUp",
+    "oid": "1.3.6.1.4.1.20632.8.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "peerUp": {
+    "name": "peerUp",
+    "oid": "1.3.6.1.4.1.20632.8.1.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "switchingToBypassMode": {
+    "name": "switchingToBypassMode",
+    "oid": "1.3.6.1.4.1.20632.8.1.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "switchingToInlineMode": {
+    "name": "switchingToInlineMode",
+    "oid": "1.3.6.1.4.1.20632.8.1.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "sharedSecretKeyAboutToExpire": {
+    "name": "sharedSecretKeyAboutToExpire",
+    "oid": "1.3.6.1.4.1.20632.8.1.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "sharedSecretKeyExpired": {
+    "name": "sharedSecretKeyExpired",
+    "oid": "1.3.6.1.4.1.20632.8.1.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "firmwareStorageHigh": {
+    "name": "firmwareStorageHigh",
+    "oid": "1.3.6.1.4.1.20632.8.1.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "logStorageHigh": {
+    "name": "logStorageHigh",
+    "oid": "1.3.6.1.4.1.20632.8.1.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "raidDegrading": {
+    "name": "raidDegrading",
+    "oid": "1.3.6.1.4.1.20632.8.1.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "energizeUpdateExpire": {
+    "name": "energizeUpdateExpire",
+    "oid": "1.3.6.1.4.1.20632.8.1.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "firmwareUpdateAvailable": {
+    "name": "firmwareUpdateAvailable",
+    "oid": "1.3.6.1.4.1.20632.8.1.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "attackDefinitionUpdateAvailable": {
+    "name": "attackDefinitionUpdateAvailable",
+    "oid": "1.3.6.1.4.1.20632.8.1.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "processCountHigh": {
+    "name": "processCountHigh",
+    "oid": "1.3.6.1.4.1.20632.8.1.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "memoryUsageHigh": {
+    "name": "memoryUsageHigh",
+    "oid": "1.3.6.1.4.1.20632.8.1.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "newAttackDefinitionInstalled": {
+    "name": "newAttackDefinitionInstalled",
+    "oid": "1.3.6.1.4.1.20632.8.1.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "systemFailure": {
+    "name": "systemFailure",
+    "oid": "1.3.6.1.4.1.20632.8.1.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "bwsMIBCompliance": {
+    "name": "bwsMIBCompliance",
+    "oid": "1.3.6.1.4.1.20632.8.51.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "bwsStatsGroup",
+        "module": "BWS-MIB"
+      },
+      {
+        "object": "bwsTrapGroup",
+        "module": "BWS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "bwsStatsGroup": {
+    "name": "bwsStatsGroup",
+    "oid": "1.3.6.1.4.1.20632.8.51.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "totalApplications"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "totalServers"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "totalAttacks"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "activeApplications"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "activeServers"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "bwsMessage"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "systemLoad"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "cpuFanSpeed"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "systemFanSpeed"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "cpuTemperature"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "firmwareStorage"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "logStorage"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "highAvailabilityStatus"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "operationalMode"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "dataPathStatus"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "linkStatus"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "vipStatus"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "memUtilization"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "cpuUtilization"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "totalBandwidth"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "uptime"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "totalMem"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "freeMem"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "currentFirmwareVersion"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "virusDefUpdates"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "securityDefUpdates"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "systemSerialNumber"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyActiveConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyTotalConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyTotalReq"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyServerReq"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyServerErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyClientAbrt"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyServerAbrt"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxySessionTimeOut"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyParseErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyUnknownRsp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyInBytes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyOutBytes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyWAFBlockedIntrusions"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyWAFMonitoredIntrusions"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpProxyWAFWarnings"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyActiveConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyFullHandshakes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyResumptionHandshakes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyHandshakeAttempts"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyCacheHits"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyCacheMiss"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyCacheTimeouts"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyErrPms"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyAuthBadCertErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyAuthBadCNErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyBadDNCErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyBadCRLErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyInBytes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyOutBytes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyTotalReq"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyTotalConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslProxyCurrentConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCmprNoOfReqCompressed"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCmprCompressibleDataSize"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCmprCompressedDataSize"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheHits"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheMiss"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheStale"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheCacheableRes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheReq"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheCachedObjects"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheLongHdrs"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "webCacheBytesOut"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrTotReqAccepted"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrTotReqActive"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrTotReqRejected"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrTotSuccess"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrTotRefused"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrTotTimedout"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrAvgReqPerConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrTotResponse"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrAvgResTime"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrMaxResTime"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrMinResTime"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrNumReqEnqueue"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrNumFreeConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrNumOpeningConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrNumConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrNumIBDisabled"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrNumOOBDisabled"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrNumOOBEnabled"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrLastDisabledTime"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrState"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrInBytes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "httpSrvrOutBytes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrTotReqAccepted"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrTotReqActive"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrTotReqRejected"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrTotSuccess"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrTotRefused"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrTotTimedout"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrAvgReqPerConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrTotResponse"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrAvgResTime"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrMaxResTime"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrMinResTime"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrNumReqEnqueue"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrNumFreeConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrNumOpeningConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrNumConn"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrNumIBDisabled"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrNumOOBDisabled"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrNumOOBEnabled"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrLastDisabledTime"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrState"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrInBytes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sslSrvrOutBytes"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqSrvcNoOfUrlProfMatched"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqSrvcNoOfAppProfViol"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqSrvcTotProfViol"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcUpdatesByReq"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcUpdatesByRsp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcTotUpdatesByReq"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcTotUpdatesByRsp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcTotUrlUpdated"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcTotParamsLearned"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcTimeLastUpdated"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsLrnSrvcTimeLocked"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitUrlLenOFErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitQueryLenOFErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitReqLenOFErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitCookieLenOFErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitHdrCntOFErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitHdrLenOFErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitContentLenErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsReqLimitBlkdMethodErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlNormEncodingErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlNormSlashDotInUrlErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlNormTildaInUrl"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlNormCharSetEncodingErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsCookieSecEncrypted"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsCookieSecTampered"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsCookieSecNumCookieAllow"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsCookieSecNumCookieSet"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsCookieSecNumCookieErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsCookieSecCookieDecErr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsCookieSecCookieDecrypted"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlAclProcessAclHits"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlAclPolicyHits"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlAclTimeStamp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlAclReserved"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlAclAllowAclHits"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsHdrAclHits"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsHdrAclTimeStamp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsWebAddrTransReqUrlTrans"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsWebAddrTransRspUrlTrans"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsWebAddrTransReqUrlReWritten"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsWebAddrTransReqHdrReWritten"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsWebAddrTransRspHdrReWritten"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsWebAddrTransReqReDirection"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsWebAddrTransTimeStamp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlMissingCookie"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlNoAuthHdr"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlInvalidCookie"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlExpiredCookie"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlAccessDenied"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlGenFailure"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlAccessAttempts"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlAccessAttemptsTotRtt"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlInvalidSrcIp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlAuthCacheHits"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlAuthCacheMiss"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlAuthCacheExp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsAccessCtrlTimeStamp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsRCTotServed"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsRCTotQueued"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsRCTotDropped"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsRCTotOutOfResource"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsRCTimeStamp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlPolicyTotServed"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlPolicyTotQueued"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlPolicyTotDropped"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlPolicyTotOutOfResource"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlPolicyEntryCtrlAuth"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "ipsUrlPolicyTimeStamp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "serviceName"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "serviceAddress"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "servicePort"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "serviceStatus"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "smAgentName"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "smNumUserSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "bwsTrapGroup": {
+    "name": "bwsTrapGroup",
+    "oid": "1.3.6.1.4.1.20632.8.51.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "BWS-MIB",
+        "object": "tempCritical"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "tempHigh"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "systemFailOver"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "switchingToMaintMode"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "fanDead"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "dataPortLinkDown"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "serverDown"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "peerDown"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "dataPortLinkUp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "serverUp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "peerUp"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "switchingToBypassMode"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "switchingToInlineMode"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sharedSecretKeyAboutToExpire"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "sharedSecretKeyExpired"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "firmwareStorageHigh"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "logStorageHigh"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "raidDegrading"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "energizeUpdateExpire"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "firmwareUpdateAvailable"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "processCountHigh"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "memoryUsageHigh"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "attackDefinitionUpdateAvailable"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "newAttackDefinitionInstalled"
+      },
+      {
+        "module": "BWS-MIB",
+        "object": "systemFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/barracuda/BWS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BWS-MIB"
+  }
+}

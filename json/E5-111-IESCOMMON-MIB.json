@@ -1,0 +1,3214 @@
+{
+  "imports": {
+    "class": "imports",
+    "E5-111-MIB": [
+      "iesSeriesCommon",
+      "e5x111"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TRAP-TYPE",
+      "enterprises",
+      "Gauge32",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "PhysAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "iesChassis": {
+    "name": "iesChassis",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1",
+    "class": "objectidentity"
+  },
+  "iesHWMonitor": {
+    "name": "iesHWMonitor",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2",
+    "class": "objectidentity"
+  },
+  "iesSysMgnt": {
+    "name": "iesSysMgnt",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3",
+    "class": "objectidentity"
+  },
+  "iesSysState": {
+    "name": "iesSysState",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.1",
+    "class": "objectidentity"
+  },
+  "iesSysMaintenance": {
+    "name": "iesSysMaintenance",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2",
+    "class": "objectidentity"
+  },
+  "iesSysTimeSetup": {
+    "name": "iesSysTimeSetup",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.3",
+    "class": "objectidentity"
+  },
+  "iesSysAccessControl": {
+    "name": "iesSysAccessControl",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4",
+    "class": "objectidentity"
+  },
+  "iesSysStaticRoute": {
+    "name": "iesSysStaticRoute",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.5",
+    "class": "objectidentity"
+  },
+  "iesSyslogSetup": {
+    "name": "iesSyslogSetup",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.6",
+    "class": "objectidentity"
+  },
+  "iesSysDhcpSetup": {
+    "name": "iesSysDhcpSetup",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.7",
+    "class": "objectidentity"
+  },
+  "iesSysSNMPSetup": {
+    "name": "iesSysSNMPSetup",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.8",
+    "class": "objectidentity"
+  },
+  "iesSysDot1xSetup": {
+    "name": "iesSysDot1xSetup",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9",
+    "class": "objectidentity"
+  },
+  "iesSysMacFilter": {
+    "name": "iesSysMacFilter",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10",
+    "class": "objectidentity"
+  },
+  "iesSysPacketFilter": {
+    "name": "iesSysPacketFilter",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.11",
+    "class": "objectidentity"
+  },
+  "iesSysMacCountFilter": {
+    "name": "iesSysMacCountFilter",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.12",
+    "class": "objectidentity"
+  },
+  "iesSysMulticastGroup": {
+    "name": "iesSysMulticastGroup",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.13",
+    "class": "objectidentity"
+  },
+  "iesSysIgmpFilter": {
+    "name": "iesSysIgmpFilter",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14",
+    "class": "objectidentity"
+  },
+  "iesL2SW": {
+    "name": "iesL2SW",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4",
+    "class": "objectidentity"
+  },
+  "iesNumOfChassis": {
+    "name": "iesNumOfChassis",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesChassisTable": {
+    "name": "iesChassisTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesChassisEntry": {
+    "name": "iesChassisEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesChassisId": {
+    "name": "iesChassisId",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesChassisFrameNumber": {
+    "name": "iesChassisFrameNumber",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesChassisSerialNumber": {
+    "name": "iesChassisSerialNumber",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesChassisNumber": {
+    "name": "iesChassisNumber",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesChassisStatus": {
+    "name": "iesChassisStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "empty": 1,
+          "up": 2,
+          "down": 3,
+          "testing": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesChassisProductPartNumber": {
+    "name": "iesChassisProductPartNumber",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesChassisHwRevisionNumber": {
+    "name": "iesChassisHwRevisionNumber",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesChassisCleiCode": {
+    "name": "iesChassisCleiCode",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesChassisHwVersion": {
+    "name": "iesChassisHwVersion",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesChassisMacAddress": {
+    "name": "iesChassisMacAddress",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesChassisVoipDspVersion": {
+    "name": "iesChassisVoipDspVersion",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesChassisCodecVersion": {
+    "name": "iesChassisCodecVersion",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSlotTable": {
+    "name": "iesSlotTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesSlotEntry": {
+    "name": "iesSlotEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesSlotId": {
+    "name": "iesSlotId",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSlotModuleType": {
+    "name": "iesSlotModuleType",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "msc1000-L2": 2,
+          "msc1000-ML": 3,
+          "alc1024-61": 4,
+          "vlc1012": 5,
+          "slc1024": 6,
+          "alc1024-63": 7,
+          "msc1000A": 8,
+          "vlc1124": 9,
+          "alc1224-71": 10,
+          "alc1224-73": 11,
+          "slc1224-22": 12,
+          "alc1224-51": 13,
+          "alc1224-53": 14
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSlotModuleDescr": {
+    "name": "iesSlotModuleDescr",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSlotModuleFWVersion": {
+    "name": "iesSlotModuleFWVersion",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSlotModuleDriverVersion": {
+    "name": "iesSlotModuleDriverVersion",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSlotModuleModemCodeVersion": {
+    "name": "iesSlotModuleModemCodeVersion",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSlotModuleStatus": {
+    "name": "iesSlotModuleStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "empty": 1,
+          "up": 2,
+          "down": 3,
+          "testing": 4,
+          "standby": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSlotModuleAlarmStatus": {
+    "name": "iesSlotModuleAlarmStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMscPortConfTable": {
+    "name": "iesMscPortConfTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesMscPortConfEntry": {
+    "name": "iesMscPortConfEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesMscPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesMscPortId": {
+    "name": "iesMscPortId",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMscPortType": {
+    "name": "iesMscPortType",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "e1000BaseT": 2,
+          "e1000BaseLX": 3,
+          "e1000BaseSX": 4,
+          "e100BaseFX": 5,
+          "e100BaseTX": 6,
+          "e1000BaseGBIC": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMscPortIfIndex": {
+    "name": "iesMscPortIfIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMscPortSpeed": {
+    "name": "iesMscPortSpeed",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "e1000M": 2,
+          "e100M": 3,
+          "e10M": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMscPortDuplex": {
+    "name": "iesMscPortDuplex",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMscPortFlowControl": {
+    "name": "iesMscPortFlowControl",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMscPortDefaultVLANTagging": {
+    "name": "iesMscPortDefaultVLANTagging",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMscPortTrunkGroupId": {
+    "name": "iesMscPortTrunkGroupId",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMscPortMode": {
+    "name": "iesMscPortMode",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uplink": 1,
+          "subtending": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMscPortVLANTrunking": {
+    "name": "iesMscPortVLANTrunking",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesFanRpmTable": {
+    "name": "iesFanRpmTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesFanRpmEntry": {
+    "name": "iesFanRpmEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesFanRpmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesFanRpmIndex": {
+    "name": "iesFanRpmIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesFanRpmCurValue": {
+    "name": "iesFanRpmCurValue",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesFanRpmMaxValue": {
+    "name": "iesFanRpmMaxValue",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesFanRpmMinValue": {
+    "name": "iesFanRpmMinValue",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesFanRpmLowThresh": {
+    "name": "iesFanRpmLowThresh",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesFanRpmDescr": {
+    "name": "iesFanRpmDescr",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesVoltageTable": {
+    "name": "iesVoltageTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesVoltageEntry": {
+    "name": "iesVoltageEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesVoltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesVoltageIndex": {
+    "name": "iesVoltageIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesVoltageCurValue": {
+    "name": "iesVoltageCurValue",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesVoltageMaxValue": {
+    "name": "iesVoltageMaxValue",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesVoltageMinValue": {
+    "name": "iesVoltageMinValue",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesVoltageNominalValue": {
+    "name": "iesVoltageNominalValue",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesVoltageLowThresh": {
+    "name": "iesVoltageLowThresh",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesVoltageDescr": {
+    "name": "iesVoltageDescr",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSysTempTable": {
+    "name": "iesSysTempTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesSysTempEntry": {
+    "name": "iesSysTempEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSysTempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesSysTempIndex": {
+    "name": "iesSysTempIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSysTempCurValue": {
+    "name": "iesSysTempCurValue",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSysTempMaxValue": {
+    "name": "iesSysTempMaxValue",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSysTempMinValue": {
+    "name": "iesSysTempMinValue",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSysTempHighThresh": {
+    "name": "iesSysTempHighThresh",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSysTempDescr": {
+    "name": "iesSysTempDescr",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSystemCurrentStatus": {
+    "name": "iesSystemCurrentStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesProblemCause": {
+    "name": "iesProblemCause",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMaintenanceOps": {
+    "name": "iesMaintenanceOps",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceTarget": {
+    "name": "iesMaintenanceTarget",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfOps": {
+    "name": "iesMaintenanceDSLConfOps",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfTarget": {
+    "name": "iesMaintenanceDSLConfTarget",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfProfileName": {
+    "name": "iesMaintenanceDSLConfProfileName",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfMode": {
+    "name": "iesMaintenanceDSLConfMode",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfPktFilter": {
+    "name": "iesMaintenanceDSLConfPktFilter",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfDot1xControl": {
+    "name": "iesMaintenanceDSLConfDot1xControl",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "forceAuth": 2,
+          "forceUnAuth": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfDot1xReauthPeriod": {
+    "name": "iesMaintenanceDSLConfDot1xReauthPeriod",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfMacCount": {
+    "name": "iesMaintenanceDSLConfMacCount",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceVpi": {
+    "name": "iesMaintenanceVpi",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceVci": {
+    "name": "iesMaintenanceVci",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfAlarmProfileName": {
+    "name": "iesMaintenanceDSLConfAlarmProfileName",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfAnnexL": {
+    "name": "iesMaintenanceDSLConfAnnexL",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableNarrowMode": 1,
+          "enableWideMode": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfPmMode": {
+    "name": "iesMaintenanceDSLConfPmMode",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableL2Mode": 1,
+          "enableL3Mode": 2,
+          "disable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfRateMode": {
+    "name": "iesMaintenanceDSLConfRateMode",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptAtStartup": 2,
+          "adaptAtRuntime": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaintenanceDSLConfIgmpFilter": {
+    "name": "iesMaintenanceDSLConfIgmpFilter",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesTimeServerMode": {
+    "name": "iesTimeServerMode",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "daytime": 2,
+          "time": 3,
+          "ntp": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesTimeServerIP": {
+    "name": "iesTimeServerIP",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesSystemTime": {
+    "name": "iesSystemTime",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesSystemDate": {
+    "name": "iesSystemDate",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesSystemTimeZone": {
+    "name": "iesSystemTimeZone",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "utc-1200": 1,
+          "utc-1100": 2,
+          "utc-1000": 3,
+          "utc-0900": 4,
+          "utc-0800": 5,
+          "utc-0700": 6,
+          "utc-0600": 7,
+          "utc-0500": 8,
+          "utc-0400": 9,
+          "utc-0300": 10,
+          "utc-0200": 11,
+          "utc-0100": 12,
+          "utc": 13,
+          "utc0100": 14,
+          "utc0200": 15,
+          "utc0300": 16,
+          "utc0400": 17,
+          "utc0500": 18,
+          "utc0600": 19,
+          "utc0700": 20,
+          "utc0800": 21,
+          "utc0900": 22,
+          "utc1000": 23,
+          "utc1100": 24,
+          "utc1200": 25
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesAccessCtrlTable": {
+    "name": "iesAccessCtrlTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesAccessCtrlEntry": {
+    "name": "iesAccessCtrlEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesAccessCtrlService",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesAccessCtrlService": {
+    "name": "iesAccessCtrlService",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "telnet": 1,
+          "ftp": 2,
+          "web": 3,
+          "icmp": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesAccessCtrlEnable": {
+    "name": "iesAccessCtrlEnable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesAccessCtrlPort": {
+    "name": "iesAccessCtrlPort",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaxNumOfSecuredClients": {
+    "name": "iesMaxNumOfSecuredClients",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSecuredClientTable": {
+    "name": "iesSecuredClientTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesSecuredClientEntry": {
+    "name": "iesSecuredClientEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSecuredClientStartIp",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSecuredClientEndIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesSecuredClientStartIp": {
+    "name": "iesSecuredClientStartIp",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSecuredClientEndIp": {
+    "name": "iesSecuredClientEndIp",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSecuredClientService": {
+    "name": "iesSecuredClientService",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesSecuredClientRowStatus": {
+    "name": "iesSecuredClientRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesMaxNumOfStaticRoutes": {
+    "name": "iesMaxNumOfStaticRoutes",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesStaticRouteTable": {
+    "name": "iesStaticRouteTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesStaticRouteEntry": {
+    "name": "iesStaticRouteEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesStaticRouteName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesStaticRouteName": {
+    "name": "iesStaticRouteName",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesStaticRouteDest": {
+    "name": "iesStaticRouteDest",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesStaticRouteMask": {
+    "name": "iesStaticRouteMask",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesStaticRouteGateway": {
+    "name": "iesStaticRouteGateway",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesStaticRouteMetric": {
+    "name": "iesStaticRouteMetric",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesStaticRouteRowStatus": {
+    "name": "iesStaticRouteRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesSysLogEnable": {
+    "name": "iesSysLogEnable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesSysLogServer": {
+    "name": "iesSysLogServer",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesSysLogFacility": {
+    "name": "iesSysLogFacility",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local1": 1,
+          "local2": 2,
+          "local3": 3,
+          "local4": 4,
+          "local5": 5,
+          "local6": 6,
+          "local7": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesDhcpRelayEnable": {
+    "name": "iesDhcpRelayEnable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesDhcpRelayOption82Enable": {
+    "name": "iesDhcpRelayOption82Enable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesDhcpRelayOption82Info": {
+    "name": "iesDhcpRelayOption82Info",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaxNumOfDhcpServers": {
+    "name": "iesMaxNumOfDhcpServers",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesDhcpServerTable": {
+    "name": "iesDhcpServerTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesDhcpServerEntry": {
+    "name": "iesDhcpServerEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesDhcpServerIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesDhcpServerIp": {
+    "name": "iesDhcpServerIp",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesDhcpServerRowStatus": {
+    "name": "iesDhcpServerRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesMaxNumberOfTrapDestinations": {
+    "name": "iesMaxNumberOfTrapDestinations",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesSNMPTrapDestTable": {
+    "name": "iesSNMPTrapDestTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesSNMPTrapDestEntry": {
+    "name": "iesSNMPTrapDestEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesTrapDestIp",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesTrapDestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesTrapDestIp": {
+    "name": "iesTrapDestIp",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesTrapDestPort": {
+    "name": "iesTrapDestPort",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesTrapDestRowStatus": {
+    "name": "iesTrapDestRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesSnmpGetCommunity": {
+    "name": "iesSnmpGetCommunity",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesSnmpSetCommunity": {
+    "name": "iesSnmpSetCommunity",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesSnmpTrapCommunity": {
+    "name": "iesSnmpTrapCommunity",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaxNumberOfRadiusServers": {
+    "name": "iesMaxNumberOfRadiusServers",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesRadiusServerTable": {
+    "name": "iesRadiusServerTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesRadiusServerEntry": {
+    "name": "iesRadiusServerEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesRadiusServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesRadiusServerIndex": {
+    "name": "iesRadiusServerIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesRadiusServerIp": {
+    "name": "iesRadiusServerIp",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesRadiusServerPort": {
+    "name": "iesRadiusServerPort",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesRadiusSharedSecret": {
+    "name": "iesRadiusSharedSecret",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesRadiusServerRowStatus": {
+    "name": "iesRadiusServerRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesDot1xEnable": {
+    "name": "iesDot1xEnable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesDot1xPortTable": {
+    "name": "iesDot1xPortTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesDot1xPortEntry": {
+    "name": "iesDot1xPortEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesDot1xPortEnable": {
+    "name": "iesDot1xPortEnable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesDot1xPortControl": {
+    "name": "iesDot1xPortControl",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto": 1,
+          "forceAuth": 2,
+          "forceUnAuth": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesDot1xPortReAuthEnable": {
+    "name": "iesDot1xPortReAuthEnable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesDot1xPortReAuthPeriod": {
+    "name": "iesDot1xPortReAuthPeriod",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.9.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMacFilterStatusTable": {
+    "name": "iesMacFilterStatusTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesMacFilterStatusEntry": {
+    "name": "iesMacFilterStatusEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesMacFilterStatusEnable": {
+    "name": "iesMacFilterStatusEnable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enableAccept": 1,
+          "disable": 2,
+          "enableDeny": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaxNumberOfMacFilters": {
+    "name": "iesMaxNumberOfMacFilters",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMaxNumberOfMacFiltersPerPort": {
+    "name": "iesMaxNumberOfMacFiltersPerPort",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesCurrNumberOfMacFilters": {
+    "name": "iesCurrNumberOfMacFilters",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMacFilterTable": {
+    "name": "iesMacFilterTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesMacFilterEntry": {
+    "name": "iesMacFilterEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesMacFilterMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesMacFilterMacAddr": {
+    "name": "iesMacFilterMacAddr",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMacFilterRowStatus": {
+    "name": "iesMacFilterRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.10.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesPacketFilterTable": {
+    "name": "iesPacketFilterTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesPacketFilterEntry": {
+    "name": "iesPacketFilterEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesPacketFilter": {
+    "name": "iesPacketFilter",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMacCountFilterTable": {
+    "name": "iesMacCountFilterTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesMacCountFilterEntry": {
+    "name": "iesMacCountFilterEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesMacCountFilterStatus": {
+    "name": "iesMacCountFilterStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMacCountFilterCount": {
+    "name": "iesMacCountFilterCount",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaxNumberOfMulticastGroups": {
+    "name": "iesMaxNumberOfMulticastGroups",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMulticastGroupTable": {
+    "name": "iesMulticastGroupTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.13.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesMulticastGroupEntry": {
+    "name": "iesMulticastGroupEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.13.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesMulticastGroupMacAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesMulticastGroupMacAddr": {
+    "name": "iesMulticastGroupMacAddr",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.13.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhysAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesMulticastGroupPorts": {
+    "name": "iesMulticastGroupPorts",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.13.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesMulticastGroupRowStatus": {
+    "name": "iesMulticastGroupRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.13.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesMaxNumberOfIgmpFilters": {
+    "name": "iesMaxNumberOfIgmpFilters",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesIgmpFilterTable": {
+    "name": "iesIgmpFilterTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesIgmpFilterEntry": {
+    "name": "iesIgmpFilterEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesIgmpFilterName",
+        "implied": 0
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesIgmpFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesIgmpFilterName": {
+    "name": "iesIgmpFilterName",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesIgmpFilterIndex": {
+    "name": "iesIgmpFilterIndex",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesIgmpFilterStartIp": {
+    "name": "iesIgmpFilterStartIp",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesIgmpFilterEndIp": {
+    "name": "iesIgmpFilterEndIp",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesIgmpFilterRowStatus": {
+    "name": "iesIgmpFilterRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesIgmpFilterPortTable": {
+    "name": "iesIgmpFilterPortTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesIgmpFilterPortEntry": {
+    "name": "iesIgmpFilterPortEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesIgmpFilterPortFilter": {
+    "name": "iesIgmpFilterPortFilter",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.3.14.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesIGMPSnoopingEnabled": {
+    "name": "iesIGMPSnoopingEnabled",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesManagementVLANId": {
+    "name": "iesManagementVLANId",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaxNumOfStaticVlans": {
+    "name": "iesMaxNumOfStaticVlans",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesPortIsolationEnable": {
+    "name": "iesPortIsolationEnable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesRSTPEnable": {
+    "name": "iesRSTPEnable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesSwitchMode": {
+    "name": "iesSwitchMode",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "daisyChain": 1,
+          "standalone": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "iesMaxNumOfTrunkGroups": {
+    "name": "iesMaxNumOfTrunkGroups",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesTrunkGroupTable": {
+    "name": "iesTrunkGroupTable",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "iesTrunkGroupEntry": {
+    "name": "iesTrunkGroupEntry",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesTrunkGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "iesTrunkGroupId": {
+    "name": "iesTrunkGroupId",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "iesTrunkGroupName": {
+    "name": "iesTrunkGroupName",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesTrunkGroupPorts": {
+    "name": "iesTrunkGroupPorts",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "iesTrunkGroupRowStatus": {
+    "name": "iesTrunkGroupRowStatus",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.2.98.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "reboot": {
+    "name": "reboot",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesProblemCause"
+      }
+    ]
+  },
+  "systemShutdown": {
+    "name": "systemShutdown",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesProblemCause"
+      }
+    ]
+  },
+  "overheat": {
+    "name": "overheat",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSysTempIndex"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSysTempCurValue"
+      }
+    ]
+  },
+  "overheatOver": {
+    "name": "overheatOver",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSysTempIndex"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSysTempCurValue"
+      }
+    ]
+  },
+  "errLog": {
+    "name": "errLog",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesProblemCause"
+      }
+    ]
+  },
+  "fanRpmLow": {
+    "name": "fanRpmLow",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesFanRpmIndex"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesFanRpmCurValue"
+      }
+    ]
+  },
+  "fanRpmNormal": {
+    "name": "fanRpmNormal",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesFanRpmIndex"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesFanRpmCurValue"
+      }
+    ]
+  },
+  "voltageOutOfRange": {
+    "name": "voltageOutOfRange",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesVoltageIndex"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesVoltageCurValue"
+      }
+    ]
+  },
+  "voltageNormal": {
+    "name": "voltageNormal",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesVoltageIndex"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesVoltageCurValue"
+      }
+    ]
+  },
+  "systemMaintenanceFailure": {
+    "name": "systemMaintenanceFailure",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesProblemCause"
+      }
+    ]
+  },
+  "configChange": {
+    "name": "configChange",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesProblemCause"
+      }
+    ]
+  },
+  "moduleUp": {
+    "name": "moduleUp",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      }
+    ]
+  },
+  "moduleDown": {
+    "name": "moduleDown",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      }
+    ]
+  },
+  "modulePlugIn": {
+    "name": "modulePlugIn",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      }
+    ]
+  },
+  "modulePullOut": {
+    "name": "modulePullOut",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      }
+    ]
+  },
+  "powerDC48VAFailure": {
+    "name": "powerDC48VAFailure",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.16",
+    "class": "notificationtype"
+  },
+  "powerDC48VANormal": {
+    "name": "powerDC48VANormal",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.17",
+    "class": "notificationtype"
+  },
+  "powerDC48VBFailure": {
+    "name": "powerDC48VBFailure",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.18",
+    "class": "notificationtype"
+  },
+  "powerDC48VBNormal": {
+    "name": "powerDC48VBNormal",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.19",
+    "class": "notificationtype"
+  },
+  "extAlarmInputTrigger": {
+    "name": "extAlarmInputTrigger",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.20",
+    "class": "notificationtype"
+  },
+  "extAlarmInputRelease": {
+    "name": "extAlarmInputRelease",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.21",
+    "class": "notificationtype"
+  },
+  "thermalSensorFailure": {
+    "name": "thermalSensorFailure",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      }
+    ]
+  },
+  "mscSwitchOverOK": {
+    "name": "mscSwitchOverOK",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesChassisId"
+      },
+      {
+        "module": "E5-111-IESCOMMON-MIB",
+        "object": "iesSlotId"
+      }
+    ]
+  },
+  "networkTopologyChange": {
+    "name": "networkTopologyChange",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.24",
+    "class": "notificationtype"
+  },
+  "adslAtucLof": {
+    "name": "adslAtucLof",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "adslAturLof": {
+    "name": "adslAturLof",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "adslAtucLos": {
+    "name": "adslAtucLos",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "adslAturLos": {
+    "name": "adslAturLos",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "adslAturLpr": {
+    "name": "adslAturLpr",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "adslAtucLofClear": {
+    "name": "adslAtucLofClear",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "adslAturLofClear": {
+    "name": "adslAturLofClear",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "adslAtucLosClear": {
+    "name": "adslAtucLosClear",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "adslAturLosClear": {
+    "name": "adslAturLosClear",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "adslAturLprClear": {
+    "name": "adslAturLprClear",
+    "oid": "1.3.6.1.4.1.6321.1.2.3.20.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-111-IESCOMMON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:20:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "E5-111-IESCOMMON-MIB"
+  }
+}

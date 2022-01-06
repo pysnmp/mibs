@@ -1,0 +1,1244 @@
+{
+  "imports": {
+    "class": "imports",
+    "BENU-PLATFORM-MIB": [
+      "benuPlatform"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifOperStatus",
+      "ifDescr",
+      "ifType",
+      "ifAdminStatus"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "iso",
+      "Gauge32",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "benuChassisMIB": {
+    "name": "benuChassisMIB",
+    "oid": "1.3.6.1.4.1.39406.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-11-18 00:00",
+        "description": "Added xMEG card type"
+      },
+      {
+        "revision": "2016-10-14 00:00",
+        "description": "Changes for xMEG platform"
+      },
+      {
+        "revision": "2016-01-26 00:00",
+        "description": "Added benuCardIfVirtualType"
+      },
+      {
+        "revision": "2015-10-14 00:00",
+        "description": "Added benuPowerSupplyTable"
+      },
+      {
+        "revision": "2015-01-27 00:00",
+        "description": "Updated benuChassisId from read-write to read-only. Also, updated the description appropriately."
+      },
+      {
+        "revision": "2015-01-05 00:00",
+        "description": "Updated notification assignments to comply with standards (RFC 2578)."
+      },
+      {
+        "revision": "2014-11-14 00:00",
+        "description": "changed benuChassisNotifObjects type to scalar (2 to 0)"
+      },
+      {
+        "revision": "2014-06-27 00:00",
+        "description": "Added new encapsulation column in Card interface table"
+      },
+      {
+        "revision": "2013-11-25 00:00",
+        "description": "Added Fan Table "
+      },
+      {
+        "revision": "2012-12-12 00:00",
+        "description": "Initial creation MIB module for Benu Networks Chassis"
+      }
+    ]
+  },
+  "benuChassisMIBObjects": {
+    "name": "benuChassisMIBObjects",
+    "oid": "1.3.6.1.4.1.39406.1.1.1",
+    "class": "objectidentity"
+  },
+  "benuChassisNotifObjects": {
+    "name": "benuChassisNotifObjects",
+    "oid": "1.3.6.1.4.1.39406.1.1.0",
+    "class": "objectidentity"
+  },
+  "benuChassisNotifVariables": {
+    "name": "benuChassisNotifVariables",
+    "oid": "1.3.6.1.4.1.39406.1.1.2",
+    "class": "objectidentity"
+  },
+  "benuChassisInfo": {
+    "name": "benuChassisInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "benuCardInfo": {
+    "name": "benuCardInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "benuCardIfInfo": {
+    "name": "benuCardIfInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "benuSensorInfo": {
+    "name": "benuSensorInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "benuChassisGeneralInfo": {
+    "name": "benuChassisGeneralInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "benuFanInfo": {
+    "name": "benuFanInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.6",
+    "class": "objectidentity"
+  },
+  "benuPowerSupplyInfo": {
+    "name": "benuPowerSupplyInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.7",
+    "class": "objectidentity"
+  },
+  "benuChassisType": {
+    "name": "benuChassisType",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "meg100": 1,
+          "meg400": 2,
+          "meg1200": 3,
+          "meg50": 4,
+          "xMEG100": 5,
+          "xMEG10": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuChassisHwVersion": {
+    "name": "benuChassisHwVersion",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuChassisId": {
+    "name": "benuChassisId",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuChassisNumOfSlots": {
+    "name": "benuChassisNumOfSlots",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuChassisPowerTrapEnable": {
+    "name": "benuChassisPowerTrapEnable",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "benuChassisFanTrapEnable": {
+    "name": "benuChassisFanTrapEnable",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "benuChassisSensorTrapEnable": {
+    "name": "benuChassisSensorTrapEnable",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "benuSysUpTimeAtLastChassisChange": {
+    "name": "benuSysUpTimeAtLastChassisChange",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardTable": {
+    "name": "benuCardTable",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuCardEntry": {
+    "name": "benuCardEntry",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "benuCardIndex": {
+    "name": "benuCardIndex",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuCardType": {
+    "name": "benuCardType",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "rsm": 1,
+          "switchFabric": 2,
+          "shelfmgr": 3,
+          "seFP": 4,
+          "inputOutputCard": 5,
+          "switchMesh": 6,
+          "xmeg": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardDescr": {
+    "name": "benuCardDescr",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardSerial": {
+    "name": "benuCardSerial",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardPartNumber": {
+    "name": "benuCardPartNumber",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardHwVersion": {
+    "name": "benuCardHwVersion",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardSwVersion": {
+    "name": "benuCardSwVersion",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardSlotNumber": {
+    "name": "benuCardSlotNumber",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardRamSize": {
+    "name": "benuCardRamSize",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardPrimaryDiskSize": {
+    "name": "benuCardPrimaryDiskSize",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardSecondaryDiskSize": {
+    "name": "benuCardSecondaryDiskSize",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardOperStatus": {
+    "name": "benuCardOperStatus",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSpecified": 1,
+          "up": 2,
+          "down": 3,
+          "standby": 4,
+          "rom": 5,
+          "flash": 6,
+          "diag": 7,
+          "boot": 8,
+          "config": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardIfIndexTable": {
+    "name": "benuCardIfIndexTable",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuCardIfIndexEntry": {
+    "name": "benuCardIfIndexEntry",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuCardIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "benuCardIfIndex": {
+    "name": "benuCardIfIndex",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuCardIfName": {
+    "name": "benuCardIfName",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardIfPortNumber": {
+    "name": "benuCardIfPortNumber",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardIfSlotNumber": {
+    "name": "benuCardIfSlotNumber",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardIfLinkUpDownEnable": {
+    "name": "benuCardIfLinkUpDownEnable",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "benuCardIfPortType": {
+    "name": "benuCardIfPortType",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ethernet": 1,
+          "fastEthernet": 2,
+          "gigaEthernet": 3,
+          "tunnel": 4,
+          "ipGre": 5,
+          "vlan": 6,
+          "l2tp": 7,
+          "cable": 8,
+          "bridge": 9,
+          "ip": 10,
+          "multiBind": 11,
+          "p2p": 12,
+          "loopback": 13,
+          "multiBindLastResort": 14,
+          "lag": 15,
+          "max": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardIfBindName": {
+    "name": "benuCardIfBindName",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardIfEncapsulation": {
+    "name": "benuCardIfEncapsulation",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuCardIfVirtualType": {
+    "name": "benuCardIfVirtualType",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "physical": 1,
+          "virtual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuSensorTable": {
+    "name": "benuSensorTable",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuSensorEntry": {
+    "name": "benuSensorEntry",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuSensorCardIndex",
+        "implied": 0
+      },
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuSensorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "benuSensorCardIndex": {
+    "name": "benuSensorCardIndex",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuSensorIndex": {
+    "name": "benuSensorIndex",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuSensorName": {
+    "name": "benuSensorName",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuSensorType": {
+    "name": "benuSensorType",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "temparature": 1,
+          "voltage": 2,
+          "electicCurrent": 3,
+          "fan": 4,
+          "power": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuSensorValue": {
+    "name": "benuSensorValue",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuSensorMinThresh": {
+    "name": "benuSensorMinThresh",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuSensorMaxThresh": {
+    "name": "benuSensorMaxThresh",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuSensorState": {
+    "name": "benuSensorState",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 0,
+          "normal": 1,
+          "critical": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuSensorId": {
+    "name": "benuSensorId",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuFanTable": {
+    "name": "benuFanTable",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuFanEntry": {
+    "name": "benuFanEntry",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuFanCardIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "benuFanCardIndex": {
+    "name": "benuFanCardIndex",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuFanMaxSpeed": {
+    "name": "benuFanMaxSpeed",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuFanCurSpeed": {
+    "name": "benuFanCurSpeed",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuFanStatus": {
+    "name": "benuFanStatus",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuPowerSupplyTable": {
+    "name": "benuPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuPowerSupplyEntry": {
+    "name": "benuPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuPowerSupplyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "benuPowerSupplyIndex": {
+    "name": "benuPowerSupplyIndex",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerA": 1,
+          "powerB": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "benuPowerSupplyName": {
+    "name": "benuPowerSupplyName",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuPowerSupplyPresent": {
+    "name": "benuPowerSupplyPresent",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuPowerSupplyType": {
+    "name": "benuPowerSupplyType",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ac": 1,
+          "dc": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuPowerSupplyPowered": {
+    "name": "benuPowerSupplyPowered",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powered": 1,
+          "notPowered": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuSysUpTimeSinceLastConfigChange": {
+    "name": "benuSysUpTimeSinceLastConfigChange",
+    "oid": "1.3.6.1.4.1.39406.1.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "benuChassisPowerFailureInfo": {
+    "name": "benuChassisPowerFailureInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerFailureA": 1,
+          "powerFailureB": 2,
+          "powerRestoredA": 3,
+          "powerRestoredB": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "obsolete"
+  },
+  "benuChassisPowerFailure": {
+    "name": "benuChassisPowerFailure",
+    "oid": "1.3.6.1.4.1.39406.1.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuChassisPowerFailureCardInfo"
+      },
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuChassisPowerFailureInfo"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "benuChassisFanFailureInfo": {
+    "name": "benuChassisFanFailureInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "benuChassisFanFailureTrap": {
+    "name": "benuChassisFanFailureTrap",
+    "oid": "1.3.6.1.4.1.39406.1.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuChassisFanFailureInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "benuLinkUpTrap": {
+    "name": "benuLinkUpTrap",
+    "oid": "1.3.6.1.4.1.39406.1.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "benuLinkDownTrap": {
+    "name": "benuLinkDownTrap",
+    "oid": "1.3.6.1.4.1.39406.1.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifType"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifAdminStatus"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "benuChassisPowerFailureCardInfo": {
+    "name": "benuChassisPowerFailureCardInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "obsolete"
+  },
+  "benuSensorCritical": {
+    "name": "benuSensorCritical",
+    "oid": "1.3.6.1.4.1.39406.1.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuSensorName"
+      },
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuSensorType"
+      },
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuSensorValue"
+      },
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuSensorId"
+      }
+    ],
+    "status": "current"
+  },
+  "benuSensorNormal": {
+    "name": "benuSensorNormal",
+    "oid": "1.3.6.1.4.1.39406.1.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuSensorName"
+      },
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuSensorType"
+      },
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuSensorValue"
+      },
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuSensorId"
+      }
+    ],
+    "status": "current"
+  },
+  "benuChassisPowerInfo": {
+    "name": "benuChassisPowerInfo",
+    "oid": "1.3.6.1.4.1.39406.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "powerSupplyA": 1,
+          "powerSupplyB": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "benuChassisPowerFault": {
+    "name": "benuChassisPowerFault",
+    "oid": "1.3.6.1.4.1.39406.1.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuChassisPowerInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "benuChassisPowerRecovery": {
+    "name": "benuChassisPowerRecovery",
+    "oid": "1.3.6.1.4.1.39406.1.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuChassisPowerInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "benuChassisPowerPresent": {
+    "name": "benuChassisPowerPresent",
+    "oid": "1.3.6.1.4.1.39406.1.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuChassisPowerInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "benuChassisPowerAbsent": {
+    "name": "benuChassisPowerAbsent",
+    "oid": "1.3.6.1.4.1.39406.1.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "BENU-CHASSIS-MIB",
+        "object": "benuChassisPowerInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-CHASSIS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:19:28 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "BENU-CHASSIS-MIB"
+  }
+}

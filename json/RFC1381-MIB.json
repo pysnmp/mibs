@@ -1,0 +1,1035 @@
+{
+  "imports": {
+    "class": "imports",
+    "RFC1253-MIB": [
+      "PositiveInteger"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "transmission",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "lapb": {
+    "name": "lapb",
+    "oid": "1.3.6.1.2.1.10.16",
+    "class": "objectidentity"
+  },
+  "IfIndexType": {
+    "name": "IfIndexType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    }
+  },
+  "lapbAdmnTable": {
+    "name": "lapbAdmnTable",
+    "oid": "1.3.6.1.2.1.10.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lapbAdmnEntry": {
+    "name": "lapbAdmnEntry",
+    "oid": "1.3.6.1.2.1.10.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1381-MIB",
+        "object": "lapbAdmnIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lapbAdmnIndex": {
+    "name": "lapbAdmnIndex",
+    "oid": "1.3.6.1.2.1.10.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbAdmnStationType": {
+    "name": "lapbAdmnStationType",
+    "oid": "1.3.6.1.2.1.10.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dte": 1,
+          "dce": 2,
+          "dxe": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dte",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnControlField": {
+    "name": "lapbAdmnControlField",
+    "oid": "1.3.6.1.2.1.10.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modulo8": 1,
+          "modulo128": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "modulo8",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnTransmitN1FrameSize": {
+    "name": "lapbAdmnTransmitN1FrameSize",
+    "oid": "1.3.6.1.2.1.10.16.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 36000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnReceiveN1FrameSize": {
+    "name": "lapbAdmnReceiveN1FrameSize",
+    "oid": "1.3.6.1.2.1.10.16.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 36000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnTransmitKWindowSize": {
+    "name": "lapbAdmnTransmitKWindowSize",
+    "oid": "1.3.6.1.2.1.10.16.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnReceiveKWindowSize": {
+    "name": "lapbAdmnReceiveKWindowSize",
+    "oid": "1.3.6.1.2.1.10.16.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnN2RxmitCount": {
+    "name": "lapbAdmnN2RxmitCount",
+    "oid": "1.3.6.1.2.1.10.16.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnT1AckTimer": {
+    "name": "lapbAdmnT1AckTimer",
+    "oid": "1.3.6.1.2.1.10.16.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnT2AckDelayTimer": {
+    "name": "lapbAdmnT2AckDelayTimer",
+    "oid": "1.3.6.1.2.1.10.16.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnT3DisconnectTimer": {
+    "name": "lapbAdmnT3DisconnectTimer",
+    "oid": "1.3.6.1.2.1.10.16.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnT4IdleTimer": {
+    "name": "lapbAdmnT4IdleTimer",
+    "oid": "1.3.6.1.2.1.10.16.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2147483647,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnActionInitiate": {
+    "name": "lapbAdmnActionInitiate",
+    "oid": "1.3.6.1.2.1.10.16.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sendSABM": 1,
+          "sendDISC": 2,
+          "sendDM": 3,
+          "none": 4,
+          "other": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sendSABM",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbAdmnActionRecvDM": {
+    "name": "lapbAdmnActionRecvDM",
+    "oid": "1.3.6.1.2.1.10.16.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sendSABM": 1,
+          "sendDISC": 2,
+          "other": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sendSABM",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbOperTable": {
+    "name": "lapbOperTable",
+    "oid": "1.3.6.1.2.1.10.16.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lapbOperEntry": {
+    "name": "lapbOperEntry",
+    "oid": "1.3.6.1.2.1.10.16.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1381-MIB",
+        "object": "lapbOperIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lapbOperIndex": {
+    "name": "lapbOperIndex",
+    "oid": "1.3.6.1.2.1.10.16.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperStationType": {
+    "name": "lapbOperStationType",
+    "oid": "1.3.6.1.2.1.10.16.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dte": 1,
+          "dce": 2,
+          "dxe": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperControlField": {
+    "name": "lapbOperControlField",
+    "oid": "1.3.6.1.2.1.10.16.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "modulo8": 1,
+          "modulo128": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperTransmitN1FrameSize": {
+    "name": "lapbOperTransmitN1FrameSize",
+    "oid": "1.3.6.1.2.1.10.16.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperReceiveN1FrameSize": {
+    "name": "lapbOperReceiveN1FrameSize",
+    "oid": "1.3.6.1.2.1.10.16.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperTransmitKWindowSize": {
+    "name": "lapbOperTransmitKWindowSize",
+    "oid": "1.3.6.1.2.1.10.16.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperReceiveKWindowSize": {
+    "name": "lapbOperReceiveKWindowSize",
+    "oid": "1.3.6.1.2.1.10.16.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperN2RxmitCount": {
+    "name": "lapbOperN2RxmitCount",
+    "oid": "1.3.6.1.2.1.10.16.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperT1AckTimer": {
+    "name": "lapbOperT1AckTimer",
+    "oid": "1.3.6.1.2.1.10.16.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperT2AckDelayTimer": {
+    "name": "lapbOperT2AckDelayTimer",
+    "oid": "1.3.6.1.2.1.10.16.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperT3DisconnectTimer": {
+    "name": "lapbOperT3DisconnectTimer",
+    "oid": "1.3.6.1.2.1.10.16.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperT4IdleTimer": {
+    "name": "lapbOperT4IdleTimer",
+    "oid": "1.3.6.1.2.1.10.16.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbOperPortId": {
+    "name": "lapbOperPortId",
+    "oid": "1.3.6.1.2.1.10.16.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbOperProtocolVersionId": {
+    "name": "lapbOperProtocolVersionId",
+    "oid": "1.3.6.1.2.1.10.16.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowTable": {
+    "name": "lapbFlowTable",
+    "oid": "1.3.6.1.2.1.10.16.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lapbFlowEntry": {
+    "name": "lapbFlowEntry",
+    "oid": "1.3.6.1.2.1.10.16.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1381-MIB",
+        "object": "lapbFlowIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lapbFlowIfIndex": {
+    "name": "lapbFlowIfIndex",
+    "oid": "1.3.6.1.2.1.10.16.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowStateChanges": {
+    "name": "lapbFlowStateChanges",
+    "oid": "1.3.6.1.2.1.10.16.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowChangeReason": {
+    "name": "lapbFlowChangeReason",
+    "oid": "1.3.6.1.2.1.10.16.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notStarted": 1,
+          "abmEntered": 2,
+          "abmeEntered": 3,
+          "abmReset": 4,
+          "abmeReset": 5,
+          "dmReceived": 6,
+          "dmSent": 7,
+          "discReceived": 8,
+          "discSent": 9,
+          "frmrReceived": 10,
+          "frmrSent": 11,
+          "n2Timeout": 12,
+          "other": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowCurrentMode": {
+    "name": "lapbFlowCurrentMode",
+    "oid": "1.3.6.1.2.1.10.16.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "linkSetup": 2,
+          "frameReject": 3,
+          "disconnectRequest": 4,
+          "informationTransfer": 5,
+          "rejFrameSent": 6,
+          "waitingAcknowledgement": 7,
+          "stationBusy": 8,
+          "remoteStationBusy": 9,
+          "bothStationsBusy": 10,
+          "waitingAckStationBusy": 11,
+          "waitingAckRemoteBusy": 12,
+          "waitingAckBothBusy": 13,
+          "rejFrameSentRemoteBusy": 14,
+          "xidFrameSent": 15,
+          "error": 16,
+          "other": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowBusyDefers": {
+    "name": "lapbFlowBusyDefers",
+    "oid": "1.3.6.1.2.1.10.16.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowRejOutPkts": {
+    "name": "lapbFlowRejOutPkts",
+    "oid": "1.3.6.1.2.1.10.16.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowRejInPkts": {
+    "name": "lapbFlowRejInPkts",
+    "oid": "1.3.6.1.2.1.10.16.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowT1Timeouts": {
+    "name": "lapbFlowT1Timeouts",
+    "oid": "1.3.6.1.2.1.10.16.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowFrmrSent": {
+    "name": "lapbFlowFrmrSent",
+    "oid": "1.3.6.1.2.1.10.16.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowFrmrReceived": {
+    "name": "lapbFlowFrmrReceived",
+    "oid": "1.3.6.1.2.1.10.16.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbFlowXidReceived": {
+    "name": "lapbFlowXidReceived",
+    "oid": "1.3.6.1.2.1.10.16.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8206
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbXidTable": {
+    "name": "lapbXidTable",
+    "oid": "1.3.6.1.2.1.10.16.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "lapbXidEntry": {
+    "name": "lapbXidEntry",
+    "oid": "1.3.6.1.2.1.10.16.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1381-MIB",
+        "object": "lapbXidIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "lapbXidIndex": {
+    "name": "lapbXidIndex",
+    "oid": "1.3.6.1.2.1.10.16.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lapbXidAdRIdentifier": {
+    "name": "lapbXidAdRIdentifier",
+    "oid": "1.3.6.1.2.1.10.16.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbXidAdRAddress": {
+    "name": "lapbXidAdRAddress",
+    "oid": "1.3.6.1.2.1.10.16.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbXidParameterUniqueIdentifier": {
+    "name": "lapbXidParameterUniqueIdentifier",
+    "oid": "1.3.6.1.2.1.10.16.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbXidGroupAddress": {
+    "name": "lapbXidGroupAddress",
+    "oid": "1.3.6.1.2.1.10.16.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbXidPortNumber": {
+    "name": "lapbXidPortNumber",
+    "oid": "1.3.6.1.2.1.10.16.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbXidUserDataSubfield": {
+    "name": "lapbXidUserDataSubfield",
+    "oid": "1.3.6.1.2.1.10.16.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8206
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "lapbProtocolVersion": {
+    "name": "lapbProtocolVersion",
+    "oid": "1.3.6.1.2.1.10.16.5",
+    "class": "objectidentity"
+  },
+  "lapbProtocolIso7776v1986": {
+    "name": "lapbProtocolIso7776v1986",
+    "oid": "1.3.6.1.2.1.10.16.5.1",
+    "class": "objectidentity"
+  },
+  "lapbProtocolCcittV1980": {
+    "name": "lapbProtocolCcittV1980",
+    "oid": "1.3.6.1.2.1.10.16.5.2",
+    "class": "objectidentity"
+  },
+  "lapbProtocolCcittV1984": {
+    "name": "lapbProtocolCcittV1984",
+    "oid": "1.3.6.1.2.1.10.16.5.3",
+    "class": "objectidentity"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/RFC1381-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RFC1381-MIB"
+  }
+}

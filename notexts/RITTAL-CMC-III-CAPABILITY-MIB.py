@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module RITTAL-CMC-III-CAPABILITY-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rittal/RITTAL-CMC-III-CAPABILITY-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:21:42 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:49:33 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 cmcIII, = mibBuilder.importSymbols("RITTAL-CMC-III-MIB", "cmcIII")
-NotificationGroup, AgentCapabilities, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "AgentCapabilities", "ModuleCompliance")
-TimeTicks, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, IpAddress, ModuleIdentity, Bits, Integer32, Counter64, iso, Unsigned32, Counter32, MibIdentifier, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "IpAddress", "ModuleIdentity", "Bits", "Integer32", "Counter64", "iso", "Unsigned32", "Counter32", "MibIdentifier", "Gauge32")
+AgentCapabilities, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "AgentCapabilities", "NotificationGroup", "ModuleCompliance")
+NotificationType, MibIdentifier, IpAddress, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Gauge32, Counter32, ObjectIdentity, iso, TimeTicks, Unsigned32, Integer32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibIdentifier", "IpAddress", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Gauge32", "Counter32", "ObjectIdentity", "iso", "TimeTicks", "Unsigned32", "Integer32", "Counter64")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 cmcIIICapability = ModuleIdentity((1, 3, 6, 1, 4, 1, 2606, 7, 8))
 cmcIIICapability.setRevisions(('2015-10-27 00:00', '2014-10-06 00:00', '2013-03-30 00:00', '2012-08-30 00:00', '2011-09-01 00:00',))
@@ -36,4 +36,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     cmcIIIPduCapsV104 = cmcIIIPduCapsV104.setProductRelease('V1.04')
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     cmcIIIPduCapsV104 = cmcIIIPduCapsV104.setStatus('current')
-mibBuilder.exportSymbols("RITTAL-CMC-III-CAPABILITY-MIB", cmcIIIPuCapsV103=cmcIIIPuCapsV103, cmcIIICapability=cmcIIICapability, cmcIIIPduCapsV104=cmcIIIPduCapsV104, PYSNMP_MODULE_ID=cmcIIICapability, cmcIIIPuCapsV102=cmcIIIPuCapsV102, cmcIIIPuCapsV104=cmcIIIPuCapsV104)
+mibBuilder.exportSymbols("RITTAL-CMC-III-CAPABILITY-MIB", cmcIIIPuCapsV102=cmcIIIPuCapsV102, cmcIIICapability=cmcIIICapability, PYSNMP_MODULE_ID=cmcIIICapability, cmcIIIPduCapsV104=cmcIIIPduCapsV104, cmcIIIPuCapsV104=cmcIIIPuCapsV104, cmcIIIPuCapsV103=cmcIIIPuCapsV103)

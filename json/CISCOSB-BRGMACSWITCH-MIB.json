@@ -1,0 +1,231 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "rlBrgMacSwitch": {
+    "name": "rlBrgMacSwitch",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-01-02 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "rlBrgMacSwVersion": {
+    "name": "rlBrgMacSwVersion",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwMaxTableNumber": {
+    "name": "rlBrgMacSwMaxTableNumber",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwDynamicTables": {
+    "name": "rlBrgMacSwDynamicTables",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwOldEntryDeleteMode": {
+    "name": "rlBrgMacSwOldEntryDeleteMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "refreshFlag": 1,
+          "agingFlag": 2,
+          "agingTime": 3,
+          "boundaries": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwSpanningTree": {
+    "name": "rlBrgMacSwSpanningTree",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "supported": 1,
+          "unsupported": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwKeyType": {
+    "name": "rlBrgMacSwKeyType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "macOnly": 1,
+          "tagAndMac": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwYellowBoundary": {
+    "name": "rlBrgMacSwYellowBoundary",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgMacSwRedBoundary": {
+    "name": "rlBrgMacSwRedBoundary",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgMacSwTrapEnable": {
+    "name": "rlBrgMacSwTrapEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlBrgMacSwOperTrapCount": {
+    "name": "rlBrgMacSwOperTrapCount",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlBrgMacSwAdminTrapFrequency": {
+    "name": "rlBrgMacSwAdminTrapFrequency",
+    "oid": "1.3.6.1.4.1.9.6.1.101.50.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-BRGMACSWITCH-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-BRGMACSWITCH-MIB"
+  }
+}

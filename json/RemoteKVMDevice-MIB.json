@@ -1,0 +1,2968 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "raritan": {
+    "name": "raritan",
+    "oid": "1.3.6.1.4.1.13742",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-10-13 12:00",
+        "description": "Version updated for added get"
+      },
+      {
+        "revision": "2014-11-06 12:00",
+        "description": "Version updated for added support for SX G2"
+      },
+      {
+        "revision": "2013-11-01 12:00",
+        "description": "Version updated for added support for KX G3"
+      },
+      {
+        "revision": "2011-12-20 12:00",
+        "description": "Version updated for product release 2.5.0. Add support for Disconnect User - Force User Off"
+      },
+      {
+        "revision": "2011-07-08 12:00",
+        "description": "Version updated for product release 2.4.5."
+      }
+    ]
+  },
+  "remoteKVMDevice": {
+    "name": "remoteKVMDevice",
+    "oid": "1.3.6.1.4.1.13742.3",
+    "class": "objectidentity"
+  },
+  "remoteKVMDeviceNotifications": {
+    "name": "remoteKVMDeviceNotifications",
+    "oid": "1.3.6.1.4.1.13742.3.0",
+    "class": "objectidentity"
+  },
+  "remoteKVMDeviceGet": {
+    "name": "remoteKVMDeviceGet",
+    "oid": "1.3.6.1.4.1.13742.3.1",
+    "class": "objectidentity"
+  },
+  "rcpObjectName": {
+    "name": "rcpObjectName",
+    "oid": "1.3.6.1.4.1.13742.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "rcpObjectInstance": {
+    "name": "rcpObjectInstance",
+    "oid": "1.3.6.1.4.1.13742.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "userName": {
+    "name": "userName",
+    "oid": "1.3.6.1.4.1.13742.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "targetUser": {
+    "name": "targetUser",
+    "oid": "1.3.6.1.4.1.13742.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "groupName": {
+    "name": "groupName",
+    "oid": "1.3.6.1.4.1.13742.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "rcpIPAddress": {
+    "name": "rcpIPAddress",
+    "oid": "1.3.6.1.4.1.13742.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "deviceName": {
+    "name": "deviceName",
+    "oid": "1.3.6.1.4.1.13742.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "portStatus": {
+    "name": "portStatus",
+    "oid": "1.3.6.1.4.1.13742.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "portName": {
+    "name": "portName",
+    "oid": "1.3.6.1.4.1.13742.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clusterID": {
+    "name": "clusterID",
+    "oid": "1.3.6.1.4.1.13742.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ipPort": {
+    "name": "ipPort",
+    "oid": "1.3.6.1.4.1.13742.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "resetType": {
+    "name": "resetType",
+    "oid": "1.3.6.1.4.1.13742.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "interface": {
+    "name": "interface",
+    "oid": "1.3.6.1.4.1.13742.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lan": 1,
+          "modem": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ethernetInterface": {
+    "name": "ethernetInterface",
+    "oid": "1.3.6.1.4.1.13742.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lan0": 0,
+          "lan1": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "backupRestoreAction": {
+    "name": "backupRestoreAction",
+    "oid": "1.3.6.1.4.1.13742.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "backup": 0,
+          "restore": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "imageType": {
+    "name": "imageType",
+    "oid": "1.3.6.1.4.1.13742.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "imageVersion": {
+    "name": "imageVersion",
+    "oid": "1.3.6.1.4.1.13742.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "status": {
+    "name": "status",
+    "oid": "1.3.6.1.4.1.13742.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fileVersion": {
+    "name": "fileVersion",
+    "oid": "1.3.6.1.4.1.13742.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fileType": {
+    "name": "fileType",
+    "oid": "1.3.6.1.4.1.13742.3.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "outletName": {
+    "name": "outletName",
+    "oid": "1.3.6.1.4.1.13742.3.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "portNumber": {
+    "name": "portNumber",
+    "oid": "1.3.6.1.4.1.13742.3.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.13742.3.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cimName": {
+    "name": "cimName",
+    "oid": "1.3.6.1.4.1.13742.3.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "count": {
+    "name": "count",
+    "oid": "1.3.6.1.4.1.13742.3.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "restoredLanPort": {
+    "name": "restoredLanPort",
+    "oid": "1.3.6.1.4.1.13742.3.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "remoteIpAddress": {
+    "name": "remoteIpAddress",
+    "oid": "1.3.6.1.4.1.13742.3.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "oldIpAddress": {
+    "name": "oldIpAddress",
+    "oid": "1.3.6.1.4.1.13742.3.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "newIpAddress": {
+    "name": "newIpAddress",
+    "oid": "1.3.6.1.4.1.13742.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "newNetmask": {
+    "name": "newNetmask",
+    "oid": "1.3.6.1.4.1.13742.3.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "oldNetmask": {
+    "name": "oldNetmask",
+    "oid": "1.3.6.1.4.1.13742.3.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "oldGateway": {
+    "name": "oldGateway",
+    "oid": "1.3.6.1.4.1.13742.3.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "newGateway": {
+    "name": "newGateway",
+    "oid": "1.3.6.1.4.1.13742.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sxAlertString": {
+    "name": "sxAlertString",
+    "oid": "1.3.6.1.4.1.13742.3.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "pduName": {
+    "name": "pduName",
+    "oid": "1.3.6.1.4.1.13742.3.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "changeEventText": {
+    "name": "changeEventText",
+    "oid": "1.3.6.1.4.1.13742.3.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "certificateAuthorityName": {
+    "name": "certificateAuthorityName",
+    "oid": "1.3.6.1.4.1.13742.3.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "sysDateAndTime": {
+    "name": "sysDateAndTime",
+    "oid": "1.3.6.1.4.1.13742.3.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fipsModeStatus": {
+    "name": "fipsModeStatus",
+    "oid": "1.3.6.1.4.1.13742.3.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bannerChanges": {
+    "name": "bannerChanges",
+    "oid": "1.3.6.1.4.1.13742.3.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 0,
+          "disabled": 1,
+          "modified": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "bannerAction": {
+    "name": "bannerAction",
+    "oid": "1.3.6.1.4.1.13742.3.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "declined": 0,
+          "accepted": 1
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "portList": {
+    "name": "portList",
+    "oid": "1.3.6.1.4.1.13742.3.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "fileName": {
+    "name": "fileName",
+    "oid": "1.3.6.1.4.1.13742.3.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "systemUsageMemory": {
+    "name": "systemUsageMemory",
+    "oid": "1.3.6.1.4.1.13742.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemUsageCPU": {
+    "name": "systemUsageCPU",
+    "oid": "1.3.6.1.4.1.13742.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemPowerSupplyTable": {
+    "name": "systemPowerSupplyTable",
+    "oid": "1.3.6.1.4.1.13742.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemPowerSupplyEntry": {
+    "name": "systemPowerSupplyEntry",
+    "oid": "1.3.6.1.4.1.13742.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "systemPowerSupplyNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "systemPowerSupplyNumber": {
+    "name": "systemPowerSupplyNumber",
+    "oid": "1.3.6.1.4.1.13742.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "systemPowerSupplyPowerOn": {
+    "name": "systemPowerSupplyPowerOn",
+    "oid": "1.3.6.1.4.1.13742.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portDataTable": {
+    "name": "portDataTable",
+    "oid": "1.3.6.1.4.1.13742.3.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portDataEntry": {
+    "name": "portDataEntry",
+    "oid": "1.3.6.1.4.1.13742.3.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portDataIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portDataIndex": {
+    "name": "portDataIndex",
+    "oid": "1.3.6.1.4.1.13742.3.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portDataNumber": {
+    "name": "portDataNumber",
+    "oid": "1.3.6.1.4.1.13742.3.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portDataName": {
+    "name": "portDataName",
+    "oid": "1.3.6.1.4.1.13742.3.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portDataType": {
+    "name": "portDataType",
+    "oid": "1.3.6.1.4.1.13742.3.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portDataStatus": {
+    "name": "portDataStatus",
+    "oid": "1.3.6.1.4.1.13742.3.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "available": 2,
+          "connected": 3,
+          "busy": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rebootStarted": {
+    "name": "rebootStarted",
+    "oid": "1.3.6.1.4.1.13742.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "rebootCompleted": {
+    "name": "rebootCompleted",
+    "oid": "1.3.6.1.4.1.13742.3.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      }
+    ],
+    "status": "current"
+  },
+  "userLogin": {
+    "name": "userLogin",
+    "oid": "1.3.6.1.4.1.13742.3.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "userLogout": {
+    "name": "userLogout",
+    "oid": "1.3.6.1.4.1.13742.3.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "userAuthenticationFailure": {
+    "name": "userAuthenticationFailure",
+    "oid": "1.3.6.1.4.1.13742.3.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "portConnect": {
+    "name": "portConnect",
+    "oid": "1.3.6.1.4.1.13742.3.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portName"
+      }
+    ],
+    "status": "current"
+  },
+  "portDisconnect": {
+    "name": "portDisconnect",
+    "oid": "1.3.6.1.4.1.13742.3.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portName"
+      }
+    ],
+    "status": "current"
+  },
+  "userSessionTimeout": {
+    "name": "userSessionTimeout",
+    "oid": "1.3.6.1.4.1.13742.3.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "userConnectionLost": {
+    "name": "userConnectionLost",
+    "oid": "1.3.6.1.4.1.13742.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "portStatusChange": {
+    "name": "portStatusChange",
+    "oid": "1.3.6.1.4.1.13742.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "deviceName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "userAdded": {
+    "name": "userAdded",
+    "oid": "1.3.6.1.4.1.13742.3.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "targetUser"
+      }
+    ],
+    "status": "current"
+  },
+  "userModified": {
+    "name": "userModified",
+    "oid": "1.3.6.1.4.1.13742.3.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "targetUser"
+      }
+    ],
+    "status": "current"
+  },
+  "userDeleted": {
+    "name": "userDeleted",
+    "oid": "1.3.6.1.4.1.13742.3.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "targetUser"
+      }
+    ],
+    "status": "current"
+  },
+  "groupAdded": {
+    "name": "groupAdded",
+    "oid": "1.3.6.1.4.1.13742.3.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "groupName"
+      }
+    ],
+    "status": "current"
+  },
+  "groupModified": {
+    "name": "groupModified",
+    "oid": "1.3.6.1.4.1.13742.3.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "groupName"
+      }
+    ],
+    "status": "current"
+  },
+  "groupDeleted": {
+    "name": "groupDeleted",
+    "oid": "1.3.6.1.4.1.13742.3.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "groupName"
+      }
+    ],
+    "status": "current"
+  },
+  "startCCManagement": {
+    "name": "startCCManagement",
+    "oid": "1.3.6.1.4.1.13742.3.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "stopCCManagement": {
+    "name": "stopCCManagement",
+    "oid": "1.3.6.1.4.1.13742.3.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "factoryReset": {
+    "name": "factoryReset",
+    "oid": "1.3.6.1.4.1.13742.3.0.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceUpdateStarted": {
+    "name": "deviceUpdateStarted",
+    "oid": "1.3.6.1.4.1.13742.3.0.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "imageVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceUpdateCompleted": {
+    "name": "deviceUpdateCompleted",
+    "oid": "1.3.6.1.4.1.13742.3.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "imageVersion"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "status"
+      }
+    ],
+    "status": "current"
+  },
+  "configBackup": {
+    "name": "configBackup",
+    "oid": "1.3.6.1.4.1.13742.3.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "fileType"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "fileVersion"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "status"
+      }
+    ],
+    "status": "current"
+  },
+  "configRestore": {
+    "name": "configRestore",
+    "oid": "1.3.6.1.4.1.13742.3.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "fileType"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "fileVersion"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "status"
+      }
+    ],
+    "status": "current"
+  },
+  "userPasswordChanged": {
+    "name": "userPasswordChanged",
+    "oid": "1.3.6.1.4.1.13742.3.0.24",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "targetUser"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "powerNotification": {
+    "name": "powerNotification",
+    "oid": "1.3.6.1.4.1.13742.3.0.25",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "outletName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "status"
+      }
+    ],
+    "status": "current"
+  },
+  "networkFailure": {
+    "name": "networkFailure",
+    "oid": "1.3.6.1.4.1.13742.3.0.26",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "ethernetInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "networkParameterChanged": {
+    "name": "networkParameterChanged",
+    "oid": "1.3.6.1.4.1.13742.3.0.27",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "remoteIpAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "oldIpAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "newIpAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "oldNetmask"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "newNetmask"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "newGateway"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "oldGateway"
+      }
+    ],
+    "status": "current"
+  },
+  "vmImageConnected": {
+    "name": "vmImageConnected",
+    "oid": "1.3.6.1.4.1.13742.3.0.28",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "vmImageDisconnected": {
+    "name": "vmImageDisconnected",
+    "oid": "1.3.6.1.4.1.13742.3.0.29",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cimUpdateStarted": {
+    "name": "cimUpdateStarted",
+    "oid": "1.3.6.1.4.1.13742.3.0.30",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      }
+    ],
+    "status": "current"
+  },
+  "cimUpdateCompleted": {
+    "name": "cimUpdateCompleted",
+    "oid": "1.3.6.1.4.1.13742.3.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      }
+    ],
+    "status": "current"
+  },
+  "cimConnected": {
+    "name": "cimConnected",
+    "oid": "1.3.6.1.4.1.13742.3.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "cimName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "serialNumber"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "cimDisconnected": {
+    "name": "cimDisconnected",
+    "oid": "1.3.6.1.4.1.13742.3.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "cimName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "serialNumber"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "powerOutletNotification": {
+    "name": "powerOutletNotification",
+    "oid": "1.3.6.1.4.1.13742.3.0.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "outletName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "status"
+      }
+    ],
+    "status": "current"
+  },
+  "portConnectionDenied": {
+    "name": "portConnectionDenied",
+    "oid": "1.3.6.1.4.1.13742.3.0.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portName"
+      }
+    ],
+    "status": "current"
+  },
+  "firmwareFileDiscarded": {
+    "name": "firmwareFileDiscarded",
+    "oid": "1.3.6.1.4.1.13742.3.0.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "firmwareUpdateFailed": {
+    "name": "firmwareUpdateFailed",
+    "oid": "1.3.6.1.4.1.13742.3.0.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "firmwareValidationFailed": {
+    "name": "firmwareValidationFailed",
+    "oid": "1.3.6.1.4.1.13742.3.0.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "securityViolation": {
+    "name": "securityViolation",
+    "oid": "1.3.6.1.4.1.13742.3.0.39",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "deviceUpdateFailed": {
+    "name": "deviceUpdateFailed",
+    "oid": "1.3.6.1.4.1.13742.3.0.40",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "passwordSettingsChanged": {
+    "name": "passwordSettingsChanged",
+    "oid": "1.3.6.1.4.1.13742.3.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "status"
+      }
+    ],
+    "status": "current"
+  },
+  "ethernetFailover": {
+    "name": "ethernetFailover",
+    "oid": "1.3.6.1.4.1.13742.3.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "restoredLanPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ipConflictDetected": {
+    "name": "ipConflictDetected",
+    "oid": "1.3.6.1.4.1.13742.3.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "count"
+      }
+    ],
+    "status": "current"
+  },
+  "ipConflictResolved": {
+    "name": "ipConflictResolved",
+    "oid": "1.3.6.1.4.1.13742.3.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "sxPortAlert": {
+    "name": "sxPortAlert",
+    "oid": "1.3.6.1.4.1.13742.3.0.45",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portNumber"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "sxAlertString"
+      }
+    ],
+    "status": "current"
+  },
+  "pduConnected": {
+    "name": "pduConnected",
+    "oid": "1.3.6.1.4.1.13742.3.0.46",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portNumber"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "pduName"
+      }
+    ],
+    "status": "current"
+  },
+  "pduDisconnected": {
+    "name": "pduDisconnected",
+    "oid": "1.3.6.1.4.1.13742.3.0.47",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portNumber"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "pduName"
+      }
+    ],
+    "status": "current"
+  },
+  "networkParameterChangedv2": {
+    "name": "networkParameterChangedv2",
+    "oid": "1.3.6.1.4.1.13742.3.0.48",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "remoteIpAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "changeEventText"
+      }
+    ],
+    "status": "current"
+  },
+  "portConnectv2": {
+    "name": "portConnectv2",
+    "oid": "1.3.6.1.4.1.13742.3.0.49",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "portDisconnectv2": {
+    "name": "portDisconnectv2",
+    "oid": "1.3.6.1.4.1.13742.3.0.50",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "userForcedLogout": {
+    "name": "userForcedLogout",
+    "oid": "1.3.6.1.4.1.13742.3.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "userUploadedCertificate": {
+    "name": "userUploadedCertificate",
+    "oid": "1.3.6.1.4.1.13742.3.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "certificateAuthorityName"
+      }
+    ],
+    "status": "current"
+  },
+  "bladeChassisCommError": {
+    "name": "bladeChassisCommError",
+    "oid": "1.3.6.1.4.1.13742.3.0.53",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "deviceName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portNumber"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portName"
+      }
+    ],
+    "status": "current"
+  },
+  "setDateTime": {
+    "name": "setDateTime",
+    "oid": "1.3.6.1.4.1.13742.3.0.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "deviceName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "sysDateAndTime"
+      }
+    ],
+    "status": "current"
+  },
+  "setFIPSMode": {
+    "name": "setFIPSMode",
+    "oid": "1.3.6.1.4.1.13742.3.0.55",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "deviceName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "fipsModeStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "securityBannerChanged": {
+    "name": "securityBannerChanged",
+    "oid": "1.3.6.1.4.1.13742.3.0.56",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "bannerChanges"
+      }
+    ],
+    "status": "current"
+  },
+  "securityBannerAction": {
+    "name": "securityBannerAction",
+    "oid": "1.3.6.1.4.1.13742.3.0.57",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "bannerAction"
+      }
+    ],
+    "status": "current"
+  },
+  "scanStarted": {
+    "name": "scanStarted",
+    "oid": "1.3.6.1.4.1.13742.3.0.58",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portList"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "scanStopped": {
+    "name": "scanStopped",
+    "oid": "1.3.6.1.4.1.13742.3.0.59",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portList"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "userDisconnectedFromPort": {
+    "name": "userDisconnectedFromPort",
+    "oid": "1.3.6.1.4.1.13742.3.0.60",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "targetUser"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "automaticScriptConfiguration": {
+    "name": "automaticScriptConfiguration",
+    "oid": "1.3.6.1.4.1.13742.3.0.61",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "fileName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "status"
+      }
+    ],
+    "status": "current"
+  },
+  "dsamUpdateStarted": {
+    "name": "dsamUpdateStarted",
+    "oid": "1.3.6.1.4.1.13742.3.0.62",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      }
+    ],
+    "status": "current"
+  },
+  "dsamUpdateCompleted": {
+    "name": "dsamUpdateCompleted",
+    "oid": "1.3.6.1.4.1.13742.3.0.63",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      }
+    ],
+    "status": "current"
+  },
+  "dsamConnected": {
+    "name": "dsamConnected",
+    "oid": "1.3.6.1.4.1.13742.3.0.64",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "serialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "dsamDisconnected": {
+    "name": "dsamDisconnected",
+    "oid": "1.3.6.1.4.1.13742.3.0.65",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "serialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "raritanMibConformance": {
+    "name": "raritanMibConformance",
+    "oid": "1.3.6.1.4.1.13742.9",
+    "class": "objectidentity"
+  },
+  "raritanMibCompliances": {
+    "name": "raritanMibCompliances",
+    "oid": "1.3.6.1.4.1.13742.9.1",
+    "class": "objectidentity"
+  },
+  "raritanMibGroups": {
+    "name": "raritanMibGroups",
+    "oid": "1.3.6.1.4.1.13742.9.2",
+    "class": "objectidentity"
+  },
+  "raritanMibCompliance": {
+    "name": "raritanMibCompliance",
+    "oid": "1.3.6.1.4.1.13742.9.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "raritanMibBasicGroup",
+        "module": "RemoteKVMDevice-MIB"
+      },
+      {
+        "object": "raritanMibTrapGroup",
+        "module": "RemoteKVMDevice-MIB"
+      },
+      {
+        "object": "raritanMibGetGroup",
+        "module": "RemoteKVMDevice-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "raritanMibBasicGroup": {
+    "name": "raritanMibBasicGroup",
+    "oid": "1.3.6.1.4.1.13742.9.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpObjectInstance"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "targetUser"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "groupName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rcpIPAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "deviceName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portStatus"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "clusterID"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "ipPort"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "resetType"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "interface"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "ethernetInterface"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "backupRestoreAction"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "imageType"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "imageVersion"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "status"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "fileVersion"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "fileType"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "outletName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portNumber"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "serialNumber"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "cimName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "count"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "restoredLanPort"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "remoteIpAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "oldIpAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "newIpAddress"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "newNetmask"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "oldNetmask"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "oldGateway"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "newGateway"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "sxAlertString"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "pduName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "changeEventText"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "certificateAuthorityName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "sysDateAndTime"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "fipsModeStatus"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "bannerChanges"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "bannerAction"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portList"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "fileName"
+      }
+    ],
+    "status": "current"
+  },
+  "raritanMibTrapGroup": {
+    "name": "raritanMibTrapGroup",
+    "oid": "1.3.6.1.4.1.13742.9.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rebootStarted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "rebootCompleted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userLogin"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userLogout"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userAuthenticationFailure"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portConnect"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portDisconnect"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userSessionTimeout"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userConnectionLost"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portStatusChange"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userAdded"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userModified"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userDeleted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "groupAdded"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "groupModified"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "groupDeleted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "startCCManagement"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "stopCCManagement"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "factoryReset"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "deviceUpdateStarted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "deviceUpdateCompleted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "configBackup"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "configRestore"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userPasswordChanged"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "powerNotification"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "networkFailure"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "networkParameterChanged"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "vmImageConnected"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "vmImageDisconnected"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "cimUpdateStarted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "cimUpdateCompleted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "cimConnected"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "cimDisconnected"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "powerOutletNotification"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portConnectionDenied"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "firmwareFileDiscarded"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "firmwareUpdateFailed"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "firmwareValidationFailed"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "securityViolation"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "deviceUpdateFailed"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "passwordSettingsChanged"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "ethernetFailover"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "ipConflictDetected"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "ipConflictResolved"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "sxPortAlert"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "pduConnected"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "pduDisconnected"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "networkParameterChangedv2"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portConnectv2"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portDisconnectv2"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userForcedLogout"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userUploadedCertificate"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "bladeChassisCommError"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "setDateTime"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "setFIPSMode"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "securityBannerChanged"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "securityBannerAction"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "scanStarted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "scanStopped"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "userDisconnectedFromPort"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "automaticScriptConfiguration"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "dsamUpdateStarted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "dsamUpdateCompleted"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "dsamConnected"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "dsamDisconnected"
+      }
+    ],
+    "status": "current"
+  },
+  "raritanMibGetGroup": {
+    "name": "raritanMibGetGroup",
+    "oid": "1.3.6.1.4.1.13742.9.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "systemUsageMemory"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "systemUsageCPU"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "systemPowerSupplyPowerOn"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portDataNumber"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portDataName"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portDataType"
+      },
+      {
+        "module": "RemoteKVMDevice-MIB",
+        "object": "portDataStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/raritan/RemoteKVMDevice-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RemoteKVMDevice-MIB"
+  }
+}

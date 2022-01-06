@@ -1,0 +1,3577 @@
+{
+  "imports": {
+    "class": "imports",
+    "DELL-NETWORKING-SMI": [
+      "dellNetMgmt"
+    ],
+    "DELL-NETWORKING-TC": [
+      "DellNetDeviceType"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dellNetFpStatsMib": {
+    "name": "dellNetFpStatsMib",
+    "oid": "1.3.6.1.4.1.6027.3.27",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-09-04 12:00",
+        "description": "Initial draft version of unified FP statistics mib."
+      }
+    ]
+  },
+  "dellNetFpStatsObjects": {
+    "name": "dellNetFpStatsObjects",
+    "oid": "1.3.6.1.4.1.6027.3.27.1",
+    "class": "objectidentity"
+  },
+  "ComType": {
+    "name": "ComType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unicast": 1,
+          "multicast": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "QState": {
+    "name": "QState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "drop": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dellNetFpCpuDataPlaneTable": {
+    "name": "dellNetFpCpuDataPlaneTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpCpuDataPlaneStatsEntry": {
+    "name": "dellNetFpCpuDataPlaneStatsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetProcessorDeviceType": {
+    "name": "dellNetProcessorDeviceType",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DellNetDeviceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetProcessorDeviceIndex": {
+    "name": "dellNetProcessorDeviceIndex",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpRxHandle": {
+    "name": "dellNetFpRxHandle",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpNoMhdr": {
+    "name": "dellNetFpNoMhdr",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpNoMBuf": {
+    "name": "dellNetFpNoMBuf",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpNoClus": {
+    "name": "dellNetFpNoClus",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpRecvd": {
+    "name": "dellNetFpRecvd",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpDropped": {
+    "name": "dellNetFpDropped",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpRecvToNet": {
+    "name": "dellNetFpRecvToNet",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpRxError": {
+    "name": "dellNetFpRxError",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpRxDatapathError": {
+    "name": "dellNetFpRxDatapathError",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpRxPktCOS0": {
+    "name": "dellNetFpRxPktCOS0",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpRxPktCOS1": {
+    "name": "dellNetFpRxPktCOS1",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpRxPktCOS2": {
+    "name": "dellNetFpRxPktCOS2",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpRxPktCOS3": {
+    "name": "dellNetFpRxPktCOS3",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpRxPktCOS4": {
+    "name": "dellNetFpRxPktCOS4",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpRxPktCOS5": {
+    "name": "dellNetFpRxPktCOS5",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpRxPktCOS6": {
+    "name": "dellNetFpRxPktCOS6",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpRxPktCOS7": {
+    "name": "dellNetFpRxPktCOS7",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpRxPktUnit0": {
+    "name": "dellNetFpRxPktUnit0",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpRxPktUnit1": {
+    "name": "dellNetFpRxPktUnit1",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpRxPktUnit2": {
+    "name": "dellNetFpRxPktUnit2",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpRxPktUnit3": {
+    "name": "dellNetFpRxPktUnit3",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTransmitted": {
+    "name": "dellNetFpTransmitted",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTxRequested": {
+    "name": "dellNetFpTxRequested",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpNoTxDesc": {
+    "name": "dellNetFpNoTxDesc",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTxError": {
+    "name": "dellNetFpTxError",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTxReqTooLarge": {
+    "name": "dellNetFpTxReqTooLarge",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTxInternalError": {
+    "name": "dellNetFpTxInternalError",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTxDatapathErr": {
+    "name": "dellNetFpTxDatapathErr",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTxPktCOS0": {
+    "name": "dellNetFpTxPktCOS0",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpTxPktCOS1": {
+    "name": "dellNetFpTxPktCOS1",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpTxPktCOS2": {
+    "name": "dellNetFpTxPktCOS2",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpTxPktCOS3": {
+    "name": "dellNetFpTxPktCOS3",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpTxPktCOS4": {
+    "name": "dellNetFpTxPktCOS4",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpTxPktCOS5": {
+    "name": "dellNetFpTxPktCOS5",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpTxPktCOS6": {
+    "name": "dellNetFpTxPktCOS6",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpTxPktCOS7": {
+    "name": "dellNetFpTxPktCOS7",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "dellNetFpTxPktUnit0": {
+    "name": "dellNetFpTxPktUnit0",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTxPktUnit1": {
+    "name": "dellNetFpTxPktUnit1",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTxPktUnit2": {
+    "name": "dellNetFpTxPktUnit2",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTxPktUnit3": {
+    "name": "dellNetFpTxPktUnit3",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusTable": {
+    "name": "dellNetFpCpuPartyBusTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusStatsEntry": {
+    "name": "dellNetFpCpuPartyBusStatsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpPartyBusInputPackets": {
+    "name": "dellNetFpPartyBusInputPackets",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPartyBusInputBytes": {
+    "name": "dellNetFpPartyBusInputBytes",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPartyBusInputDropped": {
+    "name": "dellNetFpPartyBusInputDropped",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPartyBusInputError": {
+    "name": "dellNetFpPartyBusInputError",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPartyBusOutputPackets": {
+    "name": "dellNetFpPartyBusOutputPackets",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPartyBusOutputBytes": {
+    "name": "dellNetFpPartyBusOutputBytes",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPartyBusOutputError": {
+    "name": "dellNetFpPartyBusOutputError",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpDropsTable": {
+    "name": "dellNetFpDropsTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpDropsEntry": {
+    "name": "dellNetFpDropsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpIngressDrops": {
+    "name": "dellNetFpIngressDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngIBPCBPFullDrops": {
+    "name": "dellNetFpIngIBPCBPFullDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngPortSTPnotFwdDrops": {
+    "name": "dellNetFpIngPortSTPnotFwdDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngIPv4L3Discards": {
+    "name": "dellNetFpIngIPv4L3Discards",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngPolicyDiscards": {
+    "name": "dellNetFpIngPolicyDiscards",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngPacketsDroppedByDELLNETFP": {
+    "name": "dellNetFpIngPacketsDroppedByDELLNETFP",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngL2L3Drops": {
+    "name": "dellNetFpIngL2L3Drops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngPortBitMapZeroDrops": {
+    "name": "dellNetFpIngPortBitMapZeroDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngRxVLANDrops": {
+    "name": "dellNetFpIngRxVLANDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngressFCSDrops": {
+    "name": "dellNetFpIngressFCSDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngressMTUExceeds": {
+    "name": "dellNetFpIngressMTUExceeds",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpMMUHOLDrops": {
+    "name": "dellNetFpMMUHOLDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpMMUTxPurgeCellErr": {
+    "name": "dellNetFpMMUTxPurgeCellErr",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpMMUAgedDrops": {
+    "name": "dellNetFpMMUAgedDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgressFCSDrops": {
+    "name": "dellNetFpEgressFCSDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgIPv4L3UCAgedDrops": {
+    "name": "dellNetFpEgIPv4L3UCAgedDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgTTLThresholdDrops": {
+    "name": "dellNetFpEgTTLThresholdDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgInvalidVLANCounterDrops": {
+    "name": "dellNetFpEgInvalidVLANCounterDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgL2MCDrops": {
+    "name": "dellNetFpEgL2MCDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgPktDropsOfAnyCondition": {
+    "name": "dellNetFpEgPktDropsOfAnyCondition",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgHgMacUnderFlow": {
+    "name": "dellNetFpEgHgMacUnderFlow",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgTxErrPktCounter": {
+    "name": "dellNetFpEgTxErrPktCounter",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpFlowControlDrops": {
+    "name": "dellNetFpFlowControlDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngressDropsBytes": {
+    "name": "dellNetFpIngressDropsBytes",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngressFECBitErrors": {
+    "name": "dellNetFpIngressFECBitErrors",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngressFECUncorrectedCodeWords": {
+    "name": "dellNetFpIngressFECUncorrectedCodeWords",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngressPreFECBitErrorRatio": {
+    "name": "dellNetFpIngressPreFECBitErrorRatio",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngressFCSErrorRatio": {
+    "name": "dellNetFpIngressFCSErrorRatio",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpWredGreenDrops": {
+    "name": "dellNetFpWredGreenDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpWredYellowDrops": {
+    "name": "dellNetFpWredYellowDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpWredOutOfProfileDrops": {
+    "name": "dellNetFpWredOutOfProfileDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPacketBufferTable": {
+    "name": "dellNetFpPacketBufferTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpPacketBufferEntry": {
+    "name": "dellNetFpPacketBufferEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpPortPipe",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpPortPipe": {
+    "name": "dellNetFpPortPipe",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpTotalPacketBuffer": {
+    "name": "dellNetFpTotalPacketBuffer",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCurrentAvailBuffer": {
+    "name": "dellNetFpCurrentAvailBuffer",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPacketBufferAlloc": {
+    "name": "dellNetFpPacketBufferAlloc",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpStatsPerPortTable": {
+    "name": "dellNetFpStatsPerPortTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpStatsPerPortEntry": {
+    "name": "dellNetFpStatsPerPortEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpCurrentUsagePerPort": {
+    "name": "dellNetFpCurrentUsagePerPort",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpDefaultPacketBuffAlloc": {
+    "name": "dellNetFpDefaultPacketBuffAlloc",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpMaxLimitPerPort": {
+    "name": "dellNetFpMaxLimitPerPort",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpStatsPerCOSTable": {
+    "name": "dellNetFpStatsPerCOSTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpStatsPerCOSEntry": {
+    "name": "dellNetFpStatsPerCOSEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpPerPortCOSNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpPerPortCOSNumber": {
+    "name": "dellNetFpPerPortCOSNumber",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpCurrentUsagePerCOS": {
+    "name": "dellNetFpCurrentUsagePerCOS",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpDefaultPacketBuffAllocPerCOS": {
+    "name": "dellNetFpDefaultPacketBuffAllocPerCOS",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpMaxLimitPerCOS": {
+    "name": "dellNetFpMaxLimitPerCOS",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpHOLDropsPerCOS": {
+    "name": "dellNetFpHOLDropsPerCOS",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuDataPlaneCOSTable": {
+    "name": "dellNetFpCpuDataPlaneCOSTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpCpuDataPlaneCOSEntry": {
+    "name": "dellNetFpCpuDataPlaneCOSEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpCOSIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpCOSIndex": {
+    "name": "dellNetFpCOSIndex",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpRxPktCOS": {
+    "name": "dellNetFpRxPktCOS",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTxPktCOS": {
+    "name": "dellNetFpTxPktCOS",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsTable": {
+    "name": "dellNetFpCpuPartyBusPortStatsTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsEntry": {
+    "name": "dellNetFpCpuPartyBusPortStatsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpStackPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpStackPortIndex": {
+    "name": "dellNetFpStackPortIndex",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutOctets": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutOctets",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutDropPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutDropPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutCOS0Pkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutCOS0Pkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutCOS1Pkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutCOS1Pkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutCOS2Pkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutCOS2Pkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutCOS3Pkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutCOS3Pkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutCOS4Pkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutCOS4Pkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutCOS5Pkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutCOS5Pkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutUnicastPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutUnicastPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutMulticastPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutBroadcastPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutPausePkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutPausePkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutCollisions": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutCollisions",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutSingleCollisions": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutSingleCollisions",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutMultiCollisions": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutMultiCollisions",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutLateCollisions": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutLateCollisions",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutExcessCollisions": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutExcessCollisions",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutDeferred": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutDeferred",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsOutDiscarded": {
+    "name": "dellNetFpCpuPartyBusPortStatsOutDiscarded",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInOctets": {
+    "name": "dellNetFpCpuPartyBusPortStatsInOctets",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInUndersizePkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsInUndersizePkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInOversizePkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsInOversizePkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInPausePkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsInPausePkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsIn64OctetPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsIn64OctetPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsIn65To127OctetPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsIn65To127OctetPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsIn128To255OctetPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsIn128To255OctetPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsIn256To511OctetPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsIn256To511OctetPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsIn512To1023OctetPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsIn512To1023OctetPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsIn1024ToMaxOctetPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsIn1024ToMaxOctetPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInJabbers": {
+    "name": "dellNetFpCpuPartyBusPortStatsInJabbers",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInAlignErrors": {
+    "name": "dellNetFpCpuPartyBusPortStatsInAlignErrors",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInFcsErrors": {
+    "name": "dellNetFpCpuPartyBusPortStatsInFcsErrors",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInGoodOctets": {
+    "name": "dellNetFpCpuPartyBusPortStatsInGoodOctets",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInDropPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsInDropPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInUnicastPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsInUnicastPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInMulticastPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsInMulticastPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInBroadcastPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInSrcAddrChanges": {
+    "name": "dellNetFpCpuPartyBusPortStatsInSrcAddrChanges",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInFragments": {
+    "name": "dellNetFpCpuPartyBusPortStatsInFragments",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInJumboPkts": {
+    "name": "dellNetFpCpuPartyBusPortStatsInJumboPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInSymbolErrors": {
+    "name": "dellNetFpCpuPartyBusPortStatsInSymbolErrors",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInInRangeErrors": {
+    "name": "dellNetFpCpuPartyBusPortStatsInInRangeErrors",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpCpuPartyBusPortStatsInOutRangeErrors": {
+    "name": "dellNetFpCpuPartyBusPortStatsInOutRangeErrors",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.12.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgrQBuffSnapshotTable": {
+    "name": "dellNetFpEgrQBuffSnapshotTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpEgrQBuffSnapshotEntry": {
+    "name": "dellNetFpEgrQBuffSnapshotEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpPerPortCOSNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpEgrQTotBuffCells": {
+    "name": "dellNetFpEgrQTotBuffCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngPgBuffSnapshotTable": {
+    "name": "dellNetFpIngPgBuffSnapshotTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpIngPgBuffSnapshotEntry": {
+    "name": "dellNetFpIngPgBuffSnapshotEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpPerPortPGIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpPerPortPGIndex": {
+    "name": "dellNetFpPerPortPGIndex",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpIngSharedCells": {
+    "name": "dellNetFpIngSharedCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpIngHeadroomCells": {
+    "name": "dellNetFpIngHeadroomCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpStatsPerPgTable": {
+    "name": "dellNetFpStatsPerPgTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpStatsPerPgEntry": {
+    "name": "dellNetFpStatsPerPgEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpPerPortPGIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpStatsPgLimitMinCells": {
+    "name": "dellNetFpStatsPgLimitMinCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpStatsPgSharedCells": {
+    "name": "dellNetFpStatsPgSharedCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpStatsPgSharedMode": {
+    "name": "dellNetFpStatsPgSharedMode",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 0,
+          "dynamic": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpStatsPgHdrmCells": {
+    "name": "dellNetFpStatsPgHdrmCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpStatsPgCounterMinCells": {
+    "name": "dellNetFpStatsPgCounterMinCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpStatsPgCounterSharedCells": {
+    "name": "dellNetFpStatsPgCounterSharedCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpStatsPgCounterHdrmCells": {
+    "name": "dellNetFpStatsPgCounterHdrmCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPfcPerPrioTable": {
+    "name": "dellNetPfcPerPrioTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetPfcPerPrioEntry": {
+    "name": "dellNetPfcPerPrioEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetPrioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetPrioIndex": {
+    "name": "dellNetPrioIndex",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetPfcPerPrioRequests": {
+    "name": "dellNetPfcPerPrioRequests",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetPfcPerPrioIndications": {
+    "name": "dellNetPfcPerPrioIndications",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Indications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpDropsIfTable": {
+    "name": "dellNetFpDropsIfTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpDropsIfEntry": {
+    "name": "dellNetFpDropsIfEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngressDrops": {
+    "name": "dellNetFpIfIngressDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngIBPCBPFullDrops": {
+    "name": "dellNetFpIfIngIBPCBPFullDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngPortSTPnotFwdDrops": {
+    "name": "dellNetFpIfIngPortSTPnotFwdDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngIPv4L3Discards": {
+    "name": "dellNetFpIfIngIPv4L3Discards",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngPolicyDiscards": {
+    "name": "dellNetFpIfIngPolicyDiscards",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngPacketsDroppedByFP": {
+    "name": "dellNetFpIfIngPacketsDroppedByFP",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngL2L3Drops": {
+    "name": "dellNetFpIfIngL2L3Drops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngPortBitMapZeroDrops": {
+    "name": "dellNetFpIfIngPortBitMapZeroDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngRxVLANDrops": {
+    "name": "dellNetFpIfIngRxVLANDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngressFCSDrops": {
+    "name": "dellNetFpIfIngressFCSDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngressMTUExceeds": {
+    "name": "dellNetFpIfIngressMTUExceeds",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfMMUHOLDrops": {
+    "name": "dellNetFpIfMMUHOLDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfMMUTxPurgeCellErr": {
+    "name": "dellNetFpIfMMUTxPurgeCellErr",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfMMUAgedDrops": {
+    "name": "dellNetFpIfMMUAgedDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfEgressFCSDrops": {
+    "name": "dellNetFpIfEgressFCSDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfEgIPv4L3UCAgedDrops": {
+    "name": "dellNetFpIfEgIPv4L3UCAgedDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfEgTTLThresholdDrops": {
+    "name": "dellNetFpIfEgTTLThresholdDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfEgInvalidVLANCounterDrops": {
+    "name": "dellNetFpIfEgInvalidVLANCounterDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfEgL2MCDrops": {
+    "name": "dellNetFpIfEgL2MCDrops",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfEgPktDropsOfAnyCondition": {
+    "name": "dellNetFpIfEgPktDropsOfAnyCondition",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfEgHgMacUnderFlow": {
+    "name": "dellNetFpIfEgHgMacUnderFlow",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfEgTxErrPktCounter": {
+    "name": "dellNetFpIfEgTxErrPktCounter",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.13.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpStatsPerIfTable": {
+    "name": "dellNetFpStatsPerIfTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpStatsPerIfEntry": {
+    "name": "dellNetFpStatsPerIfEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dellNetFpIfCurrentUsagePerPort": {
+    "name": "dellNetFpIfCurrentUsagePerPort",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfDefaultPacketBuffAlloc": {
+    "name": "dellNetFpIfDefaultPacketBuffAlloc",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfMaxLimitPerPort": {
+    "name": "dellNetFpIfMaxLimitPerPort",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpStatsPerIfCOSTable": {
+    "name": "dellNetFpStatsPerIfCOSTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpStatsPerIfCOSEntry": {
+    "name": "dellNetFpStatsPerIfCOSEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpIfPerCOSNumber",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dellNetFpIfPerCOSNumber": {
+    "name": "dellNetFpIfPerCOSNumber",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 21
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfCurrentUsagePerCOS": {
+    "name": "dellNetFpIfCurrentUsagePerCOS",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfDefaultPacketBuffAllocPerCOS": {
+    "name": "dellNetFpIfDefaultPacketBuffAllocPerCOS",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfMaxLimitPerCOS": {
+    "name": "dellNetFpIfMaxLimitPerCOS",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfHOLDropsPerCOS": {
+    "name": "dellNetFpIfHOLDropsPerCOS",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpEgrQBuffSnapshotIfTable": {
+    "name": "dellNetFpEgrQBuffSnapshotIfTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpEgrQBuffSnapshotIfEntry": {
+    "name": "dellNetFpEgrQBuffSnapshotIfEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpIfPerCOSNumber",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dellNetFpIfEgrQTotBuffCells": {
+    "name": "dellNetFpIfEgrQTotBuffCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIngPgBuffSnapshotIfTable": {
+    "name": "dellNetFpIngPgBuffSnapshotIfTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIngPgBuffSnapshotIfEntry": {
+    "name": "dellNetFpIngPgBuffSnapshotIfEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpIfPerPGIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dellNetFpIfPerPGIndex": {
+    "name": "dellNetFpIfPerPGIndex",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngSharedCells": {
+    "name": "dellNetFpIfIngSharedCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfIngHeadroomCells": {
+    "name": "dellNetFpIfIngHeadroomCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpStatsPerPgIfTable": {
+    "name": "dellNetFpStatsPerPgIfTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpStatsPerPgIfEntry": {
+    "name": "dellNetFpStatsPerPgIfEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpIfPerPGIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dellNetFpIfStatsPgLimitMinCells": {
+    "name": "dellNetFpIfStatsPgLimitMinCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfStatsPgSharedCells": {
+    "name": "dellNetFpIfStatsPgSharedCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfStatsPgSharedMode": {
+    "name": "dellNetFpIfStatsPgSharedMode",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 0,
+          "dynamic": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfStatsPgHdrmCells": {
+    "name": "dellNetFpIfStatsPgHdrmCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfStatsPgCounterMinCells": {
+    "name": "dellNetFpIfStatsPgCounterMinCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfStatsPgCounterSharedCells": {
+    "name": "dellNetFpIfStatsPgCounterSharedCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpIfStatsPgCounterHdrmCells": {
+    "name": "dellNetFpIfStatsPgCounterHdrmCells",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetPfcPerPrioIfTable": {
+    "name": "dellNetPfcPerPrioIfTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetPfcPerPrioIfEntry": {
+    "name": "dellNetPfcPerPrioIfEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetIfPrioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dellNetIfPrioIndex": {
+    "name": "dellNetIfPrioIndex",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetIfPfcPerPrioRequests": {
+    "name": "dellNetIfPfcPerPrioRequests",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Requests",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetIfPfcPerPrioIndications": {
+    "name": "dellNetIfPfcPerPrioIndications",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Indications",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dellNetFpEgrQIfCounterTable": {
+    "name": "dellNetFpEgrQIfCounterTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpEgrQIfCounterEntry": {
+    "name": "dellNetFpEgrQIfCounterEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpEgrQComType",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpPerPortCOSNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpEgrQComType": {
+    "name": "dellNetFpEgrQComType",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ComType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpEgrQTxPackets": {
+    "name": "dellNetFpEgrQTxPackets",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgrQTxBytes": {
+    "name": "dellNetFpEgrQTxBytes",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgrQDroppedPackets": {
+    "name": "dellNetFpEgrQDroppedPackets",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgrQDroppedBytes": {
+    "name": "dellNetFpEgrQDroppedBytes",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgrQTxPacketsRate": {
+    "name": "dellNetFpEgrQTxPacketsRate",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgrQTxBytesRate": {
+    "name": "dellNetFpEgrQTxBytesRate",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgrQDroppedPacketsRate": {
+    "name": "dellNetFpEgrQDroppedPacketsRate",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEgrQDroppedBytesRate": {
+    "name": "dellNetFpEgrQDroppedBytesRate",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.20.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControl": {
+    "name": "dellNetFpPfcStormControl",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21",
+    "class": "objectidentity"
+  },
+  "dellNetFpPfcStormControlStatus": {
+    "name": "dellNetFpPfcStormControlStatus",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.1",
+    "class": "objectidentity"
+  },
+  "dellNetFpPfcStormControlStatusTable": {
+    "name": "dellNetFpPfcStormControlStatusTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlStatusEntry": {
+    "name": "dellNetFpPfcStormControlStatusEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetPrioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlQueueState": {
+    "name": "dellNetFpPfcStormControlQueueState",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlDurationInDiscardState": {
+    "name": "dellNetFpPfcStormControlDurationInDiscardState",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlDroppedPacketsIngress": {
+    "name": "dellNetFpPfcStormControlDroppedPacketsIngress",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlDroppedPacketsEgress": {
+    "name": "dellNetFpPfcStormControlDroppedPacketsEgress",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlCumulativeDroppedPacketsIngress": {
+    "name": "dellNetFpPfcStormControlCumulativeDroppedPacketsIngress",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlCumulativeDroppedPacketsEgress": {
+    "name": "dellNetFpPfcStormControlCumulativeDroppedPacketsEgress",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlStatistics": {
+    "name": "dellNetFpPfcStormControlStatistics",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.2",
+    "class": "objectidentity"
+  },
+  "dellNetFpPfcStormControlStatisticsTable": {
+    "name": "dellNetFpPfcStormControlStatisticsTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlStatisticsEntry": {
+    "name": "dellNetFpPfcStormControlStatisticsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetPrioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlDiscardStateCount": {
+    "name": "dellNetFpPfcStormControlDiscardStateCount",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlDiscardStateForcedClearCount": {
+    "name": "dellNetFpPfcStormControlDiscardStateForcedClearCount",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPfcStormControlDiscardStateNorxPfcClearCount": {
+    "name": "dellNetFpPfcStormControlDiscardStateNorxPfcClearCount",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.21.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpPfcL2DlfDropCounterTable": {
+    "name": "dellNetFpPfcL2DlfDropCounterTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpPfcL2DlfDropCounterEntry": {
+    "name": "dellNetFpPfcL2DlfDropCounterEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpPortPipe",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetPrioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpPfcL2DlfDropCounters": {
+    "name": "dellNetFpPfcL2DlfDropCounters",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpServicePoolBufferSizeTable": {
+    "name": "dellNetFpServicePoolBufferSizeTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpServicePoolBufferSizeEntry": {
+    "name": "dellNetFpServicePoolBufferSizeEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetProcessorDeviceIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpPortPipe",
+        "implied": 0
+      },
+      {
+        "module": "DELL-NETWORKING-FPSTATS-MIB",
+        "object": "dellNetFpXPENumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpXPENumber": {
+    "name": "dellNetFpXPENumber",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpLossyServicePoolConfiguredBuffSize": {
+    "name": "dellNetFpLossyServicePoolConfiguredBuffSize",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpLossyServicePoolUsedBuffSize": {
+    "name": "dellNetFpLossyServicePoolUsedBuffSize",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpLosslessServicePoolConfiguredBuffSize": {
+    "name": "dellNetFpLosslessServicePoolConfiguredBuffSize",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpLosslessServicePoolUsedBuffSize": {
+    "name": "dellNetFpLosslessServicePoolUsedBuffSize",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpEcnPacketsTable": {
+    "name": "dellNetFpEcnPacketsTable",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dellNetFpEcnPacketsEntry": {
+    "name": "dellNetFpEcnPacketsEntry",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dellNetFpEcnMarkedTxPkts": {
+    "name": "dellNetFpEcnMarkedTxPkts",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dellNetFpTotalDropPktsOnEcnEnabledQueues": {
+    "name": "dellNetFpTotalDropPktsOnEcnEnabledQueues",
+    "oid": "1.3.6.1.4.1.6027.3.27.1.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-FPSTATS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELL-NETWORKING-FPSTATS-MIB"
+  }
+}

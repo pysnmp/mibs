@@ -1,0 +1,1019 @@
+{
+  "imports": {
+    "class": "imports",
+    "MSERIES-MIB": [
+      "mseries"
+    ],
+    "MSERIES-TC": [
+      "UnitType",
+      "AlarmNotificationType",
+      "AlarmProbableCause",
+      "PortType",
+      "AlarmPerceivedSeverity"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "smartAlarm": {
+    "name": "smartAlarm",
+    "oid": "1.3.6.1.4.1.30826.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-02-12 14:15",
+        "description": "Added alarmLogList and smartAlarmMIBConformance."
+      },
+      {
+        "revision": "2013-10-15 13:41",
+        "description": "Added alarmHostName, alarmPortName and alarmPortType to AlarmEntry. Added alarmHostName, alarmPortName and alarmPortType to alarmNotificationCleared, alarmNotificationWarning, alarmNotificationMinor, alarmNotificationMajor, and alarmNotificationCritical. Also alarmPort reports different numbers against before (changed from SmartOS v2.1). 1-10 means Line ports and 11 and above means Client port. Descriptions are also updated."
+      },
+      {
+        "revision": "2011-12-05 00:00",
+        "description": "Initial revision. Added notifications."
+      }
+    ]
+  },
+  "alarmGeneral": {
+    "name": "alarmGeneral",
+    "oid": "1.3.6.1.4.1.30826.1.1.1",
+    "class": "objectidentity"
+  },
+  "alarmActiveList": {
+    "name": "alarmActiveList",
+    "oid": "1.3.6.1.4.1.30826.1.1.2",
+    "class": "objectidentity"
+  },
+  "alarmLogList": {
+    "name": "alarmLogList",
+    "oid": "1.3.6.1.4.1.30826.1.1.3",
+    "class": "objectidentity"
+  },
+  "alarmNotifications": {
+    "name": "alarmNotifications",
+    "oid": "1.3.6.1.4.1.30826.1.1.4",
+    "class": "objectidentity"
+  },
+  "smartAlarmMIBConformance": {
+    "name": "smartAlarmMIBConformance",
+    "oid": "1.3.6.1.4.1.30826.1.1.5",
+    "class": "objectidentity"
+  },
+  "smartAlarmGroups": {
+    "name": "smartAlarmGroups",
+    "oid": "1.3.6.1.4.1.30826.1.1.5.1",
+    "class": "objectidentity"
+  },
+  "smartAlarmCompliances": {
+    "name": "smartAlarmCompliances",
+    "oid": "1.3.6.1.4.1.30826.1.1.5.2",
+    "class": "objectidentity"
+  },
+  "smartAlarmGeneralLastSeqNumber": {
+    "name": "smartAlarmGeneralLastSeqNumber",
+    "oid": "1.3.6.1.4.1.30826.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smartAlarmGeneralHighestSeverity": {
+    "name": "smartAlarmGeneralHighestSeverity",
+    "oid": "1.3.6.1.4.1.30826.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smartAlarmGeneralNumberActiveList": {
+    "name": "smartAlarmGeneralNumberActiveList",
+    "oid": "1.3.6.1.4.1.30826.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smartAlarmGeneralNumberLogList": {
+    "name": "smartAlarmGeneralNumberLogList",
+    "oid": "1.3.6.1.4.1.30826.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActiveTable": {
+    "name": "alarmActiveTable",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmEntry": {
+    "name": "alarmEntry",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmIndex": {
+    "name": "alarmIndex",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmUnit": {
+    "name": "alarmUnit",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmPort": {
+    "name": "alarmPort",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmText": {
+    "name": "alarmText",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSeverity": {
+    "name": "alarmSeverity",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmActivationTime": {
+    "name": "alarmActivationTime",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmCeaseTime": {
+    "name": "alarmCeaseTime",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmSeqNumber": {
+    "name": "alarmSeqNumber",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmHostName": {
+    "name": "alarmHostName",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmPortName": {
+    "name": "alarmPortName",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmPortType": {
+    "name": "alarmPortType",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmType": {
+    "name": "alarmType",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmNotificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmCause": {
+    "name": "alarmCause",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmPortAlias": {
+    "name": "alarmPortAlias",
+    "oid": "1.3.6.1.4.1.30826.1.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogTable": {
+    "name": "alarmLogTable",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alarmLogEntry": {
+    "name": "alarmLogEntry",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alarmLogIndex": {
+    "name": "alarmLogIndex",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogUnit": {
+    "name": "alarmLogUnit",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogPort": {
+    "name": "alarmLogPort",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogText": {
+    "name": "alarmLogText",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogSeverity": {
+    "name": "alarmLogSeverity",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogActivationTime": {
+    "name": "alarmLogActivationTime",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogCeaseTime": {
+    "name": "alarmLogCeaseTime",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogSeqNumber": {
+    "name": "alarmLogSeqNumber",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogHostName": {
+    "name": "alarmLogHostName",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogPortName": {
+    "name": "alarmLogPortName",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogPortType": {
+    "name": "alarmLogPortType",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogType": {
+    "name": "alarmLogType",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmNotificationType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmLogCause": {
+    "name": "alarmLogCause",
+    "oid": "1.3.6.1.4.1.30826.1.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alarmNotifyPrefix": {
+    "name": "alarmNotifyPrefix",
+    "oid": "1.3.6.1.4.1.30826.1.1.4.0",
+    "class": "objectidentity"
+  },
+  "alarmNotificationCleared": {
+    "name": "alarmNotificationCleared",
+    "oid": "1.3.6.1.4.1.30826.1.1.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmIndex"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmUnit"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPort"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeverity"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmActivationTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmCeaseTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeqNumber"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmHostName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortType"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortAlias"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmNotificationWarning": {
+    "name": "alarmNotificationWarning",
+    "oid": "1.3.6.1.4.1.30826.1.1.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmIndex"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmUnit"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPort"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeverity"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmActivationTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmCeaseTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeqNumber"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmHostName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortType"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortAlias"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmNotificationMinor": {
+    "name": "alarmNotificationMinor",
+    "oid": "1.3.6.1.4.1.30826.1.1.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmIndex"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmUnit"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPort"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeverity"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmActivationTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmCeaseTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeqNumber"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmHostName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortType"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortAlias"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmNotificationMajor": {
+    "name": "alarmNotificationMajor",
+    "oid": "1.3.6.1.4.1.30826.1.1.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmIndex"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmUnit"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPort"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeverity"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmActivationTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmCeaseTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeqNumber"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmHostName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortType"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortAlias"
+      }
+    ],
+    "status": "current"
+  },
+  "alarmNotificationCritical": {
+    "name": "alarmNotificationCritical",
+    "oid": "1.3.6.1.4.1.30826.1.1.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmIndex"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmUnit"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPort"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeverity"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmActivationTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmCeaseTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeqNumber"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmHostName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortType"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortAlias"
+      }
+    ],
+    "status": "current"
+  },
+  "smartAlarmGeneralGroupV1": {
+    "name": "smartAlarmGeneralGroupV1",
+    "oid": "1.3.6.1.4.1.30826.1.1.5.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "smartAlarmGeneralLastSeqNumber"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "smartAlarmGeneralHighestSeverity"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "smartAlarmGeneralNumberActiveList"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "smartAlarmGeneralNumberLogList"
+      }
+    ],
+    "status": "current"
+  },
+  "smartAlarmNotificationGroupV1": {
+    "name": "smartAlarmNotificationGroupV1",
+    "oid": "1.3.6.1.4.1.30826.1.1.5.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmNotificationCleared"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmNotificationCritical"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmNotificationMajor"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmNotificationMinor"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmNotificationWarning"
+      }
+    ],
+    "status": "current"
+  },
+  "smartAlarmActiveTableGroupV1": {
+    "name": "smartAlarmActiveTableGroupV1",
+    "oid": "1.3.6.1.4.1.30826.1.1.5.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmIndex"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmUnit"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPort"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmText"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeverity"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmActivationTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmCeaseTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmSeqNumber"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmHostName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmPortType"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmType"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmCause"
+      }
+    ],
+    "status": "current"
+  },
+  "smartAlarmLogTableGroupV1": {
+    "name": "smartAlarmLogTableGroupV1",
+    "oid": "1.3.6.1.4.1.30826.1.1.5.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogIndex"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogUnit"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogPort"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogText"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogSeverity"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogActivationTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogCeaseTime"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogSeqNumber"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogHostName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogPortName"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogPortType"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogType"
+      },
+      {
+        "module": "MSERIES-ALARM-MIB",
+        "object": "alarmLogCause"
+      }
+    ],
+    "status": "current"
+  },
+  "smartAlarmBasicComplV1": {
+    "name": "smartAlarmBasicComplV1",
+    "oid": "1.3.6.1.4.1.30826.1.1.5.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "smartAlarmGeneralGroupV1",
+        "module": "MSERIES-ALARM-MIB"
+      },
+      {
+        "object": "smartAlarmNotificationGroupV1",
+        "module": "MSERIES-ALARM-MIB"
+      },
+      {
+        "object": "smartAlarmActiveTableGroupV1",
+        "module": "MSERIES-ALARM-MIB"
+      },
+      {
+        "object": "smartAlarmLogTableGroupV1",
+        "module": "MSERIES-ALARM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/smartoptics/MSERIES-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MSERIES-ALARM-MIB"
+  }
+}

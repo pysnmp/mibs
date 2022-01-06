@@ -1,0 +1,3821 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "par"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWanParMIB": {
+    "name": "ciscoWanParMIB",
+    "oid": "1.3.6.1.4.1.351.150.63",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-10 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in CISCO-WAN-AXIPOP-MIB defined using SMIv1. The applicable objects from CISCO-WAN-AXIPOP-MIB are defined using SMIv2 in this MIB. Also the descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "parSelfNode": {
+    "name": "parSelfNode",
+    "oid": "1.3.6.1.4.1.351.130.1",
+    "class": "objectidentity"
+  },
+  "parInterfaces": {
+    "name": "parInterfaces",
+    "oid": "1.3.6.1.4.1.351.130.2",
+    "class": "objectidentity"
+  },
+  "parConnection": {
+    "name": "parConnection",
+    "oid": "1.3.6.1.4.1.351.130.3",
+    "class": "objectidentity"
+  },
+  "parNetworkClock": {
+    "name": "parNetworkClock",
+    "oid": "1.3.6.1.4.1.351.130.4",
+    "class": "objectidentity"
+  },
+  "parConfigParms": {
+    "name": "parConfigParms",
+    "oid": "1.3.6.1.4.1.351.130.5",
+    "class": "objectidentity"
+  },
+  "parVsiConfigParms": {
+    "name": "parVsiConfigParms",
+    "oid": "1.3.6.1.4.1.351.130.5.1",
+    "class": "objectidentity"
+  },
+  "parCmParms": {
+    "name": "parCmParms",
+    "oid": "1.3.6.1.4.1.351.130.5.2",
+    "class": "objectidentity"
+  },
+  "parMnUpdt": {
+    "name": "parMnUpdt",
+    "oid": "1.3.6.1.4.1.351.130.5.3",
+    "class": "objectidentity"
+  },
+  "parSwFunc": {
+    "name": "parSwFunc",
+    "oid": "1.3.6.1.4.1.351.130.5.4",
+    "class": "objectidentity"
+  },
+  "parOnOff": {
+    "name": "parOnOff",
+    "oid": "1.3.6.1.4.1.351.130.5.5",
+    "class": "objectidentity"
+  },
+  "parSysParms": {
+    "name": "parSysParms",
+    "oid": "1.3.6.1.4.1.351.130.5.6",
+    "class": "objectidentity"
+  },
+  "parNetworkingParms": {
+    "name": "parNetworkingParms",
+    "oid": "1.3.6.1.4.1.351.130.5.7",
+    "class": "objectidentity"
+  },
+  "parSnNodeId": {
+    "name": "parSnNodeId",
+    "oid": "1.3.6.1.4.1.351.130.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 223
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parSnNodeIP": {
+    "name": "parSnNodeIP",
+    "oid": "1.3.6.1.4.1.351.130.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parSnNodeName": {
+    "name": "parSnNodeName",
+    "oid": "1.3.6.1.4.1.351.130.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parSnRevision": {
+    "name": "parSnRevision",
+    "oid": "1.3.6.1.4.1.351.130.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSnNodeAlarmStatus": {
+    "name": "parSnNodeAlarmStatus",
+    "oid": "1.3.6.1.4.1.351.130.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "minor": 2,
+          "major": 3,
+          "unreach": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSnNumberOfTrunks": {
+    "name": "parSnNumberOfTrunks",
+    "oid": "1.3.6.1.4.1.351.130.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parIfTable": {
+    "name": "parIfTable",
+    "oid": "1.3.6.1.4.1.351.130.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "parIfEntry": {
+    "name": "parIfEntry",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfLogicalInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "parIfLogicalInterface": {
+    "name": "parIfLogicalInterface",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parIfType": {
+    "name": "parIfType",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "userport": 1,
+          "routingtrunk": 2,
+          "feedertrunk": 3,
+          "clkport": 4,
+          "virtualtrunk": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "userport",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parIfOperStatus": {
+    "name": "parIfOperStatus",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "added": 2,
+          "failed": 3,
+          "added-failed": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parIfTxBw": {
+    "name": "parIfTxBw",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parIfRxBw": {
+    "name": "parIfRxBw",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parIfMaxConn": {
+    "name": "parIfMaxConn",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parIfHiAddrMin": {
+    "name": "parIfHiAddrMin",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parIfHiAddrMax": {
+    "name": "parIfHiAddrMax",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parIfLoAddrMin": {
+    "name": "parIfLoAddrMin",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parIfLoAddrMax": {
+    "name": "parIfLoAddrMax",
+    "oid": "1.3.6.1.4.1.351.130.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkTable": {
+    "name": "parTrkTable",
+    "oid": "1.3.6.1.4.1.351.130.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "parTrkEntry": {
+    "name": "parTrkEntry",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfLogicalInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "parTrkId": {
+    "name": "parTrkId",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkStatReserve": {
+    "name": "parTrkStatReserve",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "cells-per-second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgCcRestrict": {
+    "name": "parTrkCnfgCcRestrict",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgLineType": {
+    "name": "parTrkCnfgLineType",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "terrestrial": 1,
+          "satellite": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "terrestrial",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgPassSync": {
+    "name": "parTrkCnfgPassSync",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgDerouteDelay": {
+    "name": "parTrkCnfgDerouteDelay",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgTrafficClassFst": {
+    "name": "parTrkCnfgTrafficClassFst",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgTrafficClassFr": {
+    "name": "parTrkCnfgTrafficClassFr",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgTrafficClassNts": {
+    "name": "parTrkCnfgTrafficClassNts",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgTrafficClassTs": {
+    "name": "parTrkCnfgTrafficClassTs",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgTrafficClassVoice": {
+    "name": "parTrkCnfgTrafficClassVoice",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgTrafficClassCbr": {
+    "name": "parTrkCnfgTrafficClassCbr",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgTrafficClassVbr": {
+    "name": "parTrkCnfgTrafficClassVbr",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgTrafficClassAbr": {
+    "name": "parTrkCnfgTrafficClassAbr",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgAdminStatus": {
+    "name": "parTrkCnfgAdminStatus",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "delete": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "delete",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgRoutingCost": {
+    "name": "parTrkCnfgRoutingCost",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgVccConids": {
+    "name": "parTrkCnfgVccConids",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkCnfgVpcConids": {
+    "name": "parTrkCnfgVpcConids",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parTrkLocalSlotNumber": {
+    "name": "parTrkLocalSlotNumber",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLocalPortNumber": {
+    "name": "parTrkLocalPortNumber",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLocalVTrunkId": {
+    "name": "parTrkLocalVTrunkId",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkRemoteNodeId": {
+    "name": "parTrkRemoteNodeId",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 223
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkRemoteTrunkId": {
+    "name": "parTrkRemoteTrunkId",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkRemoteSlotNumber": {
+    "name": "parTrkRemoteSlotNumber",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkRemotePortNumber": {
+    "name": "parTrkRemotePortNumber",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkRemoteVTrunkId": {
+    "name": "parTrkRemoteVTrunkId",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkRemoteNodeIP": {
+    "name": "parTrkRemoteNodeIP",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkRemoteNodeType": {
+    "name": "parTrkRemoteNodeType",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipx": 1,
+          "igx": 2,
+          "bpx": 3,
+          "par": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkRemoteNodeName": {
+    "name": "parTrkRemoteNodeName",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkAlarmStatus": {
+    "name": "parTrkAlarmStatus",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "minor": 2,
+          "major": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkAlarmType": {
+    "name": "parTrkAlarmType",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rsrcunavail": 1,
+          "commfail": 2,
+          "unknown": 3,
+          "failed": 4,
+          "looped": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkBwCapacity": {
+    "name": "parTrkBwCapacity",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLineLoad": {
+    "name": "parTrkLineLoad",
+    "oid": "1.3.6.1.4.1.351.130.2.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadTable": {
+    "name": "parTrkLoadTable",
+    "oid": "1.3.6.1.4.1.351.130.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "parTrkLoadEntry": {
+    "name": "parTrkLoadEntry",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfLogicalInterface",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "parTrkLoadXmtUsedCbr": {
+    "name": "parTrkLoadXmtUsedCbr",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadRcvUsedCbr": {
+    "name": "parTrkLoadRcvUsedCbr",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadXmtUsedVbr": {
+    "name": "parTrkLoadXmtUsedVbr",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadRcvUsedVbr": {
+    "name": "parTrkLoadRcvUsedVbr",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadXmtUsedAbr": {
+    "name": "parTrkLoadXmtUsedAbr",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadRcvUsedAbr": {
+    "name": "parTrkLoadRcvUsedAbr",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadXmtUsedNts": {
+    "name": "parTrkLoadXmtUsedNts",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadRcvUsedNts": {
+    "name": "parTrkLoadRcvUsedNts",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadXmtUsedTs": {
+    "name": "parTrkLoadXmtUsedTs",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadRcvUsedTs": {
+    "name": "parTrkLoadRcvUsedTs",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadXmtUsedVoice": {
+    "name": "parTrkLoadXmtUsedVoice",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadRcvUsedVoice": {
+    "name": "parTrkLoadRcvUsedVoice",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadXmtUsedBdataA": {
+    "name": "parTrkLoadXmtUsedBdataA",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadRcvUsedBdataA": {
+    "name": "parTrkLoadRcvUsedBdataA",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadXmtUsedBdataB": {
+    "name": "parTrkLoadXmtUsedBdataB",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadRcvUsedBdataB": {
+    "name": "parTrkLoadRcvUsedBdataB",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadVccConidsUsed": {
+    "name": "parTrkLoadVccConidsUsed",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parTrkLoadVpcConidsUsed": {
+    "name": "parTrkLoadVpcConidsUsed",
+    "oid": "1.3.6.1.4.1.351.130.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnectionTable": {
+    "name": "parConnectionTable",
+    "oid": "1.3.6.1.4.1.351.130.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "parConnectionEntry": {
+    "name": "parConnectionEntry",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnLocalSlot",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnLocalPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnLocalVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnLocalVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "parConnLocalSlot": {
+    "name": "parConnLocalSlot",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnLocalPort": {
+    "name": "parConnLocalPort",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnLocalVpi": {
+    "name": "parConnLocalVpi",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnLocalVci": {
+    "name": "parConnLocalVci",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnMasterShip": {
+    "name": "parConnMasterShip",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnLocalVcIndx": {
+    "name": "parConnLocalVcIndx",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnLocalEndpt": {
+    "name": "parConnLocalEndpt",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnRemoteNodeName": {
+    "name": "parConnRemoteNodeName",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnRemoteSlot": {
+    "name": "parConnRemoteSlot",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnRemotePort": {
+    "name": "parConnRemotePort",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnRemoteVpi": {
+    "name": "parConnRemoteVpi",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnRemoteVci": {
+    "name": "parConnRemoteVci",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnRemoteVcIndx": {
+    "name": "parConnRemoteVcIndx",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnOperStatus": {
+    "name": "parConnOperStatus",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routed": 1,
+          "unrouted": 2,
+          "lmifail": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnAdminStatus": {
+    "name": "parConnAdminStatus",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "up": 2,
+          "reroute": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parConnRoute": {
+    "name": "parConnRoute",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnRemoteEndpt": {
+    "name": "parConnRemoteEndpt",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parPrefRoute": {
+    "name": "parPrefRoute",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parConnFailRsn": {
+    "name": "parConnFailRsn",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "hwalm": 2,
+          "abitalm": 3,
+          "lmifail": 4,
+          "rrtfail": 5,
+          "incomplete": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parRrtFailRsn": {
+    "name": "parRrtFailRsn",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnRstrTyp": {
+    "name": "parConnRstrTyp",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "norestrict": 1,
+          "terrestrict": 2,
+          "satrestrict": 3,
+          "undefrestrict": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnRstrZcs": {
+    "name": "parConnRstrZcs",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parConnCos": {
+    "name": "parConnCos",
+    "oid": "1.3.6.1.4.1.351.130.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parClockTable": {
+    "name": "parClockTable",
+    "oid": "1.3.6.1.4.1.351.130.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "parClockEntry": {
+    "name": "parClockEntry",
+    "oid": "1.3.6.1.4.1.351.130.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parClockIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "parClockIndex": {
+    "name": "parClockIndex",
+    "oid": "1.3.6.1.4.1.351.130.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parClockType": {
+    "name": "parClockType",
+    "oid": "1.3.6.1.4.1.351.130.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2,
+          "tertiary": 3,
+          "null": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parClockSource": {
+    "name": "parClockSource",
+    "oid": "1.3.6.1.4.1.351.130.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "interface": 2,
+          "external": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "internal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parClockCurSource": {
+    "name": "parClockCurSource",
+    "oid": "1.3.6.1.4.1.351.130.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parClockSourceId": {
+    "name": "parClockSourceId",
+    "oid": "1.3.6.1.4.1.351.130.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parClockPath": {
+    "name": "parClockPath",
+    "oid": "1.3.6.1.4.1.351.130.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parCmParmsMaxRoutingBundle": {
+    "name": "parCmParmsMaxRoutingBundle",
+    "oid": "1.3.6.1.4.1.351.130.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 24,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsRerouteTimer": {
+    "name": "parCmParmsRerouteTimer",
+    "oid": "1.3.6.1.4.1.351.130.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsResetTimer": {
+    "name": "parCmParmsResetTimer",
+    "oid": "1.3.6.1.4.1.351.130.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsDnUpPerPass": {
+    "name": "parCmParmsDnUpPerPass",
+    "oid": "1.3.6.1.4.1.351.130.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsDnUpTimer": {
+    "name": "parCmParmsDnUpTimer",
+    "oid": "1.3.6.1.4.1.351.130.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsRrtErrsPerCycle": {
+    "name": "parCmParmsRrtErrsPerCycle",
+    "oid": "1.3.6.1.4.1.351.130.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsRrtCycleInterval": {
+    "name": "parCmParmsRrtCycleInterval",
+    "oid": "1.3.6.1.4.1.351.130.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsMaxRrtCycles": {
+    "name": "parCmParmsMaxRrtCycles",
+    "oid": "1.3.6.1.4.1.351.130.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsRrtPauseTime": {
+    "name": "parCmParmsRrtPauseTime",
+    "oid": "1.3.6.1.4.1.351.130.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsMaxUpdates": {
+    "name": "parCmParmsMaxUpdates",
+    "oid": "1.3.6.1.4.1.351.130.5.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsRerouteGroups": {
+    "name": "parCmParmsRerouteGroups",
+    "oid": "1.3.6.1.4.1.351.130.5.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsMinRrGroupSize": {
+    "name": "parCmParmsMinRrGroupSize",
+    "oid": "1.3.6.1.4.1.351.130.5.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsRrGroupInc": {
+    "name": "parCmParmsRrGroupInc",
+    "oid": "1.3.6.1.4.1.351.130.5.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsCostBased": {
+    "name": "parCmParmsCostBased",
+    "oid": "1.3.6.1.4.1.351.130.5.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsUseCache": {
+    "name": "parCmParmsUseCache",
+    "oid": "1.3.6.1.4.1.351.130.5.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmsUseDelay": {
+    "name": "parCmParmsUseDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parCmParmMaxViaCons": {
+    "name": "parCmParmMaxViaCons",
+    "oid": "1.3.6.1.4.1.351.130.5.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 80000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parMnUpdtInterval": {
+    "name": "parMnUpdtInterval",
+    "oid": "1.3.6.1.4.1.351.130.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parMnUpdtNodesPerInt": {
+    "name": "parMnUpdtNodesPerInt",
+    "oid": "1.3.6.1.4.1.351.130.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parMnUpdtBatchSend": {
+    "name": "parMnUpdtBatchSend",
+    "oid": "1.3.6.1.4.1.351.130.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parSwFuncAbrVsvd": {
+    "name": "parSwFuncAbrVsvd",
+    "oid": "1.3.6.1.4.1.351.130.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parSwFuncNodeType": {
+    "name": "parSwFuncNodeType",
+    "oid": "1.3.6.1.4.1.351.130.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routing": 1,
+          "feeder": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "routing",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parOnOffBackgroundUpdt": {
+    "name": "parOnOffBackgroundUpdt",
+    "oid": "1.3.6.1.4.1.351.130.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parOnOffDynamicBwAlloc": {
+    "name": "parOnOffDynamicBwAlloc",
+    "oid": "1.3.6.1.4.1.351.130.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parOnOffCmUpdts": {
+    "name": "parOnOffCmUpdts",
+    "oid": "1.3.6.1.4.1.351.130.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parOnOffRouting": {
+    "name": "parOnOffRouting",
+    "oid": "1.3.6.1.4.1.351.130.5.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parOnOffCommFailTest": {
+    "name": "parOnOffCommFailTest",
+    "oid": "1.3.6.1.4.1.351.130.5.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parOnOffDrtDelay": {
+    "name": "parOnOffDrtDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parOnOffRenumRec": {
+    "name": "parOnOffRenumRec",
+    "oid": "1.3.6.1.4.1.351.130.5.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parOnOffCommBreak": {
+    "name": "parOnOffCommBreak",
+    "oid": "1.3.6.1.4.1.351.130.5.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parSysParmsTsPacketAge": {
+    "name": "parSysParmsTsPacketAge",
+    "oid": "1.3.6.1.4.1.351.130.5.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parSysParmsConnFail": {
+    "name": "parSysParmsConnFail",
+    "oid": "1.3.6.1.4.1.351.130.5.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parSysParmsVcPollRate": {
+    "name": "parSysParmsVcPollRate",
+    "oid": "1.3.6.1.4.1.351.130.5.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxVDelay": {
+    "name": "parSysParmsMaxVDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxCDelay": {
+    "name": "parSysParmsMaxCDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxDDelay": {
+    "name": "parSysParmsMaxDDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxADelay": {
+    "name": "parSysParmsMaxADelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxHsdDelay": {
+    "name": "parSysParmsMaxHsdDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsDeEnable": {
+    "name": "parSysParmsDeEnable",
+    "oid": "1.3.6.1.4.1.351.130.5.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsFrStandard": {
+    "name": "parSysParmsFrStandard",
+    "oid": "1.3.6.1.4.1.351.130.5.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsDrtDelay": {
+    "name": "parSysParmsDrtDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parSysParmsInvLogAlarmThres": {
+    "name": "parSysParmsInvLogAlarmThres",
+    "oid": "1.3.6.1.4.1.351.130.5.6.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxCdpVDelay": {
+    "name": "parSysParmsMaxCdpVDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxCdpCDelay": {
+    "name": "parSysParmsMaxCdpCDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxCdpDDelay": {
+    "name": "parSysParmsMaxCdpDDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxCdpADelay": {
+    "name": "parSysParmsMaxCdpADelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxCdpHsdDelay": {
+    "name": "parSysParmsMaxCdpHsdDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxIpcdpVDelay": {
+    "name": "parSysParmsMaxIpcdpVDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxIpcdpCDelay": {
+    "name": "parSysParmsMaxIpcdpCDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxIpcdpDDelay": {
+    "name": "parSysParmsMaxIpcdpDDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxIpcdpADelay": {
+    "name": "parSysParmsMaxIpcdpADelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxIpcdpHsdDelay": {
+    "name": "parSysParmsMaxIpcdpHsdDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsMaxIphsdDelay": {
+    "name": "parSysParmsMaxIphsdDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.6.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parSysParmsFpdDeJitter": {
+    "name": "parSysParmsFpdDeJitter",
+    "oid": "1.3.6.1.4.1.351.130.5.6.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "parNetParmCondInitialStgr": {
+    "name": "parNetParmCondInitialStgr",
+    "oid": "1.3.6.1.4.1.351.130.5.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmCondPerNodeInterval": {
+    "name": "parNetParmCondPerNodeInterval",
+    "oid": "1.3.6.1.4.1.351.130.5.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmCbDelay": {
+    "name": "parNetParmCbDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 30000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmCbOffset": {
+    "name": "parNetParmCbOffset",
+    "oid": "1.3.6.1.4.1.351.130.5.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmMsgTimeout": {
+    "name": "parNetParmMsgTimeout",
+    "oid": "1.3.6.1.4.1.351.130.5.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1700,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmMsgMaxTimeout": {
+    "name": "parNetParmMsgMaxTimeout",
+    "oid": "1.3.6.1.4.1.351.130.5.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 7,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmMsgMaxTimeoutSat": {
+    "name": "parNetParmMsgMaxTimeoutSat",
+    "oid": "1.3.6.1.4.1.351.130.5.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmBlindMaxTimeout": {
+    "name": "parNetParmBlindMaxTimeout",
+    "oid": "1.3.6.1.4.1.351.130.5.7.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmCbMaxTimeout": {
+    "name": "parNetParmCbMaxTimeout",
+    "oid": "1.3.6.1.4.1.351.130.5.7.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmCfTestInterval": {
+    "name": "parNetParmCfTestInterval",
+    "oid": "1.3.6.1.4.1.351.130.5.7.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmCfTestMultiplier": {
+    "name": "parNetParmCfTestMultiplier",
+    "oid": "1.3.6.1.4.1.351.130.5.7.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmNetwWindowSz": {
+    "name": "parNetParmNetwWindowSz",
+    "oid": "1.3.6.1.4.1.351.130.5.7.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmNetwLetWait": {
+    "name": "parNetParmNetwLetWait",
+    "oid": "1.3.6.1.4.1.351.130.5.7.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmCfDelay": {
+    "name": "parNetParmCfDelay",
+    "oid": "1.3.6.1.4.1.351.130.5.7.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmHighTxRate": {
+    "name": "parNetParmHighTxRate",
+    "oid": "1.3.6.1.4.1.351.130.5.7.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmLowTxRate": {
+    "name": "parNetParmLowTxRate",
+    "oid": "1.3.6.1.4.1.351.130.5.7.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmMaxNodeBlks": {
+    "name": "parNetParmMaxNodeBlks",
+    "oid": "1.3.6.1.4.1.351.130.5.7.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "parNetParmTopoMsgSegSz": {
+    "name": "parNetParmTopoMsgSegSz",
+    "oid": "1.3.6.1.4.1.351.130.5.7.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3570,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwParMIBConformance": {
+    "name": "cwParMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.63.2",
+    "class": "objectidentity"
+  },
+  "cwParMIBGroups": {
+    "name": "cwParMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1",
+    "class": "objectidentity"
+  },
+  "cwParMIBCompliances": {
+    "name": "cwParMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.63.2.2",
+    "class": "objectidentity"
+  },
+  "cwParCompliance": {
+    "name": "cwParCompliance",
+    "oid": "1.3.6.1.4.1.351.150.63.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cwParCmParamsGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      },
+      {
+        "object": "cwParCmParamsUpdateGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      },
+      {
+        "object": "cwParGeneralGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      },
+      {
+        "object": "cwParSysParamsGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      },
+      {
+        "object": "cwParNetParamsGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      },
+      {
+        "object": "cwParNodeGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      },
+      {
+        "object": "cwParInterfaceConfGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      },
+      {
+        "object": "cwParTrunkConfGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      },
+      {
+        "object": "cwParTrunkLoadConfGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      },
+      {
+        "object": "cwParConnConfGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      },
+      {
+        "object": "cwParClockConfGroup",
+        "module": "CISCO-WAN-PAR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParCmParamsGroup": {
+    "name": "cwParCmParamsGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsMaxRoutingBundle"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsRerouteTimer"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsResetTimer"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsDnUpPerPass"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsDnUpTimer"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsRrtErrsPerCycle"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsRrtCycleInterval"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsMaxRrtCycles"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsRrtPauseTime"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsMaxUpdates"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsRerouteGroups"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsMinRrGroupSize"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsRrGroupInc"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsCostBased"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsUseCache"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmsUseDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parCmParmMaxViaCons"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParCmParamsUpdateGroup": {
+    "name": "cwParCmParamsUpdateGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parMnUpdtInterval"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parMnUpdtNodesPerInt"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parMnUpdtBatchSend"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParGeneralGroup": {
+    "name": "cwParGeneralGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSwFuncAbrVsvd"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSwFuncNodeType"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parOnOffBackgroundUpdt"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parOnOffDynamicBwAlloc"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parOnOffCmUpdts"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parOnOffRouting"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parOnOffCommFailTest"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parOnOffDrtDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parOnOffRenumRec"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parOnOffCommBreak"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParSysParamsGroup": {
+    "name": "cwParSysParamsGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsTsPacketAge"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsConnFail"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsVcPollRate"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxVDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxCDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxDDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxADelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxHsdDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsDeEnable"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsFrStandard"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsDrtDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsInvLogAlarmThres"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxCdpVDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxCdpCDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxCdpDDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxCdpADelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxCdpHsdDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxIpcdpVDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxIpcdpCDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxIpcdpDDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxIpcdpADelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxIpcdpHsdDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsMaxIphsdDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSysParmsFpdDeJitter"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParNetParamsGroup": {
+    "name": "cwParNetParamsGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmCondInitialStgr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmCondPerNodeInterval"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmCbDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmCbOffset"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmMsgTimeout"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmMsgMaxTimeout"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmMsgMaxTimeoutSat"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmBlindMaxTimeout"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmCbMaxTimeout"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmCfTestInterval"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmCfTestMultiplier"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmNetwWindowSz"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmNetwLetWait"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmCfDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmHighTxRate"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmLowTxRate"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmMaxNodeBlks"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parNetParmTopoMsgSegSz"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParNodeGroup": {
+    "name": "cwParNodeGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSnNodeId"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSnNodeIP"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSnNodeName"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSnRevision"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSnNodeAlarmStatus"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parSnNumberOfTrunks"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParInterfaceConfGroup": {
+    "name": "cwParInterfaceConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfLogicalInterface"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfType"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfOperStatus"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfTxBw"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfRxBw"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfMaxConn"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfHiAddrMin"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfHiAddrMax"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfLoAddrMin"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parIfLoAddrMax"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParTrunkConfGroup": {
+    "name": "cwParTrunkConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkId"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkStatReserve"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgCcRestrict"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgLineType"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgPassSync"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgDerouteDelay"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgTrafficClassFst"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgTrafficClassFr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgTrafficClassNts"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgTrafficClassTs"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgTrafficClassVoice"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgTrafficClassCbr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgTrafficClassVbr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgTrafficClassAbr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgAdminStatus"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgRoutingCost"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgVpcConids"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkCnfgVccConids"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLocalSlotNumber"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLocalPortNumber"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLocalVTrunkId"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkRemoteNodeId"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkRemoteTrunkId"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkRemoteSlotNumber"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkRemotePortNumber"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkRemoteVTrunkId"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkRemoteNodeIP"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkRemoteNodeType"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkRemoteNodeName"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkAlarmStatus"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkAlarmType"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLineLoad"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkBwCapacity"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParTrunkLoadConfGroup": {
+    "name": "cwParTrunkLoadConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadXmtUsedCbr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadRcvUsedCbr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadXmtUsedVbr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadRcvUsedVbr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadXmtUsedAbr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadRcvUsedAbr"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadXmtUsedNts"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadRcvUsedNts"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadXmtUsedTs"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadRcvUsedTs"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadXmtUsedVoice"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadRcvUsedVoice"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadXmtUsedBdataA"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadRcvUsedBdataA"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadXmtUsedBdataB"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadRcvUsedBdataB"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadVccConidsUsed"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parTrkLoadVpcConidsUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParConnConfGroup": {
+    "name": "cwParConnConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnLocalSlot"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnLocalPort"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnLocalVpi"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnLocalVci"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnMasterShip"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnLocalVcIndx"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnLocalEndpt"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnRemoteNodeName"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnRemoteSlot"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnRemotePort"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnRemoteVpi"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnRemoteVci"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnRemoteVcIndx"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnRemoteEndpt"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnOperStatus"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnAdminStatus"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnRoute"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parPrefRoute"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnFailRsn"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parRrtFailRsn"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnRstrTyp"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnRstrZcs"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parConnCos"
+      }
+    ],
+    "status": "current"
+  },
+  "cwParClockConfGroup": {
+    "name": "cwParClockConfGroup",
+    "oid": "1.3.6.1.4.1.351.150.63.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parClockIndex"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parClockType"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parClockCurSource"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parClockSource"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parClockSourceId"
+      },
+      {
+        "module": "CISCO-WAN-PAR-MIB",
+        "object": "parClockPath"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-PAR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-PAR-MIB"
+  }
+}

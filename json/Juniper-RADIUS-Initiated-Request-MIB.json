@@ -1,0 +1,548 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "Juniper-TC": [
+      "JuniEnable"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Counter32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "juniRadiusInitiatedRequestMIB": {
+    "name": "juniRadiusInitiatedRequestMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.75",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-06-10 19:08",
+        "description": "Initial version of this MIB module, derived from IETF Informational Rfc 3576."
+      }
+    ]
+  },
+  "juniRadiusInitiatedRequestObjects": {
+    "name": "juniRadiusInitiatedRequestObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1",
+    "class": "objectidentity"
+  },
+  "juniRadiusInitiatedRequest": {
+    "name": "juniRadiusInitiatedRequest",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1",
+    "class": "objectidentity"
+  },
+  "juniRadiusInitiatedRequestInvalidClientAddresses": {
+    "name": "juniRadiusInitiatedRequestInvalidClientAddresses",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestClientTable": {
+    "name": "juniRadiusInitiatedRequestClientTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestClientEntry": {
+    "name": "juniRadiusInitiatedRequestClientEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestClientAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestClientAddress": {
+    "name": "juniRadiusInitiatedRequestClientAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestClientPortNumber": {
+    "name": "juniRadiusInitiatedRequestClientPortNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestUnknownTypes": {
+    "name": "juniRadiusInitiatedRequestUnknownTypes",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestNoSecret": {
+    "name": "juniRadiusInitiatedRequestNoSecret",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestDisconnectRequests": {
+    "name": "juniRadiusInitiatedRequestDisconnectRequests",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestDisconnectAccepts": {
+    "name": "juniRadiusInitiatedRequestDisconnectAccepts",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestDisconnectRejects": {
+    "name": "juniRadiusInitiatedRequestDisconnectRejects",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestDisconnectNoSessionIds": {
+    "name": "juniRadiusInitiatedRequestDisconnectNoSessionIds",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestDisconnectBadAuthenticators": {
+    "name": "juniRadiusInitiatedRequestDisconnectBadAuthenticators",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestDisconnectPacketsDropped": {
+    "name": "juniRadiusInitiatedRequestDisconnectPacketsDropped",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCoaRequests": {
+    "name": "juniRadiusInitiatedRequestCoaRequests",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCoaAccepts": {
+    "name": "juniRadiusInitiatedRequestCoaAccepts",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCoaRejects": {
+    "name": "juniRadiusInitiatedRequestCoaRejects",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCoaNoSessionIds": {
+    "name": "juniRadiusInitiatedRequestCoaNoSessionIds",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCoaBadAuthenticators": {
+    "name": "juniRadiusInitiatedRequestCoaBadAuthenticators",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCoaPacketsDropped": {
+    "name": "juniRadiusInitiatedRequestCoaPacketsDropped",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCfgClientTable": {
+    "name": "juniRadiusInitiatedRequestCfgClientTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCfgClientEntry": {
+    "name": "juniRadiusInitiatedRequestCfgClientEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCfgClientAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCfgClientAddress": {
+    "name": "juniRadiusInitiatedRequestCfgClientAddress",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCfgClientPortNumber": {
+    "name": "juniRadiusInitiatedRequestCfgClientPortNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3799,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCfgKey": {
+    "name": "juniRadiusInitiatedRequestCfgKey",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCfgDisconnect": {
+    "name": "juniRadiusInitiatedRequestCfgDisconnect",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCfgChangeOfAuthorization": {
+    "name": "juniRadiusInitiatedRequestCfgChangeOfAuthorization",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JuniEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestCfgRowStatus": {
+    "name": "juniRadiusInitiatedRequestCfgRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestMIBConformance": {
+    "name": "juniRadiusInitiatedRequestMIBConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.2",
+    "class": "objectidentity"
+  },
+  "juniRadiusInitiatedRequestMIBCompliances": {
+    "name": "juniRadiusInitiatedRequestMIBCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.2.1",
+    "class": "objectidentity"
+  },
+  "juniRadiusInitiatedRequestMIBGroups": {
+    "name": "juniRadiusInitiatedRequestMIBGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.2.2",
+    "class": "objectidentity"
+  },
+  "juniRadiusAuthInitiatedRequestCompliance": {
+    "name": "juniRadiusAuthInitiatedRequestCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniRadiusInitiatedRequestGroup",
+        "module": "Juniper-RADIUS-Initiated-Request-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniRadiusInitiatedRequestGroup": {
+    "name": "juniRadiusInitiatedRequestGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.75.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestInvalidClientAddresses"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestClientPortNumber"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestUnknownTypes"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestNoSecret"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestDisconnectRequests"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestDisconnectAccepts"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestDisconnectRejects"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestDisconnectNoSessionIds"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestDisconnectBadAuthenticators"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestDisconnectPacketsDropped"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCoaRequests"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCoaAccepts"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCoaRejects"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCoaNoSessionIds"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCoaBadAuthenticators"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCoaPacketsDropped"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCfgClientPortNumber"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCfgKey"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCfgDisconnect"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCfgChangeOfAuthorization"
+      },
+      {
+        "module": "Juniper-RADIUS-Initiated-Request-MIB",
+        "object": "juniRadiusInitiatedRequestCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-RADIUS-Initiated-Request-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-RADIUS-Initiated-Request-MIB"
+  }
+}

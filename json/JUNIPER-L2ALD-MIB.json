@@ -1,0 +1,739 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifDescr",
+      "ifIndex"
+    ],
+    "JUNIPER-SMI": [
+      "jnxl2aldMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxl2aldMib": {
+    "name": "jnxl2aldMib",
+    "oid": "1.3.6.1.4.1.2636.3.48.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-01-22 10:00",
+        "description": "Added a new field jnxL2aldVlanFdbId to the table jnxL2aldVlanTable"
+      },
+      {
+        "revision": "2015-01-14 10:00",
+        "description": "Added new table jnxL2aldVlanTable"
+      },
+      {
+        "revision": "2012-08-08 10:00",
+        "description": "Added new notification jnxl2aldMacMoveThreshold"
+      },
+      {
+        "revision": "2007-02-15 10:00",
+        "description": "Initial Version"
+      },
+      {
+        "revision": "2016-05-31 00:00",
+        "description": "Corrected type"
+      }
+    ]
+  },
+  "jnxl2aldNotification": {
+    "name": "jnxl2aldNotification",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.0",
+    "class": "objectidentity"
+  },
+  "jnxl2aldObjects": {
+    "name": "jnxl2aldObjects",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1",
+    "class": "objectidentity"
+  },
+  "jnxl2aldInterfaceTable": {
+    "name": "jnxl2aldInterfaceTable",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxl2aldEntry": {
+    "name": "jnxl2aldEntry",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxl2aldIntfLogicalRouter": {
+    "name": "jnxl2aldIntfLogicalRouter",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldIntfRoutingInst": {
+    "name": "jnxl2aldIntfRoutingInst",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldIntfBridgeDomain": {
+    "name": "jnxl2aldIntfBridgeDomain",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldIntfMacLimit": {
+    "name": "jnxl2aldIntfMacLimit",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldIntfMacPinningIntf": {
+    "name": "jnxl2aldIntfMacPinningIntf",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldIntfDiscardIntf": {
+    "name": "jnxl2aldIntfDiscardIntf",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldRoutingInst": {
+    "name": "jnxl2aldRoutingInst",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldBridgeDomain": {
+    "name": "jnxl2aldBridgeDomain",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldLogicalRouter": {
+    "name": "jnxl2aldLogicalRouter",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldMacLimit": {
+    "name": "jnxl2aldMacLimit",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldGbMacLimit": {
+    "name": "jnxl2aldGbMacLimit",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxl2aldMacAdress": {
+    "name": "jnxl2aldMacAdress",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "jnxL2aldMacNotificationMIBObjects": {
+    "name": "jnxL2aldMacNotificationMIBObjects",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2",
+    "class": "objectidentity"
+  },
+  "jnxL2aldMacNotificationMIBGlobalObjects": {
+    "name": "jnxL2aldMacNotificationMIBGlobalObjects",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1",
+    "class": "objectidentity"
+  },
+  "jnxL2aldMacGlobalFeatureEnabled": {
+    "name": "jnxL2aldMacGlobalFeatureEnabled",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldMacNotificationInterval": {
+    "name": "jnxL2aldMacNotificationInterval",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldMacAddressesLearnt": {
+    "name": "jnxL2aldMacAddressesLearnt",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldMacAddressesRemoved": {
+    "name": "jnxL2aldMacAddressesRemoved",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldMacNotificationsEnabled": {
+    "name": "jnxL2aldMacNotificationsEnabled",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldMacNotificationsSent": {
+    "name": "jnxL2aldMacNotificationsSent",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldMacHistTableMaxLength": {
+    "name": "jnxL2aldMacHistTableMaxLength",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 500
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 256,
+        "format": "decimal"
+      }
+    },
+    "units": "entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldMacHistoryTable": {
+    "name": "jnxL2aldMacHistoryTable",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxL2aldMacHistoryEntry": {
+    "name": "jnxL2aldMacHistoryEntry",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxL2aldHistIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxL2aldHistIndex": {
+    "name": "jnxL2aldHistIndex",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxL2aldHistMacChangedMsg": {
+    "name": "jnxL2aldHistMacChangedMsg",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldHistTimestamp": {
+    "name": "jnxL2aldHistTimestamp",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldMacAddressesUpdated": {
+    "name": "jnxL2aldMacAddressesUpdated",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldVlanMIBObjects": {
+    "name": "jnxL2aldVlanMIBObjects",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.3",
+    "class": "objectidentity"
+  },
+  "jnxL2aldVlanTable": {
+    "name": "jnxL2aldVlanTable",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxL2aldVlanEntry": {
+    "name": "jnxL2aldVlanEntry",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxL2aldVlanID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxL2aldVlanID": {
+    "name": "jnxL2aldVlanID",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxL2aldVlanName": {
+    "name": "jnxL2aldVlanName",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldVlanTag": {
+    "name": "jnxL2aldVlanTag",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldVlanType": {
+    "name": "jnxL2aldVlanType",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxL2aldVlanFdbId": {
+    "name": "jnxL2aldVlanFdbId",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxl2aldRoutingInstMacLimit": {
+    "name": "jnxl2aldRoutingInstMacLimit",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldLogicalRouter"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldRoutingInst"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldBridgeDomain"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldMacLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxl2aldInterfaceMacLimit": {
+    "name": "jnxl2aldInterfaceMacLimit",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfLogicalRouter"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfRoutingInst"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfBridgeDomain"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfMacLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxl2aldGlobalMacLimit": {
+    "name": "jnxl2aldGlobalMacLimit",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldGbMacLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxl2aldMacMoveThreshold": {
+    "name": "jnxl2aldMacMoveThreshold",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfLogicalRouter"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfRoutingInst"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfBridgeDomain"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldMacAdress"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxL2aldMacChangedNotification": {
+    "name": "jnxL2aldMacChangedNotification",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxL2aldHistMacChangedMsg"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxL2aldHistTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxl2aldMacPinningdiscard": {
+    "name": "jnxl2aldMacPinningdiscard",
+    "oid": "1.3.6.1.4.1.2636.3.48.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfLogicalRouter"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfRoutingInst"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfBridgeDomain"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldMacAdress"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfMacPinningIntf"
+      },
+      {
+        "module": "JUNIPER-L2ALD-MIB",
+        "object": "jnxl2aldIntfDiscardIntf"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-L2ALD-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-L2ALD-MIB"
+  }
+}

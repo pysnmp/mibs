@@ -1,0 +1,1463 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IETF-PW-TC-MIB": [
+      "CpwVcIndexType",
+      "CpwVcIDType",
+      "CpwGroupID",
+      "CpwOperStatus",
+      "CpwVcType"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "experimental",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "cpwVcMIB": {
+    "name": "cpwVcMIB",
+    "oid": "1.3.6.1.4.1.9.10.106",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-17 12:00",
+        "description": "1) Added notifications group: -cpwVcUpDownNotifEnable -cpwVcNotifRate -cpwVcDown -cpwVcUp 2) Added CANA OID value ciscoExperiment.106 3) updated based on MIB police comments -replaced un-cisco-ized variable names w/ cisco-ized names in descriptions (e.g. pwVcxxx replaced w/ cpwVcxxx) "
+      },
+      {
+        "revision": "2003-02-26 12:00",
+        "description": "Made Cisco proprietary based on the PW-MIB.my file extracted from draft-ietf-pwe3-pw-mib-00.txt "
+      },
+      {
+        "revision": "2002-05-26 12:00",
+        "description": "Moved to draft-ietf-00 status. Changes from previous draft: 1) Change name of pwVcPriority to pwVcSetUpPriority and added pwVcHoldingPriority. 2) Add pwVcIdMappingTable and pwVcPeersMappingTable to help ordered query of the MIB tables for EMS applications. 3) Clarification to work in progress objects. 4) Editorial and typos in descriptions. 5) Added pwVcPerfTotalDiscontinuityTime and pwVcPerfIntervalTimeElapsed. 6) Remove 32 bit counters. "
+      },
+      {
+        "revision": "2002-01-30 12:00",
+        "description": " Changes from -01 draft: 1) Inbound and outbound clarification and name changes. 2) Removing pwVcPeerIpv4Addr and pwVcPeerIpv6Addr, replacing them with pwVcPeerAddr and adding type for address type selection. 3) Adding type for VC OperStatus. 4) Adding pwVcTimeElapsed and pwVcValidIntervals. "
+      },
+      {
+        "revision": "2001-11-07 12:00",
+        "description": "Changes from -00 draft: 1) Remove VcInstance from tables indexes in order to simplify the MIB. 2) Removing APS 1+1 table. 3) Changing hdlcCisco to hdlc in pwVcType. 4) Add description of VC label at pending PW signaling stage. 5) Add interval valid object in interval performance tables. 6) Remove VC APS notification. 7) Change 'conservative'/'liberal' to 'strict'/'loose'. 8) Add objects for interface MTU, use of control word, interface string. 9) Ordering of objects based on functionality. 10) Update operation of pwVcOperStatus. "
+      },
+      {
+        "revision": "2001-07-11 12:00",
+        "description": "draft-00 version"
+      }
+    ]
+  },
+  "cpwVcObjects": {
+    "name": "cpwVcObjects",
+    "oid": "1.3.6.1.4.1.9.10.106.1",
+    "class": "objectidentity"
+  },
+  "cpwVcNotifications": {
+    "name": "cpwVcNotifications",
+    "oid": "1.3.6.1.4.1.9.10.106.2",
+    "class": "objectidentity"
+  },
+  "cpwVcConformance": {
+    "name": "cpwVcConformance",
+    "oid": "1.3.6.1.4.1.9.10.106.3",
+    "class": "objectidentity"
+  },
+  "cpwVcIndexNext": {
+    "name": "cpwVcIndexNext",
+    "oid": "1.3.6.1.4.1.9.10.106.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcTable": {
+    "name": "cpwVcTable",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcEntry": {
+    "name": "cpwVcEntry",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcIndex": {
+    "name": "cpwVcIndex",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIndexType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcType": {
+    "name": "cpwVcType",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcOwner": {
+    "name": "cpwVcOwner",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 1,
+          "maintenanceProtocol": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcPsnType": {
+    "name": "cpwVcPsnType",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mpls": 1,
+          "l2tp": 2,
+          "ip": 3,
+          "mplsOverIp": 4,
+          "gre": 5,
+          "other": 6
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcSetUpPriority": {
+    "name": "cpwVcSetUpPriority",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcHoldingPriority": {
+    "name": "cpwVcHoldingPriority",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcInboundMode": {
+    "name": "cpwVcInboundMode",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loose": 1,
+          "strict": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "loose",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcPeerAddrType": {
+    "name": "cpwVcPeerAddrType",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcPeerAddr": {
+    "name": "cpwVcPeerAddr",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcID": {
+    "name": "cpwVcID",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIDType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcLocalGroupID": {
+    "name": "cpwVcLocalGroupID",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwGroupID",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcControlWord": {
+    "name": "cpwVcControlWord",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcLocalIfMtu": {
+    "name": "cpwVcLocalIfMtu",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcLocalIfString": {
+    "name": "cpwVcLocalIfString",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcRemoteGroupID": {
+    "name": "cpwVcRemoteGroupID",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwGroupID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcRemoteControlWord": {
+    "name": "cpwVcRemoteControlWord",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noControlWord": 1,
+          "withControlWord": 2,
+          "notYetKnown": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcRemoteIfMtu": {
+    "name": "cpwVcRemoteIfMtu",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcRemoteIfString": {
+    "name": "cpwVcRemoteIfString",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcOutboundVcLabel": {
+    "name": "cpwVcOutboundVcLabel",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcInboundVcLabel": {
+    "name": "cpwVcInboundVcLabel",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcName": {
+    "name": "cpwVcName",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcDescr": {
+    "name": "cpwVcDescr",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcCreateTime": {
+    "name": "cpwVcCreateTime",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcUpTime": {
+    "name": "cpwVcUpTime",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcAdminStatus": {
+    "name": "cpwVcAdminStatus",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcOperStatus": {
+    "name": "cpwVcOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcInboundOperStatus": {
+    "name": "cpwVcInboundOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcOutboundOperStatus": {
+    "name": "cpwVcOutboundOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcTimeElapsed": {
+    "name": "cpwVcTimeElapsed",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcValidIntervals": {
+    "name": "cpwVcValidIntervals",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcRowStatus": {
+    "name": "cpwVcRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcStorageType": {
+    "name": "cpwVcStorageType",
+    "oid": "1.3.6.1.4.1.9.10.106.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcPerfCurrentTable": {
+    "name": "cpwVcPerfCurrentTable",
+    "oid": "1.3.6.1.4.1.9.10.106.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcPerfCurrentEntry": {
+    "name": "cpwVcPerfCurrentEntry",
+    "oid": "1.3.6.1.4.1.9.10.106.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcPerfCurrentInHCPackets": {
+    "name": "cpwVcPerfCurrentInHCPackets",
+    "oid": "1.3.6.1.4.1.9.10.106.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfCurrentInHCBytes": {
+    "name": "cpwVcPerfCurrentInHCBytes",
+    "oid": "1.3.6.1.4.1.9.10.106.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfCurrentOutHCPackets": {
+    "name": "cpwVcPerfCurrentOutHCPackets",
+    "oid": "1.3.6.1.4.1.9.10.106.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfCurrentOutHCBytes": {
+    "name": "cpwVcPerfCurrentOutHCBytes",
+    "oid": "1.3.6.1.4.1.9.10.106.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfIntervalTable": {
+    "name": "cpwVcPerfIntervalTable",
+    "oid": "1.3.6.1.4.1.9.10.106.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcPerfIntervalEntry": {
+    "name": "cpwVcPerfIntervalEntry",
+    "oid": "1.3.6.1.4.1.9.10.106.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfIntervalNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcPerfIntervalNumber": {
+    "name": "cpwVcPerfIntervalNumber",
+    "oid": "1.3.6.1.4.1.9.10.106.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcPerfIntervalValidData": {
+    "name": "cpwVcPerfIntervalValidData",
+    "oid": "1.3.6.1.4.1.9.10.106.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfIntervalTimeElapsed": {
+    "name": "cpwVcPerfIntervalTimeElapsed",
+    "oid": "1.3.6.1.4.1.9.10.106.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfIntervalInHCPackets": {
+    "name": "cpwVcPerfIntervalInHCPackets",
+    "oid": "1.3.6.1.4.1.9.10.106.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfIntervalInHCBytes": {
+    "name": "cpwVcPerfIntervalInHCBytes",
+    "oid": "1.3.6.1.4.1.9.10.106.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfIntervalOutHCPackets": {
+    "name": "cpwVcPerfIntervalOutHCPackets",
+    "oid": "1.3.6.1.4.1.9.10.106.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfIntervalOutHCBytes": {
+    "name": "cpwVcPerfIntervalOutHCBytes",
+    "oid": "1.3.6.1.4.1.9.10.106.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfTotalTable": {
+    "name": "cpwVcPerfTotalTable",
+    "oid": "1.3.6.1.4.1.9.10.106.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcPerfTotalEntry": {
+    "name": "cpwVcPerfTotalEntry",
+    "oid": "1.3.6.1.4.1.9.10.106.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcPerfTotalInHCPackets": {
+    "name": "cpwVcPerfTotalInHCPackets",
+    "oid": "1.3.6.1.4.1.9.10.106.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfTotalInHCBytes": {
+    "name": "cpwVcPerfTotalInHCBytes",
+    "oid": "1.3.6.1.4.1.9.10.106.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfTotalOutHCPackets": {
+    "name": "cpwVcPerfTotalOutHCPackets",
+    "oid": "1.3.6.1.4.1.9.10.106.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfTotalOutHCBytes": {
+    "name": "cpwVcPerfTotalOutHCBytes",
+    "oid": "1.3.6.1.4.1.9.10.106.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfTotalDiscontinuityTime": {
+    "name": "cpwVcPerfTotalDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.10.106.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPerfTotalErrorPackets": {
+    "name": "cpwVcPerfTotalErrorPackets",
+    "oid": "1.3.6.1.4.1.9.10.106.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcIdMappingTable": {
+    "name": "cpwVcIdMappingTable",
+    "oid": "1.3.6.1.4.1.9.10.106.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcIdMappingEntry": {
+    "name": "cpwVcIdMappingEntry",
+    "oid": "1.3.6.1.4.1.9.10.106.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIdMappingVcType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIdMappingVcID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIdMappingPeerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIdMappingPeerAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIdMappingVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcIdMappingVcType": {
+    "name": "cpwVcIdMappingVcType",
+    "oid": "1.3.6.1.4.1.9.10.106.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcIdMappingVcID": {
+    "name": "cpwVcIdMappingVcID",
+    "oid": "1.3.6.1.4.1.9.10.106.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIDType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcIdMappingPeerAddrType": {
+    "name": "cpwVcIdMappingPeerAddrType",
+    "oid": "1.3.6.1.4.1.9.10.106.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcIdMappingPeerAddr": {
+    "name": "cpwVcIdMappingPeerAddr",
+    "oid": "1.3.6.1.4.1.9.10.106.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcIdMappingVcIndex": {
+    "name": "cpwVcIdMappingVcIndex",
+    "oid": "1.3.6.1.4.1.9.10.106.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcPeerMappingTable": {
+    "name": "cpwVcPeerMappingTable",
+    "oid": "1.3.6.1.4.1.9.10.106.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcPeerMappingEntry": {
+    "name": "cpwVcPeerMappingEntry",
+    "oid": "1.3.6.1.4.1.9.10.106.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPeerMappingPeerAddrType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPeerMappingPeerAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPeerMappingVcType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPeerMappingVcID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPeerMappingVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcPeerMappingPeerAddrType": {
+    "name": "cpwVcPeerMappingPeerAddrType",
+    "oid": "1.3.6.1.4.1.9.10.106.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcPeerMappingPeerAddr": {
+    "name": "cpwVcPeerMappingPeerAddr",
+    "oid": "1.3.6.1.4.1.9.10.106.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcPeerMappingVcType": {
+    "name": "cpwVcPeerMappingVcType",
+    "oid": "1.3.6.1.4.1.9.10.106.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcPeerMappingVcID": {
+    "name": "cpwVcPeerMappingVcID",
+    "oid": "1.3.6.1.4.1.9.10.106.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIDType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcPeerMappingVcIndex": {
+    "name": "cpwVcPeerMappingVcIndex",
+    "oid": "1.3.6.1.4.1.9.10.106.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcUpDownNotifEnable": {
+    "name": "cpwVcUpDownNotifEnable",
+    "oid": "1.3.6.1.4.1.9.10.106.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwVcNotifRate": {
+    "name": "cpwVcNotifRate",
+    "oid": "1.3.6.1.4.1.9.10.106.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwVcDown": {
+    "name": "cpwVcDown",
+    "oid": "1.3.6.1.4.1.9.10.106.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcOperStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcUp": {
+    "name": "cpwVcUp",
+    "oid": "1.3.6.1.4.1.9.10.106.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcOperStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcGroups": {
+    "name": "cpwVcGroups",
+    "oid": "1.3.6.1.4.1.9.10.106.3.1",
+    "class": "objectidentity"
+  },
+  "cpwVcCompliances": {
+    "name": "cpwVcCompliances",
+    "oid": "1.3.6.1.4.1.9.10.106.3.2",
+    "class": "objectidentity"
+  },
+  "cpwModuleCompliance": {
+    "name": "cpwModuleCompliance",
+    "oid": "1.3.6.1.4.1.9.10.106.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpwVcGroup",
+        "module": "CISCO-IETF-PW-MIB"
+      },
+      {
+        "object": "cpwVcPeformanceGroup",
+        "module": "CISCO-IETF-PW-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcGroup": {
+    "name": "cpwVcGroup",
+    "oid": "1.3.6.1.4.1.9.10.106.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndexNext"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcType"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcOwner"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPsnType"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcSetUpPriority"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcHoldingPriority"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcInboundMode"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPeerAddrType"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPeerAddr"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcID"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcLocalGroupID"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcControlWord"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcLocalIfMtu"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcLocalIfString"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcRemoteGroupID"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcRemoteControlWord"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcRemoteIfMtu"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcRemoteIfString"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcOutboundVcLabel"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcInboundVcLabel"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcName"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcDescr"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcCreateTime"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcUpTime"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcAdminStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcOperStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcOutboundOperStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcInboundOperStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcTimeElapsed"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcValidIntervals"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcStorageType"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcUpDownNotifEnable"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcNotifRate"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcPeformanceGroup": {
+    "name": "cpwVcPeformanceGroup",
+    "oid": "1.3.6.1.4.1.9.10.106.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfCurrentInHCPackets"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfCurrentInHCBytes"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfCurrentOutHCPackets"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfCurrentOutHCBytes"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfIntervalValidData"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfIntervalTimeElapsed"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfIntervalInHCPackets"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfIntervalInHCBytes"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfIntervalOutHCPackets"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfIntervalOutHCBytes"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfTotalInHCPackets"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfTotalInHCBytes"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfTotalOutHCPackets"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfTotalOutHCBytes"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfTotalDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPerfTotalErrorPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcMappingTablesGroup": {
+    "name": "cpwVcMappingTablesGroup",
+    "oid": "1.3.6.1.4.1.9.10.106.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIdMappingVcIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcPeerMappingVcIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcNotificationsGroup": {
+    "name": "cpwVcNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.10.106.3.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcUp"
+      },
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcDown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PW-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-PW-MIB"
+  }
+}

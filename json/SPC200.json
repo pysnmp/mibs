@@ -1,0 +1,3804 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "interfaces",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
+    ],
+    "SPIDCOM-MIB": [
+      "spidcom"
+    ]
+  },
+  "spc200MIB": {
+    "name": "spc200MIB",
+    "oid": "1.3.6.1.4.1.22764.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-12-17 12:30",
+        "description": "Add software upgrade features"
+      },
+      {
+        "revision": "2004-11-16 12:30",
+        "description": "Add adapt level table , commit and reset command"
+      },
+      {
+        "revision": "2004-09-21 12:00",
+        "description": "Add quick access to channel modulation and pilots"
+      },
+      {
+        "revision": "2004-09-13 12:00",
+        "description": "Add quick access to notches"
+      },
+      {
+        "revision": "2004-07-22 12:00",
+        "description": "Corrected compilation errors"
+      },
+      {
+        "revision": "2004-07-01 17:57",
+        "description": "Initial revision"
+      }
+    ]
+  },
+  "ModulationValue": {
+    "name": "ModulationValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "bpsk": 2,
+          "qpsk": 3,
+          "qam16": 4,
+          "qam64": 5,
+          "qam256": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CarrierValue": {
+    "name": "CarrierValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PilotValue": {
+    "name": "PilotValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "BandValue": {
+    "name": "BandValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "PlcChannelType": {
+    "name": "PlcChannelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rx": 1,
+          "rxLast": 2,
+          "tx": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EstimationMode": {
+    "name": "EstimationMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "automatic": 1,
+          "manual": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "GroupValue": {
+    "name": "GroupValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ResultValue": {
+    "name": "ResultValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "fail": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AdaptValue": {
+    "name": "AdaptValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ChannelBandwidthValue": {
+    "name": "ChannelBandwidthValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "SoftwareIndex": {
+    "name": "SoftwareIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "SoftwareActionResultValue": {
+    "name": "SoftwareActionResultValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 0,
+          "on-going": 1,
+          "fileNotExist": 2,
+          "flashExhausted": 3,
+          "flashCorrupted": 4,
+          "notEnoughMemory": 5,
+          "invalidParameter": 6,
+          "genericError": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SoftwareActionType": {
+    "name": "SoftwareActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switch": 1,
+          "remove": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PlcModeType": {
+    "name": "PlcModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ad-hoc": 0,
+          "slave": 1,
+          "master": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "plc": {
+    "name": "plc",
+    "oid": "1.3.6.1.4.1.22764.1.1",
+    "class": "objectidentity"
+  },
+  "stats": {
+    "name": "stats",
+    "oid": "1.3.6.1.4.1.22764.1.1.1",
+    "class": "objectidentity"
+  },
+  "portStatsTable": {
+    "name": "portStatsTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portStatsEntry": {
+    "name": "portStatsEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "portStatsBandIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "portStatsGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "portStatsCarrierIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portStatsBandIndex": {
+    "name": "portStatsBandIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portStatsGroupIndex": {
+    "name": "portStatsGroupIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GroupValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portStatsCarrierIndex": {
+    "name": "portStatsCarrierIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CarrierValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portStatsSignal": {
+    "name": "portStatsSignal",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStatsNoise": {
+    "name": "portStatsNoise",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStats2Table": {
+    "name": "portStats2Table",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portStats2Entry": {
+    "name": "portStats2Entry",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModBandIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portStats2Signal": {
+    "name": "portStats2Signal",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStats2Noise": {
+    "name": "portStats2Noise",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStats2AvgBandAtt": {
+    "name": "portStats2AvgBandAtt",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStats2AvgBandSNR": {
+    "name": "portStats2AvgBandSNR",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStats3Table": {
+    "name": "portStats3Table",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "portStats3Entry": {
+    "name": "portStats3Entry",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "portStats3AvgAtt": {
+    "name": "portStats3AvgAtt",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "portStats3AvgSNR": {
+    "name": "portStats3AvgSNR",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bootstats": {
+    "name": "bootstats",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "bootstatsBoot": {
+    "name": "bootstatsBoot",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bootstatsManualReset": {
+    "name": "bootstatsManualReset",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bootstatsFailureReset": {
+    "name": "bootstatsFailureReset",
+    "oid": "1.3.6.1.4.1.22764.1.1.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcObjects": {
+    "name": "plcObjects",
+    "oid": "1.3.6.1.4.1.22764.1.1.2",
+    "class": "objectidentity"
+  },
+  "plcMode": {
+    "name": "plcMode",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PlcModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcTopo": {
+    "name": "plcTopo",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "plcNodeConfiguration": {
+    "name": "plcNodeConfiguration",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "plcSNAnalyser": {
+    "name": "plcSNAnalyser",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.4",
+    "class": "objectidentity"
+  },
+  "plcSNAnalyserEnable": {
+    "name": "plcSNAnalyserEnable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcSNAnalyserTable": {
+    "name": "plcSNAnalyserTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcSNAnalyserEntry": {
+    "name": "plcSNAnalyserEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcModBandIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcSNAnalyserMinSignal": {
+    "name": "plcSNAnalyserMinSignal",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcSNAnalyserMaxSignal": {
+    "name": "plcSNAnalyserMaxSignal",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcSNAnalyserAvgSignal": {
+    "name": "plcSNAnalyserAvgSignal",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcSNAnalyserLastSignal": {
+    "name": "plcSNAnalyserLastSignal",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcSNAnalyserFFTDiv": {
+    "name": "plcSNAnalyserFFTDiv",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcSNAnalyserAGC": {
+    "name": "plcSNAnalyserAGC",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcAGCAnalyser": {
+    "name": "plcAGCAnalyser",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.5",
+    "class": "objectidentity"
+  },
+  "plcAGCAnalyserEnable": {
+    "name": "plcAGCAnalyserEnable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcAGCAnalyserSamplesPart1": {
+    "name": "plcAGCAnalyserSamplesPart1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcAGCAnalyserSamplesPart2": {
+    "name": "plcAGCAnalyserSamplesPart2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcTopoChanges": {
+    "name": "plcTopoChanges",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcBasePortTable": {
+    "name": "plcBasePortTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcBasePortEntry": {
+    "name": "plcBasePortEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcBasePortIndex": {
+    "name": "plcBasePortIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcBasePortAddress": {
+    "name": "plcBasePortAddress",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcBasePortChannelEstimation": {
+    "name": "plcBasePortChannelEstimation",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EstimationMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcBasePortAttenuation": {
+    "name": "plcBasePortAttenuation",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcChannelModulationStringTable": {
+    "name": "plcChannelModulationStringTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcChannelModulationStringEntry": {
+    "name": "plcChannelModulationStringEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcRxChannelModulation": {
+    "name": "plcRxChannelModulation",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcRxLastChannelModulation": {
+    "name": "plcRxLastChannelModulation",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcTxChannelModulation": {
+    "name": "plcTxChannelModulation",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcChannelModulationTable": {
+    "name": "plcChannelModulationTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcChannelModulationEntry": {
+    "name": "plcChannelModulationEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPortChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModBandIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcModBandIndex": {
+    "name": "plcModBandIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcModGroup1": {
+    "name": "plcModGroup1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup2": {
+    "name": "plcModGroup2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup3": {
+    "name": "plcModGroup3",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup4": {
+    "name": "plcModGroup4",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup5": {
+    "name": "plcModGroup5",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup6": {
+    "name": "plcModGroup6",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup7": {
+    "name": "plcModGroup7",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup8": {
+    "name": "plcModGroup8",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup9": {
+    "name": "plcModGroup9",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup10": {
+    "name": "plcModGroup10",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup11": {
+    "name": "plcModGroup11",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup12": {
+    "name": "plcModGroup12",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup13": {
+    "name": "plcModGroup13",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup14": {
+    "name": "plcModGroup14",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup15": {
+    "name": "plcModGroup15",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcModGroup16": {
+    "name": "plcModGroup16",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcChannelModulationInput": {
+    "name": "plcChannelModulationInput",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5",
+    "class": "objectidentity"
+  },
+  "plcModulationInputAddr": {
+    "name": "plcModulationInputAddr",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcModulationInputChannel": {
+    "name": "plcModulationInputChannel",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PlcChannelType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcModulationInputBand": {
+    "name": "plcModulationInputBand",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup1": {
+    "name": "plcInputModulationGroup1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup2": {
+    "name": "plcInputModulationGroup2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup3": {
+    "name": "plcInputModulationGroup3",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup4": {
+    "name": "plcInputModulationGroup4",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup5": {
+    "name": "plcInputModulationGroup5",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup6": {
+    "name": "plcInputModulationGroup6",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup7": {
+    "name": "plcInputModulationGroup7",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup8": {
+    "name": "plcInputModulationGroup8",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup9": {
+    "name": "plcInputModulationGroup9",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup10": {
+    "name": "plcInputModulationGroup10",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup11": {
+    "name": "plcInputModulationGroup11",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup12": {
+    "name": "plcInputModulationGroup12",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup13": {
+    "name": "plcInputModulationGroup13",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup14": {
+    "name": "plcInputModulationGroup14",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup15": {
+    "name": "plcInputModulationGroup15",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputModulationGroup16": {
+    "name": "plcInputModulationGroup16",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcModulationInputProceed": {
+    "name": "plcModulationInputProceed",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcModulationInputResult": {
+    "name": "plcModulationInputResult",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.5.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResultValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcPortChannelTable": {
+    "name": "plcPortChannelTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcPortChannelEntry": {
+    "name": "plcPortChannelEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPortChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcPortChannelIndex": {
+    "name": "plcPortChannelIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcPortChannelType": {
+    "name": "plcPortChannelType",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PlcChannelType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcPortChannelGain": {
+    "name": "plcPortChannelGain",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcPortChannelBandwidth": {
+    "name": "plcPortChannelBandwidth",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelBandwidthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcPortChannelMaxBandwidth": {
+    "name": "plcPortChannelMaxBandwidth",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelBandwidthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcPortChannelSynchronizationBand": {
+    "name": "plcPortChannelSynchronizationBand",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcChannelPilotStringTable": {
+    "name": "plcChannelPilotStringTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcChannelPilotStringEntry": {
+    "name": "plcChannelPilotStringEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcRxChannelPilots": {
+    "name": "plcRxChannelPilots",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcRxLastChannelPilots": {
+    "name": "plcRxLastChannelPilots",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcTxChannelPilots": {
+    "name": "plcTxChannelPilots",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcChannelPilotsTable": {
+    "name": "plcChannelPilotsTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcChannelPilotsEntry": {
+    "name": "plcChannelPilotsEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPortChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "plcChannelPilotBandIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcChannelPilotBandIndex": {
+    "name": "plcChannelPilotBandIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcChannelPilot1": {
+    "name": "plcChannelPilot1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PilotValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcChannePilot2": {
+    "name": "plcChannePilot2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PilotValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcChannelPilotsInput": {
+    "name": "plcChannelPilotsInput",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.9",
+    "class": "objectidentity"
+  },
+  "plcPilotsInputAddr": {
+    "name": "plcPilotsInputAddr",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcPilotsInputChannel": {
+    "name": "plcPilotsInputChannel",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PlcChannelType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcPilotsInputBand": {
+    "name": "plcPilotsInputBand",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputChannelPilot1": {
+    "name": "plcInputChannelPilot1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PilotValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputChannelPilot2": {
+    "name": "plcInputChannelPilot2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PilotValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcPilotsInputProceed": {
+    "name": "plcPilotsInputProceed",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcPilotsInputResult": {
+    "name": "plcPilotsInputResult",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.2.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResultValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNotches": {
+    "name": "plcNodeNotches",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNotchesTable": {
+    "name": "plcNodeNotchesTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodeNotchesEntry": {
+    "name": "plcNodeNotchesEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesBandIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcNodeNotchesBandIndex": {
+    "name": "plcNodeNotchesBandIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodeNotchesGroupIndex": {
+    "name": "plcNodeNotchesGroupIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GroupValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodeNotchesCarrier1": {
+    "name": "plcNodeNotchesCarrier1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNotchesCarrier2": {
+    "name": "plcNodeNotchesCarrier2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNotchesCarrier3": {
+    "name": "plcNodeNotchesCarrier3",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNotchesCarrier4": {
+    "name": "plcNodeNotchesCarrier4",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNotchesCarrier5": {
+    "name": "plcNodeNotchesCarrier5",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNotchesCarrier6": {
+    "name": "plcNodeNotchesCarrier6",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNotchesCarrier7": {
+    "name": "plcNodeNotchesCarrier7",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNotchesCarrier8": {
+    "name": "plcNodeNotchesCarrier8",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNotchesInput": {
+    "name": "plcNodeNotchesInput",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3",
+    "class": "objectidentity"
+  },
+  "plcNodeNotchesInputBand": {
+    "name": "plcNodeNotchesInputBand",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputGroup": {
+    "name": "plcNodeNotchesInputGroup",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputCarrier1": {
+    "name": "plcNodeNotchesInputCarrier1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputCarrier2": {
+    "name": "plcNodeNotchesInputCarrier2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputCarrier3": {
+    "name": "plcNodeNotchesInputCarrier3",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputCarrier4": {
+    "name": "plcNodeNotchesInputCarrier4",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputCarrier5": {
+    "name": "plcNodeNotchesInputCarrier5",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputCarrier6": {
+    "name": "plcNodeNotchesInputCarrier6",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputCarrier7": {
+    "name": "plcNodeNotchesInputCarrier7",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputCarrier8": {
+    "name": "plcNodeNotchesInputCarrier8",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputProceed": {
+    "name": "plcNodeNotchesInputProceed",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNotchesInputResult": {
+    "name": "plcNodeNotchesInputResult",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResultValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodePilots": {
+    "name": "plcNodePilots",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodePilotsTable": {
+    "name": "plcNodePilotsTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodePilotsEntry": {
+    "name": "plcNodePilotsEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcNodePilotsBandIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcNodePilotsBandIndex": {
+    "name": "plcNodePilotsBandIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodePilot1": {
+    "name": "plcNodePilot1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PilotValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodePilot2": {
+    "name": "plcNodePilot2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PilotValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodePilotsInput": {
+    "name": "plcNodePilotsInput",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.6",
+    "class": "objectidentity"
+  },
+  "plcNodePilotsInputBand": {
+    "name": "plcNodePilotsInputBand",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputNodePilot1": {
+    "name": "plcInputNodePilot1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PilotValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcInputNodePilot2": {
+    "name": "plcInputNodePilot2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PilotValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodePilotsInputProceed": {
+    "name": "plcNodePilotsInputProceed",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodePilotsInputResult": {
+    "name": "plcNodePilotsInputResult",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResultValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeAdaptsStringTable": {
+    "name": "plcNodeAdaptsStringTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodeAdaptsStringEntry": {
+    "name": "plcNodeAdaptsStringEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsStringBandIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcNodeAdaptsStringBandIndex": {
+    "name": "plcNodeAdaptsStringBandIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodeAdaptsStringBand": {
+    "name": "plcNodeAdaptsStringBand",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeAdaptsTable": {
+    "name": "plcNodeAdaptsTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodeAdaptsEntry": {
+    "name": "plcNodeAdaptsEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsBandIndex",
+        "implied": 0
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcNodeAdaptsBandIndex": {
+    "name": "plcNodeAdaptsBandIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodeAdaptsGroupIndex": {
+    "name": "plcNodeAdaptsGroupIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GroupValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodeAdaptsCarrier1": {
+    "name": "plcNodeAdaptsCarrier1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeAdaptsCarrier2": {
+    "name": "plcNodeAdaptsCarrier2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeAdaptsCarrier3": {
+    "name": "plcNodeAdaptsCarrier3",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeAdaptsCarrier4": {
+    "name": "plcNodeAdaptsCarrier4",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeAdaptsCarrier5": {
+    "name": "plcNodeAdaptsCarrier5",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeAdaptsCarrier6": {
+    "name": "plcNodeAdaptsCarrier6",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeAdaptsCarrier7": {
+    "name": "plcNodeAdaptsCarrier7",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeAdaptsCarrier8": {
+    "name": "plcNodeAdaptsCarrier8",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeAdaptsInput": {
+    "name": "plcNodeAdaptsInput",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9",
+    "class": "objectidentity"
+  },
+  "plcNodeAdaptsInputBand": {
+    "name": "plcNodeAdaptsInputBand",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputGroup": {
+    "name": "plcNodeAdaptsInputGroup",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "GroupValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputCarrier1": {
+    "name": "plcNodeAdaptsInputCarrier1",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputCarrier2": {
+    "name": "plcNodeAdaptsInputCarrier2",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputCarrier3": {
+    "name": "plcNodeAdaptsInputCarrier3",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputCarrier4": {
+    "name": "plcNodeAdaptsInputCarrier4",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputCarrier5": {
+    "name": "plcNodeAdaptsInputCarrier5",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputCarrier6": {
+    "name": "plcNodeAdaptsInputCarrier6",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputCarrier7": {
+    "name": "plcNodeAdaptsInputCarrier7",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputCarrier8": {
+    "name": "plcNodeAdaptsInputCarrier8",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdaptValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputProceed": {
+    "name": "plcNodeAdaptsInputProceed",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeAdaptsInputResult": {
+    "name": "plcNodeAdaptsInputResult",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.9.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResultValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeNetConfigTable": {
+    "name": "plcNodeNetConfigTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "plcNodeNetConfigEntry": {
+    "name": "plcNodeNetConfigEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "plcNodeIpAddr": {
+    "name": "plcNodeIpAddr",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeNetMask": {
+    "name": "plcNodeNetMask",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeMacAddr": {
+    "name": "plcNodeMacAddr",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeGateway": {
+    "name": "plcNodeGateway",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeActions": {
+    "name": "plcNodeActions",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.11",
+    "class": "objectidentity"
+  },
+  "plcNodeActionsCommit": {
+    "name": "plcNodeActionsCommit",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.11.1",
+    "class": "objectidentity"
+  },
+  "plcNodeActionsCommitProceed": {
+    "name": "plcNodeActionsCommitProceed",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.11.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeActionsCommitResult": {
+    "name": "plcNodeActionsCommitResult",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.11.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ResultValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcNodeActionsReset": {
+    "name": "plcNodeActionsReset",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.11.2",
+    "class": "objectidentity"
+  },
+  "plcNodeActionsResetProceed": {
+    "name": "plcNodeActionsResetProceed",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.11.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcNodeActionsCarrier": {
+    "name": "plcNodeActionsCarrier",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.11.3",
+    "class": "objectidentity"
+  },
+  "plcNodeActionsCarrierFlatProceed": {
+    "name": "plcNodeActionsCarrierFlatProceed",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.3.11.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcBssId": {
+    "name": "plcBssId",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.6",
+    "class": "objectidentity"
+  },
+  "plcMasterBssId": {
+    "name": "plcMasterBssId",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcSlaveBssId": {
+    "name": "plcSlaveBssId",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcSpy": {
+    "name": "plcSpy",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.7",
+    "class": "objectidentity"
+  },
+  "plcSpyIsDynamic": {
+    "name": "plcSpyIsDynamic",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "plcStaticSpySynchBandNb": {
+    "name": "plcStaticSpySynchBandNb",
+    "oid": "1.3.6.1.4.1.22764.1.1.2.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BandValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareMgnt": {
+    "name": "softwareMgnt",
+    "oid": "1.3.6.1.4.1.22764.1.1.3",
+    "class": "objectidentity"
+  },
+  "currentSoftwareVersion": {
+    "name": "currentSoftwareVersion",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentSoftwareBoardVersion": {
+    "name": "currentSoftwareBoardVersion",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "currentSoftwareAFEVersion": {
+    "name": "currentSoftwareAFEVersion",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareTable": {
+    "name": "softwareTable",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "softwareEntry": {
+    "name": "softwareEntry",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SPC200",
+        "object": "softwareIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "softwareIndex": {
+    "name": "softwareIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoftwareIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "softwareVersion": {
+    "name": "softwareVersion",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareUpload": {
+    "name": "softwareUpload",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.5",
+    "class": "objectidentity"
+  },
+  "softwareUploadTFTPServerIP": {
+    "name": "softwareUploadTFTPServerIP",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareUploadLogin": {
+    "name": "softwareUploadLogin",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareUploadPassword": {
+    "name": "softwareUploadPassword",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareUploadFileName": {
+    "name": "softwareUploadFileName",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareUploadProceed": {
+    "name": "softwareUploadProceed",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareUploadResult": {
+    "name": "softwareUploadResult",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoftwareActionResultValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "softwareUploadTFTPServerPort": {
+    "name": "softwareUploadTFTPServerPort",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareAction": {
+    "name": "softwareAction",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.6",
+    "class": "objectidentity"
+  },
+  "softwareActionIndex": {
+    "name": "softwareActionIndex",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoftwareIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareActionType": {
+    "name": "softwareActionType",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoftwareActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareActionProceed": {
+    "name": "softwareActionProceed",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "softwareActionResult": {
+    "name": "softwareActionResult",
+    "oid": "1.3.6.1.4.1.22764.1.1.3.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SoftwareActionResultValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "plcConformance": {
+    "name": "plcConformance",
+    "oid": "1.3.6.1.4.1.22764.1.1.4",
+    "class": "objectidentity"
+  },
+  "plcCompliances": {
+    "name": "plcCompliances",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "plcGroups": {
+    "name": "plcGroups",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "plcCompliance": {
+    "name": "plcCompliance",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "nodeGroup",
+        "module": "SPC200"
+      },
+      {
+        "object": "topologyGroup",
+        "module": "SPC200"
+      },
+      {
+        "object": "statisticGroup",
+        "module": "SPC200"
+      }
+    ],
+    "status": "current"
+  },
+  "nodeGroup": {
+    "name": "nodeGroup",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotches"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcMode"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesCarrier1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesCarrier2"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesCarrier3"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesCarrier4"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesCarrier5"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesCarrier6"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesCarrier7"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesCarrier8"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodePilots"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodePilot1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodePilot2"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsStringBand"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsCarrier1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsCarrier2"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsCarrier3"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsCarrier4"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsCarrier5"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsCarrier6"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsCarrier7"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsCarrier8"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeIpAddr"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNetMask"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeMacAddr"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeGateway"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcMasterBssId"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcSlaveBssId"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcSpyIsDynamic"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcStaticSpySynchBandNb"
+      }
+    ],
+    "status": "current"
+  },
+  "inputNodeGroup": {
+    "name": "inputNodeGroup",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputBand"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputGroup"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputCarrier1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputCarrier2"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputCarrier3"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputCarrier4"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputCarrier5"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputCarrier6"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputCarrier7"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputCarrier8"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputProceed"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeNotchesInputResult"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodePilotsInputBand"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputNodePilot1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputNodePilot2"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodePilotsInputProceed"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodePilotsInputResult"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputBand"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputGroup"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputCarrier1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputCarrier2"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputCarrier3"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputCarrier4"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputCarrier5"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputCarrier6"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputCarrier7"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputCarrier8"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputProceed"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeAdaptsInputResult"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeActionsCommitProceed"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeActionsCommitResult"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeActionsResetProceed"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcNodeActionsCarrierFlatProceed"
+      }
+    ],
+    "status": "current"
+  },
+  "topologyGroup": {
+    "name": "topologyGroup",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SPC200",
+        "object": "plcBasePortAddress"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcBasePortChannelEstimation"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcBasePortAttenuation"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcChannePilot2"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcChannelPilot1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcRxChannelPilots"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcRxLastChannelPilots"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcTxChannelPilots"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcRxChannelModulation"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcRxLastChannelModulation"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcTxChannelModulation"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup10"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup11"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup12"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup13"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup14"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup15"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup16"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup2"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup3"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup4"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup5"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup6"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup7"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup8"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModGroup9"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPortChannelGain"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPortChannelBandwidth"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPortChannelMaxBandwidth"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPortChannelSynchronizationBand"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPortChannelType"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcTopoChanges"
+      }
+    ],
+    "status": "current"
+  },
+  "inputTopologyGroup": {
+    "name": "inputTopologyGroup",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SPC200",
+        "object": "plcModulationInputAddr"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModulationInputChannel"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModulationInputBand"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup2"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup3"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup4"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup5"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup6"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup7"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup8"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup9"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup10"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup11"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup12"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup13"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup14"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup15"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputModulationGroup16"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModulationInputProceed"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcModulationInputResult"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPilotsInputAddr"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPilotsInputChannel"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPilotsInputBand"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputChannelPilot1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcInputChannelPilot2"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPilotsInputProceed"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcPilotsInputResult"
+      }
+    ],
+    "status": "current"
+  },
+  "statisticGroup": {
+    "name": "statisticGroup",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SPC200",
+        "object": "portStats2AvgBandAtt"
+      },
+      {
+        "module": "SPC200",
+        "object": "portStats2AvgBandSNR"
+      },
+      {
+        "module": "SPC200",
+        "object": "portStats2Noise"
+      },
+      {
+        "module": "SPC200",
+        "object": "portStats2Signal"
+      },
+      {
+        "module": "SPC200",
+        "object": "portStatsNoise"
+      },
+      {
+        "module": "SPC200",
+        "object": "portStatsSignal"
+      },
+      {
+        "module": "SPC200",
+        "object": "portStats3AvgAtt"
+      },
+      {
+        "module": "SPC200",
+        "object": "portStats3AvgSNR"
+      },
+      {
+        "module": "SPC200",
+        "object": "bootstatsBoot"
+      },
+      {
+        "module": "SPC200",
+        "object": "bootstatsManualReset"
+      },
+      {
+        "module": "SPC200",
+        "object": "bootstatsFailureReset"
+      }
+    ],
+    "status": "current"
+  },
+  "softwareGroup": {
+    "name": "softwareGroup",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SPC200",
+        "object": "currentSoftwareVersion"
+      },
+      {
+        "module": "SPC200",
+        "object": "currentSoftwareBoardVersion"
+      },
+      {
+        "module": "SPC200",
+        "object": "currentSoftwareAFEVersion"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareVersion"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareUploadTFTPServerIP"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareUploadLogin"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareUploadPassword"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareUploadFileName"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareUploadProceed"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareUploadResult"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareUploadTFTPServerPort"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareActionIndex"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareActionType"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareActionProceed"
+      },
+      {
+        "module": "SPC200",
+        "object": "softwareActionResult"
+      }
+    ],
+    "status": "current"
+  },
+  "analyserGroup": {
+    "name": "analyserGroup",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SPC200",
+        "object": "plcSNAnalyserAGC"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcSNAnalyserEnable"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcSNAnalyserMinSignal"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcSNAnalyserMaxSignal"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcSNAnalyserAvgSignal"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcSNAnalyserLastSignal"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcSNAnalyserFFTDiv"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcAGCAnalyserEnable"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcAGCAnalyserSamplesPart1"
+      },
+      {
+        "module": "SPC200",
+        "object": "plcAGCAnalyserSamplesPart2"
+      }
+    ],
+    "status": "current"
+  },
+  "agentCapabilities": {
+    "name": "agentCapabilities",
+    "oid": "1.3.6.1.4.1.22764.1.1.4.3",
+    "class": "agentcapabilities",
+    "productrelease": "Product-Release",
+    "status": "current"
+  },
+  "ipExt": {
+    "name": "ipExt",
+    "oid": "1.3.6.1.4.1.22764.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ipDynamic": {
+    "name": "ipDynamic",
+    "oid": "1.3.6.1.4.1.22764.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipExtGroup": {
+    "name": "ipExtGroup",
+    "oid": "1.3.6.1.4.1.22764.1.4.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SPC200",
+        "object": "ipDynamic"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/SPC200",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:06 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SPC200"
+  }
+}

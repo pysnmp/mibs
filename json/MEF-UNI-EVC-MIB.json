@@ -1,0 +1,2698 @@
+{
+  "imports": {
+    "class": "imports",
+    "ENTITY-STATE-TC-MIB": [
+      "EntityOperState",
+      "EntityAdminState"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021PriorityValue"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "mefUniEvcMib": {
+    "name": "mefUniEvcMib",
+    "oid": "1.3.6.1.4.1.15007.2.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-25 12:00",
+        "description": "Initial Version."
+      }
+    ]
+  },
+  "mefServiceNotifications": {
+    "name": "mefServiceNotifications",
+    "oid": "1.3.6.1.4.1.15007.2.2.0",
+    "class": "objectidentity"
+  },
+  "mefServiceObjects": {
+    "name": "mefServiceObjects",
+    "oid": "1.3.6.1.4.1.15007.2.2.1",
+    "class": "objectidentity"
+  },
+  "mefServiceMibConformance": {
+    "name": "mefServiceMibConformance",
+    "oid": "1.3.6.1.4.1.15007.2.2.2",
+    "class": "objectidentity"
+  },
+  "mefServiceInterfaceAttributes": {
+    "name": "mefServiceInterfaceAttributes",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1",
+    "class": "objectidentity"
+  },
+  "mefServiceUniAttributes": {
+    "name": "mefServiceUniAttributes",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2",
+    "class": "objectidentity"
+  },
+  "mefServiceEvcAttributes": {
+    "name": "mefServiceEvcAttributes",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3",
+    "class": "objectidentity"
+  },
+  "mefServiceBwpAttributes": {
+    "name": "mefServiceBwpAttributes",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4",
+    "class": "objectidentity"
+  },
+  "mefServiceCosAttributes": {
+    "name": "mefServiceCosAttributes",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5",
+    "class": "objectidentity"
+  },
+  "mefServiceL2cpAttributes": {
+    "name": "mefServiceL2cpAttributes",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6",
+    "class": "objectidentity"
+  },
+  "mefServiceNotificationCfg": {
+    "name": "mefServiceNotificationCfg",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.7",
+    "class": "objectidentity"
+  },
+  "mefServiceNotificationObj": {
+    "name": "mefServiceNotificationObj",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.8",
+    "class": "objectidentity"
+  },
+  "MefServicePreservationType": {
+    "name": "MefServicePreservationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preserve": 1,
+          "noPreserve": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MefServiceDeliveryType": {
+    "name": "MefServiceDeliveryType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "unconditional": 2,
+          "conditional": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MefServiceInterfaceType": {
+    "name": "MefServiceInterfaceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bUni1d1": 0,
+        "bUni1d2": 1,
+        "bUni2d1": 2,
+        "bUni2d2": 3,
+        "bEnni": 4,
+        "bEnniVuni": 5
+      }
+    },
+    "status": "current"
+  },
+  "MefServiceListType": {
+    "name": "MefServiceListType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "255t",
+    "status": "current"
+  },
+  "mefServiceInterfaceCfgTable": {
+    "name": "mefServiceInterfaceCfgTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceInterfaceCfgEntry": {
+    "name": "mefServiceInterfaceCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceInterfaceCfgType": {
+    "name": "mefServiceInterfaceCfgType",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefServiceInterfaceType",
+      "class": "type"
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "bUni1d1": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceInterfaceCfgIdentifier": {
+    "name": "mefServiceInterfaceCfgIdentifier",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceInterfaceCfgFrameFormat": {
+    "name": "mefServiceInterfaceCfgFrameFormat",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noTag": 1,
+          "ctag": 2,
+          "stag": 3,
+          "stagCtag": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noTag",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceInterfaceCfgIngressBwpGrpIndex": {
+    "name": "mefServiceInterfaceCfgIngressBwpGrpIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceInterfaceCfgEgressBwpGrpIndex": {
+    "name": "mefServiceInterfaceCfgEgressBwpGrpIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceInterfaceCfgL2cpGrpIndex": {
+    "name": "mefServiceInterfaceCfgL2cpGrpIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatusTable": {
+    "name": "mefServiceInterfaceStatusTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatusEntry": {
+    "name": "mefServiceInterfaceStatusEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceInterfaceStatusType": {
+    "name": "mefServiceInterfaceStatusType",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefServiceInterfaceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatusMaxVc": {
+    "name": "mefServiceInterfaceStatusMaxVc",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatusMaxEndPointPerVc": {
+    "name": "mefServiceInterfaceStatusMaxEndPointPerVc",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsTable": {
+    "name": "mefServiceInterfaceStatisticsTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsEntry": {
+    "name": "mefServiceInterfaceStatisticsEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsIngressUndersized": {
+    "name": "mefServiceInterfaceStatisticsIngressUndersized",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsIngressOversized": {
+    "name": "mefServiceInterfaceStatisticsIngressOversized",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsIngressFragments": {
+    "name": "mefServiceInterfaceStatisticsIngressFragments",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsIngressCrcAlignment": {
+    "name": "mefServiceInterfaceStatisticsIngressCrcAlignment",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsIngressInvalidVid": {
+    "name": "mefServiceInterfaceStatisticsIngressInvalidVid",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsIngressOctets": {
+    "name": "mefServiceInterfaceStatisticsIngressOctets",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsIngressUnicast": {
+    "name": "mefServiceInterfaceStatisticsIngressUnicast",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsIngressMulticast": {
+    "name": "mefServiceInterfaceStatisticsIngressMulticast",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsIngressBroadcast": {
+    "name": "mefServiceInterfaceStatisticsIngressBroadcast",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsEgressOctets": {
+    "name": "mefServiceInterfaceStatisticsEgressOctets",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsEgressUnicast": {
+    "name": "mefServiceInterfaceStatisticsEgressUnicast",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsEgressMulticast": {
+    "name": "mefServiceInterfaceStatisticsEgressMulticast",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceInterfaceStatisticsEgressBroadcast": {
+    "name": "mefServiceInterfaceStatisticsEgressBroadcast",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceUniCfgTable": {
+    "name": "mefServiceUniCfgTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceUniCfgEntry": {
+    "name": "mefServiceUniCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceUniCfgIdentifier": {
+    "name": "mefServiceUniCfgIdentifier",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceUniCfgBundlingMultiplex": {
+    "name": "mefServiceUniCfgBundlingMultiplex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allToOne": 1,
+          "bundling": 2,
+          "multiplex": 3,
+          "bundlingMultiplex": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "allToOne",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceUniCfgCeVidUntagged": {
+    "name": "mefServiceUniCfgCeVidUntagged",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceUniCfgCePriorityUntagged": {
+    "name": "mefServiceUniCfgCePriorityUntagged",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021PriorityValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcNextIndex": {
+    "name": "mefServiceEvcNextIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceEvcCfgTable": {
+    "name": "mefServiceEvcCfgTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceEvcCfgEntry": {
+    "name": "mefServiceEvcCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceEvcCfgIndex": {
+    "name": "mefServiceEvcCfgIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceEvcCfgIdentifier": {
+    "name": "mefServiceEvcCfgIdentifier",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcCfgServiceType": {
+    "name": "mefServiceEvcCfgServiceType",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPoint": 1,
+          "multipointToMultipoint": 2,
+          "rootedMultipoint": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pointToPoint",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcCfgMtuSize": {
+    "name": "mefServiceEvcCfgMtuSize",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1522,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1522,
+        "format": "decimal"
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceEvcCfgCevlanIdPreservation": {
+    "name": "mefServiceEvcCfgCevlanIdPreservation",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefServicePreservationType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "preserve",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcCfgCevlanCosPreservation": {
+    "name": "mefServiceEvcCfgCevlanCosPreservation",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefServicePreservationType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "preserve",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcCfgUnicastDelivery": {
+    "name": "mefServiceEvcCfgUnicastDelivery",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefServiceDeliveryType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unconditional",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcCfgMulticastDelivery": {
+    "name": "mefServiceEvcCfgMulticastDelivery",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefServiceDeliveryType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unconditional",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcCfgBroadcastDelivery": {
+    "name": "mefServiceEvcCfgBroadcastDelivery",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefServiceDeliveryType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unconditional",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcCfgL2cpGrpIndex": {
+    "name": "mefServiceEvcCfgL2cpGrpIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceEvcCfgAdminState": {
+    "name": "mefServiceEvcCfgAdminState",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntityAdminState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unlocked",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcCfgRowStatus": {
+    "name": "mefServiceEvcCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcUniCfgTable": {
+    "name": "mefServiceEvcUniCfgTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceEvcUniCfgEntry": {
+    "name": "mefServiceEvcUniCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceEvcUniCfgType": {
+    "name": "mefServiceEvcUniCfgType",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "root": 1,
+          "leaf": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "root",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceEvcUniCfgRowStatus": {
+    "name": "mefServiceEvcUniCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceEvcStatusTable": {
+    "name": "mefServiceEvcStatusTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceEvcStatusEntry": {
+    "name": "mefServiceEvcStatusEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceEvcStatusMaxMtuSize": {
+    "name": "mefServiceEvcStatusMaxMtuSize",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1522,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceEvcStatusMaxNumUni": {
+    "name": "mefServiceEvcStatusMaxNumUni",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 16384
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceEvcStatusOperationalState": {
+    "name": "mefServiceEvcStatusOperationalState",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EntityOperState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceEvcPerUniCfgTable": {
+    "name": "mefServiceEvcPerUniCfgTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceEvcPerUniCfgEntry": {
+    "name": "mefServiceEvcPerUniCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceEvcPerUniCfgServiceType": {
+    "name": "mefServiceEvcPerUniCfgServiceType",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "epl": 1,
+          "evpl": 2,
+          "eplan": 3,
+          "evplan": 4,
+          "eptree": 5,
+          "evptree": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "epl",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceEvcPerUniCfgIdentifier": {
+    "name": "mefServiceEvcPerUniCfgIdentifier",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 90
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceEvcPerUniCfgCeVlanMap": {
+    "name": "mefServiceEvcPerUniCfgCeVlanMap",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefServiceListType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "1:4095",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceEvcPerUniCfgIngressBwpGrpIndex": {
+    "name": "mefServiceEvcPerUniCfgIngressBwpGrpIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceEvcPerUniCfgEgressBwpGrpIndex": {
+    "name": "mefServiceEvcPerUniCfgEgressBwpGrpIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceBwpGrpNextIndex": {
+    "name": "mefServiceBwpGrpNextIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceBwpGrpCfgTable": {
+    "name": "mefServiceBwpGrpCfgTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceBwpGrpCfgEntry": {
+    "name": "mefServiceBwpGrpCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpGrpCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceBwpGrpCfgIndex": {
+    "name": "mefServiceBwpGrpCfgIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceBwpCfgNextIndex": {
+    "name": "mefServiceBwpCfgNextIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceBwpGrpCfgRowStatus": {
+    "name": "mefServiceBwpGrpCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceBwpCfgTable": {
+    "name": "mefServiceBwpCfgTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceBwpCfgEntry": {
+    "name": "mefServiceBwpCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpGrpCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceBwpCfgIndex": {
+    "name": "mefServiceBwpCfgIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceBwpCfgIdentifier": {
+    "name": "mefServiceBwpCfgIdentifier",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceBwpCfgCir": {
+    "name": "mefServiceBwpCfgCir",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000000,
+        "format": "decimal"
+      }
+    },
+    "units": "kbits/s",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceBwpCfgCbs": {
+    "name": "mefServiceBwpCfgCbs",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceBwpCfgEir": {
+    "name": "mefServiceBwpCfgEir",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "kbits/s",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceBwpCfgEbs": {
+    "name": "mefServiceBwpCfgEbs",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000000
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceBwpCfgCm": {
+    "name": "mefServiceBwpCfgCm",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "colorBlind": 1,
+          "colorAware": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "colorBlind",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceBwpCfgCf": {
+    "name": "mefServiceBwpCfgCf",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "couplingYellowEirOnly": 0,
+          "couplingYellowEirPlusCir": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "couplingYellowEirOnly",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceBwpCfgCosIndex": {
+    "name": "mefServiceBwpCfgCosIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceBwpCfgPerformanceEnable": {
+    "name": "mefServiceBwpCfgPerformanceEnable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disablePerformanceDataSet": 1,
+          "enablePerformanceDataSet": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disablePerformanceDataSet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceBwpCfgRowStatus": {
+    "name": "mefServiceBwpCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceCosNextIndex": {
+    "name": "mefServiceCosNextIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceCosCfgTable": {
+    "name": "mefServiceCosCfgTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceCosCfgEntry": {
+    "name": "mefServiceCosCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceCosCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceCosCfgIndex": {
+    "name": "mefServiceCosCfgIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceCosCfgIdentifier": {
+    "name": "mefServiceCosCfgIdentifier",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceCosCfgType": {
+    "name": "mefServiceCosCfgType",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interface": 1,
+          "evc": 2,
+          "pcp": 3,
+          "dscp": 4,
+          "l2cp": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pcp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceCosCfgIdentifierList": {
+    "name": "mefServiceCosCfgIdentifierList",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MefServiceListType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0:7",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceCosCfgMacAddress": {
+    "name": "mefServiceCosCfgMacAddress",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceCosCfgProtocol": {
+    "name": "mefServiceCosCfgProtocol",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceCosCfgSubType": {
+    "name": "mefServiceCosCfgSubType",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceCosCfgRowStatus": {
+    "name": "mefServiceCosCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceL2cpGrpNextIndex": {
+    "name": "mefServiceL2cpGrpNextIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceL2cpGrpCfgTable": {
+    "name": "mefServiceL2cpGrpCfgTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceL2cpGrpCfgEntry": {
+    "name": "mefServiceL2cpGrpCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpGrpCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceL2cpGrpCfgIndex": {
+    "name": "mefServiceL2cpGrpCfgIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceL2cpCfgNextIndex": {
+    "name": "mefServiceL2cpCfgNextIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceL2cpGrpCfgRowStatus": {
+    "name": "mefServiceL2cpGrpCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceL2cpCfgTable": {
+    "name": "mefServiceL2cpCfgTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceL2cpCfgEntry": {
+    "name": "mefServiceL2cpCfgEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpGrpCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceL2cpCfgIndex": {
+    "name": "mefServiceL2cpCfgIndex",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServiceL2cpCfgType": {
+    "name": "mefServiceL2cpCfgType",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1,
+          "tunnel": 2,
+          "peer": 3,
+          "passToEvc": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tunnel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceL2cpCfgMatchScope": {
+    "name": "mefServiceL2cpCfgMatchScope",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "destinationAddressOnly": 1,
+          "daPlusProtocol": 2,
+          "daPlusProtocolPlusSubtype": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "destinationAddressOnly",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceL2cpCfgMacAddress": {
+    "name": "mefServiceL2cpCfgMacAddress",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0180C2000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceL2cpCfgProtocol": {
+    "name": "mefServiceL2cpCfgProtocol",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceL2cpCfgSubType": {
+    "name": "mefServiceL2cpCfgSubType",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServiceL2cpCfgRowStatus": {
+    "name": "mefServiceL2cpCfgRowStatus",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mefServicePerformanceTable": {
+    "name": "mefServicePerformanceTable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mefServicePerformanceEntry": {
+    "name": "mefServicePerformanceEntry",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpGrpCfgIndex",
+        "implied": 0
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mefServicePerformanceIngressGreenFrameCount": {
+    "name": "mefServicePerformanceIngressGreenFrameCount",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceIngressYellowFrameCount": {
+    "name": "mefServicePerformanceIngressYellowFrameCount",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceIngressRedFrameCount": {
+    "name": "mefServicePerformanceIngressRedFrameCount",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceIngressGreenOctets": {
+    "name": "mefServicePerformanceIngressGreenOctets",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceIngressYellowOctets": {
+    "name": "mefServicePerformanceIngressYellowOctets",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceIngressRedOctets": {
+    "name": "mefServicePerformanceIngressRedOctets",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceIngressGreenFrameDiscards": {
+    "name": "mefServicePerformanceIngressGreenFrameDiscards",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceIngressYellowFrameDiscards": {
+    "name": "mefServicePerformanceIngressYellowFrameDiscards",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceIngressGreenOctetsDiscards": {
+    "name": "mefServicePerformanceIngressGreenOctetsDiscards",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceIngressYellowOctetsDiscards": {
+    "name": "mefServicePerformanceIngressYellowOctetsDiscards",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceEgressGreenFrameCount": {
+    "name": "mefServicePerformanceEgressGreenFrameCount",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceEgressYellowFrameCount": {
+    "name": "mefServicePerformanceEgressYellowFrameCount",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Ethernet frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceEgressGreenOctets": {
+    "name": "mefServicePerformanceEgressGreenOctets",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServicePerformanceEgressYellowOctets": {
+    "name": "mefServicePerformanceEgressYellowOctets",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.4.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mefServiceNotificationCfgAlarmEnable": {
+    "name": "mefServiceNotificationCfgAlarmEnable",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bServiceConfigurationAlarm": 0
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mefServiceNotificationObjDateAndTime": {
+    "name": "mefServiceNotificationObjDateAndTime",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mefServiceNotificationConfigurationChangeType": {
+    "name": "mefServiceNotificationConfigurationChangeType",
+    "oid": "1.3.6.1.4.1.15007.2.2.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "entryAdded": 1,
+          "entryDeleted": 2,
+          "entryModified": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mefServiceConfigurationAlarm": {
+    "name": "mefServiceConfigurationAlarm",
+    "oid": "1.3.6.1.4.1.15007.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceNotificationObjDateAndTime"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceNotificationConfigurationChangeType"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceUniEvcMibCompliances": {
+    "name": "mefServiceUniEvcMibCompliances",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.1",
+    "class": "objectidentity"
+  },
+  "mefServiceUniEvcMibGroups": {
+    "name": "mefServiceUniEvcMibGroups",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2",
+    "class": "objectidentity"
+  },
+  "mefServiceInterfaceMandatoryGroup": {
+    "name": "mefServiceInterfaceMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceCfgType"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceCfgIdentifier"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceCfgFrameFormat"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceCfgIngressBwpGrpIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceCfgEgressBwpGrpIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceCfgL2cpGrpIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatusType"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatusMaxVc"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatusMaxEndPointPerVc"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsIngressUndersized"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsIngressOversized"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsIngressFragments"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsIngressCrcAlignment"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsIngressInvalidVid"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsIngressOctets"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsIngressUnicast"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsIngressMulticast"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsIngressBroadcast"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsEgressOctets"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsEgressUnicast"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsEgressMulticast"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceInterfaceStatisticsEgressBroadcast"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceUniMandatoryGroup": {
+    "name": "mefServiceUniMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceUniCfgIdentifier"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceUniCfgBundlingMultiplex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceUniCfgCeVidUntagged"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceUniCfgCePriorityUntagged"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcPerUniCfgServiceType"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcPerUniCfgIdentifier"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcPerUniCfgCeVlanMap"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcPerUniCfgIngressBwpGrpIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcPerUniCfgEgressBwpGrpIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceEvcMandatoryGroup": {
+    "name": "mefServiceEvcMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcNextIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgIdentifier"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgServiceType"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgMtuSize"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgCevlanIdPreservation"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgCevlanCosPreservation"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgL2cpGrpIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgAdminState"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgRowStatus"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcUniCfgType"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcUniCfgRowStatus"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcStatusMaxMtuSize"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcStatusMaxNumUni"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcStatusOperationalState"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceEvcOptionalGroup": {
+    "name": "mefServiceEvcOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgUnicastDelivery"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgMulticastDelivery"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceEvcCfgBroadcastDelivery"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceBwpMandatoryGroup": {
+    "name": "mefServiceBwpMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpGrpNextIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgNextIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpGrpCfgRowStatus"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgIdentifier"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgCir"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgCbs"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgEir"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgEbs"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgCm"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgCf"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgCosIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgPerformanceEnable"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceBwpCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceCosMandatoryGroup": {
+    "name": "mefServiceCosMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceCosNextIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceCosCfgIdentifier"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceCosCfgType"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceCosCfgIdentifierList"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceCosCfgMacAddress"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceCosCfgProtocol"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceCosCfgSubType"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceCosCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceL2cpMandatoryGroup": {
+    "name": "mefServiceL2cpMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpGrpNextIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpCfgNextIndex"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpGrpCfgRowStatus"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpCfgType"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpCfgMatchScope"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpCfgMacAddress"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpCfgProtocol"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpCfgSubType"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceL2cpCfgRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServicePerformanceMandatoryGroup": {
+    "name": "mefServicePerformanceMandatoryGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceIngressGreenFrameCount"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceIngressGreenOctets"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceEgressGreenFrameCount"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceEgressGreenOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServicePerformanceOptionalGroup": {
+    "name": "mefServicePerformanceOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceIngressYellowFrameCount"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceIngressRedFrameCount"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceIngressYellowOctets"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceIngressRedOctets"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceEgressYellowFrameCount"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceEgressYellowOctets"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceIngressGreenFrameDiscards"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceIngressYellowFrameDiscards"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceIngressGreenOctetsDiscards"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServicePerformanceIngressYellowOctetsDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceNotificationObjOptionalGroup": {
+    "name": "mefServiceNotificationObjOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceNotificationCfgAlarmEnable"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceNotificationObjDateAndTime"
+      },
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceNotificationConfigurationChangeType"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceNotificationsOptionalGroup": {
+    "name": "mefServiceNotificationsOptionalGroup",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.2.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "MEF-UNI-EVC-MIB",
+        "object": "mefServiceConfigurationAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "mefServiceUniMibCompliance": {
+    "name": "mefServiceUniMibCompliance",
+    "oid": "1.3.6.1.4.1.15007.2.2.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mefServiceInterfaceMandatoryGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      },
+      {
+        "object": "mefServiceUniMandatoryGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      },
+      {
+        "object": "mefServiceEvcMandatoryGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      },
+      {
+        "object": "mefServiceBwpMandatoryGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      },
+      {
+        "object": "mefServiceCosMandatoryGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      },
+      {
+        "object": "mefServiceL2cpMandatoryGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      },
+      {
+        "object": "mefServicePerformanceMandatoryGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      },
+      {
+        "object": "mefServiceEvcOptionalGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      },
+      {
+        "object": "mefServicePerformanceOptionalGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      },
+      {
+        "object": "mefServiceNotificationObjOptionalGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      },
+      {
+        "object": "mefServiceNotificationsOptionalGroup",
+        "module": "MEF-UNI-EVC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MEF-UNI-EVC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "MEF-UNI-EVC-MIB"
+  }
+}

@@ -1,0 +1,1083 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-OID-MIB": [
+      "hpnicfCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex",
+      "ifDescr"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfTrap": {
+    "name": "hpnicfTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-05 10:50",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hpnicfTableGroup": {
+    "name": "hpnicfTableGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMacTabStatGroup": {
+    "name": "hpnicfMacTabStatGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfMacTabTrapEnable": {
+    "name": "hpnicfMacTabTrapEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMacTabTrapInterval": {
+    "name": "hpnicfMacTabTrapInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMacTabTrapInfo": {
+    "name": "hpnicfMacTabTrapInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfMacTabLen": {
+    "name": "hpnicfMacTabLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfMacTabTrap": {
+    "name": "hpnicfMacTabTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.1.4",
+    "class": "objectidentity"
+  },
+  "hpnicfMacTabFullTrap": {
+    "name": "hpnicfMacTabFullTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.1.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfMacTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfMacTabAlmostFullTrap": {
+    "name": "hpnicfMacTabAlmostFullTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.1.4.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hpnicfArpTabStatGroup": {
+    "name": "hpnicfArpTabStatGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.2",
+    "class": "objectidentity"
+  },
+  "hpnicfArpTabTrapEnable": {
+    "name": "hpnicfArpTabTrapEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfArpTabTrapInterval": {
+    "name": "hpnicfArpTabTrapInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfArpTabTrapInfo": {
+    "name": "hpnicfArpTabTrapInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.2.3",
+    "class": "objectidentity"
+  },
+  "hpnicfArpTabLen": {
+    "name": "hpnicfArpTabLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfArpTabTrap": {
+    "name": "hpnicfArpTabTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.2.4",
+    "class": "objectidentity"
+  },
+  "hpnicfArpTabFullTrap": {
+    "name": "hpnicfArpTabFullTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.2.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfArpTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfArpPortDynamicEntryFullTrap": {
+    "name": "hpnicfArpPortDynamicEntryFullTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.2.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfArpTabLen"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfRtTabStatGroup": {
+    "name": "hpnicfRtTabStatGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3",
+    "class": "objectidentity"
+  },
+  "hpnicfDetailRtTrapTable": {
+    "name": "hpnicfDetailRtTrapTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDetailRtTrapEntry": {
+    "name": "hpnicfDetailRtTrapEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfDetailRtProType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDetailRtProType": {
+    "name": "hpnicfDetailRtProType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "local": 2,
+          "rip": 3,
+          "isis": 4,
+          "ospf": 5,
+          "bgp": 6
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDetailRtEnable": {
+    "name": "hpnicfDetailRtEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfRtTabTrapEnable": {
+    "name": "hpnicfRtTabTrapEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfRtTabTrapInterval": {
+    "name": "hpnicfRtTabTrapInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfRtTabTrapInfo": {
+    "name": "hpnicfRtTabTrapInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.4",
+    "class": "objectidentity"
+  },
+  "hpnicfRtTabLen": {
+    "name": "hpnicfRtTabLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDefaultRtNextHopType": {
+    "name": "hpnicfDefaultRtNextHopType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDefaultRtNextHop": {
+    "name": "hpnicfDefaultRtNextHop",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDefaultRtOutIf": {
+    "name": "hpnicfDefaultRtOutIf",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfRtTabTrap": {
+    "name": "hpnicfRtTabTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.5",
+    "class": "objectidentity"
+  },
+  "hpnicfRtTabFullTrap": {
+    "name": "hpnicfRtTabFullTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfRtTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDetailRtTabFullTrap": {
+    "name": "hpnicfDetailRtTabFullTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.5.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfDetailRtProType"
+      },
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfRtTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDefaultRtDelTrap": {
+    "name": "hpnicfDefaultRtDelTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.5.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfDetailRtProType"
+      },
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfDefaultRtNextHopType"
+      },
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfDefaultRtNextHop"
+      },
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfDefaultRtOutIf"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDefaultRtDelTrapEnable": {
+    "name": "hpnicfDefaultRtDelTrapEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMulticastTabStatGroup": {
+    "name": "hpnicfMulticastTabStatGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.4",
+    "class": "objectidentity"
+  },
+  "hpnicfMulticastTabTrapEnable": {
+    "name": "hpnicfMulticastTabTrapEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMulticastTabTrapInterval": {
+    "name": "hpnicfMulticastTabTrapInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfMulticastTabTrapInfo": {
+    "name": "hpnicfMulticastTabTrapInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.4.3",
+    "class": "objectidentity"
+  },
+  "hpnicfMulticastTabType": {
+    "name": "hpnicfMulticastTabType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lay2": 1,
+          "lay3": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfMulticastTabLen": {
+    "name": "hpnicfMulticastTabLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfMulticastTabTrap": {
+    "name": "hpnicfMulticastTabTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.4.4",
+    "class": "objectidentity"
+  },
+  "hpnicfMulticastTabFullTrap": {
+    "name": "hpnicfMulticastTabFullTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.4.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfMulticastTabType"
+      },
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfMulticastTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfNdTabStatGroup": {
+    "name": "hpnicfNdTabStatGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.5",
+    "class": "objectidentity"
+  },
+  "hpnicfNdTabTrapEnable": {
+    "name": "hpnicfNdTabTrapEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNdTabTrapInterval": {
+    "name": "hpnicfNdTabTrapInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfNdTabTrapInfo": {
+    "name": "hpnicfNdTabTrapInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.5.3",
+    "class": "objectidentity"
+  },
+  "hpnicfNdTabLen": {
+    "name": "hpnicfNdTabLen",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfNdTabTrap": {
+    "name": "hpnicfNdTabTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.5.4",
+    "class": "objectidentity"
+  },
+  "hpnicfNdTabFullTrap": {
+    "name": "hpnicfNdTabFullTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.5.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfNdTabLen"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfPeriodicalTrapGroup": {
+    "name": "hpnicfPeriodicalTrapGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.6",
+    "class": "objectidentity"
+  },
+  "hpnicfPeriodicalTrapObjects": {
+    "name": "hpnicfPeriodicalTrapObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.6.1",
+    "class": "objectidentity"
+  },
+  "hpnicfPeriodicalTrapInterval": {
+    "name": "hpnicfPeriodicalTrapInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 10,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfPeriodicalTrapSwitch": {
+    "name": "hpnicfPeriodicalTrapSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfPeriodicalTrapSwitch2": {
+    "name": "hpnicfPeriodicalTrapSwitch2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfPeriodicalTrapInfo": {
+    "name": "hpnicfPeriodicalTrapInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.6.2",
+    "class": "objectidentity"
+  },
+  "hpnicfPeriodicalNotification": {
+    "name": "hpnicfPeriodicalNotification",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.6.3",
+    "class": "objectidentity"
+  },
+  "hpnicfPeriodicalNotificationPrefix": {
+    "name": "hpnicfPeriodicalNotificationPrefix",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.6.3.0",
+    "class": "objectidentity"
+  },
+  "hpnicfPeriodicalTrap": {
+    "name": "hpnicfPeriodicalTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.6.3.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hpnicfTrapDesInfo": {
+    "name": "hpnicfTrapDesInfo",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.7",
+    "class": "objectidentity"
+  },
+  "hpnicfTrapDesInfoTable": {
+    "name": "hpnicfTrapDesInfoTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrapDesInfoEntry": {
+    "name": "hpnicfTrapDesInfoEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfTrapDesInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTrapDesInfoIndex": {
+    "name": "hpnicfTrapDesInfoIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrapDesIPAddress": {
+    "name": "hpnicfTrapDesIPAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrapDesPort": {
+    "name": "hpnicfTrapDesPort",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrapDesRowStatus": {
+    "name": "hpnicfTrapDesRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrapDesAddrTAddress": {
+    "name": "hpnicfTrapDesAddrTAddress",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfTrapConfig": {
+    "name": "hpnicfTrapConfig",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.8",
+    "class": "objectidentity"
+  },
+  "hpnicfTrapConfigTable": {
+    "name": "hpnicfTrapConfigTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrapConfigEntry": {
+    "name": "hpnicfTrapConfigEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-TRAP-MIB",
+        "object": "hpnicfTrapConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfTrapConfigIndex": {
+    "name": "hpnicfTrapConfigIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfTrapConfigName": {
+    "name": "hpnicfTrapConfigName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfTrapConfigDescr": {
+    "name": "hpnicfTrapConfigDescr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfTrapConfigSwitch": {
+    "name": "hpnicfTrapConfigSwitch",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfTrapConfigSwitch2": {
+    "name": "hpnicfTrapConfigSwitch2",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.38.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-TRAP-MIB"
+  }
+}

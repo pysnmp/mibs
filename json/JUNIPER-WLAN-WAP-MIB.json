@@ -1,0 +1,1862 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxWlanWAPStatusMibRoot"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TimeStamp"
+    ]
+  },
+  "jnxWlanWAPMIB": {
+    "name": "jnxWlanWAPMIB",
+    "oid": "1.3.6.1.4.1.2636.3.88.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2019-06-13 00:00",
+        "description": "Creation Date"
+      }
+    ]
+  },
+  "jnxWlanWAPStatusObjects": {
+    "name": "jnxWlanWAPStatusObjects",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1",
+    "class": "objectidentity"
+  },
+  "jnxWlanWAPClientObjects": {
+    "name": "jnxWlanWAPClientObjects",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2",
+    "class": "objectidentity"
+  },
+  "jnxWlanWAPStatusTable": {
+    "name": "jnxWlanWAPStatusTable",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWlanWAPStatusEntry": {
+    "name": "jnxWlanWAPStatusEntry",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WLAN-WAP-MIB",
+        "object": "jnxWAPStatusIfdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWAPStatusIfdIndex": {
+    "name": "jnxWAPStatusIfdIndex",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWAPStatusAccessPoint": {
+    "name": "jnxWAPStatusAccessPoint",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusType": {
+    "name": "jnxWAPStatusType",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusLocation": {
+    "name": "jnxWAPStatusLocation",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusSerialNumber": {
+    "name": "jnxWAPStatusSerialNumber",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusFirmwareVersion": {
+    "name": "jnxWAPStatusFirmwareVersion",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusAlternateVersion": {
+    "name": "jnxWAPStatusAlternateVersion",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusCountry": {
+    "name": "jnxWAPStatusCountry",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusAccessInterface": {
+    "name": "jnxWAPStatusAccessInterface",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusSystemTime": {
+    "name": "jnxWAPStatusSystemTime",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusPacketCapture": {
+    "name": "jnxWAPStatusPacketCapture",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusEthernetPortMAC": {
+    "name": "jnxWAPStatusEthernetPortMAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusEthernetIPv4": {
+    "name": "jnxWAPStatusEthernetIPv4",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1Status": {
+    "name": "jnxWAPStatusRadio1Status",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1MAC": {
+    "name": "jnxWAPStatusRadio1MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1Mode": {
+    "name": "jnxWAPStatusRadio1Mode",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1Channel": {
+    "name": "jnxWAPStatusRadio1Channel",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1Bandwidth": {
+    "name": "jnxWAPStatusRadio1Bandwidth",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP0SSID": {
+    "name": "jnxWAPStatusRadio1VAP0SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP0MAC": {
+    "name": "jnxWAPStatusRadio1VAP0MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP0VLANID": {
+    "name": "jnxWAPStatusRadio1VAP0VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP0InputBytes": {
+    "name": "jnxWAPStatusRadio1VAP0InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP0OutputBytes": {
+    "name": "jnxWAPStatusRadio1VAP0OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP0InputPackets": {
+    "name": "jnxWAPStatusRadio1VAP0InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP0OutputPackets": {
+    "name": "jnxWAPStatusRadio1VAP0OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP1SSID": {
+    "name": "jnxWAPStatusRadio1VAP1SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP1MAC": {
+    "name": "jnxWAPStatusRadio1VAP1MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP1VLANID": {
+    "name": "jnxWAPStatusRadio1VAP1VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP1InputBytes": {
+    "name": "jnxWAPStatusRadio1VAP1InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP1OutputBytes": {
+    "name": "jnxWAPStatusRadio1VAP1OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP1InputPackets": {
+    "name": "jnxWAPStatusRadio1VAP1InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP1OutputPackets": {
+    "name": "jnxWAPStatusRadio1VAP1OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP2SSID": {
+    "name": "jnxWAPStatusRadio1VAP2SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP2MAC": {
+    "name": "jnxWAPStatusRadio1VAP2MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP2VLANID": {
+    "name": "jnxWAPStatusRadio1VAP2VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP2InputBytes": {
+    "name": "jnxWAPStatusRadio1VAP2InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP2OutputBytes": {
+    "name": "jnxWAPStatusRadio1VAP2OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP2InputPackets": {
+    "name": "jnxWAPStatusRadio1VAP2InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP2OutputPackets": {
+    "name": "jnxWAPStatusRadio1VAP2OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP3SSID": {
+    "name": "jnxWAPStatusRadio1VAP3SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP3MAC": {
+    "name": "jnxWAPStatusRadio1VAP3MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP3VLANID": {
+    "name": "jnxWAPStatusRadio1VAP3VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP3InputBytes": {
+    "name": "jnxWAPStatusRadio1VAP3InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP3OutputBytes": {
+    "name": "jnxWAPStatusRadio1VAP3OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP3InputPackets": {
+    "name": "jnxWAPStatusRadio1VAP3InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP3OutputPackets": {
+    "name": "jnxWAPStatusRadio1VAP3OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP4SSID": {
+    "name": "jnxWAPStatusRadio1VAP4SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP4MAC": {
+    "name": "jnxWAPStatusRadio1VAP4MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP4VLANID": {
+    "name": "jnxWAPStatusRadio1VAP4VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP4InputBytes": {
+    "name": "jnxWAPStatusRadio1VAP4InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP4OutputBytes": {
+    "name": "jnxWAPStatusRadio1VAP4OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP4InputPackets": {
+    "name": "jnxWAPStatusRadio1VAP4InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP4OutputPackets": {
+    "name": "jnxWAPStatusRadio1VAP4OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP5SSID": {
+    "name": "jnxWAPStatusRadio1VAP5SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP5MAC": {
+    "name": "jnxWAPStatusRadio1VAP5MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP5VLANID": {
+    "name": "jnxWAPStatusRadio1VAP5VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP5InputBytes": {
+    "name": "jnxWAPStatusRadio1VAP5InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP5OutputBytes": {
+    "name": "jnxWAPStatusRadio1VAP5OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP5InputPackets": {
+    "name": "jnxWAPStatusRadio1VAP5InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP5OutputPackets": {
+    "name": "jnxWAPStatusRadio1VAP5OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP6SSID": {
+    "name": "jnxWAPStatusRadio1VAP6SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP6MAC": {
+    "name": "jnxWAPStatusRadio1VAP6MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP6VLANID": {
+    "name": "jnxWAPStatusRadio1VAP6VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP6InputBytes": {
+    "name": "jnxWAPStatusRadio1VAP6InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP6OutputBytes": {
+    "name": "jnxWAPStatusRadio1VAP6OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP6InputPackets": {
+    "name": "jnxWAPStatusRadio1VAP6InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP6OutputPackets": {
+    "name": "jnxWAPStatusRadio1VAP6OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP7SSID": {
+    "name": "jnxWAPStatusRadio1VAP7SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP7MAC": {
+    "name": "jnxWAPStatusRadio1VAP7MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP7VLANID": {
+    "name": "jnxWAPStatusRadio1VAP7VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP7InputBytes": {
+    "name": "jnxWAPStatusRadio1VAP7InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP7OutputBytes": {
+    "name": "jnxWAPStatusRadio1VAP7OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP7InputPackets": {
+    "name": "jnxWAPStatusRadio1VAP7InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio1VAP7OutputPackets": {
+    "name": "jnxWAPStatusRadio1VAP7OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2Status": {
+    "name": "jnxWAPStatusRadio2Status",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2MAC": {
+    "name": "jnxWAPStatusRadio2MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2Mode": {
+    "name": "jnxWAPStatusRadio2Mode",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2Channel": {
+    "name": "jnxWAPStatusRadio2Channel",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2Bandwidth": {
+    "name": "jnxWAPStatusRadio2Bandwidth",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP0SSID": {
+    "name": "jnxWAPStatusRadio2VAP0SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP0MAC": {
+    "name": "jnxWAPStatusRadio2VAP0MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP0VLANID": {
+    "name": "jnxWAPStatusRadio2VAP0VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP0InputBytes": {
+    "name": "jnxWAPStatusRadio2VAP0InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP0OutputBytes": {
+    "name": "jnxWAPStatusRadio2VAP0OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP0InputPackets": {
+    "name": "jnxWAPStatusRadio2VAP0InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP0OutputPackets": {
+    "name": "jnxWAPStatusRadio2VAP0OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP1SSID": {
+    "name": "jnxWAPStatusRadio2VAP1SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP1MAC": {
+    "name": "jnxWAPStatusRadio2VAP1MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP1VLANID": {
+    "name": "jnxWAPStatusRadio2VAP1VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP1InputBytes": {
+    "name": "jnxWAPStatusRadio2VAP1InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP1OutputBytes": {
+    "name": "jnxWAPStatusRadio2VAP1OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP1InputPackets": {
+    "name": "jnxWAPStatusRadio2VAP1InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP1OutputPackets": {
+    "name": "jnxWAPStatusRadio2VAP1OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP2SSID": {
+    "name": "jnxWAPStatusRadio2VAP2SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP2MAC": {
+    "name": "jnxWAPStatusRadio2VAP2MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP2VLANID": {
+    "name": "jnxWAPStatusRadio2VAP2VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP2InputBytes": {
+    "name": "jnxWAPStatusRadio2VAP2InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP2OutputBytes": {
+    "name": "jnxWAPStatusRadio2VAP2OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP2InputPackets": {
+    "name": "jnxWAPStatusRadio2VAP2InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP2OutputPackets": {
+    "name": "jnxWAPStatusRadio2VAP2OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP3SSID": {
+    "name": "jnxWAPStatusRadio2VAP3SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP3MAC": {
+    "name": "jnxWAPStatusRadio2VAP3MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP3VLANID": {
+    "name": "jnxWAPStatusRadio2VAP3VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP3InputBytes": {
+    "name": "jnxWAPStatusRadio2VAP3InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.104",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP3OutputBytes": {
+    "name": "jnxWAPStatusRadio2VAP3OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP3InputPackets": {
+    "name": "jnxWAPStatusRadio2VAP3InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP3OutputPackets": {
+    "name": "jnxWAPStatusRadio2VAP3OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.107",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP4SSID": {
+    "name": "jnxWAPStatusRadio2VAP4SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.108",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP4MAC": {
+    "name": "jnxWAPStatusRadio2VAP4MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.109",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP4VLANID": {
+    "name": "jnxWAPStatusRadio2VAP4VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.110",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP4InputBytes": {
+    "name": "jnxWAPStatusRadio2VAP4InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.111",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP4OutputBytes": {
+    "name": "jnxWAPStatusRadio2VAP4OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.112",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP4InputPackets": {
+    "name": "jnxWAPStatusRadio2VAP4InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.113",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP4OutputPackets": {
+    "name": "jnxWAPStatusRadio2VAP4OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.114",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP5SSID": {
+    "name": "jnxWAPStatusRadio2VAP5SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP5MAC": {
+    "name": "jnxWAPStatusRadio2VAP5MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.116",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP5VLANID": {
+    "name": "jnxWAPStatusRadio2VAP5VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.117",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP5InputBytes": {
+    "name": "jnxWAPStatusRadio2VAP5InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.118",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP5OutputBytes": {
+    "name": "jnxWAPStatusRadio2VAP5OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.119",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP5InputPackets": {
+    "name": "jnxWAPStatusRadio2VAP5InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.120",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP5OutputPackets": {
+    "name": "jnxWAPStatusRadio2VAP5OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.121",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP6SSID": {
+    "name": "jnxWAPStatusRadio2VAP6SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.122",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP6MAC": {
+    "name": "jnxWAPStatusRadio2VAP6MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.123",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP6VLANID": {
+    "name": "jnxWAPStatusRadio2VAP6VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.124",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP6InputBytes": {
+    "name": "jnxWAPStatusRadio2VAP6InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.125",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP6OutputBytes": {
+    "name": "jnxWAPStatusRadio2VAP6OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.126",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP6InputPackets": {
+    "name": "jnxWAPStatusRadio2VAP6InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.127",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP6OutputPackets": {
+    "name": "jnxWAPStatusRadio2VAP6OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.128",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP7SSID": {
+    "name": "jnxWAPStatusRadio2VAP7SSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.129",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP7MAC": {
+    "name": "jnxWAPStatusRadio2VAP7MAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.130",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP7VLANID": {
+    "name": "jnxWAPStatusRadio2VAP7VLANID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.131",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP7InputBytes": {
+    "name": "jnxWAPStatusRadio2VAP7InputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.132",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP7OutputBytes": {
+    "name": "jnxWAPStatusRadio2VAP7OutputBytes",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.133",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP7InputPackets": {
+    "name": "jnxWAPStatusRadio2VAP7InputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.134",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPStatusRadio2VAP7OutputPackets": {
+    "name": "jnxWAPStatusRadio2VAP7OutputPackets",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.1.1.1.135",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWlanWAPClientTable": {
+    "name": "jnxWlanWAPClientTable",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWlanWAPClientEntry": {
+    "name": "jnxWlanWAPClientEntry",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-WLAN-WAP-MIB",
+        "object": "jnxWAPClientIfdIndex",
+        "implied": 0
+      },
+      {
+        "module": "JUNIPER-WLAN-WAP-MIB",
+        "object": "jnxWAPClientIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxWAPClientIfdIndex": {
+    "name": "jnxWAPClientIfdIndex",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWAPClientIndex": {
+    "name": "jnxWAPClientIndex",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWAPClientRadioID": {
+    "name": "jnxWAPClientRadioID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPClientSSID": {
+    "name": "jnxWAPClientSSID",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPClientMAC": {
+    "name": "jnxWAPClientMAC",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPClientAuth": {
+    "name": "jnxWAPClientAuth",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxWAPClientPacketRx": {
+    "name": "jnxWAPClientPacketRx",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWAPClientPacketTx": {
+    "name": "jnxWAPClientPacketTx",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWAPClientBytesRx": {
+    "name": "jnxWAPClientBytesRx",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxWAPClientBytesTx": {
+    "name": "jnxWAPClientBytesTx",
+    "oid": "1.3.6.1.4.1.2636.3.88.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-WLAN-WAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-WLAN-WAP-MIB"
+  }
+}

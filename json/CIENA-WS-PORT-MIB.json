@@ -1,0 +1,3708 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-WS-MIB": [
+      "cienaWsConfig"
+    ],
+    "CIENA-WS-TYPEDEFS-MIB": [
+      "PortId",
+      "PortName",
+      "Decimal1Dig",
+      "ServiceIdx",
+      "DescriptionString",
+      "XcvrType",
+      "EnabledDisabledEnum",
+      "ServiceDomainIdx",
+      "MacString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaWsPortMIB": {
+    "name": "cienaWsPortMIB",
+    "oid": "1.3.6.1.4.1.1271.3.4.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-07-07 00:00",
+        "description": "Waveserver Release 1.5 Added ncx:user-write to 'ports'."
+      },
+      {
+        "revision": "2017-03-02 00:00",
+        "description": "Waveserver Rel 1.4 revision. Obsolete: mac-layer container and its sub node unavailable-seconds leaf. Added: unavailable-seconds leaf to container pcs-layer. Added: odu-layer container which contains errored-seconds, severely-errored-seconds, unavailable-seconds leaves. Added: average-link-utilization leaf to container interface-counts/rx and interface-counts/tx respectively. Added: xcvr-type leaf to properties container. New ciena-ws-encryption.yang now contains augments for the ports properties container. Aligned MIB files to respect YANG read/write status."
+      },
+      {
+        "revision": "2016-12-12 00:00",
+        "description": "Waveserver Rel 1.3 revised. Added: errored-seconds, severely-errored-seconds to the pcs-layer container, Added: mac-layer container and unavailable-seconds leaf."
+      },
+      {
+        "revision": "2016-05-30 00:00",
+        "description": "Waveserver Rel 1.2 revised. Major restructuring of this YANG module."
+      },
+      {
+        "revision": "2016-02-23 00:00",
+        "description": "Waveserver Rel 1.1 revised. leaf 'speed' changed to be 'config false'. leaf 'tunability-supported' type updated. leaf 'port-speeds' type definition updated. removed 'rpc ws-port-clear-total-statistics'. leaf 'max-frame-size' range modified. leaf loopback enum values updated. "
+      },
+      {
+        "revision": "2015-09-30 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "PortOperationalState": {
+    "name": "PortOperationalState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": -1,
+          "invalid": 0,
+          "up": 1,
+          "down": 2,
+          "notauthenticated": 3,
+          "loopbacktx": 4,
+          "loopbackrx": 5,
+          "unequipped": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortSpeed": {
+    "name": "PortSpeed",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "speedauto": -1,
+          "speed10gig": 10000000,
+          "speed40gig": 40000000,
+          "speed100gig": 100000000
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortTypeEnum": {
+    "name": "PortTypeEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 5,
+          "ethernet10gig": 6,
+          "ethernet40gig": 7,
+          "ethernet100gig": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cwsPortPortsTable": {
+    "name": "cwsPortPortsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortPortsEntry": {
+    "name": "cwsPortPortsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortPortsPortId": {
+    "name": "cwsPortPortsPortId",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortIdTable": {
+    "name": "cwsPortIdTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortIdEntry": {
+    "name": "cwsPortIdEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortIdTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortIdTableSnmpKey": {
+    "name": "cwsPortIdTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortIdName": {
+    "name": "cwsPortIdName",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortIdDescription": {
+    "name": "cwsPortIdDescription",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DescriptionString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortIdPortType": {
+    "name": "cwsPortIdPortType",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortTypeEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortIdMacAddress": {
+    "name": "cwsPortIdMacAddress",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortIdInterfaceType": {
+    "name": "cwsPortIdInterfaceType",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inni": 0,
+          "uni": 1,
+          "enni": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortStateTable": {
+    "name": "cwsPortStateTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortStateEntry": {
+    "name": "cwsPortStateEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortStateTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortStateTableSnmpKey": {
+    "name": "cwsPortStateTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortStateAdminState": {
+    "name": "cwsPortStateAdminState",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortStateOperationalState": {
+    "name": "cwsPortStateOperationalState",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortOperationalState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortStateOperationalStateDuration": {
+    "name": "cwsPortStateOperationalStateDuration",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCapabilitiesTable": {
+    "name": "cwsPortCapabilitiesTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCapabilitiesEntry": {
+    "name": "cwsPortCapabilitiesEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCapabilitiesTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortCapabilitiesTableSnmpKey": {
+    "name": "cwsPortCapabilitiesTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCapabilitiesPortSpeeds": {
+    "name": "cwsPortCapabilitiesPortSpeeds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ethernet10gig": 3,
+        "ethernet40gig": 4,
+        "ethernet100gig": 5
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCapabilitiesDuplex": {
+    "name": "cwsPortCapabilitiesDuplex",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "half": 0,
+        "full": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCapabilitiesAutoNegotiation": {
+    "name": "cwsPortCapabilitiesAutoNegotiation",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "off": 0,
+        "on": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCapabilitiesFlowControl": {
+    "name": "cwsPortCapabilitiesFlowControl",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "off": 0,
+        "atx": 1,
+        "arx": 2,
+        "symmetric": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCapabilitiesFecSupport": {
+    "name": "cwsPortCapabilitiesFecSupport",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortPropertiesTable": {
+    "name": "cwsPortPropertiesTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortPropertiesEntry": {
+    "name": "cwsPortPropertiesEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPropertiesTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortPropertiesTableSnmpKey": {
+    "name": "cwsPortPropertiesTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortPropertiesXcvrType": {
+    "name": "cwsPortPropertiesXcvrType",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "XcvrType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortPropertiesLoopback": {
+    "name": "cwsPortPropertiesLoopback",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "rx": 1,
+          "tx": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortPropertiesServiceIndex": {
+    "name": "cwsPortPropertiesServiceIndex",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceIdx",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortPropertiesServiceDomainIndex": {
+    "name": "cwsPortPropertiesServiceDomainIndex",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ServiceDomainIdx",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortEthernetTable": {
+    "name": "cwsPortEthernetTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortEthernetEntry": {
+    "name": "cwsPortEthernetEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortEthernetTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortEthernetTableSnmpKey": {
+    "name": "cwsPortEthernetTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortEthernetSpeed": {
+    "name": "cwsPortEthernetSpeed",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortSpeed",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortEthernetMaxFrameSize": {
+    "name": "cwsPortEthernetMaxFrameSize",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortEthernetPauseProfile": {
+    "name": "cwsPortEthernetPauseProfile",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "discard": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortEthernetForwardErrorCorrection": {
+    "name": "cwsPortEthernetForwardErrorCorrection",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EnabledDisabledEnum",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortConditioningTable": {
+    "name": "cwsPortConditioningTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortConditioningEntry": {
+    "name": "cwsPortConditioningEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortConditioningTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortConditioningTableSnmpKey": {
+    "name": "cwsPortConditioningTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortConditioningType": {
+    "name": "cwsPortConditioningType",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "laseroff": 1,
+          "ethernet": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortConditioningHoldoff": {
+    "name": "cwsPortConditioningHoldoff",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ms0": 0,
+          "ms100": 100,
+          "ms200": 200,
+          "ms300": 300,
+          "ms400": 400,
+          "ms500": 500,
+          "ms600": 600,
+          "ms700": 700,
+          "ms800": 800,
+          "ms900": 900,
+          "ms1000": 1000
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTable": {
+    "name": "cwsPortCurrentTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentEntry": {
+    "name": "cwsPortCurrentEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortCurrentTableSnmpKey": {
+    "name": "cwsPortCurrentTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentFrameErrorRatio": {
+    "name": "cwsPortCurrentFrameErrorRatio",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsTable": {
+    "name": "cwsPortCurrentRxCountsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsEntry": {
+    "name": "cwsPortCurrentRxCountsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsTableSnmpKey": {
+    "name": "cwsPortCurrentRxCountsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsBytes": {
+    "name": "cwsPortCurrentRxCountsBytes",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsPackets": {
+    "name": "cwsPortCurrentRxCountsPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsAverageLinkUtilization": {
+    "name": "cwsPortCurrentRxCountsAverageLinkUtilization",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsCrcErroredPackets": {
+    "name": "cwsPortCurrentRxCountsCrcErroredPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsMulticastPackets": {
+    "name": "cwsPortCurrentRxCountsMulticastPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsBroadcastPackets": {
+    "name": "cwsPortCurrentRxCountsBroadcastPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsPausePackets": {
+    "name": "cwsPortCurrentRxCountsPausePackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsUndersizedPackets": {
+    "name": "cwsPortCurrentRxCountsUndersizedPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsOversizedPackets": {
+    "name": "cwsPortCurrentRxCountsOversizedPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsFragmentPackets": {
+    "name": "cwsPortCurrentRxCountsFragmentPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsJabberPackets": {
+    "name": "cwsPortCurrentRxCountsJabberPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsLengthOutRangePackets": {
+    "name": "cwsPortCurrentRxCountsLengthOutRangePackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsPackets64Octet": {
+    "name": "cwsPortCurrentRxCountsPackets64Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsPackets65127Octet": {
+    "name": "cwsPortCurrentRxCountsPackets65127Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsPackets128255Octet": {
+    "name": "cwsPortCurrentRxCountsPackets128255Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsPackets256511Octet": {
+    "name": "cwsPortCurrentRxCountsPackets256511Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsPackets5121023Octet": {
+    "name": "cwsPortCurrentRxCountsPackets5121023Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentRxCountsPackets10241518Octet": {
+    "name": "cwsPortCurrentRxCountsPackets10241518Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.11.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsTable": {
+    "name": "cwsPortCurrentTxCountsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsEntry": {
+    "name": "cwsPortCurrentTxCountsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsTableSnmpKey": {
+    "name": "cwsPortCurrentTxCountsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsBytes": {
+    "name": "cwsPortCurrentTxCountsBytes",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsPackets": {
+    "name": "cwsPortCurrentTxCountsPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsAverageLinkUtilization": {
+    "name": "cwsPortCurrentTxCountsAverageLinkUtilization",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsCrcErroredPackets": {
+    "name": "cwsPortCurrentTxCountsCrcErroredPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsMulticastPackets": {
+    "name": "cwsPortCurrentTxCountsMulticastPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsBroadcastPackets": {
+    "name": "cwsPortCurrentTxCountsBroadcastPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsPausePackets": {
+    "name": "cwsPortCurrentTxCountsPausePackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsExcessiveDeferredPackets": {
+    "name": "cwsPortCurrentTxCountsExcessiveDeferredPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsGiantPackets": {
+    "name": "cwsPortCurrentTxCountsGiantPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsUnderrunPackets": {
+    "name": "cwsPortCurrentTxCountsUnderrunPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsLengthCheckErrorPackets": {
+    "name": "cwsPortCurrentTxCountsLengthCheckErrorPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxCountsLengthOutRangePackets": {
+    "name": "cwsPortCurrentTxCountsLengthOutRangePackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueTable": {
+    "name": "cwsPortCurrentTxQueueTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueEntry": {
+    "name": "cwsPortCurrentTxQueueEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxQueueTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueTableSnmpKey": {
+    "name": "cwsPortCurrentTxQueueTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueuePacketDropCountSummary": {
+    "name": "cwsPortCurrentTxQueuePacketDropCountSummary",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueQ0PacketDropCount": {
+    "name": "cwsPortCurrentTxQueueQ0PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueQ1PacketDropCount": {
+    "name": "cwsPortCurrentTxQueueQ1PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueQ2PacketDropCount": {
+    "name": "cwsPortCurrentTxQueueQ2PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueQ3PacketDropCount": {
+    "name": "cwsPortCurrentTxQueueQ3PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueQ4PacketDropCount": {
+    "name": "cwsPortCurrentTxQueueQ4PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueQ5PacketDropCount": {
+    "name": "cwsPortCurrentTxQueueQ5PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueQ6PacketDropCount": {
+    "name": "cwsPortCurrentTxQueueQ6PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentTxQueueQ7PacketDropCount": {
+    "name": "cwsPortCurrentTxQueueQ7PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentMacTable": {
+    "name": "cwsPortCurrentMacTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cwsPortCurrentMacEntry": {
+    "name": "cwsPortCurrentMacEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentMacTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cwsPortCurrentMacTableSnmpKey": {
+    "name": "cwsPortCurrentMacTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentMacUnavailableSeconds": {
+    "name": "cwsPortCurrentMacUnavailableSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPortPcsCurrentTable": {
+    "name": "cwsPortPcsCurrentTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortPcsCurrentEntry": {
+    "name": "cwsPortPcsCurrentEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPcsCurrentTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortPcsCurrentTableSnmpKey": {
+    "name": "cwsPortPcsCurrentTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortPcsCurrentErroredSeconds": {
+    "name": "cwsPortPcsCurrentErroredSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortPcsCurrentSeverelyErroredSeconds": {
+    "name": "cwsPortPcsCurrentSeverelyErroredSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortPcsCurrentUnavailableSeconds": {
+    "name": "cwsPortPcsCurrentUnavailableSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentPcsSyncHeaderErrorsTable": {
+    "name": "cwsPortCurrentPcsSyncHeaderErrorsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentPcsSyncHeaderErrorsEntry": {
+    "name": "cwsPortCurrentPcsSyncHeaderErrorsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentPcsSyncHeaderErrorsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortCurrentPcsSyncHeaderErrorsTableSnmpKey": {
+    "name": "cwsPortCurrentPcsSyncHeaderErrorsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentPcsSyncHeaderErrorsCount": {
+    "name": "cwsPortCurrentPcsSyncHeaderErrorsCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCurrentPcsBlockErrorsTable": {
+    "name": "cwsPortCurrentPcsBlockErrorsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentPcsBlockErrorsEntry": {
+    "name": "cwsPortCurrentPcsBlockErrorsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentPcsBlockErrorsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortCurrentPcsBlockErrorsTableSnmpKey": {
+    "name": "cwsPortCurrentPcsBlockErrorsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentPcsBlockErrorsCount": {
+    "name": "cwsPortCurrentPcsBlockErrorsCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCurrentPcsMultilaneBipErrorsTable": {
+    "name": "cwsPortCurrentPcsMultilaneBipErrorsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentPcsMultilaneBipErrorsEntry": {
+    "name": "cwsPortCurrentPcsMultilaneBipErrorsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentPcsMultilaneBipErrorsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortCurrentPcsMultilaneBipErrorsTableSnmpKey": {
+    "name": "cwsPortCurrentPcsMultilaneBipErrorsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentPcsMultilaneBipErrorsCount": {
+    "name": "cwsPortCurrentPcsMultilaneBipErrorsCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCurrentOduTable": {
+    "name": "cwsPortCurrentOduTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentOduEntry": {
+    "name": "cwsPortCurrentOduEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentOduTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortCurrentOduTableSnmpKey": {
+    "name": "cwsPortCurrentOduTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentOduErroredSeconds": {
+    "name": "cwsPortCurrentOduErroredSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentOduSeverelyErroredSeconds": {
+    "name": "cwsPortCurrentOduSeverelyErroredSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentOduUnavailableSeconds": {
+    "name": "cwsPortCurrentOduUnavailableSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortCurrentFecTable": {
+    "name": "cwsPortCurrentFecTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentFecEntry": {
+    "name": "cwsPortCurrentFecEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentFecTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortCurrentFecTableSnmpKey": {
+    "name": "cwsPortCurrentFecTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortCurrentFecCorrectedBlockCount": {
+    "name": "cwsPortCurrentFecCorrectedBlockCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCurrentFecUncorrectedBlockCount": {
+    "name": "cwsPortCurrentFecUncorrectedBlockCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortCurrentFecSymbolErrorCount": {
+    "name": "cwsPortCurrentFecSymbolErrorCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortTotalTable": {
+    "name": "cwsPortTotalTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalEntry": {
+    "name": "cwsPortTotalEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortTotalTableSnmpKey": {
+    "name": "cwsPortTotalTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalFrameErrorRatio": {
+    "name": "cwsPortTotalFrameErrorRatio",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsTable": {
+    "name": "cwsPortTotalRxCountsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsEntry": {
+    "name": "cwsPortTotalRxCountsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsTableSnmpKey": {
+    "name": "cwsPortTotalRxCountsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsBytes": {
+    "name": "cwsPortTotalRxCountsBytes",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsPackets": {
+    "name": "cwsPortTotalRxCountsPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsAverageLinkUtilization": {
+    "name": "cwsPortTotalRxCountsAverageLinkUtilization",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsCrcErroredPackets": {
+    "name": "cwsPortTotalRxCountsCrcErroredPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsMulticastPackets": {
+    "name": "cwsPortTotalRxCountsMulticastPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsBroadcastPackets": {
+    "name": "cwsPortTotalRxCountsBroadcastPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsPausePackets": {
+    "name": "cwsPortTotalRxCountsPausePackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsUndersizedPackets": {
+    "name": "cwsPortTotalRxCountsUndersizedPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsOversizedPackets": {
+    "name": "cwsPortTotalRxCountsOversizedPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsFragmentPackets": {
+    "name": "cwsPortTotalRxCountsFragmentPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsJabberPackets": {
+    "name": "cwsPortTotalRxCountsJabberPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsLengthOutRangePackets": {
+    "name": "cwsPortTotalRxCountsLengthOutRangePackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsPackets64Octet": {
+    "name": "cwsPortTotalRxCountsPackets64Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsPackets65127Octet": {
+    "name": "cwsPortTotalRxCountsPackets65127Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsPackets128255Octet": {
+    "name": "cwsPortTotalRxCountsPackets128255Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsPackets256511Octet": {
+    "name": "cwsPortTotalRxCountsPackets256511Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsPackets5121023Octet": {
+    "name": "cwsPortTotalRxCountsPackets5121023Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalRxCountsPackets10241518Octet": {
+    "name": "cwsPortTotalRxCountsPackets10241518Octet",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.21.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsTable": {
+    "name": "cwsPortTotalTxCountsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsEntry": {
+    "name": "cwsPortTotalTxCountsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsTableSnmpKey": {
+    "name": "cwsPortTotalTxCountsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsBytes": {
+    "name": "cwsPortTotalTxCountsBytes",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsPackets": {
+    "name": "cwsPortTotalTxCountsPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsAverageLinkUtilization": {
+    "name": "cwsPortTotalTxCountsAverageLinkUtilization",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Decimal1Dig",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsCrcErroredPackets": {
+    "name": "cwsPortTotalTxCountsCrcErroredPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsMulticastPackets": {
+    "name": "cwsPortTotalTxCountsMulticastPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsBroadcastPackets": {
+    "name": "cwsPortTotalTxCountsBroadcastPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsPausePackets": {
+    "name": "cwsPortTotalTxCountsPausePackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsExcessiveDeferredPackets": {
+    "name": "cwsPortTotalTxCountsExcessiveDeferredPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsGiantPackets": {
+    "name": "cwsPortTotalTxCountsGiantPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsUnderrunPackets": {
+    "name": "cwsPortTotalTxCountsUnderrunPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsLengthCheckErrorPackets": {
+    "name": "cwsPortTotalTxCountsLengthCheckErrorPackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxCountsLengthOutRangePackets": {
+    "name": "cwsPortTotalTxCountsLengthOutRangePackets",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.22.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueTable": {
+    "name": "cwsPortTotalTxQueueTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueEntry": {
+    "name": "cwsPortTotalTxQueueEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxQueueTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueTableSnmpKey": {
+    "name": "cwsPortTotalTxQueueTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueuePacketDropCountSummary": {
+    "name": "cwsPortTotalTxQueuePacketDropCountSummary",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueQ0PacketDropCount": {
+    "name": "cwsPortTotalTxQueueQ0PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueQ1PacketDropCount": {
+    "name": "cwsPortTotalTxQueueQ1PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueQ2PacketDropCount": {
+    "name": "cwsPortTotalTxQueueQ2PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueQ3PacketDropCount": {
+    "name": "cwsPortTotalTxQueueQ3PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueQ4PacketDropCount": {
+    "name": "cwsPortTotalTxQueueQ4PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueQ5PacketDropCount": {
+    "name": "cwsPortTotalTxQueueQ5PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueQ6PacketDropCount": {
+    "name": "cwsPortTotalTxQueueQ6PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalTxQueueQ7PacketDropCount": {
+    "name": "cwsPortTotalTxQueueQ7PacketDropCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.23.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalMacTable": {
+    "name": "cwsPortTotalMacTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "cwsPortTotalMacEntry": {
+    "name": "cwsPortTotalMacEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalMacTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cwsPortTotalMacTableSnmpKey": {
+    "name": "cwsPortTotalMacTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalMacUnavailableSeconds": {
+    "name": "cwsPortTotalMacUnavailableSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cwsPortTotalPcsTable": {
+    "name": "cwsPortTotalPcsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalPcsEntry": {
+    "name": "cwsPortTotalPcsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalPcsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortTotalPcsTableSnmpKey": {
+    "name": "cwsPortTotalPcsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalPcsErroredSeconds": {
+    "name": "cwsPortTotalPcsErroredSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalPcsSeverelyErroredSeconds": {
+    "name": "cwsPortTotalPcsSeverelyErroredSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalPcsUnavailableSeconds": {
+    "name": "cwsPortTotalPcsUnavailableSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalPcsSyncHeaderErrorsTable": {
+    "name": "cwsPortTotalPcsSyncHeaderErrorsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalPcsSyncHeaderErrorsEntry": {
+    "name": "cwsPortTotalPcsSyncHeaderErrorsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalPcsSyncHeaderErrorsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortTotalPcsSyncHeaderErrorsTableSnmpKey": {
+    "name": "cwsPortTotalPcsSyncHeaderErrorsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalPcsSyncHeaderErrorsCount": {
+    "name": "cwsPortTotalPcsSyncHeaderErrorsCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortTotalPcsBlockErrorsTable": {
+    "name": "cwsPortTotalPcsBlockErrorsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalPcsBlockErrorsEntry": {
+    "name": "cwsPortTotalPcsBlockErrorsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalPcsBlockErrorsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortTotalPcsBlockErrorsTableSnmpKey": {
+    "name": "cwsPortTotalPcsBlockErrorsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalPcsBlockErrorsCount": {
+    "name": "cwsPortTotalPcsBlockErrorsCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortTotalPcsMultilaneBipErrorsTable": {
+    "name": "cwsPortTotalPcsMultilaneBipErrorsTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalPcsMultilaneBipErrorsEntry": {
+    "name": "cwsPortTotalPcsMultilaneBipErrorsEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalPcsMultilaneBipErrorsTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortTotalPcsMultilaneBipErrorsTableSnmpKey": {
+    "name": "cwsPortTotalPcsMultilaneBipErrorsTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalPcsMultilaneBipErrorsCount": {
+    "name": "cwsPortTotalPcsMultilaneBipErrorsCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortTotalOduTable": {
+    "name": "cwsPortTotalOduTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalOduEntry": {
+    "name": "cwsPortTotalOduEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalOduTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortTotalOduTableSnmpKey": {
+    "name": "cwsPortTotalOduTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalOduErroredSeconds": {
+    "name": "cwsPortTotalOduErroredSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalOduSeverelyErroredSeconds": {
+    "name": "cwsPortTotalOduSeverelyErroredSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalOduUnavailableSeconds": {
+    "name": "cwsPortTotalOduUnavailableSeconds",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPortTotalFecTable": {
+    "name": "cwsPortTotalFecTable",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalFecEntry": {
+    "name": "cwsPortTotalFecEntry",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId",
+        "implied": 0
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalFecTableSnmpKey",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPortTotalFecTableSnmpKey": {
+    "name": "cwsPortTotalFecTableSnmpKey",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPortTotalFecCorrectedBlockCount": {
+    "name": "cwsPortTotalFecCorrectedBlockCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortTotalFecUncorrectedBlockCount": {
+    "name": "cwsPortTotalFecUncorrectedBlockCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPortTotalFecSymbolErrorCount": {
+    "name": "cwsPortTotalFecSymbolErrorCount",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cienaWsPortObjects": {
+    "name": "cienaWsPortObjects",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.1",
+    "class": "objectidentity"
+  },
+  "cienaWsPortConformance": {
+    "name": "cienaWsPortConformance",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.2",
+    "class": "objectidentity"
+  },
+  "cienaWsPortGroups": {
+    "name": "cienaWsPortGroups",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.2.1",
+    "class": "objectidentity"
+  },
+  "cienaWsPortGroup": {
+    "name": "cienaWsPortGroup",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPortsPortId"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortIdName"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortIdDescription"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortIdPortType"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortIdMacAddress"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortIdInterfaceType"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortStateAdminState"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortStateOperationalState"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortStateOperationalStateDuration"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCapabilitiesPortSpeeds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCapabilitiesDuplex"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCapabilitiesAutoNegotiation"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCapabilitiesFlowControl"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCapabilitiesFecSupport"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPropertiesXcvrType"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPropertiesLoopback"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPropertiesServiceIndex"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPropertiesServiceDomainIndex"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortEthernetSpeed"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortEthernetMaxFrameSize"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortEthernetPauseProfile"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortEthernetForwardErrorCorrection"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortConditioningType"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortConditioningHoldoff"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentFrameErrorRatio"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsBytes"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsAverageLinkUtilization"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsCrcErroredPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsMulticastPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsBroadcastPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsPausePackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsUndersizedPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsOversizedPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsFragmentPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsJabberPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsLengthOutRangePackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsPackets64Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsPackets65127Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsPackets128255Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsPackets256511Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsPackets5121023Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentRxCountsPackets10241518Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsBytes"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsAverageLinkUtilization"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsCrcErroredPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsMulticastPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsBroadcastPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsPausePackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsExcessiveDeferredPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsGiantPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsUnderrunPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsLengthCheckErrorPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxCountsLengthOutRangePackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxQueuePacketDropCountSummary"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxQueueQ0PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxQueueQ1PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxQueueQ2PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxQueueQ3PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxQueueQ4PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxQueueQ5PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxQueueQ6PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentTxQueueQ7PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentMacUnavailableSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPcsCurrentErroredSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPcsCurrentSeverelyErroredSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortPcsCurrentUnavailableSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentPcsSyncHeaderErrorsCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentPcsBlockErrorsCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentPcsMultilaneBipErrorsCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentOduErroredSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentOduSeverelyErroredSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentOduUnavailableSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentFecCorrectedBlockCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentFecUncorrectedBlockCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortCurrentFecSymbolErrorCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalFrameErrorRatio"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsBytes"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsAverageLinkUtilization"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsCrcErroredPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsMulticastPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsBroadcastPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsPausePackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsUndersizedPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsOversizedPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsFragmentPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsJabberPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsLengthOutRangePackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsPackets64Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsPackets65127Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsPackets128255Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsPackets256511Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsPackets5121023Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalRxCountsPackets10241518Octet"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsBytes"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsAverageLinkUtilization"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsCrcErroredPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsMulticastPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsBroadcastPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsPausePackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsExcessiveDeferredPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsGiantPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsUnderrunPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsLengthCheckErrorPackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxCountsLengthOutRangePackets"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxQueuePacketDropCountSummary"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxQueueQ0PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxQueueQ1PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxQueueQ2PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxQueueQ3PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxQueueQ4PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxQueueQ5PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxQueueQ6PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalTxQueueQ7PacketDropCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalMacUnavailableSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalPcsErroredSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalPcsSeverelyErroredSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalPcsUnavailableSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalPcsSyncHeaderErrorsCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalPcsBlockErrorsCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalPcsMultilaneBipErrorsCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalOduErroredSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalOduSeverelyErroredSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalOduUnavailableSeconds"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalFecCorrectedBlockCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalFecUncorrectedBlockCount"
+      },
+      {
+        "module": "CIENA-WS-PORT-MIB",
+        "object": "cwsPortTotalFecSymbolErrorCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cienaWsPortCompliances": {
+    "name": "cienaWsPortCompliances",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.2.2",
+    "class": "objectidentity"
+  },
+  "cienaWsPortCompliance": {
+    "name": "cienaWsPortCompliance",
+    "oid": "1.3.6.1.4.1.1271.3.4.7.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cienaWsPortGroup",
+        "module": "CIENA-WS-PORT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-PORT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-WS-PORT-MIB"
+  }
+}

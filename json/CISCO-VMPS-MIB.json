@@ -1,0 +1,877 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoVmpsMIB": {
+    "name": "ciscoVmpsMIB",
+    "oid": "1.3.6.1.4.1.9.9.53",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-01-20 00:00",
+        "description": "Added new object vmpsRcpRemoteUserName2 and deprecated the object vmpsRcpRemoteUserName."
+      },
+      {
+        "revision": "2003-10-16 10:00",
+        "description": "Added following objects: vmpsAutoBackupEnable and vmpsAutoBackupFileName."
+      },
+      {
+        "revision": "2002-06-19 10:00",
+        "description": "Corrected description of vmpsLastFailClient."
+      },
+      {
+        "revision": "2002-04-04 10:00",
+        "description": "Added new object vmpsRcpRemoteUserName to support RCP download of VMPS database."
+      },
+      {
+        "revision": "2001-01-30 13:04",
+        "description": "Corrected description of vmpsTriggerDownload"
+      }
+    ]
+  },
+  "ciscoVlanMemberPolicyServerMIBObjects": {
+    "name": "ciscoVlanMemberPolicyServerMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.53.1",
+    "class": "objectidentity"
+  },
+  "vmpsInfo": {
+    "name": "vmpsInfo",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1",
+    "class": "objectidentity"
+  },
+  "vmpsDatabase": {
+    "name": "vmpsDatabase",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2",
+    "class": "objectidentity"
+  },
+  "vmpsGlobalConfig": {
+    "name": "vmpsGlobalConfig",
+    "oid": "1.3.6.1.4.1.9.9.53.1.3",
+    "class": "objectidentity"
+  },
+  "VlanName": {
+    "name": "VlanName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "vmpsConfigTable": {
+    "name": "vmpsConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmpsConfigEntry": {
+    "name": "vmpsConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vmpsIndex": {
+    "name": "vmpsIndex",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmpsAdminStatus": {
+    "name": "vmpsAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "active",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsDownloadServerAddress": {
+    "name": "vmpsDownloadServerAddress",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsConfigFileName": {
+    "name": "vmpsConfigFileName",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsTriggerDownload": {
+    "name": "vmpsTriggerDownload",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOperation": 1,
+          "loadDatabase": 2,
+          "loadRcpDataBase": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsFallbackVlan": {
+    "name": "vmpsFallbackVlan",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanName",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsSecureMode": {
+    "name": "vmpsSecureMode",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "secure": 1,
+          "open": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "open",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsManagementDomain": {
+    "name": "vmpsManagementDomain",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsRowStatus": {
+    "name": "vmpsRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsRcpRemoteUserName": {
+    "name": "vmpsRcpRemoteUserName",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "vmpsRcpRemoteUserName2": {
+    "name": "vmpsRcpRemoteUserName2",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsStatsTable": {
+    "name": "vmpsStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmpsStatsEntry": {
+    "name": "vmpsStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "vmpsStatsEntry",
+      "module": "CISCO-VMPS-MIB",
+      "object": "vmpsConfigEntry"
+    },
+    "status": "current"
+  },
+  "vmpsLastRestart": {
+    "name": "vmpsLastRestart",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmpsInConfigReqs": {
+    "name": "vmpsInConfigReqs",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmpsInConfigErrors": {
+    "name": "vmpsInConfigErrors",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmpsOutConfigFails": {
+    "name": "vmpsOutConfigFails",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmpsLastFailClient": {
+    "name": "vmpsLastFailClient",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmpsOperStatus": {
+    "name": "vmpsOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.53.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "loading": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmpsAutoBackupEnable": {
+    "name": "vmpsAutoBackupEnable",
+    "oid": "1.3.6.1.4.1.9.9.53.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmpsAutoBackupFileName": {
+    "name": "vmpsAutoBackupFileName",
+    "oid": "1.3.6.1.4.1.9.9.53.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vmpsMacConfigTable": {
+    "name": "vmpsMacConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmpsMacConfigEntry": {
+    "name": "vmpsMacConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsMacConfigAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vmpsMacConfigAddress": {
+    "name": "vmpsMacConfigAddress",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmpsMacConfigVlan": {
+    "name": "vmpsMacConfigVlan",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsMacConfigLastAccessed": {
+    "name": "vmpsMacConfigLastAccessed",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmpsMacConfigLastRequestor": {
+    "name": "vmpsMacConfigLastRequestor",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmpsMacConfigLastRequestPortId": {
+    "name": "vmpsMacConfigLastRequestPortId",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmpsMacConfigLastResponseStatus": {
+    "name": "vmpsMacConfigLastResponseStatus",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "success": 1,
+          "versionNotSupported": 2,
+          "insufficientResources": 3,
+          "accessDenied": 4,
+          "portShutdown": 5,
+          "unknownManagementDomain": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vmpsMacConfigStatus": {
+    "name": "vmpsMacConfigStatus",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "vmpsVlanConfigTable": {
+    "name": "vmpsVlanConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmpsVlanConfigEntry": {
+    "name": "vmpsVlanConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsVlanName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsDeviceId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsPortName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vmpsVlanName": {
+    "name": "vmpsVlanName",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmpsDeviceId": {
+    "name": "vmpsDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmpsPortName": {
+    "name": "vmpsPortName",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vmpsVlanConfigStatus": {
+    "name": "vmpsVlanConfigStatus",
+    "oid": "1.3.6.1.4.1.9.9.53.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoVlanMemberPolicyServerMIBNotifications": {
+    "name": "ciscoVlanMemberPolicyServerMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.53.2",
+    "class": "objectidentity"
+  },
+  "ciscoVlanMemberPolicyServerMIBConformance": {
+    "name": "ciscoVlanMemberPolicyServerMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.53.3",
+    "class": "objectidentity"
+  },
+  "ciscoVlanMemberPolicyServerMIBCompliances": {
+    "name": "ciscoVlanMemberPolicyServerMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.53.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoVlanMemberPolicyServerMIBGroups": {
+    "name": "ciscoVlanMemberPolicyServerMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.53.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoVlanMemberPolicyServerMIBCompliance": {
+    "name": "ciscoVlanMemberPolicyServerMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.53.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVlanMemberPolicyServerGroup",
+        "module": "CISCO-VMPS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVmpsMIBCompliance2": {
+    "name": "ciscoVmpsMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.53.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVlanMemberPolicyServerGroup",
+        "module": "CISCO-VMPS-MIB"
+      },
+      {
+        "object": "ciscoVlanMemberPolicyServerRcpGroup",
+        "module": "CISCO-VMPS-MIB"
+      },
+      {
+        "object": "ciscoVmpsAutoBackupGroup",
+        "module": "CISCO-VMPS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVmpsMIBCompliance3": {
+    "name": "ciscoVmpsMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.53.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVlanMemberPolicyServerGroup",
+        "module": "CISCO-VMPS-MIB"
+      },
+      {
+        "object": "ciscoVmpsAutoBackupGroup",
+        "module": "CISCO-VMPS-MIB"
+      },
+      {
+        "object": "ciscoVlanMemberPolicyServerRcpGroup2",
+        "module": "CISCO-VMPS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVlanMemberPolicyServerGroup": {
+    "name": "ciscoVlanMemberPolicyServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.53.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsLastRestart"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsInConfigReqs"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsInConfigErrors"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsOutConfigFails"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsLastFailClient"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsOperStatus"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsAdminStatus"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsDownloadServerAddress"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsConfigFileName"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsTriggerDownload"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsFallbackVlan"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsSecureMode"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsManagementDomain"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsRowStatus"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsMacConfigVlan"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsMacConfigLastAccessed"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsMacConfigLastRequestor"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsMacConfigLastRequestPortId"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsMacConfigLastResponseStatus"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsMacConfigStatus"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsVlanConfigStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVlanMemberPolicyServerRcpGroup": {
+    "name": "ciscoVlanMemberPolicyServerRcpGroup",
+    "oid": "1.3.6.1.4.1.9.9.53.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsRcpRemoteUserName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVmpsAutoBackupGroup": {
+    "name": "ciscoVmpsAutoBackupGroup",
+    "oid": "1.3.6.1.4.1.9.9.53.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsAutoBackupEnable"
+      },
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsAutoBackupFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVlanMemberPolicyServerRcpGroup2": {
+    "name": "ciscoVlanMemberPolicyServerRcpGroup2",
+    "oid": "1.3.6.1.4.1.9.9.53.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VMPS-MIB",
+        "object": "vmpsRcpRemoteUserName2"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VMPS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VMPS-MIB"
+  }
+}

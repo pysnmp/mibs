@@ -1,0 +1,1247 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
+      "AddressFamilyNumbers"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber"
+    ],
+    "LISP-MIB": [
+      "LispAddressType",
+      "lispUseMapServerState",
+      "lispGlobalStatsEntry",
+      "lispUseMapResolverState",
+      "lispEidRegistrationSiteName",
+      "lispFeaturesMapCacheLimit",
+      "lispMappingDatabaseTimeStamp",
+      "lispUseProxyEtrState",
+      "lispFeaturesEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoLispExtMIB": {
+    "name": "ciscoLispExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.825",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-05-13 00:00",
+        "description": "Initial version of the CISCO-LISP-EXT-MIB module."
+      }
+    ]
+  },
+  "ciscoLispExtNotifications": {
+    "name": "ciscoLispExtNotifications",
+    "oid": "1.3.6.1.4.1.9.9.825.0",
+    "class": "objectidentity"
+  },
+  "ciscoLispExtObjects": {
+    "name": "ciscoLispExtObjects",
+    "oid": "1.3.6.1.4.1.9.9.825.1",
+    "class": "objectidentity"
+  },
+  "ciscoLispExtConformance": {
+    "name": "ciscoLispExtConformance",
+    "oid": "1.3.6.1.4.1.9.9.825.2",
+    "class": "objectidentity"
+  },
+  "clispExtEidRegRlocMembershipTable": {
+    "name": "clispExtEidRegRlocMembershipTable",
+    "oid": "1.3.6.1.4.1.9.9.825.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtEidRegRlocMembershipEntry": {
+    "name": "clispExtEidRegRlocMembershipEntry",
+    "oid": "1.3.6.1.4.1.9.9.825.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegRlocMembershipInstanceID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegRlocMembershipEidAfi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegRlocMembershipRlocLength",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegRlocMembershipRloc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtEidRegRlocMembershipInstanceID": {
+    "name": "clispExtEidRegRlocMembershipInstanceID",
+    "oid": "1.3.6.1.4.1.9.9.825.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtEidRegRlocMembershipEidAfi": {
+    "name": "clispExtEidRegRlocMembershipEidAfi",
+    "oid": "1.3.6.1.4.1.9.9.825.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtEidRegRlocMembershipRlocLength": {
+    "name": "clispExtEidRegRlocMembershipRlocLength",
+    "oid": "1.3.6.1.4.1.9.9.825.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtEidRegRlocMembershipRloc": {
+    "name": "clispExtEidRegRlocMembershipRloc",
+    "oid": "1.3.6.1.4.1.9.9.825.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtEidRegRlocMembershipMemberSince": {
+    "name": "clispExtEidRegRlocMembershipMemberSince",
+    "oid": "1.3.6.1.4.1.9.9.825.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtEidRegRlocMembershipGleaned": {
+    "name": "clispExtEidRegRlocMembershipGleaned",
+    "oid": "1.3.6.1.4.1.9.9.825.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtEidRegRlocMembershipConfigured": {
+    "name": "clispExtEidRegRlocMembershipConfigured",
+    "oid": "1.3.6.1.4.1.9.9.825.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtRlocMembershipTable": {
+    "name": "clispExtRlocMembershipTable",
+    "oid": "1.3.6.1.4.1.9.9.825.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtRlocMembershipEntry": {
+    "name": "clispExtRlocMembershipEntry",
+    "oid": "1.3.6.1.4.1.9.9.825.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtRlocMembershipInstanceID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtRlocMembershipEidAfi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtRlocMembershipRlocLength",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtRlocMembershipRloc",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtRlocMembershipInstanceID": {
+    "name": "clispExtRlocMembershipInstanceID",
+    "oid": "1.3.6.1.4.1.9.9.825.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtRlocMembershipEidAfi": {
+    "name": "clispExtRlocMembershipEidAfi",
+    "oid": "1.3.6.1.4.1.9.9.825.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtRlocMembershipRlocLength": {
+    "name": "clispExtRlocMembershipRlocLength",
+    "oid": "1.3.6.1.4.1.9.9.825.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtRlocMembershipRloc": {
+    "name": "clispExtRlocMembershipRloc",
+    "oid": "1.3.6.1.4.1.9.9.825.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtRlocMembershipMemberSince": {
+    "name": "clispExtRlocMembershipMemberSince",
+    "oid": "1.3.6.1.4.1.9.9.825.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtRlocMembershipDiscovered": {
+    "name": "clispExtRlocMembershipDiscovered",
+    "oid": "1.3.6.1.4.1.9.9.825.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtRlocMembershipConfigured": {
+    "name": "clispExtRlocMembershipConfigured",
+    "oid": "1.3.6.1.4.1.9.9.825.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionTable": {
+    "name": "clispExtReliableTransportSessionTable",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionEntry": {
+    "name": "clispExtReliableTransportSessionEntry",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionPeerAddressLength",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionPeerAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionPeerPort",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionLocalAddressLength",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionLocalAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionLocalPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionPeerAddressLength": {
+    "name": "clispExtReliableTransportSessionPeerAddressLength",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionPeerAddress": {
+    "name": "clispExtReliableTransportSessionPeerAddress",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionPeerPort": {
+    "name": "clispExtReliableTransportSessionPeerPort",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionLocalAddressLength": {
+    "name": "clispExtReliableTransportSessionLocalAddressLength",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 39
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionLocalAddress": {
+    "name": "clispExtReliableTransportSessionLocalAddress",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LispAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionLocalPort": {
+    "name": "clispExtReliableTransportSessionLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionState": {
+    "name": "clispExtReliableTransportSessionState",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionLastStateChangeTime": {
+    "name": "clispExtReliableTransportSessionLastStateChangeTime",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionEstablishmentRole": {
+    "name": "clispExtReliableTransportSessionEstablishmentRole",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionMessagesIn": {
+    "name": "clispExtReliableTransportSessionMessagesIn",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionMessagesOut": {
+    "name": "clispExtReliableTransportSessionMessagesOut",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionBytesIn": {
+    "name": "clispExtReliableTransportSessionBytesIn",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionBytesOut": {
+    "name": "clispExtReliableTransportSessionBytesOut",
+    "oid": "1.3.6.1.4.1.9.9.825.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtGlobalStatsTable": {
+    "name": "clispExtGlobalStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.825.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtGlobalStatsEntry": {
+    "name": "clispExtGlobalStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.825.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "clispExtGlobalStatsEntry",
+      "module": "CISCO-LISP-EXT-MIB",
+      "object": "lispGlobalStatsEntry"
+    },
+    "status": "current"
+  },
+  "clispExtGlobalStatsEidRegMoreSpecificEntryCount": {
+    "name": "clispExtGlobalStatsEidRegMoreSpecificEntryCount",
+    "oid": "1.3.6.1.4.1.9.9.825.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtFeaturesTable": {
+    "name": "clispExtFeaturesTable",
+    "oid": "1.3.6.1.4.1.9.9.825.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "clispExtFeaturesEntry": {
+    "name": "clispExtFeaturesEntry",
+    "oid": "1.3.6.1.4.1.9.9.825.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "clispExtFeaturesEntry",
+      "module": "CISCO-LISP-EXT-MIB",
+      "object": "lispFeaturesEntry"
+    },
+    "status": "current"
+  },
+  "clispExtFeaturesEidRegMoreSpecificWarningThreshold": {
+    "name": "clispExtFeaturesEidRegMoreSpecificWarningThreshold",
+    "oid": "1.3.6.1.4.1.9.9.825.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtFeaturesEidRegMoreSpecificLimit": {
+    "name": "clispExtFeaturesEidRegMoreSpecificLimit",
+    "oid": "1.3.6.1.4.1.9.9.825.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtFeaturesMapCacheWarningThreshold": {
+    "name": "clispExtFeaturesMapCacheWarningThreshold",
+    "oid": "1.3.6.1.4.1.9.9.825.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtNotificationObjects": {
+    "name": "clispExtNotificationObjects",
+    "oid": "1.3.6.1.4.1.9.9.825.1.6",
+    "class": "objectidentity"
+  },
+  "clispExtEidRegFailureCause": {
+    "name": "clispExtEidRegFailureCause",
+    "oid": "1.3.6.1.4.1.9.9.825.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noEidPrefixConfiguration": 1,
+          "authenticationFailure": 2,
+          "allowedLocatorMismatch": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clispExtEidRegMapRequestDroppedCause": {
+    "name": "clispExtEidRegMapRequestDroppedCause",
+    "oid": "1.3.6.1.4.1.9.9.825.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "malformedRequest": 1,
+          "noMatchingEidRegistration": 2,
+          "allowedLocatorPolicyViolation": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "clispExtGlobalObjects": {
+    "name": "clispExtGlobalObjects",
+    "oid": "1.3.6.1.4.1.9.9.825.1.7",
+    "class": "objectidentity"
+  },
+  "clispExtEidRegMoreSpecificWarningThreshold": {
+    "name": "clispExtEidRegMoreSpecificWarningThreshold",
+    "oid": "1.3.6.1.4.1.9.9.825.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtEidRegMoreSpecificLimit": {
+    "name": "clispExtEidRegMoreSpecificLimit",
+    "oid": "1.3.6.1.4.1.9.9.825.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtEidRegMoreSpecificCount": {
+    "name": "clispExtEidRegMoreSpecificCount",
+    "oid": "1.3.6.1.4.1.9.9.825.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "clispExtUseMapResolverStateChange": {
+    "name": "clispExtUseMapResolverStateChange",
+    "oid": "1.3.6.1.4.1.9.9.825.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseMapResolverState"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtReliableTransportStateChange": {
+    "name": "clispExtReliableTransportStateChange",
+    "oid": "1.3.6.1.4.1.9.9.825.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionState"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtMappingDatabaseEidRegFailure": {
+    "name": "clispExtMappingDatabaseEidRegFailure",
+    "oid": "1.3.6.1.4.1.9.9.825.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispMappingDatabaseTimeStamp"
+      },
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseMapServerState"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtUseMapServerStateChange": {
+    "name": "clispExtUseMapServerStateChange",
+    "oid": "1.3.6.1.4.1.9.9.825.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseMapServerState"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtUseProxyEtrStateChange": {
+    "name": "clispExtUseProxyEtrStateChange",
+    "oid": "1.3.6.1.4.1.9.9.825.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispUseProxyEtrState"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtEidRegSiteAllRegistrationsExpired": {
+    "name": "clispExtEidRegSiteAllRegistrationsExpired",
+    "oid": "1.3.6.1.4.1.9.9.825.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationSiteName"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtEidRegFailure": {
+    "name": "clispExtEidRegFailure",
+    "oid": "1.3.6.1.4.1.9.9.825.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationSiteName"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegFailureCause"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtFeaturesEidRegMoreSpecificLimitReached": {
+    "name": "clispExtFeaturesEidRegMoreSpecificLimitReached",
+    "oid": "1.3.6.1.4.1.9.9.825.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtFeaturesEidRegMoreSpecificLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtFeaturesEidRegMoreSpecificWarningThresholdReached": {
+    "name": "clispExtFeaturesEidRegMoreSpecificWarningThresholdReached",
+    "oid": "1.3.6.1.4.1.9.9.825.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtFeaturesEidRegMoreSpecificWarningThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtEidRegMapRequestDropped": {
+    "name": "clispExtEidRegMapRequestDropped",
+    "oid": "1.3.6.1.4.1.9.9.825.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispEidRegistrationSiteName"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMapRequestDroppedCause"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtEidRegMoreSpecificLimitReached": {
+    "name": "clispExtEidRegMoreSpecificLimitReached",
+    "oid": "1.3.6.1.4.1.9.9.825.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMoreSpecificLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtEidRegMoreSpecificWarningThresholdReached": {
+    "name": "clispExtEidRegMoreSpecificWarningThresholdReached",
+    "oid": "1.3.6.1.4.1.9.9.825.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMoreSpecificWarningThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtFeaturesMapCacheLimitReached": {
+    "name": "clispExtFeaturesMapCacheLimitReached",
+    "oid": "1.3.6.1.4.1.9.9.825.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LISP-MIB",
+        "object": "lispFeaturesMapCacheLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtFeaturesMapCacheWarningThresholdReached": {
+    "name": "clispExtFeaturesMapCacheWarningThresholdReached",
+    "oid": "1.3.6.1.4.1.9.9.825.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtFeaturesMapCacheWarningThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLispExtCompliances": {
+    "name": "ciscoLispExtCompliances",
+    "oid": "1.3.6.1.4.1.9.9.825.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLispExtGroups": {
+    "name": "ciscoLispExtGroups",
+    "oid": "1.3.6.1.4.1.9.9.825.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLispExtMIBComplianceAll": {
+    "name": "ciscoLispExtMIBComplianceAll",
+    "oid": "1.3.6.1.4.1.9.9.825.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clispExtRlocMembershipGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtReliableTransportSessionGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtNotificationsGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtGlobalStatsGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtFeaturesGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtNotificationSupportGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtEidRegMoreSpecificValuesGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLispExtMIBComplianceMapServer": {
+    "name": "ciscoLispExtMIBComplianceMapServer",
+    "oid": "1.3.6.1.4.1.9.9.825.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "clispExtEidRegRlocMembershipGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtReliableTransportSessionGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtNotificationsGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtGlobalStatsGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtFeaturesGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtNotificationSupportGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      },
+      {
+        "object": "clispExtEidRegMoreSpecificValuesGroup",
+        "module": "CISCO-LISP-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtNotificationsGroup": {
+    "name": "clispExtNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.825.2.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtUseMapResolverStateChange"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportStateChange"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtMappingDatabaseEidRegFailure"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtUseMapServerStateChange"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtUseProxyEtrStateChange"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegSiteAllRegistrationsExpired"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegFailure"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMoreSpecificLimitReached"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMoreSpecificWarningThresholdReached"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMapRequestDropped"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtFeaturesEidRegMoreSpecificLimitReached"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtFeaturesEidRegMoreSpecificWarningThresholdReached"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtFeaturesMapCacheLimitReached"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtFeaturesMapCacheWarningThresholdReached"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtEidRegRlocMembershipGroup": {
+    "name": "clispExtEidRegRlocMembershipGroup",
+    "oid": "1.3.6.1.4.1.9.9.825.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegRlocMembershipMemberSince"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegRlocMembershipGleaned"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegRlocMembershipConfigured"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtRlocMembershipGroup": {
+    "name": "clispExtRlocMembershipGroup",
+    "oid": "1.3.6.1.4.1.9.9.825.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtRlocMembershipMemberSince"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtRlocMembershipDiscovered"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtRlocMembershipConfigured"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtReliableTransportSessionGroup": {
+    "name": "clispExtReliableTransportSessionGroup",
+    "oid": "1.3.6.1.4.1.9.9.825.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionState"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionLastStateChangeTime"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionEstablishmentRole"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionMessagesIn"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionMessagesOut"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionBytesIn"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtReliableTransportSessionBytesOut"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtGlobalStatsGroup": {
+    "name": "clispExtGlobalStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.825.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtGlobalStatsEidRegMoreSpecificEntryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtFeaturesGroup": {
+    "name": "clispExtFeaturesGroup",
+    "oid": "1.3.6.1.4.1.9.9.825.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtFeaturesEidRegMoreSpecificWarningThreshold"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtFeaturesEidRegMoreSpecificLimit"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtFeaturesMapCacheWarningThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtNotificationSupportGroup": {
+    "name": "clispExtNotificationSupportGroup",
+    "oid": "1.3.6.1.4.1.9.9.825.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegFailureCause"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMapRequestDroppedCause"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMoreSpecificWarningThreshold"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMoreSpecificLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "clispExtEidRegMoreSpecificValuesGroup": {
+    "name": "clispExtEidRegMoreSpecificValuesGroup",
+    "oid": "1.3.6.1.4.1.9.9.825.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMoreSpecificWarningThreshold"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMoreSpecificLimit"
+      },
+      {
+        "module": "CISCO-LISP-EXT-MIB",
+        "object": "clispExtEidRegMoreSpecificCount"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LISP-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LISP-EXT-MIB"
+  }
+}

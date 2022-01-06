@@ -1,0 +1,1738 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoEigrpMIB": {
+    "name": "ciscoEigrpMIB",
+    "oid": "1.3.6.1.4.1.9.9.449",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-11-24 00:00",
+        "description": "Added new notification cEigrpNbrDownEvent. Added the following new objects to cEigrpTopoEntry: cEigrpFdistanceWide, cEigrpDistanceWide and cEigrpReportDistanceWide. Added the following new groups: cEigrpNotificationGroupSupR01 and cEigrpTopoDataGroupSupR01. Added new compliance cEigrpMIBComplianceRev1, which deprecates cEigrpMIBCompliance."
+      },
+      {
+        "revision": "2004-11-16 00:00",
+        "description": "Initial version of the MIB module."
+      }
+    ]
+  },
+  "EigrpUpTimeString": {
+    "name": "EigrpUpTimeString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "8a",
+    "status": "current"
+  },
+  "EigrpVersionString": {
+    "name": "EigrpVersionString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "displayhint": "1d.1d/1d.1d",
+    "status": "current"
+  },
+  "cEigrpMIBNotifications": {
+    "name": "cEigrpMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.449.0",
+    "class": "objectidentity"
+  },
+  "cEigrpMIBObjects": {
+    "name": "cEigrpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.449.1",
+    "class": "objectidentity"
+  },
+  "cEigrpMIBConformance": {
+    "name": "cEigrpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.449.2",
+    "class": "objectidentity"
+  },
+  "cEigrpVpnInfo": {
+    "name": "cEigrpVpnInfo",
+    "oid": "1.3.6.1.4.1.9.9.449.1.1",
+    "class": "objectidentity"
+  },
+  "cEigrpAsInfo": {
+    "name": "cEigrpAsInfo",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2",
+    "class": "objectidentity"
+  },
+  "cEigrpTopologyInfo": {
+    "name": "cEigrpTopologyInfo",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3",
+    "class": "objectidentity"
+  },
+  "cEigrpPeerInfo": {
+    "name": "cEigrpPeerInfo",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4",
+    "class": "objectidentity"
+  },
+  "cEigrpInterfaceInfo": {
+    "name": "cEigrpInterfaceInfo",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5",
+    "class": "objectidentity"
+  },
+  "cEigrpVpnTable": {
+    "name": "cEigrpVpnTable",
+    "oid": "1.3.6.1.4.1.9.9.449.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpVpnEntry": {
+    "name": "cEigrpVpnEntry",
+    "oid": "1.3.6.1.4.1.9.9.449.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpVpnId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpVpnId": {
+    "name": "cEigrpVpnId",
+    "oid": "1.3.6.1.4.1.9.9.449.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpVpnName": {
+    "name": "cEigrpVpnName",
+    "oid": "1.3.6.1.4.1.9.9.449.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpTraffStatsTable": {
+    "name": "cEigrpTraffStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpTraffStatsEntry": {
+    "name": "cEigrpTraffStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpVpnId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAsNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpAsNumber": {
+    "name": "cEigrpAsNumber",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpNbrCount": {
+    "name": "cEigrpNbrCount",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpHellosSent": {
+    "name": "cEigrpHellosSent",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpHellosRcvd": {
+    "name": "cEigrpHellosRcvd",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpUpdatesSent": {
+    "name": "cEigrpUpdatesSent",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpUpdatesRcvd": {
+    "name": "cEigrpUpdatesRcvd",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpQueriesSent": {
+    "name": "cEigrpQueriesSent",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpQueriesRcvd": {
+    "name": "cEigrpQueriesRcvd",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRepliesSent": {
+    "name": "cEigrpRepliesSent",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRepliesRcvd": {
+    "name": "cEigrpRepliesRcvd",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpAcksSent": {
+    "name": "cEigrpAcksSent",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpAcksRcvd": {
+    "name": "cEigrpAcksRcvd",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpInputQHighMark": {
+    "name": "cEigrpInputQHighMark",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpInputQDrops": {
+    "name": "cEigrpInputQDrops",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpSiaQueriesSent": {
+    "name": "cEigrpSiaQueriesSent",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpSiaQueriesRcvd": {
+    "name": "cEigrpSiaQueriesRcvd",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpAsRouterIdType": {
+    "name": "cEigrpAsRouterIdType",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpAsRouterId": {
+    "name": "cEigrpAsRouterId",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpTopoRoutes": {
+    "name": "cEigrpTopoRoutes",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpHeadSerial": {
+    "name": "cEigrpHeadSerial",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpNextSerial": {
+    "name": "cEigrpNextSerial",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpXmitPendReplies": {
+    "name": "cEigrpXmitPendReplies",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpXmitDummies": {
+    "name": "cEigrpXmitDummies",
+    "oid": "1.3.6.1.4.1.9.9.449.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpTopoTable": {
+    "name": "cEigrpTopoTable",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpTopoEntry": {
+    "name": "cEigrpTopoEntry",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpVpnId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAsNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpDestNetType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpDestNet",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpDestNetPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpDestNetType": {
+    "name": "cEigrpDestNetType",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpDestNet": {
+    "name": "cEigrpDestNet",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpDestNetPrefixLen": {
+    "name": "cEigrpDestNetPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpActive": {
+    "name": "cEigrpActive",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpStuckInActive": {
+    "name": "cEigrpStuckInActive",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpDestSuccessors": {
+    "name": "cEigrpDestSuccessors",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpFdistance": {
+    "name": "cEigrpFdistance",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRouteOriginType": {
+    "name": "cEigrpRouteOriginType",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRouteOriginAddrType": {
+    "name": "cEigrpRouteOriginAddrType",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRouteOriginAddr": {
+    "name": "cEigrpRouteOriginAddr",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpNextHopAddressType": {
+    "name": "cEigrpNextHopAddressType",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpNextHopAddress": {
+    "name": "cEigrpNextHopAddress",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpNextHopInterface": {
+    "name": "cEigrpNextHopInterface",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpDistance": {
+    "name": "cEigrpDistance",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpReportDistance": {
+    "name": "cEigrpReportDistance",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpFdistanceWide": {
+    "name": "cEigrpFdistanceWide",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpDistanceWide": {
+    "name": "cEigrpDistanceWide",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpReportDistanceWide": {
+    "name": "cEigrpReportDistanceWide",
+    "oid": "1.3.6.1.4.1.9.9.449.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpPeerTable": {
+    "name": "cEigrpPeerTable",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpPeerEntry": {
+    "name": "cEigrpPeerEntry",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpVpnId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAsNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpHandle",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpHandle": {
+    "name": "cEigrpHandle",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpPeerAddrType": {
+    "name": "cEigrpPeerAddrType",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpPeerAddr": {
+    "name": "cEigrpPeerAddr",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpPeerIfIndex": {
+    "name": "cEigrpPeerIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpHoldTime": {
+    "name": "cEigrpHoldTime",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpUpTime": {
+    "name": "cEigrpUpTime",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EigrpUpTimeString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpSrtt": {
+    "name": "cEigrpSrtt",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRto": {
+    "name": "cEigrpRto",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpPktsEnqueued": {
+    "name": "cEigrpPktsEnqueued",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpLastSeq": {
+    "name": "cEigrpLastSeq",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpVersion": {
+    "name": "cEigrpVersion",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EigrpVersionString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRetrans": {
+    "name": "cEigrpRetrans",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRetries": {
+    "name": "cEigrpRetries",
+    "oid": "1.3.6.1.4.1.9.9.449.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpInterfaceTable": {
+    "name": "cEigrpInterfaceTable",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cEigrpInterfaceEntry": {
+    "name": "cEigrpInterfaceEntry",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpVpnId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAsNumber",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpPeerCount": {
+    "name": "cEigrpPeerCount",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpXmitReliableQ": {
+    "name": "cEigrpXmitReliableQ",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpXmitUnreliableQ": {
+    "name": "cEigrpXmitUnreliableQ",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpMeanSrtt": {
+    "name": "cEigrpMeanSrtt",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpPacingReliable": {
+    "name": "cEigrpPacingReliable",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpPacingUnreliable": {
+    "name": "cEigrpPacingUnreliable",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpMFlowTimer": {
+    "name": "cEigrpMFlowTimer",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpPendingRoutes": {
+    "name": "cEigrpPendingRoutes",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpHelloInterval": {
+    "name": "cEigrpHelloInterval",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpXmitNextSerial": {
+    "name": "cEigrpXmitNextSerial",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpUMcasts": {
+    "name": "cEigrpUMcasts",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRMcasts": {
+    "name": "cEigrpRMcasts",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpUUcasts": {
+    "name": "cEigrpUUcasts",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRUcasts": {
+    "name": "cEigrpRUcasts",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpMcastExcepts": {
+    "name": "cEigrpMcastExcepts",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpCRpkts": {
+    "name": "cEigrpCRpkts",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpAcksSuppressed": {
+    "name": "cEigrpAcksSuppressed",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpRetransSent": {
+    "name": "cEigrpRetransSent",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpOOSrvcd": {
+    "name": "cEigrpOOSrvcd",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpAuthMode": {
+    "name": "cEigrpAuthMode",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "md5": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpAuthKeyChain": {
+    "name": "cEigrpAuthKeyChain",
+    "oid": "1.3.6.1.4.1.9.9.449.1.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cEigrpAuthFailureEvent": {
+    "name": "cEigrpAuthFailureEvent",
+    "oid": "1.3.6.1.4.1.9.9.449.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPeerAddrType"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpRouteStuckInActive": {
+    "name": "cEigrpRouteStuckInActive",
+    "oid": "1.3.6.1.4.1.9.9.449.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPeerAddrType"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPeerAddr"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpStuckInActive"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpNbrDownEvent": {
+    "name": "cEigrpNbrDownEvent",
+    "oid": "1.3.6.1.4.1.9.9.449.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPeerAddrType"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPeerAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpMIBCompliances": {
+    "name": "cEigrpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.449.2.1",
+    "class": "objectidentity"
+  },
+  "cEigrpMIBGroups": {
+    "name": "cEigrpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.449.2.2",
+    "class": "objectidentity"
+  },
+  "cEigrpMIBCompliance": {
+    "name": "cEigrpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.449.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cEigrpVpnDataGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpTrafficStatsGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpInterfaceDataGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpPeerDataGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpTopoDataGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpNotificationsGroup",
+        "module": "CISCO-EIGRP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cEigrpMIBComplianceRev1": {
+    "name": "cEigrpMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.449.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cEigrpVpnDataGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpTrafficStatsGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpInterfaceDataGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpPeerDataGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpTopoDataGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpNotificationsGroup",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpNotificationsGroupSupR01",
+        "module": "CISCO-EIGRP-MIB"
+      },
+      {
+        "object": "cEigrpTopoDataGroupSupR01",
+        "module": "CISCO-EIGRP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpVpnDataGroup": {
+    "name": "cEigrpVpnDataGroup",
+    "oid": "1.3.6.1.4.1.9.9.449.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpVpnName"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpTrafficStatsGroup": {
+    "name": "cEigrpTrafficStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.449.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpHellosSent"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpHellosRcvd"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpUpdatesSent"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpUpdatesRcvd"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpQueriesSent"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpQueriesRcvd"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRepliesSent"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRepliesRcvd"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAcksSent"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAcksRcvd"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpInputQHighMark"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpInputQDrops"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpSiaQueriesSent"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpSiaQueriesRcvd"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpInterfaceDataGroup": {
+    "name": "cEigrpInterfaceDataGroup",
+    "oid": "1.3.6.1.4.1.9.9.449.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPeerCount"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpXmitReliableQ"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpXmitUnreliableQ"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpMeanSrtt"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPacingReliable"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPacingUnreliable"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpMFlowTimer"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPendingRoutes"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpHelloInterval"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpXmitNextSerial"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpUMcasts"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRMcasts"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpUUcasts"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRUcasts"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpMcastExcepts"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpCRpkts"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAcksSuppressed"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRetransSent"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpOOSrvcd"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAuthMode"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAuthKeyChain"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpPeerDataGroup": {
+    "name": "cEigrpPeerDataGroup",
+    "oid": "1.3.6.1.4.1.9.9.449.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpNbrCount"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPeerAddrType"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPeerAddr"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPeerIfIndex"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpHoldTime"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpUpTime"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpSrtt"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRto"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpPktsEnqueued"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpLastSeq"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpVersion"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRetrans"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRetries"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpTopoDataGroup": {
+    "name": "cEigrpTopoDataGroup",
+    "oid": "1.3.6.1.4.1.9.9.449.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAsRouterId"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAsRouterIdType"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpTopoRoutes"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpHeadSerial"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpNextSerial"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpXmitPendReplies"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpXmitDummies"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpActive"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpStuckInActive"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpDestSuccessors"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpFdistance"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRouteOriginType"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRouteOriginAddrType"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRouteOriginAddr"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpNextHopAddressType"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpNextHopAddress"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpNextHopInterface"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpDistance"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpReportDistance"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpNotificationsGroup": {
+    "name": "cEigrpNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.449.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpAuthFailureEvent"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpRouteStuckInActive"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpNotificationsGroupSupR01": {
+    "name": "cEigrpNotificationsGroupSupR01",
+    "oid": "1.3.6.1.4.1.9.9.449.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpNbrDownEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "cEigrpTopoDataGroupSupR01": {
+    "name": "cEigrpTopoDataGroupSupR01",
+    "oid": "1.3.6.1.4.1.9.9.449.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpFdistanceWide"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpDistanceWide"
+      },
+      {
+        "module": "CISCO-EIGRP-MIB",
+        "object": "cEigrpReportDistanceWide"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-EIGRP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-EIGRP-MIB"
+  }
+}

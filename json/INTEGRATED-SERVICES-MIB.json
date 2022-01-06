@@ -1,0 +1,879 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "mib-2",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "TestAndIncr",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "intSrv": {
+    "name": "intSrv",
+    "oid": "1.3.6.1.2.1.52",
+    "class": "moduleidentity"
+  },
+  "intSrvObjects": {
+    "name": "intSrvObjects",
+    "oid": "1.3.6.1.2.1.52.1",
+    "class": "objectidentity"
+  },
+  "intSrvGenObjects": {
+    "name": "intSrvGenObjects",
+    "oid": "1.3.6.1.2.1.52.2",
+    "class": "objectidentity"
+  },
+  "intSrvNotifications": {
+    "name": "intSrvNotifications",
+    "oid": "1.3.6.1.2.1.52.3",
+    "class": "objectidentity"
+  },
+  "intSrvConformance": {
+    "name": "intSrvConformance",
+    "oid": "1.3.6.1.2.1.52.4",
+    "class": "objectidentity"
+  },
+  "SessionNumber": {
+    "name": "SessionNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Protocol": {
+    "name": "Protocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "SessionType": {
+    "name": "SessionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Port": {
+    "name": "Port",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "MessageSize": {
+    "name": "MessageSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "BitRate": {
+    "name": "BitRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "BurstSize": {
+    "name": "BurstSize",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "QosService": {
+    "name": "QosService",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bestEffort": 1,
+          "guaranteedDelay": 2,
+          "controlledLoad": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "intSrvIfAttribTable": {
+    "name": "intSrvIfAttribTable",
+    "oid": "1.3.6.1.2.1.52.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "intSrvIfAttribEntry": {
+    "name": "intSrvIfAttribEntry",
+    "oid": "1.3.6.1.2.1.52.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "intSrvIfAttribAllocatedBits": {
+    "name": "intSrvIfAttribAllocatedBits",
+    "oid": "1.3.6.1.2.1.52.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "Bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSrvIfAttribMaxAllocatedBits": {
+    "name": "intSrvIfAttribMaxAllocatedBits",
+    "oid": "1.3.6.1.2.1.52.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "Bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvIfAttribAllocatedBuffer": {
+    "name": "intSrvIfAttribAllocatedBuffer",
+    "oid": "1.3.6.1.2.1.52.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BurstSize",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSrvIfAttribFlows": {
+    "name": "intSrvIfAttribFlows",
+    "oid": "1.3.6.1.2.1.52.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSrvIfAttribPropagationDelay": {
+    "name": "intSrvIfAttribPropagationDelay",
+    "oid": "1.3.6.1.2.1.52.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvIfAttribStatus": {
+    "name": "intSrvIfAttribStatus",
+    "oid": "1.3.6.1.2.1.52.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowTable": {
+    "name": "intSrvFlowTable",
+    "oid": "1.3.6.1.2.1.52.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "intSrvFlowEntry": {
+    "name": "intSrvFlowEntry",
+    "oid": "1.3.6.1.2.1.52.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "intSrvFlowNumber": {
+    "name": "intSrvFlowNumber",
+    "oid": "1.3.6.1.2.1.52.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionNumber",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "intSrvFlowType": {
+    "name": "intSrvFlowType",
+    "oid": "1.3.6.1.2.1.52.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowOwner": {
+    "name": "intSrvFlowOwner",
+    "oid": "1.3.6.1.2.1.52.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "rsvp": 2,
+          "management": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowDestAddr": {
+    "name": "intSrvFlowDestAddr",
+    "oid": "1.3.6.1.2.1.52.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowSenderAddr": {
+    "name": "intSrvFlowSenderAddr",
+    "oid": "1.3.6.1.2.1.52.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowDestAddrLength": {
+    "name": "intSrvFlowDestAddrLength",
+    "oid": "1.3.6.1.2.1.52.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowSenderAddrLength": {
+    "name": "intSrvFlowSenderAddrLength",
+    "oid": "1.3.6.1.2.1.52.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowProtocol": {
+    "name": "intSrvFlowProtocol",
+    "oid": "1.3.6.1.2.1.52.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Protocol",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowDestPort": {
+    "name": "intSrvFlowDestPort",
+    "oid": "1.3.6.1.2.1.52.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Port",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowPort": {
+    "name": "intSrvFlowPort",
+    "oid": "1.3.6.1.2.1.52.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Port",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowFlowId": {
+    "name": "intSrvFlowFlowId",
+    "oid": "1.3.6.1.2.1.52.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSrvFlowInterface": {
+    "name": "intSrvFlowInterface",
+    "oid": "1.3.6.1.2.1.52.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowIfAddr": {
+    "name": "intSrvFlowIfAddr",
+    "oid": "1.3.6.1.2.1.52.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowRate": {
+    "name": "intSrvFlowRate",
+    "oid": "1.3.6.1.2.1.52.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitRate",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowBurst": {
+    "name": "intSrvFlowBurst",
+    "oid": "1.3.6.1.2.1.52.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BurstSize",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowWeight": {
+    "name": "intSrvFlowWeight",
+    "oid": "1.3.6.1.2.1.52.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowQueue": {
+    "name": "intSrvFlowQueue",
+    "oid": "1.3.6.1.2.1.52.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowMinTU": {
+    "name": "intSrvFlowMinTU",
+    "oid": "1.3.6.1.2.1.52.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageSize",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowMaxTU": {
+    "name": "intSrvFlowMaxTU",
+    "oid": "1.3.6.1.2.1.52.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageSize",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowBestEffort": {
+    "name": "intSrvFlowBestEffort",
+    "oid": "1.3.6.1.2.1.52.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSrvFlowPoliced": {
+    "name": "intSrvFlowPoliced",
+    "oid": "1.3.6.1.2.1.52.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSrvFlowDiscard": {
+    "name": "intSrvFlowDiscard",
+    "oid": "1.3.6.1.2.1.52.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowService": {
+    "name": "intSrvFlowService",
+    "oid": "1.3.6.1.2.1.52.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosService",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "intSrvFlowOrder": {
+    "name": "intSrvFlowOrder",
+    "oid": "1.3.6.1.2.1.52.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowStatus": {
+    "name": "intSrvFlowStatus",
+    "oid": "1.3.6.1.2.1.52.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvFlowNewIndex": {
+    "name": "intSrvFlowNewIndex",
+    "oid": "1.3.6.1.2.1.52.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "intSrvGroups": {
+    "name": "intSrvGroups",
+    "oid": "1.3.6.1.2.1.52.4.1",
+    "class": "objectidentity"
+  },
+  "intSrvCompliances": {
+    "name": "intSrvCompliances",
+    "oid": "1.3.6.1.2.1.52.4.2",
+    "class": "objectidentity"
+  },
+  "intSrvCompliance": {
+    "name": "intSrvCompliance",
+    "oid": "1.3.6.1.2.1.52.4.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "intSrvIfAttribGroup",
+        "module": "INTEGRATED-SERVICES-MIB"
+      },
+      {
+        "object": "intSrvFlowsGroup",
+        "module": "INTEGRATED-SERVICES-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "intSrvIfAttribGroup": {
+    "name": "intSrvIfAttribGroup",
+    "oid": "1.3.6.1.2.1.52.4.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvIfAttribAllocatedBits"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvIfAttribMaxAllocatedBits"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvIfAttribAllocatedBuffer"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvIfAttribFlows"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvIfAttribPropagationDelay"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvIfAttribStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "intSrvFlowsGroup": {
+    "name": "intSrvFlowsGroup",
+    "oid": "1.3.6.1.2.1.52.4.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowType"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowOwner"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowDestAddr"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowSenderAddr"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowDestAddrLength"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowSenderAddrLength"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowProtocol"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowDestPort"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowPort"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowInterface"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowBestEffort"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowRate"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowBurst"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowWeight"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowQueue"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowMinTU"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowDiscard"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowPoliced"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowService"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowIfAddr"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowOrder"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowStatus"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowFlowId"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-MIB",
+        "object": "intSrvFlowMaxTU"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/INTEGRATED-SERVICES-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:33 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "INTEGRATED-SERVICES-MIB"
+  }
+}

@@ -1,0 +1,522 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-FCPING-MIB": [
+      "FcStartOper"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-ST-TC": [
+      "FcAddressType",
+      "FcNameId",
+      "VsanIndex",
+      "FcAddress"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoFcTraceRouteMIB": {
+    "name": "ciscoFcTraceRouteMIB",
+    "oid": "1.3.6.1.4.1.9.9.296",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-10-07 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoFcTraceRouteMIBObjects": {
+    "name": "ciscoFcTraceRouteMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.296.1",
+    "class": "objectidentity"
+  },
+  "fcTraceRouteMIBConformance": {
+    "name": "fcTraceRouteMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.296.2",
+    "class": "objectidentity"
+  },
+  "fcTraceRouteConfiguration": {
+    "name": "fcTraceRouteConfiguration",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1",
+    "class": "objectidentity"
+  },
+  "fcTraceRouteResults": {
+    "name": "fcTraceRouteResults",
+    "oid": "1.3.6.1.4.1.9.9.296.1.2",
+    "class": "objectidentity"
+  },
+  "fcTraceRouteNotification": {
+    "name": "fcTraceRouteNotification",
+    "oid": "1.3.6.1.4.1.9.9.296.1.3",
+    "class": "objectidentity"
+  },
+  "fcTraceRouteNotifications": {
+    "name": "fcTraceRouteNotifications",
+    "oid": "1.3.6.1.4.1.9.9.296.1.3.0",
+    "class": "objectidentity"
+  },
+  "fcTraceRouteTable": {
+    "name": "fcTraceRouteTable",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcTraceRouteEntry": {
+    "name": "fcTraceRouteEntry",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcTraceRouteIndex": {
+    "name": "fcTraceRouteIndex",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcTraceRouteVsanIndex": {
+    "name": "fcTraceRouteVsanIndex",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VsanIndex",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcTraceRouteTargetAddrType": {
+    "name": "fcTraceRouteTargetAddrType",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "wwn",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcTraceRouteTargetAddr": {
+    "name": "fcTraceRouteTargetAddr",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcTraceRouteTimeout": {
+    "name": "fcTraceRouteTimeout",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcTraceRouteAdminStatus": {
+    "name": "fcTraceRouteAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcStartOper",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcTraceRouteOperStatus": {
+    "name": "fcTraceRouteOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inProgress": 1,
+          "success": 2,
+          "partialSuccess": 3,
+          "failure": 4,
+          "disabled": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcTraceRouteAgeInterval": {
+    "name": "fcTraceRouteAgeInterval",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500000,
+            "max": 900000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcTraceRouteTrapOnCompletion": {
+    "name": "fcTraceRouteTrapOnCompletion",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcTraceRouteRowStatus": {
+    "name": "fcTraceRouteRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.296.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "fcTraceRouteHopsTable": {
+    "name": "fcTraceRouteHopsTable",
+    "oid": "1.3.6.1.4.1.9.9.296.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcTraceRouteHopsEntry": {
+    "name": "fcTraceRouteHopsEntry",
+    "oid": "1.3.6.1.4.1.9.9.296.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteHopsHopIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "fcTraceRouteHopsHopIndex": {
+    "name": "fcTraceRouteHopsHopIndex",
+    "oid": "1.3.6.1.4.1.9.9.296.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "fcTraceRouteHopsHopAddr": {
+    "name": "fcTraceRouteHopsHopAddr",
+    "oid": "1.3.6.1.4.1.9.9.296.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FcNameId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcTraceRouteHopsHopLatencyValid": {
+    "name": "fcTraceRouteHopsHopLatencyValid",
+    "oid": "1.3.6.1.4.1.9.9.296.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcTraceRouteHopsHopLatency": {
+    "name": "fcTraceRouteHopsHopLatency",
+    "oid": "1.3.6.1.4.1.9.9.296.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 25000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "fcTraceRouteCompletionNotify": {
+    "name": "fcTraceRouteCompletionNotify",
+    "oid": "1.3.6.1.4.1.9.9.296.1.3.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteTargetAddr"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fcTraceRouteMIBCompliances": {
+    "name": "fcTraceRouteMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.296.2.1",
+    "class": "objectidentity"
+  },
+  "fcTraceRouteMIBGroups": {
+    "name": "fcTraceRouteMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.296.2.2",
+    "class": "objectidentity"
+  },
+  "fcTraceRouteMIBCompliance": {
+    "name": "fcTraceRouteMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.296.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "fcTraceRouteConfigGroup",
+        "module": "CISCO-FCTRACEROUTE-MIB"
+      },
+      {
+        "object": "fcTraceRouteResultsGroup",
+        "module": "CISCO-FCTRACEROUTE-MIB"
+      },
+      {
+        "object": "fcTraceRouteNotifyGroup",
+        "module": "CISCO-FCTRACEROUTE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "fcTraceRouteConfigGroup": {
+    "name": "fcTraceRouteConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.296.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteVsanIndex"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteTargetAddrType"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteTargetAddr"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteTimeout"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteAdminStatus"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteOperStatus"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteAgeInterval"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteTrapOnCompletion"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "fcTraceRouteResultsGroup": {
+    "name": "fcTraceRouteResultsGroup",
+    "oid": "1.3.6.1.4.1.9.9.296.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteHopsHopAddr"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteHopsHopLatencyValid"
+      },
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteHopsHopLatency"
+      }
+    ],
+    "status": "current"
+  },
+  "fcTraceRouteNotifyGroup": {
+    "name": "fcTraceRouteNotifyGroup",
+    "oid": "1.3.6.1.4.1.9.9.296.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FCTRACEROUTE-MIB",
+        "object": "fcTraceRouteCompletionNotify"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FCTRACEROUTE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FCTRACEROUTE-MIB"
+  }
+}

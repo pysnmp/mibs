@@ -1,0 +1,5645 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-USER-BASED-SM-MIB": [
+      "KeyChange"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MibIdentifier",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Gauge32",
+      "Bits",
+      "TRAP-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "IpAddress",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "aten": {
+    "name": "aten",
+    "oid": "1.3.6.1.4.1.21317",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-10-31 11:10",
+        "description": "updated mib to pass smilint level 3"
+      }
+    ]
+  },
+  "atenProducts": {
+    "name": "atenProducts",
+    "oid": "1.3.6.1.4.1.21317.1",
+    "class": "objectidentity"
+  },
+  "overip": {
+    "name": "overip",
+    "oid": "1.3.6.1.4.1.21317.1.3",
+    "class": "objectidentity"
+  },
+  "poweroverip": {
+    "name": "poweroverip",
+    "oid": "1.3.6.1.4.1.21317.1.3.2",
+    "class": "objectidentity"
+  },
+  "pe": {
+    "name": "pe",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2",
+    "class": "objectidentity"
+  },
+  "userManagement": {
+    "name": "userManagement",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1",
+    "class": "objectidentity"
+  },
+  "control": {
+    "name": "control",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2",
+    "class": "objectidentity"
+  },
+  "device": {
+    "name": "device",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1",
+    "class": "objectidentity"
+  },
+  "doorSensor": {
+    "name": "doorSensor",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.16",
+    "class": "objectidentity"
+  },
+  "pop": {
+    "name": "pop",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.17",
+    "class": "objectidentity"
+  },
+  "cap": {
+    "name": "cap",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.18",
+    "class": "objectidentity"
+  },
+  "outlet": {
+    "name": "outlet",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2",
+    "class": "objectidentity"
+  },
+  "bank": {
+    "name": "bank",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3",
+    "class": "objectidentity"
+  },
+  "deviceManagement": {
+    "name": "deviceManagement",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3",
+    "class": "objectidentity"
+  },
+  "config": {
+    "name": "config",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4",
+    "class": "objectidentity"
+  },
+  "dashBoard": {
+    "name": "dashBoard",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.4",
+    "class": "objectidentity"
+  },
+  "servicePorts": {
+    "name": "servicePorts",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.5",
+    "class": "objectidentity"
+  },
+  "ipv4config": {
+    "name": "ipv4config",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.6",
+    "class": "objectidentity"
+  },
+  "eventNotification": {
+    "name": "eventNotification",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7",
+    "class": "objectidentity"
+  },
+  "devicesnmp": {
+    "name": "devicesnmp",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1",
+    "class": "objectidentity"
+  },
+  "syslog": {
+    "name": "syslog",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.2",
+    "class": "objectidentity"
+  },
+  "smtp": {
+    "name": "smtp",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.3",
+    "class": "objectidentity"
+  },
+  "configurationNotification": {
+    "name": "configurationNotification",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.9",
+    "class": "objectidentity"
+  },
+  "dateTime": {
+    "name": "dateTime",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8",
+    "class": "objectidentity"
+  },
+  "timeZone": {
+    "name": "timeZone",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.1",
+    "class": "objectidentity"
+  },
+  "manualInput": {
+    "name": "manualInput",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.2",
+    "class": "objectidentity"
+  },
+  "networkTime": {
+    "name": "networkTime",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.3",
+    "class": "objectidentity"
+  },
+  "devicesecurity": {
+    "name": "devicesecurity",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5",
+    "class": "objectidentity"
+  },
+  "loginFailures": {
+    "name": "loginFailures",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.1",
+    "class": "objectidentity"
+  },
+  "workingMode": {
+    "name": "workingMode",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.2",
+    "class": "objectidentity"
+  },
+  "accountPolicy": {
+    "name": "accountPolicy",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.3",
+    "class": "objectidentity"
+  },
+  "loginRestriction": {
+    "name": "loginRestriction",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4",
+    "class": "objectidentity"
+  },
+  "ipFilter": {
+    "name": "ipFilter",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.2",
+    "class": "objectidentity"
+  },
+  "macFilter": {
+    "name": "macFilter",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.3",
+    "class": "objectidentity"
+  },
+  "authentication": {
+    "name": "authentication",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.5",
+    "class": "objectidentity"
+  },
+  "radius": {
+    "name": "radius",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.5.1",
+    "class": "objectidentity"
+  },
+  "modelName": {
+    "name": "modelName",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceName": {
+    "name": "deviceName",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceValueTable": {
+    "name": "deviceValueTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "deviceValueEntry": {
+    "name": "deviceValueEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "deviceValueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deviceValueIndex": {
+    "name": "deviceValueIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputMaxVoltage": {
+    "name": "inputMaxVoltage",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputMaxCurrent": {
+    "name": "inputMaxCurrent",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "powerCapacity": {
+    "name": "powerCapacity",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "devicePowerFactor": {
+    "name": "devicePowerFactor",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceOutletStatusTable": {
+    "name": "deviceOutletStatusTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "deviceOutletStatusEntry": {
+    "name": "deviceOutletStatusEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "deviceOutletStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deviceOutletStatusIndex": {
+    "name": "deviceOutletStatusIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "displayOutletStatus": {
+    "name": "displayOutletStatus",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "fault": 4,
+          "noauth": 5,
+          "not-support": 6,
+          "pop": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceConfigTable": {
+    "name": "deviceConfigTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "deviceConfigEntry": {
+    "name": "deviceConfigEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "deviceConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deviceConfigIndex": {
+    "name": "deviceConfigIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceMinCurMT": {
+    "name": "deviceMinCurMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceMaxCurMT": {
+    "name": "deviceMaxCurMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceMinVolMT": {
+    "name": "deviceMinVolMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 900,
+            "max": 2600
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceMaxVolMT": {
+    "name": "deviceMaxVolMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 900,
+            "max": 2600
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceMinPMT": {
+    "name": "deviceMinPMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceMaxPMT": {
+    "name": "deviceMaxPMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceMaxPDMT": {
+    "name": "deviceMaxPDMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999990
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceSensorTresholdTable": {
+    "name": "deviceSensorTresholdTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "deviceSensorTresholdEntry": {
+    "name": "deviceSensorTresholdEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "deviceSensorTresholdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deviceSensorTresholdIndex": {
+    "name": "deviceSensorTresholdIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorMinTempMT": {
+    "name": "sensorMinTempMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 600
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensorMaxTempMT": {
+    "name": "sensorMaxTempMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -200,
+            "max": 600
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensorMinHumMT": {
+    "name": "sensorMinHumMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 150,
+            "max": 950
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensorMaxHumMT": {
+    "name": "sensorMaxHumMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 150,
+            "max": 950
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensorMinPressMT": {
+    "name": "sensorMinPressMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2500,
+            "max": 2500
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sensorMaxPressMT": {
+    "name": "sensorMaxPressMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2500,
+            "max": 2500
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceOutletControl": {
+    "name": "deviceOutletControl",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "nostatus": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceOutletReboot": {
+    "name": "deviceOutletReboot",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "switchable": {
+    "name": "switchable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2,
+          "mix": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "perportreading": {
+    "name": "perportreading",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensornumber": {
+    "name": "sensornumber",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletnumber": {
+    "name": "outletnumber",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "banknumber": {
+    "name": "banknumber",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "doorSensorStatus": {
+    "name": "doorSensorStatus",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.16.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "close": 0,
+          "open": 1,
+          "not-attached": 2,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "doorSensorType": {
+    "name": "doorSensorType",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.16.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notinstalled": 0,
+          "photo": 1,
+          "inductiveproximity": 2,
+          "reed": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enablePOPmode": {
+    "name": "enablePOPmode",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.17.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "popThreshold": {
+    "name": "popThreshold",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.17.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enableOutletPOPmode": {
+    "name": "enableOutletPOPmode",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.17.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2,
+          "not-support": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enableLIFOPOPmode": {
+    "name": "enableLIFOPOPmode",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.17.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2,
+          "not-support": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enablePriorityPOPmode": {
+    "name": "enablePriorityPOPmode",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.17.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2,
+          "not-support": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "enableCAPmode": {
+    "name": "enableCAPmode",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.18.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCAPTable": {
+    "name": "outletCAPTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.18.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletCAPEntry": {
+    "name": "outletCAPEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.18.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "outletCAPIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletCAPIndex": {
+    "name": "outletCAPIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.18.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletCAPPriority": {
+    "name": "outletCAPPriority",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.18.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletInitMode": {
+    "name": "outletInitMode",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no-delaytime": 1,
+          "delaytime": 2,
+          "not-support": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "deviceIntegerValueTable": {
+    "name": "deviceIntegerValueTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.99",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "deviceIntegerValueEntry": {
+    "name": "deviceIntegerValueEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.99.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "deviceIntegerValueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "deviceIntegerValueIndex": {
+    "name": "deviceIntegerValueIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.99.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceIntegerCurrent": {
+    "name": "deviceIntegerCurrent",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.99.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceIntegerVoltage": {
+    "name": "deviceIntegerVoltage",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.99.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceIntegerPower": {
+    "name": "deviceIntegerPower",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.99.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceIntegerPowerDissipation": {
+    "name": "deviceIntegerPowerDissipation",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.99.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorIntegerValueTable": {
+    "name": "sensorIntegerValueTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.100",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sensorIntegerValueEntry": {
+    "name": "sensorIntegerValueEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.100.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "sensorIntegerValueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sensorIntegerValueIndex": {
+    "name": "sensorIntegerValueIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.100.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorIntegerTemperature": {
+    "name": "sensorIntegerTemperature",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.100.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorIntegerHumidity": {
+    "name": "sensorIntegerHumidity",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.100.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sensorIntegerPressure": {
+    "name": "sensorIntegerPressure",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.1.100.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletValueTable": {
+    "name": "outletValueTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletValueEntry": {
+    "name": "outletValueEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "outletValueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletValueIndex": {
+    "name": "outletValueIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletMaxCurrent": {
+    "name": "outletMaxCurrent",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletPowerFactor": {
+    "name": "outletPowerFactor",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outlet1Status": {
+    "name": "outlet1Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet2Status": {
+    "name": "outlet2Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet3Status": {
+    "name": "outlet3Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet4Status": {
+    "name": "outlet4Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet5Status": {
+    "name": "outlet5Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet6Status": {
+    "name": "outlet6Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet7Status": {
+    "name": "outlet7Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet8Status": {
+    "name": "outlet8Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet9Status": {
+    "name": "outlet9Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet10Status": {
+    "name": "outlet10Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet11Status": {
+    "name": "outlet11Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet12Status": {
+    "name": "outlet12Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet13Status": {
+    "name": "outlet13Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet14Status": {
+    "name": "outlet14Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet15Status": {
+    "name": "outlet15Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet16Status": {
+    "name": "outlet16Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet17Status": {
+    "name": "outlet17Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet18Status": {
+    "name": "outlet18Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet19Status": {
+    "name": "outlet19Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet20Status": {
+    "name": "outlet20Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet21Status": {
+    "name": "outlet21Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet22Status": {
+    "name": "outlet22Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet23Status": {
+    "name": "outlet23Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet24Status": {
+    "name": "outlet24Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet25Status": {
+    "name": "outlet25Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet26Status": {
+    "name": "outlet26Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet27Status": {
+    "name": "outlet27Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet28Status": {
+    "name": "outlet28Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet29Status": {
+    "name": "outlet29Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet30Status": {
+    "name": "outlet30Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet31Status": {
+    "name": "outlet31Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet32Status": {
+    "name": "outlet32Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet33Status": {
+    "name": "outlet33Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet34Status": {
+    "name": "outlet34Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet35Status": {
+    "name": "outlet35Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet36Status": {
+    "name": "outlet36Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet37Status": {
+    "name": "outlet37Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet38Status": {
+    "name": "outlet38Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet39Status": {
+    "name": "outlet39Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet40Status": {
+    "name": "outlet40Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet41Status": {
+    "name": "outlet41Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outlet42Status": {
+    "name": "outlet42Status",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "pending": 3,
+          "reboot": 4,
+          "fault": 5,
+          "noauth": 6,
+          "not-support": 7,
+          "pop": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletSwitchableTable": {
+    "name": "outletSwitchableTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.70",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletSwitchableEntry": {
+    "name": "outletSwitchableEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.70.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "outletSwitchableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletSwitchableIndex": {
+    "name": "outletSwitchableIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.70.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletSwitchable": {
+    "name": "outletSwitchable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.70.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletIntegerValueTable": {
+    "name": "outletIntegerValueTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.99",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletIntegerValueEntry": {
+    "name": "outletIntegerValueEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.99.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "outletIntegerValueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletIntegerValueIndex": {
+    "name": "outletIntegerValueIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.99.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletIntegerCurrent": {
+    "name": "outletIntegerCurrent",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.99.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletIntegerVoltage": {
+    "name": "outletIntegerVoltage",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.99.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletIntegerPower": {
+    "name": "outletIntegerPower",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.99.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletIntegerPowerDissipation": {
+    "name": "outletIntegerPowerDissipation",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.99.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletConfigTable": {
+    "name": "outletConfigTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletConfigEntry": {
+    "name": "outletConfigEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "outletConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletConfigIndex": {
+    "name": "outletConfigIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletName": {
+    "name": "outletName",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletConfirmation": {
+    "name": "outletConfirmation",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2,
+          "noauth": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletOnDelayTime": {
+    "name": "outletOnDelayTime",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          },
+          {
+            "min": -1,
+            "max": -1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletOffDelayTime": {
+    "name": "outletOffDelayTime",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          },
+          {
+            "min": -1,
+            "max": -1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletShutdownMethod": {
+    "name": "outletShutdownMethod",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kill-the-power": 1,
+          "wake-on-lan": 2,
+          "after-ac-back": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletMAC": {
+    "name": "outletMAC",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletMinCurMT": {
+    "name": "outletMinCurMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletMaxCurMT": {
+    "name": "outletMaxCurMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletMinVolMT": {
+    "name": "outletMinVolMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 900,
+            "max": 2600
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          },
+          {
+            "min": -2000000,
+            "max": -2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletMaxVolMT": {
+    "name": "outletMaxVolMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 900,
+            "max": 2600
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          },
+          {
+            "min": -2000000,
+            "max": -2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletMinPMT": {
+    "name": "outletMinPMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          },
+          {
+            "min": -2000000,
+            "max": -2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletMaxPMT": {
+    "name": "outletMaxPMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          },
+          {
+            "min": -2000000,
+            "max": -2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletMaxPDMT": {
+    "name": "outletMaxPDMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.2.10.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999990
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          },
+          {
+            "min": -2000000,
+            "max": -2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "breakerStatusTable": {
+    "name": "breakerStatusTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "breakerStatusEntry": {
+    "name": "breakerStatusEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "breakerStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "breakerStatusIndex": {
+    "name": "breakerStatusIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "breakerStatus": {
+    "name": "breakerStatus",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "not-support": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankValueTable": {
+    "name": "bankValueTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bankValueEntry": {
+    "name": "bankValueEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "bankValueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bankValueIndex": {
+    "name": "bankValueIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankMaxCurrent": {
+    "name": "bankMaxCurrent",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankAttachStatus": {
+    "name": "bankAttachStatus",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noattached": 1,
+          "attached": 2,
+          "error": 3,
+          "noexisted": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankPowerFactor": {
+    "name": "bankPowerFactor",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankConfigTable": {
+    "name": "bankConfigTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bankConfigEntry": {
+    "name": "bankConfigEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "bankConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bankConfigIndex": {
+    "name": "bankConfigIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankName": {
+    "name": "bankName",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bankMinCurMT": {
+    "name": "bankMinCurMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bankMaxCurMT": {
+    "name": "bankMaxCurMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bankMinVolMT": {
+    "name": "bankMinVolMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 900,
+            "max": 2600
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          },
+          {
+            "min": -2000000,
+            "max": -2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bankMaxVolMT": {
+    "name": "bankMaxVolMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 900,
+            "max": 2600
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          },
+          {
+            "min": -2000000,
+            "max": -2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bankMinPMT": {
+    "name": "bankMinPMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          },
+          {
+            "min": -2000000,
+            "max": -2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bankMaxPMT": {
+    "name": "bankMaxPMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          },
+          {
+            "min": -2000000,
+            "max": -2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bankMaxPDMT": {
+    "name": "bankMaxPDMT",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999990
+          },
+          {
+            "min": -3000,
+            "max": -3000
+          },
+          {
+            "min": -2000000,
+            "max": -2000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bankControlTable": {
+    "name": "bankControlTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bankControlEntry": {
+    "name": "bankControlEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "bankControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bankControlIndex": {
+    "name": "bankControlIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankControlStatus": {
+    "name": "bankControlStatus",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "reboot": 3,
+          "nostatus": 4,
+          "not-support": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "bankIntegerValueTable": {
+    "name": "bankIntegerValueTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.99",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "bankIntegerValueEntry": {
+    "name": "bankIntegerValueEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.99.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "bankIntegerValueIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "bankIntegerValueIndex": {
+    "name": "bankIntegerValueIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.99.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankIntegerCurrent": {
+    "name": "bankIntegerCurrent",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.99.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankIntegerVoltage": {
+    "name": "bankIntegerVoltage",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.99.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankIntegerPower": {
+    "name": "bankIntegerPower",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.99.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bankIntegerPowerDissipation": {
+    "name": "bankIntegerPowerDissipation",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.2.3.99.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceMAC": {
+    "name": "deviceMAC",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceIPv4": {
+    "name": "deviceIPv4",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "deviceFWversion": {
+    "name": "deviceFWversion",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dashboardRow": {
+    "name": "dashboardRow",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dashboardColumn": {
+    "name": "dashboardColumn",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 26
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dashboardRackName": {
+    "name": "dashboardRackName",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "httpPort": {
+    "name": "httpPort",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "httpsPort": {
+    "name": "httpsPort",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "httpsOnlyEnable": {
+    "name": "httpsOnlyEnable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "staticIPEnabled": {
+    "name": "staticIPEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fixedIPv4": {
+    "name": "fixedIPv4",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "subnetMask": {
+    "name": "subnetMask",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "gateway": {
+    "name": "gateway",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "staticDNSEnabled": {
+    "name": "staticDNSEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsPreferIPv4": {
+    "name": "dnsPreferIPv4",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dnsAlternateIPv4": {
+    "name": "dnsAlternateIPv4",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapEnabled": {
+    "name": "trapEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapVersion": {
+    "name": "trapVersion",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "v1": 1,
+          "v2c": 2,
+          "v3": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTrapTable": {
+    "name": "snmpTrapTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "snmpTrapEntry": {
+    "name": "snmpTrapEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "trapReceiverNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "trapReceiverNumber": {
+    "name": "trapReceiverNumber",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "trapReceiverIPAddress": {
+    "name": "trapReceiverIPAddress",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapPort": {
+    "name": "trapPort",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapCommunity": {
+    "name": "trapCommunity",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapUsername": {
+    "name": "trapUsername",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapAuthpassword": {
+    "name": "trapAuthpassword",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "trapPrivpassword": {
+    "name": "trapPrivpassword",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLogServerEnabled": {
+    "name": "sysLogServerEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLogServerIPv4": {
+    "name": "sysLogServerIPv4",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysLogServerPort": {
+    "name": "sysLogServerPort",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "smtpServerEnabled": {
+    "name": "smtpServerEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "smtpServerName": {
+    "name": "smtpServerName",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "smtpAuthEnabled": {
+    "name": "smtpAuthEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "smtpAccountName": {
+    "name": "smtpAccountName",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "smtpAccountPwd": {
+    "name": "smtpAccountPwd",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "smtpMailFrom": {
+    "name": "smtpMailFrom",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "smtpMailTo": {
+    "name": "smtpMailTo",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configurationNotifyEnabled": {
+    "name": "configurationNotifyEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "configurationNotifyTrapMSG": {
+    "name": "configurationNotifyTrapMSG",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.7.9.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "timeZoneSetting": {
+    "name": "timeZoneSetting",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dstEnabled": {
+    "name": "dstEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dateSetting": {
+    "name": "dateSetting",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "timeSetting": {
+    "name": "timeSetting",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "autoAdjustEnabled": {
+    "name": "autoAdjustEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "preferNTP": {
+    "name": "preferNTP",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "preferServerIPenable": {
+    "name": "preferServerIPenable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "preferNTPIp": {
+    "name": "preferNTPIp",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alternateNtpEnabled": {
+    "name": "alternateNtpEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alternateNtp": {
+    "name": "alternateNtp",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alternateServerIPenable": {
+    "name": "alternateServerIPenable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alternateNtpIp": {
+    "name": "alternateNtpIp",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adjustTimeEveryDays": {
+    "name": "adjustTimeEveryDays",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.4.8.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "loginAllowTimes": {
+    "name": "loginAllowTimes",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "loginTimeOut": {
+    "name": "loginTimeOut",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 240
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "icmpEnabled": {
+    "name": "icmpEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "minUserNameLen": {
+    "name": "minUserNameLen",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "minUserPwdLen": {
+    "name": "minUserPwdLen",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "upperCaseEnabled": {
+    "name": "upperCaseEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lowerCaseEnabled": {
+    "name": "lowerCaseEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "numberEnabled": {
+    "name": "numberEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "disableDuplicateLogin": {
+    "name": "disableDuplicateLogin",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "loginString": {
+    "name": "loginString",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipFilterEnabled": {
+    "name": "ipFilterEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipFilterRule": {
+    "name": "ipFilterRule",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipFilterTable": {
+    "name": "ipFilterTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipFilterEntry": {
+    "name": "ipFilterEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "ipFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipFilterIndex": {
+    "name": "ipFilterIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipFilterFrom": {
+    "name": "ipFilterFrom",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipFilterTo": {
+    "name": "ipFilterTo",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "macFilterEnabled": {
+    "name": "macFilterEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "macFilterRule": {
+    "name": "macFilterRule",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "include": 1,
+          "exclude": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "macFilterTable": {
+    "name": "macFilterTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "macFilterEntry": {
+    "name": "macFilterEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "macFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "macFilterIndex": {
+    "name": "macFilterIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "macFilterSet": {
+    "name": "macFilterSet",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.4.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radiusEnabled": {
+    "name": "radiusEnabled",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "preferRadiusIp": {
+    "name": "preferRadiusIp",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "preferRadiusPort": {
+    "name": "preferRadiusPort",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alternateRadiusIp": {
+    "name": "alternateRadiusIp",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alternateRadiusPort": {
+    "name": "alternateRadiusPort",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radiusTimeOut": {
+    "name": "radiusTimeOut",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radiusRetry": {
+    "name": "radiusRetry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radiusSecret": {
+    "name": "radiusSecret",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.3.5.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrListTable": {
+    "name": "usrListTable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "usrListEntry": {
+    "name": "usrListEntry",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ATEN-PE-CFG",
+        "object": "usrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "usrIndex": {
+    "name": "usrIndex",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usrType": {
+    "name": "usrType",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "administrator": 1,
+          "user": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usrName": {
+    "name": "usrName",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPassword": {
+    "name": "usrPassword",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort1Auth": {
+    "name": "usrPort1Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort2Auth": {
+    "name": "usrPort2Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort3Auth": {
+    "name": "usrPort3Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort4Auth": {
+    "name": "usrPort4Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort5Auth": {
+    "name": "usrPort5Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort6Auth": {
+    "name": "usrPort6Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort7Auth": {
+    "name": "usrPort7Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort8Auth": {
+    "name": "usrPort8Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrEnable": {
+    "name": "usrEnable",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort9Auth": {
+    "name": "usrPort9Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort10Auth": {
+    "name": "usrPort10Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort11Auth": {
+    "name": "usrPort11Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort12Auth": {
+    "name": "usrPort12Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort13Auth": {
+    "name": "usrPort13Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort14Auth": {
+    "name": "usrPort14Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort15Auth": {
+    "name": "usrPort15Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort16Auth": {
+    "name": "usrPort16Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort17Auth": {
+    "name": "usrPort17Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort18Auth": {
+    "name": "usrPort18Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort19Auth": {
+    "name": "usrPort19Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort20Auth": {
+    "name": "usrPort20Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort21Auth": {
+    "name": "usrPort21Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort22Auth": {
+    "name": "usrPort22Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort23Auth": {
+    "name": "usrPort23Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort24Auth": {
+    "name": "usrPort24Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort25Auth": {
+    "name": "usrPort25Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort26Auth": {
+    "name": "usrPort26Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort27Auth": {
+    "name": "usrPort27Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort28Auth": {
+    "name": "usrPort28Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort29Auth": {
+    "name": "usrPort29Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort30Auth": {
+    "name": "usrPort30Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort31Auth": {
+    "name": "usrPort31Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort32Auth": {
+    "name": "usrPort32Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort33Auth": {
+    "name": "usrPort33Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort34Auth": {
+    "name": "usrPort34Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort35Auth": {
+    "name": "usrPort35Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort36Auth": {
+    "name": "usrPort36Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort37Auth": {
+    "name": "usrPort37Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort38Auth": {
+    "name": "usrPort38Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort39Auth": {
+    "name": "usrPort39Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort40Auth": {
+    "name": "usrPort40Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort41Auth": {
+    "name": "usrPort41Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "usrPort42Auth": {
+    "name": "usrPort42Auth",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.1.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "view": 2,
+          "modify": 3,
+          "not-support": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "customTrapMSG": {
+    "name": "customTrapMSG",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "rebootDevice": {
+    "name": "rebootDevice",
+    "oid": "1.3.6.1.4.1.21317.1.3.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aten/ATEN-PE-CFG_int.mib",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ATEN-PE-CFG"
+  }
+}

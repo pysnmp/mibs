@@ -1,0 +1,4334 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleV2Mgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleV2EponIM": {
+    "name": "sleV2EponIM",
+    "oid": "1.3.6.1.4.1.6296.102.15",
+    "class": "moduleidentity"
+  },
+  "EponOnuState": {
+    "name": "EponOnuState",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    }
+  },
+  "EponPortType": {
+    "name": "EponPortType",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nni": 1,
+          "mgmt": 2,
+          "uni": 3,
+          "pon": 4,
+          "aggr": 5,
+          "llid": 6
+        }
+      }
+    }
+  },
+  "EponOnuLinkStatus": {
+    "name": "EponOnuLinkStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    }
+  },
+  "EponOnuStatus": {
+    "name": "EponOnuStatus",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "registered": 1,
+          "deregistered": 2,
+          "discovered": 3,
+          "lost": 4
+        }
+      }
+    }
+  },
+  "sleV2EponIMOnu": {
+    "name": "sleV2EponIMOnu",
+    "oid": "1.3.6.1.4.1.6296.102.15.1",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuBase": {
+    "name": "sleV2EponIMOnuBase",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuInfo": {
+    "name": "sleV2EponIMOnuInfo",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuConfigMask": {
+    "name": "sleV2EponIMOnuConfigMask",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuConfigData": {
+    "name": "sleV2EponIMOnuConfigData",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuRegistered": {
+    "name": "sleV2EponIMOnuRegistered",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuAuthenticated": {
+    "name": "sleV2EponIMOnuAuthenticated",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuImageVersion": {
+    "name": "sleV2EponIMOnuImageVersion",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLoadVersion": {
+    "name": "sleV2EponIMOnuLoadVersion",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuChipVersion": {
+    "name": "sleV2EponIMOnuChipVersion",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuSerialNumber": {
+    "name": "sleV2EponIMOnuSerialNumber",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuRxOpticPower": {
+    "name": "sleV2EponIMOnuRxOpticPower",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMRegInfoOltId": {
+    "name": "sleV2EponIMRegInfoOltId",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMRegInfoOltLlidPort": {
+    "name": "sleV2EponIMRegInfoOltLlidPort",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMRegInfoOltPonPort": {
+    "name": "sleV2EponIMRegInfoOltPonPort",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMRegInfoOnuMacAddress": {
+    "name": "sleV2EponIMRegInfoOnuMacAddress",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMRegInfoOnuLlid": {
+    "name": "sleV2EponIMRegInfoOnuLlid",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuId": {
+    "name": "sleV2EponIMOnuId",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuSecret": {
+    "name": "sleV2EponIMOnuSecret",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuVendorCode": {
+    "name": "sleV2EponIMOnuVendorCode",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuAuthTimer": {
+    "name": "sleV2EponIMOnuAuthTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuAuthTimeoutTimer": {
+    "name": "sleV2EponIMOnuAuthTimeoutTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15360
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuAuthRejectTimer": {
+    "name": "sleV2EponIMOnuAuthRejectTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15360
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuAutoUpgrade": {
+    "name": "sleV2EponIMOnuAutoUpgrade",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuForceOpticPowerOff": {
+    "name": "sleV2EponIMOnuForceOpticPowerOff",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuOpticButtonPushed": {
+    "name": "sleV2EponIMOnuOpticButtonPushed",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControl": {
+    "name": "sleV2EponIMOnuControl",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuControlRequest": {
+    "name": "sleV2EponIMOnuControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setOnuSecret": 1,
+          "setOnuVendorCode": 2,
+          "setOnuAuthTimer": 3,
+          "setOnuConfigApply": 4,
+          "setOnuAutoUpgrade": 5,
+          "setOnuForcePowerOff": 6,
+          "setOnuReset": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlStatus": {
+    "name": "sleV2EponIMOnuControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlTimer": {
+    "name": "sleV2EponIMOnuControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlTimeStamp": {
+    "name": "sleV2EponIMOnuControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlReqResult": {
+    "name": "sleV2EponIMOnuControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlSecret": {
+    "name": "sleV2EponIMOnuControlSecret",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlOnuVendorCode": {
+    "name": "sleV2EponIMOnuControlOnuVendorCode",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlAuthTimer": {
+    "name": "sleV2EponIMOnuControlAuthTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlAuthTimeoutTimer": {
+    "name": "sleV2EponIMOnuControlAuthTimeoutTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15360
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlAuthRejectTimer": {
+    "name": "sleV2EponIMOnuControlAuthRejectTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15360
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlAutoUpgrade": {
+    "name": "sleV2EponIMOnuControlAutoUpgrade",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuControlForceOpticPowerOff": {
+    "name": "sleV2EponIMOnuControlForceOpticPowerOff",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuNotification": {
+    "name": "sleV2EponIMOnuNotification",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.3",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuSecretChanged": {
+    "name": "sleV2EponIMOnuSecretChanged",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuSecret"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuVendorCodeChanged": {
+    "name": "sleV2EponIMOnuVendorCodeChanged",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuVendorCode"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuAuthTimerChanged": {
+    "name": "sleV2EponIMOnuAuthTimerChanged",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuAuthTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuAuthTimeoutTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuAuthRejectTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuConfigApplySetted": {
+    "name": "sleV2EponIMOnuConfigApplySetted",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuAutoUpgradeChanged": {
+    "name": "sleV2EponIMOnuAutoUpgradeChanged",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.3.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlAuthRejectTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuForcePowerOffChanged": {
+    "name": "sleV2EponIMOnuForcePowerOffChanged",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.3.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuForceOpticPowerOff"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuReset": {
+    "name": "sleV2EponIMOnuReset",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.1.3.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuFW": {
+    "name": "sleV2EponIMOnuFW",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuFWTable": {
+    "name": "sleV2EponIMOnuFWTable",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWEntry": {
+    "name": "sleV2EponIMOnuFWEntry",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWName": {
+    "name": "sleV2EponIMOnuFWName",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControl": {
+    "name": "sleV2EponIMOnuFWControl",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuFWControlRequest": {
+    "name": "sleV2EponIMOnuFWControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copyFirmware": 1,
+          "destroyFirmware": 2,
+          "updateFirmware": 3,
+          "commitFirmware": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControlStatus": {
+    "name": "sleV2EponIMOnuFWControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControlTimer": {
+    "name": "sleV2EponIMOnuFWControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControlTimeStamp": {
+    "name": "sleV2EponIMOnuFWControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControlReqResult": {
+    "name": "sleV2EponIMOnuFWControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControlServerIp": {
+    "name": "sleV2EponIMOnuFWControlServerIp",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControlUpDownFlag": {
+    "name": "sleV2EponIMOnuFWControlUpDownFlag",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "upload": 1,
+          "download": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControlUserId": {
+    "name": "sleV2EponIMOnuFWControlUserId",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControlPassword": {
+    "name": "sleV2EponIMOnuFWControlPassword",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControlFileName": {
+    "name": "sleV2EponIMOnuFWControlFileName",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWControlUpdateCommitTime": {
+    "name": "sleV2EponIMOnuFWControlUpdateCommitTime",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWNotification": {
+    "name": "sleV2EponIMOnuFWNotification",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.3",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuFWFirmwareCpSetted": {
+    "name": "sleV2EponIMOnuFWFirmwareCpSetted",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlServerIp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlUpDownFlag"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlUserId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlPassword"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWFirmwareDestroyed": {
+    "name": "sleV2EponIMOnuFWFirmwareDestroyed",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWFirmwareUpgradeSetted": {
+    "name": "sleV2EponIMOnuFWFirmwareUpgradeSetted",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlUpdateCommitTime"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlFileName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuFWFirmwareCommitSetted": {
+    "name": "sleV2EponIMOnuFWFirmwareCommitSetted",
+    "oid": "1.3.6.1.4.1.6296.102.15.1.2.3.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridge": {
+    "name": "sleV2EponIMOnuBridge",
+    "oid": "1.3.6.1.4.1.6296.102.15.2",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuPort": {
+    "name": "sleV2EponIMOnuPort",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuPortTable": {
+    "name": "sleV2EponIMOnuPortTable",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEntry": {
+    "name": "sleV2EponIMOnuPortEntry",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIndex": {
+    "name": "sleV2EponIMOnuPortIndex",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortId": {
+    "name": "sleV2EponIMOnuPortId",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortType": {
+    "name": "sleV2EponIMOnuPortType",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortAdminStatus": {
+    "name": "sleV2EponIMOnuPortAdminStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuLinkStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortOperStatus": {
+    "name": "sleV2EponIMOnuPortOperStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuLinkStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortLinkupTime": {
+    "name": "sleV2EponIMOnuPortLinkupTime",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortUpTime": {
+    "name": "sleV2EponIMOnuPortUpTime",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortFECtxEnable": {
+    "name": "sleV2EponIMOnuPortFECtxEnable",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortFECrxEnable": {
+    "name": "sleV2EponIMOnuPortFECrxEnable",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortLaserAlwaysOn": {
+    "name": "sleV2EponIMOnuPortLaserAlwaysOn",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortDropInMcastTraffic": {
+    "name": "sleV2EponIMOnuPortDropInMcastTraffic",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortDropInBcastTraffic": {
+    "name": "sleV2EponIMOnuPortDropInBcastTraffic",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortBlockDataTraffic": {
+    "name": "sleV2EponIMOnuPortBlockDataTraffic",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortControl": {
+    "name": "sleV2EponIMOnuPortControl",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.2",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuPortControlRequest": {
+    "name": "sleV2EponIMOnuPortControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "changeAdminStatus": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortControlStatus": {
+    "name": "sleV2EponIMOnuPortControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortControlTimer": {
+    "name": "sleV2EponIMOnuPortControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortControlTimeStamp": {
+    "name": "sleV2EponIMOnuPortControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortControlReqResult": {
+    "name": "sleV2EponIMOnuPortControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortControlAdminState": {
+    "name": "sleV2EponIMOnuPortControlAdminState",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortNotification": {
+    "name": "sleV2EponIMOnuPortNotification",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.3",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuPortAdminStateChanged": {
+    "name": "sleV2EponIMOnuPortAdminStateChanged",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeBase": {
+    "name": "sleV2EponIMOnuBridgeBase",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuBridgeInfo": {
+    "name": "sleV2EponIMOnuBridgeInfo",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.1",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuRxFlowCtrl": {
+    "name": "sleV2EponIMOnuRxFlowCtrl",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuTxFlowCtrl": {
+    "name": "sleV2EponIMOnuTxFlowCtrl",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFlowCtrlLowThreshold": {
+    "name": "sleV2EponIMOnuFlowCtrlLowThreshold",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuFlowCtrlHighThreshold": {
+    "name": "sleV2EponIMOnuFlowCtrlHighThreshold",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeControl": {
+    "name": "sleV2EponIMOnuBridgeControl",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.2",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuBridgeControlRequest": {
+    "name": "sleV2EponIMOnuBridgeControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setFlowControl": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeControlStatus": {
+    "name": "sleV2EponIMOnuBridgeControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeControlTimer": {
+    "name": "sleV2EponIMOnuBridgeControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeControlTimeStamp": {
+    "name": "sleV2EponIMOnuBridgeControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeControlReqResult": {
+    "name": "sleV2EponIMOnuBridgeControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeControlRxFlowCtrl": {
+    "name": "sleV2EponIMOnuBridgeControlRxFlowCtrl",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeControlTxFlowCtrl": {
+    "name": "sleV2EponIMOnuBridgeControlTxFlowCtrl",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeControlFlowCtrlLowThreshold": {
+    "name": "sleV2EponIMOnuBridgeControlFlowCtrlLowThreshold",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeControlFlowCtrlHighThreshold": {
+    "name": "sleV2EponIMOnuBridgeControlFlowCtrlHighThreshold",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuBridgeNotification": {
+    "name": "sleV2EponIMOnuBridgeNotification",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.3",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuBridgeFlowCtrlChagned": {
+    "name": "sleV2EponIMOnuBridgeFlowCtrlChagned",
+    "oid": "1.3.6.1.4.1.6296.102.15.2.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuRxFlowCtrl"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuTxFlowCtrl"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFlowCtrlLowThreshold"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFlowCtrlHighThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuStats": {
+    "name": "sleV2EponIMOnuStats",
+    "oid": "1.3.6.1.4.1.6296.102.15.3",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuPortStats": {
+    "name": "sleV2EponIMOnuPortStats",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuPortIfStatsTable": {
+    "name": "sleV2EponIMOnuPortIfStatsTable",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfStatsEntry": {
+    "name": "sleV2EponIMOnuPortIfStatsEntry",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfInOctets": {
+    "name": "sleV2EponIMOnuPortIfInOctets",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfInUnicast": {
+    "name": "sleV2EponIMOnuPortIfInUnicast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfInMulticast": {
+    "name": "sleV2EponIMOnuPortIfInMulticast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfInBroadcast": {
+    "name": "sleV2EponIMOnuPortIfInBroadcast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfInDiscards": {
+    "name": "sleV2EponIMOnuPortIfInDiscards",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfInErrors": {
+    "name": "sleV2EponIMOnuPortIfInErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfInUnknownProtos": {
+    "name": "sleV2EponIMOnuPortIfInUnknownProtos",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfOutOctets": {
+    "name": "sleV2EponIMOnuPortIfOutOctets",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfOutUnicast": {
+    "name": "sleV2EponIMOnuPortIfOutUnicast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfOutMulticast": {
+    "name": "sleV2EponIMOnuPortIfOutMulticast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfOutBroadcast": {
+    "name": "sleV2EponIMOnuPortIfOutBroadcast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfOutDiscards": {
+    "name": "sleV2EponIMOnuPortIfOutDiscards",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortIfOutErrors": {
+    "name": "sleV2EponIMOnuPortIfOutErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherStatsTable": {
+    "name": "sleV2EponIMOnuPortEtherStatsTable",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherStatsEntry": {
+    "name": "sleV2EponIMOnuPortEtherStatsEntry",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherAlignmentErrors": {
+    "name": "sleV2EponIMOnuPortEtherAlignmentErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherFcsErrors": {
+    "name": "sleV2EponIMOnuPortEtherFcsErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherSingleCollision": {
+    "name": "sleV2EponIMOnuPortEtherSingleCollision",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherMultipleCollision": {
+    "name": "sleV2EponIMOnuPortEtherMultipleCollision",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherSqeTestErrors": {
+    "name": "sleV2EponIMOnuPortEtherSqeTestErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherDeferredTransmissions": {
+    "name": "sleV2EponIMOnuPortEtherDeferredTransmissions",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherLateCollisions": {
+    "name": "sleV2EponIMOnuPortEtherLateCollisions",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherExcessiveCollisions": {
+    "name": "sleV2EponIMOnuPortEtherExcessiveCollisions",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherInternalMacTxErrors": {
+    "name": "sleV2EponIMOnuPortEtherInternalMacTxErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherCarrierSenseErrors": {
+    "name": "sleV2EponIMOnuPortEtherCarrierSenseErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherFrameTooLongs": {
+    "name": "sleV2EponIMOnuPortEtherFrameTooLongs",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherInternalMacRxErrors": {
+    "name": "sleV2EponIMOnuPortEtherInternalMacRxErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherSymbolErrors": {
+    "name": "sleV2EponIMOnuPortEtherSymbolErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherInUnknownOpcode": {
+    "name": "sleV2EponIMOnuPortEtherInUnknownOpcode",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherInPauseFrames": {
+    "name": "sleV2EponIMOnuPortEtherInPauseFrames",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEtherOutPauseFrames": {
+    "name": "sleV2EponIMOnuPortEtherOutPauseFrames",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponStatsTable": {
+    "name": "sleV2EponIMOnuPortEponStatsTable",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponStatsEntry": {
+    "name": "sleV2EponIMOnuPortEponStatsEntry",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponMacCtrlFrameRx": {
+    "name": "sleV2EponIMOnuPortEponMacCtrlFrameRx",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponDiscWindowsSent": {
+    "name": "sleV2EponIMOnuPortEponDiscWindowsSent",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponDiscTimeout": {
+    "name": "sleV2EponIMOnuPortEponDiscTimeout",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponTxRegRequest": {
+    "name": "sleV2EponIMOnuPortEponTxRegRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponRxReqRequest": {
+    "name": "sleV2EponIMOnuPortEponRxReqRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponTxReqAck": {
+    "name": "sleV2EponIMOnuPortEponTxReqAck",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponRxReqAck": {
+    "name": "sleV2EponIMOnuPortEponRxReqAck",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponTxReport": {
+    "name": "sleV2EponIMOnuPortEponTxReport",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponRxReport": {
+    "name": "sleV2EponIMOnuPortEponRxReport",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponTxGate": {
+    "name": "sleV2EponIMOnuPortEponTxGate",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponRxGate": {
+    "name": "sleV2EponIMOnuPortEponRxGate",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponTxRegister": {
+    "name": "sleV2EponIMOnuPortEponTxRegister",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponRxRegister": {
+    "name": "sleV2EponIMOnuPortEponRxRegister",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponRxNotSupported": {
+    "name": "sleV2EponIMOnuPortEponRxNotSupported",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponSldErrors": {
+    "name": "sleV2EponIMOnuPortEponSldErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponCrc8Errors": {
+    "name": "sleV2EponIMOnuPortEponCrc8Errors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponBadLlid": {
+    "name": "sleV2EponIMOnuPortEponBadLlid",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponGoodLlid": {
+    "name": "sleV2EponIMOnuPortEponGoodLlid",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponOnuPonCastLlid": {
+    "name": "sleV2EponIMOnuPortEponOnuPonCastLlid",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponOltPonCastLlid": {
+    "name": "sleV2EponIMOnuPortEponOltPonCastLlid",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponBcastLlidNotOnuId": {
+    "name": "sleV2EponIMOnuPortEponBcastLlidNotOnuId",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponOnuLlidNotBcast": {
+    "name": "sleV2EponIMOnuPortEponOnuLlidNotBcast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponBcastLlidPlusOnuId": {
+    "name": "sleV2EponIMOnuPortEponBcastLlidPlusOnuId",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponNotBcastLlidNotOnuId": {
+    "name": "sleV2EponIMOnuPortEponNotBcastLlidNotOnuId",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponPcsCodingViolation": {
+    "name": "sleV2EponIMOnuPortEponPcsCodingViolation",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponFecCorrectedBlocks": {
+    "name": "sleV2EponIMOnuPortEponFecCorrectedBlocks",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponFecUnCorrectedBlocks": {
+    "name": "sleV2EponIMOnuPortEponFecUnCorrectedBlocks",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortEponBufferHeadCodingViolation": {
+    "name": "sleV2EponIMOnuPortEponBufferHeadCodingViolation",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortStatsControl": {
+    "name": "sleV2EponIMOnuPortStatsControl",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.4",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuPortStatsControlRequest": {
+    "name": "sleV2EponIMOnuPortStatsControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearPortStats": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortStatsControlStatus": {
+    "name": "sleV2EponIMOnuPortStatsControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortStatsControlTimer": {
+    "name": "sleV2EponIMOnuPortStatsControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortStatsControlTimeStamp": {
+    "name": "sleV2EponIMOnuPortStatsControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortStatsControlReqResult": {
+    "name": "sleV2EponIMOnuPortStatsControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortStatsControlPortIndex": {
+    "name": "sleV2EponIMOnuPortStatsControlPortIndex",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuPortStatsNotification": {
+    "name": "sleV2EponIMOnuPortStatsNotification",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.5",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuPortStatsCleared": {
+    "name": "sleV2EponIMOnuPortStatsCleared",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.1.5.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsControlPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidStats": {
+    "name": "sleV2EponIMOnuLlidStats",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuLlidIfStats": {
+    "name": "sleV2EponIMOnuLlidIfStats",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuLlidIfInOctets": {
+    "name": "sleV2EponIMOnuLlidIfInOctets",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfInUnicast": {
+    "name": "sleV2EponIMOnuLlidIfInUnicast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfInMulticast": {
+    "name": "sleV2EponIMOnuLlidIfInMulticast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfInBroadcast": {
+    "name": "sleV2EponIMOnuLlidIfInBroadcast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfInDiscards": {
+    "name": "sleV2EponIMOnuLlidIfInDiscards",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfInErrors": {
+    "name": "sleV2EponIMOnuLlidIfInErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfInUnknownProtos": {
+    "name": "sleV2EponIMOnuLlidIfInUnknownProtos",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfOutOctets": {
+    "name": "sleV2EponIMOnuLlidIfOutOctets",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfOutUnicast": {
+    "name": "sleV2EponIMOnuLlidIfOutUnicast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfOutMulticast": {
+    "name": "sleV2EponIMOnuLlidIfOutMulticast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfOutBroadcast": {
+    "name": "sleV2EponIMOnuLlidIfOutBroadcast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfOutDiscards": {
+    "name": "sleV2EponIMOnuLlidIfOutDiscards",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidIfOutErrors": {
+    "name": "sleV2EponIMOnuLlidIfOutErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponStats": {
+    "name": "sleV2EponIMOnuLlidEponStats",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuLlidEponMacCtrlFrameRx": {
+    "name": "sleV2EponIMOnuLlidEponMacCtrlFrameRx",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponDiscWindowsSent": {
+    "name": "sleV2EponIMOnuLlidEponDiscWindowsSent",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponDiscTimeout": {
+    "name": "sleV2EponIMOnuLlidEponDiscTimeout",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponTxRegRequest": {
+    "name": "sleV2EponIMOnuLlidEponTxRegRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponRxReqRequest": {
+    "name": "sleV2EponIMOnuLlidEponRxReqRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponTxReqAck": {
+    "name": "sleV2EponIMOnuLlidEponTxReqAck",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponRxReqAck": {
+    "name": "sleV2EponIMOnuLlidEponRxReqAck",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponTxReport": {
+    "name": "sleV2EponIMOnuLlidEponTxReport",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponRxReport": {
+    "name": "sleV2EponIMOnuLlidEponRxReport",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponTxGate": {
+    "name": "sleV2EponIMOnuLlidEponTxGate",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponRxGate": {
+    "name": "sleV2EponIMOnuLlidEponRxGate",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponTxRegister": {
+    "name": "sleV2EponIMOnuLlidEponTxRegister",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponRxRegister": {
+    "name": "sleV2EponIMOnuLlidEponRxRegister",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponRxNotSupported": {
+    "name": "sleV2EponIMOnuLlidEponRxNotSupported",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponSldErrors": {
+    "name": "sleV2EponIMOnuLlidEponSldErrors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponCrc8Errors": {
+    "name": "sleV2EponIMOnuLlidEponCrc8Errors",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponBadLlid": {
+    "name": "sleV2EponIMOnuLlidEponBadLlid",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponGoodLlid": {
+    "name": "sleV2EponIMOnuLlidEponGoodLlid",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponOnuPonCastLlid": {
+    "name": "sleV2EponIMOnuLlidEponOnuPonCastLlid",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponOltPonCastLlid": {
+    "name": "sleV2EponIMOnuLlidEponOltPonCastLlid",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponBcastLlidNotOnuId": {
+    "name": "sleV2EponIMOnuLlidEponBcastLlidNotOnuId",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponOnuLlidNotBcast": {
+    "name": "sleV2EponIMOnuLlidEponOnuLlidNotBcast",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponBcastLlidPlusOnuId": {
+    "name": "sleV2EponIMOnuLlidEponBcastLlidPlusOnuId",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponNotBcastLlidNotOnuId": {
+    "name": "sleV2EponIMOnuLlidEponNotBcastLlidNotOnuId",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponPcsCodingViolation": {
+    "name": "sleV2EponIMOnuLlidEponPcsCodingViolation",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponFecCorrectedBlocks": {
+    "name": "sleV2EponIMOnuLlidEponFecCorrectedBlocks",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponFecUnCorrectedBlocks": {
+    "name": "sleV2EponIMOnuLlidEponFecUnCorrectedBlocks",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidEponBufferHeadCodingViolation": {
+    "name": "sleV2EponIMOnuLlidEponBufferHeadCodingViolation",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidStatsControl": {
+    "name": "sleV2EponIMOnuLlidStatsControl",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.3",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuLlidStatsControlRequest": {
+    "name": "sleV2EponIMOnuLlidStatsControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearPortStats": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidStatsControlStatus": {
+    "name": "sleV2EponIMOnuLlidStatsControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidStatsControlTimer": {
+    "name": "sleV2EponIMOnuLlidStatsControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidStatsControlTimeStamp": {
+    "name": "sleV2EponIMOnuLlidStatsControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidStatsControlReqResult": {
+    "name": "sleV2EponIMOnuLlidStatsControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMOnuLlidStatsNotification": {
+    "name": "sleV2EponIMOnuLlidStatsNotification",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.4",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMOnuLlidStatsCleared": {
+    "name": "sleV2EponIMOnuLlidStatsCleared",
+    "oid": "1.3.6.1.4.1.6296.102.15.3.2.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidStatsControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidStatsControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidStatsControlReqResult"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMAlarm": {
+    "name": "sleV2EponIMAlarm",
+    "oid": "1.3.6.1.4.1.6296.102.15.4",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMAlarmTable": {
+    "name": "sleV2EponIMAlarmTable",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmEntry": {
+    "name": "sleV2EponIMAlarmEntry",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmOnuPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmOnuAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMAlarmOnuPortIndex": {
+    "name": "sleV2EponIMAlarmOnuPortIndex",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pon": 1,
+          "uni": 2,
+          "llid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmOnuAlarmIndex": {
+    "name": "sleV2EponIMAlarmOnuAlarmIndex",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "errFramePeriod": 1,
+          "errFrame": 2,
+          "errFrameSecond": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmOnuAlarmStatus": {
+    "name": "sleV2EponIMAlarmOnuAlarmStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmOnuWindow": {
+    "name": "sleV2EponIMAlarmOnuWindow",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmOnuThreshold": {
+    "name": "sleV2EponIMAlarmOnuThreshold",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmControl": {
+    "name": "sleV2EponIMAlarmControl",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMAlarmControlRequest": {
+    "name": "sleV2EponIMAlarmControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setEponIMAlarmProfileChanged": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmControlStatus": {
+    "name": "sleV2EponIMAlarmControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmControlTimer": {
+    "name": "sleV2EponIMAlarmControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmControlTimeStamp": {
+    "name": "sleV2EponIMAlarmControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmControlReqResult": {
+    "name": "sleV2EponIMAlarmControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmControlOnuPortIndex": {
+    "name": "sleV2EponIMAlarmControlOnuPortIndex",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pon": 1,
+          "uni": 2,
+          "llid": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmControlOnuAlarmIndex": {
+    "name": "sleV2EponIMAlarmControlOnuAlarmIndex",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "errFramePeriod": 1,
+          "errFrame": 2,
+          "errFrameSecond": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmControlOnuAlarmStatus": {
+    "name": "sleV2EponIMAlarmControlOnuAlarmStatus",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EponOnuState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmControlWindow": {
+    "name": "sleV2EponIMAlarmControlWindow",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmControlThreshold": {
+    "name": "sleV2EponIMAlarmControlThreshold",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2EponIMAlarmNotification": {
+    "name": "sleV2EponIMAlarmNotification",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.4",
+    "class": "objectidentity"
+  },
+  "sleV2EponIMAlarmProfileChanged": {
+    "name": "sleV2EponIMAlarmProfileChanged",
+    "oid": "1.3.6.1.4.1.6296.102.15.4.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmOnuAlarmStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmOnuWindow"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmOnuThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMGroup": {
+    "name": "sleV2EponIMGroup",
+    "oid": "1.3.6.1.4.1.6296.102.15.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuConfigMask"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuConfigData"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuRegistered"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuAuthenticated"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuImageVersion"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLoadVersion"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuChipVersion"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuSerialNumber"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuRxOpticPower"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMRegInfoOltId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMRegInfoOltLlidPort"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMRegInfoOltPonPort"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMRegInfoOnuMacAddress"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMRegInfoOnuLlid"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuSecret"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuVendorCode"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuAuthTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuAuthTimeoutTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuAuthRejectTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlSecret"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlOnuVendorCode"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlAuthTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlAuthTimeoutTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlAuthRejectTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWName"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlServerIp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlUpDownFlag"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlUserId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlPassword"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlFileName"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWControlUpdateCommitTime"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIndex"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortType"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortAdminStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortOperStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortLinkupTime"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortUpTime"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortControlStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortControlTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortControlAdminState"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuRxFlowCtrl"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuTxFlowCtrl"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFlowCtrlLowThreshold"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFlowCtrlHighThreshold"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlRxFlowCtrl"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlTxFlowCtrl"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlFlowCtrlLowThreshold"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeControlFlowCtrlHighThreshold"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfInOctets"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfInUnicast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfInMulticast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfInBroadcast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfInDiscards"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfInErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfInUnknownProtos"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfOutOctets"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfOutUnicast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfOutMulticast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfOutBroadcast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfOutDiscards"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortIfOutErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherAlignmentErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherFcsErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherSingleCollision"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherMultipleCollision"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherSqeTestErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherDeferredTransmissions"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherLateCollisions"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherExcessiveCollisions"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherInternalMacTxErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherCarrierSenseErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherFrameTooLongs"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherInternalMacRxErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherSymbolErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherInUnknownOpcode"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherInPauseFrames"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEtherOutPauseFrames"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponMacCtrlFrameRx"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponDiscWindowsSent"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponDiscTimeout"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponTxRegRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponRxReqRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponTxReqAck"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponRxReqAck"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponTxReport"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponRxReport"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponTxGate"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponRxGate"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponTxRegister"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponRxRegister"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponRxNotSupported"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponSldErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponCrc8Errors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponBadLlid"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponGoodLlid"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponOnuPonCastLlid"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponOltPonCastLlid"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponBcastLlidNotOnuId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponOnuLlidNotBcast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponBcastLlidPlusOnuId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponNotBcastLlidNotOnuId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponPcsCodingViolation"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponFecCorrectedBlocks"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponFecUnCorrectedBlocks"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortEponBufferHeadCodingViolation"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsControlStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsControlTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsControlPortIndex"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfInOctets"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfInUnicast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfInMulticast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfInBroadcast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfInDiscards"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfInErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfInUnknownProtos"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfOutOctets"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfOutUnicast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfOutMulticast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfOutBroadcast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfOutDiscards"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidIfOutErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponMacCtrlFrameRx"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponDiscWindowsSent"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponDiscTimeout"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponTxRegRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponRxReqRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponTxReqAck"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponRxReqAck"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponTxReport"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponRxReport"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponTxGate"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponRxGate"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponTxRegister"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponRxRegister"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponRxNotSupported"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponSldErrors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponCrc8Errors"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponBadLlid"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponGoodLlid"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponOnuPonCastLlid"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponOltPonCastLlid"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponBcastLlidNotOnuId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponOnuLlidNotBcast"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponBcastLlidPlusOnuId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponNotBcastLlidNotOnuId"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponPcsCodingViolation"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponFecCorrectedBlocks"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponFecUnCorrectedBlocks"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidEponBufferHeadCodingViolation"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidStatsControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidStatsControlStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidStatsControlTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidStatsControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidStatsControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmOnuPortIndex"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmOnuAlarmIndex"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmOnuAlarmStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmOnuWindow"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmOnuThreshold"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlRequest"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlTimer"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlReqResult"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlOnuPortIndex"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlOnuAlarmIndex"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlOnuAlarmStatus"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlWindow"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlForceOpticPowerOff"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuForceOpticPowerOff"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortFECtxEnable"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortFECrxEnable"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortLaserAlwaysOn"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortDropInMcastTraffic"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortDropInBcastTraffic"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortBlockDataTraffic"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuOpticButtonPushed"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmControlThreshold"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuAutoUpgrade"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuControlAutoUpgrade"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2EponIMNotificationGroup": {
+    "name": "sleV2EponIMNotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.102.15.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuSecretChanged"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuVendorCodeChanged"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuAuthTimerChanged"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuConfigApplySetted"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWFirmwareCpSetted"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWFirmwareDestroyed"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWFirmwareUpgradeSetted"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuFWFirmwareCommitSetted"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortAdminStateChanged"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuBridgeFlowCtrlChagned"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuPortStatsCleared"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuLlidStatsCleared"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuForcePowerOffChanged"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMAlarmProfileChanged"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuAutoUpgradeChanged"
+      },
+      {
+        "module": "SLEV2-EPON-IM-MIB",
+        "object": "sleV2EponIMOnuReset"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLEV2-EPON-IM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLEV2-EPON-IM-MIB"
+  }
+}

@@ -1,0 +1,2081 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoModemMgmtMIB": {
+    "name": "ciscoModemMgmtMIB",
+    "oid": "1.3.6.1.4.1.9.9.47",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-12-06 00:00",
+        "description": "Imported Unsigned32 from SNMPv2-SMI instead of CISCO-TC"
+      },
+      {
+        "revision": "2001-12-01 12:00",
+        "description": "Added one more comment for cmTXAnalogSignalLevel"
+      },
+      {
+        "revision": "2001-10-01 12:00",
+        "description": "General cleanup"
+      },
+      {
+        "revision": "2000-04-01 00:00",
+        "description": "Added cmStateNotification and cmStateNotifyEnable"
+      },
+      {
+        "revision": "1998-12-16 00:00",
+        "description": "Added cmTotalCallDuration"
+      },
+      {
+        "revision": "1998-06-18 00:00",
+        "description": "Added the new enum values for cmDisconnectReason"
+      },
+      {
+        "revision": "1997-12-22 00:00",
+        "description": "Changed the modulation from v27 to v29."
+      },
+      {
+        "revision": "1997-10-13 00:00",
+        "description": "Added new compliance statement for as5300 and c3600."
+      },
+      {
+        "revision": "1997-07-18 00:00",
+        "description": "Added new MIB variables cmInitialTxLineConnections and cmInitialRxLineConnections"
+      },
+      {
+        "revision": "1998-03-09 00:00",
+        "description": "Added the new enum values v90 and v27ter for cmModulationSchemeUsed."
+      },
+      {
+        "revision": "1997-12-16 00:00",
+        "description": "Changed the modulation from v27 to v29."
+      },
+      {
+        "revision": "1997-05-01 00:00",
+        "description": "Added objects: cmSystemModemsInUse cmSystemModemsAvailable cmSystemModemsUnavailable cmSystemModemsOffline cmSystemModemsDead"
+      },
+      {
+        "revision": "1997-04-29 00:00",
+        "description": "Changed the modulation from v29 to v27."
+      },
+      {
+        "revision": "1997-06-11 00:00",
+        "description": "DEFVAL update for cmSystemWatchdogTime,cmSystemStatusPollTime."
+      },
+      {
+        "revision": "1997-03-21 00:00",
+        "description": "New enum values added for cmModulationSchemeUsed."
+      },
+      {
+        "revision": "1997-03-17 00:00",
+        "description": "New enum values added for cmDisconnectReason."
+      },
+      {
+        "revision": "1996-01-11 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoModemMgmtMIBObjects": {
+    "name": "ciscoModemMgmtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.47.1",
+    "class": "objectidentity"
+  },
+  "cmSystemInfo": {
+    "name": "cmSystemInfo",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1",
+    "class": "objectidentity"
+  },
+  "cmGroupInfo": {
+    "name": "cmGroupInfo",
+    "oid": "1.3.6.1.4.1.9.9.47.1.2",
+    "class": "objectidentity"
+  },
+  "cmLineInfo": {
+    "name": "cmLineInfo",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3",
+    "class": "objectidentity"
+  },
+  "cmNotificationConfig": {
+    "name": "cmNotificationConfig",
+    "oid": "1.3.6.1.4.1.9.9.47.1.4",
+    "class": "objectidentity"
+  },
+  "cmSystemInstalledModem": {
+    "name": "cmSystemInstalledModem",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "modems",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSystemConfiguredGroup": {
+    "name": "cmSystemConfiguredGroup",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSystemWatchdogTime": {
+    "name": "cmSystemWatchdogTime",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmSystemStatusPollTime": {
+    "name": "cmSystemStatusPollTime",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmSystemMaxRetries": {
+    "name": "cmSystemMaxRetries",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmSystemModemsInUse": {
+    "name": "cmSystemModemsInUse",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSystemModemsAvailable": {
+    "name": "cmSystemModemsAvailable",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSystemModemsUnavailable": {
+    "name": "cmSystemModemsUnavailable",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSystemModemsOffline": {
+    "name": "cmSystemModemsOffline",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmSystemModemsDead": {
+    "name": "cmSystemModemsDead",
+    "oid": "1.3.6.1.4.1.9.9.47.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmGroupTable": {
+    "name": "cmGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.47.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmGroupEntry": {
+    "name": "cmGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.47.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmGroupIndex": {
+    "name": "cmGroupIndex",
+    "oid": "1.3.6.1.4.1.9.9.47.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmGroupTotalDevices": {
+    "name": "cmGroupTotalDevices",
+    "oid": "1.3.6.1.4.1.9.9.47.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmGroupMemberTable": {
+    "name": "cmGroupMemberTable",
+    "oid": "1.3.6.1.4.1.9.9.47.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmGroupMemberEntry": {
+    "name": "cmGroupMemberEntry",
+    "oid": "1.3.6.1.4.1.9.9.47.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmSlotIndex": {
+    "name": "cmSlotIndex",
+    "oid": "1.3.6.1.4.1.9.9.47.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmPortIndex": {
+    "name": "cmPortIndex",
+    "oid": "1.3.6.1.4.1.9.9.47.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmLineStatusTable": {
+    "name": "cmLineStatusTable",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmLineStatusEntry": {
+    "name": "cmLineStatusEntry",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmInterface": {
+    "name": "cmInterface",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmGroup": {
+    "name": "cmGroup",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmManufacturerID": {
+    "name": "cmManufacturerID",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmProductDetails": {
+    "name": "cmProductDetails",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmManageable": {
+    "name": "cmManageable",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmState": {
+    "name": "cmState",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "onHook": 2,
+          "offHook": 3,
+          "connected": 4,
+          "busiedOut": 5,
+          "disabled": 6,
+          "bad": 7,
+          "loopback": 8,
+          "downloadFirmware": 9,
+          "downloadFirmwareFailed": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmCallDirection": {
+    "name": "cmCallDirection",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "incoming": 1,
+          "outgoing": 2,
+          "none": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmDisconnectReason": {
+    "name": "cmDisconnectReason",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "lostCarrier": 2,
+          "noCarrier": 3,
+          "noDialTone": 4,
+          "busy": 5,
+          "modemWatchdogTimeout": 6,
+          "dtrDrop": 7,
+          "userHangup": 8,
+          "compressionProblem": 9,
+          "retrainFailure": 10,
+          "remoteLinkDisconnect": 11,
+          "abort": 12,
+          "inactivityTimeout": 13,
+          "dialStringError": 14,
+          "linkFailure": 15,
+          "modulationError": 16,
+          "dialTimeout": 17,
+          "remoteHangup": 18,
+          "mnp10ProtocolError": 19,
+          "lapmProtocolError": 20,
+          "faxClass2Error": 21,
+          "trainupFailure": 22,
+          "fallbackTerminate": 23,
+          "excessiveEC": 24,
+          "hostDrop": 25,
+          "terminate": 26,
+          "autoLogonError": 27,
+          "ccpNotSeen": 28,
+          "callbackFailed": 29,
+          "blacklist": 30,
+          "lapmTimeout": 31,
+          "reliableLinkTxTimeout": 32,
+          "dspAccessFailure": 33,
+          "cdOffTimeout": 34,
+          "codewordSizeMismatch": 35,
+          "dspDownloadFailure": 36,
+          "modemDrNone": 37,
+          "modemDrSoftwareReset": 38,
+          "modemDrEcTerminated": 39,
+          "modemDrBadMnp5Rxdata": 40,
+          "modemDrBadV42bisRxdata": 41,
+          "modemDrBadCopState": 42,
+          "modemDrAth": 43,
+          "modemDrAborted": 44,
+          "modemDrConnectTimeout": 45,
+          "modemDrResetDsp": 46,
+          "modemDrNoCarrier": 47,
+          "modemDrNoAbtDetected": 48,
+          "modemDrTrainupFailure": 49,
+          "modemDrRetrainLimit": 50,
+          "modemDrAbtEndFailure": 51,
+          "modemDrNoLr": 52,
+          "modemDrLrParam1": 53,
+          "modemDrLrIncompat": 54,
+          "modemDrRetransmitLimit": 55,
+          "modemDrInactivity": 56,
+          "modemDrProtocolError": 57,
+          "modemDrFallbackTerminate": 58,
+          "modemDrNoXid": 59,
+          "modemDrXidIncompat": 60,
+          "modemDrDisc": 61,
+          "modemDrDm": 62,
+          "modemDrBadNr": 63,
+          "modemDrSabmeOnline": 64,
+          "modemDrXidOnline": 65,
+          "modemDrLrOnline": 66,
+          "modemDrBadCmnd": 67,
+          "modemDrFrmrBadCmnd": 68,
+          "modemDrFrmrData": 69,
+          "modemDrFrmrLength": 70,
+          "modemDrFrmrBadNr": 71,
+          "modemDrLdNoLr": 72,
+          "modemDrLdLrParam1": 73,
+          "modemDrLdLrIncompat": 74,
+          "modemDrLdRetransLimit": 75,
+          "modemDrLdInactivity": 76,
+          "modemDrLdProtocol": 77,
+          "modemDrLdUser": 78,
+          "modemDrHostNonspecific": 79,
+          "modemDrHostBusy": 80,
+          "modemDrHostNoAnswer": 81,
+          "modemDrHostDtr": 82,
+          "modemDrHostAth": 83,
+          "modemDrHostNoDialtone": 84,
+          "modemDrHostNoCarrier": 85,
+          "modemDrHostAck": 86,
+          "modemDrMohClrd": 87,
+          "modemDrMohTimeout": 88,
+          "modemDrCotAck": 89,
+          "modemDrCotNak1": 90,
+          "modemDrCotNak2": 91,
+          "modemDrCotOff": 92,
+          "modemDrCotTimeout": 93,
+          "modemDrDcIllegalCodewordStepup": 94,
+          "modemDrDcIllegalTokenEmptyNode": 95,
+          "modemDrDcIllegalTokenTooLarge": 96,
+          "modemDrDcReservedCommand": 97,
+          "modemDrDcIllegalCharacterSizeStepup": 98,
+          "modemDrDcRxDictionaryFull": 99,
+          "modemDrDcRxHistoryFull": 100,
+          "modemDrDcRxStringSizeExceeded": 101,
+          "modemDrDcNegotiationError": 102,
+          "modemDrDcCompressionError": 103
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmCallDuration": {
+    "name": "cmCallDuration",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmCallPhoneNumber": {
+    "name": "cmCallPhoneNumber",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmCallerID": {
+    "name": "cmCallerID",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmModulationSchemeUsed": {
+    "name": "cmModulationSchemeUsed",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "bell103a": 2,
+          "bell212a": 3,
+          "v21": 4,
+          "v22": 5,
+          "v22bis": 6,
+          "v32": 7,
+          "v32bis": 8,
+          "vfc": 9,
+          "v34": 10,
+          "v17": 11,
+          "v29": 12,
+          "v33": 13,
+          "k56flex": 14,
+          "v23": 15,
+          "v32terbo": 16,
+          "v34plus": 17,
+          "v90": 18,
+          "v27ter": 19,
+          "v110": 20,
+          "piafs": 21
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmProtocolUsed": {
+    "name": "cmProtocolUsed",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "direct": 2,
+          "reliableMNP": 3,
+          "reliableLAPM": 4,
+          "syncMode": 5,
+          "asyncMode": 6,
+          "ara10": 7,
+          "ara20": 8,
+          "unknown": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmTXRate": {
+    "name": "cmTXRate",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRXRate": {
+    "name": "cmRXRate",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "bits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmTXAnalogSignalLevel": {
+    "name": "cmTXAnalogSignalLevel",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -43,
+            "max": -9
+          },
+          {
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmRXAnalogSignalLevel": {
+    "name": "cmRXAnalogSignalLevel",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -128,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmLineConfigTable": {
+    "name": "cmLineConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmLineConfigEntry": {
+    "name": "cmLineConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cmLineConfigEntry",
+      "module": "CISCO-MODEM-MGMT-MIB",
+      "object": "cmLineStatusEntry"
+    },
+    "status": "current"
+  },
+  "cmATModePermit": {
+    "name": "cmATModePermit",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmStatusPolling": {
+    "name": "cmStatusPolling",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmBusyOutRequest": {
+    "name": "cmBusyOutRequest",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmShutdown": {
+    "name": "cmShutdown",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmHoldReset": {
+    "name": "cmHoldReset",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmBad": {
+    "name": "cmBad",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmLineStatisticsTable": {
+    "name": "cmLineStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmLineStatisticsEntry": {
+    "name": "cmLineStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cmLineStatisticsEntry",
+      "module": "CISCO-MODEM-MGMT-MIB",
+      "object": "cmLineStatusEntry"
+    },
+    "status": "current"
+  },
+  "cmRingNoAnswers": {
+    "name": "cmRingNoAnswers",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmIncomingConnectionFailures": {
+    "name": "cmIncomingConnectionFailures",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmIncomingConnectionCompletions": {
+    "name": "cmIncomingConnectionCompletions",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmOutgoingConnectionFailures": {
+    "name": "cmOutgoingConnectionFailures",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmOutgoingConnectionCompletions": {
+    "name": "cmOutgoingConnectionCompletions",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmFailedDialAttempts": {
+    "name": "cmFailedDialAttempts",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmNoDialTones": {
+    "name": "cmNoDialTones",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmDialTimeouts": {
+    "name": "cmDialTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmWatchdogTimeouts": {
+    "name": "cmWatchdogTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cm2400OrLessConnections": {
+    "name": "cm2400OrLessConnections",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cm2400To14400Connections": {
+    "name": "cm2400To14400Connections",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cmGreaterThan14400Connections": {
+    "name": "cmGreaterThan14400Connections",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cmNoCarriers": {
+    "name": "cmNoCarriers",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmLinkFailures": {
+    "name": "cmLinkFailures",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmProtocolErrors": {
+    "name": "cmProtocolErrors",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "errors",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmPollingTimeouts": {
+    "name": "cmPollingTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "errors",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmTotalCallDuration": {
+    "name": "cmTotalCallDuration",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmLineSpeedStatisticsTable": {
+    "name": "cmLineSpeedStatisticsTable",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmLineSpeedStatisticsEntry": {
+    "name": "cmLineSpeedStatisticsEntry",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSlotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmInitialLineSpeed",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cmInitialLineSpeed": {
+    "name": "cmInitialLineSpeed",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cmInitialLineConnections": {
+    "name": "cmInitialLineConnections",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cmInitialTxLineConnections": {
+    "name": "cmInitialTxLineConnections",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmInitialRxLineConnections": {
+    "name": "cmInitialRxLineConnections",
+    "oid": "1.3.6.1.4.1.9.9.47.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "calls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cmStateNotifyEnable": {
+    "name": "cmStateNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.47.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cmMIBNotificationPrefix": {
+    "name": "cmMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.9.9.47.2",
+    "class": "objectidentity"
+  },
+  "cmMIBNotifications": {
+    "name": "cmMIBNotifications",
+    "oid": "1.3.6.1.4.1.9.9.47.2.0",
+    "class": "objectidentity"
+  },
+  "cmStateNotification": {
+    "name": "cmStateNotification",
+    "oid": "1.3.6.1.4.1.9.9.47.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmState"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoModemMgmtMIBConformance": {
+    "name": "ciscoModemMgmtMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.47.3",
+    "class": "objectidentity"
+  },
+  "ciscoModemMgmtMIBCompliances": {
+    "name": "ciscoModemMgmtMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.47.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoModemMgmtMIBGroups": {
+    "name": "ciscoModemMgmtMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoModemMgmtMIBCompliance": {
+    "name": "ciscoModemMgmtMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.47.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmSystemInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmGroupInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmManagedLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoModemMgmtMIBComplianceRev1": {
+    "name": "ciscoModemMgmtMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.47.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmSystemInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmGroupInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmManagedLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineSpeedInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoModemMgmtMIBComplianceRev2": {
+    "name": "ciscoModemMgmtMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.47.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmSystemInfoGroupRev1",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmGroupInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmManagedLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineSpeedInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoModemMgmtMIBComplianceRev3": {
+    "name": "ciscoModemMgmtMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.47.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmSystemInfoGroupRev1",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmGroupInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmManagedLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineSpeedInfoGroupRev1",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoModemMgmtMIBComplianceRev4": {
+    "name": "ciscoModemMgmtMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.47.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmGroupInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineSpeedInfoGroupRev1",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmManagedLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmSystemInfoGroupRev1",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ciscoModemMgmtMIBComplianceRev5": {
+    "name": "ciscoModemMgmtMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.47.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmGroupInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineSpeedInfoGroupRev1",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmManagedLineInfoGroupRev1",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmSystemInfoGroupRev1",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmNotificationConfigGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmNotificationGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoModemMgmtMIBComplianceRev6": {
+    "name": "ciscoModemMgmtMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.47.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cmGroupInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineSpeedInfoGroupRev2",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmManagedLineInfoGroupRev2",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmLineInfoGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmSystemInfoGroupRev1",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmNotificationConfigGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      },
+      {
+        "object": "cmNotificationGroup",
+        "module": "CISCO-MODEM-MGMT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cmSystemInfoGroup": {
+    "name": "cmSystemInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemInstalledModem"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemConfiguredGroup"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemWatchdogTime"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemStatusPollTime"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemMaxRetries"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cmGroupInfoGroup": {
+    "name": "cmGroupInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmGroupTotalDevices"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cmLineInfoGroup": {
+    "name": "cmLineInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmInterface"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmGroup"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmManufacturerID"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmProductDetails"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmManageable"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmState"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmDisconnectReason"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmCallDirection"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmCallDuration"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmCallPhoneNumber"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmCallerID"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmATModePermit"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmStatusPolling"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmBusyOutRequest"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmShutdown"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmHoldReset"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmBad"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmRingNoAnswers"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmFailedDialAttempts"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmWatchdogTimeouts"
+      }
+    ],
+    "status": "current"
+  },
+  "cmManagedLineInfoGroup": {
+    "name": "cmManagedLineInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmModulationSchemeUsed"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmProtocolUsed"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmTXRate"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmRXRate"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmTXAnalogSignalLevel"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmRXAnalogSignalLevel"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmIncomingConnectionFailures"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmIncomingConnectionCompletions"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmOutgoingConnectionFailures"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmOutgoingConnectionCompletions"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmNoDialTones"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmDialTimeouts"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cm2400OrLessConnections"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cm2400To14400Connections"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmGreaterThan14400Connections"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmNoCarriers"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmLinkFailures"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmProtocolErrors"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmPollingTimeouts"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmTotalCallDuration"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmLineSpeedInfoGroup": {
+    "name": "cmLineSpeedInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmInitialLineConnections"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cmSystemInfoGroupRev1": {
+    "name": "cmSystemInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemInstalledModem"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemConfiguredGroup"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemWatchdogTime"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemStatusPollTime"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemMaxRetries"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemModemsInUse"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemModemsAvailable"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemModemsUnavailable"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemModemsOffline"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmSystemModemsDead"
+      }
+    ],
+    "status": "current"
+  },
+  "cmLineSpeedInfoGroupRev1": {
+    "name": "cmLineSpeedInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmInitialLineConnections"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmInitialTxLineConnections"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmInitialRxLineConnections"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmManagedLineInfoGroupRev1": {
+    "name": "cmManagedLineInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmModulationSchemeUsed"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmProtocolUsed"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmTXRate"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmRXRate"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmTXAnalogSignalLevel"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmRXAnalogSignalLevel"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmIncomingConnectionFailures"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmIncomingConnectionCompletions"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmOutgoingConnectionFailures"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmOutgoingConnectionCompletions"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmNoDialTones"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmDialTimeouts"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cm2400OrLessConnections"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cm2400To14400Connections"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmGreaterThan14400Connections"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmNoCarriers"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmLinkFailures"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmProtocolErrors"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmPollingTimeouts"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmTotalCallDuration"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cmNotificationConfigGroup": {
+    "name": "cmNotificationConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmStateNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cmNotificationGroup": {
+    "name": "cmNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmStateNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cmLineSpeedInfoGroupRev2": {
+    "name": "cmLineSpeedInfoGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmInitialTxLineConnections"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmInitialRxLineConnections"
+      }
+    ],
+    "status": "current"
+  },
+  "cmManagedLineInfoGroupRev2": {
+    "name": "cmManagedLineInfoGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.47.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmModulationSchemeUsed"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmProtocolUsed"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmTXRate"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmRXRate"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmTXAnalogSignalLevel"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmRXAnalogSignalLevel"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmIncomingConnectionFailures"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmIncomingConnectionCompletions"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmOutgoingConnectionFailures"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmOutgoingConnectionCompletions"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmNoDialTones"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmDialTimeouts"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmNoCarriers"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmLinkFailures"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmProtocolErrors"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmPollingTimeouts"
+      },
+      {
+        "module": "CISCO-MODEM-MGMT-MIB",
+        "object": "cmTotalCallDuration"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-MODEM-MGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-MODEM-MGMT-MIB"
+  }
+}

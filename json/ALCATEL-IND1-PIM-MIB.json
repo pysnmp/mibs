@@ -1,0 +1,1340 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALCATEL-IND1-BASE": [
+      "routingIND1Pim"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
+      "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "alcatelIND1PIMMIB": {
+    "name": "alcatelIND1PIMMIB",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-04-03 00:00",
+        "description": "The latest version of this MIB Module."
+      }
+    ]
+  },
+  "alcatelIND1PIMMIBObjects": {
+    "name": "alcatelIND1PIMMIBObjects",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1",
+    "class": "objectidentity"
+  },
+  "alaPimsmGlobalConfig": {
+    "name": "alaPimsmGlobalConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1",
+    "class": "objectidentity"
+  },
+  "alaPimsmDebugConfig": {
+    "name": "alaPimsmDebugConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2",
+    "class": "objectidentity"
+  },
+  "alaPimdmGlobalConfig": {
+    "name": "alaPimdmGlobalConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.3",
+    "class": "objectidentity"
+  },
+  "alaPimsmAdminStatus": {
+    "name": "alaPimsmAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmAdminBSRAddress": {
+    "name": "alaPimsmAdminBSRAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "alaPimsmAdminBSRHashmasklen": {
+    "name": "alaPimsmAdminBSRHashmasklen",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaPimsmAdminBSRPriority": {
+    "name": "alaPimsmAdminBSRPriority",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "alaPimsmCRPExpiryTime": {
+    "name": "alaPimsmCRPExpiryTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaPimsmCRPInterval": {
+    "name": "alaPimsmCRPInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaPimsmAdminCRPAddress": {
+    "name": "alaPimsmAdminCRPAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaPimsmAdminCRPPriority": {
+    "name": "alaPimsmAdminCRPPriority",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaPimsmDataTimeout": {
+    "name": "alaPimsmDataTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 210,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaPimsmMaxRPs": {
+    "name": "alaPimsmMaxRPs",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmProbeTime": {
+    "name": "alaPimsmProbeTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmOldRegisterMessageSupport": {
+    "name": "alaPimsmOldRegisterMessageSupport",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "header": 1,
+          "full": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "header",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmRegisterSuppressionTimeout": {
+    "name": "alaPimsmRegisterSuppressionTimeout",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaPimsmAdminStaticRPConfig": {
+    "name": "alaPimsmAdminStaticRPConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "alaPimsmStaticRPTable": {
+    "name": "alaPimsmStaticRPTable",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "alaPimsmStaticRPEntry": {
+    "name": "alaPimsmStaticRPEntry",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmStaticRPGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmStaticRPGroupMask",
+        "implied": 0
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmStaticRPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "alaPimsmStaticRPGroupAddress": {
+    "name": "alaPimsmStaticRPGroupAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "alaPimsmStaticRPGroupMask": {
+    "name": "alaPimsmStaticRPGroupMask",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "alaPimsmStaticRPAddress": {
+    "name": "alaPimsmStaticRPAddress",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "alaPimsmStaticRPRowStatus": {
+    "name": "alaPimsmStaticRPRowStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
+  },
+  "alaPimsmAdminSPTConfig": {
+    "name": "alaPimsmAdminSPTConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmRPThreshold": {
+    "name": "alaPimsmRPThreshold",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmV6AdminStatus": {
+    "name": "alaPimsmV6AdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmV6SPTConfig": {
+    "name": "alaPimsmV6SPTConfig",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmV6RPSwitchover": {
+    "name": "alaPimsmV6RPSwitchover",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimsmDebugLevel": {
+    "name": "alaPimsmDebugLevel",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugError": {
+    "name": "alaPimsmDebugError",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugHello": {
+    "name": "alaPimsmDebugHello",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugNbr": {
+    "name": "alaPimsmDebugNbr",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugBootstrap": {
+    "name": "alaPimsmDebugBootstrap",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugCRP": {
+    "name": "alaPimsmDebugCRP",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugRoute": {
+    "name": "alaPimsmDebugRoute",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugJoinPrune": {
+    "name": "alaPimsmDebugJoinPrune",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugAssert": {
+    "name": "alaPimsmDebugAssert",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugTime": {
+    "name": "alaPimsmDebugTime",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugIgmp": {
+    "name": "alaPimsmDebugIgmp",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugSpt": {
+    "name": "alaPimsmDebugSpt",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugMip": {
+    "name": "alaPimsmDebugMip",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugInit": {
+    "name": "alaPimsmDebugInit",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugTm": {
+    "name": "alaPimsmDebugTm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugIpmrm": {
+    "name": "alaPimsmDebugIpmrm",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugMisc": {
+    "name": "alaPimsmDebugMisc",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimsmDebugAll": {
+    "name": "alaPimsmDebugAll",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "alaPimdmAdminStatus": {
+    "name": "alaPimdmAdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimdmStateRefreshTimeToLive": {
+    "name": "alaPimdmStateRefreshTimeToLive",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 16,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimdmStateRefreshLimitInterval": {
+    "name": "alaPimdmStateRefreshLimitInterval",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alaPimdmV6AdminStatus": {
+    "name": "alaPimdmV6AdminStatus",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alcatelIND1PIMMIBConformance": {
+    "name": "alcatelIND1PIMMIBConformance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2",
+    "class": "objectidentity"
+  },
+  "alcatelIND1PIMMIBCompliances": {
+    "name": "alcatelIND1PIMMIBCompliances",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.1",
+    "class": "objectidentity"
+  },
+  "alcatelIND1PIMMIBGroups": {
+    "name": "alcatelIND1PIMMIBGroups",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.2",
+    "class": "objectidentity"
+  },
+  "alaPimsmCompliance": {
+    "name": "alaPimsmCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaPimsmConfigMIBGroup",
+        "module": "ALCATEL-IND1-PIM-MIB"
+      },
+      {
+        "object": "alaPimsmDebugMIBGroup",
+        "module": "ALCATEL-IND1-PIM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaPimdmCompliance": {
+    "name": "alaPimdmCompliance",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "alaPimdmConfigMIBGroup",
+        "module": "ALCATEL-IND1-PIM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "alaPimsmConfigMIBGroup": {
+    "name": "alaPimsmConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmAdminBSRAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmAdminBSRHashmasklen"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmAdminBSRPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmCRPExpiryTime"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmCRPInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmAdminCRPAddress"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmAdminCRPPriority"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDataTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmMaxRPs"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmProbeTime"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmOldRegisterMessageSupport"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmRegisterSuppressionTimeout"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmAdminStaticRPConfig"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmStaticRPRowStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmAdminSPTConfig"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmRPThreshold"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmV6AdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmV6SPTConfig"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmV6RPSwitchover"
+      }
+    ],
+    "status": "current"
+  },
+  "alaPimsmDebugMIBGroup": {
+    "name": "alaPimsmDebugMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugLevel"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugError"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugHello"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugNbr"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugBootstrap"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugCRP"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugRoute"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugJoinPrune"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugAssert"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugTime"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugIgmp"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugSpt"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugMip"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugInit"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugTm"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugIpmrm"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugMisc"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimsmDebugAll"
+      }
+    ],
+    "status": "current"
+  },
+  "alaPimdmConfigMIBGroup": {
+    "name": "alaPimdmConfigMIBGroup",
+    "oid": "1.3.6.1.4.1.6486.800.1.2.1.10.6.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimdmAdminStatus"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimdmStateRefreshTimeToLive"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimdmStateRefreshLimitInterval"
+      },
+      {
+        "module": "ALCATEL-IND1-PIM-MIB",
+        "object": "alaPimdmV6AdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-PIM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:05 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALCATEL-IND1-PIM-MIB"
+  }
+}

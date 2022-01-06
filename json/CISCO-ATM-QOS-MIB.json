@@ -1,0 +1,1085 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-FORUM-TC-MIB": [
+      "AtmServiceCategory"
+    ],
+    "ATM-MIB": [
+      "atmVclVci",
+      "atmVplVpi",
+      "atmVclVpi"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAtmQosMIB": {
+    "name": "ciscoAtmQosMIB",
+    "oid": "1.3.6.1.4.1.9.9.279",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-06-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoAtmQosMIBNotifs": {
+    "name": "ciscoAtmQosMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.279.0",
+    "class": "objectidentity"
+  },
+  "ciscoAtmQosMIBObjects": {
+    "name": "ciscoAtmQosMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.279.1",
+    "class": "objectidentity"
+  },
+  "ciscoAtmQosMIBConform": {
+    "name": "ciscoAtmQosMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.279.2",
+    "class": "objectidentity"
+  },
+  "caqVccParams": {
+    "name": "caqVccParams",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1",
+    "class": "objectidentity"
+  },
+  "caqVpcParams": {
+    "name": "caqVpcParams",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2",
+    "class": "objectidentity"
+  },
+  "caqQueuingParams": {
+    "name": "caqQueuingParams",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3",
+    "class": "objectidentity"
+  },
+  "VcParamConfigLocation": {
+    "name": "VcParamConfigLocation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "configDefault": 1,
+          "configVcDirect": 2,
+          "configVcClass": 3,
+          "configVcClassSubInterface": 4,
+          "configVcClassInterface": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VpState": {
+    "name": "VpState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vpStateInactive": 1,
+          "vpStateActive": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "caqVccParamsTable": {
+    "name": "caqVccParamsTable",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqVccParamsEntry": {
+    "name": "caqVccParamsEntry",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqVccParamsType": {
+    "name": "caqVccParamsType",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmServiceCategory",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsPcrIn0": {
+    "name": "caqVccParamsPcrIn0",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsPcrIn01": {
+    "name": "caqVccParamsPcrIn01",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsPcrOut0": {
+    "name": "caqVccParamsPcrOut0",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsPcrOut01": {
+    "name": "caqVccParamsPcrOut01",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsScrIn0": {
+    "name": "caqVccParamsScrIn0",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsScrIn01": {
+    "name": "caqVccParamsScrIn01",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsScrOut0": {
+    "name": "caqVccParamsScrOut0",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsScrOut01": {
+    "name": "caqVccParamsScrOut01",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsBcsIn0": {
+    "name": "caqVccParamsBcsIn0",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsBcsIn01": {
+    "name": "caqVccParamsBcsIn01",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsBcsOut0": {
+    "name": "caqVccParamsBcsOut0",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsBcsOut01": {
+    "name": "caqVccParamsBcsOut01",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsInheritLevel": {
+    "name": "caqVccParamsInheritLevel",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcParamConfigLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVccParamsMcrIn": {
+    "name": "caqVccParamsMcrIn",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsMcrOut": {
+    "name": "caqVccParamsMcrOut",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsInvRdf": {
+    "name": "caqVccParamsInvRdf",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsInvRif": {
+    "name": "caqVccParamsInvRif",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsRfl": {
+    "name": "caqVccParamsRfl",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcParamConfigLocation",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVccParamsCdv": {
+    "name": "caqVccParamsCdv",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVccParamsCdvt": {
+    "name": "caqVccParamsCdvt",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsIcr": {
+    "name": "caqVccParamsIcr",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsTbe": {
+    "name": "caqVccParamsTbe",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsFrtt": {
+    "name": "caqVccParamsFrtt",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsNrm": {
+    "name": "caqVccParamsNrm",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsInvTrm": {
+    "name": "caqVccParamsInvTrm",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsInvCdf": {
+    "name": "caqVccParamsInvCdf",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVccParamsAdtf": {
+    "name": "caqVccParamsAdtf",
+    "oid": "1.3.6.1.4.1.9.9.279.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "caqVpcParamsTable": {
+    "name": "caqVpcParamsTable",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqVpcParamsEntry": {
+    "name": "caqVpcParamsEntry",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVplVpi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqVpcParamsVpState": {
+    "name": "caqVpcParamsVpState",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VpState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVpcParamsPeakRate": {
+    "name": "caqVpcParamsPeakRate",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVpcParamsCesRate": {
+    "name": "caqVpcParamsCesRate",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVpcParamsDataVcCount": {
+    "name": "caqVpcParamsDataVcCount",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVpcParamsCesVcCount": {
+    "name": "caqVpcParamsCesVcCount",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVpcParamsVcdF4Seg": {
+    "name": "caqVpcParamsVcdF4Seg",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVpcParamsVcdF4Ete": {
+    "name": "caqVpcParamsVcdF4Ete",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVpcParamsScr": {
+    "name": "caqVpcParamsScr",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVpcParamsMbs": {
+    "name": "caqVpcParamsMbs",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqVpcParamsAvailBw": {
+    "name": "caqVpcParamsAvailBw",
+    "oid": "1.3.6.1.4.1.9.9.279.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqQueuingParamsTable": {
+    "name": "caqQueuingParamsTable",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueuingParamsEntry": {
+    "name": "caqQueuingParamsEntry",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqQueuingParamsMeanQDepth": {
+    "name": "caqQueuingParamsMeanQDepth",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqQueuingParamsClassTable": {
+    "name": "caqQueuingParamsClassTable",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueuingParamsClassEntry": {
+    "name": "caqQueuingParamsClassEntry",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVpi",
+        "implied": 0
+      },
+      {
+        "module": "ATM-MIB",
+        "object": "atmVclVci",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqQueuingParamsClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "caqQueuingParamsClassIndex": {
+    "name": "caqQueuingParamsClassIndex",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "caqQueuingParamsClassRandDrp": {
+    "name": "caqQueuingParamsClassRandDrp",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqQueuingParamsClassTailDrp": {
+    "name": "caqQueuingParamsClassTailDrp",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqQueuingParamsClassMinThre": {
+    "name": "caqQueuingParamsClassMinThre",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqQueuingParamsClassMaxThre": {
+    "name": "caqQueuingParamsClassMaxThre",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "caqQueuingParamsClassMrkProb": {
+    "name": "caqQueuingParamsClassMrkProb",
+    "oid": "1.3.6.1.4.1.9.9.279.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoAtmQosMIBCompliances": {
+    "name": "ciscoAtmQosMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.279.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoAtmQosMIBGroups": {
+    "name": "ciscoAtmQosMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.279.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoAtmQosMIBCompliance": {
+    "name": "ciscoAtmQosMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.279.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoAtmQosVccGroup",
+        "module": "CISCO-ATM-QOS-MIB"
+      },
+      {
+        "object": "ciscoAtmQosVpcGroup",
+        "module": "CISCO-ATM-QOS-MIB"
+      },
+      {
+        "object": "ciscoAtmQosVcQueuingGroup",
+        "module": "CISCO-ATM-QOS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmQosVccGroup": {
+    "name": "ciscoAtmQosVccGroup",
+    "oid": "1.3.6.1.4.1.9.9.279.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsType"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsPcrIn0"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsPcrIn01"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsPcrOut0"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsPcrOut01"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsScrIn0"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsScrIn01"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsScrOut0"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsScrOut01"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsBcsIn0"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsBcsIn01"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsBcsOut0"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsBcsOut01"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsInheritLevel"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsMcrIn"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsMcrOut"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsInvRdf"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsInvRif"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsRfl"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmQosVccAddon1Group": {
+    "name": "ciscoAtmQosVccAddon1Group",
+    "oid": "1.3.6.1.4.1.9.9.279.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsCdv"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsCdvt"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsIcr"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsTbe"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsFrtt"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsNrm"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsInvTrm"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsInvCdf"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVccParamsAdtf"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmQosVpcGroup": {
+    "name": "ciscoAtmQosVpcGroup",
+    "oid": "1.3.6.1.4.1.9.9.279.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVpcParamsVpState"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVpcParamsPeakRate"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVpcParamsCesRate"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVpcParamsDataVcCount"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVpcParamsCesVcCount"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVpcParamsVcdF4Seg"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVpcParamsVcdF4Ete"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVpcParamsScr"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVpcParamsMbs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmQosVpcAddon1Group": {
+    "name": "ciscoAtmQosVpcAddon1Group",
+    "oid": "1.3.6.1.4.1.9.9.279.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqVpcParamsAvailBw"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoAtmQosVcQueuingGroup": {
+    "name": "ciscoAtmQosVcQueuingGroup",
+    "oid": "1.3.6.1.4.1.9.9.279.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqQueuingParamsMeanQDepth"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqQueuingParamsClassRandDrp"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqQueuingParamsClassTailDrp"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqQueuingParamsClassMinThre"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqQueuingParamsClassMaxThre"
+      },
+      {
+        "module": "CISCO-ATM-QOS-MIB",
+        "object": "caqQueuingParamsClassMrkProb"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ATM-QOS-MIB"
+  }
+}

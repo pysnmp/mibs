@@ -1,0 +1,337 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "Timeout",
+      "BridgeId"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "MibIdentifier",
+      "Unsigned32",
+      "Bits",
+      "TimeTicks",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "RowStatus",
+      "TruthValue",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "nscrtvRoot": {
+    "name": "nscrtvRoot",
+    "oid": "1.3.6.1.4.1.17409",
+    "class": "objectidentity"
+  },
+  "nscrtvHFCemsTree": {
+    "name": "nscrtvHFCemsTree",
+    "oid": "1.3.6.1.4.1.17409.1",
+    "class": "objectidentity"
+  },
+  "nscrtvEponEocTree": {
+    "name": "nscrtvEponEocTree",
+    "oid": "1.3.6.1.4.1.17409.2",
+    "class": "objectidentity"
+  },
+  "propertyIdent": {
+    "name": "propertyIdent",
+    "oid": "1.3.6.1.4.1.17409.2.1",
+    "class": "objectidentity"
+  },
+  "alarmsIdent": {
+    "name": "alarmsIdent",
+    "oid": "1.3.6.1.4.1.17409.2.2",
+    "class": "objectidentity"
+  },
+  "eponTree": {
+    "name": "eponTree",
+    "oid": "1.3.6.1.4.1.17409.2.3",
+    "class": "objectidentity"
+  },
+  "eoCTree": {
+    "name": "eoCTree",
+    "oid": "1.3.6.1.4.1.17409.2.4",
+    "class": "objectidentity"
+  },
+  "eponAlarmTree": {
+    "name": "eponAlarmTree",
+    "oid": "1.3.6.1.4.1.17409.2.2.11",
+    "class": "objectidentity"
+  },
+  "eponTrapObjectGroup": {
+    "name": "eponTrapObjectGroup",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.1",
+    "class": "objectidentity"
+  },
+  "eponAlarmObjGroup": {
+    "name": "eponAlarmObjGroup",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.2",
+    "class": "objectidentity"
+  },
+  "eponManagementObjGroup": {
+    "name": "eponManagementObjGroup",
+    "oid": "1.3.6.1.4.1.17409.2.2.11.3",
+    "class": "objectidentity"
+  },
+  "systemObjects": {
+    "name": "systemObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.1",
+    "class": "objectidentity"
+  },
+  "sniObjects": {
+    "name": "sniObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.2",
+    "class": "objectidentity"
+  },
+  "ponPortObjects": {
+    "name": "ponPortObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.3",
+    "class": "objectidentity"
+  },
+  "onuObjects": {
+    "name": "onuObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.4",
+    "class": "objectidentity"
+  },
+  "uniObjects": {
+    "name": "uniObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.5",
+    "class": "objectidentity"
+  },
+  "igmpManagementObjects": {
+    "name": "igmpManagementObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.6",
+    "class": "objectidentity"
+  },
+  "vlanManagementObjects": {
+    "name": "vlanManagementObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.7",
+    "class": "objectidentity"
+  },
+  "qosManagementObjects": {
+    "name": "qosManagementObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.8",
+    "class": "objectidentity"
+  },
+  "stpManagementObjects": {
+    "name": "stpManagementObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.9",
+    "class": "objectidentity"
+  },
+  "performanceStatisticObjects": {
+    "name": "performanceStatisticObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.10",
+    "class": "objectidentity"
+  },
+  "eponLinkedEoCManagementObjects": {
+    "name": "eponLinkedEoCManagementObjects",
+    "oid": "1.3.6.1.4.1.17409.2.3.11",
+    "class": "objectidentity"
+  },
+  "EponDeviceIndex": {
+    "name": "EponDeviceIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "EponCardIndex": {
+    "name": "EponCardIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "EponPortIndex": {
+    "name": "EponPortIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponAlarmCode": {
+    "name": "EponAlarmCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponAlarmInstance": {
+    "name": "EponAlarmInstance",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponSeverityType": {
+    "name": "EponSeverityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "warning": 4,
+          "info": 5,
+          "clear": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AutoNegotiationTechAbility": {
+    "name": "AutoNegotiationTechAbility",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "tenBaseTFullDuplex": 1,
+        "tenBaseTHalfDuplex": 2,
+        "hundredBaseTFullDuplex": 3,
+        "hundredBaseTHalfDuplex": 4,
+        "thousandBaseTFullDuplex": 5,
+        "thousandBaseTHalfDuplex": 6,
+        "thousandBaseXFullDuplex": 7,
+        "thousandBaseXHalfDuplex": 8,
+        "fdxPause": 9,
+        "fdxApause": 10,
+        "fdxSpause": 11,
+        "fdxBpause": 12
+      }
+    },
+    "status": "current"
+  },
+  "TAddress": {
+    "name": "TAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponStats15MinRecordType": {
+    "name": "EponStats15MinRecordType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponStats24HourRecordType": {
+    "name": "EponStats24HourRecordType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "EponStatsThresholdType": {
+    "name": "EponStatsThresholdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/NSCRTV-EPONEOC-EPON-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:31:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NSCRTV-EPONEOC-EPON-MIB"
+  }
+}

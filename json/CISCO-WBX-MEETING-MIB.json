@@ -1,0 +1,1107 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "AutonomousType",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWebExMeetingMIB": {
+    "name": "ciscoWebExMeetingMIB",
+    "oid": "1.3.6.1.4.1.9.9.809",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-05-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoWebExMeetingMIBNotifs": {
+    "name": "ciscoWebExMeetingMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.809.0",
+    "class": "objectidentity"
+  },
+  "ciscoWebExMeetingMIBObjects": {
+    "name": "ciscoWebExMeetingMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.809.1",
+    "class": "objectidentity"
+  },
+  "ciscoWebExMeetingMIBConform": {
+    "name": "ciscoWebExMeetingMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.809.2",
+    "class": "objectidentity"
+  },
+  "CiscoWebExCommSysResource": {
+    "name": "CiscoWebExCommSysResource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cpu": 0,
+          "memory": 1,
+          "swap": 2,
+          "fileDescriptor": 3,
+          "disk": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoWebExCommSysResMonitoringStatus": {
+    "name": "CiscoWebExCommSysResMonitoringStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "closed": 0,
+          "open": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ciscoWebExCommInfo": {
+    "name": "ciscoWebExCommInfo",
+    "oid": "1.3.6.1.4.1.9.9.809.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoWebExCommSystemResource": {
+    "name": "ciscoWebExCommSystemResource",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2",
+    "class": "objectidentity"
+  },
+  "cwCommSystemVersion": {
+    "name": "cwCommSystemVersion",
+    "oid": "1.3.6.1.4.1.9.9.809.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommSystemObjectID": {
+    "name": "cwCommSystemObjectID",
+    "oid": "1.3.6.1.4.1.9.9.809.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageObject": {
+    "name": "cwCommCPUUsageObject",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cwCommCPUTotalUsage": {
+    "name": "cwCommCPUTotalUsage",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageWindow": {
+    "name": "cwCommCPUUsageWindow",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "Minute",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwCommCPUTotalNumber": {
+    "name": "cwCommCPUTotalNumber",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageTable": {
+    "name": "cwCommCPUUsageTable",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwCommCPUUsageEntry": {
+    "name": "cwCommCPUUsageEntry",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwCommCPUIndex": {
+    "name": "cwCommCPUIndex",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwCommCPUName": {
+    "name": "cwCommCPUName",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsage": {
+    "name": "cwCommCPUUsage",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageUser": {
+    "name": "cwCommCPUUsageUser",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageNice": {
+    "name": "cwCommCPUUsageNice",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageSystem": {
+    "name": "cwCommCPUUsageSystem",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageIdle": {
+    "name": "cwCommCPUUsageIdle",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageIOWait": {
+    "name": "cwCommCPUUsageIOWait",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageIRQ": {
+    "name": "cwCommCPUUsageIRQ",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageSoftIRQ": {
+    "name": "cwCommCPUUsageSoftIRQ",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageSteal": {
+    "name": "cwCommCPUUsageSteal",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUUsageCapacitySubTotal": {
+    "name": "cwCommCPUUsageCapacitySubTotal",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUMonitoringStatus": {
+    "name": "cwCommCPUMonitoringStatus",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWebExCommSysResMonitoringStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommCPUCapacityTotal": {
+    "name": "cwCommCPUCapacityTotal",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KHz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommMEMUsageObject": {
+    "name": "cwCommMEMUsageObject",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cwCommMEMUsage": {
+    "name": "cwCommMEMUsage",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommMEMMonitoringStatus": {
+    "name": "cwCommMEMMonitoringStatus",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWebExCommSysResMonitoringStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommMEMTotal": {
+    "name": "cwCommMEMTotal",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "MBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommMEMSwapUsageObject": {
+    "name": "cwCommMEMSwapUsageObject",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cwCommMEMSwapUsage": {
+    "name": "cwCommMEMSwapUsage",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommMEMSwapMonitoringStatus": {
+    "name": "cwCommMEMSwapMonitoringStatus",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWebExCommSysResMonitoringStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommSysResourceNotificationObject": {
+    "name": "cwCommSysResourceNotificationObject",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cwCommNotificationHostAddressType": {
+    "name": "cwCommNotificationHostAddressType",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cwCommNotificationHostAddress": {
+    "name": "cwCommNotificationHostAddress",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cwCommNotificationResName": {
+    "name": "cwCommNotificationResName",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWebExCommSysResource",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cwCommNotificationResValue": {
+    "name": "cwCommNotificationResValue",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cwCommNotificationSeqNum": {
+    "name": "cwCommNotificationSeqNum",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cwCommDiskUsageObject": {
+    "name": "cwCommDiskUsageObject",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cwCommDiskUsageCount": {
+    "name": "cwCommDiskUsageCount",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommDiskUsageTable": {
+    "name": "cwCommDiskUsageTable",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwCommDiskUsageEntry": {
+    "name": "cwCommDiskUsageEntry",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommDiskUsageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwCommDiskUsageIndex": {
+    "name": "cwCommDiskUsageIndex",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwCommDiskPartitionName": {
+    "name": "cwCommDiskPartitionName",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommDiskUsage": {
+    "name": "cwCommDiskUsage",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommDiskTotal": {
+    "name": "cwCommDiskTotal",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommDiskMonitoringStatus": {
+    "name": "cwCommDiskMonitoringStatus",
+    "oid": "1.3.6.1.4.1.9.9.809.1.2.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoWebExCommSysResMonitoringStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwCommSystemResourceUsageNormalEvent": {
+    "name": "cwCommSystemResourceUsageNormalEvent",
+    "oid": "1.3.6.1.4.1.9.9.809.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationHostAddressType"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationHostAddress"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationResName"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationResValue"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationSeqNum"
+      }
+    ],
+    "status": "current"
+  },
+  "cwCommSystemResourceUsageMinorEvent": {
+    "name": "cwCommSystemResourceUsageMinorEvent",
+    "oid": "1.3.6.1.4.1.9.9.809.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationHostAddressType"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationHostAddress"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationResName"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationResValue"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationSeqNum"
+      }
+    ],
+    "status": "current"
+  },
+  "cwCommSystemResourceUsageMajorEvent": {
+    "name": "cwCommSystemResourceUsageMajorEvent",
+    "oid": "1.3.6.1.4.1.9.9.809.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationHostAddressType"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationHostAddress"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationResName"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationResValue"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationSeqNum"
+      }
+    ],
+    "status": "current"
+  },
+  "cwCommMIBCompliances": {
+    "name": "cwCommMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.809.2.1",
+    "class": "objectidentity"
+  },
+  "cwCommMIBCompliance": {
+    "name": "cwCommMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.809.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWebExCommInfoGroup",
+        "module": "CISCO-WBX-MEETING-MIB"
+      },
+      {
+        "object": "ciscoWebExCommSystemResourceGroup",
+        "module": "CISCO-WBX-MEETING-MIB"
+      },
+      {
+        "object": "ciscoWebExMeetingMIBNotifsGroup",
+        "module": "CISCO-WBX-MEETING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cwCommMIBGroups": {
+    "name": "cwCommMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.809.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWebExCommInfoGroup": {
+    "name": "ciscoWebExCommInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.809.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommSystemVersion"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommSystemObjectID"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWebExCommSystemResourceGroup": {
+    "name": "ciscoWebExCommSystemResourceGroup",
+    "oid": "1.3.6.1.4.1.9.9.809.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUTotalUsage"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsageWindow"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUTotalNumber"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUName"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsage"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUMonitoringStatus"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsageUser"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsageNice"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsageSystem"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsageIdle"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsageIOWait"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsageIRQ"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsageSoftIRQ"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsageSteal"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUUsageCapacitySubTotal"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommCPUCapacityTotal"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommMEMUsage"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommMEMMonitoringStatus"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommMEMSwapUsage"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommMEMSwapMonitoringStatus"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommMEMTotal"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationHostAddressType"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationHostAddress"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationResName"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationResValue"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommNotificationSeqNum"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommDiskUsageCount"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommDiskPartitionName"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommDiskUsage"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommDiskTotal"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommDiskMonitoringStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWebExMeetingMIBNotifsGroup": {
+    "name": "ciscoWebExMeetingMIBNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.809.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommSystemResourceUsageNormalEvent"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommSystemResourceUsageMinorEvent"
+      },
+      {
+        "module": "CISCO-WBX-MEETING-MIB",
+        "object": "cwCommSystemResourceUsageMajorEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WBX-MEETING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WBX-MEETING-MIB"
+  }
+}

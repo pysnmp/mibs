@@ -1,0 +1,4954 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TELESTE-ROOT-MIB": [
+      "luminato"
+    ]
+  },
+  "notifications": {
+    "name": "notifications",
+    "oid": "1.3.6.1.4.1.3715.17.4",
+    "class": "objectidentity"
+  },
+  "params": {
+    "name": "params",
+    "oid": "1.3.6.1.4.1.3715.17.4.1",
+    "class": "objectidentity"
+  },
+  "severity": {
+    "name": "severity",
+    "oid": "1.3.6.1.4.1.3715.17.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "severityEmergency": 0,
+          "severityAlert": 1,
+          "severityCritical": 2,
+          "severityError": 3,
+          "severityWarning": 4,
+          "severityNotice": 5,
+          "severityInformational": 6,
+          "severityDebug": 7,
+          "severityNominal": 8
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "module": {
+    "name": "module",
+    "oid": "1.3.6.1.4.1.3715.17.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "moduleChassis": 0,
+          "moduleSlot1": 1,
+          "moduleSlot2": 2,
+          "moduleSlot3": 3,
+          "moduleSlot4": 4,
+          "moduleSlot5": 5,
+          "moduleSlot6": 6,
+          "modulePsu": 7
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "description": {
+    "name": "description",
+    "oid": "1.3.6.1.4.1.3715.17.4.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "reason": {
+    "name": "reason",
+    "oid": "1.3.6.1.4.1.3715.17.4.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "paramTable": {
+    "name": "paramTable",
+    "oid": "1.3.6.1.4.1.3715.17.4.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "optional"
+  },
+  "paramEntry": {
+    "name": "paramEntry",
+    "oid": "1.3.6.1.4.1.3715.17.4.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "accessible-for-notify",
+    "indices": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramIdx",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "paramIdx": {
+    "name": "paramIdx",
+    "oid": "1.3.6.1.4.1.3715.17.4.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "paramValue": {
+    "name": "paramValue",
+    "oid": "1.3.6.1.4.1.3715.17.4.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "traps": {
+    "name": "traps",
+    "oid": "1.3.6.1.4.1.3715.17.4.2",
+    "class": "objectidentity"
+  },
+  "generic": {
+    "name": "generic",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.1",
+    "class": "objectidentity"
+  },
+  "extendedAlarmEvent": {
+    "name": "extendedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "specific": {
+    "name": "specific",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2",
+    "class": "objectidentity"
+  },
+  "extendedPidMissingAlarmEvent": {
+    "name": "extendedPidMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedServiceMissingAlarmEvent": {
+    "name": "extendedServiceMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedPidConflictAlarmEvent": {
+    "name": "extendedPidConflictAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedTemperatureTooHighAlarmEvent": {
+    "name": "extendedTemperatureTooHighAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedTemperatureTooLowAlarmEvent": {
+    "name": "extendedTemperatureTooLowAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedManualTableInsertionFailedAlarmEvent": {
+    "name": "extendedManualTableInsertionFailedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedAlertMessageAlarmEvent": {
+    "name": "extendedAlertMessageAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedServicesPassthroughAlarmEvent": {
+    "name": "extendedServicesPassthroughAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedPsigTableInsertionFailedAlarmEvent": {
+    "name": "extendedPsigTableInsertionFailedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedModuleOffAlarmEvent": {
+    "name": "extendedModuleOffAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4096",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedSignalMissingAlarmEvent": {
+    "name": "extendedSignalMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4097",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedNoTsSyncAlarmEvent": {
+    "name": "extendedNoTsSyncAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4098",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedTsRxErrorsAlarmEvent": {
+    "name": "extendedTsRxErrorsAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4099",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedTsInputBufferOverflowAlarmEvent": {
+    "name": "extendedTsInputBufferOverflowAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedAsiLinkDownAlarmEvent": {
+    "name": "extendedAsiLinkDownAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4102",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedForbiddenNetworkAlarmEvent": {
+    "name": "extendedForbiddenNetworkAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4103",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedPidCapacityExceededAlarmEvent": {
+    "name": "extendedPidCapacityExceededAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4104",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedPsiSiCaptureCapacityExceededAlarmEvent": {
+    "name": "extendedPsiSiCaptureCapacityExceededAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4105",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedOutOfServiceIdsAlarmEvent": {
+    "name": "extendedOutOfServiceIdsAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4106",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCaModuleMissingAlarmEvent": {
+    "name": "extendedCaModuleMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4108",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedPsiSiInsertCapacityExceededAlarmEvent": {
+    "name": "extendedPsiSiInsertCapacityExceededAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4109",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent": {
+    "name": "extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4110",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUnknownModuleAlarmEvent": {
+    "name": "extendedUnknownModuleAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4111",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedMainVoltageTooHighAlarmEvent": {
+    "name": "extendedMainVoltageTooHighAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4112",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedMainVoltageTooLowAlarmEvent": {
+    "name": "extendedMainVoltageTooLowAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4113",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCurrentTooHighAlarmEvent": {
+    "name": "extendedCurrentTooHighAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4114",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCurrentTooLowAlarmEvent": {
+    "name": "extendedCurrentTooLowAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4115",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDaemonInitializationFailedAlarmEvent": {
+    "name": "extendedDaemonInitializationFailedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4127",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDeviceDriverFailureAlarmEvent": {
+    "name": "extendedDeviceDriverFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4129",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedHardwareFailureAlarmEvent": {
+    "name": "extendedHardwareFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4130",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFanFailureAlarmEvent": {
+    "name": "extendedFanFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4131",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedRunningOnBackupPowerAlarmEvent": {
+    "name": "extendedRunningOnBackupPowerAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4132",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedPowerSupplyOverloadedAlarmEvent": {
+    "name": "extendedPowerSupplyOverloadedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4133",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBootingUpAlarmEvent": {
+    "name": "extendedBootingUpAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4134",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBootFailedRetryingAlarmEvent": {
+    "name": "extendedBootFailedRetryingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4135",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBootFailedAlarmEvent": {
+    "name": "extendedBootFailedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4136",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedShuttingDownAlarmEvent": {
+    "name": "extendedShuttingDownAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4137",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedConnectionLostAlarmEvent": {
+    "name": "extendedConnectionLostAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4138",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedIncompatibleModuleDisabledAlarmEvent": {
+    "name": "extendedIncompatibleModuleDisabledAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4139",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFailedToBootAlarmEvent": {
+    "name": "extendedFailedToBootAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4141",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUpcTooLowInputPowerAlarmEvent": {
+    "name": "extendedUpcTooLowInputPowerAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4147",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUpcTooHighInputPowerAlarmEvent": {
+    "name": "extendedUpcTooHighInputPowerAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4148",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCalibrationDataMissingAlarmEvent": {
+    "name": "extendedCalibrationDataMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4149",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCalibrationCheckSkippedAlarmEvent": {
+    "name": "extendedCalibrationCheckSkippedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4150",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDescramblingFailureAlarmEvent": {
+    "name": "extendedDescramblingFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4151",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupSwitchedOverToBackupDeviceAlarmEvent": {
+    "name": "extendedBackupSwitchedOverToBackupDeviceAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4153",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFailedToQuerySomeOfTheNitDataAlarmEvent": {
+    "name": "extendedFailedToQuerySomeOfTheNitDataAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4157",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedNitWizardFailureAlarmEvent": {
+    "name": "extendedNitWizardFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4158",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent": {
+    "name": "extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4159",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCannotResolveTableVersionUsingDefaultAlarmEvent": {
+    "name": "extendedCannotResolveTableVersionUsingDefaultAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4160",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedSidConflictAlarmEvent": {
+    "name": "extendedSidConflictAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4173",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUnsupportedConfigurationAlarmEvent": {
+    "name": "extendedUnsupportedConfigurationAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4175",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFrequencyOutOfRangeAlarmEvent": {
+    "name": "extendedFrequencyOutOfRangeAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4176",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedOutputPowerOutOfRangeAlarmEvent": {
+    "name": "extendedOutputPowerOutOfRangeAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4177",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedSymbolrateOutOfRangeAlarmEvent": {
+    "name": "extendedSymbolrateOutOfRangeAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4178",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedChannelDistanceTooNarrowAlarmEvent": {
+    "name": "extendedChannelDistanceTooNarrowAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4179",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedInvalidLnbVoltageConfigurationAlarmEvent": {
+    "name": "extendedInvalidLnbVoltageConfigurationAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4180",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedInvalidFecRateForSelectedModulationAlarmEvent": {
+    "name": "extendedInvalidFecRateForSelectedModulationAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4181",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedLnbCurrentAlarmEvent": {
+    "name": "extendedLnbCurrentAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4182",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFrequencyOffsetAlarmEvent": {
+    "name": "extendedFrequencyOffsetAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4183",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedRestartingDescramblingAlarmEvent": {
+    "name": "extendedRestartingDescramblingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4185",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedRebootingCamAlarmEvent": {
+    "name": "extendedRebootingCamAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4186",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEcmgFailureAlarmEvent": {
+    "name": "extendedEcmgFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4187",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEcmStreamFailureAlarmEvent": {
+    "name": "extendedEcmStreamFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4188",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEmmFailureAlarmEvent": {
+    "name": "extendedEmmFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4189",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEmmStreamFailureAlarmEvent": {
+    "name": "extendedEmmStreamFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4190",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEcmgNotConnectedAlarmEvent": {
+    "name": "extendedEcmgNotConnectedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4191",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEmmNotConnectedAlarmEvent": {
+    "name": "extendedEmmNotConnectedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4192",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedScsNotLicensedAlarmEvent": {
+    "name": "extendedScsNotLicensedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4193",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEcmgSwitchedToSpareServerAlarmEvent": {
+    "name": "extendedEcmgSwitchedToSpareServerAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4194",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUpdatedBootLoaderAvailableAlarmEvent": {
+    "name": "extendedUpdatedBootLoaderAvailableAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4195",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUpdatingStage1BootLoaderAlarmEvent": {
+    "name": "extendedUpdatingStage1BootLoaderAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4196",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUpdatingStage2BootLoaderAlarmEvent": {
+    "name": "extendedUpdatingStage2BootLoaderAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4197",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFailedToUpdateStage1BootLoaderAlarmEvent": {
+    "name": "extendedFailedToUpdateStage1BootLoaderAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4198",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFailedToUpdateStage2BootLoaderAlarmEvent": {
+    "name": "extendedFailedToUpdateStage2BootLoaderAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4199",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupActiveBackupAlarmEvent": {
+    "name": "extendedBackupActiveBackupAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4203",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedConfiguringModuleAlarmEvent": {
+    "name": "extendedConfiguringModuleAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedNoModuleAlarmEvent": {
+    "name": "extendedNoModuleAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4206",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedProcessStartedAlarmEvent": {
+    "name": "extendedProcessStartedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4208",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupLicenseMissingAlarmEvent": {
+    "name": "extendedBackupLicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4209",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedMultiplexingLicenseMissingAlarmEvent": {
+    "name": "extendedMultiplexingLicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4211",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDemultiplexingLicenseMissingAlarmEvent": {
+    "name": "extendedDemultiplexingLicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4212",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDvbProcessingLicenseMissingAlarmEvent": {
+    "name": "extendedDvbProcessingLicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4213",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedMsdLicenseMissingAlarmEvent": {
+    "name": "extendedMsdLicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4214",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDvbS2LicenseMissingAlarmEvent": {
+    "name": "extendedDvbS2LicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4215",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedScramblingLicenseMissingAlarmEvent": {
+    "name": "extendedScramblingLicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4216",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedScsLicenseMissingAlarmEvent": {
+    "name": "extendedScsLicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4217",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUserFromGroupAdminIsUsingCliAlarmEvent": {
+    "name": "extendedUserFromGroupAdminIsUsingCliAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4218",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUserFromGroupInstallIsUsingCliAlarmEvent": {
+    "name": "extendedUserFromGroupInstallIsUsingCliAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4219",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUserFromGroupOperIsUsingCliAlarmEvent": {
+    "name": "extendedUserFromGroupOperIsUsingCliAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4220",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUserFromGroupMonitorIsUsingCliAlarmEvent": {
+    "name": "extendedUserFromGroupMonitorIsUsingCliAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4221",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedRedundancyActivatedAlarmEvent": {
+    "name": "extendedRedundancyActivatedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4222",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedExtIoSignaledAlarmEvent": {
+    "name": "extendedExtIoSignaledAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4223",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedExtIoBackupPowerSupplyFailureAlarmEvent": {
+    "name": "extendedExtIoBackupPowerSupplyFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4224",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedExtIoIntrusionDetectedAlarmEvent": {
+    "name": "extendedExtIoIntrusionDetectedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4225",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedLinkMissingAlarmEvent": {
+    "name": "extendedLinkMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4226",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedRedundancyFailedAlarmEvent": {
+    "name": "extendedRedundancyFailedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4227",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent": {
+    "name": "extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4228",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCbrOutputOversubscriptionAlarmEvent": {
+    "name": "extendedCbrOutputOversubscriptionAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4229",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent": {
+    "name": "extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4230",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedSoftwareUpdateInProgressAlarmEvent": {
+    "name": "extendedSoftwareUpdateInProgressAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4231",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent": {
+    "name": "extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4232",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedSoftwareUpdateFailedAlarmEvent": {
+    "name": "extendedSoftwareUpdateFailedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4233",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent": {
+    "name": "extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4234",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEitProcessingLicenseMissingAlarmEvent": {
+    "name": "extendedEitProcessingLicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4235",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent": {
+    "name": "extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4236",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDescramblingFailedAlarmEvent": {
+    "name": "extendedDescramblingFailedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4237",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedIpInputCapacityExceededAlarmEvent": {
+    "name": "extendedIpInputCapacityExceededAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4238",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEitReinsertCapacityExceededAlarmEvent": {
+    "name": "extendedEitReinsertCapacityExceededAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4239",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedRtpInputErrorsDroppedPacketsAlarmEvent": {
+    "name": "extendedRtpInputErrorsDroppedPacketsAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4241",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent": {
+    "name": "extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4242",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDvbTimeMissingAlarmEvent": {
+    "name": "extendedDvbTimeMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4243",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDvbT2LicenseMissingAlarmEvent": {
+    "name": "extendedDvbT2LicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4244",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDcFeedCurrentAlarmEvent": {
+    "name": "extendedDcFeedCurrentAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4245",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent": {
+    "name": "extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4246",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDataPlpIdSelectionRequiredAlarmEvent": {
+    "name": "extendedDataPlpIdSelectionRequiredAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4247",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDataPlpIdSelectionNotValidAlarmEvent": {
+    "name": "extendedDataPlpIdSelectionNotValidAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4248",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedHierarchyHpSelectedForNonAlarmEvent": {
+    "name": "extendedHierarchyHpSelectedForNonAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4249",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEcmMissingAlarmEvent": {
+    "name": "extendedEcmMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4250",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedScramblingConflictInSharedComponentAlarmEvent": {
+    "name": "extendedScramblingConflictInSharedComponentAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4251",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedScrambledSharedComponentAlarmEvent": {
+    "name": "extendedScrambledSharedComponentAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4252",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupVoltageTooHighAlarmEvent": {
+    "name": "extendedBackupVoltageTooHighAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4253",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupVoltageTooLowAlarmEvent": {
+    "name": "extendedBackupVoltageTooLowAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4254",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedInvalidSdtTemplateAlarmEvent": {
+    "name": "extendedInvalidSdtTemplateAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4255",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCamFailureActionTakenRestartingDescramblingAlarmEvent": {
+    "name": "extendedCamFailureActionTakenRestartingDescramblingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4256",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCamFailureActionTakenRebootingCaModuleAlarmEvent": {
+    "name": "extendedCamFailureActionTakenRebootingCaModuleAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4257",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCaMenuIsOpenAlarmEvent": {
+    "name": "extendedCaMenuIsOpenAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4258",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCannotDescrambleDueToCamRoutingAlarmEvent": {
+    "name": "extendedCannotDescrambleDueToCamRoutingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4259",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedNitSidConflictAlarmEvent": {
+    "name": "extendedNitSidConflictAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4260",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent": {
+    "name": "extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4261",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedNumberOfFecLicensesExceededAlarmEvent": {
+    "name": "extendedNumberOfFecLicensesExceededAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4262",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent": {
+    "name": "extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4263",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent": {
+    "name": "extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4264",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent": {
+    "name": "extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4265",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFecHasCorrectedPacketsAlarmEvent": {
+    "name": "extendedFecHasCorrectedPacketsAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4266",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFecInputAnomaliesDetectedAlarmEvent": {
+    "name": "extendedFecInputAnomaliesDetectedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4267",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedFecErrorCorrectionCapacityExceededAlarmEvent": {
+    "name": "extendedFecErrorCorrectionCapacityExceededAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4268",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedSfpLinkDownAlarmEvent": {
+    "name": "extendedSfpLinkDownAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4269",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncTurnedOffAlarmEvent": {
+    "name": "extendedBackupsyncTurnedOffAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4272",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncManualModeAlarmEvent": {
+    "name": "extendedBackupsyncManualModeAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4273",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncAutomaticModeAlarmEvent": {
+    "name": "extendedBackupsyncAutomaticModeAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4274",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent": {
+    "name": "extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4275",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncSynchronizingAlarmEvent": {
+    "name": "extendedBackupsyncSynchronizingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4276",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncSwCompatibilityCheckAlarmEvent": {
+    "name": "extendedBackupsyncSwCompatibilityCheckAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4278",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncHwCompatibilityCheckAlarmEvent": {
+    "name": "extendedBackupsyncHwCompatibilityCheckAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4279",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncConfigurationFaultAlarmEvent": {
+    "name": "extendedBackupsyncConfigurationFaultAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4280",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncConnectionLostAlarmEvent": {
+    "name": "extendedBackupsyncConnectionLostAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4281",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent": {
+    "name": "extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4283",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent": {
+    "name": "extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4284",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncCheckLicenseCompatibilityAlarmEvent": {
+    "name": "extendedBackupsyncCheckLicenseCompatibilityAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4285",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedBackupsyncLicenseCompatibilityCheckAlarmEvent": {
+    "name": "extendedBackupsyncLicenseCompatibilityCheckAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4286",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDeviceFirstBootActionsAreInProgressAlarmEvent": {
+    "name": "extendedDeviceFirstBootActionsAreInProgressAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4288",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDeviceConfigurationBackupInProgressAlarmEvent": {
+    "name": "extendedDeviceConfigurationBackupInProgressAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4289",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDeviceConfigurationRestoreInProgressAlarmEvent": {
+    "name": "extendedDeviceConfigurationRestoreInProgressAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4290",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDeviceOtherSoftwareActivationAlarmEvent": {
+    "name": "extendedDeviceOtherSoftwareActivationAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4291",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedTooManyOutputPidsConfiguredAlarmEvent": {
+    "name": "extendedTooManyOutputPidsConfiguredAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4292",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedRebootRequestByUserAlarmEvent": {
+    "name": "extendedRebootRequestByUserAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4293",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedRemovedFromTheChassisAlarmEvent": {
+    "name": "extendedRemovedFromTheChassisAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4294",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedInsertedIntoTheChassisAlarmEvent": {
+    "name": "extendedInsertedIntoTheChassisAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4295",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedUsedInputIsNotSptsAlarmEvent": {
+    "name": "extendedUsedInputIsNotSptsAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4296",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent": {
+    "name": "extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4297",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedAesLicenseMissingAlarmEvent": {
+    "name": "extendedAesLicenseMissingAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4298",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent": {
+    "name": "extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4299",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedEcmResponsesDelayedAlarmEvent": {
+    "name": "extendedEcmResponsesDelayedAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4300",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedCwGroupConflictAlarmEvent": {
+    "name": "extendedCwGroupConflictAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4301",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedDisconnectedHostInMultichassisGroupAlarmEvent": {
+    "name": "extendedDisconnectedHostInMultichassisGroupAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4302",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedMultichassisConfigurationFailureAlarmEvent": {
+    "name": "extendedMultichassisConfigurationFailureAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4303",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent": {
+    "name": "extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4304",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "extendedSwVersionMismatchAlarmEvent": {
+    "name": "extendedSwVersionMismatchAlarmEvent",
+    "oid": "1.3.6.1.4.1.3715.17.4.2.2.4305",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "severity"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "module"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "reason"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "description"
+      },
+      {
+        "module": "TELESTE-LUMINATO-MIB2",
+        "object": "paramTable"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/teleste/TELESTE-LUMINATO-MIB2",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TELESTE-LUMINATO-MIB2"
+  }
+}

@@ -1,0 +1,1956 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoWANSonetMIB": {
+    "name": "ciscoWANSonetMIB",
+    "oid": "1.3.6.1.4.1.351.150.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-05-20 00:00",
+        "description": "Importing Unsigned32 from SNMPv2-SMI."
+      },
+      {
+        "revision": "2000-03-06 00:00",
+        "description": "Initial version of the MIB Module."
+      }
+    ]
+  },
+  "ciscoWANSonetMIBObjects": {
+    "name": "ciscoWANSonetMIBObjects",
+    "oid": "1.3.6.1.4.1.351.150.3.1",
+    "class": "objectidentity"
+  },
+  "cwsSection": {
+    "name": "cwsSection",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1",
+    "class": "objectidentity"
+  },
+  "cwsLine": {
+    "name": "cwsLine",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2",
+    "class": "objectidentity"
+  },
+  "cwsPath": {
+    "name": "cwsPath",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3",
+    "class": "objectidentity"
+  },
+  "cwsSectionAlarmTable": {
+    "name": "cwsSectionAlarmTable",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSectionAlarmEntry": {
+    "name": "cwsSectionAlarmEntry",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSectionStatisticalAlarmSeverity": {
+    "name": "cwsSectionStatisticalAlarmSeverity",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2,
+          "none": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSectionCurrentESsThreshold": {
+    "name": "cwsSectionCurrentESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSectionTotalESsThreshold": {
+    "name": "cwsSectionTotalESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSectionCurrentSESsThreshold": {
+    "name": "cwsSectionCurrentSESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSectionTotalSESsThreshold": {
+    "name": "cwsSectionTotalSESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSectionCurrentSEFSsThreshold": {
+    "name": "cwsSectionCurrentSEFSsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "severely errored framing seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSectionTotalSEFSsThreshold": {
+    "name": "cwsSectionTotalSEFSsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "severely errored framing seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSectionCurrentCVsThreshold": {
+    "name": "cwsSectionCurrentCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "units": "coding violations",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSectionTotalCVsThreshold": {
+    "name": "cwsSectionTotalCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "units": "coding violations",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSectionStatAlarmStatus": {
+    "name": "cwsSectionStatAlarmStatus",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsSectionCurrent24HrTable": {
+    "name": "cwsSectionCurrent24HrTable",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSectionCurrent24HrEntry": {
+    "name": "cwsSectionCurrent24HrEntry",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSectionCurrent24HrESs": {
+    "name": "cwsSectionCurrent24HrESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSectionCurrent24HrSESs": {
+    "name": "cwsSectionCurrent24HrSESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSectionCurrent24HrSEFSs": {
+    "name": "cwsSectionCurrent24HrSEFSs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored framing seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSectionCurrent24HrCVs": {
+    "name": "cwsSectionCurrent24HrCVs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSectionPrevious24HrTable": {
+    "name": "cwsSectionPrevious24HrTable",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsSectionPrevious24HrEntry": {
+    "name": "cwsSectionPrevious24HrEntry",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsSectionPrevious24HrESs": {
+    "name": "cwsSectionPrevious24HrESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSectionPrevious24HrSESs": {
+    "name": "cwsSectionPrevious24HrSESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSectionPrevious24HrSEFSs": {
+    "name": "cwsSectionPrevious24HrSEFSs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored framing seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsSectionPrevious24HrCVs": {
+    "name": "cwsSectionPrevious24HrCVs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsLineAlarmTable": {
+    "name": "cwsLineAlarmTable",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsLineAlarmEntry": {
+    "name": "cwsLineAlarmEntry",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsLineStatisticalAlarmSeverity": {
+    "name": "cwsLineStatisticalAlarmSeverity",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2,
+          "none": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsLineCurrentESsThreshold": {
+    "name": "cwsLineCurrentESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsLineTotalESsThreshold": {
+    "name": "cwsLineTotalESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsLineCurrentSESsThreshold": {
+    "name": "cwsLineCurrentSESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsLineTotalSESsThreshold": {
+    "name": "cwsLineTotalSESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsLineCurrentCVsThreshold": {
+    "name": "cwsLineCurrentCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsLineTotalCVsThreshold": {
+    "name": "cwsLineTotalCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsLineCurrentUASsThreshold": {
+    "name": "cwsLineCurrentUASsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsLineTotalUASsThreshold": {
+    "name": "cwsLineTotalUASsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsLineStatAlarmStatus": {
+    "name": "cwsLineStatAlarmStatus",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsLineCurrent24HrTable": {
+    "name": "cwsLineCurrent24HrTable",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsLineCurrent24HrEntry": {
+    "name": "cwsLineCurrent24HrEntry",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsLineCurrent24HrESs": {
+    "name": "cwsLineCurrent24HrESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsLineCurrent24HrSESs": {
+    "name": "cwsLineCurrent24HrSESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsLineCurrent24HrCVs": {
+    "name": "cwsLineCurrent24HrCVs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsLineCurrent24HrUASs": {
+    "name": "cwsLineCurrent24HrUASs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "Unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFELineCurrent24HrESs": {
+    "name": "cwsFELineCurrent24HrESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFELineCurrent24HrSESs": {
+    "name": "cwsFELineCurrent24HrSESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFELineCurrent24HrCVs": {
+    "name": "cwsFELineCurrent24HrCVs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFELineCurrent24HrUASs": {
+    "name": "cwsFELineCurrent24HrUASs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "Unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsLinePrevious24HrTable": {
+    "name": "cwsLinePrevious24HrTable",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsLinePrevious24HrEntry": {
+    "name": "cwsLinePrevious24HrEntry",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsLinePrevious24HrESs": {
+    "name": "cwsLinePrevious24HrESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsLinePrevious24HrSESs": {
+    "name": "cwsLinePrevious24HrSESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsLinePrevious24HrCVs": {
+    "name": "cwsLinePrevious24HrCVs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsLinePrevious24HrUASs": {
+    "name": "cwsLinePrevious24HrUASs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "Unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFELinePrevious24HrESs": {
+    "name": "cwsFELinePrevious24HrESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFELinePrevious24HrSESs": {
+    "name": "cwsFELinePrevious24HrSESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFELinePrevious24HrCVs": {
+    "name": "cwsFELinePrevious24HrCVs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFELinePrevious24HrUASs": {
+    "name": "cwsFELinePrevious24HrUASs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "Unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPathAlarmTable": {
+    "name": "cwsPathAlarmTable",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPathAlarmEntry": {
+    "name": "cwsPathAlarmEntry",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPathStatisticalAlarmSeverity": {
+    "name": "cwsPathStatisticalAlarmSeverity",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "minor": 1,
+          "major": 2,
+          "none": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPathCurrentESsThreshold": {
+    "name": "cwsPathCurrentESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPathTotalESsThreshold": {
+    "name": "cwsPathTotalESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPathCurrentSESsThreshold": {
+    "name": "cwsPathCurrentSESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPathTotalSESsThreshold": {
+    "name": "cwsPathTotalSESsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPathCurrentCVsThreshold": {
+    "name": "cwsPathCurrentCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPathTotalCVsThreshold": {
+    "name": "cwsPathTotalCVsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPathCurrentUASsThreshold": {
+    "name": "cwsPathCurrentUASsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPathTotalUASsThreshold": {
+    "name": "cwsPathTotalUASsThreshold",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cwsPathStatAlarmStatus": {
+    "name": "cwsPathStatAlarmStatus",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPathCurrent24HrTable": {
+    "name": "cwsPathCurrent24HrTable",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPathCurrent24HrEntry": {
+    "name": "cwsPathCurrent24HrEntry",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPathCurrent24HrESs": {
+    "name": "cwsPathCurrent24HrESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPathCurrent24HrSESs": {
+    "name": "cwsPathCurrent24HrSESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPathCurrent24HrCVs": {
+    "name": "cwsPathCurrent24HrCVs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPathCurrent24HrUASs": {
+    "name": "cwsPathCurrent24HrUASs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "Unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFEPathCurrent24HrESs": {
+    "name": "cwsFEPathCurrent24HrESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFEPathCurrent24HrSESs": {
+    "name": "cwsFEPathCurrent24HrSESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFEPathCurrent24HrCVs": {
+    "name": "cwsFEPathCurrent24HrCVs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFEPathCurrent24HrUASs": {
+    "name": "cwsFEPathCurrent24HrUASs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "Unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPathPrevious24HrTable": {
+    "name": "cwsPathPrevious24HrTable",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cwsPathPrevious24HrEntry": {
+    "name": "cwsPathPrevious24HrEntry",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cwsPathPrevious24HrESs": {
+    "name": "cwsPathPrevious24HrESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPathPrevious24HrSESs": {
+    "name": "cwsPathPrevious24HrSESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPathPrevious24HrCVs": {
+    "name": "cwsPathPrevious24HrCVs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsPathPrevious24HrUASs": {
+    "name": "cwsPathPrevious24HrUASs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "Unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFEPathPrevious24HrESs": {
+    "name": "cwsFEPathPrevious24HrESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFEPathPrevious24HrSESs": {
+    "name": "cwsFEPathPrevious24HrSESs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "severely errored seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFEPathPrevious24HrCVs": {
+    "name": "cwsFEPathPrevious24HrCVs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "coding violations",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cwsFEPathPrevious24HrUASs": {
+    "name": "cwsFEPathPrevious24HrUASs",
+    "oid": "1.3.6.1.4.1.351.150.3.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "Unavailable seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoWANSonetMIBConformance": {
+    "name": "ciscoWANSonetMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoWANSonetMIBCompliances": {
+    "name": "ciscoWANSonetMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.3.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoWANSonetMIBGroups": {
+    "name": "ciscoWANSonetMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoWANSonetMIBCompliance": {
+    "name": "ciscoWANSonetMIBCompliance",
+    "oid": "1.3.6.1.4.1.351.150.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoWANSonetSectAlarmMIBGroup",
+        "module": "CISCO-WAN-SONET-MIB"
+      },
+      {
+        "object": "ciscoWANSonetLineAlarmMIBGroup",
+        "module": "CISCO-WAN-SONET-MIB"
+      },
+      {
+        "object": "ciscoWANSonetPathAlarmMIBGroup",
+        "module": "CISCO-WAN-SONET-MIB"
+      },
+      {
+        "object": "ciscoWANSonetLinePrev24HrMIBGroup",
+        "module": "CISCO-WAN-SONET-MIB"
+      },
+      {
+        "object": "ciscoWANSonetFELineAlarmMIBGroup",
+        "module": "CISCO-WAN-SONET-MIB"
+      },
+      {
+        "object": "ciscoWANSonetFELinePrev24HrMIBGroup",
+        "module": "CISCO-WAN-SONET-MIB"
+      },
+      {
+        "object": "ciscoWANSonetPathPrev24HrMIBGroup",
+        "module": "CISCO-WAN-SONET-MIB"
+      },
+      {
+        "object": "ciscoWANSonetFEPathAlarmMIBGroup",
+        "module": "CISCO-WAN-SONET-MIB"
+      },
+      {
+        "object": "ciscoWANSonetFEPathPrev24HrMIBGroup",
+        "module": "CISCO-WAN-SONET-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWANSonetSectAlarmMIBGroup": {
+    "name": "ciscoWANSonetSectAlarmMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionStatisticalAlarmSeverity"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionCurrentESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionTotalESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionCurrentSESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionTotalSESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionCurrentSEFSsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionTotalSEFSsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionCurrentCVsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionTotalCVsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionStatAlarmStatus"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionCurrent24HrESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionCurrent24HrSESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionCurrent24HrSEFSs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionCurrent24HrCVs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWANSonetSectPrev24HrMIBGroup": {
+    "name": "ciscoWANSonetSectPrev24HrMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionPrevious24HrESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionPrevious24HrSESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionPrevious24HrSEFSs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsSectionPrevious24HrCVs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWANSonetLineAlarmMIBGroup": {
+    "name": "ciscoWANSonetLineAlarmMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineStatisticalAlarmSeverity"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineCurrentESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineTotalESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineCurrentSESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineTotalSESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineCurrentCVsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineTotalCVsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineCurrentUASsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineTotalUASsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineStatAlarmStatus"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineCurrent24HrESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineCurrent24HrSESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineCurrent24HrCVs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLineCurrent24HrUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWANSonetFELineAlarmMIBGroup": {
+    "name": "ciscoWANSonetFELineAlarmMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFELineCurrent24HrESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFELineCurrent24HrSESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFELineCurrent24HrCVs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFELineCurrent24HrUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWANSonetLinePrev24HrMIBGroup": {
+    "name": "ciscoWANSonetLinePrev24HrMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLinePrevious24HrESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLinePrevious24HrSESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLinePrevious24HrCVs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsLinePrevious24HrUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWANSonetFELinePrev24HrMIBGroup": {
+    "name": "ciscoWANSonetFELinePrev24HrMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFELinePrevious24HrESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFELinePrevious24HrSESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFELinePrevious24HrCVs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFELinePrevious24HrUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWANSonetPathAlarmMIBGroup": {
+    "name": "ciscoWANSonetPathAlarmMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathStatisticalAlarmSeverity"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathCurrentESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathTotalESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathCurrentSESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathTotalSESsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathCurrentCVsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathTotalCVsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathCurrentUASsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathTotalUASsThreshold"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathStatAlarmStatus"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathCurrent24HrESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathCurrent24HrSESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathCurrent24HrCVs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathCurrent24HrUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWANSonetFEPathAlarmMIBGroup": {
+    "name": "ciscoWANSonetFEPathAlarmMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFEPathCurrent24HrESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFEPathCurrent24HrSESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFEPathCurrent24HrCVs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFEPathCurrent24HrUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWANSonetPathPrev24HrMIBGroup": {
+    "name": "ciscoWANSonetPathPrev24HrMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathPrevious24HrESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathPrevious24HrSESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathPrevious24HrCVs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsPathPrevious24HrUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoWANSonetFEPathPrev24HrMIBGroup": {
+    "name": "ciscoWANSonetFEPathPrev24HrMIBGroup",
+    "oid": "1.3.6.1.4.1.351.150.3.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFEPathPrevious24HrESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFEPathPrevious24HrSESs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFEPathPrevious24HrCVs"
+      },
+      {
+        "module": "CISCO-WAN-SONET-MIB",
+        "object": "cwsFEPathPrevious24HrUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-SONET-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-WAN-SONET-MIB"
+  }
+}

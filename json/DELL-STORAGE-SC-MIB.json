@@ -1,0 +1,5563 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "storageCenterModule": {
+    "name": "storageCenterModule",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-01-29 00:00",
+        "description": "Changed most product references from 'Compellent' to 'Dell Storage' and added level for StorageCenter under compellentEnterprise."
+      },
+      {
+        "revision": "2013-12-18 00:00",
+        "description": "Added scScMgmtIP var to each trap."
+      },
+      {
+        "revision": "2013-12-06 00:00",
+        "description": "Added scCtlrLeader."
+      },
+      {
+        "revision": "2013-11-05 00:00",
+        "description": "Changed voltage values from unsigned to string, and added scEnclApiIndex."
+      },
+      {
+        "revision": "2013-09-27 00:00",
+        "description": "Deprecated UsedSpace and TotalSpace (where GBs are calculated as 1000*1000*1000) and replaced them with vars calculated with GB = 1024*1024*1024."
+      },
+      {
+        "revision": "2013-07-19 00:00",
+        "description": "Changed from Compellent enterprise number to Dell's."
+      },
+      {
+        "revision": "2013-07-09 00:00",
+        "description": "Added IPv6 objects to CtlrTable and ScTable."
+      },
+      {
+        "revision": "2013-05-20 00:00",
+        "description": "Changed how productIDGlobalStatus is handled. Added model and asset tags to scCtlrTable and scEnclTable. Added new tables scDiskConfigTable and scAlertTable."
+      },
+      {
+        "revision": "2013-02-08 00:00",
+        "description": "Added traps organized by function rather than severity, and added new mib objects to support the new traps."
+      },
+      {
+        "revision": "2011-07-12 00:00",
+        "description": "Cleaned things up to get rid of errors and warnings reported by MIB validators."
+      },
+      {
+        "revision": "2009-05-18 00:00",
+        "description": "Applicable for Compellent Storage Center versions 5.0 and higher."
+      }
+    ]
+  },
+  "ScHardwareType": {
+    "name": "ScHardwareType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fan": 1,
+          "powersupply": 2,
+          "tempsensor": 3,
+          "voltagesensor": 4,
+          "iomodule": 5,
+          "audiblealarm": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ScStatus": {
+    "name": "ScStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "degraded": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "dellEnterprise": {
+    "name": "dellEnterprise",
+    "oid": "1.3.6.1.4.1.674",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dellEnterpriseBranch": {
+    "name": "dellEnterpriseBranch",
+    "oid": "1.3.6.1.4.1.674.11000",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dellStorageSubBranch": {
+    "name": "dellStorageSubBranch",
+    "oid": "1.3.6.1.4.1.674.11000.2000",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "compellentEnterprise": {
+    "name": "compellentEnterprise",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "storageCenter": {
+    "name": "storageCenter",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "storageCenterObjects": {
+    "name": "storageCenterObjects",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "productIDDisplayName": {
+    "name": "productIDDisplayName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productIDDescription": {
+    "name": "productIDDescription",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productIDVendor": {
+    "name": "productIDVendor",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productIDVersion": {
+    "name": "productIDVersion",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productIDSerialNumber": {
+    "name": "productIDSerialNumber",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productIDGlobalStatus": {
+    "name": "productIDGlobalStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "ok": 3,
+          "noncritical": 4,
+          "critical": 5,
+          "nonrecoverable": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productIDBuildNumber": {
+    "name": "productIDBuildNumber",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "productIDURL": {
+    "name": "productIDURL",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertDef": {
+    "name": "scAlertDef",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scIndex": {
+    "name": "scIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scTestString": {
+    "name": "scTestString",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scMiscAlertString": {
+    "name": "scMiscAlertString",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTable": {
+    "name": "scCtlrTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCtlrEntry": {
+    "name": "scCtlrEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scCtlrIndex": {
+    "name": "scCtlrIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCtlrNbr": {
+    "name": "scCtlrNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrStatus": {
+    "name": "scCtlrStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrName": {
+    "name": "scCtlrName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrIpAddr": {
+    "name": "scCtlrIpAddr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrForceTrap": {
+    "name": "scCtlrForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scCtlrModel": {
+    "name": "scCtlrModel",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrServiceTag": {
+    "name": "scCtlrServiceTag",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrAssetTag": {
+    "name": "scCtlrAssetTag",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrIPv6Eth0IP": {
+    "name": "scCtlrIPv6Eth0IP",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrIPv6Eth0IPPrefix": {
+    "name": "scCtlrIPv6Eth0IPPrefix",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrLeader": {
+    "name": "scCtlrLeader",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskTable": {
+    "name": "scDiskTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scDiskEntry": {
+    "name": "scDiskEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scDiskIndex": {
+    "name": "scDiskIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scDiskNbr": {
+    "name": "scDiskNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskStatus": {
+    "name": "scDiskStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskNamePosition": {
+    "name": "scDiskNamePosition",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskHealthy": {
+    "name": "scDiskHealthy",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskStatusMsg": {
+    "name": "scDiskStatusMsg",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskApiIndex": {
+    "name": "scDiskApiIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskForceTrap": {
+    "name": "scDiskForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scDiskSize": {
+    "name": "scDiskSize",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskIoPortType": {
+    "name": "scDiskIoPortType",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fibrechannel": 1,
+          "iscsi": 2,
+          "fibrechanneloverethernet": 3,
+          "sas": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskEnclosure": {
+    "name": "scDiskEnclosure",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclTable": {
+    "name": "scEnclTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclEntry": {
+    "name": "scEnclEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scEnclIndex": {
+    "name": "scEnclIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclNbr": {
+    "name": "scEnclNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclStatus": {
+    "name": "scEnclStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclName": {
+    "name": "scEnclName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclStatusDescr": {
+    "name": "scEnclStatusDescr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclType": {
+    "name": "scEnclType",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclModel": {
+    "name": "scEnclModel",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclForceTrap": {
+    "name": "scEnclForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scEnclServiceTag": {
+    "name": "scEnclServiceTag",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclAssetTag": {
+    "name": "scEnclAssetTag",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclApiIndex": {
+    "name": "scEnclApiIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.15.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanTable": {
+    "name": "scCtlrFanTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCtlrFanEntry": {
+    "name": "scCtlrFanEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scCtlrFanIndex": {
+    "name": "scCtlrFanIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCtlrFanNbr": {
+    "name": "scCtlrFanNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanStatus": {
+    "name": "scCtlrFanStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanName": {
+    "name": "scCtlrFanName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanCurrentRpm": {
+    "name": "scCtlrFanCurrentRpm",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanNormMaxRpm": {
+    "name": "scCtlrFanNormMaxRpm",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanNormMinRpm": {
+    "name": "scCtlrFanNormMinRpm",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanWarnLwrRpm": {
+    "name": "scCtlrFanWarnLwrRpm",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanWarnUprRpm": {
+    "name": "scCtlrFanWarnUprRpm",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanCritLwrRpm": {
+    "name": "scCtlrFanCritLwrRpm",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanCritUprRpm": {
+    "name": "scCtlrFanCritUprRpm",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrFanForceTrap": {
+    "name": "scCtlrFanForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scCtlrFanApiIndex": {
+    "name": "scCtlrFanApiIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.16.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrPowerTable": {
+    "name": "scCtlrPowerTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCtlrPowerEntry": {
+    "name": "scCtlrPowerEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scCtlrPowerIndex": {
+    "name": "scCtlrPowerIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCtlrPowerNbr": {
+    "name": "scCtlrPowerNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrPowerStatus": {
+    "name": "scCtlrPowerStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrPowerName": {
+    "name": "scCtlrPowerName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrPowerForceTrap": {
+    "name": "scCtlrPowerForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scCtlrVoltageTable": {
+    "name": "scCtlrVoltageTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCtlrVoltageEntry": {
+    "name": "scCtlrVoltageEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scCtlrVoltageIndex": {
+    "name": "scCtlrVoltageIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCtlrVoltageNbr": {
+    "name": "scCtlrVoltageNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrVoltageStatus": {
+    "name": "scCtlrVoltageStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrVoltageName": {
+    "name": "scCtlrVoltageName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrVoltageCurrentV": {
+    "name": "scCtlrVoltageCurrentV",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrVoltageNormMaxV": {
+    "name": "scCtlrVoltageNormMaxV",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrVoltageNormMinV": {
+    "name": "scCtlrVoltageNormMinV",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrVoltageWarnLwrV": {
+    "name": "scCtlrVoltageWarnLwrV",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrVoltageWarnUprV": {
+    "name": "scCtlrVoltageWarnUprV",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrVoltageCritLwrV": {
+    "name": "scCtlrVoltageCritLwrV",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrVoltageCritUprV": {
+    "name": "scCtlrVoltageCritUprV",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrVoltageForceTrap": {
+    "name": "scCtlrVoltageForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scCtlrTempTable": {
+    "name": "scCtlrTempTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCtlrTempEntry": {
+    "name": "scCtlrTempEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scCtlrTempIndex": {
+    "name": "scCtlrTempIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCtlrTempNbr": {
+    "name": "scCtlrTempNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTempStatus": {
+    "name": "scCtlrTempStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTempName": {
+    "name": "scCtlrTempName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTempCurrentC": {
+    "name": "scCtlrTempCurrentC",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTempNormMaxC": {
+    "name": "scCtlrTempNormMaxC",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTempNormMinC": {
+    "name": "scCtlrTempNormMinC",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTempWarnLwrC": {
+    "name": "scCtlrTempWarnLwrC",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTempWarnUprC": {
+    "name": "scCtlrTempWarnUprC",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTempCritLwrC": {
+    "name": "scCtlrTempCritLwrC",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTempCritUprC": {
+    "name": "scCtlrTempCritUprC",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCtlrTempForceTrap": {
+    "name": "scCtlrTempForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.19.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scEnclFanTable": {
+    "name": "scEnclFanTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclFanEntry": {
+    "name": "scEnclFanEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scEnclFanIndex": {
+    "name": "scEnclFanIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclFanNbr": {
+    "name": "scEnclFanNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclFanStatus": {
+    "name": "scEnclFanStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclFanLocation": {
+    "name": "scEnclFanLocation",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclFanCurrentS": {
+    "name": "scEnclFanCurrentS",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclFanForceTrap": {
+    "name": "scEnclFanForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scEnclPowerTable": {
+    "name": "scEnclPowerTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclPowerEntry": {
+    "name": "scEnclPowerEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scEnclPowerIndex": {
+    "name": "scEnclPowerIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclPowerNbr": {
+    "name": "scEnclPowerNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclPowerStatus": {
+    "name": "scEnclPowerStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclPowerPosition": {
+    "name": "scEnclPowerPosition",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclPowerForceTrap": {
+    "name": "scEnclPowerForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scEnclIoModTable": {
+    "name": "scEnclIoModTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclIoModEntry": {
+    "name": "scEnclIoModEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIoModIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scEnclIoModIndex": {
+    "name": "scEnclIoModIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclIoModNbr": {
+    "name": "scEnclIoModNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclIoModStatus": {
+    "name": "scEnclIoModStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclIoModPosition": {
+    "name": "scEnclIoModPosition",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclIoModForceTrap": {
+    "name": "scEnclIoModForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scEnclTempTable": {
+    "name": "scEnclTempTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclTempEntry": {
+    "name": "scEnclTempEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclTempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scEnclTempIndex": {
+    "name": "scEnclTempIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclTempNbr": {
+    "name": "scEnclTempNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclTempStatus": {
+    "name": "scEnclTempStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclTempLocation": {
+    "name": "scEnclTempLocation",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclTempCurrentC": {
+    "name": "scEnclTempCurrentC",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclTempForceTrap": {
+    "name": "scEnclTempForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scEnclAlarmTable": {
+    "name": "scEnclAlarmTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclAlarmEntry": {
+    "name": "scEnclAlarmEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclAlarmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scEnclAlarmIndex": {
+    "name": "scEnclAlarmIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scEnclAlarmNbr": {
+    "name": "scEnclAlarmNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclAlarmStatus": {
+    "name": "scEnclAlarmStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclAlarmName": {
+    "name": "scEnclAlarmName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scEnclAlarmForceTrap": {
+    "name": "scEnclAlarmForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scDiskFolderTable": {
+    "name": "scDiskFolderTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scDiskFolderEntry": {
+    "name": "scDiskFolderEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scDiskFolderIndex": {
+    "name": "scDiskFolderIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scDiskFolderNbr": {
+    "name": "scDiskFolderNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderStatus": {
+    "name": "scDiskFolderStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderName": {
+    "name": "scDiskFolderName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderCapcty": {
+    "name": "scDiskFolderCapcty",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "scDiskFolderAlrtThr": {
+    "name": "scDiskFolderAlrtThr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderApiIndex": {
+    "name": "scDiskFolderApiIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderForceTrap": {
+    "name": "scDiskFolderForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scDiskFolderCapcty2": {
+    "name": "scDiskFolderCapcty2",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.25.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scVolumeTable": {
+    "name": "scVolumeTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scVolumeEntry": {
+    "name": "scVolumeEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scVolumeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scVolumeIndex": {
+    "name": "scVolumeIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scVolumeNbr": {
+    "name": "scVolumeNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scVolumeStatus": {
+    "name": "scVolumeStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scVolumeName": {
+    "name": "scVolumeName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.26.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scVolumeApiIndex": {
+    "name": "scVolumeApiIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.26.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scVolumeForceTrap": {
+    "name": "scVolumeForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.26.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scServerTable": {
+    "name": "scServerTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scServerEntry": {
+    "name": "scServerEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scServerIndex": {
+    "name": "scServerIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scServerNbr": {
+    "name": "scServerNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scServerStatus": {
+    "name": "scServerStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scServerName": {
+    "name": "scServerName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.27.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scServerCnctvy": {
+    "name": "scServerCnctvy",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.27.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "partial": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scServerPathCount": {
+    "name": "scServerPathCount",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.27.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scServerApiIndex": {
+    "name": "scServerApiIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.27.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scServerForceTrap": {
+    "name": "scServerForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.27.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scCacheTable": {
+    "name": "scCacheTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCacheEntry": {
+    "name": "scCacheEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scCacheIndex": {
+    "name": "scCacheIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scCacheNbr": {
+    "name": "scCacheNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCacheStatus": {
+    "name": "scCacheStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCacheName": {
+    "name": "scCacheName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCacheBatStat": {
+    "name": "scCacheBatStat",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noBattery": 0,
+          "normal": 1,
+          "expirationPending": 2,
+          "expired": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCacheBatExpr": {
+    "name": "scCacheBatExpr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scCacheForceTrap": {
+    "name": "scCacheForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.28.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scScTable": {
+    "name": "scScTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scScEntry": {
+    "name": "scScEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scScIndex": {
+    "name": "scScIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scScNbr": {
+    "name": "scScNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scScStatus": {
+    "name": "scScStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scScName": {
+    "name": "scScName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scScContact": {
+    "name": "scScContact",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scScLocation": {
+    "name": "scScLocation",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scScPortsBal": {
+    "name": "scScPortsBal",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scScMgmtIP": {
+    "name": "scScMgmtIP",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scScSerial": {
+    "name": "scScSerial",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scScForceTrap": {
+    "name": "scScForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scScIPv6MgmtIP": {
+    "name": "scScIPv6MgmtIP",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scScIPv6MgmtIPPrefix": {
+    "name": "scScIPv6MgmtIPPrefix",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.29.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scUPSTable": {
+    "name": "scUPSTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scUPSEntry": {
+    "name": "scUPSEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scUPSIndex": {
+    "name": "scUPSIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scUPSNbr": {
+    "name": "scUPSNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scUPSStatus": {
+    "name": "scUPSStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scUPSName": {
+    "name": "scUPSName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scUPSBatLife": {
+    "name": "scUPSBatLife",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.30.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scUPSStatusDescr": {
+    "name": "scUPSStatusDescr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.30.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scUPSApiIndex": {
+    "name": "scUPSApiIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.30.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scUPSForceTrap": {
+    "name": "scUPSForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.30.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scObjCntTable": {
+    "name": "scObjCntTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scObjCntEntry": {
+    "name": "scObjCntEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scObjCntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scObjCntIndex": {
+    "name": "scObjCntIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scObjCntNbr": {
+    "name": "scObjCntNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scObjCntDevsInUse": {
+    "name": "scObjCntDevsInUse",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scObjCntReplays": {
+    "name": "scObjCntReplays",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scObjCntDisks": {
+    "name": "scObjCntDisks",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.31.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scObjCntServers": {
+    "name": "scObjCntServers",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.31.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scObjCntVolumes": {
+    "name": "scObjCntVolumes",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.31.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderSUTable": {
+    "name": "scDiskFolderSUTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scDiskFolderSUEntry": {
+    "name": "scDiskFolderSUEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderSUIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scDiskFolderSUIndex": {
+    "name": "scDiskFolderSUIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scDiskFolderSUNbr": {
+    "name": "scDiskFolderSUNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderSUTotalSpace": {
+    "name": "scDiskFolderSUTotalSpace",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "scDiskFolderSUUsedSpace": {
+    "name": "scDiskFolderSUUsedSpace",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "scDiskFolderSUTotalSpace2": {
+    "name": "scDiskFolderSUTotalSpace2",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderSUUsedSpace2": {
+    "name": "scDiskFolderSUUsedSpace2",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderSUAllocSpace": {
+    "name": "scDiskFolderSUAllocSpace",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderSUFreeSpace": {
+    "name": "scDiskFolderSUFreeSpace",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskFolderSUSpareSpace": {
+    "name": "scDiskFolderSUSpareSpace",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.32.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scSIDeviceType": {
+    "name": "scSIDeviceType",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disk": 1,
+          "unknown": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scSIDeviceStatus": {
+    "name": "scSIDeviceStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scHWCompStatus": {
+    "name": "scHWCompStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scHWCompName": {
+    "name": "scHWCompName",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scHWCompPosition": {
+    "name": "scHWCompPosition",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scHWCompType": {
+    "name": "scHWCompType",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ScHardwareType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scHWCompState": {
+    "name": "scHWCompState",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scTrapAction": {
+    "name": "scTrapAction",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertMsg": {
+    "name": "scAlertMsg",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scForceTrap": {
+    "name": "scForceTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "scTrapNormalized": {
+    "name": "scTrapNormalized",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scLastWorstAlert": {
+    "name": "scLastWorstAlert",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskConfigTable": {
+    "name": "scDiskConfigTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.45",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scDiskConfigEntry": {
+    "name": "scDiskConfigEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.45.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scDiskConfigIndex": {
+    "name": "scDiskConfigIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.45.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scDiskConfigNbr": {
+    "name": "scDiskConfigNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.45.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskConfigSerial": {
+    "name": "scDiskConfigSerial",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.45.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskConfigVendor": {
+    "name": "scDiskConfigVendor",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.45.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskConfigProduct": {
+    "name": "scDiskConfigProduct",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.45.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskConfigModel": {
+    "name": "scDiskConfigModel",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.45.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskConfigRev": {
+    "name": "scDiskConfigRev",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.45.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scDiskConfigApiIndex": {
+    "name": "scDiskConfigApiIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.45.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertTable": {
+    "name": "scAlertTable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scAlertEntry": {
+    "name": "scAlertEntry",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrIndex",
+        "implied": 0
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "scAlertIndex": {
+    "name": "scAlertIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "scAlertNbr": {
+    "name": "scAlertNbr",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertStatus": {
+    "name": "scAlertStatus",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "complete": 0,
+          "critical": 1,
+          "degraded": 2,
+          "deleting": 3,
+          "down": 4,
+          "emergency": 5,
+          "inform": 6,
+          "okay": 7,
+          "unavailable": 8,
+          "unknown": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertApiIndex": {
+    "name": "scAlertApiIndex",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertDefinition": {
+    "name": "scAlertDefinition",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertCategory": {
+    "name": "scAlertCategory",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connectivity": 0,
+          "disk": 1,
+          "hardware": 2,
+          "storage": 3,
+          "system": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertCreateTime": {
+    "name": "scAlertCreateTime",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertMessage": {
+    "name": "scAlertMessage",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertType": {
+    "name": "scAlertType",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alert": 0,
+          "indiction": 1,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertAcknowledged": {
+    "name": "scAlertAcknowledged",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "scAlertActive": {
+    "name": "scAlertActive",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.2.46.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "storageCenterConformance": {
+    "name": "storageCenterConformance",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "storageCenterCompliances": {
+    "name": "storageCenterCompliances",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "storageCenterCompliance1": {
+    "name": "storageCenterCompliance1",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "storageCenterNotificationsGroup",
+        "module": "DELL-STORAGE-SC-MIB"
+      },
+      {
+        "object": "storageCenterObjectsGroupDeprecated",
+        "module": "DELL-STORAGE-SC-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "storageCenterCompliance2": {
+    "name": "storageCenterCompliance2",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "storageCenterNotificationsGroup2",
+        "module": "DELL-STORAGE-SC-MIB"
+      },
+      {
+        "object": "storageCenterObjectsGroup",
+        "module": "DELL-STORAGE-SC-MIB"
+      },
+      {
+        "object": "productID",
+        "module": "DELL-STORAGE-SC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "storageCenterGroups": {
+    "name": "storageCenterGroups",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "storageCenterNotificationsGroup": {
+    "name": "storageCenterNotificationsGroup",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.3.2.1",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "trapStatusOkay"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "trapStatusDegraded"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "trapStatusDown"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "trapStatusInform"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "trapStatusCritical"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "trapStatusComplete"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "trapStatusEmergency"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "trapStatusUnavailable"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "trapStatusTest"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "trapStatusTestSpecific"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "storageCenterNotificationsGroup2": {
+    "name": "storageCenterNotificationsGroup2",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTestTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scMiscAlert"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrCompStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclCompStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scVolumeStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scLocalPortCondStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scMonitoredUPSStatusChange"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scSIDeviceStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "storageCenterObjectsGroup": {
+    "name": "storageCenterObjectsGroup",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTestString"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scMiscAlertString"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskNamePosition"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskHealthy"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskStatusMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskApiIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskSize"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskIoPortType"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskEnclosure"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrIpAddr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrModel"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrServiceTag"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrAssetTag"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrIPv6Eth0IP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrIPv6Eth0IPPrefix"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrLeader"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanCurrentRpm"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanNormMaxRpm"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanNormMinRpm"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanWarnLwrRpm"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanWarnUprRpm"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanCritLwrRpm"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanCritUprRpm"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrFanApiIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrPowerNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrPowerStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrPowerName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrPowerForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageCurrentV"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageNormMaxV"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageNormMinV"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageWarnLwrV"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageWarnUprV"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageCritLwrV"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageCritUprV"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrVoltageForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempCurrentC"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempNormMaxC"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempNormMinC"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempWarnLwrC"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempWarnUprC"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempCritLwrC"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempCritUprC"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrTempForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclStatusDescr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclType"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclModel"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclServiceTag"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclAssetTag"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclApiIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclFanNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclFanStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclFanLocation"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclFanCurrentS"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclFanForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclPowerNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclPowerStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclPowerPosition"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclPowerForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIoModNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIoModStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIoModPosition"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclIoModForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclTempNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclTempStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclTempLocation"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclTempCurrentC"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclTempForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclAlarmNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclAlarmStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclAlarmName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclAlarmForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderAlrtThr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderApiIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderCapcty2"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scVolumeNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scVolumeStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scVolumeName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scVolumeApiIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scVolumeForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerCnctvy"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerPathCount"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerApiIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheBatStat"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheBatExpr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScContact"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScLocation"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScPortsBal"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScSerial"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSBatLife"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSStatusDescr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSApiIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scLastWorstAlert"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scObjCntNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scObjCntDevsInUse"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scObjCntReplays"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scObjCntDisks"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scObjCntServers"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scObjCntVolumes"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderSUNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderSUTotalSpace2"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderSUUsedSpace2"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderSUAllocSpace"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderSUFreeSpace"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderSUSpareSpace"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scSIDeviceType"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scSIDeviceStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompType"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompPosition"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompState"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scForceTrap"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskConfigNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskConfigSerial"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskConfigVendor"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskConfigProduct"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskConfigModel"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskConfigRev"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskConfigApiIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertApiIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDefinition"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertCategory"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertCreateTime"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMessage"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertType"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertAcknowledged"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertActive"
+      }
+    ],
+    "status": "current"
+  },
+  "productID": {
+    "name": "productID",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "productIDDisplayName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "productIDDescription"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "productIDVendor"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "productIDVersion"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "productIDSerialNumber"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "productIDGlobalStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "productIDBuildNumber"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "productIDURL"
+      }
+    ],
+    "status": "current"
+  },
+  "storageCenterObjectsGroupDeprecated": {
+    "name": "storageCenterObjectsGroupDeprecated",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderCapcty"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderSUTotalSpace"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderSUUsedSpace"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "storageCenterTrapsNotif": {
+    "name": "storageCenterTrapsNotif",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "trapSevPrefix": {
+    "name": "trapSevPrefix",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "trapStatusOkay": {
+    "name": "trapStatusOkay",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "trapStatusDegraded": {
+    "name": "trapStatusDegraded",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "trapStatusDown": {
+    "name": "trapStatusDown",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "trapStatusInform": {
+    "name": "trapStatusInform",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "trapStatusCritical": {
+    "name": "trapStatusCritical",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "trapStatusComplete": {
+    "name": "trapStatusComplete",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "trapStatusEmergency": {
+    "name": "trapStatusEmergency",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "trapStatusUnavailable": {
+    "name": "trapStatusUnavailable",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "trapStatusTest": {
+    "name": "trapStatusTest",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.100",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "trapStatusTestSpecific": {
+    "name": "trapStatusTestSpecific",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.101",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "scTestTrap": {
+    "name": "scTestTrap",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.200",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTestString"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scMiscAlert": {
+    "name": "scMiscAlert",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.201",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scMiscAlertString"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scDiskStatusChange": {
+    "name": "scDiskStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.202",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskNamePosition"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskHealthy"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskStatusMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskConfigNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scCtlrStatusChange": {
+    "name": "scCtlrStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.203",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scCtlrCompStatusChange": {
+    "name": "scCtlrCompStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.204",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCtlrName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompType"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompPosition"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompState"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scEnclStatusChange": {
+    "name": "scEnclStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclStatusDescr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclType"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclModel"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scEnclCompStatusChange": {
+    "name": "scEnclCompStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.206",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompType"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompPosition"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scHWCompState"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scDiskFolderStatusChange": {
+    "name": "scDiskFolderStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.207",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderCapcty"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderAlrtThr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskFolderCapcty2"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scVolumeStatusChange": {
+    "name": "scVolumeStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.208",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scVolumeNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scVolumeStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scVolumeName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scServerStatusChange": {
+    "name": "scServerStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.209",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerCnctvy"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scServerPathCount"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scCacheStatusChange": {
+    "name": "scCacheStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.210",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheBatStat"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scCacheBatExpr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scLocalPortCondStatusChange": {
+    "name": "scLocalPortCondStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.211",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScPortsBal"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scMonitoredUPSStatusChange": {
+    "name": "scMonitoredUPSStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.212",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSBatLife"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scUPSStatusDescr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "scSIDeviceStatusChange": {
+    "name": "scSIDeviceStatusChange",
+    "oid": "1.3.6.1.4.1.674.11000.2000.500.1.251.0.213",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scIndex"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertDef"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scSIDeviceType"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scSIDeviceStatus"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scDiskNamePosition"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclNbr"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scEnclName"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scAlertMsg"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapAction"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scTrapNormalized"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScMgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIP"
+      },
+      {
+        "module": "DELL-STORAGE-SC-MIB",
+        "object": "scScIPv6MgmtIPPrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-STORAGE-SC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:13 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DELL-STORAGE-SC-MIB"
+  }
+}

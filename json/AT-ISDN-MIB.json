@@ -1,0 +1,1642 @@
+{
+  "imports": {
+    "class": "imports",
+    "AT-SMI-MIB": [
+      "modules",
+      "DisplayStringUnsized"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Counter64",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cc": {
+    "name": "cc",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-06-28 12:22",
+        "description": "Initial Revision"
+      }
+    ]
+  },
+  "ccDetailsTable": {
+    "name": "ccDetailsTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccDetailsEntry": {
+    "name": "ccDetailsEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ISDN-MIB",
+        "object": "ccDetailsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccDetailsIndex": {
+    "name": "ccDetailsIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccDetailsName": {
+    "name": "ccDetailsName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsRemoteName": {
+    "name": "ccDetailsRemoteName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsCalledNumber": {
+    "name": "ccDetailsCalledNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsCallingNumber": {
+    "name": "ccDetailsCallingNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsAlternateNumber": {
+    "name": "ccDetailsAlternateNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsEnabled": {
+    "name": "ccDetailsEnabled",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsDirection": {
+    "name": "ccDetailsDirection",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inOnly": 1,
+          "outOnly": 2,
+          "both": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "both",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsPrecedence": {
+    "name": "ccDetailsPrecedence",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsHoldupTime": {
+    "name": "ccDetailsHoldupTime",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7200
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsPreferredIfIndex": {
+    "name": "ccDetailsPreferredIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsRequiredIfIndex": {
+    "name": "ccDetailsRequiredIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsPriority": {
+    "name": "ccDetailsPriority",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsRetryT1": {
+    "name": "ccDetailsRetryT1",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 120
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsRetryN1": {
+    "name": "ccDetailsRetryN1",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsRetryT2": {
+    "name": "ccDetailsRetryT2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsRetryN2": {
+    "name": "ccDetailsRetryN2",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsKeepup": {
+    "name": "ccDetailsKeepup",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsOutSetupCli": {
+    "name": "ccDetailsOutSetupCli",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "calling": 2,
+          "interface": 3,
+          "nonumber": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsOutSetupUser": {
+    "name": "ccDetailsOutSetupUser",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsOutSetupCalledSub": {
+    "name": "ccDetailsOutSetupCalledSub",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsOutSubaddress": {
+    "name": "ccDetailsOutSubaddress",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsCallback": {
+    "name": "ccDetailsCallback",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsCallbackDelay": {
+    "name": "ccDetailsCallbackDelay",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 41,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsInSetupCalledSubSearch": {
+    "name": "ccDetailsInSetupCalledSubSearch",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsInSetupUserSearch": {
+    "name": "ccDetailsInSetupUserSearch",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsInSetupCliSearch": {
+    "name": "ccDetailsInSetupCliSearch",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2,
+          "list": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsInSetupCliSearchList": {
+    "name": "ccDetailsInSetupCliSearchList",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsInAnyFlag": {
+    "name": "ccDetailsInAnyFlag",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsInSetupCalledSubCheck": {
+    "name": "ccDetailsInSetupCalledSubCheck",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsInSetupUserCheck": {
+    "name": "ccDetailsInSetupUserCheck",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "local": 2,
+          "remote": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsInSetupCliCheck": {
+    "name": "ccDetailsInSetupCliCheck",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "present": 2,
+          "required": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsInSetupCliCheckList": {
+    "name": "ccDetailsInSetupCliCheckList",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsUserType": {
+    "name": "ccDetailsUserType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "attach": 1,
+          "ppp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "attach",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsLoginType": {
+    "name": "ccDetailsLoginType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "userdb": 2,
+          "radius": 3,
+          "papTacacs": 4,
+          "chap": 5,
+          "papRadius": 6,
+          "tacacs": 7,
+          "all": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsUsername": {
+    "name": "ccDetailsUsername",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "cli": 2,
+          "calledsub": 3,
+          "useruser": 4,
+          "callname": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsPassword": {
+    "name": "ccDetailsPassword",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "cli": 2,
+          "calledsub": 3,
+          "useruser": 4,
+          "callname": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsBumpDelay": {
+    "name": "ccDetailsBumpDelay",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsDataRate": {
+    "name": "ccDetailsDataRate",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate_64k": 1,
+          "rate_56k": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rate_64k",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsPppTemplate": {
+    "name": "ccDetailsPppTemplate",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 33
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 33,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccDetailsUserModule": {
+    "name": "ccDetailsUserModule",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccDetailsNumberAttachments": {
+    "name": "ccDetailsNumberAttachments",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccCliListTable": {
+    "name": "ccCliListTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccCliListEntry": {
+    "name": "ccCliListEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ISDN-MIB",
+        "object": "ccCliListListIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ISDN-MIB",
+        "object": "ccCliListEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccCliListListIndex": {
+    "name": "ccCliListListIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccCliListEntryIndex": {
+    "name": "ccCliListEntryIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccCliListNumber": {
+    "name": "ccCliListNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayStringUnsized",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ccActiveCallTable": {
+    "name": "ccActiveCallTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccActiveCallEntry": {
+    "name": "ccActiveCallEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ISDN-MIB",
+        "object": "ccActiveCallIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccActiveCallIndex": {
+    "name": "ccActiveCallIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccActiveCallDetailsIndex": {
+    "name": "ccActiveCallDetailsIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccActiveCallIfIndex": {
+    "name": "ccActiveCallIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccActiveCallDataRate": {
+    "name": "ccActiveCallDataRate",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rate_64k": 1,
+          "rate_56k": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccActiveCallState": {
+    "name": "ccActiveCallState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 1,
+          "off": 2,
+          "try": 3,
+          "on": 4,
+          "wait": 5,
+          "await1": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccActiveCallDirection": {
+    "name": "ccActiveCallDirection",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2,
+          "undefined": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccActiveCallUserModule": {
+    "name": "ccActiveCallUserModule",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccActiveCallUserInstance": {
+    "name": "ccActiveCallUserInstance",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccActiveCallBchannelIndex": {
+    "name": "ccActiveCallBchannelIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccCallLogTable": {
+    "name": "ccCallLogTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccCallLogEntry": {
+    "name": "ccCallLogEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ISDN-MIB",
+        "object": "ccCallLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccCallLogIndex": {
+    "name": "ccCallLogIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccCallLogName": {
+    "name": "ccCallLogName",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccCallLogState": {
+    "name": "ccCallLogState",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initial": 1,
+          "active": 2,
+          "disconnected": 3,
+          "cleared": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccCallLogTimeStarted": {
+    "name": "ccCallLogTimeStarted",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccCallLogDirection": {
+    "name": "ccCallLogDirection",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccCallLogDuration": {
+    "name": "ccCallLogDuration",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccCallLogRemoteNumber": {
+    "name": "ccCallLogRemoteNumber",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccAttachmentTable": {
+    "name": "ccAttachmentTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccAttachmentEntry": {
+    "name": "ccAttachmentEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ISDN-MIB",
+        "object": "ccAttachmentDetailsIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ISDN-MIB",
+        "object": "ccAttachmentEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccAttachmentDetailsIndex": {
+    "name": "ccAttachmentDetailsIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccAttachmentEntryIndex": {
+    "name": "ccAttachmentEntryIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccAttachmentActiveCallIndex": {
+    "name": "ccAttachmentActiveCallIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccAttachmentUserInstance": {
+    "name": "ccAttachmentUserInstance",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccBchannelTable": {
+    "name": "ccBchannelTable",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ccBchannelEntry": {
+    "name": "ccBchannelEntry",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "AT-ISDN-MIB",
+        "object": "ccBchannelIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "AT-ISDN-MIB",
+        "object": "ccBchannelChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ccBchannelIfIndex": {
+    "name": "ccBchannelIfIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccBchannelChannelIndex": {
+    "name": "ccBchannelChannelIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccBchannelAllocated": {
+    "name": "ccBchannelAllocated",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccBchannelCallType": {
+    "name": "ccBchannelCallType",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "data": 2,
+          "voice": 3,
+          "x25": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccBchannelActiveCallIndex": {
+    "name": "ccBchannelActiveCallIndex",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccBchannelPriority": {
+    "name": "ccBchannelPriority",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccBchannelDirection": {
+    "name": "ccBchannelDirection",
+    "oid": "1.3.6.1.4.1.207.8.4.4.4.37.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "in": 1,
+          "out": 2,
+          "unallocated": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-ISDN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:17:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "AT-ISDN-MIB"
+  }
+}

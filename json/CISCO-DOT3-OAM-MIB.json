@@ -1,0 +1,1575 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cdot3OamMIB": {
+    "name": "cdot3OamMIB",
+    "oid": "1.3.6.1.4.1.9.10.136",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-05-31 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "cdot3OamNotifications": {
+    "name": "cdot3OamNotifications",
+    "oid": "1.3.6.1.4.1.9.10.136.0",
+    "class": "objectidentity"
+  },
+  "cdot3OamObjects": {
+    "name": "cdot3OamObjects",
+    "oid": "1.3.6.1.4.1.9.10.136.1",
+    "class": "objectidentity"
+  },
+  "cdot3OamConformance": {
+    "name": "cdot3OamConformance",
+    "oid": "1.3.6.1.4.1.9.10.136.2",
+    "class": "objectidentity"
+  },
+  "Cdot3Oui": {
+    "name": "Cdot3Oui",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "cdot3OamTable": {
+    "name": "cdot3OamTable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot3OamEntry": {
+    "name": "cdot3OamEntry",
+    "oid": "1.3.6.1.4.1.9.10.136.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamAdminState": {
+    "name": "cdot3OamAdminState",
+    "oid": "1.3.6.1.4.1.9.10.136.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamOperStatus": {
+    "name": "cdot3OamOperStatus",
+    "oid": "1.3.6.1.4.1.9.10.136.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "linkFault": 2,
+          "passiveWait": 3,
+          "activeSendLocal": 4,
+          "sendLocalAndRemote": 5,
+          "sendLocalAndRemoteOk": 6,
+          "oamPeeringLocallyRejected": 7,
+          "oamPeeringRemotelyRejected": 8,
+          "operational": 9,
+          "nonOperHalfDuplex": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamMode": {
+    "name": "cdot3OamMode",
+    "oid": "1.3.6.1.4.1.9.10.136.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "passive": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamMaxOamPduSize": {
+    "name": "cdot3OamMaxOamPduSize",
+    "oid": "1.3.6.1.4.1.9.10.136.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 64,
+            "max": 1518
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamConfigRevision": {
+    "name": "cdot3OamConfigRevision",
+    "oid": "1.3.6.1.4.1.9.10.136.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamFunctionsSupported": {
+    "name": "cdot3OamFunctionsSupported",
+    "oid": "1.3.6.1.4.1.9.10.136.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unidirectionalSupport": 0,
+        "loopbackSupport": 1,
+        "eventSupport": 2,
+        "variableSupport": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamPeerTable": {
+    "name": "cdot3OamPeerTable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot3OamPeerEntry": {
+    "name": "cdot3OamPeerEntry",
+    "oid": "1.3.6.1.4.1.9.10.136.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamPeerMacAddress": {
+    "name": "cdot3OamPeerMacAddress",
+    "oid": "1.3.6.1.4.1.9.10.136.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamPeerVendorOui": {
+    "name": "cdot3OamPeerVendorOui",
+    "oid": "1.3.6.1.4.1.9.10.136.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cdot3Oui",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamPeerVendorInfo": {
+    "name": "cdot3OamPeerVendorInfo",
+    "oid": "1.3.6.1.4.1.9.10.136.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamPeerMode": {
+    "name": "cdot3OamPeerMode",
+    "oid": "1.3.6.1.4.1.9.10.136.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "passive": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamPeerMaxOamPduSize": {
+    "name": "cdot3OamPeerMaxOamPduSize",
+    "oid": "1.3.6.1.4.1.9.10.136.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1518
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamPeerConfigRevision": {
+    "name": "cdot3OamPeerConfigRevision",
+    "oid": "1.3.6.1.4.1.9.10.136.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamPeerFunctionsSupported": {
+    "name": "cdot3OamPeerFunctionsSupported",
+    "oid": "1.3.6.1.4.1.9.10.136.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "unidirectionalSupport": 0,
+        "loopbackSupport": 1,
+        "eventSupport": 2,
+        "variableSupport": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamLoopbackTable": {
+    "name": "cdot3OamLoopbackTable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot3OamLoopbackEntry": {
+    "name": "cdot3OamLoopbackEntry",
+    "oid": "1.3.6.1.4.1.9.10.136.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamLoopbackStatus": {
+    "name": "cdot3OamLoopbackStatus",
+    "oid": "1.3.6.1.4.1.9.10.136.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noLoopback": 1,
+          "initiatingLoopback": 2,
+          "remoteLoopback": 3,
+          "terminatingLoopback": 4,
+          "localLoopback": 5,
+          "unknown": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamLoopbackIgnoreRx": {
+    "name": "cdot3OamLoopbackIgnoreRx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "process": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamStatsTable": {
+    "name": "cdot3OamStatsTable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot3OamStatsEntry": {
+    "name": "cdot3OamStatsEntry",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamInformationTx": {
+    "name": "cdot3OamInformationTx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamInformationRx": {
+    "name": "cdot3OamInformationRx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamUniqueEventNotificationTx": {
+    "name": "cdot3OamUniqueEventNotificationTx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamUniqueEventNotificationRx": {
+    "name": "cdot3OamUniqueEventNotificationRx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamDuplicateEventNotificationTx": {
+    "name": "cdot3OamDuplicateEventNotificationTx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamDuplicateEventNotificationRx": {
+    "name": "cdot3OamDuplicateEventNotificationRx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamLoopbackControlTx": {
+    "name": "cdot3OamLoopbackControlTx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamLoopbackControlRx": {
+    "name": "cdot3OamLoopbackControlRx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamVariableRequestTx": {
+    "name": "cdot3OamVariableRequestTx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamVariableRequestRx": {
+    "name": "cdot3OamVariableRequestRx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamVariableResponseTx": {
+    "name": "cdot3OamVariableResponseTx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamVariableResponseRx": {
+    "name": "cdot3OamVariableResponseRx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamOrgSpecificTx": {
+    "name": "cdot3OamOrgSpecificTx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamOrgSpecificRx": {
+    "name": "cdot3OamOrgSpecificRx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamUnsupportedCodesTx": {
+    "name": "cdot3OamUnsupportedCodesTx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamUnsupportedCodesRx": {
+    "name": "cdot3OamUnsupportedCodesRx",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamFramesLostDueToOam": {
+    "name": "cdot3OamFramesLostDueToOam",
+    "oid": "1.3.6.1.4.1.9.10.136.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventConfigTable": {
+    "name": "cdot3OamEventConfigTable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot3OamEventConfigEntry": {
+    "name": "cdot3OamEventConfigEntry",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamErrSymPeriodWindowHi": {
+    "name": "cdot3OamErrSymPeriodWindowHi",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "2^32 symbols",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrSymPeriodWindowLo": {
+    "name": "cdot3OamErrSymPeriodWindowLo",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "symbols",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrSymPeriodThresholdHi": {
+    "name": "cdot3OamErrSymPeriodThresholdHi",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "2^32 symbols",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrSymPeriodThresholdLo": {
+    "name": "cdot3OamErrSymPeriodThresholdLo",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "symbols",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrSymPeriodEvNotifEnable": {
+    "name": "cdot3OamErrSymPeriodEvNotifEnable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrFramePeriodWindow": {
+    "name": "cdot3OamErrFramePeriodWindow",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrFramePeriodThreshold": {
+    "name": "cdot3OamErrFramePeriodThreshold",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrFramePeriodEvNotifEnable": {
+    "name": "cdot3OamErrFramePeriodEvNotifEnable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrFrameWindow": {
+    "name": "cdot3OamErrFrameWindow",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "tenths of a second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrFrameThreshold": {
+    "name": "cdot3OamErrFrameThreshold",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrFrameEvNotifEnable": {
+    "name": "cdot3OamErrFrameEvNotifEnable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrFrameSecsSummaryWindow": {
+    "name": "cdot3OamErrFrameSecsSummaryWindow",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 9000
+          }
+        ]
+      }
+    },
+    "units": "tenths of a second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrFrameSecsSummaryThreshold": {
+    "name": "cdot3OamErrFrameSecsSummaryThreshold",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "errored frame seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamErrFrameSecsEvNotifEnable": {
+    "name": "cdot3OamErrFrameSecsEvNotifEnable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamDyingGaspEnable": {
+    "name": "cdot3OamDyingGaspEnable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamCriticalEventEnable": {
+    "name": "cdot3OamCriticalEventEnable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdot3OamEventLogTable": {
+    "name": "cdot3OamEventLogTable",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot3OamEventLogEntry": {
+    "name": "cdot3OamEventLogEntry",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamEventLogIndex": {
+    "name": "cdot3OamEventLogIndex",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdot3OamEventLogTimestamp": {
+    "name": "cdot3OamEventLogTimestamp",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventLogOui": {
+    "name": "cdot3OamEventLogOui",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Cdot3Oui",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventLogType": {
+    "name": "cdot3OamEventLogType",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventLogLocation": {
+    "name": "cdot3OamEventLogLocation",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local": 1,
+          "remote": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventLogWindowHi": {
+    "name": "cdot3OamEventLogWindowHi",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventLogWindowLo": {
+    "name": "cdot3OamEventLogWindowLo",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventLogThresholdHi": {
+    "name": "cdot3OamEventLogThresholdHi",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventLogThresholdLo": {
+    "name": "cdot3OamEventLogThresholdLo",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventLogValue": {
+    "name": "cdot3OamEventLogValue",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventLogRunningTotal": {
+    "name": "cdot3OamEventLogRunningTotal",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamEventLogEventTotal": {
+    "name": "cdot3OamEventLogEventTotal",
+    "oid": "1.3.6.1.4.1.9.10.136.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdot3OamThresholdEvent": {
+    "name": "cdot3OamThresholdEvent",
+    "oid": "1.3.6.1.4.1.9.10.136.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogTimestamp"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogOui"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogType"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogLocation"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogWindowHi"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogWindowLo"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogThresholdHi"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogThresholdLo"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogValue"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogRunningTotal"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogEventTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamNonThresholdEvent": {
+    "name": "cdot3OamNonThresholdEvent",
+    "oid": "1.3.6.1.4.1.9.10.136.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogTimestamp"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogOui"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogType"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogLocation"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogEventTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamGroups": {
+    "name": "cdot3OamGroups",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1",
+    "class": "objectidentity"
+  },
+  "cdot3OamCompliances": {
+    "name": "cdot3OamCompliances",
+    "oid": "1.3.6.1.4.1.9.10.136.2.2",
+    "class": "objectidentity"
+  },
+  "cdot3OamCompliance": {
+    "name": "cdot3OamCompliance",
+    "oid": "1.3.6.1.4.1.9.10.136.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdot3OamControlGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      },
+      {
+        "object": "cdot3OamPeerGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      },
+      {
+        "object": "cdot3OamStatsBaseGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      },
+      {
+        "object": "cdot3OamLoopbackGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      },
+      {
+        "object": "cdot3OamErrSymbolPeriodEventGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      },
+      {
+        "object": "cdot3OamErrFramePeriodEventGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      },
+      {
+        "object": "cdot3OamErrFrameEventGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      },
+      {
+        "object": "cdot3OamErrFrameSecsSummaryEventGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      },
+      {
+        "object": "cdot3OamFlagEventGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      },
+      {
+        "object": "cdot3OamEventLogGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      },
+      {
+        "object": "cdot3OamNotificationGroup",
+        "module": "CISCO-DOT3-OAM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamControlGroup": {
+    "name": "cdot3OamControlGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamAdminState"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamOperStatus"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamMode"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamMaxOamPduSize"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamConfigRevision"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamFunctionsSupported"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamPeerGroup": {
+    "name": "cdot3OamPeerGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamPeerMacAddress"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamPeerVendorOui"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamPeerVendorInfo"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamPeerMode"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamPeerFunctionsSupported"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamPeerMaxOamPduSize"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamPeerConfigRevision"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamStatsBaseGroup": {
+    "name": "cdot3OamStatsBaseGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamInformationTx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamInformationRx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamUniqueEventNotificationTx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamUniqueEventNotificationRx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamDuplicateEventNotificationTx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamDuplicateEventNotificationRx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamLoopbackControlTx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamLoopbackControlRx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamVariableRequestTx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamVariableRequestRx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamVariableResponseTx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamVariableResponseRx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamOrgSpecificTx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamOrgSpecificRx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamUnsupportedCodesTx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamUnsupportedCodesRx"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamFramesLostDueToOam"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamLoopbackGroup": {
+    "name": "cdot3OamLoopbackGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamLoopbackStatus"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamLoopbackIgnoreRx"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamErrSymbolPeriodEventGroup": {
+    "name": "cdot3OamErrSymbolPeriodEventGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrSymPeriodWindowHi"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrSymPeriodWindowLo"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrSymPeriodThresholdHi"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrSymPeriodThresholdLo"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrSymPeriodEvNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamErrFramePeriodEventGroup": {
+    "name": "cdot3OamErrFramePeriodEventGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrFramePeriodWindow"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrFramePeriodThreshold"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrFramePeriodEvNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamErrFrameEventGroup": {
+    "name": "cdot3OamErrFrameEventGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrFrameWindow"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrFrameThreshold"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrFrameEvNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamErrFrameSecsSummaryEventGroup": {
+    "name": "cdot3OamErrFrameSecsSummaryEventGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrFrameSecsSummaryWindow"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrFrameSecsSummaryThreshold"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamErrFrameSecsEvNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamFlagEventGroup": {
+    "name": "cdot3OamFlagEventGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamDyingGaspEnable"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamCriticalEventEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamEventLogGroup": {
+    "name": "cdot3OamEventLogGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogTimestamp"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogOui"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogType"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogLocation"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogWindowHi"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogWindowLo"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogThresholdHi"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogThresholdLo"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogValue"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogRunningTotal"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamEventLogEventTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "cdot3OamNotificationGroup": {
+    "name": "cdot3OamNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.10.136.2.1.11",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamThresholdEvent"
+      },
+      {
+        "module": "CISCO-DOT3-OAM-MIB",
+        "object": "cdot3OamNonThresholdEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOT3-OAM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DOT3-OAM-MIB"
+  }
+}

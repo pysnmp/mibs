@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PAN-GLOBAL-REG (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/paloaltonetworks/PAN-GLOBAL-REG-MIB
-# Produced by pysmi-1.1.3 at Thu Dec  9 15:10:43 2021
-# On host fv-az83-649 platform Linux version 5.11.0-1021-azure by user runner
-# Using Python version 3.10.0 (default, Oct 18 2021, 13:54:29) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan  6 19:45:57 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, ModuleIdentity, NotificationType, Counter32, MibIdentifier, iso, Unsigned32, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Counter64, Integer32, Gauge32, enterprises, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "ModuleIdentity", "NotificationType", "Counter32", "MibIdentifier", "iso", "Unsigned32", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Counter64", "Integer32", "Gauge32", "enterprises", "ObjectIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter64, IpAddress, Unsigned32, enterprises, MibIdentifier, Gauge32, NotificationType, Counter32, ObjectIdentity, Integer32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "IpAddress", "Unsigned32", "enterprises", "MibIdentifier", "Gauge32", "NotificationType", "Counter32", "ObjectIdentity", "Integer32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits", "ModuleIdentity")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 panGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 25461, 1, 1, 1))
 panGlobalRegModule.setRevisions(('2011-02-09 16:10',))
 
@@ -41,4 +41,4 @@ if mibBuilder.loadTexts: panSpecificMib.setDescription('\n\t\t\tSub-tree for spe
 panProductsMibs = ObjectIdentity((1, 3, 6, 1, 4, 1, 25461, 2, 3))
 if mibBuilder.loadTexts: panProductsMibs.setStatus('current')
 if mibBuilder.loadTexts: panProductsMibs.setDescription('\n\t\t\tSub-tree for all Palo Alto product specific definitions.')
-mibBuilder.exportSymbols("PAN-GLOBAL-REG", panGlobalRegModule=panGlobalRegModule, panMibs=panMibs, panRoot=panRoot, panProductsMibs=panProductsMibs, panSpecificMib=panSpecificMib, panReg=panReg, panModules=panModules, PYSNMP_MODULE_ID=panGlobalRegModule, panCommonMib=panCommonMib)
+mibBuilder.exportSymbols("PAN-GLOBAL-REG", panModules=panModules, PYSNMP_MODULE_ID=panGlobalRegModule, panRoot=panRoot, panProductsMibs=panProductsMibs, panGlobalRegModule=panGlobalRegModule, panCommonMib=panCommonMib, panMibs=panMibs, panSpecificMib=panSpecificMib, panReg=panReg)

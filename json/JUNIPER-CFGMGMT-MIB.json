@@ -1,0 +1,420 @@
+{
+  "imports": {
+    "class": "imports",
+    "JUNIPER-SMI": [
+      "jnxMibs",
+      "jnxCmNotifications"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "jnxCfgMgmt": {
+    "name": "jnxCfgMgmt",
+    "oid": "1.3.6.1.4.1.2636.3.18",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-11-19 00:00",
+        "description": "Added Rescue Configuration Management."
+      },
+      {
+        "revision": "2003-10-24 00:00",
+        "description": "Added JnxCmCfChgSource TEXTUAL-CONVENTION."
+      },
+      {
+        "revision": "2002-05-10 00:00",
+        "description": "Initial revision."
+      }
+    ]
+  },
+  "JnxCmCfChgSource": {
+    "name": "JnxCmCfChgSource",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "cli": 2,
+          "junoscript": 3,
+          "synchronize": 4,
+          "snmp": 5,
+          "button": 6,
+          "autoinstall": 7,
+          "unknown": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "JnxCmRescueCfgState": {
+    "name": "JnxCmRescueCfgState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonexistant": 1,
+          "updated": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "jnxCmCfgChg": {
+    "name": "jnxCmCfgChg",
+    "oid": "1.3.6.1.4.1.2636.3.18.1",
+    "class": "objectidentity"
+  },
+  "jnxCmCfgChgLatestIndex": {
+    "name": "jnxCmCfgChgLatestIndex",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmCfgChgLatestTime": {
+    "name": "jnxCmCfgChgLatestTime",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmCfgChgLatestDate": {
+    "name": "jnxCmCfgChgLatestDate",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmCfgChgLatestSource": {
+    "name": "jnxCmCfgChgLatestSource",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxCmCfChgSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmCfgChgLatestUser": {
+    "name": "jnxCmCfgChgLatestUser",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmCfgChgMaxEventEntries": {
+    "name": "jnxCmCfgChgMaxEventEntries",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmCfgChgEventTable": {
+    "name": "jnxCmCfgChgEventTable",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCmCfgChgEventEntry": {
+    "name": "jnxCmCfgChgEventEntry",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmCfgChgEventIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCmCfgChgEventIndex": {
+    "name": "jnxCmCfgChgEventIndex",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "jnxCmCfgChgEventTime": {
+    "name": "jnxCmCfgChgEventTime",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmCfgChgEventDate": {
+    "name": "jnxCmCfgChgEventDate",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmCfgChgEventSource": {
+    "name": "jnxCmCfgChgEventSource",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxCmCfChgSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmCfgChgEventUser": {
+    "name": "jnxCmCfgChgEventUser",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmCfgChgEventLog": {
+    "name": "jnxCmCfgChgEventLog",
+    "oid": "1.3.6.1.4.1.2636.3.18.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmRescueChg": {
+    "name": "jnxCmRescueChg",
+    "oid": "1.3.6.1.4.1.2636.3.18.2",
+    "class": "objectidentity"
+  },
+  "jnxCmRescueChgTime": {
+    "name": "jnxCmRescueChgTime",
+    "oid": "1.3.6.1.4.1.2636.3.18.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmRescueChgDate": {
+    "name": "jnxCmRescueChgDate",
+    "oid": "1.3.6.1.4.1.2636.3.18.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmRescueChgSource": {
+    "name": "jnxCmRescueChgSource",
+    "oid": "1.3.6.1.4.1.2636.3.18.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxCmCfChgSource",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmRescueChgUser": {
+    "name": "jnxCmRescueChgUser",
+    "oid": "1.3.6.1.4.1.2636.3.18.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmRescueChgState": {
+    "name": "jnxCmRescueChgState",
+    "oid": "1.3.6.1.4.1.2636.3.18.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "JnxCmRescueCfgState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "jnxCmNotificationsPrefix": {
+    "name": "jnxCmNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.2636.4.5.0",
+    "class": "objectidentity"
+  },
+  "jnxCmCfgChange": {
+    "name": "jnxCmCfgChange",
+    "oid": "1.3.6.1.4.1.2636.4.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmCfgChgEventTime"
+      },
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmCfgChgEventDate"
+      },
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmCfgChgEventSource"
+      },
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmCfgChgEventUser"
+      },
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmCfgChgEventLog"
+      }
+    ],
+    "status": "current"
+  },
+  "jnxCmRescueChange": {
+    "name": "jnxCmRescueChange",
+    "oid": "1.3.6.1.4.1.2636.4.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmRescueChgTime"
+      },
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmRescueChgDate"
+      },
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmRescueChgSource"
+      },
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmRescueChgUser"
+      },
+      {
+        "module": "JUNIPER-CFGMGMT-MIB",
+        "object": "jnxCmRescueChgState"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-CFGMGMT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:07 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "JUNIPER-CFGMGMT-MIB"
+  }
+}

@@ -1,0 +1,1208 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TAddress",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "hh3cSyslog": {
+    "name": "hh3cSyslog",
+    "oid": "1.3.6.1.4.1.25506.2.63",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-06-09 10:50",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "MessageLevelType": {
+    "name": "MessageLevelType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 1,
+          "alert": 2,
+          "critical": 3,
+          "error": 4,
+          "warning": 5,
+          "notice": 6,
+          "informational": 7,
+          "debug": 8,
+          "invalid": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TimeStampType": {
+    "name": "TimeStampType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "date": 2,
+          "boot": 3,
+          "dateWithoutYear": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FacilityType": {
+    "name": "FacilityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "kernel": 0,
+          "userLevel": 1,
+          "mailSystem": 2,
+          "systemDaemons": 3,
+          "securityAuthorization": 4,
+          "internallyMessages": 5,
+          "linePrinter": 6,
+          "networkNews": 7,
+          "uucp": 8,
+          "clockDaemon": 9,
+          "securityAuthorization2": 10,
+          "ftpDaemon": 11,
+          "ntp": 12,
+          "logAudit": 13,
+          "logAlert": 14,
+          "clockDaemon2": 15,
+          "local0": 16,
+          "local1": 17,
+          "local2": 18,
+          "local3": 19,
+          "local4": 20,
+          "local5": 21,
+          "local6": 22,
+          "local7": 23
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cSyslogObjects": {
+    "name": "hh3cSyslogObjects",
+    "oid": "1.3.6.1.4.1.25506.2.63.1",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogObject": {
+    "name": "hh3cSyslogObject",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogState": {
+    "name": "hh3cSyslogState",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogMaxLoghost": {
+    "name": "hh3cSyslogMaxLoghost",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSyslogMaxChannel": {
+    "name": "hh3cSyslogMaxChannel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSyslogMaxLogbufferSize": {
+    "name": "hh3cSyslogMaxLogbufferSize",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSyslogMaxTrapbufferSize": {
+    "name": "hh3cSyslogMaxTrapbufferSize",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSyslogState2": {
+    "name": "hh3cSyslogState2",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogConsole": {
+    "name": "hh3cSyslogConsole",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogConsoleChannel": {
+    "name": "hh3cSyslogConsoleChannel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogMonitor": {
+    "name": "hh3cSyslogMonitor",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.3",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogMonitorChannel": {
+    "name": "hh3cSyslogMonitorChannel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogSnmp": {
+    "name": "hh3cSyslogSnmp",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.4",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogSnmpChannel": {
+    "name": "hh3cSyslogSnmpChannel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogLogbuffer": {
+    "name": "hh3cSyslogLogbuffer",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogLogbufferChannel": {
+    "name": "hh3cSyslogLogbufferChannel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogLogbufferSize": {
+    "name": "hh3cSyslogLogbufferSize",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 512,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogLogbufferTable": {
+    "name": "hh3cSyslogLogbufferTable",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogLogbufferEntry": {
+    "name": "hh3cSyslogLogbufferEntry",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cLogbufferIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLogbufferIndex": {
+    "name": "hh3cLogbufferIndex",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cLogbufferCurrentMessages": {
+    "name": "hh3cLogbufferCurrentMessages",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLogbufferOverwrittenMessages": {
+    "name": "hh3cLogbufferOverwrittenMessages",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cLogbufferDroppedMessages": {
+    "name": "hh3cLogbufferDroppedMessages",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSyslogLogbufContTable": {
+    "name": "hh3cSyslogLogbufContTable",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogLogbufContEntry": {
+    "name": "hh3cSyslogLogbufContEntry",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cLogbufContIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cLogbufContIndex": {
+    "name": "hh3cLogbufContIndex",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cLogbufContDescription": {
+    "name": "hh3cLogbufContDescription",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1600
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSyslogTrapbuffer": {
+    "name": "hh3cSyslogTrapbuffer",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.6",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogTrapbufferChannel": {
+    "name": "hh3cSyslogTrapbufferChannel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogTrapbufferSize": {
+    "name": "hh3cSyslogTrapbufferSize",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 256,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogTrapbufferTable": {
+    "name": "hh3cSyslogTrapbufferTable",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogTrapbufferEntry": {
+    "name": "hh3cSyslogTrapbufferEntry",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cTrapbufferIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cTrapbufferIndex": {
+    "name": "hh3cTrapbufferIndex",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cTrapbufferCurrentMessages": {
+    "name": "hh3cTrapbufferCurrentMessages",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cTrapbufferOverwrittenMessages": {
+    "name": "hh3cTrapbufferOverwrittenMessages",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cTrapbufferDroppedMessages": {
+    "name": "hh3cTrapbufferDroppedMessages",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSyslogLoghost": {
+    "name": "hh3cSyslogLoghost",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogLoghostSourceInterface": {
+    "name": "hh3cSyslogLoghostSourceInterface",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostTimestampType": {
+    "name": "hh3cSyslogLoghostTimestampType",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStampType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "date",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostTable": {
+    "name": "hh3cSyslogLoghostTable",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostEntry": {
+    "name": "hh3cSyslogLoghostEntry",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cSyslogLoghostIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSyslogLoghostIndex": {
+    "name": "hh3cSyslogLoghostIndex",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostChannel": {
+    "name": "hh3cSyslogLoghostChannel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostIpaddressType": {
+    "name": "hh3cSyslogLoghostIpaddressType",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostIpaddress": {
+    "name": "hh3cSyslogLoghostIpaddress",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostFacility": {
+    "name": "hh3cSyslogLoghostFacility",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FacilityType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "local7",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostLanguage": {
+    "name": "hh3cSyslogLoghostLanguage",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "chinese": 1,
+          "english": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "english",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostOperateRowStatus": {
+    "name": "hh3cSyslogLoghostOperateRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostIpaddressPort": {
+    "name": "hh3cSyslogLoghostIpaddressPort",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 514,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogLoghostTAddress": {
+    "name": "hh3cSyslogLoghostTAddress",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.7.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogChannel": {
+    "name": "hh3cSyslogChannel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.8",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogChannelTable": {
+    "name": "hh3cSyslogChannelTable",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogChannelEntry": {
+    "name": "hh3cSyslogChannelEntry",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cSyslogChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSyslogChannelIndex": {
+    "name": "hh3cSyslogChannelIndex",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogChannelName": {
+    "name": "hh3cSyslogChannelName",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogModule": {
+    "name": "hh3cSyslogModule",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.9",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogModuleTable": {
+    "name": "hh3cSyslogModuleTable",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogModuleEntry": {
+    "name": "hh3cSyslogModuleEntry",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cSyslogModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSyslogModuleIndex": {
+    "name": "hh3cSyslogModuleIndex",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogModuleName": {
+    "name": "hh3cSyslogModuleName",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSyslogLog": {
+    "name": "hh3cSyslogLog",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.10",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogLogTimestampType": {
+    "name": "hh3cSyslogLogTimestampType",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStampType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "date",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogLogTable": {
+    "name": "hh3cSyslogLogTable",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogLogEntry": {
+    "name": "hh3cSyslogLogEntry",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cSyslogChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cSyslogModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSyslogLogState": {
+    "name": "hh3cSyslogLogState",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogLogLevel": {
+    "name": "hh3cSyslogLogLevel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogLogRowStatus": {
+    "name": "hh3cSyslogLogRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogLogGlobalLevel": {
+    "name": "hh3cSyslogLogGlobalLevel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hh3cSyslogLogGlobalLevelRfc": {
+    "name": "hh3cSyslogLogGlobalLevelRfc",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.10.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "emergency": 0,
+          "alert": 1,
+          "critical": 2,
+          "error": 3,
+          "warning": 4,
+          "notice": 5,
+          "informational": 6,
+          "debug": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogTrap": {
+    "name": "hh3cSyslogTrap",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.11",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogTrapTimestampType": {
+    "name": "hh3cSyslogTrapTimestampType",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStampType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "date",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogTrapTable": {
+    "name": "hh3cSyslogTrapTable",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.11.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogTrapEntry": {
+    "name": "hh3cSyslogTrapEntry",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.11.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cSyslogChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cSyslogModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSyslogTrapState": {
+    "name": "hh3cSyslogTrapState",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.11.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogTrapLevel": {
+    "name": "hh3cSyslogTrapLevel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.11.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogTrapRowStatus": {
+    "name": "hh3cSyslogTrapRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.11.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogDebug": {
+    "name": "hh3cSyslogDebug",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.12",
+    "class": "objectidentity"
+  },
+  "hh3cSyslogDebugTimestampType": {
+    "name": "hh3cSyslogDebugTimestampType",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStampType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "boot",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSyslogDebugTable": {
+    "name": "hh3cSyslogDebugTable",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.12.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSyslogDebugEntry": {
+    "name": "hh3cSyslogDebugEntry",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.12.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cSyslogChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-SYSLOG-MIB",
+        "object": "hh3cSyslogModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSyslogDebugState": {
+    "name": "hh3cSyslogDebugState",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.12.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogDebugLevel": {
+    "name": "hh3cSyslogDebugLevel",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.12.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MessageLevelType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSyslogDebugRowStatus": {
+    "name": "hh3cSyslogDebugRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.63.1.12.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-SYSLOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-SYSLOG-MIB"
+  }
+}

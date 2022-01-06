@@ -1,0 +1,516 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3cCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "hh3cIpAddrMIB": {
+    "name": "hh3cIpAddrMIB",
+    "oid": "1.3.6.1.4.1.25506.2.67",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2021-02-19 00:00",
+        "description": "Add enum cellar, mad and backup for hh3cIpAddrReadSourceType and hh3cIpAddrReadCatalog."
+      },
+      {
+        "revision": "2005-11-22 00:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cIpAddressObjects": {
+    "name": "hh3cIpAddressObjects",
+    "oid": "1.3.6.1.4.1.25506.2.67.1",
+    "class": "objectidentity"
+  },
+  "hh3cIpAddressConfig": {
+    "name": "hh3cIpAddressConfig",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cIpAddrSetTable": {
+    "name": "hh3cIpAddrSetTable",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIpAddrSetEntry": {
+    "name": "hh3cIpAddrSetEntry",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-IP-ADDRESS-MIB",
+        "object": "hh3cIpAddrSetIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-IP-ADDRESS-MIB",
+        "object": "hh3cIpAddrSetAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-IP-ADDRESS-MIB",
+        "object": "hh3cIpAddrSetAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cIpAddrSetIfIndex": {
+    "name": "hh3cIpAddrSetIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIpAddrSetAddrType": {
+    "name": "hh3cIpAddrSetAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIpAddrSetAddr": {
+    "name": "hh3cIpAddrSetAddr",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIpAddrSetMask": {
+    "name": "hh3cIpAddrSetMask",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cIpAddrSetSourceType": {
+    "name": "hh3cIpAddrSetSourceType",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assignedIp": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "assignedIp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cIpAddrSetCatalog": {
+    "name": "hh3cIpAddrSetCatalog",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "sub": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "primary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cIpAddrSetRowStatus": {
+    "name": "hh3cIpAddrSetRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cIpAddrReadTable": {
+    "name": "hh3cIpAddrReadTable",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIpAddrReadEntry": {
+    "name": "hh3cIpAddrReadEntry",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-IP-ADDRESS-MIB",
+        "object": "hh3cIpAddrReadIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-IP-ADDRESS-MIB",
+        "object": "hh3cIpAddrReadAddrType",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-IP-ADDRESS-MIB",
+        "object": "hh3cIpAddrReadAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cIpAddrReadIfIndex": {
+    "name": "hh3cIpAddrReadIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIpAddrReadAddrType": {
+    "name": "hh3cIpAddrReadAddrType",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIpAddrReadAddr": {
+    "name": "hh3cIpAddrReadAddr",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIpAddrReadMask": {
+    "name": "hh3cIpAddrReadMask",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIpAddrReadSourceType": {
+    "name": "hh3cIpAddrReadSourceType",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "assignedIp": 1,
+          "cluster": 2,
+          "dhcp": 3,
+          "bootp": 4,
+          "negotiate": 5,
+          "unnumbered": 6,
+          "vrrp": 7,
+          "cellar": 8,
+          "mad": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIpAddrReadCatalog": {
+    "name": "hh3cIpAddrReadCatalog",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "sub": 2,
+          "cluster": 3,
+          "vrrp": 4,
+          "backup": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cIpv4AddrTable": {
+    "name": "hh3cIpv4AddrTable",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cIpv4AddrEntry": {
+    "name": "hh3cIpv4AddrEntry",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cIpv4AddrAddr": {
+    "name": "hh3cIpv4AddrAddr",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cIpv4AddrMask": {
+    "name": "hh3cIpv4AddrMask",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cIpv4AddrRowStatus": {
+    "name": "hh3cIpv4AddrRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.67.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cIpAddrNotify": {
+    "name": "hh3cIpAddrNotify",
+    "oid": "1.3.6.1.4.1.25506.2.67.2",
+    "class": "objectidentity"
+  },
+  "hh3cIpAddrNotifyScalarObjects": {
+    "name": "hh3cIpAddrNotifyScalarObjects",
+    "oid": "1.3.6.1.4.1.25506.2.67.2.1",
+    "class": "objectidentity"
+  },
+  "hh3cIpAddrNotifyIfIndex": {
+    "name": "hh3cIpAddrNotifyIfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.67.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cIpAddrOldIpAddress": {
+    "name": "hh3cIpAddrOldIpAddress",
+    "oid": "1.3.6.1.4.1.25506.2.67.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cIpAddrNewIpAddress": {
+    "name": "hh3cIpAddrNewIpAddress",
+    "oid": "1.3.6.1.4.1.25506.2.67.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cIpAddrFirstTrapTime": {
+    "name": "hh3cIpAddrFirstTrapTime",
+    "oid": "1.3.6.1.4.1.25506.2.67.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cIpAddrNotifyObjects": {
+    "name": "hh3cIpAddrNotifyObjects",
+    "oid": "1.3.6.1.4.1.25506.2.67.2.2",
+    "class": "objectidentity"
+  },
+  "hh3cIpAddrNotifyObjectsPrefix": {
+    "name": "hh3cIpAddrNotifyObjectsPrefix",
+    "oid": "1.3.6.1.4.1.25506.2.67.2.2.0",
+    "class": "objectidentity"
+  },
+  "hh3cIpAddressChangeNotify": {
+    "name": "hh3cIpAddressChangeNotify",
+    "oid": "1.3.6.1.4.1.25506.2.67.2.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-IP-ADDRESS-MIB",
+        "object": "hh3cIpAddrNotifyIfIndex"
+      },
+      {
+        "module": "HH3C-IP-ADDRESS-MIB",
+        "object": "hh3cIpAddrOldIpAddress"
+      },
+      {
+        "module": "HH3C-IP-ADDRESS-MIB",
+        "object": "hh3cIpAddrNewIpAddress"
+      },
+      {
+        "module": "HH3C-IP-ADDRESS-MIB",
+        "object": "hh3cIpAddrFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-IP-ADDRESS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-IP-ADDRESS-MIB"
+  }
+}

@@ -1,0 +1,536 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-MIB-NAMES": [
+      "ctTrapLog"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "totalNumberOfEntries": {
+    "name": "totalNumberOfEntries",
+    "oid": "1.3.6.1.4.1.52.4.1.44.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "configTable": {
+    "name": "configTable",
+    "oid": "1.3.6.1.4.1.52.4.1.44.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "configTableEntry": {
+    "name": "configTableEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.44.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTTRAPLOG-MIB",
+        "object": "slotInChassis",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "slotInChassis": {
+    "name": "slotInChassis",
+    "oid": "1.3.6.1.4.1.52.4.1.44.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "numEntriesLoggeds": {
+    "name": "numEntriesLoggeds",
+    "oid": "1.3.6.1.4.1.52.4.1.44.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "numEntriesRequested": {
+    "name": "numEntriesRequested",
+    "oid": "1.3.6.1.4.1.52.4.1.44.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "numEntriesAllocated": {
+    "name": "numEntriesAllocated",
+    "oid": "1.3.6.1.4.1.52.4.1.44.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastLoggedEntryLogId": {
+    "name": "lastLoggedEntryLogId",
+    "oid": "1.3.6.1.4.1.52.4.1.44.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "logCommand": {
+    "name": "logCommand",
+    "oid": "1.3.6.1.4.1.52.4.1.44.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearLog": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wrap": {
+    "name": "wrap",
+    "oid": "1.3.6.1.4.1.52.4.1.44.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapLogTable": {
+    "name": "trapLogTable",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "trapLogEntry": {
+    "name": "trapLogEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTTRAPLOG-MIB",
+        "object": "slotChassis",
+        "implied": 0
+      },
+      {
+        "module": "CTTRAPLOG-MIB",
+        "object": "logId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "logId": {
+    "name": "logId",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "nvmpId": {
+    "name": "nvmpId",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapLogAcknowledged": {
+    "name": "trapLogAcknowledged",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapLogVarBind": {
+    "name": "trapLogVarBind",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapLogDescription": {
+    "name": "trapLogDescription",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "timeLogged": {
+    "name": "timeLogged",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterId": {
+    "name": "filterId",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 1,
+          "warning": 2,
+          "severe": 3,
+          "fatal": 4,
+          "existing": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "slotChassis": {
+    "name": "slotChassis",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapOID": {
+    "name": "trapOID",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "z80Time": {
+    "name": "z80Time",
+    "oid": "1.3.6.1.4.1.52.4.1.44.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterTable": {
+    "name": "filterTable",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "filterEntry": {
+    "name": "filterEntry",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTTRAPLOG-MIB",
+        "object": "filterSlotInChassis",
+        "implied": 0
+      },
+      {
+        "module": "CTTRAPLOG-MIB",
+        "object": "filterFilterId",
+        "implied": 0
+      },
+      {
+        "module": "CTTRAPLOG-MIB",
+        "object": "filterLogId",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "filterLogId": {
+    "name": "filterLogId",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterNvmpId": {
+    "name": "filterNvmpId",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterTrapLogAcknowledged": {
+    "name": "filterTrapLogAcknowledged",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterTrapLogVarBind": {
+    "name": "filterTrapLogVarBind",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1500
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterTrapLogDescription": {
+    "name": "filterTrapLogDescription",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterTimeLogged": {
+    "name": "filterTimeLogged",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterFilterId": {
+    "name": "filterFilterId",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "informational": 1,
+          "warning": 2,
+          "severe": 3,
+          "fatal": 4,
+          "existing": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterSlotInChassis": {
+    "name": "filterSlotInChassis",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterTrapOID": {
+    "name": "filterTrapOID",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "filterZ80Time": {
+    "name": "filterZ80Time",
+    "oid": "1.3.6.1.4.1.52.4.1.44.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "trapLoggerAgent": {
+    "name": "trapLoggerAgent",
+    "oid": "1.3.6.1.4.1.52.4.1.44.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "enabled": 2,
+          "standby": 3,
+          "elected": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTTRAPLOG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTTRAPLOG-MIB"
+  }
+}

@@ -1,0 +1,1141 @@
+{
+  "imports": {
+    "class": "imports",
+    "RFC-1213": [
+      "DisplayString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "Bits",
+      "TRAP-TYPE",
+      "IpAddress",
+      "enterprises",
+      "Unsigned32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "cxr": {
+    "name": "cxr",
+    "oid": "1.3.6.1.4.1.1425",
+    "class": "objectidentity"
+  },
+  "ts": {
+    "name": "ts",
+    "oid": "1.3.6.1.4.1.1425.1040",
+    "class": "objectidentity"
+  },
+  "system": {
+    "name": "system",
+    "oid": "1.3.6.1.4.1.1425.1040.1",
+    "class": "objectidentity"
+  },
+  "productName": {
+    "name": "productName",
+    "oid": "1.3.6.1.4.1.1425.1040.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "version": {
+    "name": "version",
+    "oid": "1.3.6.1.4.1.1425.1040.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "bootp": {
+    "name": "bootp",
+    "oid": "1.3.6.1.4.1.1425.1040.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mainIpAddress": {
+    "name": "mainIpAddress",
+    "oid": "1.3.6.1.4.1.1425.1040.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipNetmask": {
+    "name": "ipNetmask",
+    "oid": "1.3.6.1.4.1.1425.1040.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipGateway": {
+    "name": "ipGateway",
+    "oid": "1.3.6.1.4.1.1425.1040.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ethernetAddress": {
+    "name": "ethernetAddress",
+    "oid": "1.3.6.1.4.1.1425.1040.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "ftpdService": {
+    "name": "ftpdService",
+    "oid": "1.3.6.1.4.1.1425.1040.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "httpdService": {
+    "name": "httpdService",
+    "oid": "1.3.6.1.4.1.1425.1040.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "telnetdService": {
+    "name": "telnetdService",
+    "oid": "1.3.6.1.4.1.1425.1040.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snmpdService": {
+    "name": "snmpdService",
+    "oid": "1.3.6.1.4.1.1425.1040.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snmpTrap": {
+    "name": "snmpTrap",
+    "oid": "1.3.6.1.4.1.1425.1040.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snmpTrapAddr1": {
+    "name": "snmpTrapAddr1",
+    "oid": "1.3.6.1.4.1.1425.1040.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "snmpTrapAddr2": {
+    "name": "snmpTrapAddr2",
+    "oid": "1.3.6.1.4.1.1425.1040.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nameResolution": {
+    "name": "nameResolution",
+    "oid": "1.3.6.1.4.1.1425.1040.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nameServer1": {
+    "name": "nameServer1",
+    "oid": "1.3.6.1.4.1.1425.1040.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nameServer2": {
+    "name": "nameServer2",
+    "oid": "1.3.6.1.4.1.1425.1040.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "radiusServer1": {
+    "name": "radiusServer1",
+    "oid": "1.3.6.1.4.1.1425.1040.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "radiusSecret1": {
+    "name": "radiusSecret1",
+    "oid": "1.3.6.1.4.1.1425.1040.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "radiusServer2": {
+    "name": "radiusServer2",
+    "oid": "1.3.6.1.4.1.1425.1040.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "radiusSecret2": {
+    "name": "radiusSecret2",
+    "oid": "1.3.6.1.4.1.1425.1040.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "siteName": {
+    "name": "siteName",
+    "oid": "1.3.6.1.4.1.1425.1040.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "resetByButton": {
+    "name": "resetByButton",
+    "oid": "1.3.6.1.4.1.1425.1040.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "reset": {
+    "name": "reset",
+    "oid": "1.3.6.1.4.1.1425.1040.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "portTable": {
+    "name": "portTable",
+    "oid": "1.3.6.1.4.1.1425.1040.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "portEntry": {
+    "name": "portEntry",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CXR-TS-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "portIndex": {
+    "name": "portIndex",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 11
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "tcpPort": {
+    "name": "tcpPort",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "aliasIpAddress": {
+    "name": "aliasIpAddress",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "aliasIpNetmask": {
+    "name": "aliasIpNetmask",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "timeoutRxTx": {
+    "name": "timeoutRxTx",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "baudRate": {
+    "name": "baudRate",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "b300": 1,
+          "b600": 2,
+          "b1200": 3,
+          "b2400": 4,
+          "b4800": 5,
+          "b9600": 6,
+          "b19200": 7,
+          "b38400": 8,
+          "b57600": 9,
+          "b115200": 10,
+          "b50": 11,
+          "b200": 12
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "nbParStop": {
+    "name": "nbParStop",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p7Odd1": 1,
+          "p7Odd2": 2,
+          "p7Even1": 17,
+          "p7Even2": 18,
+          "p7None1": 33,
+          "p7None2": 34,
+          "p7High1": 49,
+          "p7High2": 50,
+          "p7Low1": 65,
+          "p7Low2": 66,
+          "p8Odd1": 129,
+          "p8Odd2": 130,
+          "p8Even1": 145,
+          "p8Even2": 146,
+          "p8None1": 161,
+          "p8None2": 162,
+          "p8High1": 177,
+          "p8High2": 178,
+          "p8Low1": 193,
+          "p8Low2": 194
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "ipServer": {
+    "name": "ipServer",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "passive": 2,
+          "passiveExclusive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "remoteIpAddress": {
+    "name": "remoteIpAddress",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "gatewayToRemote": {
+    "name": "gatewayToRemote",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "remoteTcpPort": {
+    "name": "remoteTcpPort",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "flowControl": {
+    "name": "flowControl",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noFlowControl": 1,
+          "xonXoff": 2,
+          "rtsCts": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mode": {
+    "name": "mode",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rfc2217": 1,
+          "msgFormat": 2,
+          "carrierBreak": 3,
+          "telex": 4,
+          "rlogin": 5,
+          "lpd": 6,
+          "telnet": 7,
+          "rawIp": 8,
+          "rtelnet": 9,
+          "pad": 10,
+          "muxv24": 11,
+          "modbus": 12,
+          "hnzs2": 13,
+          "hnzs5": 14
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "rxIdle": {
+    "name": "rxIdle",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "txIdle": {
+    "name": "txIdle",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "endMsg": {
+    "name": "endMsg",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "interFrame": {
+    "name": "interFrame",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "beforeSend": {
+    "name": "beforeSend",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "afterSend": {
+    "name": "afterSend",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "timeoutPAD": {
+    "name": "timeoutPAD",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "terminalType": {
+    "name": "terminalType",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "console": 1,
+          "linux": 2,
+          "aixterm": 3,
+          "dec-vt100": 4,
+          "vt100": 5,
+          "vt200": 6,
+          "vt420": 7,
+          "xterm": 8,
+          "xterms": 9,
+          "xtermc": 10
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "multiSession": {
+    "name": "multiSession",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "authType": {
+    "name": "authType",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "remote": 1,
+          "radius": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "authRad1": {
+    "name": "authRad1",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "authRad2": {
+    "name": "authRad2",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "acctRad1": {
+    "name": "acctRad1",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "acctRad2": {
+    "name": "acctRad2",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "formFeed": {
+    "name": "formFeed",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "secondIpAddress": {
+    "name": "secondIpAddress",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "secondGateway": {
+    "name": "secondGateway",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "secondTcpPort": {
+    "name": "secondTcpPort",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "modbusMode": {
+    "name": "modbusMode",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rtu": 1,
+          "ascii": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "modbusType": {
+    "name": "modbusType",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "slave": 1,
+          "master": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "portReset": {
+    "name": "portReset",
+    "oid": "1.3.6.1.4.1.1425.1040.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "portStatsTable": {
+    "name": "portStatsTable",
+    "oid": "1.3.6.1.4.1.1425.1040.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "portStatsEntry": {
+    "name": "portStatsEntry",
+    "oid": "1.3.6.1.4.1.1425.1040.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CXR-TS-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "bytesReceiveFromV24": {
+    "name": "bytesReceiveFromV24",
+    "oid": "1.3.6.1.4.1.1425.1040.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "bytesSendToV24": {
+    "name": "bytesSendToV24",
+    "oid": "1.3.6.1.4.1.1425.1040.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "statusDTR": {
+    "name": "statusDTR",
+    "oid": "1.3.6.1.4.1.1425.1040.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "modbusTable": {
+    "name": "modbusTable",
+    "oid": "1.3.6.1.4.1.1425.1040.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "modbusEntry": {
+    "name": "modbusEntry",
+    "oid": "1.3.6.1.4.1.1425.1040.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CXR-TS-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "slaveHexaAddress": {
+    "name": "slaveHexaAddress",
+    "oid": "1.3.6.1.4.1.1425.1040.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "slaveIPaddr": {
+    "name": "slaveIPaddr",
+    "oid": "1.3.6.1.4.1.1425.1040.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "slaveIPport": {
+    "name": "slaveIPport",
+    "oid": "1.3.6.1.4.1.1425.1040.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sessionStarted": {
+    "name": "sessionStarted",
+    "oid": "1.3.6.1.4.1.14250.1041",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CXR-TS-MIB",
+        "object": "portIndex"
+      }
+    ]
+  },
+  "sessionStopped": {
+    "name": "sessionStopped",
+    "oid": "1.3.6.1.4.1.14250.1042",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CXR-TS-MIB",
+        "object": "portIndex"
+      }
+    ]
+  },
+  "dtrUp": {
+    "name": "dtrUp",
+    "oid": "1.3.6.1.4.1.14250.1043",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CXR-TS-MIB",
+        "object": "portIndex"
+      }
+    ]
+  },
+  "dtrDown": {
+    "name": "dtrDown",
+    "oid": "1.3.6.1.4.1.14250.1044",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CXR-TS-MIB",
+        "object": "portIndex"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cxr-networks/CXR-TS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CXR-TS-MIB"
+  }
+}

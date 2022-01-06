@@ -1,0 +1,1686 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IP-ADDRESS-POOL-TC-MIB": [
+      "IpAddrPoolInstanceIdentifierOrZero",
+      "IpAddressPoolGroupName",
+      "IpAddressPoolNameOrNull",
+      "IpAddrPoolInstanceIdentifier",
+      "IpAddressPoolGroupNameOrNull",
+      "IpAddressPoolThresholdUnits"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowPointer",
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "ciscoIpAddressPoolMIB": {
+    "name": "ciscoIpAddressPoolMIB",
+    "oid": "1.3.6.1.4.1.9.9.748",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-02-02 00:00",
+        "description": "The initial version of the MIB module."
+      }
+    ]
+  },
+  "ciscoIpAddressPoolMIBNotifs": {
+    "name": "ciscoIpAddressPoolMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.748.0",
+    "class": "objectidentity"
+  },
+  "ciscoIpAddressPoolMIBObjects": {
+    "name": "ciscoIpAddressPoolMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.748.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpAddressPoolMIBConform": {
+    "name": "ciscoIpAddressPoolMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.748.2",
+    "class": "objectidentity"
+  },
+  "ciapGlobal": {
+    "name": "ciapGlobal",
+    "oid": "1.3.6.1.4.1.9.9.748.1.1",
+    "class": "objectidentity"
+  },
+  "ciapPools": {
+    "name": "ciapPools",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2",
+    "class": "objectidentity"
+  },
+  "ciapPoolGroups": {
+    "name": "ciapPoolGroups",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3",
+    "class": "objectidentity"
+  },
+  "ciapAllocatedAddresses": {
+    "name": "ciapAllocatedAddresses",
+    "oid": "1.3.6.1.4.1.9.9.748.1.4",
+    "class": "objectidentity"
+  },
+  "ciapNotifyData": {
+    "name": "ciapNotifyData",
+    "oid": "1.3.6.1.4.1.9.9.748.1.5",
+    "class": "objectidentity"
+  },
+  "ciapGlobalNotifyEnable": {
+    "name": "ciapGlobalNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.748.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciapGlobalThresholdUnits": {
+    "name": "ciapGlobalThresholdUnits",
+    "oid": "1.3.6.1.4.1.9.9.748.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPoolThresholdUnits",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "absolute",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciapGlobalThresholdRising": {
+    "name": "ciapGlobalThresholdRising",
+    "oid": "1.3.6.1.4.1.9.9.748.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciapGlobalThresholdFalling": {
+    "name": "ciapGlobalThresholdFalling",
+    "oid": "1.3.6.1.4.1.9.9.748.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciapPoolIdNext": {
+    "name": "ciapPoolIdNext",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddrPoolInstanceIdentifierOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapPoolTable": {
+    "name": "ciapPoolTable",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapPoolEntry": {
+    "name": "ciapPoolEntry",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciapPoolId": {
+    "name": "ciapPoolId",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddrPoolInstanceIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapPoolStatus": {
+    "name": "ciapPoolStatus",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPoolStorage": {
+    "name": "ciapPoolStorage",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPoolName": {
+    "name": "ciapPoolName",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPoolNameOrNull",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPoolType": {
+    "name": "ciapPoolType",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "shared": 2,
+          "local": 3,
+          "dhcp": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "shared",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPoolContainedIn": {
+    "name": "ciapPoolContainedIn",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPoolGroupNameOrNull",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPoolThresholdUnits": {
+    "name": "ciapPoolThresholdUnits",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPoolThresholdUnits",
+      "class": "type"
+    },
+    "units": "IP addresses",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPoolThresholdRising": {
+    "name": "ciapPoolThresholdRising",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPoolThresholdFalling": {
+    "name": "ciapPoolThresholdFalling",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPoolAddressesInUse": {
+    "name": "ciapPoolAddressesInUse",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP addresses/prefixes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPoolAddressesFree": {
+    "name": "ciapPoolAddressesFree",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP addresses/prefixes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPoolTableChanged": {
+    "name": "ciapPoolTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapRangeTable": {
+    "name": "ciapRangeTable",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapRangeEntry": {
+    "name": "ciapRangeEntry",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeAddressLower",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciapRangeAddressType": {
+    "name": "ciapRangeAddressType",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapRangeAddressLower": {
+    "name": "ciapRangeAddressLower",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapRangeStatus": {
+    "name": "ciapRangeStatus",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapRangeStorage": {
+    "name": "ciapRangeStorage",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapRangeAddressUpper": {
+    "name": "ciapRangeAddressUpper",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapRangeCacheSize": {
+    "name": "ciapRangeCacheSize",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "IP addresses",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapRangeRecycleDelay": {
+    "name": "ciapRangeRecycleDelay",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapRangePriority": {
+    "name": "ciapRangePriority",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapRangeThresholdUnits": {
+    "name": "ciapRangeThresholdUnits",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPoolThresholdUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapRangeThresholdRising": {
+    "name": "ciapRangeThresholdRising",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapRangeThresholdFalling": {
+    "name": "ciapRangeThresholdFalling",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapRangeAddressesInUse": {
+    "name": "ciapRangeAddressesInUse",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapRangeAddressesFree": {
+    "name": "ciapRangeAddressesFree",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP addresses",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapRangeTableChanged": {
+    "name": "ciapRangeTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapPrefixTable": {
+    "name": "ciapPrefixTable",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapPrefixEntry": {
+    "name": "ciapPrefixEntry",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixAddressMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciapPrefixType": {
+    "name": "ciapPrefixType",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapPrefixAddress": {
+    "name": "ciapPrefixAddress",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapPrefixAddressMask": {
+    "name": "ciapPrefixAddressMask",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapPrefixStatus": {
+    "name": "ciapPrefixStatus",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixStorage": {
+    "name": "ciapPrefixStorage",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixAssignedLength": {
+    "name": "ciapPrefixAssignedLength",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixCacheSize": {
+    "name": "ciapPrefixCacheSize",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "IP prefixes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixRecycleDelay": {
+    "name": "ciapPrefixRecycleDelay",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixPriority": {
+    "name": "ciapPrefixPriority",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixThresholdUnits": {
+    "name": "ciapPrefixThresholdUnits",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPoolThresholdUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixThresholdRising": {
+    "name": "ciapPrefixThresholdRising",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixThresholdFalling": {
+    "name": "ciapPrefixThresholdFalling",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixPrefixesInUse": {
+    "name": "ciapPrefixPrefixesInUse",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP prefixes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixPrefixesFree": {
+    "name": "ciapPrefixPrefixesFree",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP prefixes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciapPrefixTableChanged": {
+    "name": "ciapPrefixTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.748.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapPoolGroupIdNext": {
+    "name": "ciapPoolGroupIdNext",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddrPoolInstanceIdentifierOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapPoolGroupTable": {
+    "name": "ciapPoolGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapPoolGroupEntry": {
+    "name": "ciapPoolGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciapPoolGroupId": {
+    "name": "ciapPoolGroupId",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddrPoolInstanceIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapPoolGroupName": {
+    "name": "ciapPoolGroupName",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPoolGroupName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapPoolGroupThresholdUnits": {
+    "name": "ciapPoolGroupThresholdUnits",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPoolThresholdUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciapPoolGroupThresholdRising": {
+    "name": "ciapPoolGroupThresholdRising",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciapPoolGroupThresholdFalling": {
+    "name": "ciapPoolGroupThresholdFalling",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciapPoolGroupAddressesInUse": {
+    "name": "ciapPoolGroupAddressesInUse",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP addresses/prefixes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapPoolGroupAddressesFree": {
+    "name": "ciapPoolGroupAddressesFree",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP addresses/prefixes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapPoolGroupContainsTable": {
+    "name": "ciapPoolGroupContainsTable",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapPoolGroupContainsEntry": {
+    "name": "ciapPoolGroupContainsEntry",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupContainsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciapPoolGroupContainsId": {
+    "name": "ciapPoolGroupContainsId",
+    "oid": "1.3.6.1.4.1.9.9.748.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddrPoolInstanceIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapAllocatedAddressTable": {
+    "name": "ciapAllocatedAddressTable",
+    "oid": "1.3.6.1.4.1.9.9.748.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapAllocatedAddressEntry": {
+    "name": "ciapAllocatedAddressEntry",
+    "oid": "1.3.6.1.4.1.9.9.748.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapAllocatedAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapAllocatedAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ciapAllocatedAddressType": {
+    "name": "ciapAllocatedAddressType",
+    "oid": "1.3.6.1.4.1.9.9.748.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapAllocatedAddress": {
+    "name": "ciapAllocatedAddress",
+    "oid": "1.3.6.1.4.1.9.9.748.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ciapAllocatedAddressMask": {
+    "name": "ciapAllocatedAddressMask",
+    "oid": "1.3.6.1.4.1.9.9.748.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciapNotifyResource": {
+    "name": "ciapNotifyResource",
+    "oid": "1.3.6.1.4.1.9.9.748.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciapNotifyThresholdUnits": {
+    "name": "ciapNotifyThresholdUnits",
+    "oid": "1.3.6.1.4.1.9.9.748.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddressPoolThresholdUnits",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciapNotifyThresholdRising": {
+    "name": "ciapNotifyThresholdRising",
+    "oid": "1.3.6.1.4.1.9.9.748.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciapNotifyThresholdFalling": {
+    "name": "ciapNotifyThresholdFalling",
+    "oid": "1.3.6.1.4.1.9.9.748.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciapNotifyInUse": {
+    "name": "ciapNotifyInUse",
+    "oid": "1.3.6.1.4.1.9.9.748.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP addresses/prefixes",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciapNotifyFree": {
+    "name": "ciapNotifyFree",
+    "oid": "1.3.6.1.4.1.9.9.748.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "IP addresses/prefixes",
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ciapEventThresholdRising": {
+    "name": "ciapEventThresholdRising",
+    "oid": "1.3.6.1.4.1.9.9.748.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyResource"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyThresholdUnits"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyThresholdRising"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyInUse"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyFree"
+      }
+    ],
+    "status": "current"
+  },
+  "ciapEventThresholdFalling": {
+    "name": "ciapEventThresholdFalling",
+    "oid": "1.3.6.1.4.1.9.9.748.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyResource"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyThresholdUnits"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyThresholdFalling"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyInUse"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyFree"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoIpAddressPoolMIBCompliances": {
+    "name": "ciscoIpAddressPoolMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.748.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoIpAddressPoolMIBGroups": {
+    "name": "ciscoIpAddressPoolMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.748.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoIpAddressPoolCompliance01": {
+    "name": "ciscoIpAddressPoolCompliance01",
+    "oid": "1.3.6.1.4.1.9.9.748.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciapGlobalGroup",
+        "module": "CISCO-IP-ADDRESS-POOL-MIB"
+      },
+      {
+        "object": "ciapPoolGroup",
+        "module": "CISCO-IP-ADDRESS-POOL-MIB"
+      },
+      {
+        "object": "ciapRangeGroup",
+        "module": "CISCO-IP-ADDRESS-POOL-MIB"
+      },
+      {
+        "object": "ciapPoolGroupGroup",
+        "module": "CISCO-IP-ADDRESS-POOL-MIB"
+      },
+      {
+        "object": "ciapNotifDataGroup",
+        "module": "CISCO-IP-ADDRESS-POOL-MIB"
+      },
+      {
+        "object": "ciapNotifsGroup",
+        "module": "CISCO-IP-ADDRESS-POOL-MIB"
+      },
+      {
+        "object": "ciapPrefixGroup",
+        "module": "CISCO-IP-ADDRESS-POOL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciapGlobalGroup": {
+    "name": "ciapGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.748.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapGlobalNotifyEnable"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapGlobalThresholdUnits"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapGlobalThresholdRising"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapGlobalThresholdFalling"
+      }
+    ],
+    "status": "current"
+  },
+  "ciapPoolGroup": {
+    "name": "ciapPoolGroup",
+    "oid": "1.3.6.1.4.1.9.9.748.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolIdNext"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolName"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolStatus"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolStorage"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolType"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolContainedIn"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolThresholdUnits"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolThresholdRising"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolThresholdFalling"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolAddressesInUse"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolAddressesFree"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolTableChanged"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapAllocatedAddressMask"
+      }
+    ],
+    "status": "current"
+  },
+  "ciapRangeGroup": {
+    "name": "ciapRangeGroup",
+    "oid": "1.3.6.1.4.1.9.9.748.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeStatus"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeStorage"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeAddressUpper"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeCacheSize"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeRecycleDelay"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangePriority"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeThresholdUnits"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeThresholdRising"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeThresholdFalling"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeAddressesInUse"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeAddressesFree"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapRangeTableChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "ciapPrefixGroup": {
+    "name": "ciapPrefixGroup",
+    "oid": "1.3.6.1.4.1.9.9.748.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixStatus"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixStorage"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixAssignedLength"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixCacheSize"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixRecycleDelay"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixPriority"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixThresholdUnits"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixThresholdRising"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixThresholdFalling"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixPrefixesInUse"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixPrefixesFree"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPrefixTableChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "ciapPoolGroupGroup": {
+    "name": "ciapPoolGroupGroup",
+    "oid": "1.3.6.1.4.1.9.9.748.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupIdNext"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupName"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupThresholdUnits"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupThresholdRising"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupThresholdFalling"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupAddressesInUse"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupAddressesFree"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapPoolGroupContainsId"
+      }
+    ],
+    "status": "current"
+  },
+  "ciapNotifDataGroup": {
+    "name": "ciapNotifDataGroup",
+    "oid": "1.3.6.1.4.1.9.9.748.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyResource"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyThresholdUnits"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyThresholdRising"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyThresholdFalling"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyInUse"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapNotifyFree"
+      }
+    ],
+    "status": "current"
+  },
+  "ciapNotifsGroup": {
+    "name": "ciapNotifsGroup",
+    "oid": "1.3.6.1.4.1.9.9.748.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapEventThresholdRising"
+      },
+      {
+        "module": "CISCO-IP-ADDRESS-POOL-MIB",
+        "object": "ciapEventThresholdFalling"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IP-ADDRESS-POOL-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IP-ADDRESS-POOL-MIB"
+  }
+}

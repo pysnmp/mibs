@@ -1,0 +1,1740 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "Unsigned32",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TIMETRA-TC-MIB": [
+      "timetraTCMIBModule",
+      "TNamedItem",
+      "TNamedItemOrEmpty"
+    ]
+  },
+  "timetraTCMGMIBModule": {
+    "name": "timetraTCMGMIBModule",
+    "oid": "1.3.6.1.4.1.6527.1.1.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-01-01 00:00",
+        "description": "Rev 15.0 01 Jan 2017 00:00 15.0 release of the TIMETRA-TC-MG-MIB."
+      },
+      {
+        "revision": "2013-11-08 00:00",
+        "description": "Rev 1.0 08 Nov 2013 00:00 1.0 Release of the TIMETRA-TC-MG-MIB."
+      }
+    ]
+  },
+  "TmnxMobProfName": {
+    "name": "TmnxMobProfName",
+    "class": "textualconvention",
+    "type": {
+      "type": "TNamedItem",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TmnxMobProfNameOrEmpty": {
+    "name": "TmnxMobProfNameOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "TNamedItemOrEmpty",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "TmnxMobProfIpTtl": {
+    "name": "TmnxMobProfIpTtl",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfMsgReTxTimeout": {
+    "name": "TmnxMobProfMsgReTxTimeout",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfMsgReTxRetryCount": {
+    "name": "TmnxMobProfMsgReTxRetryCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfKeepAliveTimeout": {
+    "name": "TmnxMobProfKeepAliveTimeout",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfKeepAliveRetryCount": {
+    "name": "TmnxMobProfKeepAliveRetryCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfKeepAliveResponse": {
+    "name": "TmnxMobProfKeepAliveResponse",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfKeepAliveInterval": {
+    "name": "TmnxMobProfKeepAliveInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 60,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobDiaTransTimer": {
+    "name": "TmnxMobDiaTransTimer",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobDiaRetryCount": {
+    "name": "TmnxMobDiaRetryCount",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobDiaPeerHost": {
+    "name": "TmnxMobDiaPeerHost",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobGwId": {
+    "name": "TmnxMobGwId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobNode": {
+    "name": "TmnxMobNode",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobBufferLimit": {
+    "name": "TmnxMobBufferLimit",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 12000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobQueueLimit": {
+    "name": "TmnxMobQueueLimit",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 12000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobRtrAdvtInterval": {
+    "name": "TmnxMobRtrAdvtInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobRtrAdvtLifeTime": {
+    "name": "TmnxMobRtrAdvtLifeTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobAddrScheme": {
+    "name": "TmnxMobAddrScheme",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stateful": 1,
+          "stateless": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobQciValue": {
+    "name": "TmnxMobQciValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobQciValueOrZero": {
+    "name": "TmnxMobQciValueOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobArpValue": {
+    "name": "TmnxMobArpValue",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobArpValueOrZero": {
+    "name": "TmnxMobArpValueOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobApn": {
+    "name": "TmnxMobApn",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobApnOrZero": {
+    "name": "TmnxMobApnOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobApnDomainName": {
+    "name": "TmnxMobApnDomainName",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 108
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobImsi": {
+    "name": "TmnxMobImsi",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobMsisdn": {
+    "name": "TmnxMobMsisdn",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobImei": {
+    "name": "TmnxMobImei",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobNai": {
+    "name": "TmnxMobNai",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 72
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobMcc": {
+    "name": "TmnxMobMcc",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobMnc": {
+    "name": "TmnxMobMnc",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobMccOrEmpty": {
+    "name": "TmnxMobMccOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobMncOrEmpty": {
+    "name": "TmnxMobMncOrEmpty",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobUeState": {
+    "name": "TmnxMobUeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "active": 2,
+          "paging": 3,
+          "init": 4,
+          "suspend": 5,
+          "ddnDamp": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobUeRat": {
+    "name": "TmnxMobUeRat",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "utran": 1,
+          "geran": 2,
+          "wlan": 3,
+          "gan": 4,
+          "hspa": 5,
+          "eutran": 6,
+          "ehrpd": 7,
+          "hrpd": 8,
+          "oneXrtt": 9,
+          "umb": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobUeSubType": {
+    "name": "TmnxMobUeSubType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "homer": 1,
+          "roamer": 2,
+          "visitor": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobPdnType": {
+    "name": "TmnxMobPdnType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "ipv4v6": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobPgwSigProtocol": {
+    "name": "TmnxMobPgwSigProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "gtp": 1,
+          "pmip": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobPdnSessionState": {
+    "name": "TmnxMobPdnSessionState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "init": 1,
+          "waitPcrfResponse": 2,
+          "waitPgwResponse": 3,
+          "waitEnodebUpdate": 4,
+          "connected": 5,
+          "ulDelPending": 6,
+          "dlDelPending": 7,
+          "idleMode": 8,
+          "pageMode": 9,
+          "dlHandover": 10,
+          "incomingHandover": 11,
+          "outgoingHandover": 12,
+          "stateMax": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobPdnSessionEvent": {
+    "name": "TmnxMobPdnSessionEvent",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sessionInvalid": 0,
+          "gtpCreateSessReq": 1,
+          "gtpUpdateBearerReq": 2,
+          "gtpDeleteSessReq": 3,
+          "gtpDeleteBearerResp": 4,
+          "gtpUpdateBearerResp": 5,
+          "gtpModifyActiveToIdle": 6,
+          "gtpResrcAllocCmd": 7,
+          "gtpModifyQosCmd": 8,
+          "gtpX1eNodeBTeidUpdate": 9,
+          "gtpX2SrcSgwDeleteSessReq": 10,
+          "gtpS1CreateIndirectTunnel": 11,
+          "dlPktRecvIndication": 12,
+          "dlPktNotificationAck": 13,
+          "dlPktNotificationFail": 14,
+          "pcrfSessEstResp": 15,
+          "pcrfSessTerminateRsp": 16,
+          "pcrfProvQosRules": 17,
+          "pmipSessResp": 18,
+          "pmipSessUpdate": 19,
+          "pmipSessDeleteRsp": 20,
+          "pmipSessDeleteReq": 21,
+          "eventMax": 22
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobBearerId": {
+    "name": "TmnxMobBearerId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobBearerType": {
+    "name": "TmnxMobBearerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "default": 1,
+          "dedicated": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobQci": {
+    "name": "TmnxMobQci",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobArp": {
+    "name": "TmnxMobArp",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobSdf": {
+    "name": "TmnxMobSdf",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobSdfFilter": {
+    "name": "TmnxMobSdfFilter",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobSdfFilterNum": {
+    "name": "TmnxMobSdfFilterNum",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobSdfRuleName": {
+    "name": "TmnxMobSdfRuleName",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobSdfFilterDirection": {
+    "name": "TmnxMobSdfFilterDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "preRel7": 0,
+          "downLink": 1,
+          "upLink": 2,
+          "biDir": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobSdfFilterProtocol": {
+    "name": "TmnxMobSdfFilterProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": -1,
+          "ipv6HopByOpOpt": 0,
+          "icmp": 1,
+          "igmp": 2,
+          "ggp": 3,
+          "ip": 4,
+          "st": 5,
+          "tcp": 6,
+          "cbt": 7,
+          "egp": 8,
+          "igp": 9,
+          "bbnRccMon": 10,
+          "nvp2": 11,
+          "pup": 12,
+          "argus": 13,
+          "emcon": 14,
+          "xnet": 15,
+          "chaos": 16,
+          "udp": 17,
+          "mux": 18,
+          "dcnMeas": 19,
+          "hmp": 20,
+          "prm": 21,
+          "xnsIdp": 22,
+          "trunk1": 23,
+          "trunk2": 24,
+          "leaf1": 25,
+          "leaf2": 26,
+          "rdp": 27,
+          "irdp": 28,
+          "isoTp4": 29,
+          "netblt": 30,
+          "mfeNsp": 31,
+          "meritInp": 32,
+          "dccp": 33,
+          "pc3": 34,
+          "idpr": 35,
+          "xtp": 36,
+          "ddp": 37,
+          "idprCmtp": 38,
+          "tpplusplus": 39,
+          "il": 40,
+          "ipv6": 41,
+          "sdrp": 42,
+          "ipv6Route": 43,
+          "ipv6Frag": 44,
+          "idrp": 45,
+          "rsvp": 46,
+          "gre": 47,
+          "dsr": 48,
+          "bna": 49,
+          "esp": 50,
+          "ah": 51,
+          "iNlsp": 52,
+          "swipe": 53,
+          "narp": 54,
+          "mobile": 55,
+          "tlsp": 56,
+          "skip": 57,
+          "ipv6Icmp": 58,
+          "ipv6NoNxt": 59,
+          "ipv6Opts": 60,
+          "anyHostIntl": 61,
+          "cftp": 62,
+          "anyLocalNet": 63,
+          "satExpak": 64,
+          "kryptolan": 65,
+          "rvd": 66,
+          "ippc": 67,
+          "anyDFS": 68,
+          "satMon": 69,
+          "visa": 70,
+          "ipcv": 71,
+          "cpnx": 72,
+          "cphb": 73,
+          "wsn": 74,
+          "pvp": 75,
+          "brSatMon": 76,
+          "sunNd": 77,
+          "wbMon": 78,
+          "wbExpak": 79,
+          "isoIp": 80,
+          "vmtp": 81,
+          "secureVmpt": 82,
+          "vines": 83,
+          "ttp": 84,
+          "nsfnetIgp": 85,
+          "dgp": 86,
+          "tcf": 87,
+          "eiGrp": 88,
+          "ospfIgp": 89,
+          "spriteRpc": 90,
+          "larp": 91,
+          "mtp": 92,
+          "ax25": 93,
+          "ipip": 94,
+          "micp": 95,
+          "sccSp": 96,
+          "etherIp": 97,
+          "encap": 98,
+          "anyPEC": 99,
+          "gmtp": 100,
+          "ifmp": 101,
+          "pnni": 102,
+          "pim": 103,
+          "aris": 104,
+          "scps": 105,
+          "qnx": 106,
+          "activeNet": 107,
+          "ipComp": 108,
+          "snp": 109,
+          "compaqPeer": 110,
+          "ipxInIp": 111,
+          "vrrp": 112,
+          "pgm": 113,
+          "any0hop": 114,
+          "l2tp": 115,
+          "ddx": 116,
+          "iatp": 117,
+          "stp": 118,
+          "srp": 119,
+          "uti": 120,
+          "smp": 121,
+          "sm": 122,
+          "ptp": 123,
+          "isis": 124,
+          "fire": 125,
+          "crtp": 126,
+          "crudp": 127,
+          "sscopmce": 128,
+          "iplt": 129,
+          "sps": 130,
+          "pipe": 131,
+          "sctp": 132,
+          "fc": 133,
+          "rsvpE2eIgnore": 134,
+          "mobHeader": 135,
+          "udpLite": 136,
+          "mplsInIp": 137,
+          "manet": 138,
+          "hip": 139,
+          "shim6": 140
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobPathMgmtState": {
+    "name": "TmnxMobPathMgmtState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "up": 1,
+          "reqTimeOut": 2,
+          "fault": 3,
+          "idle": 4,
+          "restart": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobDiaPathMgmtState": {
+    "name": "TmnxMobDiaPathMgmtState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shutDown": 0,
+          "shuttingDown": 1,
+          "inactive": 2,
+          "active": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobDiaDetailPathMgmtState": {
+    "name": "TmnxMobDiaDetailPathMgmtState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "error": 0,
+          "idle": 1,
+          "closed": 2,
+          "localShutdown": 3,
+          "remoteClosing": 4,
+          "waitConnAck": 5,
+          "waitCea": 6,
+          "open": 7,
+          "openCoolingDown": 8,
+          "waitDns": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobGwType": {
+    "name": "TmnxMobGwType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sgw": 1,
+          "pgw": 2,
+          "wlanGw": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobChargingProfile": {
+    "name": "TmnxMobChargingProfile",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobChargingProfileOrInherit": {
+    "name": "TmnxMobChargingProfileOrInherit",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobAuthType": {
+    "name": "TmnxMobAuthType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radius": 1,
+          "diameter": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobAuthUserName": {
+    "name": "TmnxMobAuthUserName",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "imsi": 1,
+          "msisdn": 2,
+          "pco": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfGbrRate": {
+    "name": "TmnxMobProfGbrRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfMbrRate": {
+    "name": "TmnxMobProfMbrRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobPeerType": {
+    "name": "TmnxMobPeerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sgw": 1,
+          "pgw": 2,
+          "hsgw": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobRfAcctLevel": {
+    "name": "TmnxMobRfAcctLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pdnLevel": 1,
+          "qciLevel": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfPolReportingLevel": {
+    "name": "TmnxMobProfPolReportingLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "servId": 1,
+          "ratingGrp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfPolChargingMethod": {
+    "name": "TmnxMobProfPolChargingMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "profChargingMtd": 0,
+          "online": 1,
+          "offline": 2,
+          "both": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobProfPolMeteringMethod": {
+    "name": "TmnxMobProfPolMeteringMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timeBased": 1,
+          "volBased": 2,
+          "both": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobServerState": {
+    "name": "TmnxMobServerState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobChargingBearerType": {
+    "name": "TmnxMobChargingBearerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "home": 1,
+          "visiting": 2,
+          "roaming": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobChargingLevel": {
+    "name": "TmnxMobChargingLevel",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pdn": 1,
+          "bearer": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobIpCanType": {
+    "name": "TmnxMobIpCanType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "epc3gpp": 1,
+          "gprs3gpp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobStaticPolPrecedence": {
+    "name": "TmnxMobStaticPolPrecedence",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobStaticPolPrecedenceOrZero": {
+    "name": "TmnxMobStaticPolPrecedenceOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobDualStackPref": {
+    "name": "TmnxMobDualStackPref",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "useCplane": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobDfPeerId": {
+    "name": "TmnxMobDfPeerId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobLiTarget": {
+    "name": "TmnxMobLiTarget",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobLiTargetType": {
+    "name": "TmnxMobLiTargetType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "imsi": 1,
+          "msisdn": 2,
+          "imei": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobUeId": {
+    "name": "TmnxMobUeId",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobUeIdType": {
+    "name": "TmnxMobUeIdType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "imsi": 0,
+          "imei": 1,
+          "msisdn": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobImsiStr": {
+    "name": "TmnxMobImsiStr",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 9,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobRatingGrpState": {
+    "name": "TmnxMobRatingGrpState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allowFlow": 1,
+          "disallowFlow": 2,
+          "redWebPortal": 3,
+          "allowResRules": 4,
+          "iom1stPktTrigger": 5,
+          "dis1stPktTrigger": 6,
+          "creditsToppedUp": 7,
+          "waitForFpt": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobPresenceState": {
+    "name": "TmnxMobPresenceState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absent": 0,
+          "present": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobPdnGyChrgTriggerType": {
+    "name": "TmnxMobPdnGyChrgTriggerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sgsnIpAddrRecvd": 0,
+          "qosRecvd": 1,
+          "locRecvd": 2,
+          "ratRecvd": 3,
+          "qosTrfClsRecvd": 4,
+          "qosRlbClsRecvd": 5,
+          "qosDlyClsRecvd": 6,
+          "qosPeakThrptRecvd": 7,
+          "qosPrcClsRecvd": 8,
+          "qosMeanTrptRecvd": 9,
+          "qosMxBtRtUplnkRecvd": 10,
+          "qosMxBtRtDllnkRecvd": 11,
+          "qosResBerRecvd": 12,
+          "qosSduErrRatRecvd": 13,
+          "qosTransDelayRecvd": 14,
+          "qosTrfHndPriRecvd": 15,
+          "qosGrtBtRtUplnkRecvd": 16,
+          "qosGrtBtRtDllnkRecvd": 17,
+          "locMccRecvd": 18,
+          "locMncRecvd": 19,
+          "locRacRecvd": 20,
+          "locLacRecvd": 21,
+          "locCellIdRecvd": 22,
+          "medCompRecvd": 23,
+          "partcNmbRecvd": 24,
+          "thrldPartcNmbRecvd": 25,
+          "usrPartcTypeRecvd": 26,
+          "servCondRecvd": 27,
+          "servNodeRecvd": 28,
+          "usrCsgInfoRecvd": 29
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobPdnRefPointType": {
+    "name": "TmnxMobPdnRefPointType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s5": 1,
+          "s8": 2,
+          "gn": 3,
+          "s2a": 4,
+          "gp": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobService": {
+    "name": "TmnxMobService",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobServRefPointType": {
+    "name": "TmnxMobServRefPointType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "s5": 1,
+          "s8": 2,
+          "s2a": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobAccessType": {
+    "name": "TmnxMobAccessType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eps": 1,
+          "gprs": 2,
+          "non3gpp": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TmnxMobUeStrPrefix": {
+    "name": "TmnxMobUeStrPrefix",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-TC-MG-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:44:04 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TIMETRA-TC-MG-MIB"
+  }
+}

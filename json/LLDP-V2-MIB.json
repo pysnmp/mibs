@@ -1,0 +1,2082 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB": [
+      "AddressFamilyNumbers"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifGeneralInformationGroup"
+    ],
+    "LLDP-V2-TC-MIB": [
+      "LldpV2PortIdSubtype",
+      "ieee802dot1mibs",
+      "LldpV2ManAddress",
+      "LldpV2SystemCapabilitiesMap",
+      "LldpV2ManAddrIfSubtype",
+      "LldpV2ChassisIdSubtype",
+      "LldpV2DestAddressTableIndex",
+      "LldpV2PortId",
+      "LldpV2ChassisId"
+    ],
+    "RMON2-MIB": [
+      "ZeroBasedCounter32",
+      "TimeFilter"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "lldpV2MIB": {
+    "name": "lldpV2MIB",
+    "oid": "1.3.111.2.802.1.1.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-06-08 00:00",
+        "description": "Published as part of IEEE Std 802.1AB-2009 revision. This revision incorporated changes to the MIB to support the use of LLDP with multiple destination MAC addresses."
+      }
+    ]
+  },
+  "lldpV2Notifications": {
+    "name": "lldpV2Notifications",
+    "oid": "1.3.111.2.802.1.1.13.0",
+    "class": "objectidentity"
+  },
+  "lldpV2Objects": {
+    "name": "lldpV2Objects",
+    "oid": "1.3.111.2.802.1.1.13.1",
+    "class": "objectidentity"
+  },
+  "lldpV2Conformance": {
+    "name": "lldpV2Conformance",
+    "oid": "1.3.111.2.802.1.1.13.2",
+    "class": "objectidentity"
+  },
+  "lldpV2Configuration": {
+    "name": "lldpV2Configuration",
+    "oid": "1.3.111.2.802.1.1.13.1.1",
+    "class": "objectidentity"
+  },
+  "lldpV2Statistics": {
+    "name": "lldpV2Statistics",
+    "oid": "1.3.111.2.802.1.1.13.1.2",
+    "class": "objectidentity"
+  },
+  "lldpV2LocalSystemData": {
+    "name": "lldpV2LocalSystemData",
+    "oid": "1.3.111.2.802.1.1.13.1.3",
+    "class": "objectidentity"
+  },
+  "lldpV2RemoteSystemsData": {
+    "name": "lldpV2RemoteSystemsData",
+    "oid": "1.3.111.2.802.1.1.13.1.4",
+    "class": "objectidentity"
+  },
+  "lldpV2Extensions": {
+    "name": "lldpV2Extensions",
+    "oid": "1.3.111.2.802.1.1.13.1.5",
+    "class": "objectidentity"
+  },
+  "lldpV2MessageTxInterval": {
+    "name": "lldpV2MessageTxInterval",
+    "oid": "1.3.111.2.802.1.1.13.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 32768
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2MessageTxHoldMultiplier": {
+    "name": "lldpV2MessageTxHoldMultiplier",
+    "oid": "1.3.111.2.802.1.1.13.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2ReinitDelay": {
+    "name": "lldpV2ReinitDelay",
+    "oid": "1.3.111.2.802.1.1.13.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2NotificationInterval": {
+    "name": "lldpV2NotificationInterval",
+    "oid": "1.3.111.2.802.1.1.13.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2TxCreditMax": {
+    "name": "lldpV2TxCreditMax",
+    "oid": "1.3.111.2.802.1.1.13.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "PDUs",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2MessageFastTx": {
+    "name": "lldpV2MessageFastTx",
+    "oid": "1.3.111.2.802.1.1.13.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2TxFastInit": {
+    "name": "lldpV2TxFastInit",
+    "oid": "1.3.111.2.802.1.1.13.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2PortConfigTable": {
+    "name": "lldpV2PortConfigTable",
+    "oid": "1.3.111.2.802.1.1.13.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2PortConfigEntry": {
+    "name": "lldpV2PortConfigEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2PortConfigIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2PortConfigDestAddressIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2PortConfigIfIndex": {
+    "name": "lldpV2PortConfigIfIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2PortConfigDestAddressIndex": {
+    "name": "lldpV2PortConfigDestAddressIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2DestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2PortConfigAdminStatus": {
+    "name": "lldpV2PortConfigAdminStatus",
+    "oid": "1.3.111.2.802.1.1.13.1.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "txOnly": 1,
+          "rxOnly": 2,
+          "txAndRx": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "txAndRx",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2PortConfigNotificationEnable": {
+    "name": "lldpV2PortConfigNotificationEnable",
+    "oid": "1.3.111.2.802.1.1.13.1.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2PortConfigTLVsTxEnable": {
+    "name": "lldpV2PortConfigTLVsTxEnable",
+    "oid": "1.3.111.2.802.1.1.13.1.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "portDesc": 0,
+        "sysName": 1,
+        "sysDesc": 2,
+        "sysCap": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2DestAddressTable": {
+    "name": "lldpV2DestAddressTable",
+    "oid": "1.3.111.2.802.1.1.13.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2DestAddressTableEntry": {
+    "name": "lldpV2DestAddressTableEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2AddressTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2AddressTableIndex": {
+    "name": "lldpV2AddressTableIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2DestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2DestMacAddress": {
+    "name": "lldpV2DestMacAddress",
+    "oid": "1.3.111.2.802.1.1.13.1.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2ManAddrConfigTxPortsTable": {
+    "name": "lldpV2ManAddrConfigTxPortsTable",
+    "oid": "1.3.111.2.802.1.1.13.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2ManAddrConfigTxPortsEntry": {
+    "name": "lldpV2ManAddrConfigTxPortsEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2ManAddrConfigIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2ManAddrConfigDestAddressIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2ManAddrConfigLocManAddrSubtype",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2ManAddrConfigLocManAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2ManAddrConfigIfIndex": {
+    "name": "lldpV2ManAddrConfigIfIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2ManAddrConfigDestAddressIndex": {
+    "name": "lldpV2ManAddrConfigDestAddressIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2DestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2ManAddrConfigLocManAddrSubtype": {
+    "name": "lldpV2ManAddrConfigLocManAddrSubtype",
+    "oid": "1.3.111.2.802.1.1.13.1.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2ManAddrConfigLocManAddr": {
+    "name": "lldpV2ManAddrConfigLocManAddr",
+    "oid": "1.3.111.2.802.1.1.13.1.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2ManAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2ManAddrConfigTxEnable": {
+    "name": "lldpV2ManAddrConfigTxEnable",
+    "oid": "1.3.111.2.802.1.1.13.1.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lldpV2ManAddrConfigRowStatus": {
+    "name": "lldpV2ManAddrConfigRowStatus",
+    "oid": "1.3.111.2.802.1.1.13.1.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "lldpV2StatsRemTablesLastChangeTime": {
+    "name": "lldpV2StatsRemTablesLastChangeTime",
+    "oid": "1.3.111.2.802.1.1.13.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsRemTablesInserts": {
+    "name": "lldpV2StatsRemTablesInserts",
+    "oid": "1.3.111.2.802.1.1.13.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "table entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsRemTablesDeletes": {
+    "name": "lldpV2StatsRemTablesDeletes",
+    "oid": "1.3.111.2.802.1.1.13.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "table entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsRemTablesDrops": {
+    "name": "lldpV2StatsRemTablesDrops",
+    "oid": "1.3.111.2.802.1.1.13.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "table entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsRemTablesAgeouts": {
+    "name": "lldpV2StatsRemTablesAgeouts",
+    "oid": "1.3.111.2.802.1.1.13.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "units": "table entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsTxPortTable": {
+    "name": "lldpV2StatsTxPortTable",
+    "oid": "1.3.111.2.802.1.1.13.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2StatsTxPortEntry": {
+    "name": "lldpV2StatsTxPortEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsTxIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsTxDestMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2StatsTxIfIndex": {
+    "name": "lldpV2StatsTxIfIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2StatsTxDestMACAddress": {
+    "name": "lldpV2StatsTxDestMACAddress",
+    "oid": "1.3.111.2.802.1.1.13.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2DestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2StatsTxPortFramesTotal": {
+    "name": "lldpV2StatsTxPortFramesTotal",
+    "oid": "1.3.111.2.802.1.1.13.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "LLDP frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsTxLLDPDULengthErrors": {
+    "name": "lldpV2StatsTxLLDPDULengthErrors",
+    "oid": "1.3.111.2.802.1.1.13.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "LLDP frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsRxPortTable": {
+    "name": "lldpV2StatsRxPortTable",
+    "oid": "1.3.111.2.802.1.1.13.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2StatsRxPortEntry": {
+    "name": "lldpV2StatsRxPortEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRxDestIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRxDestMACAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2StatsRxDestIfIndex": {
+    "name": "lldpV2StatsRxDestIfIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2StatsRxDestMACAddress": {
+    "name": "lldpV2StatsRxDestMACAddress",
+    "oid": "1.3.111.2.802.1.1.13.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2DestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2StatsRxPortFramesDiscardedTotal": {
+    "name": "lldpV2StatsRxPortFramesDiscardedTotal",
+    "oid": "1.3.111.2.802.1.1.13.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "LLDP frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsRxPortFramesErrors": {
+    "name": "lldpV2StatsRxPortFramesErrors",
+    "oid": "1.3.111.2.802.1.1.13.1.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "LLDP frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsRxPortFramesTotal": {
+    "name": "lldpV2StatsRxPortFramesTotal",
+    "oid": "1.3.111.2.802.1.1.13.1.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "LLDP frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsRxPortTLVsDiscardedTotal": {
+    "name": "lldpV2StatsRxPortTLVsDiscardedTotal",
+    "oid": "1.3.111.2.802.1.1.13.1.2.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "TLVs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsRxPortTLVsUnrecognizedTotal": {
+    "name": "lldpV2StatsRxPortTLVsUnrecognizedTotal",
+    "oid": "1.3.111.2.802.1.1.13.1.2.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "TLVs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2StatsRxPortAgeoutsTotal": {
+    "name": "lldpV2StatsRxPortAgeoutsTotal",
+    "oid": "1.3.111.2.802.1.1.13.1.2.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocChassisIdSubtype": {
+    "name": "lldpV2LocChassisIdSubtype",
+    "oid": "1.3.111.2.802.1.1.13.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2ChassisIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocChassisId": {
+    "name": "lldpV2LocChassisId",
+    "oid": "1.3.111.2.802.1.1.13.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2ChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocSysName": {
+    "name": "lldpV2LocSysName",
+    "oid": "1.3.111.2.802.1.1.13.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocSysDesc": {
+    "name": "lldpV2LocSysDesc",
+    "oid": "1.3.111.2.802.1.1.13.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocSysCapSupported": {
+    "name": "lldpV2LocSysCapSupported",
+    "oid": "1.3.111.2.802.1.1.13.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2SystemCapabilitiesMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocSysCapEnabled": {
+    "name": "lldpV2LocSysCapEnabled",
+    "oid": "1.3.111.2.802.1.1.13.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2SystemCapabilitiesMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocPortTable": {
+    "name": "lldpV2LocPortTable",
+    "oid": "1.3.111.2.802.1.1.13.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2LocPortEntry": {
+    "name": "lldpV2LocPortEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2LocPortIfIndex": {
+    "name": "lldpV2LocPortIfIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2LocPortIdSubtype": {
+    "name": "lldpV2LocPortIdSubtype",
+    "oid": "1.3.111.2.802.1.1.13.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2PortIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocPortId": {
+    "name": "lldpV2LocPortId",
+    "oid": "1.3.111.2.802.1.1.13.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2PortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocPortDesc": {
+    "name": "lldpV2LocPortDesc",
+    "oid": "1.3.111.2.802.1.1.13.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocManAddrTable": {
+    "name": "lldpV2LocManAddrTable",
+    "oid": "1.3.111.2.802.1.1.13.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2LocManAddrEntry": {
+    "name": "lldpV2LocManAddrEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocManAddrSubtype",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocManAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2LocManAddrSubtype": {
+    "name": "lldpV2LocManAddrSubtype",
+    "oid": "1.3.111.2.802.1.1.13.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2LocManAddr": {
+    "name": "lldpV2LocManAddr",
+    "oid": "1.3.111.2.802.1.1.13.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2ManAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2LocManAddrLen": {
+    "name": "lldpV2LocManAddrLen",
+    "oid": "1.3.111.2.802.1.1.13.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocManAddrIfSubtype": {
+    "name": "lldpV2LocManAddrIfSubtype",
+    "oid": "1.3.111.2.802.1.1.13.1.3.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2ManAddrIfSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocManAddrIfId": {
+    "name": "lldpV2LocManAddrIfId",
+    "oid": "1.3.111.2.802.1.1.13.1.3.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2LocManAddrOID": {
+    "name": "lldpV2LocManAddrOID",
+    "oid": "1.3.111.2.802.1.1.13.1.3.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemTable": {
+    "name": "lldpV2RemTable",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemEntry": {
+    "name": "lldpV2RemEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2RemTimeMark": {
+    "name": "lldpV2RemTimeMark",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeFilter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemLocalIfIndex": {
+    "name": "lldpV2RemLocalIfIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemLocalDestMACAddress": {
+    "name": "lldpV2RemLocalDestMACAddress",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2DestAddressTableIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemIndex": {
+    "name": "lldpV2RemIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemChassisIdSubtype": {
+    "name": "lldpV2RemChassisIdSubtype",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2ChassisIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemChassisId": {
+    "name": "lldpV2RemChassisId",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2ChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemPortIdSubtype": {
+    "name": "lldpV2RemPortIdSubtype",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2PortIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemPortId": {
+    "name": "lldpV2RemPortId",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2PortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemPortDesc": {
+    "name": "lldpV2RemPortDesc",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemSysName": {
+    "name": "lldpV2RemSysName",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemSysDesc": {
+    "name": "lldpV2RemSysDesc",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemSysCapSupported": {
+    "name": "lldpV2RemSysCapSupported",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2SystemCapabilitiesMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemSysCapEnabled": {
+    "name": "lldpV2RemSysCapEnabled",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2SystemCapabilitiesMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemRemoteChanges": {
+    "name": "lldpV2RemRemoteChanges",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemTooManyNeighbors": {
+    "name": "lldpV2RemTooManyNeighbors",
+    "oid": "1.3.111.2.802.1.1.13.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemManAddrTable": {
+    "name": "lldpV2RemManAddrTable",
+    "oid": "1.3.111.2.802.1.1.13.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemManAddrEntry": {
+    "name": "lldpV2RemManAddrEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemManAddrSubtype",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemManAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2RemManAddrSubtype": {
+    "name": "lldpV2RemManAddrSubtype",
+    "oid": "1.3.111.2.802.1.1.13.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AddressFamilyNumbers",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemManAddr": {
+    "name": "lldpV2RemManAddr",
+    "oid": "1.3.111.2.802.1.1.13.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2ManAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemManAddrIfSubtype": {
+    "name": "lldpV2RemManAddrIfSubtype",
+    "oid": "1.3.111.2.802.1.1.13.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2ManAddrIfSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemManAddrIfId": {
+    "name": "lldpV2RemManAddrIfId",
+    "oid": "1.3.111.2.802.1.1.13.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemManAddrOID": {
+    "name": "lldpV2RemManAddrOID",
+    "oid": "1.3.111.2.802.1.1.13.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemUnknownTLVTable": {
+    "name": "lldpV2RemUnknownTLVTable",
+    "oid": "1.3.111.2.802.1.1.13.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemUnknownTLVEntry": {
+    "name": "lldpV2RemUnknownTLVEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemUnknownTLVType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2RemUnknownTLVType": {
+    "name": "lldpV2RemUnknownTLVType",
+    "oid": "1.3.111.2.802.1.1.13.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 9,
+            "max": 126
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemUnknownTLVInfo": {
+    "name": "lldpV2RemUnknownTLVInfo",
+    "oid": "1.3.111.2.802.1.1.13.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 511
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2RemOrgDefInfoTable": {
+    "name": "lldpV2RemOrgDefInfoTable",
+    "oid": "1.3.111.2.802.1.1.13.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemOrgDefInfoEntry": {
+    "name": "lldpV2RemOrgDefInfoEntry",
+    "oid": "1.3.111.2.802.1.1.13.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemOrgDefInfoOUI",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemOrgDefInfoSubtype",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemOrgDefInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2RemOrgDefInfoOUI": {
+    "name": "lldpV2RemOrgDefInfoOUI",
+    "oid": "1.3.111.2.802.1.1.13.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemOrgDefInfoSubtype": {
+    "name": "lldpV2RemOrgDefInfoSubtype",
+    "oid": "1.3.111.2.802.1.1.13.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemOrgDefInfoIndex": {
+    "name": "lldpV2RemOrgDefInfoIndex",
+    "oid": "1.3.111.2.802.1.1.13.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2RemOrgDefInfo": {
+    "name": "lldpV2RemOrgDefInfo",
+    "oid": "1.3.111.2.802.1.1.13.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 507
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2NotificationPrefix": {
+    "name": "lldpV2NotificationPrefix",
+    "oid": "1.3.111.2.802.1.1.13.0.0",
+    "class": "objectidentity"
+  },
+  "lldpV2RemTablesChange": {
+    "name": "lldpV2RemTablesChange",
+    "oid": "1.3.111.2.802.1.1.13.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRemTablesInserts"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRemTablesDeletes"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRemTablesDrops"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRemTablesAgeouts"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Compliances": {
+    "name": "lldpV2Compliances",
+    "oid": "1.3.111.2.802.1.1.13.2.1",
+    "class": "objectidentity"
+  },
+  "lldpV2Groups": {
+    "name": "lldpV2Groups",
+    "oid": "1.3.111.2.802.1.1.13.2.2",
+    "class": "objectidentity"
+  },
+  "lldpV2TxRxCompliance": {
+    "name": "lldpV2TxRxCompliance",
+    "oid": "1.3.111.2.802.1.1.13.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpV2ConfigGroup",
+        "module": "LLDP-V2-MIB"
+      },
+      {
+        "object": "ifGeneralInformationGroup",
+        "module": "LLDP-V2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2TxCompliance": {
+    "name": "lldpV2TxCompliance",
+    "oid": "1.3.111.2.802.1.1.13.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpV2ConfigTxGroup",
+        "module": "LLDP-V2-MIB"
+      },
+      {
+        "object": "lldpV2StatsTxGroup",
+        "module": "LLDP-V2-MIB"
+      },
+      {
+        "object": "lldpV2LocSysGroup",
+        "module": "LLDP-V2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2RxCompliance": {
+    "name": "lldpV2RxCompliance",
+    "oid": "1.3.111.2.802.1.1.13.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpV2ConfigRxGroup",
+        "module": "LLDP-V2-MIB"
+      },
+      {
+        "object": "lldpV2StatsRxGroup",
+        "module": "LLDP-V2-MIB"
+      },
+      {
+        "object": "lldpV2RemSysGroup",
+        "module": "LLDP-V2-MIB"
+      },
+      {
+        "object": "lldpV2NotificationsGroup",
+        "module": "LLDP-V2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2ConfigGroup": {
+    "name": "lldpV2ConfigGroup",
+    "oid": "1.3.111.2.802.1.1.13.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2PortConfigAdminStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2ConfigRxGroup": {
+    "name": "lldpV2ConfigRxGroup",
+    "oid": "1.3.111.2.802.1.1.13.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2NotificationInterval"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2PortConfigNotificationEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2ConfigTxGroup": {
+    "name": "lldpV2ConfigTxGroup",
+    "oid": "1.3.111.2.802.1.1.13.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2MessageTxInterval"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2MessageTxHoldMultiplier"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2ReinitDelay"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2PortConfigTLVsTxEnable"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2ManAddrConfigTxEnable"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2ManAddrConfigRowStatus"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2TxCreditMax"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2MessageFastTx"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2TxFastInit"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2DestMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2StatsRxGroup": {
+    "name": "lldpV2StatsRxGroup",
+    "oid": "1.3.111.2.802.1.1.13.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRemTablesLastChangeTime"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRemTablesInserts"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRemTablesDeletes"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRemTablesDrops"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRemTablesAgeouts"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRxPortFramesDiscardedTotal"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRxPortFramesErrors"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRxPortFramesTotal"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRxPortTLVsDiscardedTotal"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRxPortTLVsUnrecognizedTotal"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsRxPortAgeoutsTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2StatsTxGroup": {
+    "name": "lldpV2StatsTxGroup",
+    "oid": "1.3.111.2.802.1.1.13.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsTxPortFramesTotal"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2StatsTxLLDPDULengthErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2LocSysGroup": {
+    "name": "lldpV2LocSysGroup",
+    "oid": "1.3.111.2.802.1.1.13.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocChassisIdSubtype"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocChassisId"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortIdSubtype"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortId"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortDesc"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocSysDesc"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocSysName"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocSysCapSupported"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocSysCapEnabled"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocManAddrLen"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocManAddrIfSubtype"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocManAddrIfId"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocManAddrOID"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2RemSysGroup": {
+    "name": "lldpV2RemSysGroup",
+    "oid": "1.3.111.2.802.1.1.13.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemChassisIdSubtype"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemChassisId"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemPortIdSubtype"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemPortId"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemPortDesc"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemSysName"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemSysDesc"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemSysCapSupported"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemSysCapEnabled"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemRemoteChanges"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTooManyNeighbors"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemManAddrIfSubtype"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemManAddrIfId"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemManAddrOID"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemUnknownTLVInfo"
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemOrgDefInfo"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2NotificationsGroup": {
+    "name": "lldpV2NotificationsGroup",
+    "oid": "1.3.111.2.802.1.1.13.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTablesChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/LLDP-V2-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LLDP-V2-MIB"
+  }
+}

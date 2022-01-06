@@ -1,0 +1,2850 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-FLOW-MONITOR-TC-MIB": [
+      "FlowPointType",
+      "FlowMonitorAlarmGroupIdentifier",
+      "FlowMonitorIdentifier",
+      "FlowBitRateUnits",
+      "FlowMetrics",
+      "FlowMetricPrecision",
+      "FlowSetIdentifier",
+      "FlowMonitorConditions",
+      "FlowMonitorConditionIdentifier",
+      "FlowMetricValue",
+      "FlowMonitorConditionsProfileOrZero",
+      "FlowMetricScale",
+      "FlowMonitorConditionsProfile",
+      "FlowIdentifier",
+      "FlowPointIdentifier"
+    ],
+    "CISCO-REPORT-INTERVAL-TC-MIB": [
+      "ReportIntervalCount"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "Layer2Cos",
+      "CiscoAlarmSeverity"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanId"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "AutonomousType",
+      "DisplayString",
+      "RowPointer",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoFlowMonitorMIB": {
+    "name": "ciscoFlowMonitorMIB",
+    "oid": "1.3.6.1.4.1.9.9.692",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-04-08 00:00",
+        "description": "The initial version of the MIB module."
+      }
+    ]
+  },
+  "ciscoFlowMonitorMIBNotifs": {
+    "name": "ciscoFlowMonitorMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.692.0",
+    "class": "objectidentity"
+  },
+  "ciscoFlowMonitorMIBObjects": {
+    "name": "ciscoFlowMonitorMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.692.1",
+    "class": "objectidentity"
+  },
+  "ciscoFlowMonitorMIBConform": {
+    "name": "ciscoFlowMonitorMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.692.2",
+    "class": "objectidentity"
+  },
+  "ciscoFlowMonitorMIBIds": {
+    "name": "ciscoFlowMonitorMIBIds",
+    "oid": "1.3.6.1.4.1.9.9.692.3",
+    "class": "objectidentity"
+  },
+  "cfmFlowMonitors": {
+    "name": "cfmFlowMonitors",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1",
+    "class": "objectidentity"
+  },
+  "cfmFlowMonitorTable": {
+    "name": "cfmFlowMonitorTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowMonitorEntry": {
+    "name": "cfmFlowMonitorEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowMonitorId": {
+    "name": "cfmFlowMonitorId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowMonitorDescr": {
+    "name": "cfmFlowMonitorDescr",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorCaps": {
+    "name": "cfmFlowMonitorCaps",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetrics",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorFlowCount": {
+    "name": "cfmFlowMonitorFlowCount",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "traffic flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorConditionsProfile": {
+    "name": "cfmFlowMonitorConditionsProfile",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditionsProfileOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorConditions": {
+    "name": "cfmFlowMonitorConditions",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorAlarms": {
+    "name": "cfmFlowMonitorAlarms",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorAlarmSeverity": {
+    "name": "cfmFlowMonitorAlarmSeverity",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorAlarmCriticalCount": {
+    "name": "cfmFlowMonitorAlarmCriticalCount",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "alarms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorAlarmMajorCount": {
+    "name": "cfmFlowMonitorAlarmMajorCount",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "alarms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorAlarmMinorCount": {
+    "name": "cfmFlowMonitorAlarmMinorCount",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "alarms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorAlarmWarningCount": {
+    "name": "cfmFlowMonitorAlarmWarningCount",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "alarms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorAlarmInfoCount": {
+    "name": "cfmFlowMonitorAlarmInfoCount",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "alarms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMonitorTableChanged": {
+    "name": "cfmFlowMonitorTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlows": {
+    "name": "cfmFlows",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2",
+    "class": "objectidentity"
+  },
+  "cfmFlowTable": {
+    "name": "cfmFlowTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowEntry": {
+    "name": "cfmFlowEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowId": {
+    "name": "cfmFlowId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowDescr": {
+    "name": "cfmFlowDescr",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowNext": {
+    "name": "cfmFlowNext",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowCreateTime": {
+    "name": "cfmFlowCreateTime",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowDiscontinuityTime": {
+    "name": "cfmFlowDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowExpirationTime": {
+    "name": "cfmFlowExpirationTime",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowDirection": {
+    "name": "cfmFlowDirection",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "ingress": 2,
+          "egress": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowAdminStatus": {
+    "name": "cfmFlowAdminStatus",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "expire": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmFlowOperStatus": {
+    "name": "cfmFlowOperStatus",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowIngressType": {
+    "name": "cfmFlowIngressType",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowPointType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowIngress": {
+    "name": "cfmFlowIngress",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowPointIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowEgressType": {
+    "name": "cfmFlowEgressType",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowPointType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowEgress": {
+    "name": "cfmFlowEgress",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowPointIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowTableChanged": {
+    "name": "cfmFlowTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowL2VlanTable": {
+    "name": "cfmFlowL2VlanTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowL2VlanEntry": {
+    "name": "cfmFlowL2VlanEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowL2VlanNext": {
+    "name": "cfmFlowL2VlanNext",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowL2VlanId": {
+    "name": "cfmFlowL2VlanId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowL2VlanCos": {
+    "name": "cfmFlowL2VlanCos",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Layer2Cos",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowL2VlanTableChanged": {
+    "name": "cfmFlowL2VlanTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowIpTable": {
+    "name": "cfmFlowIpTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowIpEntry": {
+    "name": "cfmFlowIpEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowIpNext": {
+    "name": "cfmFlowIpNext",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowIpAddrType": {
+    "name": "cfmFlowIpAddrType",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowIpAddrSrc": {
+    "name": "cfmFlowIpAddrSrc",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowIpAddrDst": {
+    "name": "cfmFlowIpAddrDst",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowIpValid": {
+    "name": "cfmFlowIpValid",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "trafficClass": 0,
+        "hopLimit": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowIpTrafficClass": {
+    "name": "cfmFlowIpTrafficClass",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowIpHopLimit": {
+    "name": "cfmFlowIpHopLimit",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowIpTableChanged": {
+    "name": "cfmFlowIpTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowUdpTable": {
+    "name": "cfmFlowUdpTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowUdpEntry": {
+    "name": "cfmFlowUdpEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowUdpNext": {
+    "name": "cfmFlowUdpNext",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowUdpPortSrc": {
+    "name": "cfmFlowUdpPortSrc",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowUdpPortDst": {
+    "name": "cfmFlowUdpPortDst",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowUdpTableChanged": {
+    "name": "cfmFlowUdpTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowTcpTable": {
+    "name": "cfmFlowTcpTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowTcpEntry": {
+    "name": "cfmFlowTcpEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowTcpNext": {
+    "name": "cfmFlowTcpNext",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowTcpPortSrc": {
+    "name": "cfmFlowTcpPortSrc",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowTcpPortDst": {
+    "name": "cfmFlowTcpPortDst",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowTcpTableChanged": {
+    "name": "cfmFlowTcpTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowRtpTable": {
+    "name": "cfmFlowRtpTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowRtpEntry": {
+    "name": "cfmFlowRtpEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowRtpNext": {
+    "name": "cfmFlowRtpNext",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowRtpVersion": {
+    "name": "cfmFlowRtpVersion",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowRtpSsrc": {
+    "name": "cfmFlowRtpSsrc",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowRtpPayloadType": {
+    "name": "cfmFlowRtpPayloadType",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowRtpTableChanged": {
+    "name": "cfmFlowRtpTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetrics": {
+    "name": "cfmFlowMetrics",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3",
+    "class": "objectidentity"
+  },
+  "cfmFlowMetricsTable": {
+    "name": "cfmFlowMetricsTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowMetricsEntry": {
+    "name": "cfmFlowMetricsEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowMetricsCollected": {
+    "name": "cfmFlowMetricsCollected",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetrics",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntervalTime": {
+    "name": "cfmFlowMetricsIntervalTime",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsMaxIntervals": {
+    "name": "cfmFlowMetricsMaxIntervals",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsElapsedTime": {
+    "name": "cfmFlowMetricsElapsedTime",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntervals": {
+    "name": "cfmFlowMetricsIntervals",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsInvalidIntervals": {
+    "name": "cfmFlowMetricsInvalidIntervals",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "intervals",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsConditionsProfile": {
+    "name": "cfmFlowMetricsConditionsProfile",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditionsProfileOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsConditions": {
+    "name": "cfmFlowMetricsConditions",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsAlarms": {
+    "name": "cfmFlowMetricsAlarms",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsAlarmSeverity": {
+    "name": "cfmFlowMetricsAlarmSeverity",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsPkts": {
+    "name": "cfmFlowMetricsPkts",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsOctets": {
+    "name": "cfmFlowMetricsOctets",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsBitRateUnits": {
+    "name": "cfmFlowMetricsBitRateUnits",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowBitRateUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsBitRate": {
+    "name": "cfmFlowMetricsBitRate",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsPktRate": {
+    "name": "cfmFlowMetricsPktRate",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsTableChanged": {
+    "name": "cfmFlowMetricsTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntTable": {
+    "name": "cfmFlowMetricsIntTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntEntry": {
+    "name": "cfmFlowMetricsIntEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowMetricsIntNumber": {
+    "name": "cfmFlowMetricsIntNumber",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntValid": {
+    "name": "cfmFlowMetricsIntValid",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntTime": {
+    "name": "cfmFlowMetricsIntTime",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntConditions": {
+    "name": "cfmFlowMetricsIntConditions",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntAlarms": {
+    "name": "cfmFlowMetricsIntAlarms",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntAlarmSeverity": {
+    "name": "cfmFlowMetricsIntAlarmSeverity",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntPkts": {
+    "name": "cfmFlowMetricsIntPkts",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReportIntervalCount",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntOctets": {
+    "name": "cfmFlowMetricsIntOctets",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReportIntervalCount",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntBitRateUnits": {
+    "name": "cfmFlowMetricsIntBitRateUnits",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowBitRateUnits",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntBitRate": {
+    "name": "cfmFlowMetricsIntBitRate",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReportIntervalCount",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmFlowMetricsIntPktRate": {
+    "name": "cfmFlowMetricsIntPktRate",
+    "oid": "1.3.6.1.4.1.9.9.692.1.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ReportIntervalCount",
+      "class": "type"
+    },
+    "units": "packets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditions": {
+    "name": "cfmConditions",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4",
+    "class": "objectidentity"
+  },
+  "cfmConditionTable": {
+    "name": "cfmConditionTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmConditionEntry": {
+    "name": "cfmConditionEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionProfile",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmConditionProfile": {
+    "name": "cfmConditionProfile",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditionsProfile",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmConditionId": {
+    "name": "cfmConditionId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditionIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmConditionDescr": {
+    "name": "cfmConditionDescr",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionMonitoredElement": {
+    "name": "cfmConditionMonitoredElement",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionType": {
+    "name": "cfmConditionType",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "boolean": 2,
+          "risingThreshold": 3,
+          "fallingThreshold": 4,
+          "risingAndFallingThreshold": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionThreshRiseScale": {
+    "name": "cfmConditionThreshRiseScale",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricScale",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionThreshRisePrecision": {
+    "name": "cfmConditionThreshRisePrecision",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricPrecision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionThreshRise": {
+    "name": "cfmConditionThreshRise",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionThreshFallScale": {
+    "name": "cfmConditionThreshFallScale",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricScale",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionThreshFallPrecision": {
+    "name": "cfmConditionThreshFallPrecision",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricPrecision",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionThreshFall": {
+    "name": "cfmConditionThreshFall",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMetricValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionSampleType": {
+    "name": "cfmConditionSampleType",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "raw": 2,
+          "slidingWindowAvg": 3,
+          "expDecayingAvg": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionSampleWindow": {
+    "name": "cfmConditionSampleWindow",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionAlarm": {
+    "name": "cfmConditionAlarm",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "discrete": 2,
+          "grouped": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionAlarmActions": {
+    "name": "cfmConditionAlarmActions",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "syslog": 0,
+        "snmp": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionAlarmSeverity": {
+    "name": "cfmConditionAlarmSeverity",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionAlarmGroup": {
+    "name": "cfmConditionAlarmGroup",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorAlarmGroupIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmConditionTableChanged": {
+    "name": "cfmConditionTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroups": {
+    "name": "cfmAlarmGroups",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5",
+    "class": "objectidentity"
+  },
+  "cfmAlarmGroupTable": {
+    "name": "cfmAlarmGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmAlarmGroupEntry": {
+    "name": "cfmAlarmGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmAlarmGroupId": {
+    "name": "cfmAlarmGroupId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorAlarmGroupIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmAlarmGroupDescr": {
+    "name": "cfmAlarmGroupDescr",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupConditionsProfile": {
+    "name": "cfmAlarmGroupConditionsProfile",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditionsProfile",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupConditionId": {
+    "name": "cfmAlarmGroupConditionId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditionIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupFlowSet": {
+    "name": "cfmAlarmGroupFlowSet",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowSetIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupFlowCount": {
+    "name": "cfmAlarmGroupFlowCount",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "traffic flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupThresholdUnits": {
+    "name": "cfmAlarmGroupThresholdUnits",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "flows": 2,
+          "percent": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupThreshold": {
+    "name": "cfmAlarmGroupThreshold",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupRaised": {
+    "name": "cfmAlarmGroupRaised",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupCurrentCount": {
+    "name": "cfmAlarmGroupCurrentCount",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "traffic flows",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupTableChanged": {
+    "name": "cfmAlarmGroupTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupFlowTable": {
+    "name": "cfmAlarmGroupFlowTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmAlarmGroupFlowEntry": {
+    "name": "cfmAlarmGroupFlowEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupFlowSetId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupFlowMonitorId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmAlarmGroupFlowSetId": {
+    "name": "cfmAlarmGroupFlowSetId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowSetIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmAlarmGroupFlowMonitorId": {
+    "name": "cfmAlarmGroupFlowMonitorId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmAlarmGroupFlowId": {
+    "name": "cfmAlarmGroupFlowId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmGroupFlowTableChanged": {
+    "name": "cfmAlarmGroupFlowTableChanged",
+    "oid": "1.3.6.1.4.1.9.9.692.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmHistory": {
+    "name": "cfmAlarmHistory",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6",
+    "class": "objectidentity"
+  },
+  "cfmAlarmHistorySize": {
+    "name": "cfmAlarmHistorySize",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmAlarmHistoryLastId": {
+    "name": "cfmAlarmHistoryLastId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmHistoryTable": {
+    "name": "cfmAlarmHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmAlarmHistoryEntry": {
+    "name": "cfmAlarmHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cfmAlarmHistoryId": {
+    "name": "cfmAlarmHistoryId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cfmAlarmHistoryType": {
+    "name": "cfmAlarmHistoryType",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "raised": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmHistoryEntity": {
+    "name": "cfmAlarmHistoryEntity",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmHistoryConditionsProfile": {
+    "name": "cfmAlarmHistoryConditionsProfile",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditionsProfile",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmHistoryConditionId": {
+    "name": "cfmAlarmHistoryConditionId",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowMonitorConditionIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmHistorySeverity": {
+    "name": "cfmAlarmHistorySeverity",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoAlarmSeverity",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmAlarmHistoryTime": {
+    "name": "cfmAlarmHistoryTime",
+    "oid": "1.3.6.1.4.1.9.9.692.1.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfmNotify": {
+    "name": "cfmNotify",
+    "oid": "1.3.6.1.4.1.9.9.692.1.7",
+    "class": "objectidentity"
+  },
+  "cfmNotifyEnable": {
+    "name": "cfmNotifyEnable",
+    "oid": "1.3.6.1.4.1.9.9.692.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cfmNotifyAlarm": {
+    "name": "cfmNotifyAlarm",
+    "oid": "1.3.6.1.4.1.9.9.692.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryType"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryEntity"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryConditionsProfile"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryConditionId"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistorySeverity"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmMonitoredElements": {
+    "name": "cfmMonitoredElements",
+    "oid": "1.3.6.1.4.1.9.9.692.3.1",
+    "class": "objectidentity"
+  },
+  "cfmeOther": {
+    "name": "cfmeOther",
+    "oid": "1.3.6.1.4.1.9.9.692.3.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfmeFlowCount": {
+    "name": "cfmeFlowCount",
+    "oid": "1.3.6.1.4.1.9.9.692.3.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfmeFlowTimeouts": {
+    "name": "cfmeFlowTimeouts",
+    "oid": "1.3.6.1.4.1.9.9.692.3.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfmeFlowStop": {
+    "name": "cfmeFlowStop",
+    "oid": "1.3.6.1.4.1.9.9.692.3.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfmeFlowCumulativeBitRate": {
+    "name": "cfmeFlowCumulativeBitRate",
+    "oid": "1.3.6.1.4.1.9.9.692.3.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfmeFlowCumulativePktRate": {
+    "name": "cfmeFlowCumulativePktRate",
+    "oid": "1.3.6.1.4.1.9.9.692.3.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfmeFlowBitRate": {
+    "name": "cfmeFlowBitRate",
+    "oid": "1.3.6.1.4.1.9.9.692.3.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfmeFlowPktRate": {
+    "name": "cfmeFlowPktRate",
+    "oid": "1.3.6.1.4.1.9.9.692.3.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "ciscoFlowMonitorMIBCompliances": {
+    "name": "ciscoFlowMonitorMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.692.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoFlowMonitorMIBGroups": {
+    "name": "ciscoFlowMonitorMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.692.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoFlowMonitorCompliance01": {
+    "name": "ciscoFlowMonitorCompliance01",
+    "oid": "1.3.6.1.4.1.9.9.692.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cfmFlowMonitorGroup",
+        "module": "CISCO-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cfmFlowGroup",
+        "module": "CISCO-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cfmFlowMetricsGroup",
+        "module": "CISCO-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cfmFlowConditionsGroup",
+        "module": "CISCO-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cfmAlarmAggregationGroup",
+        "module": "CISCO-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cfmAlarmHistoryGroup",
+        "module": "CISCO-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cfmNotifySupportGroup",
+        "module": "CISCO-FLOW-MONITOR-MIB"
+      },
+      {
+        "object": "cfmNotifyGroup",
+        "module": "CISCO-FLOW-MONITOR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowMonitorGroup": {
+    "name": "cfmFlowMonitorGroup",
+    "oid": "1.3.6.1.4.1.9.9.692.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorDescr"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorCaps"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorFlowCount"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorConditionsProfile"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorConditions"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorAlarms"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorAlarmSeverity"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorAlarmCriticalCount"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorAlarmMajorCount"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorAlarmMinorCount"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorAlarmWarningCount"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorAlarmInfoCount"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMonitorTableChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowGroup": {
+    "name": "cfmFlowGroup",
+    "oid": "1.3.6.1.4.1.9.9.692.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowDescr"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowNext"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowCreateTime"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowExpirationTime"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowDirection"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowAdminStatus"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowOperStatus"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowIngressType"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowIngress"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowEgressType"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowEgress"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowTableChanged"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowL2VlanNext"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowL2VlanId"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowL2VlanCos"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowL2VlanTableChanged"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowIpNext"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowIpAddrType"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowIpAddrSrc"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowIpAddrDst"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowIpValid"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowIpTrafficClass"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowIpHopLimit"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowIpTableChanged"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowUdpNext"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowUdpPortSrc"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowUdpPortDst"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowUdpTableChanged"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowTcpNext"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowTcpPortSrc"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowTcpPortDst"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowTcpTableChanged"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowRtpNext"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowRtpVersion"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowRtpSsrc"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowRtpPayloadType"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowRtpTableChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowMetricsGroup": {
+    "name": "cfmFlowMetricsGroup",
+    "oid": "1.3.6.1.4.1.9.9.692.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsCollected"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntervalTime"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsMaxIntervals"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsElapsedTime"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntervals"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsInvalidIntervals"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsConditionsProfile"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsConditions"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsAlarms"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsAlarmSeverity"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsPkts"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsOctets"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsBitRateUnits"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsBitRate"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsPktRate"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsTableChanged"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntValid"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntTime"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntConditions"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntAlarms"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntAlarmSeverity"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntPkts"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntOctets"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntBitRateUnits"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntBitRate"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmFlowMetricsIntPktRate"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmFlowConditionsGroup": {
+    "name": "cfmFlowConditionsGroup",
+    "oid": "1.3.6.1.4.1.9.9.692.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionDescr"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionMonitoredElement"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionType"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionThreshRiseScale"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionThreshRisePrecision"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionThreshRise"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionThreshFallScale"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionThreshFallPrecision"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionThreshFall"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionSampleType"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionSampleWindow"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionAlarm"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionAlarmActions"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionAlarmSeverity"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionAlarmGroup"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmConditionTableChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmAlarmAggregationGroup": {
+    "name": "cfmAlarmAggregationGroup",
+    "oid": "1.3.6.1.4.1.9.9.692.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupDescr"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupConditionsProfile"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupConditionId"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupFlowSet"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupFlowCount"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupThresholdUnits"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupThreshold"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupRaised"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupCurrentCount"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupTableChanged"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupFlowId"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmGroupFlowTableChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmAlarmHistoryGroup": {
+    "name": "cfmAlarmHistoryGroup",
+    "oid": "1.3.6.1.4.1.9.9.692.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistorySize"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryLastId"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryType"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryEntity"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryConditionsProfile"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryConditionId"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistorySeverity"
+      },
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmAlarmHistoryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmNotifySupportGroup": {
+    "name": "cfmNotifySupportGroup",
+    "oid": "1.3.6.1.4.1.9.9.692.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cfmNotifyGroup": {
+    "name": "cfmNotifyGroup",
+    "oid": "1.3.6.1.4.1.9.9.692.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLOW-MONITOR-MIB",
+        "object": "cfmNotifyAlarm"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FLOW-MONITOR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-FLOW-MONITOR-MIB"
+  }
+}

@@ -1,0 +1,997 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-IETF-PW-MIB": [
+      "cpwVcIndex"
+    ],
+    "CISCO-IETF-PW-TC-MIB": [
+      "CpwVcIndexType"
+    ],
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "MPLS-TC-STD-MIB": [
+      "MplsTunnelInstanceIndex",
+      "MplsLsrIdentifier",
+      "MplsLdpIdentifier",
+      "MplsTunnelIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "RowStatus"
+    ]
+  },
+  "cpwVcMplsMIB": {
+    "name": "cpwVcMplsMIB",
+    "oid": "1.3.6.1.4.1.9.10.107",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-02-26 12:00",
+        "description": "Made Cisco proprietary based on the PW-MPLS-MIB.my file extracted from draft-ietf-pwe3-pw-mpls-mib-00.txt "
+      },
+      {
+        "revision": "2002-06-02 12:00",
+        "description": "Draft-ietf-pwe3-pw-mpls-mib-00 version. Changes from previous version: 1) Spliting the mapping table into two tables, one for Non TE application and one for TE application. 2) Object types alignment with MPLS MIBs. "
+      },
+      {
+        "revision": "2002-01-29 12:00",
+        "description": "Changes from previous version: 1) Add LDP entity association. 2) Clarify inbound/outbound directions. 3) Simplify indexing of outbound and inbound tables and providing get next variables. "
+      },
+      {
+        "revision": "2001-07-11 12:00",
+        "description": "Changes from previous version: 1) Remove Vc instance from table indexing. 2) Update descriptions of indexing and protection. 3) Remove the need for MPLS-LSR in case of VC only. 4) Change pwVcMplsMplsType to BITS in order to enable multiple types of outer tunnel. 5) Add ifindex to outer tunnel tables to support vcOnly option. 6) change naming of outbound, inbound and mapping tables to reflect addition of VC only port ifindexes. 7) Adapt order of items in mapping table to SNMP convention. "
+      },
+      {
+        "revision": "2001-07-11 12:00",
+        "description": "draft-zelig-pw-mib-00.txt - initial version"
+      }
+    ]
+  },
+  "cpwVcMplsNotifications": {
+    "name": "cpwVcMplsNotifications",
+    "oid": "1.3.6.1.4.1.9.10.107.0",
+    "class": "objectidentity"
+  },
+  "cpwVcMplsNotifyPrefix": {
+    "name": "cpwVcMplsNotifyPrefix",
+    "oid": "1.3.6.1.4.1.9.10.107.0.0",
+    "class": "objectidentity"
+  },
+  "cpwVcMplsObjects": {
+    "name": "cpwVcMplsObjects",
+    "oid": "1.3.6.1.4.1.9.10.107.1",
+    "class": "objectidentity"
+  },
+  "cpwVcMplsConformance": {
+    "name": "cpwVcMplsConformance",
+    "oid": "1.3.6.1.4.1.9.10.107.2",
+    "class": "objectidentity"
+  },
+  "cpwVcMplsTable": {
+    "name": "cpwVcMplsTable",
+    "oid": "1.3.6.1.4.1.9.10.107.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsEntry": {
+    "name": "cpwVcMplsEntry",
+    "oid": "1.3.6.1.4.1.9.10.107.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcMplsMplsType": {
+    "name": "cpwVcMplsMplsType",
+    "oid": "1.3.6.1.4.1.9.10.107.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mplsTe": 0,
+        "mplsNonTe": 1,
+        "vcOnly": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwVcMplsExpBitsMode": {
+    "name": "cpwVcMplsExpBitsMode",
+    "oid": "1.3.6.1.4.1.9.10.107.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outerTunnel": 1,
+          "specifiedValue": 2,
+          "serviceDependant": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "outerTunnel",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwVcMplsExpBits": {
+    "name": "cpwVcMplsExpBits",
+    "oid": "1.3.6.1.4.1.9.10.107.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwVcMplsTtl": {
+    "name": "cpwVcMplsTtl",
+    "oid": "1.3.6.1.4.1.9.10.107.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwVcMplsLocalLdpID": {
+    "name": "cpwVcMplsLocalLdpID",
+    "oid": "1.3.6.1.4.1.9.10.107.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLdpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwVcMplsLocalLdpEntityID": {
+    "name": "cpwVcMplsLocalLdpEntityID",
+    "oid": "1.3.6.1.4.1.9.10.107.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwVcMplsPeerLdpID": {
+    "name": "cpwVcMplsPeerLdpID",
+    "oid": "1.3.6.1.4.1.9.10.107.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLdpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcMplsStorageType": {
+    "name": "cpwVcMplsStorageType",
+    "oid": "1.3.6.1.4.1.9.10.107.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundIndexNext": {
+    "name": "cpwVcMplsOutboundIndexNext",
+    "oid": "1.3.6.1.4.1.9.10.107.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundTable": {
+    "name": "cpwVcMplsOutboundTable",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundEntry": {
+    "name": "cpwVcMplsOutboundEntry",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsOutboundIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcMplsOutboundIndex": {
+    "name": "cpwVcMplsOutboundIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundLsrXcIndex": {
+    "name": "cpwVcMplsOutboundLsrXcIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundTunnelIndex": {
+    "name": "cpwVcMplsOutboundTunnelIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundTunnelInstance": {
+    "name": "cpwVcMplsOutboundTunnelInstance",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelInstanceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundTunnelLclLSR": {
+    "name": "cpwVcMplsOutboundTunnelLclLSR",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLsrIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundTunnelPeerLSR": {
+    "name": "cpwVcMplsOutboundTunnelPeerLSR",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLsrIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundIfIndex": {
+    "name": "cpwVcMplsOutboundIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundRowStatus": {
+    "name": "cpwVcMplsOutboundRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsOutboundStorageType": {
+    "name": "cpwVcMplsOutboundStorageType",
+    "oid": "1.3.6.1.4.1.9.10.107.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsInboundIndexNext": {
+    "name": "cpwVcMplsInboundIndexNext",
+    "oid": "1.3.6.1.4.1.9.10.107.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcMplsInboundTable": {
+    "name": "cpwVcMplsInboundTable",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsInboundEntry": {
+    "name": "cpwVcMplsInboundEntry",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MIB",
+        "object": "cpwVcIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsInboundIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcMplsInboundIndex": {
+    "name": "cpwVcMplsInboundIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsInboundLsrXcIndex": {
+    "name": "cpwVcMplsInboundLsrXcIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsInboundTunnelIndex": {
+    "name": "cpwVcMplsInboundTunnelIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsInboundTunnelInstance": {
+    "name": "cpwVcMplsInboundTunnelInstance",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelInstanceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsInboundTunnelLclLSR": {
+    "name": "cpwVcMplsInboundTunnelLclLSR",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLsrIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsInboundTunnelPeerLSR": {
+    "name": "cpwVcMplsInboundTunnelPeerLSR",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLsrIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsInboundIfIndex": {
+    "name": "cpwVcMplsInboundIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsInboundRowStatus": {
+    "name": "cpwVcMplsInboundRowStatus",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsInboundStorageType": {
+    "name": "cpwVcMplsInboundStorageType",
+    "oid": "1.3.6.1.4.1.9.10.107.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cpwVcMplsNonTeMappingTable": {
+    "name": "cpwVcMplsNonTeMappingTable",
+    "oid": "1.3.6.1.4.1.9.10.107.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsNonTeMappingEntry": {
+    "name": "cpwVcMplsNonTeMappingEntry",
+    "oid": "1.3.6.1.4.1.9.10.107.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsNonTeMappingTunnelDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsNonTeMappingXcTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsNonTeMappingIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsNonTeMappingVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcMplsNonTeMappingTunnelDirection": {
+    "name": "cpwVcMplsNonTeMappingTunnelDirection",
+    "oid": "1.3.6.1.4.1.9.10.107.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outbound": 1,
+          "inbound": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsNonTeMappingXcTunnelIndex": {
+    "name": "cpwVcMplsNonTeMappingXcTunnelIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsNonTeMappingIfIndex": {
+    "name": "cpwVcMplsNonTeMappingIfIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsNonTeMappingVcIndex": {
+    "name": "cpwVcMplsNonTeMappingVcIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcMplsTeMappingTable": {
+    "name": "cpwVcMplsTeMappingTable",
+    "oid": "1.3.6.1.4.1.9.10.107.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsTeMappingEntry": {
+    "name": "cpwVcMplsTeMappingEntry",
+    "oid": "1.3.6.1.4.1.9.10.107.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsTeMappingTunnelDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsTeMappingTunnelIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsTeMappingTunnelInstance",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsTeMappingTunnelPeerLsrID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsTeMappingTunnelLocalLsrID",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsTeMappingVcIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcMplsTeMappingTunnelDirection": {
+    "name": "cpwVcMplsTeMappingTunnelDirection",
+    "oid": "1.3.6.1.4.1.9.10.107.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "outbound": 1,
+          "inbound": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsTeMappingTunnelIndex": {
+    "name": "cpwVcMplsTeMappingTunnelIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsTeMappingTunnelInstance": {
+    "name": "cpwVcMplsTeMappingTunnelInstance",
+    "oid": "1.3.6.1.4.1.9.10.107.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsTunnelInstanceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsTeMappingTunnelPeerLsrID": {
+    "name": "cpwVcMplsTeMappingTunnelPeerLsrID",
+    "oid": "1.3.6.1.4.1.9.10.107.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLsrIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsTeMappingTunnelLocalLsrID": {
+    "name": "cpwVcMplsTeMappingTunnelLocalLsrID",
+    "oid": "1.3.6.1.4.1.9.10.107.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MplsLsrIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cpwVcMplsTeMappingVcIndex": {
+    "name": "cpwVcMplsTeMappingVcIndex",
+    "oid": "1.3.6.1.4.1.9.10.107.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CpwVcIndexType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cpwVcMplsGroups": {
+    "name": "cpwVcMplsGroups",
+    "oid": "1.3.6.1.4.1.9.10.107.2.1",
+    "class": "objectidentity"
+  },
+  "cpwVcMplsCompliances": {
+    "name": "cpwVcMplsCompliances",
+    "oid": "1.3.6.1.4.1.9.10.107.2.2",
+    "class": "objectidentity"
+  },
+  "cpwMplsModuleCompliance": {
+    "name": "cpwMplsModuleCompliance",
+    "oid": "1.3.6.1.4.1.9.10.107.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cpwVcMplsGroup",
+        "module": "CISCO-IETF-PW-MPLS-MIB"
+      },
+      {
+        "object": "cpwVcMplsOutboundGroup",
+        "module": "CISCO-IETF-PW-MPLS-MIB"
+      },
+      {
+        "object": "cpwVcMplsMappingGroup",
+        "module": "CISCO-IETF-PW-MPLS-MIB"
+      },
+      {
+        "object": "cpwVcMplsInboundGroup",
+        "module": "CISCO-IETF-PW-MPLS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcMplsGroup": {
+    "name": "cpwVcMplsGroup",
+    "oid": "1.3.6.1.4.1.9.10.107.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsMplsType"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsExpBitsMode"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsExpBits"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsTtl"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsLocalLdpID"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsLocalLdpEntityID"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsPeerLdpID"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcMplsOutboundGroup": {
+    "name": "cpwVcMplsOutboundGroup",
+    "oid": "1.3.6.1.4.1.9.10.107.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsOutboundIndexNext"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsOutboundLsrXcIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsOutboundTunnelIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsOutboundTunnelInstance"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsOutboundTunnelLclLSR"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsOutboundTunnelPeerLSR"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsOutboundIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsOutboundRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsOutboundStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcMplsInboundGroup": {
+    "name": "cpwVcMplsInboundGroup",
+    "oid": "1.3.6.1.4.1.9.10.107.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsInboundIndexNext"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsInboundLsrXcIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsInboundTunnelIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsInboundTunnelInstance"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsInboundTunnelLclLSR"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsInboundTunnelPeerLSR"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsInboundIfIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsInboundRowStatus"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsInboundStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "cpwVcMplsMappingGroup": {
+    "name": "cpwVcMplsMappingGroup",
+    "oid": "1.3.6.1.4.1.9.10.107.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsNonTeMappingVcIndex"
+      },
+      {
+        "module": "CISCO-IETF-PW-MPLS-MIB",
+        "object": "cpwVcMplsTeMappingVcIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-PW-MPLS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-IETF-PW-MPLS-MIB"
+  }
+}

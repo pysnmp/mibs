@@ -1,0 +1,2520 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETSCREEN-SMI": [
+      "netscreenVR"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "mib-2",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "nsVrOspf": {
+    "name": "nsVrOspf",
+    "oid": "1.3.6.1.4.1.3224.18.5",
+    "class": "moduleidentity"
+  },
+  "AreaID": {
+    "name": "AreaID",
+    "class": "textualconvention",
+    "type": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "RouterID": {
+    "name": "RouterID",
+    "class": "textualconvention",
+    "type": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "Metric": {
+    "name": "Metric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "BigMetric": {
+    "name": "BigMetric",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Status": {
+    "name": "Status",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PositiveInteger": {
+    "name": "PositiveInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "HelloRange": {
+    "name": "HelloRange",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "UpToMaxAge": {
+    "name": "UpToMaxAge",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "InterfaceIndex": {
+    "name": "InterfaceIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "DesignatedRouterPriority": {
+    "name": "DesignatedRouterPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TOSType": {
+    "name": "TOSType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "nsVrOspfGeneralTable": {
+    "name": "nsVrOspfGeneralTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfGeneralEntry": {
+    "name": "nsVrOspfGeneralEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfGeneralVRID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfRouterId": {
+    "name": "nsVrOspfRouterId",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAdminStat": {
+    "name": "nsVrOspfAdminStat",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Status",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVersionNumber": {
+    "name": "nsVrOspfVersionNumber",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "version2": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaBdrRtrStatus": {
+    "name": "nsVrOspfAreaBdrRtrStatus",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfASBdrRtrStatus": {
+    "name": "nsVrOspfASBdrRtrStatus",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExternLsaCount": {
+    "name": "nsVrOspfExternLsaCount",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExternLsaCksumSum": {
+    "name": "nsVrOspfExternLsaCksumSum",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfTOSSupport": {
+    "name": "nsVrOspfTOSSupport",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfOriginateNewLsas": {
+    "name": "nsVrOspfOriginateNewLsas",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfRxNewLsas": {
+    "name": "nsVrOspfRxNewLsas",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbLimit": {
+    "name": "nsVrOspfExtLsdbLimit",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfMulticastExtensions": {
+    "name": "nsVrOspfMulticastExtensions",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExitOverflowInterval": {
+    "name": "nsVrOspfExitOverflowInterval",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfDemandExtensions": {
+    "name": "nsVrOspfDemandExtensions",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfGeneralVRID": {
+    "name": "nsVrOspfGeneralVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaTable": {
+    "name": "nsVrOspfAreaTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfAreaEntry": {
+    "name": "nsVrOspfAreaEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfAreaVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfAreaId": {
+    "name": "nsVrOspfAreaId",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfImportAsExtern": {
+    "name": "nsVrOspfImportAsExtern",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "importExternal": 1,
+          "importNoExternal": 2,
+          "importNssa": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "importExternal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfSpfRuns": {
+    "name": "nsVrOspfSpfRuns",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaBdrRtrCount": {
+    "name": "nsVrOspfAreaBdrRtrCount",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAsBdrRtrCount": {
+    "name": "nsVrOspfAsBdrRtrCount",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaLsaCount": {
+    "name": "nsVrOspfAreaLsaCount",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaLsaCksumSum": {
+    "name": "nsVrOspfAreaLsaCksumSum",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaSummary": {
+    "name": "nsVrOspfAreaSummary",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAreaSummary": 1,
+          "sendAreaSummary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noAreaSummary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfAreaStatus": {
+    "name": "nsVrOspfAreaStatus",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfAreaVRID": {
+    "name": "nsVrOspfAreaVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfStubAreaTable": {
+    "name": "nsVrOspfStubAreaTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfStubAreaEntry": {
+    "name": "nsVrOspfStubAreaEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfStubVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfStubAreaId",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfStubTOS",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfStubAreaId": {
+    "name": "nsVrOspfStubAreaId",
+    "oid": "1.3.6.1.4.1.3224.18.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfStubTOS": {
+    "name": "nsVrOspfStubTOS",
+    "oid": "1.3.6.1.4.1.3224.18.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TOSType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfStubMetric": {
+    "name": "nsVrOspfStubMetric",
+    "oid": "1.3.6.1.4.1.3224.18.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BigMetric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfStubStatus": {
+    "name": "nsVrOspfStubStatus",
+    "oid": "1.3.6.1.4.1.3224.18.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfStubMetricType": {
+    "name": "nsVrOspfStubMetricType",
+    "oid": "1.3.6.1.4.1.3224.18.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nsVrOspfMetric": 1,
+          "comparableCost": 2,
+          "nonComparable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "nsVrOspfMetric",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfStubVRID": {
+    "name": "nsVrOspfStubVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfLsdbTable": {
+    "name": "nsVrOspfLsdbTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfLsdbEntry": {
+    "name": "nsVrOspfLsdbEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfLsdbVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfLsdbAreaId",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfLsdbAreaId": {
+    "name": "nsVrOspfLsdbAreaId",
+    "oid": "1.3.6.1.4.1.3224.18.5.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfLsdbType": {
+    "name": "nsVrOspfLsdbType",
+    "oid": "1.3.6.1.4.1.3224.18.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routerLink": 1,
+          "networkLink": 2,
+          "summaryLink": 3,
+          "asSummaryLink": 4,
+          "asExternalLink": 5,
+          "multicastLink": 6,
+          "nssaExternalLink": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfLsdbLsid": {
+    "name": "nsVrOspfLsdbLsid",
+    "oid": "1.3.6.1.4.1.3224.18.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfLsdbRouterId": {
+    "name": "nsVrOspfLsdbRouterId",
+    "oid": "1.3.6.1.4.1.3224.18.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfLsdbSequence": {
+    "name": "nsVrOspfLsdbSequence",
+    "oid": "1.3.6.1.4.1.3224.18.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfLsdbAge": {
+    "name": "nsVrOspfLsdbAge",
+    "oid": "1.3.6.1.4.1.3224.18.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfLsdbChecksum": {
+    "name": "nsVrOspfLsdbChecksum",
+    "oid": "1.3.6.1.4.1.3224.18.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfLsdbAdvertisement": {
+    "name": "nsVrOspfLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.3224.18.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfLsdbVRID": {
+    "name": "nsVrOspfLsdbVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfHostTable": {
+    "name": "nsVrOspfHostTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfHostEntry": {
+    "name": "nsVrOspfHostEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfHostVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfHostIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfHostTOS",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfHostIpAddress": {
+    "name": "nsVrOspfHostIpAddress",
+    "oid": "1.3.6.1.4.1.3224.18.5.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfHostTOS": {
+    "name": "nsVrOspfHostTOS",
+    "oid": "1.3.6.1.4.1.3224.18.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TOSType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfHostMetric": {
+    "name": "nsVrOspfHostMetric",
+    "oid": "1.3.6.1.4.1.3224.18.5.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfHostStatus": {
+    "name": "nsVrOspfHostStatus",
+    "oid": "1.3.6.1.4.1.3224.18.5.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfHostAreaID": {
+    "name": "nsVrOspfHostAreaID",
+    "oid": "1.3.6.1.4.1.3224.18.5.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfHostVRID": {
+    "name": "nsVrOspfHostVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfIfTable": {
+    "name": "nsVrOspfIfTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfIfEntry": {
+    "name": "nsVrOspfIfEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfIfVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfIfIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfAddressLessIf",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfIfIpAddress": {
+    "name": "nsVrOspfIfIpAddress",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAddressLessIf": {
+    "name": "nsVrOspfAddressLessIf",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfIfAreaId": {
+    "name": "nsVrOspfIfAreaId",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfType": {
+    "name": "nsVrOspfIfType",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "nbma": 2,
+          "pointToPoint": 3,
+          "pointToMultipoint": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfAdminStat": {
+    "name": "nsVrOspfIfAdminStat",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Status",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfRtrPriority": {
+    "name": "nsVrOspfIfRtrPriority",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfTransitDelay": {
+    "name": "nsVrOspfIfTransitDelay",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfRetransInterval": {
+    "name": "nsVrOspfIfRetransInterval",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfHelloInterval": {
+    "name": "nsVrOspfIfHelloInterval",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfRtrDeadInterval": {
+    "name": "nsVrOspfIfRtrDeadInterval",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfPollInterval": {
+    "name": "nsVrOspfIfPollInterval",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfState": {
+    "name": "nsVrOspfIfState",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "loopback": 2,
+          "waiting": 3,
+          "pointToPoint": 4,
+          "designatedRouter": 5,
+          "backupDesignatedRouter": 6,
+          "otherDesignatedRouter": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfIfDesignatedRouter": {
+    "name": "nsVrOspfIfDesignatedRouter",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfIfBackupDesignatedRouter": {
+    "name": "nsVrOspfIfBackupDesignatedRouter",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfIfEvents": {
+    "name": "nsVrOspfIfEvents",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfIfAuthKey": {
+    "name": "nsVrOspfIfAuthKey",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfStatus": {
+    "name": "nsVrOspfIfStatus",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfMulticastForwarding": {
+    "name": "nsVrOspfIfMulticastForwarding",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blocked": 1,
+          "multicast": 2,
+          "unicast": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "blocked",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfDemand": {
+    "name": "nsVrOspfIfDemand",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfAuthType": {
+    "name": "nsVrOspfIfAuthType",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfVRID": {
+    "name": "nsVrOspfIfVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.7.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfIfMetricTable": {
+    "name": "nsVrOspfIfMetricTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfIfMetricEntry": {
+    "name": "nsVrOspfIfMetricEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfIfMetricVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfIfMetricIpAddress",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfIfMetricAddressLessIf",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfIfMetricTOS",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfIfMetricVRID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfIfMetricIpAddress": {
+    "name": "nsVrOspfIfMetricIpAddress",
+    "oid": "1.3.6.1.4.1.3224.18.5.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfIfMetricAddressLessIf": {
+    "name": "nsVrOspfIfMetricAddressLessIf",
+    "oid": "1.3.6.1.4.1.3224.18.5.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfIfMetricTOS": {
+    "name": "nsVrOspfIfMetricTOS",
+    "oid": "1.3.6.1.4.1.3224.18.5.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TOSType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfIfMetricValue": {
+    "name": "nsVrOspfIfMetricValue",
+    "oid": "1.3.6.1.4.1.3224.18.5.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Metric",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfMetricStatus": {
+    "name": "nsVrOspfIfMetricStatus",
+    "oid": "1.3.6.1.4.1.3224.18.5.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfIfMetricVRID": {
+    "name": "nsVrOspfIfMetricVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfTable": {
+    "name": "nsVrOspfVirtIfTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfEntry": {
+    "name": "nsVrOspfVirtIfEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfVirtIfVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfVirtIfAreaId",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfVirtIfNeighbor",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfVirtIfAreaId": {
+    "name": "nsVrOspfVirtIfAreaId",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfNeighbor": {
+    "name": "nsVrOspfVirtIfNeighbor",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfTransitDelay": {
+    "name": "nsVrOspfVirtIfTransitDelay",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfRetransInterval": {
+    "name": "nsVrOspfVirtIfRetransInterval",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UpToMaxAge",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfHelloInterval": {
+    "name": "nsVrOspfVirtIfHelloInterval",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfRtrDeadInterval": {
+    "name": "nsVrOspfVirtIfRtrDeadInterval",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfState": {
+    "name": "nsVrOspfVirtIfState",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "pointToPoint": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfEvents": {
+    "name": "nsVrOspfVirtIfEvents",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfAuthKey": {
+    "name": "nsVrOspfVirtIfAuthKey",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfStatus": {
+    "name": "nsVrOspfVirtIfStatus",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfAuthType": {
+    "name": "nsVrOspfVirtIfAuthType",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfVirtIfVRID": {
+    "name": "nsVrOspfVirtIfVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfNbrTable": {
+    "name": "nsVrOspfNbrTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfNbrEntry": {
+    "name": "nsVrOspfNbrEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfNbrVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfNbrIpAddr",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfNbrAddressLessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfNbrIpAddr": {
+    "name": "nsVrOspfNbrIpAddr",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfNbrAddressLessIndex": {
+    "name": "nsVrOspfNbrAddressLessIndex",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfNbrRtrId": {
+    "name": "nsVrOspfNbrRtrId",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfNbrOptions": {
+    "name": "nsVrOspfNbrOptions",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfNbrPriority": {
+    "name": "nsVrOspfNbrPriority",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfNbrState": {
+    "name": "nsVrOspfNbrState",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "twoWay": 4,
+          "exchangeStart": 5,
+          "exchange": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfNbrEvents": {
+    "name": "nsVrOspfNbrEvents",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfNbrLsRetransQLen": {
+    "name": "nsVrOspfNbrLsRetransQLen",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfNbmaNbrStatus": {
+    "name": "nsVrOspfNbmaNbrStatus",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfNbmaNbrPermanence": {
+    "name": "nsVrOspfNbmaNbrPermanence",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "permanent": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "permanent",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfNbrHelloSuppressed": {
+    "name": "nsVrOspfNbrHelloSuppressed",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfNbrVRID": {
+    "name": "nsVrOspfNbrVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.10.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrTable": {
+    "name": "nsVrOspfVirtNbrTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrEntry": {
+    "name": "nsVrOspfVirtNbrEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfVirtNbrVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfVirtNbrArea",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfVirtNbrRtrId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrArea": {
+    "name": "nsVrOspfVirtNbrArea",
+    "oid": "1.3.6.1.4.1.3224.18.5.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrRtrId": {
+    "name": "nsVrOspfVirtNbrRtrId",
+    "oid": "1.3.6.1.4.1.3224.18.5.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrIpAddr": {
+    "name": "nsVrOspfVirtNbrIpAddr",
+    "oid": "1.3.6.1.4.1.3224.18.5.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrOptions": {
+    "name": "nsVrOspfVirtNbrOptions",
+    "oid": "1.3.6.1.4.1.3224.18.5.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrState": {
+    "name": "nsVrOspfVirtNbrState",
+    "oid": "1.3.6.1.4.1.3224.18.5.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 1,
+          "attempt": 2,
+          "init": 3,
+          "twoWay": 4,
+          "exchangeStart": 5,
+          "exchange": 6,
+          "loading": 7,
+          "full": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrEvents": {
+    "name": "nsVrOspfVirtNbrEvents",
+    "oid": "1.3.6.1.4.1.3224.18.5.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrLsRetransQLen": {
+    "name": "nsVrOspfVirtNbrLsRetransQLen",
+    "oid": "1.3.6.1.4.1.3224.18.5.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrHelloSuppressed": {
+    "name": "nsVrOspfVirtNbrHelloSuppressed",
+    "oid": "1.3.6.1.4.1.3224.18.5.11.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfVirtNbrVRID": {
+    "name": "nsVrOspfVirtNbrVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.11.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbTable": {
+    "name": "nsVrOspfExtLsdbTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbEntry": {
+    "name": "nsVrOspfExtLsdbEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfExtLsdbVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfExtLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfExtLsdbLsid",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfExtLsdbRouterId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbType": {
+    "name": "nsVrOspfExtLsdbType",
+    "oid": "1.3.6.1.4.1.3224.18.5.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "asExternalLink": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbLsid": {
+    "name": "nsVrOspfExtLsdbLsid",
+    "oid": "1.3.6.1.4.1.3224.18.5.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbRouterId": {
+    "name": "nsVrOspfExtLsdbRouterId",
+    "oid": "1.3.6.1.4.1.3224.18.5.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbSequence": {
+    "name": "nsVrOspfExtLsdbSequence",
+    "oid": "1.3.6.1.4.1.3224.18.5.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbAge": {
+    "name": "nsVrOspfExtLsdbAge",
+    "oid": "1.3.6.1.4.1.3224.18.5.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbChecksum": {
+    "name": "nsVrOspfExtLsdbChecksum",
+    "oid": "1.3.6.1.4.1.3224.18.5.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbAdvertisement": {
+    "name": "nsVrOspfExtLsdbAdvertisement",
+    "oid": "1.3.6.1.4.1.3224.18.5.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 36,
+            "max": 36
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfExtLsdbVRID": {
+    "name": "nsVrOspfExtLsdbVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaAggregateTable": {
+    "name": "nsVrOspfAreaAggregateTable",
+    "oid": "1.3.6.1.4.1.3224.18.5.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nsVrOspfAreaAggregateEntry": {
+    "name": "nsVrOspfAreaAggregateEntry",
+    "oid": "1.3.6.1.4.1.3224.18.5.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfAreaAggregateVRID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfAreaAggregateAreaID",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfAreaAggregateLsdbType",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfAreaAggregateNet",
+        "implied": 0
+      },
+      {
+        "module": "NETSCREEN-VR-OSPF-MIB",
+        "object": "nsVrOspfAreaAggregateMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nsVrOspfAreaAggregateAreaID": {
+    "name": "nsVrOspfAreaAggregateAreaID",
+    "oid": "1.3.6.1.4.1.3224.18.5.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaAggregateLsdbType": {
+    "name": "nsVrOspfAreaAggregateLsdbType",
+    "oid": "1.3.6.1.4.1.3224.18.5.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "summaryLink": 3,
+          "nssaExternalLink": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaAggregateNet": {
+    "name": "nsVrOspfAreaAggregateNet",
+    "oid": "1.3.6.1.4.1.3224.18.5.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaAggregateMask": {
+    "name": "nsVrOspfAreaAggregateMask",
+    "oid": "1.3.6.1.4.1.3224.18.5.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nsVrOspfAreaAggregateStatus": {
+    "name": "nsVrOspfAreaAggregateStatus",
+    "oid": "1.3.6.1.4.1.3224.18.5.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfAreaAggregateEffect": {
+    "name": "nsVrOspfAreaAggregateEffect",
+    "oid": "1.3.6.1.4.1.3224.18.5.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "advertiseMatching": 1,
+          "doNotAdvertiseMatching": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "advertiseMatching",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nsVrOspfAreaAggregateVRID": {
+    "name": "nsVrOspfAreaAggregateVRID",
+    "oid": "1.3.6.1.4.1.3224.18.5.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-VR-OSPF-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETSCREEN-VR-OSPF-MIB"
+  }
+}

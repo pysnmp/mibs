@@ -1,0 +1,5775 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "SIAE-ALARM-MIB": [
+      "AlarmStatus",
+      "alarmTrap",
+      "AlarmSeverityCode"
+    ],
+    "SIAE-EQUIP-MIB": [
+      "equipIpSnmpAgentAddress"
+    ],
+    "SIAE-TREE-MIB": [
+      "siaeMib"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "StorageType",
+      "DisplayString"
+    ]
+  },
+  "radioSystem": {
+    "name": "radioSystem",
+    "oid": "1.3.6.1.4.1.3373.1103.80",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-07-14 00:00",
+        "description": "MIB version 01.00.05 - added radioXpd in radioStatusTable - deprecated linkXpd in linkStatusTable "
+      },
+      {
+        "revision": "2016-02-29 00:00",
+        "description": "MIB version 01.00.04 - Added linkXpd to linkStatusTable - changed MAX-ACCESS clause of linkChRadioSettingsIdx from read-only to read-create - Fixed DESCRIPTION of linkSettingsTable "
+      },
+      {
+        "revision": "2015-09-15 00:00",
+        "description": "Fixed DESCRIPTION of radioTxChannelSpacing "
+      },
+      {
+        "revision": "2015-06-18 00:00",
+        "description": "MIB version 01.00.03 - Added linkConfigurationInProgress and linkConfigurationInProgressTrapNotification - Added radio radioRxBerThresholdTable - Added fadeMarginMeasure - Deprecated linkFadeMarginMeasure - Added table radioLoopCapabilityTable - Added table sspTable - Added table stm1BulkSettingsTable - Added table linkE1vsSTM1CapacityTable - Deprecated linkAcmMaxTDMCapacity - Deprecated linkTfcTable, linkProTable and linkProMaintTable. - Added linkTfcV2Table, linkProV2Table and linkProMaintV2Table in order to replace deprecated tables. - Added channelSpacingSelection "
+      },
+      {
+        "revision": "2015-03-23 00:00",
+        "description": "Removed alarmTrapNumber from TRAPs and IMPORTS. "
+      },
+      {
+        "revision": "2014-11-05 00:00",
+        "description": "MIB version 01.00.02 Changes for support of modulation 4096QAM: - DESCRIPTION of linkBandwidthAndModulation - ModulationMap TEXTUAL-CONVENTION - BitsPerSymbol TEXTUAL-CONVENTION Changes for support of channel spacing 60MHz and 80MHz: - DESCRIPTION of linkBandwidthAndModulation - ChannelSpacing TEXTUAL-CONVENTION "
+      },
+      {
+        "revision": "2014-09-16 00:00",
+        "description": "MIB version 01.00.01 - Added combinedRadioCapabilitiesTable, combinedRadioFrequencyTable, combinedRadioDuplexFrequencyTable and combinedRadioPowerScalingTable - Declared deprecated linkCapabilitiesTable, linkFrequencyTable, linkDuplexFrequencyTable, linkAcmPowerScaling, linkAcmAtpcRxPowerScaling and linkAcmPowerRange. - Added linkNotMatchingRadiosAlarm and linkNotMatchingRadiosAlarmSeverityCode "
+      },
+      {
+        "revision": "2014-04-01 00:00",
+        "description": "Initial version 01.00.00. "
+      }
+    ]
+  },
+  "ChannelSpacing": {
+    "name": "ChannelSpacing",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bw3M5Hz": 0,
+          "bw7Mhz": 1,
+          "bw14MHz": 2,
+          "bw28MHz": 3,
+          "bw40MHz": 5,
+          "bw56MHz": 4,
+          "bw112MHz": 6,
+          "bw250Mhz": 7,
+          "bw500Mhz": 8,
+          "bw750Mhz": 9,
+          "bw1000Mhz": 10,
+          "bw10Mhz": 11,
+          "bw20Mhz": 12,
+          "bw30Mhz": 13,
+          "bw50Mhz": 14,
+          "bw60Mhz": 15,
+          "bw80Mhz": 16
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ModulationMap": {
+    "name": "ModulationMap",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "modBPSK": 0,
+        "mod4QAM": 1,
+        "mod8PSK": 2,
+        "mod16QAM": 3,
+        "mod32QAM": 4,
+        "mod64QAM": 5,
+        "mod128QAM": 6,
+        "mod256QAM": 7,
+        "mod512QAM": 8,
+        "mod1024QAM": 9,
+        "mod2048QAM": 10,
+        "mod4096QAM": 11
+      }
+    },
+    "status": "current"
+  },
+  "ConfigMismatchReason": {
+    "name": "ConfigMismatchReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "securityMismatch": 0,
+        "frequencyFailMismatch": 1,
+        "frequencyAlertMismatch": 2,
+        "ptxMismatch": 3,
+        "channelSpacingAndModulationMismatch": 4,
+        "remoteConfigurationMismatch": 5,
+        "acmMismatch": 6,
+        "profileSetMismatch": 7
+      }
+    },
+    "status": "current"
+  },
+  "RadioCapability": {
+    "name": "RadioCapability",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "reserved": 0,
+        "trafficSquelch": 1,
+        "baseBandLoop": 2,
+        "maxPower": 3,
+        "carrierOnly": 4,
+        "iQLoop": 5,
+        "rfLoopGivenMod": 6,
+        "rfLoopAnyMod": 7
+      }
+    },
+    "status": "current"
+  },
+  "BitsPerSymbol": {
+    "name": "BitsPerSymbol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bpsBPSK": 1,
+          "bps4QAM": 2,
+          "bps8PSK": 3,
+          "bps16QAM": 4,
+          "bps32QAM": 5,
+          "bps64QAM": 6,
+          "bps128QAM": 7,
+          "bps256QAM": 8,
+          "bps512QAM": 9,
+          "bps1024QAM": 10,
+          "bps2048QAM": 11,
+          "bps4096QAM": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Stm1IndexOrZero": {
+    "name": "Stm1IndexOrZero",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "radioSystemMibVersion": {
+    "name": "radioSystemMibVersion",
+    "oid": "1.3.6.1.4.1.3373.1103.80.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioTable": {
+    "name": "radioTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radioEntry": {
+    "name": "radioEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radioIndex": {
+    "name": "radioIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioLabel": {
+    "name": "radioLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.80.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioType": {
+    "name": "radioType",
+    "oid": "1.3.6.1.4.1.3373.1103.80.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "analogRadio": 2,
+          "digitalRadio": 3,
+          "xpicRadio": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioIfIndex": {
+    "name": "radioIfIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioStorageType": {
+    "name": "radioStorageType",
+    "oid": "1.3.6.1.4.1.3373.1103.80.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xpicTable": {
+    "name": "xpicTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xpicEntry": {
+    "name": "xpicEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "xpicIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xpicIndex": {
+    "name": "xpicIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xpicRadioIdx": {
+    "name": "xpicRadioIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "xpicRowstatus": {
+    "name": "xpicRowstatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "xpicChTable": {
+    "name": "xpicChTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xpicChEntry": {
+    "name": "xpicChEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "xpicIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "xpicChPolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xpicChPolIndex": {
+    "name": "xpicChPolIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xpicChRadioIdx": {
+    "name": "xpicChRadioIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "xpicChRowstatus": {
+    "name": "xpicChRowstatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkAvailableIndex": {
+    "name": "linkAvailableIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkTable": {
+    "name": "linkTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkEntry": {
+    "name": "linkEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkIndex": {
+    "name": "linkIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkType": {
+    "name": "linkType",
+    "oid": "1.3.6.1.4.1.3373.1103.80.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "radio1p0": 1,
+          "radio1p1HS": 2,
+          "radio1p1FD": 3,
+          "radio2p0Xpic": 4,
+          "radio2p2XpicHS": 5,
+          "radio2p2XpicFD": 6,
+          "radioNp1": 7
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "radio1p0",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkLabel": {
+    "name": "linkLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.80.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkIfIndex": {
+    "name": "linkIfIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkRowstatus": {
+    "name": "linkRowstatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkChTable": {
+    "name": "linkChTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkChEntry": {
+    "name": "linkChEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkChIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkChIndex": {
+    "name": "linkChIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkChRadioIdx": {
+    "name": "linkChRadioIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkChRadioSettingsIdx": {
+    "name": "linkChRadioSettingsIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkChRowstatus": {
+    "name": "linkChRowstatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkSettingsTable": {
+    "name": "linkSettingsTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkSettingsEntry": {
+    "name": "linkSettingsEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkBandwidthAndModulation": {
+    "name": "linkBandwidthAndModulation",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkAcmEngineEnable": {
+    "name": "linkAcmEngineEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkTxUpperProfile": {
+    "name": "linkTxUpperProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkTxLowerProfile": {
+    "name": "linkTxLowerProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkId": {
+    "name": "linkId",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkTxPwrThresh": {
+    "name": "linkTxPwrThresh",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 3,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkRxPwrThresh": {
+    "name": "linkRxPwrThresh",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -99,
+            "max": -40
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -70,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkSynchSetupProtocolEnable": {
+    "name": "linkSynchSetupProtocolEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkProfilesSetSelection": {
+    "name": "linkProfilesSetSelection",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highThroughput": 1,
+          "highGain": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "highThroughput",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkXpicControlProcedure": {
+    "name": "linkXpicControlProcedure",
+    "oid": "1.3.6.1.4.1.3373.1103.80.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "radioSettingsTable": {
+    "name": "radioSettingsTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radioSettingsEntry": {
+    "name": "radioSettingsEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioSettingsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radioSettingsIndex": {
+    "name": "radioSettingsIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioSettingsRowStatus": {
+    "name": "radioSettingsRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "radioSettingsLabel": {
+    "name": "radioSettingsLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioTxFrequency": {
+    "name": "radioTxFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "radioDuplexFrequency": {
+    "name": "radioDuplexFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "radioTxAttenuation": {
+    "name": "radioTxAttenuation",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "radioAtpcManual": {
+    "name": "radioAtpcManual",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "radioAtpcPwrHigh": {
+    "name": "radioAtpcPwrHigh",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -40,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "radioAtpcPwrLow": {
+    "name": "radioAtpcPwrLow",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "radioAtpcRange": {
+    "name": "radioAtpcRange",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "radioFreqTableSelection": {
+    "name": "radioFreqTableSelection",
+    "oid": "1.3.6.1.4.1.3373.1103.80.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelSpacing",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tdmSettingsTable": {
+    "name": "tdmSettingsTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tdmSettingsEntry": {
+    "name": "tdmSettingsEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "tdmPolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tdmPolIndex": {
+    "name": "tdmPolIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tdmE1Channel": {
+    "name": "tdmE1Channel",
+    "oid": "1.3.6.1.4.1.3373.1103.80.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tdmE1Framer": {
+    "name": "tdmE1Framer",
+    "oid": "1.3.6.1.4.1.3373.1103.80.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioCapabilitiesTable": {
+    "name": "radioCapabilitiesTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radioCapabilitiesEntry": {
+    "name": "radioCapabilitiesEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radioCapabilitiesCapability": {
+    "name": "radioCapabilitiesCapability",
+    "oid": "1.3.6.1.4.1.3373.1103.80.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioCapabilitiesTxMinFrequency": {
+    "name": "radioCapabilitiesTxMinFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioCapabilitiesTxMaxFrequency": {
+    "name": "radioCapabilitiesTxMaxFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioCapabilitiesStepFrequency": {
+    "name": "radioCapabilitiesStepFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioCapabilitiesMinPtxNominalValue": {
+    "name": "radioCapabilitiesMinPtxNominalValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioCapabilitiesMaxPtxNominalValue": {
+    "name": "radioCapabilitiesMaxPtxNominalValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.11.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioCapabilitiesExtendedMinPwr": {
+    "name": "radioCapabilitiesExtendedMinPwr",
+    "oid": "1.3.6.1.4.1.3373.1103.80.11.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioStatusTable": {
+    "name": "radioStatusTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radioStatusEntry": {
+    "name": "radioStatusEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radioCurrentDuplexFrequency": {
+    "name": "radioCurrentDuplexFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioTxChannelSpacing": {
+    "name": "radioTxChannelSpacing",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioPrx": {
+    "name": "radioPrx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioPtx": {
+    "name": "radioPtx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioNormalizedMse": {
+    "name": "radioNormalizedMse",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRxActiveStatus": {
+    "name": "radioRxActiveStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioTxActiveStatus": {
+    "name": "radioTxActiveStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioCableOpenAlarm": {
+    "name": "radioCableOpenAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioCableShortAlarm": {
+    "name": "radioCableShortAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioInvalidFrequencyAlarm": {
+    "name": "radioInvalidFrequencyAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioBaseBandRxAlarm": {
+    "name": "radioBaseBandRxAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioModulatorFailAlarm": {
+    "name": "radioModulatorFailAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioDemodulatorFailAlarm": {
+    "name": "radioDemodulatorFailAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRxPowerLowAlarm": {
+    "name": "radioRxPowerLowAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioTxPowerLowAlarm": {
+    "name": "radioTxPowerLowAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRemDemodulatorFailAlarm": {
+    "name": "radioRemDemodulatorFailAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioVcoFailAlarm": {
+    "name": "radioVcoFailAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRxIFAgcAlarm": {
+    "name": "radioRxIFAgcAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioTxIFAgcAlarm": {
+    "name": "radioTxIFAgcAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioIduOduCommunicationAlarm": {
+    "name": "radioIduOduCommunicationAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioOduIduCommunicationAlarm": {
+    "name": "radioOduIduCommunicationAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioLocalOduAlarmSynthesis": {
+    "name": "radioLocalOduAlarmSynthesis",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRemoteOduAlarmSynthesis": {
+    "name": "radioRemoteOduAlarmSynthesis",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioConfigMismatchAlarm": {
+    "name": "radioConfigMismatchAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioConfigAlarmReason": {
+    "name": "radioConfigAlarmReason",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigMismatchReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRxQualityLowAlarm": {
+    "name": "radioRxQualityLowAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRxQualityWarningAlarm": {
+    "name": "radioRxQualityWarningAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioXpd": {
+    "name": "radioXpd",
+    "oid": "1.3.6.1.4.1.3373.1103.80.12.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioMaintTable": {
+    "name": "radioMaintTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radioMaintEntry": {
+    "name": "radioMaintEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radioTxStatus": {
+    "name": "radioTxStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmitterOff": 1,
+          "transmitterOn": 2,
+          "permanentOff": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "transmitterOn",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioCarrierOnly": {
+    "name": "radioCarrierOnly",
+    "oid": "1.3.6.1.4.1.3373.1103.80.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "carrierOnlyOff": 1,
+          "carrierOnlyOn": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "carrierOnlyOff",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioLoop": {
+    "name": "radioLoop",
+    "oid": "1.3.6.1.4.1.3373.1103.80.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "loopOff": 1,
+          "rfLoop": 2,
+          "iqLoop": 3,
+          "baseBandLoop": 4,
+          "rfLoopAtFixedMod": 6,
+          "baseBandLoopEthSquelch": 7,
+          "rfLoopAtFixedModEthSquelch": 8,
+          "iqloopEthSquelch": 9
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "loopOff",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioRFLoopTestResult": {
+    "name": "radioRFLoopTestResult",
+    "oid": "1.3.6.1.4.1.3373.1103.80.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "testNone": 0,
+          "testRunning": 1,
+          "testNotPossible": 2,
+          "testPassed": 3,
+          "testFail": 4,
+          "testInterrupted": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "testNone",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRFLoopTestPercTime": {
+    "name": "radioRFLoopTestPercTime",
+    "oid": "1.3.6.1.4.1.3373.1103.80.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRtPsuOff": {
+    "name": "radioRtPsuOff",
+    "oid": "1.3.6.1.4.1.3373.1103.80.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rtPsuOff": 1,
+          "rtPsuOn": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "rtPsuOn",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioLom": {
+    "name": "radioLom",
+    "oid": "1.3.6.1.4.1.3373.1103.80.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioXpic": {
+    "name": "radioXpic",
+    "oid": "1.3.6.1.4.1.3373.1103.80.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioFrequencyTable": {
+    "name": "radioFrequencyTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radioFreqTabEntry": {
+    "name": "radioFreqTabEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioFreqChannelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radioFreqChannelId": {
+    "name": "radioFreqChannelId",
+    "oid": "1.3.6.1.4.1.3373.1103.80.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioFreqChannelNum": {
+    "name": "radioFreqChannelNum",
+    "oid": "1.3.6.1.4.1.3373.1103.80.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioFreqValue": {
+    "name": "radioFreqValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioDuplexFrequencyTable": {
+    "name": "radioDuplexFrequencyTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radioDuplexFreqEntry": {
+    "name": "radioDuplexFreqEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioDuplexFreqId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radioDuplexFreqId": {
+    "name": "radioDuplexFreqId",
+    "oid": "1.3.6.1.4.1.3373.1103.80.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioDuplexFreqValue": {
+    "name": "radioDuplexFreqValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioModulationTable": {
+    "name": "radioModulationTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radioModulationEntry": {
+    "name": "radioModulationEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioChannelSpacing",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radioChannelSpacing": {
+    "name": "radioChannelSpacing",
+    "oid": "1.3.6.1.4.1.3373.1103.80.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelSpacing",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioModulationMap": {
+    "name": "radioModulationMap",
+    "oid": "1.3.6.1.4.1.3373.1103.80.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRefModulationMap": {
+    "name": "radioRefModulationMap",
+    "oid": "1.3.6.1.4.1.3373.1103.80.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkStatusTable": {
+    "name": "linkStatusTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkStatusEntry": {
+    "name": "linkStatusEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkPolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkPolIndex": {
+    "name": "linkPolIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmRxProfile": {
+    "name": "linkAcmRxProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmTxProfile": {
+    "name": "linkAcmTxProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmRxProfileLabel": {
+    "name": "linkAcmRxProfileLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmTxProfileLabel": {
+    "name": "linkAcmTxProfileLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmRxModulation": {
+    "name": "linkAcmRxModulation",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitsPerSymbol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmTxModulation": {
+    "name": "linkAcmTxModulation",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitsPerSymbol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmRxCode": {
+    "name": "linkAcmRxCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "normal": 1,
+          "strong": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmTxCode": {
+    "name": "linkAcmTxCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "normal": 1,
+          "strong": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkTxETHCapacity": {
+    "name": "linkTxETHCapacity",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkRxETHCapacity": {
+    "name": "linkRxETHCapacity",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkTxTDMCapacity": {
+    "name": "linkTxTDMCapacity",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkRxTDMCapacity": {
+    "name": "linkRxTDMCapacity",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkRescueModulation": {
+    "name": "linkRescueModulation",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitsPerSymbol",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "bps4QAM",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkReducedCapacityAlarm": {
+    "name": "linkReducedCapacityAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkLinkTelemetryFailAlarm": {
+    "name": "linkLinkTelemetryFailAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkIdMismatchAlarm": {
+    "name": "linkIdMismatchAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkRadioEocAlarm": {
+    "name": "linkRadioEocAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkSetupMismatchAlarm": {
+    "name": "linkSetupMismatchAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkRescueSetupAlarm": {
+    "name": "linkRescueSetupAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkXpicProcedureBlockAlarm": {
+    "name": "linkXpicProcedureBlockAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkXpicRemTxOffAlarm": {
+    "name": "linkXpicRemTxOffAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkRemoteIduAlarmSynthesis": {
+    "name": "linkRemoteIduAlarmSynthesis",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkNotMatchingRadiosAlarm": {
+    "name": "linkNotMatchingRadiosAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkConfigurationInProgress": {
+    "name": "linkConfigurationInProgress",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkXpd": {
+    "name": "linkXpd",
+    "oid": "1.3.6.1.4.1.3373.1103.80.17.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkTfcTable": {
+    "name": "linkTfcTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "linkTfcEntry": {
+    "name": "linkTfcEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "linkTfcAction": {
+    "name": "linkTfcAction",
+    "oid": "1.3.6.1.4.1.3373.1103.80.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkTfcControl": {
+    "name": "linkTfcControl",
+    "oid": "1.3.6.1.4.1.3373.1103.80.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkTfcWatchWindow": {
+    "name": "linkTfcWatchWindow",
+    "oid": "1.3.6.1.4.1.3373.1103.80.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkTfcAlarmThreshold": {
+    "name": "linkTfcAlarmThreshold",
+    "oid": "1.3.6.1.4.1.3373.1103.80.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkTfcAlarm": {
+    "name": "linkTfcAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkTfcRowStatus": {
+    "name": "linkTfcRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkMaintTable": {
+    "name": "linkMaintTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkMaintEntry": {
+    "name": "linkMaintEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkPolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkBerStart": {
+    "name": "linkBerStart",
+    "oid": "1.3.6.1.4.1.3373.1103.80.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "restart": 1,
+          "stop": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "stop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkBaseBandLom": {
+    "name": "linkBaseBandLom",
+    "oid": "1.3.6.1.4.1.3373.1103.80.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkFadeMarginMeasure": {
+    "name": "linkFadeMarginMeasure",
+    "oid": "1.3.6.1.4.1.3373.1103.80.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "linkXpicControlProcedureReset": {
+    "name": "linkXpicControlProcedureReset",
+    "oid": "1.3.6.1.4.1.3373.1103.80.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 0,
+          "reset": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notActive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkBerTable": {
+    "name": "linkBerTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkBerEntry": {
+    "name": "linkBerEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkPolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkBerErrorCounterH": {
+    "name": "linkBerErrorCounterH",
+    "oid": "1.3.6.1.4.1.3373.1103.80.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkBerErrorCounterL": {
+    "name": "linkBerErrorCounterL",
+    "oid": "1.3.6.1.4.1.3373.1103.80.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkBerDataCounterH": {
+    "name": "linkBerDataCounterH",
+    "oid": "1.3.6.1.4.1.3373.1103.80.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkBerDataCounterL": {
+    "name": "linkBerDataCounterL",
+    "oid": "1.3.6.1.4.1.3373.1103.80.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkBerSyncLossAlarm": {
+    "name": "linkBerSyncLossAlarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkBerSyncLossAlarmCounter": {
+    "name": "linkBerSyncLossAlarmCounter",
+    "oid": "1.3.6.1.4.1.3373.1103.80.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkBerElapsedTime": {
+    "name": "linkBerElapsedTime",
+    "oid": "1.3.6.1.4.1.3373.1103.80.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmTable": {
+    "name": "linkAcmTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkAcmEntry": {
+    "name": "linkAcmEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkPolIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkAcmProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkAcmProfileId": {
+    "name": "linkAcmProfileId",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmProfileModulation": {
+    "name": "linkAcmProfileModulation",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BitsPerSymbol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmProfileCode": {
+    "name": "linkAcmProfileCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "strong": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmProfileCapacity": {
+    "name": "linkAcmProfileCapacity",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmProfileLabel": {
+    "name": "linkAcmProfileLabel",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkAcmProfileEnable": {
+    "name": "linkAcmProfileEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmMaxTDMCapacity": {
+    "name": "linkAcmMaxTDMCapacity",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkAcmPowerScaling": {
+    "name": "linkAcmPowerScaling",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkAcmDownshiftThreshold": {
+    "name": "linkAcmDownshiftThreshold",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmUpshiftThreshold": {
+    "name": "linkAcmUpshiftThreshold",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmActiveProfile": {
+    "name": "linkAcmActiveProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cleared": 1,
+          "activeRx": 2,
+          "activeTx": 3,
+          "activeBoth": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "cleared",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmTDMCapacity": {
+    "name": "linkAcmTDMCapacity",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmETHCapacity": {
+    "name": "linkAcmETHCapacity",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkAcmAtpcRxPowerScaling": {
+    "name": "linkAcmAtpcRxPowerScaling",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkAcmPowerRange": {
+    "name": "linkAcmPowerRange",
+    "oid": "1.3.6.1.4.1.3373.1103.80.21.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkProTable": {
+    "name": "linkProTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "linkProEntry": {
+    "name": "linkProEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "linkProProtectionTxChIdx": {
+    "name": "linkProProtectionTxChIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkProProtectionRxChIdx": {
+    "name": "linkProProtectionRxChIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkProTxWtrTime": {
+    "name": "linkProTxWtrTime",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkProRxWtrTime": {
+    "name": "linkProRxWtrTime",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkProTxSwitchedChIdx": {
+    "name": "linkProTxSwitchedChIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkProRxSwitchedChIdx": {
+    "name": "linkProRxSwitchedChIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkProTxRevertive": {
+    "name": "linkProTxRevertive",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkProRxRevertive": {
+    "name": "linkProRxRevertive",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkProExtraTraffic": {
+    "name": "linkProExtraTraffic",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkProRowStatus": {
+    "name": "linkProRowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.22.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "linkProMaintTable": {
+    "name": "linkProMaintTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "linkProMaintEntry": {
+    "name": "linkProMaintEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "linkProMaintTxLockout": {
+    "name": "linkProMaintTxLockout",
+    "oid": "1.3.6.1.4.1.3373.1103.80.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "linkProMaintRxLockout": {
+    "name": "linkProMaintRxLockout",
+    "oid": "1.3.6.1.4.1.3373.1103.80.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "linkProMaintTxForced": {
+    "name": "linkProMaintTxForced",
+    "oid": "1.3.6.1.4.1.3373.1103.80.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "linkProMaintRxForced": {
+    "name": "linkProMaintRxForced",
+    "oid": "1.3.6.1.4.1.3373.1103.80.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "linkProMaintTxWtrReset": {
+    "name": "linkProMaintTxWtrReset",
+    "oid": "1.3.6.1.4.1.3373.1103.80.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notActive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "linkProMaintRxWtrReset": {
+    "name": "linkProMaintRxWtrReset",
+    "oid": "1.3.6.1.4.1.3373.1103.80.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notActive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "linkCapabilitiesTable": {
+    "name": "linkCapabilitiesTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "linkCapabilitiesEntry": {
+    "name": "linkCapabilitiesEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "linkCapabilitiesCapability": {
+    "name": "linkCapabilitiesCapability",
+    "oid": "1.3.6.1.4.1.3373.1103.80.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkCapabilitiesTxMinFrequency": {
+    "name": "linkCapabilitiesTxMinFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkCapabilitiesTxMaxFrequency": {
+    "name": "linkCapabilitiesTxMaxFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkCapabilitiesStepFrequency": {
+    "name": "linkCapabilitiesStepFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkCapabilitiesMinPtxNominalValue": {
+    "name": "linkCapabilitiesMinPtxNominalValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.24.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkCapabilitiesMaxPtxNominalValue": {
+    "name": "linkCapabilitiesMaxPtxNominalValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.24.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkCapabilitiesExtendedMinPwr": {
+    "name": "linkCapabilitiesExtendedMinPwr",
+    "oid": "1.3.6.1.4.1.3373.1103.80.24.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkFrequencyTable": {
+    "name": "linkFrequencyTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "linkFreqTabEntry": {
+    "name": "linkFreqTabEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkFreqChannelId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "linkFreqChannelId": {
+    "name": "linkFreqChannelId",
+    "oid": "1.3.6.1.4.1.3373.1103.80.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkFreqChannelNum": {
+    "name": "linkFreqChannelNum",
+    "oid": "1.3.6.1.4.1.3373.1103.80.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkFreqValue": {
+    "name": "linkFreqValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.25.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkDuplexFrequencyTable": {
+    "name": "linkDuplexFrequencyTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "linkDuplexFreqEntry": {
+    "name": "linkDuplexFreqEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkDuplexFreqId",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "linkDuplexFreqId": {
+    "name": "linkDuplexFreqId",
+    "oid": "1.3.6.1.4.1.3373.1103.80.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkDuplexFreqValue": {
+    "name": "linkDuplexFreqValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "linkModulationTable": {
+    "name": "linkModulationTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.27",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkModulationEntry": {
+    "name": "linkModulationEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.27.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkChannelSpacing",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkChannelSpacing": {
+    "name": "linkChannelSpacing",
+    "oid": "1.3.6.1.4.1.3373.1103.80.27.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelSpacing",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkModulationMap": {
+    "name": "linkModulationMap",
+    "oid": "1.3.6.1.4.1.3373.1103.80.27.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkRefModulationMap": {
+    "name": "linkRefModulationMap",
+    "oid": "1.3.6.1.4.1.3373.1103.80.27.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ModulationMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioCapabilitiesTable": {
+    "name": "combinedRadioCapabilitiesTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.28",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "combinedRadioCapabilitiesEntry": {
+    "name": "combinedRadioCapabilitiesEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.28.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioSettingsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "combinedRadioCapabilitiesCapability": {
+    "name": "combinedRadioCapabilitiesCapability",
+    "oid": "1.3.6.1.4.1.3373.1103.80.28.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RadioCapability",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioCapabilitiesTxMinFrequency": {
+    "name": "combinedRadioCapabilitiesTxMinFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.28.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioCapabilitiesTxMaxFrequency": {
+    "name": "combinedRadioCapabilitiesTxMaxFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.28.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioCapabilitiesStepFrequency": {
+    "name": "combinedRadioCapabilitiesStepFrequency",
+    "oid": "1.3.6.1.4.1.3373.1103.80.28.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioCapabilitiesMinPtxNominalValue": {
+    "name": "combinedRadioCapabilitiesMinPtxNominalValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.28.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioCapabilitiesMaxPtxNominalValue": {
+    "name": "combinedRadioCapabilitiesMaxPtxNominalValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.28.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioCapabilitiesExtendedMinPwr": {
+    "name": "combinedRadioCapabilitiesExtendedMinPwr",
+    "oid": "1.3.6.1.4.1.3373.1103.80.28.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioFrequencyTable": {
+    "name": "combinedRadioFrequencyTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "combinedRadioFreqTabEntry": {
+    "name": "combinedRadioFreqTabEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioSettingsIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "combinedRadioFreqChannelId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "combinedRadioFreqChannelId": {
+    "name": "combinedRadioFreqChannelId",
+    "oid": "1.3.6.1.4.1.3373.1103.80.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioFreqChannelNum": {
+    "name": "combinedRadioFreqChannelNum",
+    "oid": "1.3.6.1.4.1.3373.1103.80.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioFreqValue": {
+    "name": "combinedRadioFreqValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.29.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioDuplexFrequencyTable": {
+    "name": "combinedRadioDuplexFrequencyTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "combinedRadioDuplexFreqEntry": {
+    "name": "combinedRadioDuplexFreqEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioSettingsIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "combinedRadioDuplexFreqId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "combinedRadioDuplexFreqId": {
+    "name": "combinedRadioDuplexFreqId",
+    "oid": "1.3.6.1.4.1.3373.1103.80.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioDuplexFreqValue": {
+    "name": "combinedRadioDuplexFreqValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioPowerScalingTable": {
+    "name": "combinedRadioPowerScalingTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "combinedRadioPowerScalingEntry": {
+    "name": "combinedRadioPowerScalingEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioSettingsIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkAcmProfileId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "combinedRadioPowerScaling": {
+    "name": "combinedRadioPowerScaling",
+    "oid": "1.3.6.1.4.1.3373.1103.80.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioAtpcRxPowerScaling": {
+    "name": "combinedRadioAtpcRxPowerScaling",
+    "oid": "1.3.6.1.4.1.3373.1103.80.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "combinedRadioPowerRange": {
+    "name": "combinedRadioPowerRange",
+    "oid": "1.3.6.1.4.1.3373.1103.80.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1BulkMappingTable": {
+    "name": "stm1BulkMappingTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.32",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "stm1BulkMappingEntry": {
+    "name": "stm1BulkMappingEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.32.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "stm1BulkPolIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "stm1BulkChanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "stm1BulkPolIndex": {
+    "name": "stm1BulkPolIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.32.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1BulkChanIndex": {
+    "name": "stm1BulkChanIndex",
+    "oid": "1.3.6.1.4.1.3373.1103.80.32.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "stm1BulkChannel": {
+    "name": "stm1BulkChannel",
+    "oid": "1.3.6.1.4.1.3373.1103.80.32.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Stm1IndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkE1vsSTM1CapacityTable": {
+    "name": "linkE1vsSTM1CapacityTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkE1vsSTM1CapacityEntry": {
+    "name": "linkE1vsSTM1CapacityEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkAcmProfileId",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkE1vsSTM1CapacityStm1",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkE1vsSTM1CapacityStm1": {
+    "name": "linkE1vsSTM1CapacityStm1",
+    "oid": "1.3.6.1.4.1.3373.1103.80.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkE1vsSTM1CapacityE1": {
+    "name": "linkE1vsSTM1CapacityE1",
+    "oid": "1.3.6.1.4.1.3373.1103.80.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkTfcV2Table": {
+    "name": "linkTfcV2Table",
+    "oid": "1.3.6.1.4.1.3373.1103.80.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkTfcV2Entry": {
+    "name": "linkTfcV2Entry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkPolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkTfcV2Action": {
+    "name": "linkTfcV2Action",
+    "oid": "1.3.6.1.4.1.3373.1103.80.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 0,
+          "reset": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkTfcV2Control": {
+    "name": "linkTfcV2Control",
+    "oid": "1.3.6.1.4.1.3373.1103.80.34.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkTfcV2WatchWindow": {
+    "name": "linkTfcV2WatchWindow",
+    "oid": "1.3.6.1.4.1.3373.1103.80.34.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkTfcV2AlarmThreshold": {
+    "name": "linkTfcV2AlarmThreshold",
+    "oid": "1.3.6.1.4.1.3373.1103.80.34.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkTfcV2Alarm": {
+    "name": "linkTfcV2Alarm",
+    "oid": "1.3.6.1.4.1.3373.1103.80.34.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkTfcV2RowStatus": {
+    "name": "linkTfcV2RowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.34.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkProV2Table": {
+    "name": "linkProV2Table",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkProV2Entry": {
+    "name": "linkProV2Entry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkPolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkProV2ProtectionTxChIdx": {
+    "name": "linkProV2ProtectionTxChIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkProV2ProtectionRxChIdx": {
+    "name": "linkProV2ProtectionRxChIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkProV2TxWtrTime": {
+    "name": "linkProV2TxWtrTime",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkProV2RxWtrTime": {
+    "name": "linkProV2RxWtrTime",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkProV2TxSwitchedChIdx": {
+    "name": "linkProV2TxSwitchedChIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkProV2RxSwitchedChIdx": {
+    "name": "linkProV2RxSwitchedChIdx",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkProV2TxRevertive": {
+    "name": "linkProV2TxRevertive",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkProV2RxRevertive": {
+    "name": "linkProV2RxRevertive",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkProV2ExtraTraffic": {
+    "name": "linkProV2ExtraTraffic",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkProV2RowStatus": {
+    "name": "linkProV2RowStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.35.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "linkProMaintV2Table": {
+    "name": "linkProMaintV2Table",
+    "oid": "1.3.6.1.4.1.3373.1103.80.36",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkProMaintV2Entry": {
+    "name": "linkProMaintV2Entry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.36.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkPolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkProMaintV2TxLockout": {
+    "name": "linkProMaintV2TxLockout",
+    "oid": "1.3.6.1.4.1.3373.1103.80.36.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkProMaintV2RxLockout": {
+    "name": "linkProMaintV2RxLockout",
+    "oid": "1.3.6.1.4.1.3373.1103.80.36.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkProMaintV2TxForced": {
+    "name": "linkProMaintV2TxForced",
+    "oid": "1.3.6.1.4.1.3373.1103.80.36.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkProMaintV2RxForced": {
+    "name": "linkProMaintV2RxForced",
+    "oid": "1.3.6.1.4.1.3373.1103.80.36.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkProMaintV2TxWtrReset": {
+    "name": "linkProMaintV2TxWtrReset",
+    "oid": "1.3.6.1.4.1.3373.1103.80.36.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notActive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkProMaintV2RxWtrReset": {
+    "name": "linkProMaintV2RxWtrReset",
+    "oid": "1.3.6.1.4.1.3373.1103.80.36.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notActive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sspTable": {
+    "name": "sspTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sspEntry": {
+    "name": "sspEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "linkPolIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "sspParameterType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sspParameterType": {
+    "name": "sspParameterType",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localAdminStatus": 1,
+          "localOperStatus": 2,
+          "remoteAdminStatus": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sspLinkBandwidth": {
+    "name": "sspLinkBandwidth",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sspBw3p5Mhz": 0,
+          "sspBw7MHz": 1,
+          "sspBw14MHz": 2,
+          "sspBw28MHz": 3,
+          "sspBw56MHz": 4,
+          "sspBw10MHz": 5,
+          "sspBw20MHz": 6,
+          "sspBw30MHz": 7,
+          "sspBw40MHz": 8,
+          "sspBw50MHz": 9,
+          "sspBw112Mhz": 10,
+          "sspBw250Mhz": 11,
+          "sspBw500Mhz": 12,
+          "sspBw750Mhz": 13,
+          "sspBw1Ghz": 14,
+          "sspBw60MHz": 15,
+          "sspBw80MHz": 16
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sspLinkModulation": {
+    "name": "sspLinkModulation",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sspModBPSK": 1,
+          "sspMod4QAM": 2,
+          "sspMod8PSK": 3,
+          "sspMod16QAM": 4,
+          "sspMod32QAM": 5,
+          "sspMod64QAM": 6,
+          "sspMod128QAM": 7,
+          "sspMod256QAM": 8,
+          "sspMod512QAM": 9,
+          "sspMod1024QAM": 10,
+          "sspMod2048QAM": 11,
+          "sspMod4096QAM": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sspLinkAcmEngineEnable": {
+    "name": "sspLinkAcmEngineEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sspLinkTxUpperProfile": {
+    "name": "sspLinkTxUpperProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sspLinkTxLowerProfile": {
+    "name": "sspLinkTxLowerProfile",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sspLinkSynchSetupProtocolEnable": {
+    "name": "sspLinkSynchSetupProtocolEnable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sspLinkProfilesSetSelection": {
+    "name": "sspLinkProfilesSetSelection",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "highThroughput": 1,
+          "highGain": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sspTdmE1Channel": {
+    "name": "sspTdmE1Channel",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sspTdmStm1Channel": {
+    "name": "sspTdmStm1Channel",
+    "oid": "1.3.6.1.4.1.3373.1103.80.37.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioLoopCapabilityTable": {
+    "name": "radioLoopCapabilityTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.38",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radioLoopCapabilityEntry": {
+    "name": "radioLoopCapabilityEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.38.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radioLoopRfGroup": {
+    "name": "radioLoopRfGroup",
+    "oid": "1.3.6.1.4.1.3373.1103.80.38.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioLoopIqGroup": {
+    "name": "radioLoopIqGroup",
+    "oid": "1.3.6.1.4.1.3373.1103.80.38.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioLoopBaseBandGroup": {
+    "name": "radioLoopBaseBandGroup",
+    "oid": "1.3.6.1.4.1.3373.1103.80.38.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRxBerThresholdTable": {
+    "name": "radioRxBerThresholdTable",
+    "oid": "1.3.6.1.4.1.3373.1103.80.39",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "radioRxBerThresholdEntry": {
+    "name": "radioRxBerThresholdEntry",
+    "oid": "1.3.6.1.4.1.3373.1103.80.39.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "radioRxBerThresholdStatus": {
+    "name": "radioRxBerThresholdStatus",
+    "oid": "1.3.6.1.4.1.3373.1103.80.39.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nonValid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioNominalRxBerThreshold": {
+    "name": "radioNominalRxBerThreshold",
+    "oid": "1.3.6.1.4.1.3373.1103.80.39.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioMeasuredRxBerThreshold": {
+    "name": "radioMeasuredRxBerThreshold",
+    "oid": "1.3.6.1.4.1.3373.1103.80.39.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "radioRemDemodulatorFailAlarmSeverityCode": {
+    "name": "radioRemDemodulatorFailAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioRxActiveStatusTrapNotification": {
+    "name": "radioRxActiveStatusTrapNotification",
+    "oid": "1.3.6.1.4.1.3373.1103.80.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapDisable": 1,
+          "trapEnable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "trapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioTxActiveStatusTrapNotification": {
+    "name": "radioTxActiveStatusTrapNotification",
+    "oid": "1.3.6.1.4.1.3373.1103.80.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapDisable": 1,
+          "trapEnable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "trapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioCableOpenAlarmSeverityCode": {
+    "name": "radioCableOpenAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioCableShortAlarmSeverityCode": {
+    "name": "radioCableShortAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioInvalidFrequencyAlarmSeverityCode": {
+    "name": "radioInvalidFrequencyAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioBaseBandRxAlarmSeverityCode": {
+    "name": "radioBaseBandRxAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioModulatorFailAlarmSeverityCode": {
+    "name": "radioModulatorFailAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioDemodulatorFailAlarmSeverityCode": {
+    "name": "radioDemodulatorFailAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioRxPowerLowAlarmSeverityCode": {
+    "name": "radioRxPowerLowAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioTxPowerLowAlarmSeverityCode": {
+    "name": "radioTxPowerLowAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioVcoFailAlarmSeverityCode": {
+    "name": "radioVcoFailAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioRxIFAgcAlarmSeverityCode": {
+    "name": "radioRxIFAgcAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioTxIFAgcAlarmSeverityCode": {
+    "name": "radioTxIFAgcAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioIduOduCommunicationAlarmSeverityCode": {
+    "name": "radioIduOduCommunicationAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioOduIduCommunicationAlarmSeverityCode": {
+    "name": "radioOduIduCommunicationAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioLocalOduAlarmSynthesisSeverityCode": {
+    "name": "radioLocalOduAlarmSynthesisSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "statusTrapDisable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioRemoteOduAlarmSynthesisSeverityCode": {
+    "name": "radioRemoteOduAlarmSynthesisSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "statusTrapDisable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioConfigMismatchAlarmSeverityCode": {
+    "name": "radioConfigMismatchAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioPrxHysteresisValue": {
+    "name": "radioPrxHysteresisValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioPtxHysteresisValue": {
+    "name": "radioPtxHysteresisValue",
+    "oid": "1.3.6.1.4.1.3373.1103.80.70",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioPrxHysteresisValueTrapNotification": {
+    "name": "radioPrxHysteresisValueTrapNotification",
+    "oid": "1.3.6.1.4.1.3373.1103.80.71",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapDisable": 1,
+          "trapEnable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "trapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioPtxHysteresisValueTrapNotification": {
+    "name": "radioPtxHysteresisValueTrapNotification",
+    "oid": "1.3.6.1.4.1.3373.1103.80.72",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapDisable": 1,
+          "trapEnable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "trapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioRxQualityLowAlarmSeverityCode": {
+    "name": "radioRxQualityLowAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.73",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioRxQualityWarningAlarmSeverityCode": {
+    "name": "radioRxQualityWarningAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.74",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkReducedCapacityAlarmSeverityCode": {
+    "name": "linkReducedCapacityAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.75",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkLinkTelemetryFailAlarmSeverityCode": {
+    "name": "linkLinkTelemetryFailAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.76",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkIdMismatchAlarmSeverityCode": {
+    "name": "linkIdMismatchAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkRadioEocAlarmSeverityCode": {
+    "name": "linkRadioEocAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkSetupMismatchAlarmSeverityCode": {
+    "name": "linkSetupMismatchAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "warningTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkRescueSetupAlarmSeverityCode": {
+    "name": "linkRescueSetupAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.80",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "criticalTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkXpicProcedureBlockAlarmSeverityCode": {
+    "name": "linkXpicProcedureBlockAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.81",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkXpicRemTxOffAlarmAlarmSeverityCode": {
+    "name": "linkXpicRemTxOffAlarmAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.82",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkLocalIduAlarmSynthesis": {
+    "name": "linkLocalIduAlarmSynthesis",
+    "oid": "1.3.6.1.4.1.3373.1103.80.83",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkLocalIduAlarmSynthesisSeverityCode": {
+    "name": "linkLocalIduAlarmSynthesisSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.84",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "statusTrapDisable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkRemoteIduAlarmSynthesisSeverityCode": {
+    "name": "linkRemoteIduAlarmSynthesisSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.85",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "statusTrapDisable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkTfcAlarmSeverityCode": {
+    "name": "linkTfcAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.86",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "minorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkBerSyncLossAlarmSeverityCode": {
+    "name": "linkBerSyncLossAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.87",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkNotMatchingRadiosAlarmSeverityCode": {
+    "name": "linkNotMatchingRadiosAlarmSeverityCode",
+    "oid": "1.3.6.1.4.1.3373.1103.80.88",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AlarmSeverityCode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "majorTrapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "channelSpacingSelection": {
+    "name": "channelSpacingSelection",
+    "oid": "1.3.6.1.4.1.3373.1103.80.89",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "etsi": 0,
+        "fcc": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "etsi": 0,
+          "fcc": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "fadeMarginMeasure": {
+    "name": "fadeMarginMeasure",
+    "oid": "1.3.6.1.4.1.3373.1103.80.90",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "linkConfigurationInProgressTrapNotification": {
+    "name": "linkConfigurationInProgressTrapNotification",
+    "oid": "1.3.6.1.4.1.3373.1103.80.91",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trapDisable": 1,
+          "trapEnable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "trapEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "radioPrxChange": {
+    "name": "radioPrxChange",
+    "oid": "1.3.6.1.4.1.3373.1103.0.8001",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SIAE-EQUIP-MIB",
+        "object": "equipIpSnmpAgentAddress"
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex"
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioSettingsLabel"
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioPrx"
+      }
+    ],
+    "status": "current"
+  },
+  "radioPtxChange": {
+    "name": "radioPtxChange",
+    "oid": "1.3.6.1.4.1.3373.1103.0.8002",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SIAE-EQUIP-MIB",
+        "object": "equipIpSnmpAgentAddress"
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioIndex"
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioSettingsLabel"
+      },
+      {
+        "module": "SIAE-RADIO-SYSTEM-MIB",
+        "object": "radioPtx"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-RADIO-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SIAE-RADIO-SYSTEM-MIB"
+  }
+}

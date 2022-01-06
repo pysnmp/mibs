@@ -1,0 +1,876 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "enterprises",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "PhysAddress": {
+    "name": "PhysAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "wipipe": {
+    "name": "wipipe",
+    "oid": "1.3.6.1.4.1.20992",
+    "class": "objectidentity"
+  },
+  "wipipeMgmt": {
+    "name": "wipipeMgmt",
+    "oid": "1.3.6.1.4.1.20992.1",
+    "class": "objectidentity"
+  },
+  "wipipeProd": {
+    "name": "wipipeProd",
+    "oid": "1.3.6.1.4.1.20992.2",
+    "class": "objectidentity"
+  },
+  "mbr1000": {
+    "name": "mbr1000",
+    "oid": "1.3.6.1.4.1.20992.2.1",
+    "class": "objectidentity"
+  },
+  "ctr500": {
+    "name": "ctr500",
+    "oid": "1.3.6.1.4.1.20992.2.2",
+    "class": "objectidentity"
+  },
+  "mbr800": {
+    "name": "mbr800",
+    "oid": "1.3.6.1.4.1.20992.2.3",
+    "class": "objectidentity"
+  },
+  "mbr1100": {
+    "name": "mbr1100",
+    "oid": "1.3.6.1.4.1.20992.2.4",
+    "class": "objectidentity"
+  },
+  "mbr1200": {
+    "name": "mbr1200",
+    "oid": "1.3.6.1.4.1.20992.2.5",
+    "class": "objectidentity"
+  },
+  "mbr900": {
+    "name": "mbr900",
+    "oid": "1.3.6.1.4.1.20992.2.6",
+    "class": "objectidentity"
+  },
+  "cba250": {
+    "name": "cba250",
+    "oid": "1.3.6.1.4.1.20992.2.7",
+    "class": "objectidentity"
+  },
+  "cba750": {
+    "name": "cba750",
+    "oid": "1.3.6.1.4.1.20992.2.8",
+    "class": "objectidentity"
+  },
+  "cx111": {
+    "name": "cx111",
+    "oid": "1.3.6.1.4.1.20992.2.9",
+    "class": "objectidentity"
+  },
+  "mbr1400": {
+    "name": "mbr1400",
+    "oid": "1.3.6.1.4.1.20992.2.10",
+    "class": "objectidentity"
+  },
+  "mbr1200b": {
+    "name": "mbr1200b",
+    "oid": "1.3.6.1.4.1.20992.2.11",
+    "class": "objectidentity"
+  },
+  "cbr400": {
+    "name": "cbr400",
+    "oid": "1.3.6.1.4.1.20992.2.12",
+    "class": "objectidentity"
+  },
+  "cbr450": {
+    "name": "cbr450",
+    "oid": "1.3.6.1.4.1.20992.2.13",
+    "class": "objectidentity"
+  },
+  "ibr600": {
+    "name": "ibr600",
+    "oid": "1.3.6.1.4.1.20992.2.14",
+    "class": "objectidentity"
+  },
+  "ibr650": {
+    "name": "ibr650",
+    "oid": "1.3.6.1.4.1.20992.2.15",
+    "class": "objectidentity"
+  },
+  "mbr1400v2": {
+    "name": "mbr1400v2",
+    "oid": "1.3.6.1.4.1.20992.2.16",
+    "class": "objectidentity"
+  },
+  "cba750b": {
+    "name": "cba750b",
+    "oid": "1.3.6.1.4.1.20992.2.17",
+    "class": "objectidentity"
+  },
+  "aer2100": {
+    "name": "aer2100",
+    "oid": "1.3.6.1.4.1.20992.2.18",
+    "class": "objectidentity"
+  },
+  "ibr1150": {
+    "name": "ibr1150",
+    "oid": "1.3.6.1.4.1.20992.2.19",
+    "class": "objectidentity"
+  },
+  "ibr1100": {
+    "name": "ibr1100",
+    "oid": "1.3.6.1.4.1.20992.2.20",
+    "class": "objectidentity"
+  },
+  "cba850": {
+    "name": "cba850",
+    "oid": "1.3.6.1.4.1.20992.2.21",
+    "class": "objectidentity"
+  },
+  "ibr350": {
+    "name": "ibr350",
+    "oid": "1.3.6.1.4.1.20992.2.22",
+    "class": "objectidentity"
+  },
+  "aer3100": {
+    "name": "aer3100",
+    "oid": "1.3.6.1.4.1.20992.2.23",
+    "class": "objectidentity"
+  },
+  "aer1600": {
+    "name": "aer1600",
+    "oid": "1.3.6.1.4.1.20992.2.24",
+    "class": "objectidentity"
+  },
+  "ibr650b": {
+    "name": "ibr650b",
+    "oid": "1.3.6.1.4.1.20992.2.25",
+    "class": "objectidentity"
+  },
+  "aer3150": {
+    "name": "aer3150",
+    "oid": "1.3.6.1.4.1.20992.2.26",
+    "class": "objectidentity"
+  },
+  "aer1650": {
+    "name": "aer1650",
+    "oid": "1.3.6.1.4.1.20992.2.27",
+    "class": "objectidentity"
+  },
+  "aer2150": {
+    "name": "aer2150",
+    "oid": "1.3.6.1.4.1.20992.2.28",
+    "class": "objectidentity"
+  },
+  "ibr600b": {
+    "name": "ibr600b",
+    "oid": "1.3.6.1.4.1.20992.2.29",
+    "class": "objectidentity"
+  },
+  "ibr950": {
+    "name": "ibr950",
+    "oid": "1.3.6.1.4.1.20992.2.30",
+    "class": "objectidentity"
+  },
+  "ibr900": {
+    "name": "ibr900",
+    "oid": "1.3.6.1.4.1.20992.2.31",
+    "class": "objectidentity"
+  },
+  "wipipeDevice": {
+    "name": "wipipeDevice",
+    "oid": "1.3.6.1.4.1.20992.1.1",
+    "class": "objectidentity"
+  },
+  "wipipeCellMdm": {
+    "name": "wipipeCellMdm",
+    "oid": "1.3.6.1.4.1.20992.1.2",
+    "class": "objectidentity"
+  },
+  "devFWVersion": {
+    "name": "devFWVersion",
+    "oid": "1.3.6.1.4.1.20992.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "devFWUpgrade": {
+    "name": "devFWUpgrade",
+    "oid": "1.3.6.1.4.1.20992.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "auto": 2,
+          "manual": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "devFWUpgradeURL": {
+    "name": "devFWUpgradeURL",
+    "oid": "1.3.6.1.4.1.20992.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "devFWUpgradeStatus": {
+    "name": "devFWUpgradeStatus",
+    "oid": "1.3.6.1.4.1.20992.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "upgrading": 2,
+          "uptodate": 3,
+          "updateAvail": 4,
+          "failure": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "devGpioConfigInput": {
+    "name": "devGpioConfigInput",
+    "oid": "1.3.6.1.4.1.20992.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "input": 2,
+          "reboot": 3,
+          "ignitionSensing": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "devGpioReadInput": {
+    "name": "devGpioReadInput",
+    "oid": "1.3.6.1.4.1.20992.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "devGpioConfigOutput": {
+    "name": "devGpioConfigOutput",
+    "oid": "1.3.6.1.4.1.20992.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 1,
+          "high": 2,
+          "routerRunning": 3,
+          "modemConnected": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "devGpioReadOutput": {
+    "name": "devGpioReadOutput",
+    "oid": "1.3.6.1.4.1.20992.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmNumber": {
+    "name": "mdmNumber",
+    "oid": "1.3.6.1.4.1.20992.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmTable": {
+    "name": "mdmTable",
+    "oid": "1.3.6.1.4.1.20992.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "mdmEntry": {
+    "name": "mdmEntry",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WIPIPE-MIB",
+        "object": "mdmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mdmIndex": {
+    "name": "mdmIndex",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmDescr": {
+    "name": "mdmDescr",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmPort": {
+    "name": "mdmPort",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmSignalStrength": {
+    "name": "mdmSignalStrength",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -120,
+            "max": -30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmStatus": {
+    "name": "mdmStatus",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "established": 1,
+          "establishing": 2,
+          "ready": 3,
+          "error": 4,
+          "disconnected": 5,
+          "disconnecting": 6,
+          "suspended": 7,
+          "empty": 8,
+          "notconfigured": 9,
+          "userstopped": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmECIO": {
+    "name": "mdmECIO",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -120,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmSerialNumber": {
+    "name": "mdmSerialNumber",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmFirmwareVersion": {
+    "name": "mdmFirmwareVersion",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmMDN": {
+    "name": "mdmMDN",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmSERDIS": {
+    "name": "mdmSERDIS",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmPROF": {
+    "name": "mdmPROF",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmCINR": {
+    "name": "mdmCINR",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -120,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmSINR": {
+    "name": "mdmSINR",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -20,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmRSRP": {
+    "name": "mdmRSRP",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -120,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmRSRQ": {
+    "name": "mdmRSRQ",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -120,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmROAM": {
+    "name": "mdmROAM",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmRFBAND": {
+    "name": "mdmRFBAND",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmHOMECARRIER": {
+    "name": "mdmHOMECARRIER",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmIMSI": {
+    "name": "mdmIMSI",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmIMEI": {
+    "name": "mdmIMEI",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmAPN": {
+    "name": "mdmAPN",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mdmRFCHANNEL": {
+    "name": "mdmRFCHANNEL",
+    "oid": "1.3.6.1.4.1.20992.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cradlepoint/WIPIPE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:09 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WIPIPE-MIB"
+  }
+}

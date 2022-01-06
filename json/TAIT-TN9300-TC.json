@@ -1,0 +1,418 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "TAIT-COMMON-MIB": [
+      "taitModules"
+    ]
+  },
+  "taittn9300TC": {
+    "name": "taittn9300TC",
+    "oid": "1.3.6.1.4.1.3570.1.1.11.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-12-04 12:00",
+        "description": "Defined the EventSeverity, LicenseValidity, UnitAuthentication, and RemoteNodeSyncState textual conventions."
+      },
+      {
+        "revision": "2018-07-17 10:05",
+        "description": "Changed to Tait International Limited"
+      },
+      {
+        "revision": "2018-03-18 22:03",
+        "description": "Changed naming on new terminal alarm definitions to camel case."
+      },
+      {
+        "revision": "2017-03-16 01:23",
+        "description": "Fixed syntax on new terminal alarm definitions."
+      },
+      {
+        "revision": "2016-08-22 12:00",
+        "description": "Added 3 Terminal alarm descriptions"
+      },
+      {
+        "revision": "2015-10-30 12:00",
+        "description": "Changed some descriptions"
+      },
+      {
+        "revision": "2015-03-17 22:08",
+        "description": "added UnitStatusMessageId enum"
+      },
+      {
+        "revision": "2012-06-27 09:02",
+        "description": "Changed type of the syscode value to string"
+      },
+      {
+        "revision": "2012-05-28 23:17",
+        "description": "Version 1.00.01 Status [under review]"
+      }
+    ]
+  },
+  "NodeRequestedState": {
+    "name": "NodeRequestedState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "offline": 1,
+          "program": 2,
+          "online": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NodeState": {
+    "name": "NodeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "offline": 1,
+          "program": 2,
+          "switching": 3,
+          "control": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NetworkCheckState": {
+    "name": "NetworkCheckState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 0,
+          "ok": 1,
+          "failed": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ChannelState": {
+    "name": "ChannelState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "disabled": 1,
+          "idle": 2,
+          "control": 3,
+          "traffic": 4,
+          "data": 5,
+          "failed": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SipLineRegistrationType": {
+    "name": "SipLineRegistrationType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "inbound": 1,
+          "outbound": 2,
+          "ais": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SipLineIncomingType": {
+    "name": "SipLineIncomingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "pstni": 1,
+          "pabxi": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SipCallSpeechVotingPriority": {
+    "name": "SipCallSpeechVotingPriority",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "normal": 1,
+          "override": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "SipLineState": {
+    "name": "SipLineState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "disabled": 1,
+          "up": 2,
+          "down": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DipLineState": {
+    "name": "DipLineState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "unconfigured": 1,
+          "idle": 2,
+          "active": 3,
+          "failed": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NgwLinkState": {
+    "name": "NgwLinkState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ok": 1,
+          "failed": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mpt1327LinkState": {
+    "name": "Mpt1327LinkState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "ok": 1,
+          "failed": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Mpt1327ChannelState": {
+    "name": "Mpt1327ChannelState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "idle": 1,
+          "traffic": 2,
+          "control": 3,
+          "failed": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RemoteNodeState": {
+    "name": "RemoteNodeState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "offline": 1,
+          "program": 2,
+          "switching": 3,
+          "control": 4,
+          "failed": 5,
+          "gracefulShutdown": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UnitStatusMessageId": {
+    "name": "UnitStatusMessageId",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearAll": 0,
+          "pppLinkToMpcDown": 1,
+          "gpsSignalLost": 2,
+          "gpsSignalRegainedAfterLoss": 3,
+          "terminalAntennaConnectionFailureVswrOutOfRange": 4,
+          "terminalSupplyVoltageOutOfRange": 5,
+          "radioTemperatureT0NormalRange": 6,
+          "radioTemperatureT1OverTemp": 7,
+          "radioTemperatureT2OverTemp": 8,
+          "radioTemperatureT3OverTemp": 9,
+          "terminalLossOfService": 10,
+          "radioFrequencyOutOfLockServiceRegained": 11,
+          "mcpConfigurationError": 12,
+          "terminalAntennaConnectionGood": 13,
+          "terminalUnsolicitedReset": 14,
+          "terminalGainedService": 15,
+          "unknown": 128
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EventSeverity": {
+    "name": "EventSeverity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "minor": 1,
+          "major": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LicenseValidity": {
+    "name": "LicenseValidity",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 0,
+          "fileNotFound": 1,
+          "invalidHostId": 2,
+          "invalidProductCode": 3,
+          "invalidVersion": 4,
+          "invalidExpiryDate": 5,
+          "expired": 6,
+          "corruptSignature": 7,
+          "conflictingFeatures": 8,
+          "invalidTierMode": 9,
+          "invalidLicenseFormat": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "UnitAuthentication": {
+    "name": "UnitAuthentication",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notPolled": 0,
+          "polling": 1,
+          "notHome": 2,
+          "busy": 3,
+          "badAuthentication": 4,
+          "badCrcReceived": 5,
+          "goodAuthenticationReceived": 6,
+          "rejected": 7,
+          "notRegistered": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RemoteNodeSyncState": {
+    "name": "RemoteNodeSyncState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 0,
+          "failed": 1,
+          "unknown": 2,
+          "none": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/tait/TAIT-TN9300-TC",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TAIT-TN9300-TC"
+  }
+}

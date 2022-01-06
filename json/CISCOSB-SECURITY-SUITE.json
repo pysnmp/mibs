@@ -1,0 +1,739 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001",
+      "Percents"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "Q-BRIDGE-MIB": [
+      "PortList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "RowPointer",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlSecuritySuiteMib": {
+    "name": "rlSecuritySuiteMib",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-09 00:00",
+        "description": "Add per port dos attack table suport rlSecuritySuiteDenyTypesTable ,rlSecuritySuiteDoSSynAttackTable."
+      }
+    ]
+  },
+  "RlsecuritySuiteGlobalEnableType": {
+    "name": "RlsecuritySuiteGlobalEnableType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable-global-rules-only": 1,
+          "enable-all-rules-types": 2,
+          "disable": 3,
+          "enable-interface-rules-only": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecuritySuiteKnownDosAttackType": {
+    "name": "RlSecuritySuiteKnownDosAttackType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stacheldraht": 1,
+          "invasor-Trojan": 2,
+          "back-orifice-Trojan": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecuritySuiteKnownDosAttackProtocolType": {
+    "name": "RlSecuritySuiteKnownDosAttackProtocolType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcp": 1,
+          "upd": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecuritySuiteAllMartianEntryType": {
+    "name": "RlSecuritySuiteAllMartianEntryType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reserved": 1,
+          "static": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecuritySuiteDenyAttackType": {
+    "name": "RlSecuritySuiteDenyAttackType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "syn": 1,
+          "icmp-echo-request": 2,
+          "fragmented": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecuritySuiteDenySynFinTcp": {
+    "name": "RlSecuritySuiteDenySynFinTcp",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 1,
+          "permit": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecuritySuiteSynProtectionMode": {
+    "name": "RlSecuritySuiteSynProtectionMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "report": 2,
+          "block": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RlSecuritySuiteSynProtectionPortMode": {
+    "name": "RlSecuritySuiteSynProtectionPortMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "attacked": 2,
+          "blocked": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlSecuritySuiteGlobalEnable": {
+    "name": "rlSecuritySuiteGlobalEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlsecuritySuiteGlobalEnableType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecuritySuiteKnownDoSAttacksTable": {
+    "name": "rlSecuritySuiteKnownDoSAttacksTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteKnownDoSAttacksEntry": {
+    "name": "rlSecuritySuiteKnownDoSAttacksEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteKnownDoSAttack",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSecuritySuiteKnownDoSAttack": {
+    "name": "rlSecuritySuiteKnownDoSAttack",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecuritySuiteKnownDosAttackType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteKnownDoSAttackEnable": {
+    "name": "rlSecuritySuiteKnownDoSAttackEnable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecuritySuiteKnownDoSAttacksDetailsTable": {
+    "name": "rlSecuritySuiteKnownDoSAttacksDetailsTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteKnownDoSAttacksDetailsEntry": {
+    "name": "rlSecuritySuiteKnownDoSAttacksDetailsEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteKnownDoSAttack",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSecuritySuiteKnownDoSAttackProtocl": {
+    "name": "rlSecuritySuiteKnownDoSAttackProtocl",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecuritySuiteKnownDosAttackProtocolType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecuritySuiteKnownDoSAttackSrcTcpUdpPort": {
+    "name": "rlSecuritySuiteKnownDoSAttackSrcTcpUdpPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecuritySuiteKnownDoSAttackDestTcpUdpPort": {
+    "name": "rlSecuritySuiteKnownDoSAttackDestTcpUdpPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecuritySuiteReservedMartianAddresses": {
+    "name": "rlSecuritySuiteReservedMartianAddresses",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecuritySuiteMartianAddrAllTable": {
+    "name": "rlSecuritySuiteMartianAddrAllTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteMartianAddrAllEntry": {
+    "name": "rlSecuritySuiteMartianAddrAllEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteMartianAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteMartianAddrNetMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSecuritySuiteMartianAddr": {
+    "name": "rlSecuritySuiteMartianAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteMartianAddrNetMask": {
+    "name": "rlSecuritySuiteMartianAddrNetMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteAllMartianEntryType": {
+    "name": "rlSecuritySuiteAllMartianEntryType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecuritySuiteAllMartianEntryType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecuritySuiteMartianAddrTable": {
+    "name": "rlSecuritySuiteMartianAddrTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteMartianAddrEntry": {
+    "name": "rlSecuritySuiteMartianAddrEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteMartianAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteMartianAddrNetMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSecuritySuiteMartianAddrStatus": {
+    "name": "rlSecuritySuiteMartianAddrStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSecuritySuiteDoSSynAttackTable": {
+    "name": "rlSecuritySuiteDoSSynAttackTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteDoSSynAttackEntry": {
+    "name": "rlSecuritySuiteDoSSynAttackEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteDoSSynAttackIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteDoSSynAttackAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteDoSSynAttackNetMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSecuritySuiteDoSSynAttackIfIndex": {
+    "name": "rlSecuritySuiteDoSSynAttackIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteDoSSynAttackAddr": {
+    "name": "rlSecuritySuiteDoSSynAttackAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteDoSSynAttackNetMask": {
+    "name": "rlSecuritySuiteDoSSynAttackNetMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteDoSSynAttackSynRate": {
+    "name": "rlSecuritySuiteDoSSynAttackSynRate",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSecuritySuiteDoSSynAttackStatus": {
+    "name": "rlSecuritySuiteDoSSynAttackStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSecuritySuiteDenyTypesTable": {
+    "name": "rlSecuritySuiteDenyTypesTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteDenyTypesEntry": {
+    "name": "rlSecuritySuiteDenyTypesEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteDenyIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteDenyAttackType",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteDenyDestAddr",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteDenyNetMask",
+        "implied": 0
+      },
+      {
+        "module": "CISCOSB-SECURITY-SUITE",
+        "object": "rlSecuritySuiteDenyDestPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSecuritySuiteDenyIfIndex": {
+    "name": "rlSecuritySuiteDenyIfIndex",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteDenyAttackType": {
+    "name": "rlSecuritySuiteDenyAttackType",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecuritySuiteDenyAttackType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteDenyDestAddr": {
+    "name": "rlSecuritySuiteDenyDestAddr",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteDenyNetMask": {
+    "name": "rlSecuritySuiteDenyNetMask",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteDenyDestPort": {
+    "name": "rlSecuritySuiteDenyDestPort",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteDenyStatus": {
+    "name": "rlSecuritySuiteDenyStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlSecuritySuiteDenySynFinTcp": {
+    "name": "rlSecuritySuiteDenySynFinTcp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecuritySuiteDenySynFinTcp",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecuritySuiteSynProtectionMode": {
+    "name": "rlSecuritySuiteSynProtectionMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecuritySuiteSynProtectionMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecuritySuiteSynProtectionTreshold": {
+    "name": "rlSecuritySuiteSynProtectionTreshold",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecuritySuiteSynProtectionRecoveryTimeout": {
+    "name": "rlSecuritySuiteSynProtectionRecoveryTimeout",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlSecuritySuiteSynProtectionPortTable": {
+    "name": "rlSecuritySuiteSynProtectionPortTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlSecuritySuiteSynProtectionPortEntry": {
+    "name": "rlSecuritySuiteSynProtectionPortEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlSecuritySuiteSynProtectionPortMode": {
+    "name": "rlSecuritySuiteSynProtectionPortMode",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecuritySuiteSynProtectionPortMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecuritySuiteSynProtectionPortModeLastTimeAttack": {
+    "name": "rlSecuritySuiteSynProtectionPortModeLastTimeAttack",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RlSecuritySuiteSynProtectionPortMode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlSecuritySuiteSynProtectionPortLastTimeAttack": {
+    "name": "rlSecuritySuiteSynProtectionPortLastTimeAttack",
+    "oid": "1.3.6.1.4.1.9.6.1.101.120.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-SECURITY-SUITE",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-SECURITY-SUITE"
+  }
+}

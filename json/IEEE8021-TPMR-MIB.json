@@ -1,0 +1,945 @@
+{
+  "imports": {
+    "class": "imports",
+    "IEEE8021-BRIDGE-MIB": [
+      "ieee8021BridgeBasePortComponentId"
+    ],
+    "IEEE8021-TC-MIB": [
+      "IEEE8021BridgePortNumber",
+      "ieee802dot1mibs"
+    ],
+    "IF-MIB": [
+      "ifCounterDiscontinuityGroup"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType"
+    ]
+  },
+  "ieee8021TpmrMib": {
+    "name": "ieee8021TpmrMib",
+    "oid": "1.3.111.2.802.1.1.14",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-06-28 00:00",
+        "description": "Published as part of IEEE Std 802.1Q-2018. Cross references updated and corrected."
+      },
+      {
+        "revision": "2014-12-15 00:00",
+        "description": "Published as part of IEEE Std 802.1Q 2014 revision. Cross references updated and corrected."
+      },
+      {
+        "revision": "2011-02-27 00:00",
+        "description": "Minor edits to contact information etc. as part of 2011 revision of IEEE Std 802.1Q."
+      },
+      {
+        "revision": "2009-09-04 00:00",
+        "description": "Initial version as published in IEEE Std 802.1aj"
+      }
+    ]
+  },
+  "ieee8021TpmrNotifications": {
+    "name": "ieee8021TpmrNotifications",
+    "oid": "1.3.111.2.802.1.1.14.0",
+    "class": "objectidentity"
+  },
+  "ieee8021TpmrObjects": {
+    "name": "ieee8021TpmrObjects",
+    "oid": "1.3.111.2.802.1.1.14.1",
+    "class": "objectidentity"
+  },
+  "ieee8021TpmrConformance": {
+    "name": "ieee8021TpmrConformance",
+    "oid": "1.3.111.2.802.1.1.14.2",
+    "class": "objectidentity"
+  },
+  "IEEE8021TpmrFrameDiscardErrorReason": {
+    "name": "IEEE8021TpmrFrameDiscardErrorReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "txSduSizeExceeded": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ieee8021TpmrPortTable": {
+    "name": "ieee8021TpmrPortTable",
+    "oid": "1.3.111.2.802.1.1.14.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021TpmrPortEntry": {
+    "name": "ieee8021TpmrPortEntry",
+    "oid": "1.3.111.2.802.1.1.14.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021TpmrPortNumber": {
+    "name": "ieee8021TpmrPortNumber",
+    "oid": "1.3.111.2.802.1.1.14.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021BridgePortNumber",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021TpmrPortMgmtAddr": {
+    "name": "ieee8021TpmrPortMgmtAddr",
+    "oid": "1.3.111.2.802.1.1.14.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrPortMgmtAddrForwarding": {
+    "name": "ieee8021TpmrPortMgmtAddrForwarding",
+    "oid": "1.3.111.2.802.1.1.14.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrPortStatsTable": {
+    "name": "ieee8021TpmrPortStatsTable",
+    "oid": "1.3.111.2.802.1.1.14.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021TpmrPortStatsEntry": {
+    "name": "ieee8021TpmrPortStatsEntry",
+    "oid": "1.3.111.2.802.1.1.14.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ieee8021TpmrPortStatsEntry",
+      "module": "IEEE8021-TPMR-MIB",
+      "object": "ieee8021TpmrPortEntry"
+    },
+    "status": "current"
+  },
+  "ieee8021TpmrPortStatsRxFrames": {
+    "name": "ieee8021TpmrPortStatsRxFrames",
+    "oid": "1.3.111.2.802.1.1.14.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrPortStatsRxOctets": {
+    "name": "ieee8021TpmrPortStatsRxOctets",
+    "oid": "1.3.111.2.802.1.1.14.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrPortStatsFramesForwarded": {
+    "name": "ieee8021TpmrPortStatsFramesForwarded",
+    "oid": "1.3.111.2.802.1.1.14.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrPortStatsFramesDiscarded": {
+    "name": "ieee8021TpmrPortStatsFramesDiscarded",
+    "oid": "1.3.111.2.802.1.1.14.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrPortStatsFramesDiscardedQueueFull": {
+    "name": "ieee8021TpmrPortStatsFramesDiscardedQueueFull",
+    "oid": "1.3.111.2.802.1.1.14.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrPortStatsFramesDiscardedLifetime": {
+    "name": "ieee8021TpmrPortStatsFramesDiscardedLifetime",
+    "oid": "1.3.111.2.802.1.1.14.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrPortStatsFramesDiscardedError": {
+    "name": "ieee8021TpmrPortStatsFramesDiscardedError",
+    "oid": "1.3.111.2.802.1.1.14.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrPortDiscardDetailsTable": {
+    "name": "ieee8021TpmrPortDiscardDetailsTable",
+    "oid": "1.3.111.2.802.1.1.14.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021TpmrPortDiscardDetailsEntry": {
+    "name": "ieee8021TpmrPortDiscardDetailsEntry",
+    "oid": "1.3.111.2.802.1.1.14.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IEEE8021-BRIDGE-MIB",
+        "object": "ieee8021BridgeBasePortComponentId",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortNumber",
+        "implied": 0
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortDiscardDetailsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021TpmrPortDiscardDetailsIndex": {
+    "name": "ieee8021TpmrPortDiscardDetailsIndex",
+    "oid": "1.3.111.2.802.1.1.14.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021TpmrPortDiscardDetailsSource": {
+    "name": "ieee8021TpmrPortDiscardDetailsSource",
+    "oid": "1.3.111.2.802.1.1.14.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrPortDiscardDetailsReason": {
+    "name": "ieee8021TpmrPortDiscardDetailsReason",
+    "oid": "1.3.111.2.802.1.1.14.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021TpmrFrameDiscardErrorReason",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspTable": {
+    "name": "ieee8021TpmrMspTable",
+    "oid": "1.3.111.2.802.1.1.14.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021TpmrMspEntry": {
+    "name": "ieee8021TpmrMspEntry",
+    "oid": "1.3.111.2.802.1.1.14.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ieee8021TpmrMspEntry",
+      "module": "IEEE8021-TPMR-MIB",
+      "object": "ieee8021TpmrPortEntry"
+    },
+    "status": "current"
+  },
+  "ieee8021TpmrMspLinkNotify": {
+    "name": "ieee8021TpmrMspLinkNotify",
+    "oid": "1.3.111.2.802.1.1.14.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021TpmrMspLinkNotifyWait": {
+    "name": "ieee8021TpmrMspLinkNotifyWait",
+    "oid": "1.3.111.2.802.1.1.14.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 20,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "centiseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021TpmrMspLinkNotifyRetry": {
+    "name": "ieee8021TpmrMspLinkNotifyRetry",
+    "oid": "1.3.111.2.802.1.1.14.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "centiseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021TpmrMspMacNotify": {
+    "name": "ieee8021TpmrMspMacNotify",
+    "oid": "1.3.111.2.802.1.1.14.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021TpmrMspMacNotifyTime": {
+    "name": "ieee8021TpmrMspMacNotifyTime",
+    "oid": "1.3.111.2.802.1.1.14.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "centiseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021TpmrMspMacRecoverTime": {
+    "name": "ieee8021TpmrMspMacRecoverTime",
+    "oid": "1.3.111.2.802.1.1.14.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "centiseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStorageType": {
+    "name": "ieee8021TpmrMspStorageType",
+    "oid": "1.3.111.2.802.1.1.14.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsTable": {
+    "name": "ieee8021TpmrMspStatsTable",
+    "oid": "1.3.111.2.802.1.1.14.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsEntry": {
+    "name": "ieee8021TpmrMspStatsEntry",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "ieee8021TpmrMspStatsEntry",
+      "module": "IEEE8021-TPMR-MIB",
+      "object": "ieee8021TpmrPortEntry"
+    },
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsTxAcks": {
+    "name": "ieee8021TpmrMspStatsTxAcks",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSPDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsTxAddNotifications": {
+    "name": "ieee8021TpmrMspStatsTxAddNotifications",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSPDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsTxAddConfirmations": {
+    "name": "ieee8021TpmrMspStatsTxAddConfirmations",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSPDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsTxLossNotifications": {
+    "name": "ieee8021TpmrMspStatsTxLossNotifications",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSPDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsTxLossConfirmations": {
+    "name": "ieee8021TpmrMspStatsTxLossConfirmations",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSPDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsRxAcks": {
+    "name": "ieee8021TpmrMspStatsRxAcks",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSPDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsRxAddNotifications": {
+    "name": "ieee8021TpmrMspStatsRxAddNotifications",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSPDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsRxAddConfirmations": {
+    "name": "ieee8021TpmrMspStatsRxAddConfirmations",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSPDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsRxLossNotifications": {
+    "name": "ieee8021TpmrMspStatsRxLossNotifications",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSPDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsRxLossConfirmations": {
+    "name": "ieee8021TpmrMspStatsRxLossConfirmations",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSPDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsAddEvents": {
+    "name": "ieee8021TpmrMspStatsAddEvents",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSP transitions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsLossEvents": {
+    "name": "ieee8021TpmrMspStatsLossEvents",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSP transitions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsMacStatusNotifications": {
+    "name": "ieee8021TpmrMspStatsMacStatusNotifications",
+    "oid": "1.3.111.2.802.1.1.14.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "MSP transitions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ieee8021TpmrCompliances": {
+    "name": "ieee8021TpmrCompliances",
+    "oid": "1.3.111.2.802.1.1.14.2.1",
+    "class": "objectidentity"
+  },
+  "ieee8021TpmrGroups": {
+    "name": "ieee8021TpmrGroups",
+    "oid": "1.3.111.2.802.1.1.14.2.2",
+    "class": "objectidentity"
+  },
+  "ieee8021TpmrPortGroup": {
+    "name": "ieee8021TpmrPortGroup",
+    "oid": "1.3.111.2.802.1.1.14.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortMgmtAddr"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortMgmtAddrForwarding"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021TpmrPortStatsGroup": {
+    "name": "ieee8021TpmrPortStatsGroup",
+    "oid": "1.3.111.2.802.1.1.14.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortStatsRxFrames"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortStatsRxOctets"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortStatsFramesForwarded"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortStatsFramesDiscarded"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortStatsFramesDiscardedQueueFull"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortStatsFramesDiscardedLifetime"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortStatsFramesDiscardedError"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021TpmrPortDiscardDetailsGroup": {
+    "name": "ieee8021TpmrPortDiscardDetailsGroup",
+    "oid": "1.3.111.2.802.1.1.14.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortDiscardDetailsSource"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrPortDiscardDetailsReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021TpmrMspGroup": {
+    "name": "ieee8021TpmrMspGroup",
+    "oid": "1.3.111.2.802.1.1.14.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspLinkNotify"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspLinkNotifyWait"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspLinkNotifyRetry"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspMacNotify"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspMacNotifyTime"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspMacRecoverTime"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021TpmrMspStatsGroup": {
+    "name": "ieee8021TpmrMspStatsGroup",
+    "oid": "1.3.111.2.802.1.1.14.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsTxAcks"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsTxAddNotifications"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsTxAddConfirmations"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsTxLossNotifications"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsTxLossConfirmations"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsRxAcks"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsRxAddNotifications"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsRxAddConfirmations"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsRxLossNotifications"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsRxLossConfirmations"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsAddEvents"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsLossEvents"
+      },
+      {
+        "module": "IEEE8021-TPMR-MIB",
+        "object": "ieee8021TpmrMspStatsMacStatusNotifications"
+      }
+    ],
+    "status": "current"
+  },
+  "ieee8021TpmrCompliance": {
+    "name": "ieee8021TpmrCompliance",
+    "oid": "1.3.111.2.802.1.1.14.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ifCounterDiscontinuityGroup",
+        "module": "IF-MIB"
+      },
+      {
+        "object": "ieee8021TpmrPortGroup",
+        "module": "IEEE8021-TPMR-MIB"
+      },
+      {
+        "object": "ieee8021TpmrPortStatsGroup",
+        "module": "IEEE8021-TPMR-MIB"
+      },
+      {
+        "object": "ieee8021TpmrPortDiscardDetailsGroup",
+        "module": "IEEE8021-TPMR-MIB"
+      },
+      {
+        "object": "ieee8021TpmrMspGroup",
+        "module": "IEEE8021-TPMR-MIB"
+      },
+      {
+        "object": "ieee8021TpmrMspStatsGroup",
+        "module": "IEEE8021-TPMR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-TPMR-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8021-TPMR-MIB"
+  }
+}

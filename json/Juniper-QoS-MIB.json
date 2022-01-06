@@ -1,0 +1,4413 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "Juniper-MIBs": [
+      "juniMibs"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
+    ]
+  },
+  "juniQosMIB": {
+    "name": "juniQosMIB",
+    "oid": "1.3.6.1.4.1.4874.2.2.57",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-07-06 14:18",
+        "description": "Added support for QoS SVlans."
+      },
+      {
+        "revision": "2005-04-01 19:00",
+        "description": "Added support for QoS Parameters."
+      },
+      {
+        "revision": "2004-12-10 19:16",
+        "description": "o Added support for compound shared shaping. Scheduler-profile list reved. o Added/Corrected DEFVALs for QosProfileElementEntry."
+      },
+      {
+        "revision": "2004-01-26 14:19",
+        "description": "Added support for multiple traffic class groups."
+      },
+      {
+        "revision": "2003-11-04 20:10",
+        "description": "Added support for Hierarchical Assured Rate."
+      },
+      {
+        "revision": "2003-05-08 17:05",
+        "description": "Added support for ATM VP UID, statistics profile list, scheduler profile assured rate, and QoS mode port."
+      },
+      {
+        "revision": "2003-03-13 18:17",
+        "description": "Replaced Unisphere names with Juniper names. Added drop profile list support."
+      },
+      {
+        "revision": "2003-03-12 18:30",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "JuniQosLogicalInterfaceType": {
+    "name": "JuniQosLogicalInterfaceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "atmInterface": 0,
+        "hdlcInterface": 1,
+        "ethernetInterface": 2,
+        "atm1483Interface": 3,
+        "atmVirtualPath": 4,
+        "ipInterface": 5,
+        "ipv6Interface": 6,
+        "vlanSubInterface": 7,
+        "frameRelaySubInterface": 8,
+        "cbfInterface": 9,
+        "serverPortInterface": 10,
+        "l2tpFromTunnelQueue": 11,
+        "ipTunnelFromTunnelQueue": 12,
+        "mplsMinorInterface": 13,
+        "bridgeInterface": 14,
+        "l2tpSessionInterface": 15,
+        "stackedVlan": 16,
+        "lagInterface": 17
+      }
+    },
+    "status": "current"
+  },
+  "juniQosObjects": {
+    "name": "juniQosObjects",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1",
+    "class": "objectidentity"
+  },
+  "juniQosCapability": {
+    "name": "juniQosCapability",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.1",
+    "class": "objectidentity"
+  },
+  "juniQos": {
+    "name": "juniQos",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.2",
+    "class": "objectidentity"
+  },
+  "juniQosTrafficClassList": {
+    "name": "juniQosTrafficClassList",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3",
+    "class": "objectidentity"
+  },
+  "juniQosTrafficClassGroupList": {
+    "name": "juniQosTrafficClassGroupList",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4",
+    "class": "objectidentity"
+  },
+  "juniQosTrafficClassGroupEntryList": {
+    "name": "juniQosTrafficClassGroupEntryList",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.5",
+    "class": "objectidentity"
+  },
+  "juniQosSchedulerProfileList": {
+    "name": "juniQosSchedulerProfileList",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6",
+    "class": "objectidentity"
+  },
+  "juniQosQueueProfileList": {
+    "name": "juniQosQueueProfileList",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7",
+    "class": "objectidentity"
+  },
+  "juniQosProfile": {
+    "name": "juniQosProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8",
+    "class": "objectidentity"
+  },
+  "juniQosProfileElement": {
+    "name": "juniQosProfileElement",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.9",
+    "class": "objectidentity"
+  },
+  "juniQosIfAttach": {
+    "name": "juniQosIfAttach",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.10",
+    "class": "objectidentity"
+  },
+  "juniQosQosPortTypeProfile": {
+    "name": "juniQosQosPortTypeProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.11",
+    "class": "objectidentity"
+  },
+  "juniQosQueueStatistics": {
+    "name": "juniQosQueueStatistics",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12",
+    "class": "objectidentity"
+  },
+  "juniQosDropProfileList": {
+    "name": "juniQosDropProfileList",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13",
+    "class": "objectidentity"
+  },
+  "juniQosAtmVpUidSupport": {
+    "name": "juniQosAtmVpUidSupport",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.14",
+    "class": "objectidentity"
+  },
+  "juniQosStatisticsProfileList": {
+    "name": "juniQosStatisticsProfileList",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15",
+    "class": "objectidentity"
+  },
+  "juniQosQosModePortList": {
+    "name": "juniQosQosModePortList",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.16",
+    "class": "objectidentity"
+  },
+  "juniQosQosShapingModeList": {
+    "name": "juniQosQosShapingModeList",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.17",
+    "class": "objectidentity"
+  },
+  "juniQosSVlanUidSupport": {
+    "name": "juniQosSVlanUidSupport",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.18",
+    "class": "objectidentity"
+  },
+  "juniQosSVlanIdSupport": {
+    "name": "juniQosSVlanIdSupport",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.19",
+    "class": "objectidentity"
+  },
+  "juniQosMaxTrafficClass": {
+    "name": "juniQosMaxTrafficClass",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosMaxQueueLength": {
+    "name": "juniQosMaxQueueLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosMinSchedulerBurst": {
+    "name": "juniQosMinSchedulerBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosMaxSchedulerBurst": {
+    "name": "juniQosMaxSchedulerBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosMaxQosProfileRules": {
+    "name": "juniQosMaxQosProfileRules",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosTrafficClassCount": {
+    "name": "juniQosTrafficClassCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosQueueProfileCount": {
+    "name": "juniQosQueueProfileCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileCount": {
+    "name": "juniQosSchedulerProfileCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosProfileCount": {
+    "name": "juniQosProfileCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosInterfaceCount": {
+    "name": "juniQosInterfaceCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosQosPortTypeProfileCount": {
+    "name": "juniQosQosPortTypeProfileCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosDropProfileCount": {
+    "name": "juniQosDropProfileCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileCount": {
+    "name": "juniQosStatisticsProfileCount",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosTrafficClassNextIndex": {
+    "name": "juniQosTrafficClassNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosTrafficClassTable": {
+    "name": "juniQosTrafficClassTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosTrafficClassEntry": {
+    "name": "juniQosTrafficClassEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosTrafficClassIndex": {
+    "name": "juniQosTrafficClassIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosTrafficClassRowStatus": {
+    "name": "juniQosTrafficClassRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosTrafficClassName": {
+    "name": "juniQosTrafficClassName",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosTrafficClassWeight": {
+    "name": "juniQosTrafficClassWeight",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosTrafficClassStrictPriority": {
+    "name": "juniQosTrafficClassStrictPriority",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosTrafficClassUpdatePending": {
+    "name": "juniQosTrafficClassUpdatePending",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosTrafficClassUpdateNow": {
+    "name": "juniQosTrafficClassUpdateNow",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosTrafficClassIsReferencedByGroup": {
+    "name": "juniQosTrafficClassIsReferencedByGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosTrafficClassIsReferencedByQosProfile": {
+    "name": "juniQosTrafficClassIsReferencedByQosProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupNextIndex": {
+    "name": "juniQosTrafficClassGroupNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupTable": {
+    "name": "juniQosTrafficClassGroupTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupEntry": {
+    "name": "juniQosTrafficClassGroupEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupIndex": {
+    "name": "juniQosTrafficClassGroupIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupRowStatus": {
+    "name": "juniQosTrafficClassGroupRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupName": {
+    "name": "juniQosTrafficClassGroupName",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupUpdatePending": {
+    "name": "juniQosTrafficClassGroupUpdatePending",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupUpdateNow": {
+    "name": "juniQosTrafficClassGroupUpdateNow",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupIsReferencedByQosProfile": {
+    "name": "juniQosTrafficClassGroupIsReferencedByQosProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupSlotNumber": {
+    "name": "juniQosTrafficClassGroupSlotNumber",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupExtendedGroup": {
+    "name": "juniQosTrafficClassGroupExtendedGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupEntryTable": {
+    "name": "juniQosTrafficClassGroupEntryTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupEntryEntry": {
+    "name": "juniQosTrafficClassGroupEntryEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupEntryRowStatus": {
+    "name": "juniQosTrafficClassGroupEntryRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileNextIndex": {
+    "name": "juniQosQueueProfileNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosQueueProfileTable": {
+    "name": "juniQosQueueProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosQueueProfileEntry": {
+    "name": "juniQosQueueProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosQueueProfileIndex": {
+    "name": "juniQosQueueProfileIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosQueueProfileRowStatus": {
+    "name": "juniQosQueueProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileName": {
+    "name": "juniQosQueueProfileName",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileCommittedMinLength": {
+    "name": "juniQosQueueProfileCommittedMinLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileCommittedMaxLength": {
+    "name": "juniQosQueueProfileCommittedMaxLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1073741824,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileConformedMinLength": {
+    "name": "juniQosQueueProfileConformedMinLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileConformedMaxLength": {
+    "name": "juniQosQueueProfileConformedMaxLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1073741824,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileExceededMinLength": {
+    "name": "juniQosQueueProfileExceededMinLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileExceededMaxLength": {
+    "name": "juniQosQueueProfileExceededMaxLength",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1073741824,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileConformedFraction": {
+    "name": "juniQosQueueProfileConformedFraction",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 50,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileExceededFraction": {
+    "name": "juniQosQueueProfileExceededFraction",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 25,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileCommittedDropThreshold": {
+    "name": "juniQosQueueProfileCommittedDropThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileCommittedDropRate": {
+    "name": "juniQosQueueProfileCommittedDropRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileConformedDropThreshold": {
+    "name": "juniQosQueueProfileConformedDropThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileConformedDropRate": {
+    "name": "juniQosQueueProfileConformedDropRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileExceededDropThreshold": {
+    "name": "juniQosQueueProfileExceededDropThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileExceededDropRate": {
+    "name": "juniQosQueueProfileExceededDropRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileBufferWeight": {
+    "name": "juniQosQueueProfileBufferWeight",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileUpdatePending": {
+    "name": "juniQosQueueProfileUpdatePending",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosQueueProfileUpdateNow": {
+    "name": "juniQosQueueProfileUpdateNow",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueProfileIsReferencedByQosProfile": {
+    "name": "juniQosQueueProfileIsReferencedByQosProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.7.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileNextIndex": {
+    "name": "juniQosSchedulerProfileNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileTable": {
+    "name": "juniQosSchedulerProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileEntry": {
+    "name": "juniQosSchedulerProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosSchedulerProfileIndex": {
+    "name": "juniQosSchedulerProfileIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileRowStatus": {
+    "name": "juniQosSchedulerProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileName": {
+    "name": "juniQosSchedulerProfileName",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileShapingRate": {
+    "name": "juniQosSchedulerProfileShapingRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileBurst": {
+    "name": "juniQosSchedulerProfileBurst",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 522240
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileWeight": {
+    "name": "juniQosSchedulerProfileWeight",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4080
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileStrictPriority": {
+    "name": "juniQosSchedulerProfileStrictPriority",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileUpdatePending": {
+    "name": "juniQosSchedulerProfileUpdatePending",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileUpdateNow": {
+    "name": "juniQosSchedulerProfileUpdateNow",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileIsReferencedByQosProfile": {
+    "name": "juniQosSchedulerProfileIsReferencedByQosProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileAssuredRate": {
+    "name": "juniQosSchedulerProfileAssuredRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 25000,
+            "max": 1000000000
+          },
+          {
+            "min": 4294967295,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileSharedShapingRate": {
+    "name": "juniQosSchedulerProfileSharedShapingRate",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileSharedShapingBurstSize": {
+    "name": "juniQosSchedulerProfileSharedShapingBurstSize",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 522240
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileSharedShapingType": {
+    "name": "juniQosSchedulerProfileSharedShapingType",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "simple": 1,
+          "compound": 2,
+          "auto": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileSharedShapingExplicitConstituents": {
+    "name": "juniQosSchedulerProfileSharedShapingExplicitConstituents",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileSharedShapingPriority": {
+    "name": "juniQosSchedulerProfileSharedShapingPriority",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSchedulerProfileSharedShapingWeight": {
+    "name": "juniQosSchedulerProfileSharedShapingWeight",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.6.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosProfileNextIndex": {
+    "name": "juniQosProfileNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosProfileTable": {
+    "name": "juniQosProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosProfileEntry": {
+    "name": "juniQosProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosProfileIndex": {
+    "name": "juniQosProfileIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosProfileRowStatus": {
+    "name": "juniQosProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosProfileName": {
+    "name": "juniQosProfileName",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosProfileUpdatePending": {
+    "name": "juniQosProfileUpdatePending",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosProfileUpdateNow": {
+    "name": "juniQosProfileUpdateNow",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosProfileIsReferencedByInterfaceQosAttachment": {
+    "name": "juniQosProfileIsReferencedByInterfaceQosAttachment",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosProfileIsReferencedByQosPortTypeProfile": {
+    "name": "juniQosProfileIsReferencedByQosPortTypeProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosProfileElementTable": {
+    "name": "juniQosProfileElementTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosProfileElementEntry": {
+    "name": "juniQosProfileElementEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosInterfaceType",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileEntryType",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosProfileElementEntryRowStatus": {
+    "name": "juniQosProfileElementEntryRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosProfileElementEntryQueueProfile": {
+    "name": "juniQosProfileElementEntryQueueProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosProfileElementEntrySchedulerProfile": {
+    "name": "juniQosProfileElementEntrySchedulerProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosInterfaceType": {
+    "name": "juniQosInterfaceType",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 0,
+          "ethernet": 6,
+          "atm": 9,
+          "atmVc": 11,
+          "serial": 13,
+          "frVc": 16,
+          "l2tpSession": 21,
+          "serverPort": 31,
+          "vlan": 35,
+          "cbf": 36,
+          "ipv6": 50,
+          "l2tpTunnel": 150,
+          "ipTunnel": 151,
+          "atmVp": 163,
+          "svlan": 174
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosProfileEntryType": {
+    "name": "juniQosProfileEntryType",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "trafficClass": 1,
+          "schedulerProfile": 2,
+          "trafficClassGroup": 3,
+          "shadowNode": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosProfileElementEntryDropProfile": {
+    "name": "juniQosProfileElementEntryDropProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosProfileElementEntryStatisticsProfile": {
+    "name": "juniQosProfileElementEntryStatisticsProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosIfAttachTable": {
+    "name": "juniQosIfAttachTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosIfAttachEntry": {
+    "name": "juniQosIfAttachEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosIfAttachIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosIfAttachIndex": {
+    "name": "juniQosIfAttachIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosIfAttachRowStatus": {
+    "name": "juniQosIfAttachRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosIfAttachQosProfileIndex": {
+    "name": "juniQosIfAttachQosProfileIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQosPortTypeProfileTable": {
+    "name": "juniQosQosPortTypeProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosQosPortTypeProfileEntry": {
+    "name": "juniQosQosPortTypeProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosPortTypeProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosQosPortTypeProfileIndex": {
+    "name": "juniQosQosPortTypeProfileIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ethernet": 6,
+          "atm": 9,
+          "serial": 13,
+          "serverPort": 31,
+          "lag": 54
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosQosPortTypeProfileRowStatus": {
+    "name": "juniQosQosPortTypeProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQosPortTypeProfileQosProfileIndex": {
+    "name": "juniQosQosPortTypeProfileQosProfileIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQueueStatisticsTable": {
+    "name": "juniQosQueueStatisticsTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosQueueStatisticsEntry": {
+    "name": "juniQosQueueStatisticsEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosOutPacketForwarded": {
+    "name": "juniQosOutPacketForwarded",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosOutBytesForwarded": {
+    "name": "juniQosOutBytesForwarded",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosOutGreenPacketsSchedulerDrops": {
+    "name": "juniQosOutGreenPacketsSchedulerDrops",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosOutYellowPacketsSchedulerDrops": {
+    "name": "juniQosOutYellowPacketsSchedulerDrops",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosOutRedPacketsSchedulerDrops": {
+    "name": "juniQosOutRedPacketsSchedulerDrops",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosOutGreenBytesSchedulerDrops": {
+    "name": "juniQosOutGreenBytesSchedulerDrops",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosOutYellowBytesSchedulerDrops": {
+    "name": "juniQosOutYellowBytesSchedulerDrops",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosOutRedBytesSchedulerDrops": {
+    "name": "juniQosOutRedBytesSchedulerDrops",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.12.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosAtmVpUidValid": {
+    "name": "juniQosAtmVpUidValid",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.14.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 0,
+          "badPortInterfaceUid": 1,
+          "badPath": 2,
+          "badAtmVpUid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosAtmVpAtmPortInterfaceUid": {
+    "name": "juniQosAtmVpAtmPortInterfaceUid",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniQosAtmVpAtmPath": {
+    "name": "juniQosAtmVpAtmPath",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniQosAtmVpUid": {
+    "name": "juniQosAtmVpUid",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "juniQosDropProfileNextIndex": {
+    "name": "juniQosDropProfileNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosDropProfileTable": {
+    "name": "juniQosDropProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosDropProfileEntry": {
+    "name": "juniQosDropProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosDropProfileIndex": {
+    "name": "juniQosDropProfileIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosDropProfileRowStatus": {
+    "name": "juniQosDropProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileName": {
+    "name": "juniQosDropProfileName",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileAverageLengthExponent": {
+    "name": "juniQosDropProfileAverageLengthExponent",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileCommittedThresholdUnits": {
+    "name": "juniQosDropProfileCommittedThresholdUnits",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bytes": 1,
+          "percent": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bytes",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileCommittedThresholdMinThreshold": {
+    "name": "juniQosDropProfileCommittedThresholdMinThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileCommittedThresholdMaxThreshold": {
+    "name": "juniQosDropProfileCommittedThresholdMaxThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileCommittedThresholdMaxDropProbability": {
+    "name": "juniQosDropProfileCommittedThresholdMaxDropProbability",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileConformedThresholdUnits": {
+    "name": "juniQosDropProfileConformedThresholdUnits",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bytes": 1,
+          "percent": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bytes",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileConformedThresholdMinThreshold": {
+    "name": "juniQosDropProfileConformedThresholdMinThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileConformedThresholdMaxThreshold": {
+    "name": "juniQosDropProfileConformedThresholdMaxThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileConformedThresholdMaxDropProbability": {
+    "name": "juniQosDropProfileConformedThresholdMaxDropProbability",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileExceededThresholdUnits": {
+    "name": "juniQosDropProfileExceededThresholdUnits",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bytes": 1,
+          "percent": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bytes",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileExceededThresholdMinThreshold": {
+    "name": "juniQosDropProfileExceededThresholdMinThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileExceededThresholdMaxThreshold": {
+    "name": "juniQosDropProfileExceededThresholdMaxThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileExceededThresholdMaxDropProbability": {
+    "name": "juniQosDropProfileExceededThresholdMaxDropProbability",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileUpdatePending": {
+    "name": "juniQosDropProfileUpdatePending",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosDropProfileUpdateNow": {
+    "name": "juniQosDropProfileUpdateNow",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosDropProfileIsReferencedByQosProfile": {
+    "name": "juniQosDropProfileIsReferencedByQosProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.13.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileNextIndex": {
+    "name": "juniQosStatisticsProfileNextIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileTable": {
+    "name": "juniQosStatisticsProfileTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileEntry": {
+    "name": "juniQosStatisticsProfileEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosStatisticsProfileIndex": {
+    "name": "juniQosStatisticsProfileIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileRowStatus": {
+    "name": "juniQosStatisticsProfileRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileName": {
+    "name": "juniQosStatisticsProfileName",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileForwardingRateThreshold": {
+    "name": "juniQosStatisticsProfileForwardingRateThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileCommittedDropThreshold": {
+    "name": "juniQosStatisticsProfileCommittedDropThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileConformedDropThreshold": {
+    "name": "juniQosStatisticsProfileConformedDropThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileExceededDropThreshold": {
+    "name": "juniQosStatisticsProfileExceededDropThreshold",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileRatePeriod": {
+    "name": "juniQosStatisticsProfileRatePeriod",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileUpdatePending": {
+    "name": "juniQosStatisticsProfileUpdatePending",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileUpdateNow": {
+    "name": "juniQosStatisticsProfileUpdateNow",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosStatisticsProfileIsReferencedByQosProfile": {
+    "name": "juniQosStatisticsProfileIsReferencedByQosProfile",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.15.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosQosModePortTable": {
+    "name": "juniQosQosModePortTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.16.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosQosModePortEntry": {
+    "name": "juniQosQosModePortEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.16.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosModePortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosQosModePortIndex": {
+    "name": "juniQosQosModePortIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.16.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosQosModePortRowStatus": {
+    "name": "juniQosQosModePortRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.16.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQosModePortFrameMode": {
+    "name": "juniQosQosModePortFrameMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.16.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lowCdv": 0,
+          "lowLatency": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQosShapingModeTable": {
+    "name": "juniQosQosShapingModeTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.17.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosQosShapingModeEntry": {
+    "name": "juniQosQosShapingModeEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.17.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosShapingModeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosQosShapingModeIndex": {
+    "name": "juniQosQosShapingModeIndex",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.17.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosQosShapingModeRowStatus": {
+    "name": "juniQosQosShapingModeRowStatus",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.17.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosQosShapingModeShapingMode": {
+    "name": "juniQosQosShapingModeShapingMode",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.17.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frame": 0,
+          "cell": 1
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "frame",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "juniQosSVlanUidTable": {
+    "name": "juniQosSVlanUidTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.18.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosSVlanUidTableEntry": {
+    "name": "juniQosSVlanUidTableEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.18.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSVlanUidTablePortUid",
+        "implied": 0
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSVlanUidTableSVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosSVlanUidTablePortUid": {
+    "name": "juniQosSVlanUidTablePortUid",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.18.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosSVlanUidTableSVlanId": {
+    "name": "juniQosSVlanUidTableSVlanId",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.18.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosSVlanUidTableSVlanUid": {
+    "name": "juniQosSVlanUidTableSVlanUid",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.18.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosSVlanIdTable": {
+    "name": "juniQosSVlanIdTable",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.19.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosSVlanIdTableEntry": {
+    "name": "juniQosSVlanIdTableEntry",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.19.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSVlanIdTableSVlanUid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosSVlanIdTableSVlanUid": {
+    "name": "juniQosSVlanIdTableSVlanUid",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.19.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "juniQosSVlanIdTablePortUid": {
+    "name": "juniQosSVlanIdTablePortUid",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.19.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosSVlanIdTableSVlanId": {
+    "name": "juniQosSVlanIdTableSVlanId",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.1.19.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "juniQosConformance": {
+    "name": "juniQosConformance",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2",
+    "class": "objectidentity"
+  },
+  "juniQosCompliances": {
+    "name": "juniQosCompliances",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.1",
+    "class": "objectidentity"
+  },
+  "juniQosGroups": {
+    "name": "juniQosGroups",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2",
+    "class": "objectidentity"
+  },
+  "juniQosCompliance": {
+    "name": "juniQosCompliance",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniQosCapabilityGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosScalarGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassGroupListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosSchedulerProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileElementGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosIfAttachGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosPortTypeProfileGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueStatisticsGroup",
+        "module": "Juniper-QoS-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniQosCompliance2": {
+    "name": "juniQosCompliance2",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniQosCapabilityGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosScalarGroup2",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassGroupListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosSchedulerProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileElementGroup2",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosIfAttachGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosPortTypeProfileGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueStatisticsGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosDropProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniQosCompliance3": {
+    "name": "juniQosCompliance3",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniQosCapabilityGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosScalarGroup3",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassGroupListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosSchedulerProfileListGroup2",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileElementGroup3",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosIfAttachGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosPortTypeProfileGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueStatisticsGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosDropProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosAtmVpUidSupportGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosStatisticsProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosModePortGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosShapingModeGroup",
+        "module": "Juniper-QoS-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniQosCompliance4": {
+    "name": "juniQosCompliance4",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniQosCapabilityGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosScalarGroup3",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassGroupListGroup2",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosSchedulerProfileListGroup2",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileElementGroup3",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosIfAttachGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosPortTypeProfileGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueStatisticsGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosDropProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosAtmVpUidSupportGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosStatisticsProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosModePortGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosShapingModeGroup",
+        "module": "Juniper-QoS-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniQosCompliance5": {
+    "name": "juniQosCompliance5",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniQosCapabilityGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosScalarGroup3",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassGroupListGroup2",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosSchedulerProfileListGroup3",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileElementGroup3",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosIfAttachGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosPortTypeProfileGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueStatisticsGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosDropProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosAtmVpUidSupportGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosStatisticsProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosModePortGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosShapingModeGroup",
+        "module": "Juniper-QoS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosCompliance6": {
+    "name": "juniQosCompliance6",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "juniQosCapabilityGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosScalarGroup3",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosTrafficClassGroupListGroup2",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosSchedulerProfileListGroup4",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosProfileElementGroup3",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosIfAttachGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosPortTypeProfileGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQueueStatisticsGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosDropProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosAtmVpUidSupportGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosStatisticsProfileListGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosModePortGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosQosShapingModeGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosSVlanUidSupportGroup",
+        "module": "Juniper-QoS-MIB"
+      },
+      {
+        "object": "juniQosSVlanIdSupportGroup",
+        "module": "Juniper-QoS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosCapabilityGroup": {
+    "name": "juniQosCapabilityGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosMaxTrafficClass"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosMaxQueueLength"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosMinSchedulerBurst"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosMaxSchedulerBurst"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosMaxQosProfileRules"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosScalarGroup": {
+    "name": "juniQosScalarGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosInterfaceCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosPortTypeProfileCount"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniQosTrafficClassListGroup": {
+    "name": "juniQosTrafficClassListGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassWeight"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassStrictPriority"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassIsReferencedByGroup"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassIsReferencedByQosProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupListGroup": {
+    "name": "juniQosTrafficClassGroupListGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupIsReferencedByQosProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupEntryRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniQosQueueProfileListGroup": {
+    "name": "juniQosQueueProfileListGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileCommittedMinLength"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileCommittedMaxLength"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileConformedMinLength"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileConformedMaxLength"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileExceededMinLength"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileExceededMaxLength"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileConformedFraction"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileExceededFraction"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileCommittedDropThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileCommittedDropRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileConformedDropThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileConformedDropRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileExceededDropThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileExceededDropRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileBufferWeight"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileIsReferencedByQosProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosSchedulerProfileListGroup": {
+    "name": "juniQosSchedulerProfileListGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileShapingRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileBurst"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileWeight"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileStrictPriority"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileIsReferencedByQosProfile"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniQosProfileListGroup": {
+    "name": "juniQosProfileListGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileIsReferencedByInterfaceQosAttachment"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileIsReferencedByQosPortTypeProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosProfileElementGroup": {
+    "name": "juniQosProfileElementGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntryRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntryQueueProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntrySchedulerProfile"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniQosIfAttachGroup": {
+    "name": "juniQosIfAttachGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosIfAttachRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosIfAttachQosProfileIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosQosPortTypeProfileGroup": {
+    "name": "juniQosQosPortTypeProfileGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosPortTypeProfileRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosPortTypeProfileQosProfileIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosQueueStatisticsGroup": {
+    "name": "juniQosQueueStatisticsGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosOutPacketForwarded"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosOutBytesForwarded"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosOutGreenPacketsSchedulerDrops"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosOutYellowPacketsSchedulerDrops"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosOutRedPacketsSchedulerDrops"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosOutGreenBytesSchedulerDrops"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosOutYellowBytesSchedulerDrops"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosOutRedBytesSchedulerDrops"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosScalarGroup2": {
+    "name": "juniQosScalarGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosInterfaceCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosPortTypeProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileCount"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniQosProfileElementGroup2": {
+    "name": "juniQosProfileElementGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntryRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntryQueueProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntrySchedulerProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntryDropProfile"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "juniQosDropProfileListGroup": {
+    "name": "juniQosDropProfileListGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileAverageLengthExponent"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileCommittedThresholdUnits"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileCommittedThresholdMinThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileCommittedThresholdMaxThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileCommittedThresholdMaxDropProbability"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileConformedThresholdUnits"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileConformedThresholdMinThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileConformedThresholdMaxThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileConformedThresholdMaxDropProbability"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileExceededThresholdUnits"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileExceededThresholdMinThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileExceededThresholdMaxThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileExceededThresholdMaxDropProbability"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileIsReferencedByQosProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosAtmVpUidSupportGroup": {
+    "name": "juniQosAtmVpUidSupportGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosAtmVpUidValid"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosAtmVpAtmPortInterfaceUid"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosAtmVpAtmPath"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosAtmVpUid"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosScalarGroup3": {
+    "name": "juniQosScalarGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQueueProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosInterfaceCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosPortTypeProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosDropProfileCount"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileCount"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosProfileElementGroup3": {
+    "name": "juniQosProfileElementGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntryRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntryQueueProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntrySchedulerProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntryDropProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosProfileElementEntryStatisticsProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosStatisticsProfileListGroup": {
+    "name": "juniQosStatisticsProfileListGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileForwardingRateThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileCommittedDropThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileConformedDropThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileExceededDropThreshold"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileRatePeriod"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosStatisticsProfileIsReferencedByQosProfile"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosSchedulerProfileListGroup2": {
+    "name": "juniQosSchedulerProfileListGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileShapingRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileBurst"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileWeight"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileStrictPriority"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileIsReferencedByQosProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileAssuredRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingBurstSize"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosQosModePortGroup": {
+    "name": "juniQosQosModePortGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosModePortRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosModePortFrameMode"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosQosShapingModeGroup": {
+    "name": "juniQosQosShapingModeGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosShapingModeRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosQosShapingModeShapingMode"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosTrafficClassGroupListGroup2": {
+    "name": "juniQosTrafficClassGroupListGroup2",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupIsReferencedByQosProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupSlotNumber"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupExtendedGroup"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosTrafficClassGroupEntryRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosSchedulerProfileListGroup3": {
+    "name": "juniQosSchedulerProfileListGroup3",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileShapingRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileBurst"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileWeight"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileStrictPriority"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileIsReferencedByQosProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileAssuredRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingBurstSize"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingType"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingExplicitConstituents"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingPriority"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingWeight"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosSchedulerProfileListGroup4": {
+    "name": "juniQosSchedulerProfileListGroup4",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileNextIndex"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileRowStatus"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileName"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileShapingRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileBurst"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileWeight"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileStrictPriority"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileUpdatePending"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileUpdateNow"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileIsReferencedByQosProfile"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileAssuredRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingRate"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingBurstSize"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingType"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingExplicitConstituents"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingPriority"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSchedulerProfileSharedShapingWeight"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosSVlanUidSupportGroup": {
+    "name": "juniQosSVlanUidSupportGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSVlanUidTableSVlanUid"
+      }
+    ],
+    "status": "current"
+  },
+  "juniQosSVlanIdSupportGroup": {
+    "name": "juniQosSVlanIdSupportGroup",
+    "oid": "1.3.6.1.4.1.4874.2.2.57.2.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSVlanIdTablePortUid"
+      },
+      {
+        "module": "Juniper-QoS-MIB",
+        "object": "juniQosSVlanIdTableSVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-QoS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-QoS-MIB"
+  }
+}

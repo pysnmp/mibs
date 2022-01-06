@@ -1,0 +1,795 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-OID-MIB": [
+      "hh3c"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "hh3cSystem": {
+    "name": "hh3cSystem",
+    "oid": "1.3.6.1.4.1.25506.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2015-05-05 00:00",
+        "description": "Added hh3cSystemWorkingMode, hh3cSystemWorkingModeTable, hh3cSystemWorkingModeDefault, hh3cSystemWorkingModeCurrent, hh3cSystemWorkingModeNext."
+      },
+      {
+        "revision": "2015-03-25 00:00",
+        "description": "Added the trap node hh3cSysDyingGaspTrap into hh3cSystemNotification."
+      },
+      {
+        "revision": "2014-08-07 17:10",
+        "description": "Added hh3cSystemDiagInfoTable."
+      },
+      {
+        "revision": "2013-09-13 00:00",
+        "description": "Added normal(0) to node hh3cReboot."
+      },
+      {
+        "revision": "2013-05-28 00:00",
+        "description": "Added trap node hh3cSysLoghostUnreachableTrap."
+      },
+      {
+        "revision": "2012-06-06 00:00",
+        "description": "Added node hh3cSysBannerMOTD."
+      },
+      {
+        "revision": "2012-01-07 00:00",
+        "description": "Added node hh3cSysTrapSendNum and hh3cSysFirstTrapTime."
+      },
+      {
+        "revision": "2009-05-05 00:00",
+        "description": "Added hh3cSysStatisticPeriod, hh3cSysSamplePeriod, hh3cSysTrapResendPeriod, hh3cSysTrapCollectionPeriod, hh3cSysColdStartTrap, hh3cSysWarmStartTrap, hh3cSysSnmpPort, hh3cSysSnmpTrapPort, hh3cSysNetID, hh3cSysLastSampleTime."
+      },
+      {
+        "revision": "2008-11-11 00:00",
+        "description": "added node hh3cSysBootType."
+      },
+      {
+        "revision": "2004-10-12 00:00",
+        "description": "Imported from SNMPv2-SMI and SNMPv2-TC instead of RFC1212 and RFC1155-SMI. Changed ACCESS clauses to MAX-ACCESS. Changed STATUS clauses from mandatory to current."
+      },
+      {
+        "revision": "2004-08-16 00:00",
+        "description": "Added the trap node 'hh3cRebootSendTrap' into hh3cSystemNotification."
+      },
+      {
+        "revision": "2004-06-30 00:00",
+        "description": "Initial revision of this MIB module."
+      }
+    ]
+  },
+  "hh3cWriteConfig": {
+    "name": "hh3cWriteConfig",
+    "oid": "1.3.6.1.4.1.25506.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "save": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cStartFtpServer": {
+    "name": "hh3cStartFtpServer",
+    "oid": "1.3.6.1.4.1.25506.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cReboot": {
+    "name": "hh3cReboot",
+    "oid": "1.3.6.1.4.1.25506.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 0,
+          "reboot": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSystemNotification": {
+    "name": "hh3cSystemNotification",
+    "oid": "1.3.6.1.4.1.25506.6.8",
+    "class": "objectidentity"
+  },
+  "hh3cWriteSuccessTrap": {
+    "name": "hh3cWriteSuccessTrap",
+    "oid": "1.3.6.1.4.1.25506.6.8.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cWriteFailureTrap": {
+    "name": "hh3cWriteFailureTrap",
+    "oid": "1.3.6.1.4.1.25506.6.8.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cRebootSendTrap": {
+    "name": "hh3cRebootSendTrap",
+    "oid": "1.3.6.1.4.1.25506.6.8.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cSysColdStartTrap": {
+    "name": "hh3cSysColdStartTrap",
+    "oid": "1.3.6.1.4.1.25506.6.8.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-COMMON-SYSTEM-MIB",
+        "object": "hh3cSysFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysWarmStartTrap": {
+    "name": "hh3cSysWarmStartTrap",
+    "oid": "1.3.6.1.4.1.25506.6.8.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-COMMON-SYSTEM-MIB",
+        "object": "hh3cSysFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysLoghostUnreachableTrap": {
+    "name": "hh3cSysLoghostUnreachableTrap",
+    "oid": "1.3.6.1.4.1.25506.6.8.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HH3C-COMMON-SYSTEM-MIB",
+        "object": "hh3cSysLoghostIndex"
+      },
+      {
+        "module": "HH3C-COMMON-SYSTEM-MIB",
+        "object": "hh3cSysLoghostIpaddressType"
+      },
+      {
+        "module": "HH3C-COMMON-SYSTEM-MIB",
+        "object": "hh3cSysLoghostIpaddress"
+      },
+      {
+        "module": "HH3C-COMMON-SYSTEM-MIB",
+        "object": "hh3cSysLoghostTrapVpnName"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSysDyingGaspTrap": {
+    "name": "hh3cSysDyingGaspTrap",
+    "oid": "1.3.6.1.4.1.25506.6.8.7",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hh3cSoftwareVersion": {
+    "name": "hh3cSoftwareVersion",
+    "oid": "1.3.6.1.4.1.25506.6.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysBootType": {
+    "name": "hh3cSysBootType",
+    "oid": "1.3.6.1.4.1.25506.6.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coldStart": 1,
+          "warmStart": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSystemInfo": {
+    "name": "hh3cSystemInfo",
+    "oid": "1.3.6.1.4.1.25506.6.11",
+    "class": "objectidentity"
+  },
+  "hh3cSysStatisticPeriod": {
+    "name": "hh3cSysStatisticPeriod",
+    "oid": "1.3.6.1.4.1.25506.6.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysSamplePeriod": {
+    "name": "hh3cSysSamplePeriod",
+    "oid": "1.3.6.1.4.1.25506.6.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysTrapResendPeriod": {
+    "name": "hh3cSysTrapResendPeriod",
+    "oid": "1.3.6.1.4.1.25506.6.11.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysTrapCollectionPeriod": {
+    "name": "hh3cSysTrapCollectionPeriod",
+    "oid": "1.3.6.1.4.1.25506.6.11.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysSnmpPort": {
+    "name": "hh3cSysSnmpPort",
+    "oid": "1.3.6.1.4.1.25506.6.11.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysSnmpTrapPort": {
+    "name": "hh3cSysSnmpTrapPort",
+    "oid": "1.3.6.1.4.1.25506.6.11.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysNetID": {
+    "name": "hh3cSysNetID",
+    "oid": "1.3.6.1.4.1.25506.6.11.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysLastSampleTime": {
+    "name": "hh3cSysLastSampleTime",
+    "oid": "1.3.6.1.4.1.25506.6.11.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSysTrapSendNum": {
+    "name": "hh3cSysTrapSendNum",
+    "oid": "1.3.6.1.4.1.25506.6.11.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSysFirstTrapTime": {
+    "name": "hh3cSysFirstTrapTime",
+    "oid": "1.3.6.1.4.1.25506.6.11.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSysBannerMOTD": {
+    "name": "hh3cSysBannerMOTD",
+    "oid": "1.3.6.1.4.1.25506.6.11.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cSystemNotificationInfo": {
+    "name": "hh3cSystemNotificationInfo",
+    "oid": "1.3.6.1.4.1.25506.6.12",
+    "class": "objectidentity"
+  },
+  "hh3cSysLoghostIndex": {
+    "name": "hh3cSysLoghostIndex",
+    "oid": "1.3.6.1.4.1.25506.6.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSysLoghostIpaddressType": {
+    "name": "hh3cSysLoghostIpaddressType",
+    "oid": "1.3.6.1.4.1.25506.6.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSysLoghostIpaddress": {
+    "name": "hh3cSysLoghostIpaddress",
+    "oid": "1.3.6.1.4.1.25506.6.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSysLoghostTrapVpnName": {
+    "name": "hh3cSysLoghostTrapVpnName",
+    "oid": "1.3.6.1.4.1.25506.6.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hh3cSystemDiagInfoTable": {
+    "name": "hh3cSystemDiagInfoTable",
+    "oid": "1.3.6.1.4.1.25506.6.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSystemDiagInfoEntry": {
+    "name": "hh3cSystemDiagInfoEntry",
+    "oid": "1.3.6.1.4.1.25506.6.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-COMMON-SYSTEM-MIB",
+        "object": "hh3cSystemDiagInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSystemDiagInfoIndex": {
+    "name": "hh3cSystemDiagInfoIndex",
+    "oid": "1.3.6.1.4.1.25506.6.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSystemDiagInfoFilename": {
+    "name": "hh3cSystemDiagInfoFilename",
+    "oid": "1.3.6.1.4.1.25506.6.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSystemDiagInfoRowStatus": {
+    "name": "hh3cSystemDiagInfoRowStatus",
+    "oid": "1.3.6.1.4.1.25506.6.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cSystemDiagInfoOperEndTime": {
+    "name": "hh3cSystemDiagInfoOperEndTime",
+    "oid": "1.3.6.1.4.1.25506.6.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSystemDiagInfoOperState": {
+    "name": "hh3cSystemDiagInfoOperState",
+    "oid": "1.3.6.1.4.1.25506.6.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opInProgress": 1,
+          "opSuccess": 2,
+          "opFailure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSystemDiagInfoOperFailReason": {
+    "name": "hh3cSystemDiagInfoOperFailReason",
+    "oid": "1.3.6.1.4.1.25506.6.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSystemWorkingMode": {
+    "name": "hh3cSystemWorkingMode",
+    "oid": "1.3.6.1.4.1.25506.6.14",
+    "class": "objectidentity"
+  },
+  "hh3cSystemWorkingModeTable": {
+    "name": "hh3cSystemWorkingModeTable",
+    "oid": "1.3.6.1.4.1.25506.6.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSystemWorkingModeEntry": {
+    "name": "hh3cSystemWorkingModeEntry",
+    "oid": "1.3.6.1.4.1.25506.6.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-COMMON-SYSTEM-MIB",
+        "object": "hh3cSystemWorkingModeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cSystemWorkingModeIndex": {
+    "name": "hh3cSystemWorkingModeIndex",
+    "oid": "1.3.6.1.4.1.25506.6.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cSystemWorkingModeName": {
+    "name": "hh3cSystemWorkingModeName",
+    "oid": "1.3.6.1.4.1.25506.6.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSystemWorkingModeDescr": {
+    "name": "hh3cSystemWorkingModeDescr",
+    "oid": "1.3.6.1.4.1.25506.6.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSystemWorkingModeDefault": {
+    "name": "hh3cSystemWorkingModeDefault",
+    "oid": "1.3.6.1.4.1.25506.6.14.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSystemWorkingModeCurrent": {
+    "name": "hh3cSystemWorkingModeCurrent",
+    "oid": "1.3.6.1.4.1.25506.6.14.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cSystemWorkingModeNext": {
+    "name": "hh3cSystemWorkingModeNext",
+    "oid": "1.3.6.1.4.1.25506.6.14.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-COMMON-SYSTEM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-COMMON-SYSTEM-MIB"
+  }
+}

@@ -1,0 +1,725 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "voice"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVismXgcpExtMIB": {
+    "name": "ciscoVismXgcpExtMIB",
+    "oid": "1.3.6.1.4.1.351.150.94",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-07-11 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in SMIv1 version. The MIB has been converted to SMIv2 version and descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "vismXgcpExtensionGrp": {
+    "name": "vismXgcpExtensionGrp",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5",
+    "class": "objectidentity"
+  },
+  "vismXgcpCoreObjects": {
+    "name": "vismXgcpCoreObjects",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1",
+    "class": "objectidentity"
+  },
+  "vismXgcpEnhancementsObjects": {
+    "name": "vismXgcpEnhancementsObjects",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.2",
+    "class": "objectidentity"
+  },
+  "vismXgcpRequestMaxTimeout": {
+    "name": "vismXgcpRequestMaxTimeout",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismXgcpPort": {
+    "name": "vismXgcpPort",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1025,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2427,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismXgcpPeerTable": {
+    "name": "vismXgcpPeerTable",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vismXgcpPeerEntry": {
+    "name": "vismXgcpPeerEntry",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpPeerNumber",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpPeerProtocolNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vismXgcpPeerNumber": {
+    "name": "vismXgcpPeerNumber",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpPeerProtocolNumber": {
+    "name": "vismXgcpPeerProtocolNumber",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpPeerPort": {
+    "name": "vismXgcpPeerPort",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1025,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2427,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismXgcpMsgStatTable": {
+    "name": "vismXgcpMsgStatTable",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vismXgcpMsgStatEntry": {
+    "name": "vismXgcpMsgStatEntry",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpIpAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vismXgcpIpAddress": {
+    "name": "vismXgcpIpAddress",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpCrcxCnts": {
+    "name": "vismXgcpCrcxCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpCrcxFailCnts": {
+    "name": "vismXgcpCrcxFailCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpMdcxCnts": {
+    "name": "vismXgcpMdcxCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpMdcxFailCnts": {
+    "name": "vismXgcpMdcxFailCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpDlcxRcvCnts": {
+    "name": "vismXgcpDlcxRcvCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpDlcxRcvFailCnts": {
+    "name": "vismXgcpDlcxRcvFailCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpDlcxSentCnts": {
+    "name": "vismXgcpDlcxSentCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpDlcxSentFailCnts": {
+    "name": "vismXgcpDlcxSentFailCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpRqntCnts": {
+    "name": "vismXgcpRqntCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpRqntFailCnts": {
+    "name": "vismXgcpRqntFailCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpNtfyCnts": {
+    "name": "vismXgcpNtfyCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpNtfyFailCnts": {
+    "name": "vismXgcpNtfyFailCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpAuepCnts": {
+    "name": "vismXgcpAuepCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpAuepFailCnts": {
+    "name": "vismXgcpAuepFailCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpAucxCnts": {
+    "name": "vismXgcpAucxCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpAucxFailCnts": {
+    "name": "vismXgcpAucxFailCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpRsipCnts": {
+    "name": "vismXgcpRsipCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpRsipFailCnts": {
+    "name": "vismXgcpRsipFailCnts",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismXgcpRestartInProgressTdinit": {
+    "name": "vismXgcpRestartInProgressTdinit",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismXgcpRestartInProgressTdmin": {
+    "name": "vismXgcpRestartInProgressTdmin",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismXgcpRestartInProgressTdmax": {
+    "name": "vismXgcpRestartInProgressTdmax",
+    "oid": "1.3.6.1.4.1.351.110.5.5.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoVismXgcpExtMIBConformance": {
+    "name": "ciscoVismXgcpExtMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.94.2",
+    "class": "objectidentity"
+  },
+  "ciscoVismXgcpExtMIBGroups": {
+    "name": "ciscoVismXgcpExtMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.94.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoVismXgcpExtMIBCompliances": {
+    "name": "ciscoVismXgcpExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.94.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoVismXgcpExtCompliance": {
+    "name": "ciscoVismXgcpExtCompliance",
+    "oid": "1.3.6.1.4.1.351.150.94.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVismXgcpExtensionGroup",
+        "module": "CISCO-VISM-XGCP-EXT"
+      },
+      {
+        "object": "ciscoVismXgcpCoreGroup",
+        "module": "CISCO-VISM-XGCP-EXT"
+      },
+      {
+        "object": "ciscoVismXgcpStatsGroup",
+        "module": "CISCO-VISM-XGCP-EXT"
+      },
+      {
+        "object": "ciscoVismXgcpEnhancementGroup",
+        "module": "CISCO-VISM-XGCP-EXT"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismXgcpExtensionGroup": {
+    "name": "ciscoVismXgcpExtensionGroup",
+    "oid": "1.3.6.1.4.1.351.150.94.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpRequestMaxTimeout"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismXgcpCoreGroup": {
+    "name": "ciscoVismXgcpCoreGroup",
+    "oid": "1.3.6.1.4.1.351.150.94.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpPeerNumber"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpPeerProtocolNumber"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpPeerPort"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismXgcpStatsGroup": {
+    "name": "ciscoVismXgcpStatsGroup",
+    "oid": "1.3.6.1.4.1.351.150.94.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpIpAddress"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpCrcxCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpCrcxFailCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpMdcxCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpMdcxFailCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpDlcxRcvCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpDlcxRcvFailCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpDlcxSentCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpDlcxSentFailCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpRqntCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpRqntFailCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpNtfyCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpNtfyFailCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpAuepCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpAuepFailCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpAucxCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpAucxFailCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpRsipCnts"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpRsipFailCnts"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismXgcpEnhancementGroup": {
+    "name": "ciscoVismXgcpEnhancementGroup",
+    "oid": "1.3.6.1.4.1.351.150.94.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpRestartInProgressTdinit"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpRestartInProgressTdmin"
+      },
+      {
+        "module": "CISCO-VISM-XGCP-EXT",
+        "object": "vismXgcpRestartInProgressTdmax"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VISM-XGCP-EXT",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:22 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VISM-XGCP-EXT"
+  }
+}

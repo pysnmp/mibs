@@ -1,0 +1,89 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoAgentCapability"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoSwitchFabricCapability": {
+    "name": "ciscoSwitchFabricCapability",
+    "oid": "1.3.6.1.4.1.9.7.618",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-09-16 00:00",
+        "description": "Added capability statement ciscoSwitchFabricCapNxOSV06R0210PN7k."
+      },
+      {
+        "revision": "2013-07-17 00:00",
+        "description": "Added capability statement ciscoSwitchFabricCapV15R0102SYPCat6K."
+      },
+      {
+        "revision": "2013-07-10 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoSwitchFabricCapNxOSV06R0104PN7k": {
+    "name": "ciscoSwitchFabricCapNxOSV06R0104PN7k",
+    "oid": "1.3.6.1.4.1.9.7.618.1",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.1(4) on Nexus 7000 series devices.",
+    "status": "current"
+  },
+  "ciscoSwitchFabricCapNxOSV06R0201PMds": {
+    "name": "ciscoSwitchFabricCapNxOSV06R0201PMds",
+    "oid": "1.3.6.1.4.1.9.7.618.2",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.2(1) on MDS series devices.",
+    "status": "current"
+  },
+  "ciscoSwitchFabricCapV15R0102SYPCat6K": {
+    "name": "ciscoSwitchFabricCapV15R0102SYPCat6K",
+    "oid": "1.3.6.1.4.1.9.7.618.3",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco IOS 15.1(2)SY on Catalyst 6000/6500\n                     series devices.",
+    "status": "current"
+  },
+  "ciscoSwitchFabricCapNxOSV06R0210PN7k": {
+    "name": "ciscoSwitchFabricCapNxOSV06R0210PN7k",
+    "oid": "1.3.6.1.4.1.9.7.618.4",
+    "class": "agentcapabilities",
+    "productrelease": "Cisco NX-OS 6.2(10) on Nexus 7000 series devices.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-FABRIC-CAPABILITY",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SWITCH-FABRIC-CAPABILITY"
+  }
+}

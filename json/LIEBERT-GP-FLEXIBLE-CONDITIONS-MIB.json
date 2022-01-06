@@ -1,0 +1,5160 @@
+{
+  "imports": {
+    "class": "imports",
+    "LIEBERT-GP-CONDITIONS-MIB": [
+      "lgpFlexConditions"
+    ],
+    "LIEBERT-GP-REGISTRATION-MIB": [
+      "liebertFlexibleConditionsModuleReg"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Counter64",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "liebertGlobalProductsFlexibleConditionsModule": {
+    "name": "liebertGlobalProductsFlexibleConditionsModule",
+    "oid": "1.3.6.1.4.1.476.1.42.1.11.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-10-02 00:00",
+        "description": "Compiled From GDD Version: 6825.1"
+      }
+    ]
+  },
+  "lgpFlexConditionsWellKnown": {
+    "name": "lgpFlexConditionsWellKnown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1",
+    "class": "objectidentity"
+  },
+  "lgpCondId4122SystemInputPowerProblem": {
+    "name": "lgpCondId4122SystemInputPowerProblem",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4122",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4132BypassOverloadPhaseA": {
+    "name": "lgpCondId4132BypassOverloadPhaseA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4132",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4133BypassOverloadPhaseB": {
+    "name": "lgpCondId4133BypassOverloadPhaseB",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4133",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4134BypassOverloadPhaseC": {
+    "name": "lgpCondId4134BypassOverloadPhaseC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4134",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4135BypassNotAvailable": {
+    "name": "lgpCondId4135BypassNotAvailable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4135",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4137BypassAutoRetransferPrimed": {
+    "name": "lgpCondId4137BypassAutoRetransferPrimed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4137",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4138BypassAutoRetransferFailed": {
+    "name": "lgpCondId4138BypassAutoRetransferFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4138",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4139BypassExcessAutoRetransfers": {
+    "name": "lgpCondId4139BypassExcessAutoRetransfers",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4139",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4140BypassRestartInhibitExternal": {
+    "name": "lgpCondId4140BypassRestartInhibitExternal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4140",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4141BypassBreakerClosed": {
+    "name": "lgpCondId4141BypassBreakerClosed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4141",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4142BypassStaticSwitchOverload": {
+    "name": "lgpCondId4142BypassStaticSwitchOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4142",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4143BypassStaticSwitchUnavailable": {
+    "name": "lgpCondId4143BypassStaticSwitchUnavailable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4143",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4144BypassExcessivePulseParallel": {
+    "name": "lgpCondId4144BypassExcessivePulseParallel",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4144",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4145BypassAutoTransferFailed": {
+    "name": "lgpCondId4145BypassAutoTransferFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4145",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4146SystemInputPhsRotationError": {
+    "name": "lgpCondId4146SystemInputPhsRotationError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4146",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4147SystemInputCurrentLimit": {
+    "name": "lgpCondId4147SystemInputCurrentLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4147",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4162BatteryLow": {
+    "name": "lgpCondId4162BatteryLow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4162",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4163OutputOffEndofDischarge": {
+    "name": "lgpCondId4163OutputOffEndofDischarge",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4163",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4164BatteryChargingError": {
+    "name": "lgpCondId4164BatteryChargingError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4164",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4165BatteryChargingReducedExtrnl": {
+    "name": "lgpCondId4165BatteryChargingReducedExtrnl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4165",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4166BatteryCapacityLow": {
+    "name": "lgpCondId4166BatteryCapacityLow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4166",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4167OutputOff": {
+    "name": "lgpCondId4167OutputOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4167",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4168BatteryDischarging": {
+    "name": "lgpCondId4168BatteryDischarging",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4168",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4169BatteryTemperatureImbalance": {
+    "name": "lgpCondId4169BatteryTemperatureImbalance",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4169",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4170BatteryEqualize": {
+    "name": "lgpCondId4170BatteryEqualize",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4170",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4171BatteryManualTestInProgress": {
+    "name": "lgpCondId4171BatteryManualTestInProgress",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4171",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4172BatteryAutoTestInProgress": {
+    "name": "lgpCondId4172BatteryAutoTestInProgress",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4172",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4173MainBatteryDisconnectOpen": {
+    "name": "lgpCondId4173MainBatteryDisconnectOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4173",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4174BatteryTemperatureSensorFault": {
+    "name": "lgpCondId4174BatteryTemperatureSensorFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4174",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4175BypassFrequencyError": {
+    "name": "lgpCondId4175BypassFrequencyError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4175",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4176BatteryCircuitBreaker1Open": {
+    "name": "lgpCondId4176BatteryCircuitBreaker1Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4176",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4177BatteryBreaker1OpenFailure": {
+    "name": "lgpCondId4177BatteryBreaker1OpenFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4177",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4178BatteryBreaker1CloseFailure": {
+    "name": "lgpCondId4178BatteryBreaker1CloseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4178",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4179BatteryCircuitBreaker2Open": {
+    "name": "lgpCondId4179BatteryCircuitBreaker2Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4179",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4180BatteryBreaker2OpenFailure": {
+    "name": "lgpCondId4180BatteryBreaker2OpenFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4180",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4181BatteryBreaker2CloseFailure": {
+    "name": "lgpCondId4181BatteryBreaker2CloseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4181",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4182BatteryCircuitBreaker3Open": {
+    "name": "lgpCondId4182BatteryCircuitBreaker3Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4182",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4183BatteryBreaker3OpenFailure": {
+    "name": "lgpCondId4183BatteryBreaker3OpenFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4183",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4184BatteryBreaker3CloseFailure": {
+    "name": "lgpCondId4184BatteryBreaker3CloseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4184",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4185BatteryCircuitBreaker4Open": {
+    "name": "lgpCondId4185BatteryCircuitBreaker4Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4185",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4186BatteryBreaker4OpenFailure": {
+    "name": "lgpCondId4186BatteryBreaker4OpenFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4186",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4187BatteryBreaker4CloseFailure": {
+    "name": "lgpCondId4187BatteryBreaker4CloseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4187",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4188BatteryCircuitBreaker5Open": {
+    "name": "lgpCondId4188BatteryCircuitBreaker5Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4188",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4189BatteryBreaker5OpenFailure": {
+    "name": "lgpCondId4189BatteryBreaker5OpenFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4189",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4190BatteryBreaker5CloseFailure": {
+    "name": "lgpCondId4190BatteryBreaker5CloseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4190",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4191BatteryCircuitBreaker6Open": {
+    "name": "lgpCondId4191BatteryCircuitBreaker6Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4191",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4192BatteryBreaker6OpenFailure": {
+    "name": "lgpCondId4192BatteryBreaker6OpenFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4192",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4193BatteryBreaker6CloseFailure": {
+    "name": "lgpCondId4193BatteryBreaker6CloseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4193",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4194BatteryCircuitBreaker7Open": {
+    "name": "lgpCondId4194BatteryCircuitBreaker7Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4194",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4195BatteryBreaker7OpenFailure": {
+    "name": "lgpCondId4195BatteryBreaker7OpenFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4195",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4196BatteryBreaker7CloseFailure": {
+    "name": "lgpCondId4196BatteryBreaker7CloseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4196",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4197BatteryCircuitBreaker8Open": {
+    "name": "lgpCondId4197BatteryCircuitBreaker8Open",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4197",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4198BatteryBreaker8OpenFailure": {
+    "name": "lgpCondId4198BatteryBreaker8OpenFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4198",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4199BatteryBreaker8CloseFailure": {
+    "name": "lgpCondId4199BatteryBreaker8CloseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4199",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4200BatteryChargingInhibited": {
+    "name": "lgpCondId4200BatteryChargingInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4200",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4213SystemShutdownEPO": {
+    "name": "lgpCondId4213SystemShutdownEPO",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4213",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4214SystemShutdownREPO": {
+    "name": "lgpCondId4214SystemShutdownREPO",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4214",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4215SystemOutputOff": {
+    "name": "lgpCondId4215SystemOutputOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4215",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4216BypassBackfeedDetected": {
+    "name": "lgpCondId4216BypassBackfeedDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4216",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4217BypassManualXfrInhibited": {
+    "name": "lgpCondId4217BypassManualXfrInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4217",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4218BypassManualRexfrInhibited": {
+    "name": "lgpCondId4218BypassManualRexfrInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4218",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4219BatteryOverTemperature": {
+    "name": "lgpCondId4219BatteryOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4219",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4220BatteryExternalMonitor1": {
+    "name": "lgpCondId4220BatteryExternalMonitor1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4220",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4221BatteryExternalMonitor2": {
+    "name": "lgpCondId4221BatteryExternalMonitor2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4221",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4222BatteryGroundFault": {
+    "name": "lgpCondId4222BatteryGroundFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4222",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4229EmergencyPowerOffLatched": {
+    "name": "lgpCondId4229EmergencyPowerOffLatched",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4229",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4230SystemOutputLowPowerFactor": {
+    "name": "lgpCondId4230SystemOutputLowPowerFactor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4230",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4231OutputCurrentExceedsThreshold": {
+    "name": "lgpCondId4231OutputCurrentExceedsThreshold",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4231",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4233InverterFailure": {
+    "name": "lgpCondId4233InverterFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4233",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4234InverterOverloadPhaseA": {
+    "name": "lgpCondId4234InverterOverloadPhaseA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4234",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4235InverterOverloadPhaseB": {
+    "name": "lgpCondId4235InverterOverloadPhaseB",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4235",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4236InverterOverloadPhaseC": {
+    "name": "lgpCondId4236InverterOverloadPhaseC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4236",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4237InverterInhibitExternal": {
+    "name": "lgpCondId4237InverterInhibitExternal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4237",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4238InverterOutBreakerOpenFail": {
+    "name": "lgpCondId4238InverterOutBreakerOpenFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4238",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4239InverterOutBreakerCloseFail": {
+    "name": "lgpCondId4239InverterOutBreakerCloseFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4239",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4270InputContact01": {
+    "name": "lgpCondId4270InputContact01",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4270",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4271InputContact02": {
+    "name": "lgpCondId4271InputContact02",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4271",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4272InputContact03": {
+    "name": "lgpCondId4272InputContact03",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4272",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4273InputContact04": {
+    "name": "lgpCondId4273InputContact04",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4273",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4274InputContact05": {
+    "name": "lgpCondId4274InputContact05",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4274",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4275InputContact06": {
+    "name": "lgpCondId4275InputContact06",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4275",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4276InputContact07": {
+    "name": "lgpCondId4276InputContact07",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4276",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4277InputContact08": {
+    "name": "lgpCondId4277InputContact08",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4277",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4278InputContact09": {
+    "name": "lgpCondId4278InputContact09",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4278",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4279InputContact10": {
+    "name": "lgpCondId4279InputContact10",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4279",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4280InputContact11": {
+    "name": "lgpCondId4280InputContact11",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4280",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4281InputContact12": {
+    "name": "lgpCondId4281InputContact12",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4281",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4282InputContact13": {
+    "name": "lgpCondId4282InputContact13",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4282",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4283InputContact14": {
+    "name": "lgpCondId4283InputContact14",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4283",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4284InputContact15": {
+    "name": "lgpCondId4284InputContact15",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4284",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4285InputContact16": {
+    "name": "lgpCondId4285InputContact16",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4285",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4286OutputAmpOverUserLimitPhsA": {
+    "name": "lgpCondId4286OutputAmpOverUserLimitPhsA",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4286",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4287OutputAmpOverUserLimitPhsB": {
+    "name": "lgpCondId4287OutputAmpOverUserLimitPhsB",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4287",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4288OutputAmpOverUserLimitPhsC": {
+    "name": "lgpCondId4288OutputAmpOverUserLimitPhsC",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4288",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4289InverterTransferInhibitExt": {
+    "name": "lgpCondId4289InverterTransferInhibitExt",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4289",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4290InverterShutdownOverload": {
+    "name": "lgpCondId4290InverterShutdownOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4290",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4294InletAirOverTemperature": {
+    "name": "lgpCondId4294InletAirOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4294",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4295RectifierFailure": {
+    "name": "lgpCondId4295RectifierFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4295",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4296RectifierOperationInhibitExt": {
+    "name": "lgpCondId4296RectifierOperationInhibitExt",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4296",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4297UPSOutputonInverter": {
+    "name": "lgpCondId4297UPSOutputonInverter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4297",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4298UPSOutputonBypass": {
+    "name": "lgpCondId4298UPSOutputonBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4298",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4299OutputLoadonMaintBypass": {
+    "name": "lgpCondId4299OutputLoadonMaintBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4299",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4300InternalCommunicationsFailure": {
+    "name": "lgpCondId4300InternalCommunicationsFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4300",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4308DCBusGroundFaultPositive": {
+    "name": "lgpCondId4308DCBusGroundFaultPositive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4308",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4309DCBusGroundFaultNegative": {
+    "name": "lgpCondId4309DCBusGroundFaultNegative",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4309",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4310EquipmentOverTemperature": {
+    "name": "lgpCondId4310EquipmentOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4310",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4311SystemFanFailure": {
+    "name": "lgpCondId4311SystemFanFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4311",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4313PasswordChanged": {
+    "name": "lgpCondId4313PasswordChanged",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4313",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4314PowerSupplyFailure": {
+    "name": "lgpCondId4314PowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4314",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4315OnGenerator": {
+    "name": "lgpCondId4315OnGenerator",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4315",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4316AutoRestartInProgress": {
+    "name": "lgpCondId4316AutoRestartInProgress",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4316",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4317AutoRestartInhibitedExt": {
+    "name": "lgpCondId4317AutoRestartInhibitedExt",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4317",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4320InitiatedTransfertoBypass": {
+    "name": "lgpCondId4320InitiatedTransfertoBypass",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4320",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4321InitiatedTransfertoInverter": {
+    "name": "lgpCondId4321InitiatedTransfertoInverter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4321",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4322BatteryTestPassed": {
+    "name": "lgpCondId4322BatteryTestPassed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4322",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4323BatteryTestFailed": {
+    "name": "lgpCondId4323BatteryTestFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4323",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4324BatteryTestManuallyStopped": {
+    "name": "lgpCondId4324BatteryTestManuallyStopped",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4324",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4325BackfeedBreakerOpen": {
+    "name": "lgpCondId4325BackfeedBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4325",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4341VelocityAuthenticationFailure": {
+    "name": "lgpCondId4341VelocityAuthenticationFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4341",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4360ReceptacleOverCurrent": {
+    "name": "lgpCondId4360ReceptacleOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4360",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4361ReceptacleUnderCurrent": {
+    "name": "lgpCondId4361ReceptacleUnderCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4361",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4382SystemInputCurrentImbalance": {
+    "name": "lgpCondId4382SystemInputCurrentImbalance",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4382",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4383BypassStaticSwitchOffExtrnl": {
+    "name": "lgpCondId4383BypassStaticSwitchOffExtrnl",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4383",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4384BatteryEoDDisconnect": {
+    "name": "lgpCondId4384BatteryEoDDisconnect",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4384",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4389SystemOutputFault": {
+    "name": "lgpCondId4389SystemOutputFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4389",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4390InverterOffExternal": {
+    "name": "lgpCondId4390InverterOffExternal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4390",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4391InverterStaticSwitchSCRShort": {
+    "name": "lgpCondId4391InverterStaticSwitchSCRShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4391",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4392TemperatureSensorError": {
+    "name": "lgpCondId4392TemperatureSensorError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4392",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4406BranchOverCurrent": {
+    "name": "lgpCondId4406BranchOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4406",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4407BranchUnderCurrent": {
+    "name": "lgpCondId4407BranchUnderCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4407",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4416BranchOverCurrent": {
+    "name": "lgpCondId4416BranchOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4416",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4417BranchUnderCurrent": {
+    "name": "lgpCondId4417BranchUnderCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4417",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4421BranchFailure": {
+    "name": "lgpCondId4421BranchFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4421",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4436PDUOverCurrent": {
+    "name": "lgpCondId4436PDUOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4436",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4437PDUUnderCurrent": {
+    "name": "lgpCondId4437PDUUnderCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4437",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4438SystemInternalTemperatureRise": {
+    "name": "lgpCondId4438SystemInternalTemperatureRise",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4438",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4439AutomaticRestartFailed": {
+    "name": "lgpCondId4439AutomaticRestartFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4439",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4440FuseFailure": {
+    "name": "lgpCondId4440FuseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4440",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4441SystemControllerError": {
+    "name": "lgpCondId4441SystemControllerError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4441",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4442SystemBreakersOpenFailure": {
+    "name": "lgpCondId4442SystemBreakersOpenFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4442",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4448PDUOverCurrent": {
+    "name": "lgpCondId4448PDUOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4448",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4449PDUUnderCurrent": {
+    "name": "lgpCondId4449PDUUnderCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4449",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4468PDUOverCurrentL1": {
+    "name": "lgpCondId4468PDUOverCurrentL1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4468",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4469PDUOverCurrentL2": {
+    "name": "lgpCondId4469PDUOverCurrentL2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4469",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4470PDUOverCurrentL3": {
+    "name": "lgpCondId4470PDUOverCurrentL3",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4470",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4471PDUUnderCurrentL1": {
+    "name": "lgpCondId4471PDUUnderCurrentL1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4471",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4472PDUUnderCurrentL2": {
+    "name": "lgpCondId4472PDUUnderCurrentL2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4472",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4473PDUUnderCurrentL3": {
+    "name": "lgpCondId4473PDUUnderCurrentL3",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4473",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4492ReceptaclePowerStateOn": {
+    "name": "lgpCondId4492ReceptaclePowerStateOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4492",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4493ReceptaclePowerStateOff": {
+    "name": "lgpCondId4493ReceptaclePowerStateOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4493",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4494BranchBreakerOpen": {
+    "name": "lgpCondId4494BranchBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4494",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4495DeviceConfigurationChange": {
+    "name": "lgpCondId4495DeviceConfigurationChange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4495",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4496BasicDisplayModuleRemoved": {
+    "name": "lgpCondId4496BasicDisplayModuleRemoved",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4496",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4497BasicDisplayModuleDiscovered": {
+    "name": "lgpCondId4497BasicDisplayModuleDiscovered",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4497",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4500PDUOverCurrent": {
+    "name": "lgpCondId4500PDUOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4500",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4501PDUUnderCurrent": {
+    "name": "lgpCondId4501PDUUnderCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4501",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4502PDUFailure": {
+    "name": "lgpCondId4502PDUFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4502",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4503PDUCommunicationFail": {
+    "name": "lgpCondId4503PDUCommunicationFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4503",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4504BranchRemoved": {
+    "name": "lgpCondId4504BranchRemoved",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4504",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4505BranchDiscovered": {
+    "name": "lgpCondId4505BranchDiscovered",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4505",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4506BranchOverCurrent": {
+    "name": "lgpCondId4506BranchOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4506",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4507BranchCurrent": {
+    "name": "lgpCondId4507BranchCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4507",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4508ReceptacleLoadRemoved": {
+    "name": "lgpCondId4508ReceptacleLoadRemoved",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4508",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4509ReceptacleLoadAdded": {
+    "name": "lgpCondId4509ReceptacleLoadAdded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4509",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4523ModuleRemoved": {
+    "name": "lgpCondId4523ModuleRemoved",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4523",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4524ModuleAdded": {
+    "name": "lgpCondId4524ModuleAdded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4524",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4550FirmwareUpdateRequired": {
+    "name": "lgpCondId4550FirmwareUpdateRequired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4550",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4551GenericTestEvent": {
+    "name": "lgpCondId4551GenericTestEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4551",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4580OverTemperature": {
+    "name": "lgpCondId4580OverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4580",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4581UnderTemperature": {
+    "name": "lgpCondId4581UnderTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4581",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4588OverRelativeHumidity": {
+    "name": "lgpCondId4588OverRelativeHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4588",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4589UnderRelativeHumidity": {
+    "name": "lgpCondId4589UnderRelativeHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4589",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4601ExternalAirSensorAOverTemperature": {
+    "name": "lgpCondId4601ExternalAirSensorAOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4601",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4604ExternalAirSensorBOverTemperature": {
+    "name": "lgpCondId4604ExternalAirSensorBOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4604",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4608ExtAirSensorAUnderTemperature": {
+    "name": "lgpCondId4608ExtAirSensorAUnderTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4608",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4611ExtAirSensorBUnderTemperature": {
+    "name": "lgpCondId4611ExtAirSensorBUnderTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4611",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4615ExtDewPointOverTemperature": {
+    "name": "lgpCondId4615ExtDewPointOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4615",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4618ExternalAirSensorAIssue": {
+    "name": "lgpCondId4618ExternalAirSensorAIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4618",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4621ExternalAirSensorBIssue": {
+    "name": "lgpCondId4621ExternalAirSensorBIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4621",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4626SupplyChilledWaterOverTemp": {
+    "name": "lgpCondId4626SupplyChilledWaterOverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4626",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4629SupplyChilledWaterTempSensorIssue": {
+    "name": "lgpCondId4629SupplyChilledWaterTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4629",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4634SupplyRefrigerantOverTemp": {
+    "name": "lgpCondId4634SupplyRefrigerantOverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4634",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4637SupplyRefrigerantUnderTemp": {
+    "name": "lgpCondId4637SupplyRefrigerantUnderTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4637",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4640SupplyRefrigerantTempSensorIssue": {
+    "name": "lgpCondId4640SupplyRefrigerantTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4640",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4645SupplyFluidOverTemp": {
+    "name": "lgpCondId4645SupplyFluidOverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4645",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4648SupplyFluidUnderTemp": {
+    "name": "lgpCondId4648SupplyFluidUnderTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4648",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4651SupplyFluidTempSensorIssue": {
+    "name": "lgpCondId4651SupplyFluidTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4651",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4656Pump1LossofFlow": {
+    "name": "lgpCondId4656Pump1LossofFlow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4656",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4659Pump2LossofFlow": {
+    "name": "lgpCondId4659Pump2LossofFlow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4659",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4662PumpShortCycle": {
+    "name": "lgpCondId4662PumpShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4662",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4669Compressor1AHighHeadPressure": {
+    "name": "lgpCondId4669Compressor1AHighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4669",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4672Compressor1BHighHeadPressure": {
+    "name": "lgpCondId4672Compressor1BHighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4672",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4675Compressor2AHighHeadPressure": {
+    "name": "lgpCondId4675Compressor2AHighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4675",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4678Compressor2BHighHeadPressure": {
+    "name": "lgpCondId4678Compressor2BHighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4678",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4681Compressor1AShortCycle": {
+    "name": "lgpCondId4681Compressor1AShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4681",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4684Compressor1BShortCycle": {
+    "name": "lgpCondId4684Compressor1BShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4684",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4687Compressor2AShortCycle": {
+    "name": "lgpCondId4687Compressor2AShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4687",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4690Compressor2BShortCycle": {
+    "name": "lgpCondId4690Compressor2BShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4690",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4693Tandem1LowSuctionPressure": {
+    "name": "lgpCondId4693Tandem1LowSuctionPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4693",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4696Tandem2LowSuctionPressure": {
+    "name": "lgpCondId4696Tandem2LowSuctionPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4696",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4703ChilledWaterControlValvePosition": {
+    "name": "lgpCondId4703ChilledWaterControlValvePosition",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4703",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4711SystemCondensationDetected": {
+    "name": "lgpCondId4711SystemCondensationDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4711",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4714ShutdownLossOfPower": {
+    "name": "lgpCondId4714ShutdownLossOfPower",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4714",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4720SmokeDetected": {
+    "name": "lgpCondId4720SmokeDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4720",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4723WaterUnderFloor": {
+    "name": "lgpCondId4723WaterUnderFloor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4723",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4726ServiceRequired": {
+    "name": "lgpCondId4726ServiceRequired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4726",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4729FanIssue": {
+    "name": "lgpCondId4729FanIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4729",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4732ReceptacleLoadDropped": {
+    "name": "lgpCondId4732ReceptacleLoadDropped",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4732",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4740BatteryAutomaticTestInhibited": {
+    "name": "lgpCondId4740BatteryAutomaticTestInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4740",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4741BatterySelfTest": {
+    "name": "lgpCondId4741BatterySelfTest",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4741",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4742BatteryLowShutdown": {
+    "name": "lgpCondId4742BatteryLowShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4742",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4747EquipmentTemperatureSensorFail": {
+    "name": "lgpCondId4747EquipmentTemperatureSensorFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4747",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4749SystemFanFailureRedundant": {
+    "name": "lgpCondId4749SystemFanFailureRedundant",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4749",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4750MultipleFanFailure": {
+    "name": "lgpCondId4750MultipleFanFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4750",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4753MainControllerFault": {
+    "name": "lgpCondId4753MainControllerFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4753",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4754SystemBreakersCloseFailure": {
+    "name": "lgpCondId4754SystemBreakersCloseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4754",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4755InputFilterCycleLock": {
+    "name": "lgpCondId4755InputFilterCycleLock",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4755",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4756ServiceCodeActive": {
+    "name": "lgpCondId4756ServiceCodeActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4756",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4757LBSActive": {
+    "name": "lgpCondId4757LBSActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4757",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4758LBSInhibited": {
+    "name": "lgpCondId4758LBSInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4758",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4759LeadingPowerFactor": {
+    "name": "lgpCondId4759LeadingPowerFactor",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4759",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4760ControlsResetRequired": {
+    "name": "lgpCondId4760ControlsResetRequired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4760",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4823ParallelCommWarning": {
+    "name": "lgpCondId4823ParallelCommWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4823",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4824SystemCommFail": {
+    "name": "lgpCondId4824SystemCommFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4824",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4825LossofRedundancy": {
+    "name": "lgpCondId4825LossofRedundancy",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4825",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4826BPSSStartupInhibit": {
+    "name": "lgpCondId4826BPSSStartupInhibit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4826",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4827MMSTransferInhibit": {
+    "name": "lgpCondId4827MMSTransferInhibit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4827",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4828MMSRetransferInhibit": {
+    "name": "lgpCondId4828MMSRetransferInhibit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4828",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4830MMSLossofSyncPulse": {
+    "name": "lgpCondId4830MMSLossofSyncPulse",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4830",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4831MMSOverload": {
+    "name": "lgpCondId4831MMSOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4831",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4834MMSOnBattery": {
+    "name": "lgpCondId4834MMSOnBattery",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4834",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4835MMSLowBatteryWarning": {
+    "name": "lgpCondId4835MMSLowBatteryWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4835",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4906LowAmbientTemperature": {
+    "name": "lgpCondId4906LowAmbientTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4906",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4907HighAmbientTemperature": {
+    "name": "lgpCondId4907HighAmbientTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4907",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4908LowOverallVoltage": {
+    "name": "lgpCondId4908LowOverallVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4908",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4909HighOverallVoltage": {
+    "name": "lgpCondId4909HighOverallVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4909",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4910HighBatteryStringCurrent": {
+    "name": "lgpCondId4910HighBatteryStringCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4910",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4911LowBatteryStringFloatCurrent": {
+    "name": "lgpCondId4911LowBatteryStringFloatCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4911",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4912HighBatteryStringFloatCurrent": {
+    "name": "lgpCondId4912HighBatteryStringFloatCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4912",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4913HighBatteryStringRippleCurrent": {
+    "name": "lgpCondId4913HighBatteryStringRippleCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4913",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4914BatteryStringDischargeDetected": {
+    "name": "lgpCondId4914BatteryStringDischargeDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4914",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4915MaximumDischargeTimeExceeded": {
+    "name": "lgpCondId4915MaximumDischargeTimeExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4915",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4916DischargeLowOverallVoltage": {
+    "name": "lgpCondId4916DischargeLowOverallVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4916",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4917DischargeLowCellVoltage": {
+    "name": "lgpCondId4917DischargeLowCellVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4917",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4918DischargeHighBatteryStringCurrent": {
+    "name": "lgpCondId4918DischargeHighBatteryStringCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4918",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4919ExcessiveCelltoCellTemperatureDeviation": {
+    "name": "lgpCondId4919ExcessiveCelltoCellTemperatureDeviation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4919",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4920ExcessiveCelltoAmbientTemperatureDeviation": {
+    "name": "lgpCondId4920ExcessiveCelltoAmbientTemperatureDeviation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4920",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4964LowCellVoltage": {
+    "name": "lgpCondId4964LowCellVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4964",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4965HighCellVoltage": {
+    "name": "lgpCondId4965HighCellVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4965",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4966LowCellTemperature": {
+    "name": "lgpCondId4966LowCellTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4966",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4967HighCellTemperature": {
+    "name": "lgpCondId4967HighCellTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4967",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4968LowInternalResistance": {
+    "name": "lgpCondId4968LowInternalResistance",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4968",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4969HighInternalResistance": {
+    "name": "lgpCondId4969HighInternalResistance",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4969",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4970HighIntercellResistance": {
+    "name": "lgpCondId4970HighIntercellResistance",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4970",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4978IntertierResistanceHigh": {
+    "name": "lgpCondId4978IntertierResistanceHigh",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4978",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4980SupplyChilledWaterLossofFlow": {
+    "name": "lgpCondId4980SupplyChilledWaterLossofFlow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4980",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4983SupplyRefrigOverTempBand1": {
+    "name": "lgpCondId4983SupplyRefrigOverTempBand1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4983",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4986SupplyRefrigUnderTempBand1": {
+    "name": "lgpCondId4986SupplyRefrigUnderTempBand1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4986",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4990SupplyRefrigOverTempBand2": {
+    "name": "lgpCondId4990SupplyRefrigOverTempBand2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4990",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4993SupplyRefrigUnderTempBand2": {
+    "name": "lgpCondId4993SupplyRefrigUnderTempBand2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4993",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4996Inverter1ShortCycle": {
+    "name": "lgpCondId4996Inverter1ShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4996",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId4999Inverter2ShortCycle": {
+    "name": "lgpCondId4999Inverter2ShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.4999",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5015SupplyAirOverTemperature": {
+    "name": "lgpCondId5015SupplyAirOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5015",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5019SupplyAirUnderTemperature": {
+    "name": "lgpCondId5019SupplyAirUnderTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5019",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5023ReturnAirOverTemperature": {
+    "name": "lgpCondId5023ReturnAirOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5023",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5026SupplyAirSensorIssue": {
+    "name": "lgpCondId5026SupplyAirSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5026",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5034HighReturnHumidity": {
+    "name": "lgpCondId5034HighReturnHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5034",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5036LowReturnHumidity": {
+    "name": "lgpCondId5036LowReturnHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5036",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5037HumidifierHoursExceeded": {
+    "name": "lgpCondId5037HumidifierHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5037",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5038DehumidifierHoursExceeded": {
+    "name": "lgpCondId5038DehumidifierHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5038",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5039HumidifierUnderCurrent": {
+    "name": "lgpCondId5039HumidifierUnderCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5039",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5040HumidifierOverCurrent": {
+    "name": "lgpCondId5040HumidifierOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5040",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5041HumidifierLowWater": {
+    "name": "lgpCondId5041HumidifierLowWater",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5041",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5042HumidifierCylinderWorn": {
+    "name": "lgpCondId5042HumidifierCylinderWorn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5042",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5043HumidifierIssue": {
+    "name": "lgpCondId5043HumidifierIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5043",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5044ExtHumidifierLockout": {
+    "name": "lgpCondId5044ExtHumidifierLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5044",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5045HumidifierControlBoardNotDetected": {
+    "name": "lgpCondId5045HumidifierControlBoardNotDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5045",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5046ReturnHumidityOutOfProportionalBand": {
+    "name": "lgpCondId5046ReturnHumidityOutOfProportionalBand",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5046",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5053LossofAirFlow": {
+    "name": "lgpCondId5053LossofAirFlow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5053",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5054FanHoursExceeded": {
+    "name": "lgpCondId5054FanHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5054",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5055TopFanIssue": {
+    "name": "lgpCondId5055TopFanIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5055",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5056BottomFanIssue": {
+    "name": "lgpCondId5056BottomFanIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5056",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5060RemoteSensorIssue": {
+    "name": "lgpCondId5060RemoteSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5060",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5062Compressor1LowSuctionPressure": {
+    "name": "lgpCondId5062Compressor1LowSuctionPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5062",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5063Compressor1HoursExceeded": {
+    "name": "lgpCondId5063Compressor1HoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5063",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5064DigScrollComp1TempSensorIssue": {
+    "name": "lgpCondId5064DigScrollComp1TempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5064",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5065DigScrollComp1OverTemp": {
+    "name": "lgpCondId5065DigScrollComp1OverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5065",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5066Compressor1LowPressureTransducerIssue": {
+    "name": "lgpCondId5066Compressor1LowPressureTransducerIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5066",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5067ExtCompressorLockout": {
+    "name": "lgpCondId5067ExtCompressorLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5067",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5068ReheaterOverTemperature": {
+    "name": "lgpCondId5068ReheaterOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5068",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5069ElectricReheater1HoursExceeded": {
+    "name": "lgpCondId5069ElectricReheater1HoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5069",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5070ExtReheatLockout": {
+    "name": "lgpCondId5070ExtReheatLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5070",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5071Condenser1Issue": {
+    "name": "lgpCondId5071Condenser1Issue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5071",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5072CondenserVFDIssue": {
+    "name": "lgpCondId5072CondenserVFDIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5072",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5073CondenserTVSSIssue": {
+    "name": "lgpCondId5073CondenserTVSSIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5073",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5104ExtOverTemperature": {
+    "name": "lgpCondId5104ExtOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5104",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5105ExtLossofFlow": {
+    "name": "lgpCondId5105ExtLossofFlow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5105",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5106ExtCondenserPumpHighWater": {
+    "name": "lgpCondId5106ExtCondenserPumpHighWater",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5106",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5107ExtStandbyGlycolPumpOn": {
+    "name": "lgpCondId5107ExtStandbyGlycolPumpOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5107",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5108ExternalFireDetected": {
+    "name": "lgpCondId5108ExternalFireDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5108",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5109UnitOn": {
+    "name": "lgpCondId5109UnitOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5109",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5110UnitOff": {
+    "name": "lgpCondId5110UnitOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5110",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5111UnitStandby": {
+    "name": "lgpCondId5111UnitStandby",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5111",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5112UnitPartialShutdown": {
+    "name": "lgpCondId5112UnitPartialShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5112",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5113UnitShutdown": {
+    "name": "lgpCondId5113UnitShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5113",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5114WaterLeakageDetectorSensorIssue": {
+    "name": "lgpCondId5114WaterLeakageDetectorSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5114",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5115BMSCommunicationsTimeout": {
+    "name": "lgpCondId5115BMSCommunicationsTimeout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5115",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5116MaintenanceDue": {
+    "name": "lgpCondId5116MaintenanceDue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5116",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5117MaintenanceCompleted": {
+    "name": "lgpCondId5117MaintenanceCompleted",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5117",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5118CloggedAirFilter": {
+    "name": "lgpCondId5118CloggedAirFilter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5118",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5119RAMBatteryIssue": {
+    "name": "lgpCondId5119RAMBatteryIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5119",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5120MasterUnitCommunicationLost": {
+    "name": "lgpCondId5120MasterUnitCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5120",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5121HighPowerShutdown": {
+    "name": "lgpCondId5121HighPowerShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5121",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5126DigScrollComp2OverTemp": {
+    "name": "lgpCondId5126DigScrollComp2OverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5126",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5144OutputOfUf": {
+    "name": "lgpCondId5144OutputOfUf",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5144",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5145MMSModuleAlarmActive": {
+    "name": "lgpCondId5145MMSModuleAlarmActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5145",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5146CompressorPumpDownIssue": {
+    "name": "lgpCondId5146CompressorPumpDownIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5146",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5147ReturnAirSensorIssue": {
+    "name": "lgpCondId5147ReturnAirSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5147",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5148CompressorHighPressureTransducerIssue": {
+    "name": "lgpCondId5148CompressorHighPressureTransducerIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5148",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5149BatteryNotQualified": {
+    "name": "lgpCondId5149BatteryNotQualified",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5149",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5150BatteryTerminalsReversed": {
+    "name": "lgpCondId5150BatteryTerminalsReversed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5150",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5151BatteryConverterFailure": {
+    "name": "lgpCondId5151BatteryConverterFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5151",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5152InverterSCROpen": {
+    "name": "lgpCondId5152InverterSCROpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5152",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5153LoadSharingFault": {
+    "name": "lgpCondId5153LoadSharingFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5153",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5154DCBusAbnormal": {
+    "name": "lgpCondId5154DCBusAbnormal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5154",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5155MainsInputNeutralLost": {
+    "name": "lgpCondId5155MainsInputNeutralLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5155",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5156LoadImpactTransfer": {
+    "name": "lgpCondId5156LoadImpactTransfer",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5156",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5157UserOperationInvalid": {
+    "name": "lgpCondId5157UserOperationInvalid",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5157",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5158PowerSubModuleFault": {
+    "name": "lgpCondId5158PowerSubModuleFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5158",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5178OutputOvervoltage": {
+    "name": "lgpCondId5178OutputOvervoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5178",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5179OutputUndervoltage": {
+    "name": "lgpCondId5179OutputUndervoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5179",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5180OutputOvercurrent": {
+    "name": "lgpCondId5180OutputOvercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5180",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5181NeutralOvercurrent": {
+    "name": "lgpCondId5181NeutralOvercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5181",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5182GroundOvercurrent": {
+    "name": "lgpCondId5182GroundOvercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5182",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5183OutputVoltageTHD": {
+    "name": "lgpCondId5183OutputVoltageTHD",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5183",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5184OutputFrequencyError": {
+    "name": "lgpCondId5184OutputFrequencyError",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5184",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5185TransformerOvertemperature": {
+    "name": "lgpCondId5185TransformerOvertemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5185",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5212PanelSummaryStatus": {
+    "name": "lgpCondId5212PanelSummaryStatus",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5212",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5213PanelOvervoltage": {
+    "name": "lgpCondId5213PanelOvervoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5213",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5214PanelUndervoltage": {
+    "name": "lgpCondId5214PanelUndervoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5214",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5215PanelOvercurrent": {
+    "name": "lgpCondId5215PanelOvercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5215",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5216PanelNeutralOvercurrent": {
+    "name": "lgpCondId5216PanelNeutralOvercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5216",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5217PanelGroundOvercurrent": {
+    "name": "lgpCondId5217PanelGroundOvercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5217",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5226BranchOvercurrent": {
+    "name": "lgpCondId5226BranchOvercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5226",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5227BranchUndercurrent": {
+    "name": "lgpCondId5227BranchUndercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5227",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5245SubfeedPhaseOvercurrent": {
+    "name": "lgpCondId5245SubfeedPhaseOvercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5245",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5246SubfeedNeutralOvercurrent": {
+    "name": "lgpCondId5246SubfeedNeutralOvercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5246",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5247SubfeedGroundOvercurrent": {
+    "name": "lgpCondId5247SubfeedGroundOvercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5247",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5249EventState": {
+    "name": "lgpCondId5249EventState",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5249",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5263CompressorNotStopping": {
+    "name": "lgpCondId5263CompressorNotStopping",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5263",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5269CompressorHoursExceeded": {
+    "name": "lgpCondId5269CompressorHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5269",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5270CompressorHighHeadPressure": {
+    "name": "lgpCondId5270CompressorHighHeadPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5270",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5271CompressorLowSuctionPressure": {
+    "name": "lgpCondId5271CompressorLowSuctionPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5271",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5272CompressorThermalOverload": {
+    "name": "lgpCondId5272CompressorThermalOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5272",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5273CompressorLowOilPressure": {
+    "name": "lgpCondId5273CompressorLowOilPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5273",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5274CompressorHeadPressureOverThreshold": {
+    "name": "lgpCondId5274CompressorHeadPressureOverThreshold",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5274",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5275CompressorLossofDifferentialPressure": {
+    "name": "lgpCondId5275CompressorLossofDifferentialPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5275",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5277CondenserFanIssue": {
+    "name": "lgpCondId5277CondenserFanIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5277",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5278LowCondenserRefrigerantPressure": {
+    "name": "lgpCondId5278LowCondenserRefrigerantPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5278",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5280LowFluidPressure": {
+    "name": "lgpCondId5280LowFluidPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5280",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5293ReturnFluidOverTemp": {
+    "name": "lgpCondId5293ReturnFluidOverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5293",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5294ReturnFluidUnderTemp": {
+    "name": "lgpCondId5294ReturnFluidUnderTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5294",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5295ReturnFluidTempSensorIssue": {
+    "name": "lgpCondId5295ReturnFluidTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5295",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5296TeamworkReturnFluidTempSensorIssue": {
+    "name": "lgpCondId5296TeamworkReturnFluidTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5296",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5297AllPumpsLossofFlow": {
+    "name": "lgpCondId5297AllPumpsLossofFlow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5297",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5300PumpHoursExceeded": {
+    "name": "lgpCondId5300PumpHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5300",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5306FreeCoolingValveHoursExceeded": {
+    "name": "lgpCondId5306FreeCoolingValveHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5306",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5308EvaporatorInletTempSensorIssue": {
+    "name": "lgpCondId5308EvaporatorInletTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5308",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5309TeamworkEvaporatorInletTempSensorIssue": {
+    "name": "lgpCondId5309TeamworkEvaporatorInletTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5309",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5310EvaporatorFluidFreezeAutoReset": {
+    "name": "lgpCondId5310EvaporatorFluidFreezeAutoReset",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5310",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5311EvaporatorFluidFreezeManualResetRequired": {
+    "name": "lgpCondId5311EvaporatorFluidFreezeManualResetRequired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5311",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5315SubgroupEventOccurredDuringCommunicationLoss": {
+    "name": "lgpCondId5315SubgroupEventOccurredDuringCommunicationLoss",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5315",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5335ReturnAirUnderTemperature": {
+    "name": "lgpCondId5335ReturnAirUnderTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5335",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5349ExtAirSensorAHighHumidity": {
+    "name": "lgpCondId5349ExtAirSensorAHighHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5349",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5351ExtAirSensorALowHumidity": {
+    "name": "lgpCondId5351ExtAirSensorALowHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5351",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5352CompressorShortCycle": {
+    "name": "lgpCondId5352CompressorShortCycle",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5352",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5354DigScrollCompDischargeTempSensorIssue": {
+    "name": "lgpCondId5354DigScrollCompDischargeTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5354",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5355DigScrollCompOverTemp": {
+    "name": "lgpCondId5355DigScrollCompOverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5355",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5361ExtFreeCoolingLockout": {
+    "name": "lgpCondId5361ExtFreeCoolingLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5361",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5362FreeCoolingTempSensorIssue": {
+    "name": "lgpCondId5362FreeCoolingTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5362",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5365HotWaterHotGasValveHoursExceeded": {
+    "name": "lgpCondId5365HotWaterHotGasValveHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5365",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5368ElectricReheaterHoursExceeded": {
+    "name": "lgpCondId5368ElectricReheaterHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5368",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5376MainFanOverload": {
+    "name": "lgpCondId5376MainFanOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5376",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5377Condenser": {
+    "name": "lgpCondId5377Condenser",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5377",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5415ExtLossofAirBlower": {
+    "name": "lgpCondId5415ExtLossofAirBlower",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5415",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5416ExtStandbyUnitOn": {
+    "name": "lgpCondId5416ExtStandbyUnitOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5416",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5417DigitalOutputBoardNotDetected": {
+    "name": "lgpCondId5417DigitalOutputBoardNotDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5417",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5418UnitCodeMissing": {
+    "name": "lgpCondId5418UnitCodeMissing",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5418",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5419UnitCommunicationLost": {
+    "name": "lgpCondId5419UnitCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5419",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5422OvertemperaturePowerOff": {
+    "name": "lgpCondId5422OvertemperaturePowerOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5422",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5423TooManySensors": {
+    "name": "lgpCondId5423TooManySensors",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5423",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5432TransformerOvertemperaturePowerOff": {
+    "name": "lgpCondId5432TransformerOvertemperaturePowerOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5432",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5433TransformerOvertemperature": {
+    "name": "lgpCondId5433TransformerOvertemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5433",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5434TransformerTemperatureSensorFail": {
+    "name": "lgpCondId5434TransformerTemperatureSensorFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5434",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5436LowAmbientTemperatureProbeTwo": {
+    "name": "lgpCondId5436LowAmbientTemperatureProbeTwo",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5436",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5437HighAmbientTemperatureProbeTwo": {
+    "name": "lgpCondId5437HighAmbientTemperatureProbeTwo",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5437",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5438ThermalRunawayDetected": {
+    "name": "lgpCondId5438ThermalRunawayDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5438",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5439BatteryStringEqualize": {
+    "name": "lgpCondId5439BatteryStringEqualize",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5439",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5440BatteryStringOffline": {
+    "name": "lgpCondId5440BatteryStringOffline",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5440",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5442DischargeLowCellVoltage": {
+    "name": "lgpCondId5442DischargeLowCellVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5442",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5447MMSPowerSharing": {
+    "name": "lgpCondId5447MMSPowerSharing",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5447",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5453ModuleInStandbyIntelligentParalleling": {
+    "name": "lgpCondId5453ModuleInStandbyIntelligentParalleling",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5453",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5456ECOModeActive": {
+    "name": "lgpCondId5456ECOModeActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5456",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5457ECOModeSuspended": {
+    "name": "lgpCondId5457ECOModeSuspended",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5457",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5458ExcessECOSuspends": {
+    "name": "lgpCondId5458ExcessECOSuspends",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5458",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5471DoorOpen": {
+    "name": "lgpCondId5471DoorOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5471",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5472DoorSensorDisconnected": {
+    "name": "lgpCondId5472DoorSensorDisconnected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5472",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5479ContactClosureOpen": {
+    "name": "lgpCondId5479ContactClosureOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5479",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5480ContactClosureClosed": {
+    "name": "lgpCondId5480ContactClosureClosed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5480",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5492ExtSystemCondensationDetected": {
+    "name": "lgpCondId5492ExtSystemCondensationDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5492",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5495ExtFanIssue": {
+    "name": "lgpCondId5495ExtFanIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5495",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5500ExtRemoteShutdown": {
+    "name": "lgpCondId5500ExtRemoteShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5500",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5505HotAisleTempOutofRange": {
+    "name": "lgpCondId5505HotAisleTempOutofRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5505",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5508ColdAisleTempOutofRange": {
+    "name": "lgpCondId5508ColdAisleTempOutofRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5508",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5512RemoteShutdown": {
+    "name": "lgpCondId5512RemoteShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5512",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5513CompressorCapacityReduced": {
+    "name": "lgpCondId5513CompressorCapacityReduced",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5513",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5514CompressorLowPressureTransducerIssue": {
+    "name": "lgpCondId5514CompressorLowPressureTransducerIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5514",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5524PDUNeutralOverCurrent": {
+    "name": "lgpCondId5524PDUNeutralOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5524",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5531CondenserCommunicationLost": {
+    "name": "lgpCondId5531CondenserCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5531",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5535CondenserOutsideAirTempSensorIssue": {
+    "name": "lgpCondId5535CondenserOutsideAirTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5535",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5536CondenserOutsideAirTempOutofOperatingRange": {
+    "name": "lgpCondId5536CondenserOutsideAirTempOutofOperatingRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5536",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5537CondenserControlBoardIssue": {
+    "name": "lgpCondId5537CondenserControlBoardIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5537",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5539CondenserRefrigerantPressureOverThreshold": {
+    "name": "lgpCondId5539CondenserRefrigerantPressureOverThreshold",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5539",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5540CondenserRefrigerantPressureUnderThreshold": {
+    "name": "lgpCondId5540CondenserRefrigerantPressureUnderThreshold",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5540",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5541CondenserRefrigerantPressureSensorIssue": {
+    "name": "lgpCondId5541CondenserRefrigerantPressureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5541",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5542CondenserSupplyRefrigerantOverTemp": {
+    "name": "lgpCondId5542CondenserSupplyRefrigerantOverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5542",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5543CondenserSupplyRefrigerantUnderTemp": {
+    "name": "lgpCondId5543CondenserSupplyRefrigerantUnderTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5543",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5544CondenserSupplyRefrigerantTempSensorIssue": {
+    "name": "lgpCondId5544CondenserSupplyRefrigerantTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5544",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5545CondenserMaxFanSpeedOverride": {
+    "name": "lgpCondId5545CondenserMaxFanSpeedOverride",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5545",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5559EvaporatorReturnFluidOverTemp": {
+    "name": "lgpCondId5559EvaporatorReturnFluidOverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5559",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5560EvaporatorReturnFluidUnderTemp": {
+    "name": "lgpCondId5560EvaporatorReturnFluidUnderTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5560",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5561LBSActiveMaster": {
+    "name": "lgpCondId5561LBSActiveMaster",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5561",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5562LBSActiveSlave": {
+    "name": "lgpCondId5562LBSActiveSlave",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5562",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5563DCBusLowFault": {
+    "name": "lgpCondId5563DCBusLowFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5563",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5564FanContactorOpen": {
+    "name": "lgpCondId5564FanContactorOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5564",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5565FanContactorOpenFail": {
+    "name": "lgpCondId5565FanContactorOpenFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5565",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5566FanContactorCloseFail": {
+    "name": "lgpCondId5566FanContactorCloseFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5566",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5567IPInhibit": {
+    "name": "lgpCondId5567IPInhibit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5567",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5568InputUndervoltage": {
+    "name": "lgpCondId5568InputUndervoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5568",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5569InputOvervoltage": {
+    "name": "lgpCondId5569InputOvervoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5569",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5573AmbientAirSensorIssue": {
+    "name": "lgpCondId5573AmbientAirSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5573",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5577ExtDewPointUnderTemperature": {
+    "name": "lgpCondId5577ExtDewPointUnderTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5577",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5578DewPointOverTemperature": {
+    "name": "lgpCondId5578DewPointOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5578",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5579DewPointUnderTemperature": {
+    "name": "lgpCondId5579DewPointUnderTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5579",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5588UnspecifiedGeneralEvent": {
+    "name": "lgpCondId5588UnspecifiedGeneralEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5588",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5593RemoteSensorAverageOverTemperature": {
+    "name": "lgpCondId5593RemoteSensorAverageOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5593",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5594RemoteSensorAverageUnderTemperature": {
+    "name": "lgpCondId5594RemoteSensorAverageUnderTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5594",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5595RemoteSensorSystemAverageOverTemperature": {
+    "name": "lgpCondId5595RemoteSensorSystemAverageOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5595",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5596RemoteSensorSystemAverageUnderTemperature": {
+    "name": "lgpCondId5596RemoteSensorSystemAverageUnderTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5596",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5597RemoteSensorOverTemperature": {
+    "name": "lgpCondId5597RemoteSensorOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5597",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5598RemoteSensorUnderTemperature": {
+    "name": "lgpCondId5598RemoteSensorUnderTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5598",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5600AirEconomizerEmergencyOverride": {
+    "name": "lgpCondId5600AirEconomizerEmergencyOverride",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5600",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5601AirEconomizerReducedAirflow": {
+    "name": "lgpCondId5601AirEconomizerReducedAirflow",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5601",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5604CompressorSuperheatOverThreshold": {
+    "name": "lgpCondId5604CompressorSuperheatOverThreshold",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5604",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5609ThermalRunawayCelltoAmbientTemperatureEvent": {
+    "name": "lgpCondId5609ThermalRunawayCelltoAmbientTemperatureEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5609",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5610ThermalRunawayCelltoCellTemperatureEvent": {
+    "name": "lgpCondId5610ThermalRunawayCelltoCellTemperatureEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5610",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5611ThermalRunawayChargerCurrentLevelOneEvent": {
+    "name": "lgpCondId5611ThermalRunawayChargerCurrentLevelOneEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5611",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5612ThermalRunawayChargerCurrentLevelTwoEvent": {
+    "name": "lgpCondId5612ThermalRunawayChargerCurrentLevelTwoEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5612",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5617TemperatureControlSensorIssue": {
+    "name": "lgpCondId5617TemperatureControlSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5617",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5621EEVSuperheatBelowThreshold": {
+    "name": "lgpCondId5621EEVSuperheatBelowThreshold",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5621",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5622EEVDischargeTempAboveThreshold": {
+    "name": "lgpCondId5622EEVDischargeTempAboveThreshold",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5622",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5623EEVBatteryIssue": {
+    "name": "lgpCondId5623EEVBatteryIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5623",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5624EEVPowerIssue": {
+    "name": "lgpCondId5624EEVPowerIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5624",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5625EEVUnspecifiedGeneralEvent": {
+    "name": "lgpCondId5625EEVUnspecifiedGeneralEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5625",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5629StaticPressureSensorIssue": {
+    "name": "lgpCondId5629StaticPressureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5629",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5630HighStaticPressure": {
+    "name": "lgpCondId5630HighStaticPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5630",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5631LowStaticPressure": {
+    "name": "lgpCondId5631LowStaticPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5631",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5636PumpUnspecifiedGeneralEvent": {
+    "name": "lgpCondId5636PumpUnspecifiedGeneralEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5636",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5637CondenserUnitUnspecifiedGeneralEvent": {
+    "name": "lgpCondId5637CondenserUnitUnspecifiedGeneralEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5637",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5638CondenserCircuitUnspecifiedGeneralEvent": {
+    "name": "lgpCondId5638CondenserCircuitUnspecifiedGeneralEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5638",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5642SFAReservedEvent1": {
+    "name": "lgpCondId5642SFAReservedEvent1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5642",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5643SFAReservedEvent2": {
+    "name": "lgpCondId5643SFAReservedEvent2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5643",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5644SFAReservedEvent3": {
+    "name": "lgpCondId5644SFAReservedEvent3",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5644",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5645SFAReservedEvent4": {
+    "name": "lgpCondId5645SFAReservedEvent4",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5645",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5646SFAReservedEvent5": {
+    "name": "lgpCondId5646SFAReservedEvent5",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5646",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5647SFAReservedEvent6": {
+    "name": "lgpCondId5647SFAReservedEvent6",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5647",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5648SFAReservedEvent7": {
+    "name": "lgpCondId5648SFAReservedEvent7",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5648",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5649SFAReservedEvent8": {
+    "name": "lgpCondId5649SFAReservedEvent8",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5649",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5650SFAReservedEvent9": {
+    "name": "lgpCondId5650SFAReservedEvent9",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5650",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5651SFAReservedEvent10": {
+    "name": "lgpCondId5651SFAReservedEvent10",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5651",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5652SFAReservedEvent11": {
+    "name": "lgpCondId5652SFAReservedEvent11",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5652",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5653SFAReservedEvent12": {
+    "name": "lgpCondId5653SFAReservedEvent12",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5653",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5654SFAReservedEvent13": {
+    "name": "lgpCondId5654SFAReservedEvent13",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5654",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5655SFAReservedEvent14": {
+    "name": "lgpCondId5655SFAReservedEvent14",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5655",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5656SFAReservedEvent15": {
+    "name": "lgpCondId5656SFAReservedEvent15",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5656",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5657SFAReservedEvent16": {
+    "name": "lgpCondId5657SFAReservedEvent16",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5657",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5658SFAReservedEvent17": {
+    "name": "lgpCondId5658SFAReservedEvent17",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5658",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5659SFAReservedEvent18": {
+    "name": "lgpCondId5659SFAReservedEvent18",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5659",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5660SFAReservedEvent19": {
+    "name": "lgpCondId5660SFAReservedEvent19",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5660",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5661SFAReservedEvent20": {
+    "name": "lgpCondId5661SFAReservedEvent20",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5661",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5662SFAReservedEvent21": {
+    "name": "lgpCondId5662SFAReservedEvent21",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5662",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5663SFAReservedEvent22": {
+    "name": "lgpCondId5663SFAReservedEvent22",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5663",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5664SFAReservedEvent23": {
+    "name": "lgpCondId5664SFAReservedEvent23",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5664",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5665SFAReservedEvent24": {
+    "name": "lgpCondId5665SFAReservedEvent24",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5665",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5666SFAReservedEvent25": {
+    "name": "lgpCondId5666SFAReservedEvent25",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5666",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5768OutletAirOvertemperatureLimit": {
+    "name": "lgpCondId5768OutletAirOvertemperatureLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5768",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5769EMOShutdown": {
+    "name": "lgpCondId5769EMOShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5769",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5770TopOutletFanFault": {
+    "name": "lgpCondId5770TopOutletFanFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5770",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5771MMSOverCapacity": {
+    "name": "lgpCondId5771MMSOverCapacity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5771",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5773CompressorCapacityNormal": {
+    "name": "lgpCondId5773CompressorCapacityNormal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5773",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5774CompressorContactorIssue": {
+    "name": "lgpCondId5774CompressorContactorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5774",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5775UnitShutdownUnspecifiedGeneralEvent": {
+    "name": "lgpCondId5775UnitShutdownUnspecifiedGeneralEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5775",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5776PDULowVoltageLN": {
+    "name": "lgpCondId5776PDULowVoltageLN",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5776",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5777PDULowVoltageLL": {
+    "name": "lgpCondId5777PDULowVoltageLL",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5777",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5778PDULowVoltageL1L2": {
+    "name": "lgpCondId5778PDULowVoltageL1L2",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5778",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5779PDULowVoltageL2L3": {
+    "name": "lgpCondId5779PDULowVoltageL2L3",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5779",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5780PDULowVoltageL3L1": {
+    "name": "lgpCondId5780PDULowVoltageL3L1",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5780",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5781PDULowVoltageL1N": {
+    "name": "lgpCondId5781PDULowVoltageL1N",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5781",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5782PDULowVoltageL2N": {
+    "name": "lgpCondId5782PDULowVoltageL2N",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5782",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5783PDULowVoltageL3N": {
+    "name": "lgpCondId5783PDULowVoltageL3N",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5783",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5784BranchLowVoltageLN": {
+    "name": "lgpCondId5784BranchLowVoltageLN",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5784",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5785BranchLowVoltageLL": {
+    "name": "lgpCondId5785BranchLowVoltageLL",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5785",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5786BranchLowVoltage": {
+    "name": "lgpCondId5786BranchLowVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5786",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5788ContTieActive": {
+    "name": "lgpCondId5788ContTieActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5788",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5792UserkWhReset": {
+    "name": "lgpCondId5792UserkWhReset",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5792",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5796PeakkWReset": {
+    "name": "lgpCondId5796PeakkWReset",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5796",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5798BypassOverload": {
+    "name": "lgpCondId5798BypassOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5798",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5801LowBatteryShutdownImminent": {
+    "name": "lgpCondId5801LowBatteryShutdownImminent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5801",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5806OutputOverload": {
+    "name": "lgpCondId5806OutputOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5806",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5807OutputOffPending": {
+    "name": "lgpCondId5807OutputOffPending",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5807",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5808SystemShutdownOutputShort": {
+    "name": "lgpCondId5808SystemShutdownOutputShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5808",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5809SystemShutdownLowBattery": {
+    "name": "lgpCondId5809SystemShutdownLowBattery",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5809",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5810SystemShutdownRemoteShutdown": {
+    "name": "lgpCondId5810SystemShutdownRemoteShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5810",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5811SystemShutdownHardwareFault": {
+    "name": "lgpCondId5811SystemShutdownHardwareFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5811",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5817LossofRedundancy": {
+    "name": "lgpCondId5817LossofRedundancy",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5817",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5818PowerModuleFailure": {
+    "name": "lgpCondId5818PowerModuleFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5818",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5819PowerModuleWarning": {
+    "name": "lgpCondId5819PowerModuleWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5819",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5838PowerModuleFanFault": {
+    "name": "lgpCondId5838PowerModuleFanFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5838",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5839PowerModuleOverTemperature": {
+    "name": "lgpCondId5839PowerModuleOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5839",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5840PowerModuleShutdownOverTemperature": {
+    "name": "lgpCondId5840PowerModuleShutdownOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5840",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5842ChargerModuleFanFault": {
+    "name": "lgpCondId5842ChargerModuleFanFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5842",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5847BatteryModuleTemperatureSensorFault": {
+    "name": "lgpCondId5847BatteryModuleTemperatureSensorFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5847",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5848BatteryModuleOverTemperature": {
+    "name": "lgpCondId5848BatteryModuleOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5848",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5849ReplaceBatteryModule": {
+    "name": "lgpCondId5849ReplaceBatteryModule",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5849",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5850SystemShutdownTransformerOverTemperature": {
+    "name": "lgpCondId5850SystemShutdownTransformerOverTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5850",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5851MaximumLoadAlarm": {
+    "name": "lgpCondId5851MaximumLoadAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5851",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5856BatteryModuleFault": {
+    "name": "lgpCondId5856BatteryModuleFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5856",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5857BatteryModuleWarning": {
+    "name": "lgpCondId5857BatteryModuleWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5857",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5862CheckAirFilter": {
+    "name": "lgpCondId5862CheckAirFilter",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5862",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5863TransformerFanFault": {
+    "name": "lgpCondId5863TransformerFanFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5863",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5865NoLoadWarning": {
+    "name": "lgpCondId5865NoLoadWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5865",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5871BatteryOverTemperatureLimit": {
+    "name": "lgpCondId5871BatteryOverTemperatureLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5871",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5873UnexpectedMainBatteryDisconnectClosure": {
+    "name": "lgpCondId5873UnexpectedMainBatteryDisconnectClosure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5873",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5874BatteryOverVoltage": {
+    "name": "lgpCondId5874BatteryOverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5874",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5875BatteryFuseFault": {
+    "name": "lgpCondId5875BatteryFuseFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5875",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5878MainBatteryDisconnectForcedToUnlock": {
+    "name": "lgpCondId5878MainBatteryDisconnectForcedToUnlock",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5878",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5879VdcBackfeed": {
+    "name": "lgpCondId5879VdcBackfeed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5879",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5880RectifierConfigurationChangeRequest": {
+    "name": "lgpCondId5880RectifierConfigurationChangeRequest",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5880",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5881RegenerationActive": {
+    "name": "lgpCondId5881RegenerationActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5881",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5882RegenerationOperationTerminated": {
+    "name": "lgpCondId5882RegenerationOperationTerminated",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5882",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5883RegenerationOperationFailure": {
+    "name": "lgpCondId5883RegenerationOperationFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5883",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5884ProgramInputContact01": {
+    "name": "lgpCondId5884ProgramInputContact01",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5884",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5885ProgramInputContact02": {
+    "name": "lgpCondId5885ProgramInputContact02",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5885",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5886ProgramInputContact03": {
+    "name": "lgpCondId5886ProgramInputContact03",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5886",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5887ProgramInputContact04": {
+    "name": "lgpCondId5887ProgramInputContact04",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5887",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5888ProgramInputContact05": {
+    "name": "lgpCondId5888ProgramInputContact05",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5888",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5889ProgramInputContact06": {
+    "name": "lgpCondId5889ProgramInputContact06",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5889",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5890ProgramInputContact07": {
+    "name": "lgpCondId5890ProgramInputContact07",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5890",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5891ProgramInputContact08": {
+    "name": "lgpCondId5891ProgramInputContact08",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5891",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5892ProgramInputContact09": {
+    "name": "lgpCondId5892ProgramInputContact09",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5892",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5893ProgramInputContact10": {
+    "name": "lgpCondId5893ProgramInputContact10",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5893",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5894ProgramInputContact11": {
+    "name": "lgpCondId5894ProgramInputContact11",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5894",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5895ProgramInputContact12": {
+    "name": "lgpCondId5895ProgramInputContact12",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5895",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5896GroundFaultDetected": {
+    "name": "lgpCondId5896GroundFaultDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5896",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5902ReturnHumiditySensorIssue": {
+    "name": "lgpCondId5902ReturnHumiditySensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5902",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5903CompressorLowDifferentialPressureLockout": {
+    "name": "lgpCondId5903CompressorLowDifferentialPressureLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5903",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5906AirflowSensorIssue": {
+    "name": "lgpCondId5906AirflowSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5906",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5907ExtAirDamperPositionIssue": {
+    "name": "lgpCondId5907ExtAirDamperPositionIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5907",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5908ExtPowerSourceAFailure": {
+    "name": "lgpCondId5908ExtPowerSourceAFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5908",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5909ExtPowerSourceBFailure": {
+    "name": "lgpCondId5909ExtPowerSourceBFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5909",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5910StaticPressureSensorOutofRange": {
+    "name": "lgpCondId5910StaticPressureSensorOutofRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5910",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5911FluidTemperatureSensorIssue": {
+    "name": "lgpCondId5911FluidTemperatureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5911",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5912FluidFlowSensorIssue": {
+    "name": "lgpCondId5912FluidFlowSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5912",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5914OverDifferentialPressure": {
+    "name": "lgpCondId5914OverDifferentialPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5914",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5915UnderDifferentialPressure": {
+    "name": "lgpCondId5915UnderDifferentialPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5915",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5924MixedModeLockout": {
+    "name": "lgpCondId5924MixedModeLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5924",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5928UnbalancedLoadCondition": {
+    "name": "lgpCondId5928UnbalancedLoadCondition",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5928",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5939BranchOverCurrentProtection": {
+    "name": "lgpCondId5939BranchOverCurrentProtection",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5939",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5948BranchLowVoltageLL": {
+    "name": "lgpCondId5948BranchLowVoltageLL",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5948",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5957BypassInputVoltageFault": {
+    "name": "lgpCondId5957BypassInputVoltageFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5957",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5958BatteryTemperatureOutofRange": {
+    "name": "lgpCondId5958BatteryTemperatureOutofRange",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5958",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5960InverterOverload": {
+    "name": "lgpCondId5960InverterOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5960",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5966AuxAirTempDeviceCommunicationLost": {
+    "name": "lgpCondId5966AuxAirTempDeviceCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5966",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5967ModbusPowerMeterCommunicationLost": {
+    "name": "lgpCondId5967ModbusPowerMeterCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5967",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5968InverterDesaturation": {
+    "name": "lgpCondId5968InverterDesaturation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5968",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5969GenericDICFault": {
+    "name": "lgpCondId5969GenericDICFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5969",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5970GroundFault": {
+    "name": "lgpCondId5970GroundFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5970",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5973InputBreakerOpen": {
+    "name": "lgpCondId5973InputBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5973",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5974NeutralBreakerOpen": {
+    "name": "lgpCondId5974NeutralBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5974",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5975OutputBreakerOpen": {
+    "name": "lgpCondId5975OutputBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5975",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5976MaintenanceBypassBreakerClosed": {
+    "name": "lgpCondId5976MaintenanceBypassBreakerClosed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5976",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5977BatteryBreakerOpen": {
+    "name": "lgpCondId5977BatteryBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5977",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5978RectifierIsolationBreakerRFBOpen": {
+    "name": "lgpCondId5978RectifierIsolationBreakerRFBOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5978",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5982BypassBreakerSBBOpen": {
+    "name": "lgpCondId5982BypassBreakerSBBOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5982",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5983BypassIsolationBreakerBIBOpen": {
+    "name": "lgpCondId5983BypassIsolationBreakerBIBOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5983",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5984BypassUndervoltageWarning": {
+    "name": "lgpCondId5984BypassUndervoltageWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5984",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5985BypassStaticSwitchBPSSOn": {
+    "name": "lgpCondId5985BypassStaticSwitchBPSSOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5985",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId5998BattOvtempWarning": {
+    "name": "lgpCondId5998BattOvtempWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.5998",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6009InverterOutputBreakerOpen": {
+    "name": "lgpCondId6009InverterOutputBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6009",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6011EquipmentOverTempWarning": {
+    "name": "lgpCondId6011EquipmentOverTempWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6011",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6012EquipmentOvertemperatureLimit": {
+    "name": "lgpCondId6012EquipmentOvertemperatureLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6012",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6045RectifierInputBreakerOpen": {
+    "name": "lgpCondId6045RectifierInputBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6045",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6046LoadonUPS": {
+    "name": "lgpCondId6046LoadonUPS",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6046",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6047Core2CoreFuseFailure": {
+    "name": "lgpCondId6047Core2CoreFuseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6047",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6052SystemOutputBreakerOpen": {
+    "name": "lgpCondId6052SystemOutputBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6052",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6059InverterRelayFault": {
+    "name": "lgpCondId6059InverterRelayFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6059",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6060TransfertoBypassSystemOverload": {
+    "name": "lgpCondId6060TransfertoBypassSystemOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6060",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6061InputSourceBackfeed": {
+    "name": "lgpCondId6061InputSourceBackfeed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6061",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6062LossofSynchronization": {
+    "name": "lgpCondId6062LossofSynchronization",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6062",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6063BatteryConverterCurrentLimit": {
+    "name": "lgpCondId6063BatteryConverterCurrentLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6063",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6064LBSCableFailure": {
+    "name": "lgpCondId6064LBSCableFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6064",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6065BatteryChargeEqualizationTimeout": {
+    "name": "lgpCondId6065BatteryChargeEqualizationTimeout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6065",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6066ParallelCableFailure": {
+    "name": "lgpCondId6066ParallelCableFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6066",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6067BatteryFault": {
+    "name": "lgpCondId6067BatteryFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6067",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6068BatteryRoomAlarm": {
+    "name": "lgpCondId6068BatteryRoomAlarm",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6068",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6080UPSCCommunicationFailure": {
+    "name": "lgpCondId6080UPSCCommunicationFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6080",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6092Compressor1BThermalOverload": {
+    "name": "lgpCondId6092Compressor1BThermalOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6092",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6093Compressor2BThermalOverload": {
+    "name": "lgpCondId6093Compressor2BThermalOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6093",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6094Compressor1BHoursExceeded": {
+    "name": "lgpCondId6094Compressor1BHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6094",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6095Compressor2BHoursExceeded": {
+    "name": "lgpCondId6095Compressor2BHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6095",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6100CondenserRemoteShutdown": {
+    "name": "lgpCondId6100CondenserRemoteShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6100",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6105ExternalCondenserTVSSIssue": {
+    "name": "lgpCondId6105ExternalCondenserTVSSIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6105",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6106ExternalCondenserVFDIssue": {
+    "name": "lgpCondId6106ExternalCondenserVFDIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6106",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6107ExternalCondenserIssue": {
+    "name": "lgpCondId6107ExternalCondenserIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6107",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6119Slotsnotavailable": {
+    "name": "lgpCondId6119Slotsnotavailable",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6119",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6180BatteryUnderVoltage": {
+    "name": "lgpCondId6180BatteryUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6180",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6182ReplaceBattery": {
+    "name": "lgpCondId6182ReplaceBattery",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6182",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6186InputFrequencyDeviation": {
+    "name": "lgpCondId6186InputFrequencyDeviation",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6186",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6187ShutdownPending": {
+    "name": "lgpCondId6187ShutdownPending",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6187",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6194SystemRebootCommandIssued": {
+    "name": "lgpCondId6194SystemRebootCommandIssued",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6194",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6203SensorAdded": {
+    "name": "lgpCondId6203SensorAdded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6203",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6204SensorRemoved": {
+    "name": "lgpCondId6204SensorRemoved",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6204",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6205WaterLeakDetected": {
+    "name": "lgpCondId6205WaterLeakDetected",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6205",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6210FirmwareUpdateInProgress": {
+    "name": "lgpCondId6210FirmwareUpdateInProgress",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6210",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6211FirmwareUpdateCompletedSuccessfully": {
+    "name": "lgpCondId6211FirmwareUpdateCompletedSuccessfully",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6211",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6212FirmwareUpdateCompletedUnsuccessfully": {
+    "name": "lgpCondId6212FirmwareUpdateCompletedUnsuccessfully",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6212",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6216PrechargeCircuitFailed": {
+    "name": "lgpCondId6216PrechargeCircuitFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6216",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6217MemoryCardRemoved": {
+    "name": "lgpCondId6217MemoryCardRemoved",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6217",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6218AutoCalibrationActive": {
+    "name": "lgpCondId6218AutoCalibrationActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6218",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6219AutoCalibrationFailed": {
+    "name": "lgpCondId6219AutoCalibrationFailed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6219",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6220ModuleOutputBreakerOpen": {
+    "name": "lgpCondId6220ModuleOutputBreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6220",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6221NeutralVoltageFault": {
+    "name": "lgpCondId6221NeutralVoltageFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6221",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6222BranchLoadLoss": {
+    "name": "lgpCondId6222BranchLoadLoss",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6222",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6225RemoteSensorLowHumidity": {
+    "name": "lgpCondId6225RemoteSensorLowHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6225",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6226RemoteSensorHighHumidity": {
+    "name": "lgpCondId6226RemoteSensorHighHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6226",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6227RemoteSensorAverageLowHumidity": {
+    "name": "lgpCondId6227RemoteSensorAverageLowHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6227",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6228RemoteSensorAverageHighHumidity": {
+    "name": "lgpCondId6228RemoteSensorAverageHighHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6228",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6229RemoteSensorSystemAverageLowHumidity": {
+    "name": "lgpCondId6229RemoteSensorSystemAverageLowHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6229",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6230RemoteSensorSystemAverageHighHumidity": {
+    "name": "lgpCondId6230RemoteSensorSystemAverageHighHumidity",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6230",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6231LowCompressorSuperheat": {
+    "name": "lgpCondId6231LowCompressorSuperheat",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6231",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6232SECUnspecifiedGeneralEvent": {
+    "name": "lgpCondId6232SECUnspecifiedGeneralEvent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6232",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6233SECCommunicationLost": {
+    "name": "lgpCondId6233SECCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6233",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6236PowerSourceAIssue": {
+    "name": "lgpCondId6236PowerSourceAIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6236",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6237PowerSourceBIssue": {
+    "name": "lgpCondId6237PowerSourceBIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6237",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6239FluidValveHoursExceeded": {
+    "name": "lgpCondId6239FluidValveHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6239",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6253BoosterFailure": {
+    "name": "lgpCondId6253BoosterFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6253",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6254ChargerFailure": {
+    "name": "lgpCondId6254ChargerFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6254",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6274UnitTopReturnAirSensorFailure": {
+    "name": "lgpCondId6274UnitTopReturnAirSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6274",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6275UnitMiddleReturnAirSensorFailure": {
+    "name": "lgpCondId6275UnitMiddleReturnAirSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6275",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6276UnitBottomReturnAirSensorFailure": {
+    "name": "lgpCondId6276UnitBottomReturnAirSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6276",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6277UnitTopSupplyAirSensorFailure": {
+    "name": "lgpCondId6277UnitTopSupplyAirSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6277",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6278UnitMiddleFirstSupplyAirSensorFailure": {
+    "name": "lgpCondId6278UnitMiddleFirstSupplyAirSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6278",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6279UnitBottomSupplyAirSensorFailure": {
+    "name": "lgpCondId6279UnitBottomSupplyAirSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6279",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6284UnitMiddleSecondSupplyAirSensorFailure": {
+    "name": "lgpCondId6284UnitMiddleSecondSupplyAirSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6284",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6293ChilledWaterControlActive": {
+    "name": "lgpCondId6293ChilledWaterControlActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6293",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6294ChilledWaterFlowTransducerFailure": {
+    "name": "lgpCondId6294ChilledWaterFlowTransducerFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6294",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6295ChilledWaterInletTemperatureSensorFailure": {
+    "name": "lgpCondId6295ChilledWaterInletTemperatureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6295",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6296ChilledWaterHighInletTemperature": {
+    "name": "lgpCondId6296ChilledWaterHighInletTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6296",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6297Modbus010VModuleCommunicationFailure": {
+    "name": "lgpCondId6297Modbus010VModuleCommunicationFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6297",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6299RackDoorsOpen": {
+    "name": "lgpCondId6299RackDoorsOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6299",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6303TeamStaticPressureSensorFailure": {
+    "name": "lgpCondId6303TeamStaticPressureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6303",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6304HeatingLockout": {
+    "name": "lgpCondId6304HeatingLockout",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6304",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6305FreeCoolingStoppedHighRoomTemp": {
+    "name": "lgpCondId6305FreeCoolingStoppedHighRoomTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6305",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6306ColdAisleTemperatureHumidityTeamSensorFailure": {
+    "name": "lgpCondId6306ColdAisleTemperatureHumidityTeamSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6306",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6309ColdAisleAirSensorFailure": {
+    "name": "lgpCondId6309ColdAisleAirSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6309",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6310ChilledWaterInletTemperatureControlActive": {
+    "name": "lgpCondId6310ChilledWaterInletTemperatureControlActive",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6310",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6313ChilledWaterInletTemperatureSensorFailure": {
+    "name": "lgpCondId6313ChilledWaterInletTemperatureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6313",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6314ChilledWaterOutletTemperatureSensorFailure": {
+    "name": "lgpCondId6314ChilledWaterOutletTemperatureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6314",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6315ChilledWaterFlowMeterSensorFailure": {
+    "name": "lgpCondId6315ChilledWaterFlowMeterSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6315",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6333Bypassoutofsync": {
+    "name": "lgpCondId6333Bypassoutofsync",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6333",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6348SystemOutputoffasrequested": {
+    "name": "lgpCondId6348SystemOutputoffasrequested",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6348",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6349SystemOffasrequested": {
+    "name": "lgpCondId6349SystemOffasrequested",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6349",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6350GeneralFault": {
+    "name": "lgpCondId6350GeneralFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6350",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6351UPSAwaitingPower": {
+    "name": "lgpCondId6351UPSAwaitingPower",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6351",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6352AutonomyCalibration": {
+    "name": "lgpCondId6352AutonomyCalibration",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6352",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6353GeneralWarning": {
+    "name": "lgpCondId6353GeneralWarning",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6353",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6354BatteryCharging": {
+    "name": "lgpCondId6354BatteryCharging",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6354",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6355BackfeedRelayFailure": {
+    "name": "lgpCondId6355BackfeedRelayFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6355",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6356BatteryCircuitOpen": {
+    "name": "lgpCondId6356BatteryCircuitOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6356",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6357SystemRestartPending": {
+    "name": "lgpCondId6357SystemRestartPending",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6357",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6358PipeTemperatureSensorFailure": {
+    "name": "lgpCondId6358PipeTemperatureSensorFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6358",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6362SFAReservedEvent26": {
+    "name": "lgpCondId6362SFAReservedEvent26",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6362",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6363SFAReservedEvent27": {
+    "name": "lgpCondId6363SFAReservedEvent27",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6363",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6364SFAReservedEvent28": {
+    "name": "lgpCondId6364SFAReservedEvent28",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6364",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6365SFAReservedEvent29": {
+    "name": "lgpCondId6365SFAReservedEvent29",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6365",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6366SFAReservedEvent30": {
+    "name": "lgpCondId6366SFAReservedEvent30",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6366",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6367SFAReservedEvent31": {
+    "name": "lgpCondId6367SFAReservedEvent31",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6367",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6368SFAReservedEvent32": {
+    "name": "lgpCondId6368SFAReservedEvent32",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6368",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6369SFAReservedEvent33": {
+    "name": "lgpCondId6369SFAReservedEvent33",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6369",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6370SFAReservedEvent34": {
+    "name": "lgpCondId6370SFAReservedEvent34",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6370",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6371SFAReservedEvent35": {
+    "name": "lgpCondId6371SFAReservedEvent35",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6371",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6372SFAReservedEvent36": {
+    "name": "lgpCondId6372SFAReservedEvent36",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6372",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6373SFAReservedEvent37": {
+    "name": "lgpCondId6373SFAReservedEvent37",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6373",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6374SFAReservedEvent38": {
+    "name": "lgpCondId6374SFAReservedEvent38",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6374",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6375SFAReservedEvent39": {
+    "name": "lgpCondId6375SFAReservedEvent39",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6375",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6376SFAReservedEvent40": {
+    "name": "lgpCondId6376SFAReservedEvent40",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6376",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6377SFAReservedEvent41": {
+    "name": "lgpCondId6377SFAReservedEvent41",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6377",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6378SFAReservedEvent42": {
+    "name": "lgpCondId6378SFAReservedEvent42",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6378",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6379SFAReservedEvent43": {
+    "name": "lgpCondId6379SFAReservedEvent43",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6379",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6380SFAReservedEvent44": {
+    "name": "lgpCondId6380SFAReservedEvent44",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6380",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6381SFAReservedEvent45": {
+    "name": "lgpCondId6381SFAReservedEvent45",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6381",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6382SFAReservedEvent46": {
+    "name": "lgpCondId6382SFAReservedEvent46",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6382",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6383SFAReservedEvent47": {
+    "name": "lgpCondId6383SFAReservedEvent47",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6383",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6384SFAReservedEvent48": {
+    "name": "lgpCondId6384SFAReservedEvent48",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6384",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6385SFAReservedEvent49": {
+    "name": "lgpCondId6385SFAReservedEvent49",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6385",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6386SFAReservedEvent50": {
+    "name": "lgpCondId6386SFAReservedEvent50",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6386",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6438PowerModuleInputCurrentAbnormal": {
+    "name": "lgpCondId6438PowerModuleInputCurrentAbnormal",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6438",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6439PowerModuleBalancerofDCBusFailure": {
+    "name": "lgpCondId6439PowerModuleBalancerofDCBusFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6439",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6440PowerModuleFuseFailure": {
+    "name": "lgpCondId6440PowerModuleFuseFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6440",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6441PowerModulePowerSupplyFailure": {
+    "name": "lgpCondId6441PowerModulePowerSupplyFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6441",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6450PDUPoweredOn": {
+    "name": "lgpCondId6450PDUPoweredOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6450",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6453InputWiringFault": {
+    "name": "lgpCondId6453InputWiringFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6453",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6454DCtoDCConverterFault": {
+    "name": "lgpCondId6454DCtoDCConverterFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6454",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6455LeakSensorCableFault": {
+    "name": "lgpCondId6455LeakSensorCableFault",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6455",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6518StandbyUnitActivatedDuetoChillerFailure": {
+    "name": "lgpCondId6518StandbyUnitActivatedDuetoChillerFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6518",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6522PDUResidualOverCurrent": {
+    "name": "lgpCondId6522PDUResidualOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6522",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6527PDUOverCurrentProtection": {
+    "name": "lgpCondId6527PDUOverCurrentProtection",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6527",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6528PowerModuleLeverUnlocked": {
+    "name": "lgpCondId6528PowerModuleLeverUnlocked",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6528",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6529HardwareMismatch": {
+    "name": "lgpCondId6529HardwareMismatch",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6529",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6530SupplyNTCAirSensorIssue": {
+    "name": "lgpCondId6530SupplyNTCAirSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6530",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6531ExternalAirSensorCIssue": {
+    "name": "lgpCondId6531ExternalAirSensorCIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6531",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6532ExternalAirSensorDIssue": {
+    "name": "lgpCondId6532ExternalAirSensorDIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6532",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6533ExternalAirSensorEIssue": {
+    "name": "lgpCondId6533ExternalAirSensorEIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6533",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6534PumpThermalOverload": {
+    "name": "lgpCondId6534PumpThermalOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6534",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6535XDModuleCommunicationLost": {
+    "name": "lgpCondId6535XDModuleCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6535",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6536MMSCapacityExceeded": {
+    "name": "lgpCondId6536MMSCapacityExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6536",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6538TSAControlInputIssue": {
+    "name": "lgpCondId6538TSAControlInputIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6538",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6539ChilledWaterValveHoursExceeded": {
+    "name": "lgpCondId6539ChilledWaterValveHoursExceeded",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6539",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6540FSAControlInputIssue": {
+    "name": "lgpCondId6540FSAControlInputIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6540",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6541AutoTuneLicenseExpiring": {
+    "name": "lgpCondId6541AutoTuneLicenseExpiring",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6541",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6542AutoTuneLicenseExpired": {
+    "name": "lgpCondId6542AutoTuneLicenseExpired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6542",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6543UnitInStandbyDueToCoolingLoss": {
+    "name": "lgpCondId6543UnitInStandbyDueToCoolingLoss",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6543",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6544ControlUnitsRemoteShutdownMismatch": {
+    "name": "lgpCondId6544ControlUnitsRemoteShutdownMismatch",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6544",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6545SecondaryControlUnitCommunicationLost": {
+    "name": "lgpCondId6545SecondaryControlUnitCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6545",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6546ControlUnitsUnitCodeMismatch": {
+    "name": "lgpCondId6546ControlUnitsUnitCodeMismatch",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6546",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6547SSAControlInputIssue": {
+    "name": "lgpCondId6547SSAControlInputIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6547",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6574SubfeedPhaseUndercurrent": {
+    "name": "lgpCondId6574SubfeedPhaseUndercurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6574",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6587TransferCountCleared": {
+    "name": "lgpCondId6587TransferCountCleared",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6587",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6588EnergyCounterCleared": {
+    "name": "lgpCondId6588EnergyCounterCleared",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6588",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6589HistoryLogsFull": {
+    "name": "lgpCondId6589HistoryLogsFull",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6589",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6590HistoryLogsCleared": {
+    "name": "lgpCondId6590HistoryLogsCleared",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6590",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6591EventLogCleared": {
+    "name": "lgpCondId6591EventLogCleared",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6591",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6592SystemDateChanged": {
+    "name": "lgpCondId6592SystemDateChanged",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6592",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6593SystemTimeChanged": {
+    "name": "lgpCondId6593SystemTimeChanged",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6593",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6594AccessPasswordChanged": {
+    "name": "lgpCondId6594AccessPasswordChanged",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6594",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6595ConfigModified": {
+    "name": "lgpCondId6595ConfigModified",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6595",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6612SCRShort": {
+    "name": "lgpCondId6612SCRShort",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6612",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6613SCROpen": {
+    "name": "lgpCondId6613SCROpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6613",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6614ACPowerSupplyFail": {
+    "name": "lgpCondId6614ACPowerSupplyFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6614",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6615DCPowerSupplyFail": {
+    "name": "lgpCondId6615DCPowerSupplyFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6615",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6616VoltageSensorFail": {
+    "name": "lgpCondId6616VoltageSensorFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6616",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6617SCRSensorFail": {
+    "name": "lgpCondId6617SCRSensorFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6617",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6618CurrentSensorFail": {
+    "name": "lgpCondId6618CurrentSensorFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6618",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6619GateDriveFail": {
+    "name": "lgpCondId6619GateDriveFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6619",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6620SurgeFail": {
+    "name": "lgpCondId6620SurgeFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6620",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6621FastUnderVoltage": {
+    "name": "lgpCondId6621FastUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6621",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6622SlowUnderVoltage": {
+    "name": "lgpCondId6622SlowUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6622",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6623OverVoltage": {
+    "name": "lgpCondId6623OverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6623",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6624OverUnderFrequencyFail": {
+    "name": "lgpCondId6624OverUnderFrequencyFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6624",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6625GeneralSourceFailure": {
+    "name": "lgpCondId6625GeneralSourceFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6625",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6626OverCurrent": {
+    "name": "lgpCondId6626OverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6626",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6627PeakCurrentOffLimit": {
+    "name": "lgpCondId6627PeakCurrentOffLimit",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6627",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6628SyncFail": {
+    "name": "lgpCondId6628SyncFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6628",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6629InputOverVoltage": {
+    "name": "lgpCondId6629InputOverVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6629",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6630InputUnderVoltage": {
+    "name": "lgpCondId6630InputUnderVoltage",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6630",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6631InputOverUnderFrequency": {
+    "name": "lgpCondId6631InputOverUnderFrequency",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6631",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6635VoltageSenseFail": {
+    "name": "lgpCondId6635VoltageSenseFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6635",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6636LoadonAlternateSource": {
+    "name": "lgpCondId6636LoadonAlternateSource",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6636",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6637UnderVoltageFail": {
+    "name": "lgpCondId6637UnderVoltageFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6637",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6638OutputOverCurrent": {
+    "name": "lgpCondId6638OutputOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6638",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6639GroundOverCurrent": {
+    "name": "lgpCondId6639GroundOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6639",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6640NeutralOverCurrent": {
+    "name": "lgpCondId6640NeutralOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6640",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6641LoadVoltageTHD": {
+    "name": "lgpCondId6641LoadVoltageTHD",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6641",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6662ControlLogicFail": {
+    "name": "lgpCondId6662ControlLogicFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6662",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6663PowerSupplyLogicFail": {
+    "name": "lgpCondId6663PowerSupplyLogicFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6663",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6664ExternalCommsFailure": {
+    "name": "lgpCondId6664ExternalCommsFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6664",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6665HeatSinkOverTemp": {
+    "name": "lgpCondId6665HeatSinkOverTemp",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6665",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6666AutomaticTransferInhibited": {
+    "name": "lgpCondId6666AutomaticTransferInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6666",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6667InputSourceTransferInhibited": {
+    "name": "lgpCondId6667InputSourceTransferInhibited",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6667",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6676CB1ShuntTrip": {
+    "name": "lgpCondId6676CB1ShuntTrip",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6676",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6677CB2ShuntTrip": {
+    "name": "lgpCondId6677CB2ShuntTrip",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6677",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6678CB6NeutralOpen": {
+    "name": "lgpCondId6678CB6NeutralOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6678",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6679ContactorNeutralFail": {
+    "name": "lgpCondId6679ContactorNeutralFail",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6679",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6680CB1BreakerOpen": {
+    "name": "lgpCondId6680CB1BreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6680",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6681CB2BreakerOpen": {
+    "name": "lgpCondId6681CB2BreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6681",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6682CB4BreakerClosed": {
+    "name": "lgpCondId6682CB4BreakerClosed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6682",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6683CB5BreakerClosed": {
+    "name": "lgpCondId6683CB5BreakerClosed",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6683",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6684CB3BreakerOpen": {
+    "name": "lgpCondId6684CB3BreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6684",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6685CB3ABreakerOpen": {
+    "name": "lgpCondId6685CB3ABreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6685",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6686CB6BreakerOpen": {
+    "name": "lgpCondId6686CB6BreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6686",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6687CB7BreakerOpen": {
+    "name": "lgpCondId6687CB7BreakerOpen",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6687",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6691GroupIndependentOn": {
+    "name": "lgpCondId6691GroupIndependentOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6691",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6692GroupIndependentOff": {
+    "name": "lgpCondId6692GroupIndependentOff",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6692",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6693BranchResidualOverCurrent": {
+    "name": "lgpCondId6693BranchResidualOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6693",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6694ReceptacleResidualOverCurrent": {
+    "name": "lgpCondId6694ReceptacleResidualOverCurrent",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6694",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6728BuckOn": {
+    "name": "lgpCondId6728BuckOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6728",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6729BoostOn": {
+    "name": "lgpCondId6729BoostOn",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6729",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6739Compressor1HighPressure": {
+    "name": "lgpCondId6739Compressor1HighPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6739",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6740Compressor2HighPressure": {
+    "name": "lgpCondId6740Compressor2HighPressure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6740",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6741Compressor1ThermalOverload": {
+    "name": "lgpCondId6741Compressor1ThermalOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6741",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6742Compressor2ThermalOverload": {
+    "name": "lgpCondId6742Compressor2ThermalOverload",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6742",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6758CompressorFreezeProtection": {
+    "name": "lgpCondId6758CompressorFreezeProtection",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6758",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6773FanTemperatureCompensationLimitReached": {
+    "name": "lgpCondId6773FanTemperatureCompensationLimitReached",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6773",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6774ModbusECFanCommunicationLost": {
+    "name": "lgpCondId6774ModbusECFanCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6774",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6785AnalogTemperatureControlIssue": {
+    "name": "lgpCondId6785AnalogTemperatureControlIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6785",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6786SubgroupFirmwareUpdateRequired": {
+    "name": "lgpCondId6786SubgroupFirmwareUpdateRequired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6786",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6787SubgroupSecondaryControlUnitIssue": {
+    "name": "lgpCondId6787SubgroupSecondaryControlUnitIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6787",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6788EEVCommunicationLost": {
+    "name": "lgpCondId6788EEVCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6788",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6789EEVMotorIssue": {
+    "name": "lgpCondId6789EEVMotorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6789",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6790EEVFeedbackIssue": {
+    "name": "lgpCondId6790EEVFeedbackIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6790",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6791EEVPressureSensorIssue": {
+    "name": "lgpCondId6791EEVPressureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6791",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6792EEVCoilTemperatureSensorIssue": {
+    "name": "lgpCondId6792EEVCoilTemperatureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6792",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6793EEVDischargeTemperatureSensorIssue": {
+    "name": "lgpCondId6793EEVDischargeTemperatureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6793",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6794EEVSumpTemperatureSensorIssue": {
+    "name": "lgpCondId6794EEVSumpTemperatureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6794",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6795EEVBatteryTestIssue": {
+    "name": "lgpCondId6795EEVBatteryTestIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6795",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6796EEVBatteryPersistentIssue": {
+    "name": "lgpCondId6796EEVBatteryPersistentIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6796",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6798PumpCycleLockOut": {
+    "name": "lgpCondId6798PumpCycleLockOut",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6798",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6799PumpBoardFirmwareUpdateRequired": {
+    "name": "lgpCondId6799PumpBoardFirmwareUpdateRequired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6799",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6800PumpControlBoardIssue": {
+    "name": "lgpCondId6800PumpControlBoardIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6800",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6801PumpInvalidDataShutdown": {
+    "name": "lgpCondId6801PumpInvalidDataShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6801",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6802PumpInputPressureSensorIssue": {
+    "name": "lgpCondId6802PumpInputPressureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6802",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6803PumpInputTemperatureSensorIssue": {
+    "name": "lgpCondId6803PumpInputTemperatureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6803",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6804PumpOutputPressureSensorIssue": {
+    "name": "lgpCondId6804PumpOutputPressureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6804",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6805PumpOutputTemperatureSensorIssue": {
+    "name": "lgpCondId6805PumpOutputTemperatureSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6805",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6806PumpCommunicationLost": {
+    "name": "lgpCondId6806PumpCommunicationLost",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6806",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6807PumpRemoteShutdown": {
+    "name": "lgpCondId6807PumpRemoteShutdown",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6807",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6808PumpUSBEthernetPortIssue": {
+    "name": "lgpCondId6808PumpUSBEthernetPortIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6808",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6809PumpStartupFailure": {
+    "name": "lgpCondId6809PumpStartupFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6809",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6810PumpInverterFailure": {
+    "name": "lgpCondId6810PumpInverterFailure",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6810",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6811PumpTVSSIssue": {
+    "name": "lgpCondId6811PumpTVSSIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6811",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6812PumpHighSuperheat": {
+    "name": "lgpCondId6812PumpHighSuperheat",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6812",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6813CondenserHighAmbientAirTempDelta": {
+    "name": "lgpCondId6813CondenserHighAmbientAirTempDelta",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6813",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6814CondenserLeeTempOptionMismatch": {
+    "name": "lgpCondId6814CondenserLeeTempOptionMismatch",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6814",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6815CondenserBoardFirmwareUpdateRequired": {
+    "name": "lgpCondId6815CondenserBoardFirmwareUpdateRequired",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6815",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6816CondenserToPumpHighRefrigerantTempDelta": {
+    "name": "lgpCondId6816CondenserToPumpHighRefrigerantTempDelta",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6816",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6817CondenserRefrigerantTypeMismatch": {
+    "name": "lgpCondId6817CondenserRefrigerantTypeMismatch",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6817",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6818ExternalSupplyFluidHighTemperature": {
+    "name": "lgpCondId6818ExternalSupplyFluidHighTemperature",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6818",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6819ExternalSupplyFluidTempSensorIssue": {
+    "name": "lgpCondId6819ExternalSupplyFluidTempSensorIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6819",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6822AuditLogUpdate": {
+    "name": "lgpCondId6822AuditLogUpdate",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6822",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "lgpCondId6824ExternalSupplyFluidFlowIssue": {
+    "name": "lgpCondId6824ExternalSupplyFluidFlowIssue",
+    "oid": "1.3.6.1.4.1.476.1.42.3.2.7.1.6824",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/liebert/LIEBERT-GP-FLEXIBLE-COND-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:41:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "LIEBERT-GP-FLEXIBLE-CONDITIONS-MIB"
+  }
+}

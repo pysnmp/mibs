@@ -1,0 +1,2735 @@
+{
+  "imports": {
+    "class": "imports",
+    "HPN-ICF-DOT11-REF-MIB": [
+      "hpnicfDot11",
+      "HpnicfDot11SSIDStringType",
+      "HpnicfDot11ChannelScopeType",
+      "HpnicfDot11RadioType",
+      "HpnicfDot11ObjectIDType",
+      "HpnicfDot11RadioScopeType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "hpnicfDot11WIDS": {
+    "name": "hpnicfDot11WIDS",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-05-31 18:00",
+        "description": "Modified to add new nodes."
+      },
+      {
+        "revision": "2009-07-29 18:00",
+        "description": "Modified to add new nodes."
+      },
+      {
+        "revision": "2009-05-07 20:00",
+        "description": "Add new nodes and table to support new featrues of WIDS."
+      },
+      {
+        "revision": "2008-07-25 19:00",
+        "description": "Add new nodes to support new featrues of WIDS."
+      },
+      {
+        "revision": "2007-06-19 19:00",
+        "description": "To fix bugs in the MIB file."
+      },
+      {
+        "revision": "2007-05-16 19:00",
+        "description": "To fix bugs in the MIB file."
+      },
+      {
+        "revision": "2006-08-20 19:00",
+        "description": "The initial revision of this MIB module."
+      }
+    ]
+  },
+  "HpnicfDot11WIDSDevType": {
+    "name": "HpnicfDot11WIDSDevType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "client": 1,
+          "ap": 2,
+          "adhoc": 3,
+          "wirelessBridge": 4,
+          "unknown": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11WIDSDevPermitType": {
+    "name": "HpnicfDot11WIDSDevPermitType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "rogue": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "HpnicfDot11WIDSAtkType": {
+    "name": "HpnicfDot11WIDSAtkType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "act": 1,
+          "asr": 2,
+          "aur": 3,
+          "daf": 4,
+          "dar": 5,
+          "ndf": 6,
+          "pbr": 7,
+          "rar": 8,
+          "saf": 9,
+          "sdf": 10,
+          "wiv": 11,
+          "unknown": 12
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hpnicfDot11WIDSConfigGroup": {
+    "name": "hpnicfDot11WIDSConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11WIDSGlobalConfigGroup": {
+    "name": "hpnicfDot11WIDSGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11WIDSDetectGroup": {
+    "name": "hpnicfDot11WIDSDetectGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11WIDSNotifyGroup": {
+    "name": "hpnicfDot11WIDSNotifyGroup",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11WIDSScanMode": {
+    "name": "hpnicfDot11WIDSScanMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "all": 1,
+          "auto": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "auto",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSScanChannelList": {
+    "name": "hpnicfDot11WIDSScanChannelList",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "hpnicfDot11CntMsrMode": {
+    "name": "hpnicfDot11CntMsrMode",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rogue": 0,
+        "adhoc": 1,
+        "config": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11DevAgingTime": {
+    "name": "hpnicfDot11DevAgingTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 300,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11DynBlkListEnable": {
+    "name": "hpnicfDot11DynBlkListEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11DynBlkListLifeTime": {
+    "name": "hpnicfDot11DynBlkListLifeTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11FloodAtkDctEnable": {
+    "name": "hpnicfDot11FloodAtkDctEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11SpoofAtkDctEnable": {
+    "name": "hpnicfDot11SpoofAtkDctEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11WeakIVAtkDctEnable": {
+    "name": "hpnicfDot11WeakIVAtkDctEnable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetWIDSRogueHistory": {
+    "name": "hpnicfDot11ResetWIDSRogueHistory",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetWIDSHistroy": {
+    "name": "hpnicfDot11ResetWIDSHistroy",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetWIDSStatistics": {
+    "name": "hpnicfDot11ResetWIDSStatistics",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetAllDynBlkList": {
+    "name": "hpnicfDot11ResetAllDynBlkList",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetAllStcBlkList": {
+    "name": "hpnicfDot11ResetAllStcBlkList",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetAllWhtBlkList": {
+    "name": "hpnicfDot11ResetAllWhtBlkList",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetAllDctRogueAP": {
+    "name": "hpnicfDot11ResetAllDctRogueAP",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetAllDctRogueSta": {
+    "name": "hpnicfDot11ResetAllDctRogueSta",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetAllDctAdhoc": {
+    "name": "hpnicfDot11ResetAllDctAdhoc",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetAllDctDevice": {
+    "name": "hpnicfDot11ResetAllDctDevice",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11ResetAllDctSSID": {
+    "name": "hpnicfDot11ResetAllDctSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11WidsFloodInterval": {
+    "name": "hpnicfDot11WidsFloodInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11WidsBlackListThreshold": {
+    "name": "hpnicfDot11WidsBlackListThreshold",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11SSIDFilterOnOff": {
+    "name": "hpnicfDot11SSIDFilterOnOff",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11BSSIDFilterOnOff": {
+    "name": "hpnicfDot11BSSIDFilterOnOff",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "on",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSPermitVendorTable": {
+    "name": "hpnicfDot11WIDSPermitVendorTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSPermitVendorEntry": {
+    "name": "hpnicfDot11WIDSPermitVendorEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11VendorOUI",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11VendorOUI": {
+    "name": "hpnicfDot11VendorOUI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11PermitVendorRowStatus": {
+    "name": "hpnicfDot11PermitVendorRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11VendorName": {
+    "name": "hpnicfDot11VendorName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSPermitSSIDTable": {
+    "name": "hpnicfDot11WIDSPermitSSIDTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSPermitSSIDEntry": {
+    "name": "hpnicfDot11WIDSPermitSSIDEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11PermitSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11PermitSSID": {
+    "name": "hpnicfDot11PermitSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11SSIDStringType",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11PermitSSIDRowStatus": {
+    "name": "hpnicfDot11PermitSSIDRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11PermitSSIDDetected": {
+    "name": "hpnicfDot11PermitSSIDDetected",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSIgnoreListTable": {
+    "name": "hpnicfDot11WIDSIgnoreListTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSIgnoreListEntry": {
+    "name": "hpnicfDot11WIDSIgnoreListEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11IgnoreMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11IgnoreMAC": {
+    "name": "hpnicfDot11IgnoreMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11IgnoreListRowStatus": {
+    "name": "hpnicfDot11IgnoreListRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11IgnoreMACDetected": {
+    "name": "hpnicfDot11IgnoreMACDetected",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11IgnoreDevType": {
+    "name": "hpnicfDot11IgnoreDevType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11WIDSDevType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAttackListTable": {
+    "name": "hpnicfDot11WIDSAttackListTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAttackListEntry": {
+    "name": "hpnicfDot11WIDSAttackListEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11AttackDeviceMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11AttackDeviceMac": {
+    "name": "hpnicfDot11AttackDeviceMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11AttackListRowStatus": {
+    "name": "hpnicfDot11AttackListRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11AttackDevDetected": {
+    "name": "hpnicfDot11AttackDevDetected",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11AttackDevType": {
+    "name": "hpnicfDot11AttackDevType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11WIDSDevType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11StaticWhiteListTable": {
+    "name": "hpnicfDot11StaticWhiteListTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11StaticWhiteListEntry": {
+    "name": "hpnicfDot11StaticWhiteListEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11StaticWhiteListMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11StaticWhiteListMAC": {
+    "name": "hpnicfDot11StaticWhiteListMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11StaticWhiteListRowStatus": {
+    "name": "hpnicfDot11StaticWhiteListRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11StaticBlackListTable": {
+    "name": "hpnicfDot11StaticBlackListTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11StaticBlackListEntry": {
+    "name": "hpnicfDot11StaticBlackListEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11StaticBlackListMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11StaticBlackListMAC": {
+    "name": "hpnicfDot11StaticBlackListMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11StaticBlackListRowStatus": {
+    "name": "hpnicfDot11StaticBlackListRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSPermitBSSIDTable": {
+    "name": "hpnicfDot11WIDSPermitBSSIDTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSPermitBSSIDEntry": {
+    "name": "hpnicfDot11WIDSPermitBSSIDEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11PermitBSSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11PermitBSSID": {
+    "name": "hpnicfDot11PermitBSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11PermitBSSIDDetected": {
+    "name": "hpnicfDot11PermitBSSIDDetected",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11PermitBSSIDRowStatus": {
+    "name": "hpnicfDot11PermitBSSIDRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueAPTable": {
+    "name": "hpnicfDot11WIDSRogueAPTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueAPEntry": {
+    "name": "hpnicfDot11WIDSRogueAPEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11RogueAPBSSMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPBSSMAC": {
+    "name": "hpnicfDot11RogueAPBSSMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPVendorName": {
+    "name": "hpnicfDot11RogueAPVendorName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPMonitorNum": {
+    "name": "hpnicfDot11RogueAPMonitorNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPFirstDetectTm": {
+    "name": "hpnicfDot11RogueAPFirstDetectTm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPLastDetectTm": {
+    "name": "hpnicfDot11RogueAPLastDetectTm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPSSID": {
+    "name": "hpnicfDot11RogueAPSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11SSIDStringType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPMaxSigStrength": {
+    "name": "hpnicfDot11RogueAPMaxSigStrength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPChannel": {
+    "name": "hpnicfDot11RogueAPChannel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ChannelScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPBeaconInterval": {
+    "name": "hpnicfDot11RogueAPBeaconInterval",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "millisecond",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPAttackedStatus": {
+    "name": "hpnicfDot11RogueAPAttackedStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPToIgnore": {
+    "name": "hpnicfDot11RogueAPToIgnore",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPEncryptStatus": {
+    "name": "hpnicfDot11RogueAPEncryptStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPReset": {
+    "name": "hpnicfDot11RogueAPReset",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPFirstDetectTmStr": {
+    "name": "hpnicfDot11RogueAPFirstDetectTmStr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueAPLastDetectTmStr": {
+    "name": "hpnicfDot11RogueAPLastDetectTmStr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueAPExtTable": {
+    "name": "hpnicfDot11WIDSRogueAPExtTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueAPExtEntry": {
+    "name": "hpnicfDot11WIDSRogueAPExtEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11RogueAPBSSMAC",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAPID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAPID": {
+    "name": "hpnicfDot11WIDSAPID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ObjectIDType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11DetectCurAPSigStrength": {
+    "name": "hpnicfDot11DetectCurAPSigStrength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DetectAPByChannel": {
+    "name": "hpnicfDot11DetectAPByChannel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ChannelScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DetectAPByRadioID": {
+    "name": "hpnicfDot11DetectAPByRadioID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11RadioScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11AttackAPStatus": {
+    "name": "hpnicfDot11AttackAPStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DetectAPFirstTm": {
+    "name": "hpnicfDot11DetectAPFirstTm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DetectAPLastTm": {
+    "name": "hpnicfDot11DetectAPLastTm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueStaTable": {
+    "name": "hpnicfDot11WIDSRogueStaTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueStaEntry": {
+    "name": "hpnicfDot11WIDSRogueStaEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11RogueStaMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaMAC": {
+    "name": "hpnicfDot11RogueStaMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaVendorName": {
+    "name": "hpnicfDot11RogueStaVendorName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaMonitorNum": {
+    "name": "hpnicfDot11RogueStaMonitorNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaFirstDetectTm": {
+    "name": "hpnicfDot11RogueStaFirstDetectTm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaLastDetectTm": {
+    "name": "hpnicfDot11RogueStaLastDetectTm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaAccessBSSID": {
+    "name": "hpnicfDot11RogueStaAccessBSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaMaxSigStrength": {
+    "name": "hpnicfDot11RogueStaMaxSigStrength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaChannel": {
+    "name": "hpnicfDot11RogueStaChannel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ChannelScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaAttackedStatus": {
+    "name": "hpnicfDot11RogueStaAttackedStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaToIgnore": {
+    "name": "hpnicfDot11RogueStaToIgnore",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaAdHocStatus": {
+    "name": "hpnicfDot11RogueStaAdHocStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaReset": {
+    "name": "hpnicfDot11RogueStaReset",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaFirstDetectTmStr": {
+    "name": "hpnicfDot11RogueStaFirstDetectTmStr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11RogueStaLastDetectTmStr": {
+    "name": "hpnicfDot11RogueStaLastDetectTmStr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueStaExtTable": {
+    "name": "hpnicfDot11WIDSRogueStaExtTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueStaExtEntry": {
+    "name": "hpnicfDot11WIDSRogueStaExtEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11RogueStaMAC",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAPID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11DetectCurStaSigStrength": {
+    "name": "hpnicfDot11DetectCurStaSigStrength",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dBm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DetectStaByChannel": {
+    "name": "hpnicfDot11DetectStaByChannel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ChannelScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DetectStaByRadioID": {
+    "name": "hpnicfDot11DetectStaByRadioID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11RadioScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11AttackStaStatus": {
+    "name": "hpnicfDot11AttackStaStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DetectStaFirstTm": {
+    "name": "hpnicfDot11DetectStaFirstTm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DetectStaLastTm": {
+    "name": "hpnicfDot11DetectStaLastTm",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDetectedDevTable": {
+    "name": "hpnicfDot11WIDSDetectedDevTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDetectedDevEntry": {
+    "name": "hpnicfDot11WIDSDetectedDevEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSDevMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevMAC": {
+    "name": "hpnicfDot11WIDSDevMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevType": {
+    "name": "hpnicfDot11WIDSDevType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11WIDSDevType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevPermitType": {
+    "name": "hpnicfDot11WIDSDevPermitType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11WIDSDevPermitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevVendor": {
+    "name": "hpnicfDot11WIDSDevVendor",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevMonitorNum": {
+    "name": "hpnicfDot11WIDSDevMonitorNum",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevSSID": {
+    "name": "hpnicfDot11WIDSDevSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevBSSID": {
+    "name": "hpnicfDot11WIDSDevBSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevChannel": {
+    "name": "hpnicfDot11WIDSDevChannel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ChannelScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevMaxRSSI": {
+    "name": "hpnicfDot11WIDSDevMaxRSSI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dbm",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevBeaconIntvl": {
+    "name": "hpnicfDot11WIDSDevBeaconIntvl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "millionsecond",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevFstDctTime": {
+    "name": "hpnicfDot11WIDSDevFstDctTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevLstDctTime": {
+    "name": "hpnicfDot11WIDSDevLstDctTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevReset": {
+    "name": "hpnicfDot11WIDSDevReset",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDevSnr": {
+    "name": "hpnicfDot11WIDSDevSnr",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRptAPTable": {
+    "name": "hpnicfDot11WIDSRptAPTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRptAPEntry": {
+    "name": "hpnicfDot11WIDSRptAPEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSDevMAC",
+        "implied": 0
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSRptAPMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRptAPMAC": {
+    "name": "hpnicfDot11WIDSRptAPMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRptAPName": {
+    "name": "hpnicfDot11WIDSRptAPName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRptAPRadioID": {
+    "name": "hpnicfDot11WIDSRptAPRadioID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11RadioScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRptAPMaxRSSI": {
+    "name": "hpnicfDot11WIDSRptAPMaxRSSI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRptAPFstDctTime": {
+    "name": "hpnicfDot11WIDSRptAPFstDctTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRptAPLstDctTime": {
+    "name": "hpnicfDot11WIDSRptAPLstDctTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DynBlackListTable": {
+    "name": "hpnicfDot11DynBlackListTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11DynBlackListEntry": {
+    "name": "hpnicfDot11DynBlackListEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11DynBlackListMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11DynBlackListMAC": {
+    "name": "hpnicfDot11DynBlackListMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11DynBlackListTime": {
+    "name": "hpnicfDot11DynBlackListTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DynBlackListReason": {
+    "name": "hpnicfDot11DynBlackListReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11DynBlackListReset": {
+    "name": "hpnicfDot11DynBlackListReset",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hpnicfDot11DynBlackListTimeTicks": {
+    "name": "hpnicfDot11DynBlackListTimeTicks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueHistoryTable": {
+    "name": "hpnicfDot11WIDSRogueHistoryTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueHistoryEntry": {
+    "name": "hpnicfDot11WIDSRogueHistoryEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSRogueHisIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueHisIndex": {
+    "name": "hpnicfDot11WIDSRogueHisIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueHisMAC": {
+    "name": "hpnicfDot11WIDSRogueHisMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueHisVendor": {
+    "name": "hpnicfDot11WIDSRogueHisVendor",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueHisType": {
+    "name": "hpnicfDot11WIDSRogueHisType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11WIDSDevType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueHisChl": {
+    "name": "hpnicfDot11WIDSRogueHisChl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ChannelScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueHisSSID": {
+    "name": "hpnicfDot11WIDSRogueHisSSID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueHisLastDctTime": {
+    "name": "hpnicfDot11WIDSRogueHisLastDctTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkHistroyTable": {
+    "name": "hpnicfDot11WIDSAtkHistroyTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkHistroyEntry": {
+    "name": "hpnicfDot11WIDSAtkHistroyEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkHisIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkHisIndex": {
+    "name": "hpnicfDot11WIDSAtkHisIndex",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkHisMAC": {
+    "name": "hpnicfDot11WIDSAtkHisMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkHisType": {
+    "name": "hpnicfDot11WIDSAtkHisType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11WIDSAtkType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkHisChl": {
+    "name": "hpnicfDot11WIDSAtkHisChl",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ChannelScopeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkHisRSSI": {
+    "name": "hpnicfDot11WIDSAtkHisRSSI",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkHisDctTime": {
+    "name": "hpnicfDot11WIDSAtkHisDctTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkHisAPName": {
+    "name": "hpnicfDot11WIDSAtkHisAPName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkStatis": {
+    "name": "hpnicfDot11WIDSAtkStatis",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.10",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11WIDSAtkStasStartTime": {
+    "name": "hpnicfDot11WIDSAtkStasStartTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkStasTable": {
+    "name": "hpnicfDot11WIDSAtkStasTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkStasEntry": {
+    "name": "hpnicfDot11WIDSAtkStasEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkStasType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkStasType": {
+    "name": "hpnicfDot11WIDSAtkStasType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11WIDSAtkType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkStasCurCnt": {
+    "name": "hpnicfDot11WIDSAtkStasCurCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkStasTotalCnt": {
+    "name": "hpnicfDot11WIDSAtkStasTotalCnt",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11BlackListTable": {
+    "name": "hpnicfDot11BlackListTable",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11BlackListEntry": {
+    "name": "hpnicfDot11BlackListEntry",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11BlackListMAC",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11BlackListMAC": {
+    "name": "hpnicfDot11BlackListMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hpnicfDot11BlackListTime": {
+    "name": "hpnicfDot11BlackListTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11BlackListReason": {
+    "name": "hpnicfDot11BlackListReason",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11BlackListRowStatus": {
+    "name": "hpnicfDot11BlackListRowStatus",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hpnicfDot11BlackListTimeTicks": {
+    "name": "hpnicfDot11BlackListTimeTicks",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.2.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSTraps": {
+    "name": "hpnicfDot11WIDSTraps",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.1",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11WIDSDetectRogueTrap": {
+    "name": "hpnicfDot11WIDSDetectRogueTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSRogueMAC"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSRogueType"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSMonitorMAC"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11MonitorAPID"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11MonitorApRadioID"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAdHocTrap": {
+    "name": "hpnicfDot11WIDSAdHocTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAdHocMAC"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSMonitorMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSUnauthorSSIDTrap": {
+    "name": "hpnicfDot11WIDSUnauthorSSIDTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11UnauthorSSIDName"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSMonitorMAC"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11MonitorAPID"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11MonitorApRadioID"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDisappearRogueTrap": {
+    "name": "hpnicfDot11WIDSDisappearRogueTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSRogueMAC"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDetectAttack": {
+    "name": "hpnicfDot11WIDSDetectAttack",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkHisType"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkHisChl"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkHisDctTime"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkHisAPName"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSDetectWBridge": {
+    "name": "hpnicfDot11WIDSDetectWBridge",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSRptAPName"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSRptAPRadioID"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSRptAPLstDctTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSFloodTrap": {
+    "name": "hpnicfDot11WIDSFloodTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkMac"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkFrameType"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSSpoofTrap": {
+    "name": "hpnicfDot11WIDSSpoofTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkMac"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkFrameType"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkChannel"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkTime"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkDestMac"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSWeakIVTrap": {
+    "name": "hpnicfDot11WIDSWeakIVTrap",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkMac"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkChannel"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkTime"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSAtkDestMac"
+      },
+      {
+        "module": "HPN-ICF-DOT11-WIDS-MIB",
+        "object": "hpnicfDot11WIDSFirstTrapTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hpnicfDot11WIDSTrapVarObjects": {
+    "name": "hpnicfDot11WIDSTrapVarObjects",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2",
+    "class": "objectidentity"
+  },
+  "hpnicfDot11WIDSRogueMAC": {
+    "name": "hpnicfDot11WIDSRogueMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSRogueType": {
+    "name": "hpnicfDot11WIDSRogueType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rogueAp": 1,
+          "rogueStation": 2
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSMonitorMAC": {
+    "name": "hpnicfDot11WIDSMonitorMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAdHocMAC": {
+    "name": "hpnicfDot11WIDSAdHocMAC",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11UnauthorSSIDName": {
+    "name": "hpnicfDot11UnauthorSSIDName",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11SSIDStringType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11MonitorAPID": {
+    "name": "hpnicfDot11MonitorAPID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ObjectIDType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11MonitorApRadioID": {
+    "name": "hpnicfDot11MonitorApRadioID",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11RadioScopeType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkMac": {
+    "name": "hpnicfDot11WIDSAtkMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkFrameType": {
+    "name": "hpnicfDot11WIDSAtkFrameType",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkChannel": {
+    "name": "hpnicfDot11WIDSAtkChannel",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HpnicfDot11ChannelScopeType",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkTime": {
+    "name": "hpnicfDot11WIDSAtkTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSAtkDestMac": {
+    "name": "hpnicfDot11WIDSAtkDestMac",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "hpnicfDot11WIDSFirstTrapTime": {
+    "name": "hpnicfDot11WIDSFirstTrapTime",
+    "oid": "1.3.6.1.4.1.11.2.14.11.15.2.75.5.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-WIDS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:37 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPN-ICF-DOT11-WIDS-MIB"
+  }
+}

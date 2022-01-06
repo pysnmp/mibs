@@ -1,0 +1,1239 @@
+{
+  "imports": {
+    "class": "imports",
+    "HUAWEI-MIB": [
+      "hwDatacomm"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress",
+      "InetAddressPrefixLength"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "BITS",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "hwLiMib": {
+    "name": "hwLiMib",
+    "oid": "1.3.6.1.4.1.2011.5.25.131",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-06-27 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "HWLiDscp": {
+    "name": "HWLiDscp",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "hwLiMibNotifs": {
+    "name": "hwLiMibNotifs",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.1",
+    "class": "objectidentity"
+  },
+  "hwLiMibActive": {
+    "name": "hwLiMibActive",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.1.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "hwLiX3HeartBeatAlarm": {
+    "name": "hwLiX3HeartBeatAlarm",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Address"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLiX3HeartBeatRecover": {
+    "name": "hwLiX3HeartBeatRecover",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Address"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLiMibObjects": {
+    "name": "hwLiMibObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2",
+    "class": "objectidentity"
+  },
+  "hwLiAgentObjects": {
+    "name": "hwLiAgentObjects",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1",
+    "class": "objectidentity"
+  },
+  "hwLiAgentTime": {
+    "name": "hwLiAgentTime",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLiAgentEnable": {
+    "name": "hwLiAgentEnable",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLiAgentX2IpAddress": {
+    "name": "hwLiAgentX2IpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLiAgentX2Port": {
+    "name": "hwLiAgentX2Port",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLiAgentX3IpAddress": {
+    "name": "hwLiAgentX3IpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLiAgentX3Port": {
+    "name": "hwLiAgentX3Port",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLiGatewayGroup": {
+    "name": "hwLiGatewayGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3",
+    "class": "objectidentity"
+  },
+  "hwLiGatewayNewIndex": {
+    "name": "hwLiGatewayNewIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLiGatewayTable": {
+    "name": "hwLiGatewayTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLiGatewayEntry": {
+    "name": "hwLiGatewayEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwLiGatewayIndex": {
+    "name": "hwLiGatewayIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLiGatewayAddressType": {
+    "name": "hwLiGatewayAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX2Protocol": {
+    "name": "hwLiGatewayX2Protocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tcp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX2Address": {
+    "name": "hwLiGatewayX2Address",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX2Port": {
+    "name": "hwLiGatewayX2Port",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX3Protocol": {
+    "name": "hwLiGatewayX3Protocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udp": 1,
+          "tcp": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "udp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX3Address": {
+    "name": "hwLiGatewayX3Address",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX3Port": {
+    "name": "hwLiGatewayX3Port",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX3HeartBeatTimer": {
+    "name": "hwLiGatewayX3HeartBeatTimer",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX3NoResponseNum": {
+    "name": "hwLiGatewayX3NoResponseNum",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX3OperateStatus": {
+    "name": "hwLiGatewayX3OperateStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "noHeartBeat": 2,
+          "linkdown": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLiGatewayX3Dscp": {
+    "name": "hwLiGatewayX3Dscp",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HWLiDscp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayRowStatus": {
+    "name": "hwLiGatewayRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX3AddressType": {
+    "name": "hwLiGatewayX3AddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayX2AddressType": {
+    "name": "hwLiGatewayX2AddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiGatewayCapabilities": {
+    "name": "hwLiGatewayCapabilities",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ipv4SrcInterface": 0,
+        "ipv6SrcInterface": 1,
+        "udp": 2,
+        "tcp": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hwLiStreamGroup": {
+    "name": "hwLiStreamGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4",
+    "class": "objectidentity"
+  },
+  "hwLiStreamTable": {
+    "name": "hwLiStreamTable",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLiStreamEntry": {
+    "name": "hwLiStreamEntry",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayIndex",
+        "implied": 0
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hwLiStreamIndex": {
+    "name": "hwLiStreamIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hwLiStreamLiId": {
+    "name": "hwLiStreamLiId",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamActivationType": {
+    "name": "hwLiStreamActivationType",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "iri": 1,
+          "cc": 2,
+          "both": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "cc",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamSessionId": {
+    "name": "hwLiStreamSessionId",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamTargetIdType": {
+    "name": "hwLiStreamTargetIdType",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "oneDirection": 1,
+          "biDirection": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "biDirection",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamSrcMacAddress": {
+    "name": "hwLiStreamSrcMacAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamDstMacAddress": {
+    "name": "hwLiStreamDstMacAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamSrcIpAddress": {
+    "name": "hwLiStreamSrcIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamSrcIpLength": {
+    "name": "hwLiStreamSrcIpLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamDstIpAddress": {
+    "name": "hwLiStreamDstIpAddress",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamDstIpLength": {
+    "name": "hwLiStreamDstIpLength",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 32,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamProtocol": {
+    "name": "hwLiStreamProtocol",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamSrcPort": {
+    "name": "hwLiStreamSrcPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamDstPort": {
+    "name": "hwLiStreamDstPort",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamIfIndex": {
+    "name": "hwLiStreamIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamUserName": {
+    "name": "hwLiStreamUserName",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamRowStatus": {
+    "name": "hwLiStreamRowStatus",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamSrcIpAddressType": {
+    "name": "hwLiStreamSrcIpAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamDstIpAddressType": {
+    "name": "hwLiStreamDstIpAddressType",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "ipv4",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamSrcVpnName": {
+    "name": "hwLiStreamSrcVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamDstVpnName": {
+    "name": "hwLiStreamDstVpnName",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamL2tpIfIndex": {
+    "name": "hwLiStreamL2tpIfIndex",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamL2tpVlanId": {
+    "name": "hwLiStreamL2tpVlanId",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiStreamAcctSessionId": {
+    "name": "hwLiStreamAcctSessionId",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.2.4.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hwLiMibConform": {
+    "name": "hwLiMibConform",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3",
+    "class": "objectidentity"
+  },
+  "hwLiMibCompliances": {
+    "name": "hwLiMibCompliances",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.2",
+    "class": "objectidentity"
+  },
+  "hwLiMibCompliance": {
+    "name": "hwLiMibCompliance",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hwLiGatewayComplianceGroup",
+        "module": "HUAWEI-LI-MIB"
+      },
+      {
+        "object": "hwLiStreamComplianceGroup",
+        "module": "HUAWEI-LI-MIB"
+      },
+      {
+        "object": "hwLiNotificationGroup",
+        "module": "HUAWEI-LI-MIB"
+      },
+      {
+        "object": "hwLiGatewayCpbComplianceGroup",
+        "module": "HUAWEI-LI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLiMibGroups": {
+    "name": "hwLiMibGroups",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3",
+    "class": "objectidentity"
+  },
+  "hwLiAgentComplianceGroup": {
+    "name": "hwLiAgentComplianceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentTime"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentEnable"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentX2IpAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentX2Port"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentX3IpAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiAgentX3Port"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLiGatewayComplianceGroup": {
+    "name": "hwLiGatewayComplianceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayNewIndex"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayAddressType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX2Protocol"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX2Address"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX2Port"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Protocol"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Address"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Port"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3HeartBeatTimer"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3NoResponseNum"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3OperateStatus"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3Dscp"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayRowStatus"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX3AddressType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayX2AddressType"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLiStreamComplianceGroup": {
+    "name": "hwLiStreamComplianceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamLiId"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamActivationType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSessionId"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamTargetIdType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamProtocol"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcPort"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstPort"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcMacAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstMacAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcIpAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcIpLength"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstIpAddress"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstIpLength"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamIfIndex"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamUserName"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamRowStatus"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcIpAddressType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstIpAddressType"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamSrcVpnName"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamDstVpnName"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamL2tpIfIndex"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamL2tpVlanId"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiStreamAcctSessionId"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLiNotificationGroup": {
+    "name": "hwLiNotificationGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiMibActive"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiX3HeartBeatAlarm"
+      },
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiX3HeartBeatRecover"
+      }
+    ],
+    "status": "current"
+  },
+  "hwLiGatewayCpbComplianceGroup": {
+    "name": "hwLiGatewayCpbComplianceGroup",
+    "oid": "1.3.6.1.4.1.2011.5.25.131.3.3.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HUAWEI-LI-MIB",
+        "object": "hwLiGatewayCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-LI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:37:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HUAWEI-LI-MIB"
+  }
+}

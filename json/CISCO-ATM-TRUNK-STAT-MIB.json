@@ -1,0 +1,1726 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-TC-MIB": [
+      "AtmVcIdentifier",
+      "AtmVpIdentifier"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoAtmTrunkStatMIB": {
+    "name": "ciscoAtmTrunkStatMIB",
+    "oid": "1.3.6.1.4.1.9.9.407",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-10 00:00",
+        "description": "Add new objects - catsPvcOamLpbkTimeoutCnts - catsPvcNewOamLpbkTimeoutDur - catsPvcActiveOamLpbkTimeoutDur - catsPvcOamLpbkTimeoutThreshold"
+      },
+      {
+        "revision": "2004-05-12 00:00",
+        "description": "Initial version of the MIB."
+      }
+    ]
+  },
+  "ciscoAtmTrunkStatNotifs": {
+    "name": "ciscoAtmTrunkStatNotifs",
+    "oid": "1.3.6.1.4.1.9.9.407.0",
+    "class": "objectidentity"
+  },
+  "ciscoAtmTrunkStatObjects": {
+    "name": "ciscoAtmTrunkStatObjects",
+    "oid": "1.3.6.1.4.1.9.9.407.1",
+    "class": "objectidentity"
+  },
+  "catsStatistics": {
+    "name": "catsStatistics",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1",
+    "class": "objectidentity"
+  },
+  "catsPvcHistoryTable": {
+    "name": "catsPvcHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsPvcHistoryEntry": {
+    "name": "catsPvcHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcVci",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcIntervalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catsPvcVpi": {
+    "name": "catsPvcVpi",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsPvcVci": {
+    "name": "catsPvcVci",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsPvcIntervalIndex": {
+    "name": "catsPvcIntervalIndex",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsPvcValidFlag": {
+    "name": "catsPvcValidFlag",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcDiscontinuityTime": {
+    "name": "catsPvcDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcAtmXmtCells": {
+    "name": "catsPvcAtmXmtCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcAtmRcvCells": {
+    "name": "catsPvcAtmRcvCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcAvgAtmXmtCells": {
+    "name": "catsPvcAvgAtmXmtCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells-per-sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcAvgAtmRcvCells": {
+    "name": "catsPvcAvgAtmRcvCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells-per-sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcPeakAtmXmtCells": {
+    "name": "catsPvcPeakAtmXmtCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells-per-sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcPeakAtmRcvCells": {
+    "name": "catsPvcPeakAtmRcvCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "cells-per-sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcOamXmtEndLpbkCells": {
+    "name": "catsPvcOamXmtEndLpbkCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcOamRcvEndLpbkCells": {
+    "name": "catsPvcOamRcvEndLpbkCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcOamXmtSegLpbkCells": {
+    "name": "catsPvcOamXmtSegLpbkCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcOamRcvSegLpbkCells": {
+    "name": "catsPvcOamRcvSegLpbkCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcOamLpbkLostCells": {
+    "name": "catsPvcOamLpbkLostCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcDiscardedRcvOamCells": {
+    "name": "catsPvcDiscardedRcvOamCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcAisSuppressCnts": {
+    "name": "catsPvcAisSuppressCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcXmtAisCnts": {
+    "name": "catsPvcXmtAisCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcRcvAisCnts": {
+    "name": "catsPvcRcvAisCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcXmtFerfCnts": {
+    "name": "catsPvcXmtFerfCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcRcvFerfCnts": {
+    "name": "catsPvcRcvFerfCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcXmtAisCells": {
+    "name": "catsPvcXmtAisCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcRcvAisCells": {
+    "name": "catsPvcRcvAisCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcXmtFerfCells": {
+    "name": "catsPvcXmtFerfCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcRcvFerfCells": {
+    "name": "catsPvcRcvFerfCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcOamLpbkTimeoutCnts": {
+    "name": "catsPvcOamLpbkTimeoutCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcNewOamLpbkTimeoutDur": {
+    "name": "catsPvcNewOamLpbkTimeoutDur",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcActiveOamLpbkTimeoutDur": {
+    "name": "catsPvcActiveOamLpbkTimeoutDur",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsPvcOamLpbkTimeoutThreshold": {
+    "name": "catsPvcOamLpbkTimeoutThreshold",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcHistoryTable": {
+    "name": "catsAal2PvcHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsAal2PvcHistoryEntry": {
+    "name": "catsAal2PvcHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcVci",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcIntervalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catsAal2PvcVpi": {
+    "name": "catsAal2PvcVpi",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsAal2PvcVci": {
+    "name": "catsAal2PvcVci",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsAal2PvcIntervalIndex": {
+    "name": "catsAal2PvcIntervalIndex",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsAal2PvcValidFlag": {
+    "name": "catsAal2PvcValidFlag",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcDiscontinuityTime": {
+    "name": "catsAal2PvcDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcCpsSentPkts": {
+    "name": "catsAal2PvcCpsSentPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcCpsRcvdPkts": {
+    "name": "catsAal2PvcCpsRcvdPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcHecErrors": {
+    "name": "catsAal2PvcHecErrors",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcCrcErrors": {
+    "name": "catsAal2PvcCrcErrors",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcInvOsfCells": {
+    "name": "catsAal2PvcInvOsfCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcInvParCells": {
+    "name": "catsAal2PvcInvParCells",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcCpsInvCidPkts": {
+    "name": "catsAal2PvcCpsInvCidPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcCpsInvUuiPkts": {
+    "name": "catsAal2PvcCpsInvUuiPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal2PvcCpsInvLenPkts": {
+    "name": "catsAal2PvcCpsInvLenPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal5PvcHistoryTable": {
+    "name": "catsAal5PvcHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsAal5PvcHistoryEntry": {
+    "name": "catsAal5PvcHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcVci",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcIntervalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catsAal5PvcVpi": {
+    "name": "catsAal5PvcVpi",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsAal5PvcVci": {
+    "name": "catsAal5PvcVci",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsAal5PvcIntervalIndex": {
+    "name": "catsAal5PvcIntervalIndex",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsAal5PvcValidFlag": {
+    "name": "catsAal5PvcValidFlag",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal5PvcDiscontinuityTime": {
+    "name": "catsAal5PvcDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal5PvcPduSentPkts": {
+    "name": "catsAal5PvcPduSentPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal5PvcPduRcvdPkts": {
+    "name": "catsAal5PvcPduRcvdPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal5PvcInvCpiPdus": {
+    "name": "catsAal5PvcInvCpiPdus",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal5PvcOverSizedSDUs": {
+    "name": "catsAal5PvcOverSizedSDUs",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal5PvcInvLenPdus": {
+    "name": "catsAal5PvcInvLenPdus",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal5PvcCrc32ErrorPdus": {
+    "name": "catsAal5PvcCrc32ErrorPdus",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsAal5PvcReassemTimerExpiryPdus": {
+    "name": "catsAal5PvcReassemTimerExpiryPdus",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidHistoryTable": {
+    "name": "catsCidHistoryTable",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsCidHistoryEntry": {
+    "name": "catsCidHistoryEntry",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidVpi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidVci",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCid",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidIntervalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "catsCidVpi": {
+    "name": "catsCidVpi",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsCidVci": {
+    "name": "catsCidVci",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsCid": {
+    "name": "catsCid",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsCidIntervalIndex": {
+    "name": "catsCidIntervalIndex",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "catsCidValidFlag": {
+    "name": "catsCidValidFlag",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidDiscontinuityTime": {
+    "name": "catsCidDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidAvgSentPkts": {
+    "name": "catsCidAvgSentPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets-per-sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidAvgRcvdPkts": {
+    "name": "catsCidAvgRcvdPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets-per-sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidSentPkts": {
+    "name": "catsCidSentPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidRcvdPkts": {
+    "name": "catsCidRcvdPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidSentOctets": {
+    "name": "catsCidSentOctets",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidRcvdOctets": {
+    "name": "catsCidRcvdOctets",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidSentPeakPkts": {
+    "name": "catsCidSentPeakPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets-per-sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidRcvdPeakPkts": {
+    "name": "catsCidRcvdPeakPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets-per-sec",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidExtAISRcvdPkts": {
+    "name": "catsCidExtAISRcvdPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidExtRAIRcvdPkts": {
+    "name": "catsCidExtRAIRcvdPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidExtConnAISRcvdPkts": {
+    "name": "catsCidExtConnAISRcvdPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidExtConnRDIRcvdPkts": {
+    "name": "catsCidExtConnRDIRcvdPkts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidExtAISRcvCnts": {
+    "name": "catsCidExtAISRcvCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidExtRAIRcvCnts": {
+    "name": "catsCidExtRAIRcvCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidExtConnAISCnts": {
+    "name": "catsCidExtConnAISCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidExtConnRDICnts": {
+    "name": "catsCidExtConnRDICnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidExtAISXmtCnts": {
+    "name": "catsCidExtAISXmtCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsCidExtRAIXmtCnts": {
+    "name": "catsCidExtRAIXmtCnts",
+    "oid": "1.3.6.1.4.1.9.9.407.1.1.4.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "catsMIBConformance": {
+    "name": "catsMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.407.2",
+    "class": "objectidentity"
+  },
+  "catsMIBGroups": {
+    "name": "catsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.407.2.1",
+    "class": "objectidentity"
+  },
+  "catsMIBCompliances": {
+    "name": "catsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.407.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoAtmPvcStatMIBCompliance": {
+    "name": "ciscoAtmPvcStatMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.407.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "catsPvcStatGroup",
+        "module": "CISCO-ATM-TRUNK-STAT-MIB"
+      },
+      {
+        "object": "catsAal2PvcStatGroup",
+        "module": "CISCO-ATM-TRUNK-STAT-MIB"
+      },
+      {
+        "object": "catsAal5PvcStatGroup",
+        "module": "CISCO-ATM-TRUNK-STAT-MIB"
+      },
+      {
+        "object": "catsCidHistoryStatGroup",
+        "module": "CISCO-ATM-TRUNK-STAT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoAtmPvcStatMIBComplianceRev1": {
+    "name": "ciscoAtmPvcStatMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.407.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "catsPvcStatGroupRev1",
+        "module": "CISCO-ATM-TRUNK-STAT-MIB"
+      },
+      {
+        "object": "catsAal2PvcStatGroup",
+        "module": "CISCO-ATM-TRUNK-STAT-MIB"
+      },
+      {
+        "object": "catsAal5PvcStatGroup",
+        "module": "CISCO-ATM-TRUNK-STAT-MIB"
+      },
+      {
+        "object": "catsCidHistoryStatGroup",
+        "module": "CISCO-ATM-TRUNK-STAT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "catsPvcStatGroup": {
+    "name": "catsPvcStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.407.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcValidFlag"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcAtmXmtCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcAtmRcvCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcAvgAtmXmtCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcAvgAtmRcvCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcPeakAtmXmtCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcPeakAtmRcvCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamXmtEndLpbkCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamRcvEndLpbkCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamXmtSegLpbkCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamRcvSegLpbkCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamLpbkLostCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcDiscardedRcvOamCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcAisSuppressCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcXmtAisCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcRcvAisCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcXmtFerfCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcRcvFerfCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcXmtAisCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcRcvAisCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcXmtFerfCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcRcvFerfCells"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "catsAal2PvcStatGroup": {
+    "name": "catsAal2PvcStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.407.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcValidFlag"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcCpsSentPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcCpsRcvdPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcHecErrors"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcCrcErrors"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcInvOsfCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcInvParCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcCpsInvCidPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcCpsInvUuiPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal2PvcCpsInvLenPkts"
+      }
+    ],
+    "status": "current"
+  },
+  "catsAal5PvcStatGroup": {
+    "name": "catsAal5PvcStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.407.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcValidFlag"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcPduSentPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcPduRcvdPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcInvCpiPdus"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcOverSizedSDUs"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcInvLenPdus"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcCrc32ErrorPdus"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsAal5PvcReassemTimerExpiryPdus"
+      }
+    ],
+    "status": "current"
+  },
+  "catsCidHistoryStatGroup": {
+    "name": "catsCidHistoryStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.407.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidValidFlag"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidAvgSentPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidAvgRcvdPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidSentPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidRcvdPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidSentOctets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidRcvdOctets"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidSentPeakPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidRcvdPeakPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidExtAISRcvdPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidExtRAIRcvdPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidExtConnAISRcvdPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidExtConnRDIRcvdPkts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidExtAISRcvCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidExtRAIRcvCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidExtConnAISCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidExtConnRDICnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidExtAISXmtCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsCidExtRAIXmtCnts"
+      }
+    ],
+    "status": "current"
+  },
+  "catsPvcStatGroupRev1": {
+    "name": "catsPvcStatGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.407.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcValidFlag"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcAtmXmtCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcAtmRcvCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcAvgAtmXmtCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcAvgAtmRcvCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcPeakAtmXmtCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcPeakAtmRcvCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamXmtEndLpbkCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamRcvEndLpbkCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamXmtSegLpbkCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamRcvSegLpbkCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamLpbkLostCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcDiscardedRcvOamCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcAisSuppressCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcXmtAisCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcRcvAisCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcXmtFerfCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcRcvFerfCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcXmtAisCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcRcvAisCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcXmtFerfCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcRcvFerfCells"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamLpbkTimeoutCnts"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcNewOamLpbkTimeoutDur"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcActiveOamLpbkTimeoutDur"
+      },
+      {
+        "module": "CISCO-ATM-TRUNK-STAT-MIB",
+        "object": "catsPvcOamLpbkTimeoutThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ATM-TRUNK-STAT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ATM-TRUNK-STAT-MIB"
+  }
+}

@@ -1,0 +1,2026 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleV2Mgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleV2PPPoE": {
+    "name": "sleV2PPPoE",
+    "oid": "1.3.6.1.4.1.6296.102.16",
+    "class": "moduleidentity"
+  },
+  "Boolean": {
+    "name": "Boolean",
+    "class": "type",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    }
+  },
+  "sleV2PPPoEBase": {
+    "name": "sleV2PPPoEBase",
+    "oid": "1.3.6.1.4.1.6296.102.16.1",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoEInfo": {
+    "name": "sleV2PPPoEInfo",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.1",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoESnoopingActivity": {
+    "name": "sleV2PPPoESnoopingActivity",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoEControl": {
+    "name": "sleV2PPPoEControl",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.2",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoEControlRequest": {
+    "name": "sleV2PPPoEControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setPPPoESnoopingActivity": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEControlStatus": {
+    "name": "sleV2PPPoEControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoEControlTimer": {
+    "name": "sleV2PPPoEControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEControlTimeStamp": {
+    "name": "sleV2PPPoEControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEControlReqResult": {
+    "name": "sleV2PPPoEControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoEControlSnoopingActivity": {
+    "name": "sleV2PPPoEControlSnoopingActivity",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 0,
+          "enable": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoENotification": {
+    "name": "sleV2PPPoENotification",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.3",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoESnoopingActivityChanged": {
+    "name": "sleV2PPPoESnoopingActivityChanged",
+    "oid": "1.3.6.1.4.1.6296.102.16.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEControlSnoopingActivity"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoEFilter": {
+    "name": "sleV2PPPoEFilter",
+    "oid": "1.3.6.1.4.1.6296.102.16.2",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoEFilterTable": {
+    "name": "sleV2PPPoEFilterTable",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterEntry": {
+    "name": "sleV2PPPoEFilterEntry",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterId",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterVlanId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoEFilterId": {
+    "name": "sleV2PPPoEFilterId",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterPortIndex": {
+    "name": "sleV2PPPoEFilterPortIndex",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterVlanId": {
+    "name": "sleV2PPPoEFilterVlanId",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterAction": {
+    "name": "sleV2PPPoEFilterAction",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "permit": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterControl": {
+    "name": "sleV2PPPoEFilterControl",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.2",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoEFilterControlRequest": {
+    "name": "sleV2PPPoEFilterControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createPPPoEFilter": 1,
+          "destroyPPPoEFilter": 2,
+          "modifyPPPoEFilter": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterControlStatus": {
+    "name": "sleV2PPPoEFilterControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterControlTimer": {
+    "name": "sleV2PPPoEFilterControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterControlTimeStamp": {
+    "name": "sleV2PPPoEFilterControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterControlReqResult": {
+    "name": "sleV2PPPoEFilterControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterControlId": {
+    "name": "sleV2PPPoEFilterControlId",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterControlPortIndex": {
+    "name": "sleV2PPPoEFilterControlPortIndex",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterControlVlanId": {
+    "name": "sleV2PPPoEFilterControlVlanId",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterControlAction": {
+    "name": "sleV2PPPoEFilterControlAction",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "permit": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoEFilterNotification": {
+    "name": "sleV2PPPoEFilterNotification",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.4",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoEFilterCreatedChanged": {
+    "name": "sleV2PPPoEFilterCreatedChanged",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.4.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlPortIndex"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlVlanId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlAction"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoEFilterModifyChanged": {
+    "name": "sleV2PPPoEFilterModifyChanged",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.4.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlPortIndex"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlVlanId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlAction"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoEFilterDestroyChanged": {
+    "name": "sleV2PPPoEFilterDestroyChanged",
+    "oid": "1.3.6.1.4.1.6296.102.16.2.4.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlId"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETag": {
+    "name": "sleV2PPPoETag",
+    "oid": "1.3.6.1.4.1.6296.102.16.3",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagOper": {
+    "name": "sleV2PPPoETagOper",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagOperTable": {
+    "name": "sleV2PPPoETagOperTable",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperEntry": {
+    "name": "sleV2PPPoETagOperEntry",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperId",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperVlanId",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETagOperId": {
+    "name": "sleV2PPPoETagOperId",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperType": {
+    "name": "sleV2PPPoETagOperType",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperPortIndex": {
+    "name": "sleV2PPPoETagOperPortIndex",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperVlanId": {
+    "name": "sleV2PPPoETagOperVlanId",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperAction": {
+    "name": "sleV2PPPoETagOperAction",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "keep": 2,
+          "remove": 3,
+          "replace": 4,
+          "update": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperTagFmt": {
+    "name": "sleV2PPPoETagOperTagFmt",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControl": {
+    "name": "sleV2PPPoETagOperControl",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagOperControlRequest": {
+    "name": "sleV2PPPoETagOperControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createPPPoETagOper": 1,
+          "modifyPPPoETagOper": 2,
+          "destroyPPPoETagOper": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControlStatus": {
+    "name": "sleV2PPPoETagOperControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControlTimer": {
+    "name": "sleV2PPPoETagOperControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControlTimeStamp": {
+    "name": "sleV2PPPoETagOperControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControlReqResult": {
+    "name": "sleV2PPPoETagOperControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControlId": {
+    "name": "sleV2PPPoETagOperControlId",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControlType": {
+    "name": "sleV2PPPoETagOperControlType",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControlPortIndex": {
+    "name": "sleV2PPPoETagOperControlPortIndex",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControlVlanId": {
+    "name": "sleV2PPPoETagOperControlVlanId",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControlAction": {
+    "name": "sleV2PPPoETagOperControlAction",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "add": 1,
+          "keep": 2,
+          "remove": 3,
+          "replace": 4,
+          "update": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperControlTagFmt": {
+    "name": "sleV2PPPoETagOperControlTagFmt",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagOperNotification": {
+    "name": "sleV2PPPoETagOperNotification",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.3",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagOperCreateChanged": {
+    "name": "sleV2PPPoETagOperCreateChanged",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlPortIndex"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlVlanId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlAction"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlTagFmt"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETagOperDestroyChanged": {
+    "name": "sleV2PPPoETagOperDestroyChanged",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlId"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETagOperModifyChanged": {
+    "name": "sleV2PPPoETagOperModifyChanged",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlPortIndex"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlVlanId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlAction"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlTagFmt"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETagFormat": {
+    "name": "sleV2PPPoETagFormat",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagFormatBase": {
+    "name": "sleV2PPPoETagFormatBase",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagFormatTable": {
+    "name": "sleV2PPPoETagFormatTable",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatEntry": {
+    "name": "sleV2PPPoETagFormatEntry",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatName": {
+    "name": "sleV2PPPoETagFormatName",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatControl": {
+    "name": "sleV2PPPoETagFormatControl",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.2",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagFormatControlRequest": {
+    "name": "sleV2PPPoETagFormatControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createTagFormat": 1,
+          "destroyTagFormat": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatControlStatus": {
+    "name": "sleV2PPPoETagFormatControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatControlTimer": {
+    "name": "sleV2PPPoETagFormatControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatControlTimeStamp": {
+    "name": "sleV2PPPoETagFormatControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatControlReqResult": {
+    "name": "sleV2PPPoETagFormatControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatControlName": {
+    "name": "sleV2PPPoETagFormatControlName",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatNotification": {
+    "name": "sleV2PPPoETagFormatNotification",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.3",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagFormatCreated": {
+    "name": "sleV2PPPoETagFormatCreated",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatDestroyed": {
+    "name": "sleV2PPPoETagFormatDestroyed",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.1.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlName"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttribute": {
+    "name": "sleV2PPPoETagFormatAttribute",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagFormatAttrTable": {
+    "name": "sleV2PPPoETagFormatAttrTable",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrEntry": {
+    "name": "sleV2PPPoETagFormatAttrEntry",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatName",
+        "implied": 0
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormattAttrID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETagFormattAttrID": {
+    "name": "sleV2PPPoETagFormattAttrID",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrLength": {
+    "name": "sleV2PPPoETagFormatAttrLength",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrHiddenLength": {
+    "name": "sleV2PPPoETagFormatAttrHiddenLength",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrType": {
+    "name": "sleV2PPPoETagFormatAttrType",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrVarType": {
+    "name": "sleV2PPPoETagFormatAttrVarType",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 1,
+          "index": 2,
+          "ip": 3,
+          "string": 4,
+          "tagFmt": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrVarValue": {
+    "name": "sleV2PPPoETagFormatAttrVarValue",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControl": {
+    "name": "sleV2PPPoETagFormatAttrControl",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagFormatAttrControlRequest": {
+    "name": "sleV2PPPoETagFormatAttrControlRequest",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "addTagFormatAttr": 1,
+          "deleteTagFormatAttr": 2,
+          "modifyTagFormatAttr": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlStatus": {
+    "name": "sleV2PPPoETagFormatAttrControlStatus",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlTimer": {
+    "name": "sleV2PPPoETagFormatAttrControlTimer",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlTimeStamp": {
+    "name": "sleV2PPPoETagFormatAttrControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlReqResult": {
+    "name": "sleV2PPPoETagFormatAttrControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlName": {
+    "name": "sleV2PPPoETagFormatAttrControlName",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlID": {
+    "name": "sleV2PPPoETagFormatAttrControlID",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlLength": {
+    "name": "sleV2PPPoETagFormatAttrControlLength",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlHiddenLength": {
+    "name": "sleV2PPPoETagFormatAttrControlHiddenLength",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlType": {
+    "name": "sleV2PPPoETagFormatAttrControlType",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlVarType": {
+    "name": "sleV2PPPoETagFormatAttrControlVarType",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hex": 1,
+          "index": 2,
+          "ip": 3,
+          "string": 4,
+          "tagFmt": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrControlVarValue": {
+    "name": "sleV2PPPoETagFormatAttrControlVarValue",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrNotification": {
+    "name": "sleV2PPPoETagFormatAttrNotification",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.3",
+    "class": "objectidentity"
+  },
+  "sleV2PPPoETagFormatAttrAdded": {
+    "name": "sleV2PPPoETagFormatAttrAdded",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlName"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlID"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlLength"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlHiddenLength"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlVarType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlVarValue"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrDeleted": {
+    "name": "sleV2PPPoETagFormatAttrDeleted",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.3.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlName"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlID"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoETagFormatAttrModified": {
+    "name": "sleV2PPPoETagFormatAttrModified",
+    "oid": "1.3.6.1.4.1.6296.102.16.3.2.2.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlName"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlID"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlLength"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlHiddenLength"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlVarType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlVarValue"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoEGroup": {
+    "name": "sleV2PPPoEGroup",
+    "oid": "1.3.6.1.4.1.6296.102.16.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEControlStatus"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEControlTimer"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoESnoopingActivity"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEControlSnoopingActivity"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlTimer"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatName"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlStatus"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatControlName"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlVarType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlHiddenLength"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlLength"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlName"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlID"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlTimer"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlStatus"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrVarValue"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrVarType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrHiddenLength"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrLength"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormattAttrID"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrControlVarValue"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlAction"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlVlanId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlPortIndex"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlTimer"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlStatus"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperAction"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperVlanId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperPortIndex"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlAction"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlVlanId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlPortIndex"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlReqResult"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlTimeStamp"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlTimer"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlStatus"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterControlRequest"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterVlanId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterPortIndex"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperType"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperId"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperControlTagFmt"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperTagFmt"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterAction"
+      }
+    ],
+    "status": "current"
+  },
+  "sleV2PPPoENotificationGroup": {
+    "name": "sleV2PPPoENotificationGroup",
+    "oid": "1.3.6.1.4.1.6296.102.16.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoESnoopingActivityChanged"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatDestroyed"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatCreated"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrModified"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrDeleted"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagFormatAttrAdded"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperDestroyChanged"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperCreateChanged"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoETagOperModifyChanged"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterDestroyChanged"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterModifyChanged"
+      },
+      {
+        "module": "SLEV2-PPPoE-MIB",
+        "object": "sleV2PPPoEFilterCreatedChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLEV2-PPPoE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:15 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLEV2-PPPoE-MIB"
+  }
+}

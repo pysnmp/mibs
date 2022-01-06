@@ -1,0 +1,808 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "ifName"
+    ],
+    "NHRP-MIB": [
+      "nhrpServerNhcNbmaSubaddr",
+      "nhrpServerNbmaAddr",
+      "nhrpClientNhsNbmaAddrType",
+      "nhrpClientNbmaSubaddr",
+      "nhrpServerIndex",
+      "nhrpClientNhsInUse",
+      "nhrpClientNbmaAddrType",
+      "nhrpCacheNbmaAddrType",
+      "nhrpCacheNbmaSubaddr",
+      "nhrpClientNhsNbmaSubaddr",
+      "nhrpServerCacheUniqueness",
+      "nhrpServerInternetworkAddr",
+      "nhrpServerNhcInternetworkAddrType",
+      "nhrpClientRegUniqueness",
+      "nhrpClientNhsInternetworkAddrType",
+      "nhrpClientNhsInternetworkAddr",
+      "nhrpCacheType",
+      "nhrpClientNbmaAddr",
+      "nhrpCacheNbmaAddr",
+      "nhrpClientInternetworkAddrType",
+      "nhrpServerNhcPrefixLength",
+      "nhrpServerNhcInUse",
+      "nhrpServerStatEntry",
+      "nhrpServerInternetworkAddrType",
+      "nhrpServerNbmaSubaddr",
+      "nhrpClientHoldTime",
+      "nhrpClientStatEntry",
+      "nhrpCacheNextHopInternetworkAddr",
+      "nhrpServerNhcNbmaAddr",
+      "nhrpClientNhsNbmaAddr",
+      "nhrpServerNhcNbmaAddrType",
+      "nhrpServerNbmaAddrType",
+      "nhrpServerNhcInternetworkAddr",
+      "nhrpClientIndex",
+      "nhrpClientInternetworkAddr"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoNhrpExtMIB": {
+    "name": "ciscoNhrpExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.680",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-11-21 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CiscoNhrpErrorCode": {
+    "name": "CiscoNhrpErrorCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unrecogExtension": 1,
+          "loopDetected": 3,
+          "adminProhibited": 4,
+          "insufficientResources": 5,
+          "addressUnreachable": 6,
+          "protocolError": 7,
+          "sduSizeExceeded": 8,
+          "invalidExtension": 9,
+          "invalidResReply": 10,
+          "authFailure": 11,
+          "noAddressBinding": 12,
+          "bindingNotUnique": 13,
+          "uniqueInternetworkAddrRegd": 14,
+          "hopCountExceeded": 15,
+          "other": 256
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CiscoNextHopDownReasonCode": {
+    "name": "CiscoNextHopDownReasonCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "administrative": 1,
+          "registrationFailure": 2,
+          "resolutionFailure": 3,
+          "purgeReceived": 4,
+          "normalExpiry": 5,
+          "external": 6,
+          "other": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "cneNotifs": {
+    "name": "cneNotifs",
+    "oid": "1.3.6.1.4.1.9.9.680.0",
+    "class": "objectidentity"
+  },
+  "cneObjects": {
+    "name": "cneObjects",
+    "oid": "1.3.6.1.4.1.9.9.680.1",
+    "class": "objectidentity"
+  },
+  "cneConform": {
+    "name": "cneConform",
+    "oid": "1.3.6.1.4.1.9.9.680.2",
+    "class": "objectidentity"
+  },
+  "cneGeneralObjects": {
+    "name": "cneGeneralObjects",
+    "oid": "1.3.6.1.4.1.9.9.680.1.1",
+    "class": "objectidentity"
+  },
+  "cneClientObjects": {
+    "name": "cneClientObjects",
+    "oid": "1.3.6.1.4.1.9.9.680.1.2",
+    "class": "objectidentity"
+  },
+  "cneServerObjects": {
+    "name": "cneServerObjects",
+    "oid": "1.3.6.1.4.1.9.9.680.1.3",
+    "class": "objectidentity"
+  },
+  "cneNotificationControlObjects": {
+    "name": "cneNotificationControlObjects",
+    "oid": "1.3.6.1.4.1.9.9.680.1.4",
+    "class": "objectidentity"
+  },
+  "cneNextHopDownReason": {
+    "name": "cneNextHopDownReason",
+    "oid": "1.3.6.1.4.1.9.9.680.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNextHopDownReasonCode",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cneNHRPException": {
+    "name": "cneNHRPException",
+    "oid": "1.3.6.1.4.1.9.9.680.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoNhrpErrorCode",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cneClientStatExtTable": {
+    "name": "cneClientStatExtTable",
+    "oid": "1.3.6.1.4.1.9.9.680.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cneClientStatExtEntry": {
+    "name": "cneClientStatExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.680.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cneClientStatExtEntry",
+      "module": "CISCO-NHRP-EXT-MIB",
+      "object": "nhrpClientStatEntry"
+    },
+    "status": "current"
+  },
+  "cneClientStatRedirectRx": {
+    "name": "cneClientStatRedirectRx",
+    "oid": "1.3.6.1.4.1.9.9.680.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cneServerStatExtTable": {
+    "name": "cneServerStatExtTable",
+    "oid": "1.3.6.1.4.1.9.9.680.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cneServerStatExtEntry": {
+    "name": "cneServerStatExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.680.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cneServerStatExtEntry",
+      "module": "CISCO-NHRP-EXT-MIB",
+      "object": "nhrpServerStatEntry"
+    },
+    "status": "current"
+  },
+  "cneServerStatRedirectTx": {
+    "name": "cneServerStatRedirectTx",
+    "oid": "1.3.6.1.4.1.9.9.680.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cneNotifEnable": {
+    "name": "cneNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.680.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "nextHopRegServerUp": 0,
+        "nextHopRegServerDown": 1,
+        "nextHopRegClientUp": 2,
+        "nextHopRegClientDown": 3,
+        "nextHopPeerUp": 4,
+        "nextHopPeerDown": 5,
+        "rateLimitExceeded": 6
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "nextHopRegServerUp": 0,
+          "nextHopRegServerDown": 1,
+          "nextHopRegClientUp": 2,
+          "nextHopRegClientDown": 3,
+          "rateLimitExceeded": 6
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cneNotifNextHopRegServerUp": {
+    "name": "cneNotifNextHopRegServerUp",
+    "oid": "1.3.6.1.4.1.9.9.680.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientInternetworkAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaSubaddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsInternetworkAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsNbmaSubaddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientHoldTime"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientRegUniqueness"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsInUse"
+      }
+    ],
+    "status": "current"
+  },
+  "cneNotifNextHopRegServerDown": {
+    "name": "cneNotifNextHopRegServerDown",
+    "oid": "1.3.6.1.4.1.9.9.680.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientInternetworkAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaSubaddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsInternetworkAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNhsNbmaSubaddr"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNextHopDownReason"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNHRPException"
+      }
+    ],
+    "status": "current"
+  },
+  "cneNotifNextHopRegClientUp": {
+    "name": "cneNotifNextHopRegClientUp",
+    "oid": "1.3.6.1.4.1.9.9.680.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerInternetworkAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNbmaSubaddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcInternetworkAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcNbmaSubaddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcPrefixLength"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcInUse"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerCacheUniqueness"
+      }
+    ],
+    "status": "current"
+  },
+  "cneNotifNextHopRegClientDown": {
+    "name": "cneNotifNextHopRegClientDown",
+    "oid": "1.3.6.1.4.1.9.9.680.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerInternetworkAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNbmaSubaddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcInternetworkAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcNbmaSubaddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerNhcPrefixLength"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpServerCacheUniqueness"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNextHopDownReason"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNHRPException"
+      }
+    ],
+    "status": "current"
+  },
+  "cneNotifNextHopPeerUp": {
+    "name": "cneNotifNextHopPeerUp",
+    "oid": "1.3.6.1.4.1.9.9.680.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientInternetworkAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaSubaddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpCacheNextHopInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpCacheNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpCacheNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpCacheNbmaSubaddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpCacheType"
+      }
+    ],
+    "status": "current"
+  },
+  "cneNotifNextHopPeerDown": {
+    "name": "cneNotifNextHopPeerDown",
+    "oid": "1.3.6.1.4.1.9.9.680.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientInternetworkAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpClientNbmaSubaddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpCacheNextHopInternetworkAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpCacheNbmaAddrType"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpCacheNbmaAddr"
+      },
+      {
+        "module": "NHRP-MIB",
+        "object": "nhrpCacheNbmaSubaddr"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNextHopDownReason"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNHRPException"
+      }
+    ],
+    "status": "current"
+  },
+  "cneNotifRateLimitExceeded": {
+    "name": "cneNotifRateLimitExceeded",
+    "oid": "1.3.6.1.4.1.9.9.680.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifName"
+      }
+    ],
+    "status": "current"
+  },
+  "cneCompliances": {
+    "name": "cneCompliances",
+    "oid": "1.3.6.1.4.1.9.9.680.2.1",
+    "class": "objectidentity"
+  },
+  "cneGroups": {
+    "name": "cneGroups",
+    "oid": "1.3.6.1.4.1.9.9.680.2.2",
+    "class": "objectidentity"
+  },
+  "cneCompliance": {
+    "name": "cneCompliance",
+    "oid": "1.3.6.1.4.1.9.9.680.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cneNotificationControlGroup",
+        "module": "CISCO-NHRP-EXT-MIB"
+      },
+      {
+        "object": "cneGeneralNotificationGroup",
+        "module": "CISCO-NHRP-EXT-MIB"
+      },
+      {
+        "object": "cneGeneralGroup",
+        "module": "CISCO-NHRP-EXT-MIB"
+      },
+      {
+        "object": "cneClientNotificationGroup",
+        "module": "CISCO-NHRP-EXT-MIB"
+      },
+      {
+        "object": "cneServerNotificationGroup",
+        "module": "CISCO-NHRP-EXT-MIB"
+      },
+      {
+        "object": "cneClientGroup",
+        "module": "CISCO-NHRP-EXT-MIB"
+      },
+      {
+        "object": "cneServerGroup",
+        "module": "CISCO-NHRP-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cneGeneralGroup": {
+    "name": "cneGeneralGroup",
+    "oid": "1.3.6.1.4.1.9.9.680.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNHRPException"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNextHopDownReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cneClientGroup": {
+    "name": "cneClientGroup",
+    "oid": "1.3.6.1.4.1.9.9.680.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneClientStatRedirectRx"
+      }
+    ],
+    "status": "current"
+  },
+  "cneServerGroup": {
+    "name": "cneServerGroup",
+    "oid": "1.3.6.1.4.1.9.9.680.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneServerStatRedirectTx"
+      }
+    ],
+    "status": "current"
+  },
+  "cneNotificationControlGroup": {
+    "name": "cneNotificationControlGroup",
+    "oid": "1.3.6.1.4.1.9.9.680.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cneGeneralNotificationGroup": {
+    "name": "cneGeneralNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.680.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNotifRateLimitExceeded"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNotifNextHopPeerUp"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNotifNextHopPeerDown"
+      }
+    ],
+    "status": "current"
+  },
+  "cneClientNotificationGroup": {
+    "name": "cneClientNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.680.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNotifNextHopRegServerUp"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNotifNextHopRegServerDown"
+      }
+    ],
+    "status": "current"
+  },
+  "cneServerNotificationGroup": {
+    "name": "cneServerNotificationGroup",
+    "oid": "1.3.6.1.4.1.9.9.680.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNotifNextHopRegClientUp"
+      },
+      {
+        "module": "CISCO-NHRP-EXT-MIB",
+        "object": "cneNotifNextHopRegClientDown"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-NHRP-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-NHRP-EXT-MIB"
+  }
+}

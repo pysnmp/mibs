@@ -1,0 +1,691 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "LLDP-MIB": [
+      "LldpPortNumber",
+      "LldpChassisIdSubtype",
+      "LldpPortId",
+      "LldpChassisId",
+      "LldpPortIdSubtype"
+    ],
+    "Q-BRIDGE-MIB": [
+      "VlanIdOrNone",
+      "PortList"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "dlinkSwVoiceVlanMIB": {
+    "name": "dlinkSwVoiceVlanMIB",
+    "oid": "1.3.6.1.4.1.171.14.74",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-26 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "dVoiceVlanMIBNotifications": {
+    "name": "dVoiceVlanMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.74.0",
+    "class": "objectidentity"
+  },
+  "dVoiceVlanMIBObjects": {
+    "name": "dVoiceVlanMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.74.1",
+    "class": "objectidentity"
+  },
+  "dVoiceVlanMIBConformance": {
+    "name": "dVoiceVlanMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.74.2",
+    "class": "objectidentity"
+  },
+  "dVoiceVlanGlobal": {
+    "name": "dVoiceVlanGlobal",
+    "oid": "1.3.6.1.4.1.171.14.74.1.1",
+    "class": "objectidentity"
+  },
+  "dVoiceVlanVlanId": {
+    "name": "dVoiceVlanVlanId",
+    "oid": "1.3.6.1.4.1.171.14.74.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIdOrNone",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVoiceVlanQos": {
+    "name": "dVoiceVlanQos",
+    "oid": "1.3.6.1.4.1.171.14.74.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVoiceVlanAgingTime": {
+    "name": "dVoiceVlanAgingTime",
+    "oid": "1.3.6.1.4.1.171.14.74.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 720,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVoiceVlanOuiTable": {
+    "name": "dVoiceVlanOuiTable",
+    "oid": "1.3.6.1.4.1.171.14.74.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVoiceVlanOuiEntry": {
+    "name": "dVoiceVlanOuiEntry",
+    "oid": "1.3.6.1.4.1.171.14.74.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanOuiAddr",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanOuiMask",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dVoiceVlanOuiAddr": {
+    "name": "dVoiceVlanOuiAddr",
+    "oid": "1.3.6.1.4.1.171.14.74.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVoiceVlanOuiMask": {
+    "name": "dVoiceVlanOuiMask",
+    "oid": "1.3.6.1.4.1.171.14.74.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVoiceVlanOuiDes": {
+    "name": "dVoiceVlanOuiDes",
+    "oid": "1.3.6.1.4.1.171.14.74.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dVoiceVlanOuiRowStatus": {
+    "name": "dVoiceVlanOuiRowStatus",
+    "oid": "1.3.6.1.4.1.171.14.74.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dVoiceVlanInterface": {
+    "name": "dVoiceVlanInterface",
+    "oid": "1.3.6.1.4.1.171.14.74.1.2",
+    "class": "objectidentity"
+  },
+  "dVoiceVlanInterfaceTable": {
+    "name": "dVoiceVlanInterfaceTable",
+    "oid": "1.3.6.1.4.1.171.14.74.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVoiceVlanInterfaceEntry": {
+    "name": "dVoiceVlanInterfaceEntry",
+    "oid": "1.3.6.1.4.1.171.14.74.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dVoiceVlanIfIndex": {
+    "name": "dVoiceVlanIfIndex",
+    "oid": "1.3.6.1.4.1.171.14.74.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVoiceVlanIfEnabled": {
+    "name": "dVoiceVlanIfEnabled",
+    "oid": "1.3.6.1.4.1.171.14.74.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVoiceVlanIfMode": {
+    "name": "dVoiceVlanIfMode",
+    "oid": "1.3.6.1.4.1.171.14.74.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "autoUntagged": 1,
+          "autoTagged": 2,
+          "manual": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dVoiceVlanInfo": {
+    "name": "dVoiceVlanInfo",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3",
+    "class": "objectidentity"
+  },
+  "dVoiceVlanMemberPorts": {
+    "name": "dVoiceVlanMemberPorts",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanDynamicMemberPorts": {
+    "name": "dVoiceVlanDynamicMemberPorts",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanDeviceTable": {
+    "name": "dVoiceVlanDeviceTable",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVoiceVlanDeviceEntry": {
+    "name": "dVoiceVlanDeviceEntry",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanDevicePortIfindex",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanDeviceAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dVoiceVlanDevicePortIfindex": {
+    "name": "dVoiceVlanDevicePortIfindex",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVoiceVlanDeviceAddr": {
+    "name": "dVoiceVlanDeviceAddr",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVoiceVlanDeviceStartTime": {
+    "name": "dVoiceVlanDeviceStartTime",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanDeviceStatus": {
+    "name": "dVoiceVlanDeviceStatus",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "aging": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanLldpMedDeviceTable": {
+    "name": "dVoiceVlanLldpMedDeviceTable",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVoiceVlanLldpMedDeviceEntry": {
+    "name": "dVoiceVlanLldpMedDeviceEntry",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanLldpMedDeviceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dVoiceVlanLldpMedDeviceIndex": {
+    "name": "dVoiceVlanLldpMedDeviceIndex",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dVoiceVlanLldpMedDeviceLocalPort": {
+    "name": "dVoiceVlanLldpMedDeviceLocalPort",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanLldpMedDevChIdSubtype": {
+    "name": "dVoiceVlanLldpMedDevChIdSubtype",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpChassisIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanLldpMedDevChassisId": {
+    "name": "dVoiceVlanLldpMedDevChassisId",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpChassisId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanLldpMedDevPoIdSubtype": {
+    "name": "dVoiceVlanLldpMedDevPoIdSubtype",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortIdSubtype",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanLldpMedDevicePortId": {
+    "name": "dVoiceVlanLldpMedDevicePortId",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpPortId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanLldpMedDevCreateTime": {
+    "name": "dVoiceVlanLldpMedDevCreateTime",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanLldpMedDevRemainTime": {
+    "name": "dVoiceVlanLldpMedDevRemainTime",
+    "oid": "1.3.6.1.4.1.171.14.74.1.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dVoiceVlanMIBCompliances": {
+    "name": "dVoiceVlanMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.74.2.1",
+    "class": "objectidentity"
+  },
+  "dVoiceVlanMIBGroups": {
+    "name": "dVoiceVlanMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.74.2.2",
+    "class": "objectidentity"
+  },
+  "dVoiceVlanMIBCompliance": {
+    "name": "dVoiceVlanMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.74.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dVoiceVlanBasicGroup",
+        "module": "DLINKSW-VOICE-VLAN-MIB"
+      },
+      {
+        "object": "dVoiceVlanOUICfgGroup",
+        "module": "DLINKSW-VOICE-VLAN-MIB"
+      },
+      {
+        "object": "dVoiceVlanDeviceInfoGroup",
+        "module": "DLINKSW-VOICE-VLAN-MIB"
+      },
+      {
+        "object": "dVoiceVlanDeviceLldpMedInfoGroup",
+        "module": "DLINKSW-VOICE-VLAN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dVoiceVlanBasicGroup": {
+    "name": "dVoiceVlanBasicGroup",
+    "oid": "1.3.6.1.4.1.171.14.74.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanVlanId"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanQos"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanAgingTime"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanIfEnabled"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanIfMode"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanMemberPorts"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanDynamicMemberPorts"
+      }
+    ],
+    "status": "current"
+  },
+  "dVoiceVlanOUICfgGroup": {
+    "name": "dVoiceVlanOUICfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.74.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanOuiDes"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanOuiRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dVoiceVlanDeviceInfoGroup": {
+    "name": "dVoiceVlanDeviceInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.74.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanDeviceStartTime"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanDeviceStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dVoiceVlanDeviceLldpMedInfoGroup": {
+    "name": "dVoiceVlanDeviceLldpMedInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.74.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanLldpMedDeviceLocalPort"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanLldpMedDevChIdSubtype"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanLldpMedDevChassisId"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanLldpMedDevPoIdSubtype"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanLldpMedDevicePortId"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanLldpMedDevCreateTime"
+      },
+      {
+        "module": "DLINKSW-VOICE-VLAN-MIB",
+        "object": "dVoiceVlanLldpMedDevRemainTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-VOICE-VLAN-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-VOICE-VLAN-MIB"
+  }
+}

@@ -1,0 +1,927 @@
+{
+  "imports": {
+    "class": "imports",
+    "CIENA-WS-MIB": [
+      "cienaWsConfig"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter64",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "cienaWsTypedefsMIB": {
+    "name": "cienaWsTypedefsMIB",
+    "oid": "1.3.6.1.4.1.1271.3.4.13",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2017-06-14 00:00",
+        "description": "Waveserver Release 1.5 Added typedef xcvr-profile-id. Added typedef string-maxl-15. Added xcvr-serdes-tx-eq enum. Added xcvr-serdes-rx-emphasis enum. Added xcvr-serdes-rx-amplitude enum. Added trace-mismatch-mode enum. Added trace-mismatch-fail-mode enum. Added trace-tx-oper-mode enum."
+      },
+      {
+        "revision": "2017-02-28 00:00",
+        "description": "Waveserver Release 1.4 Added typedef string-maxl-44. Aligned MIB files to respect YANG read/write status."
+      },
+      {
+        "revision": "2016-12-12 00:00",
+        "description": "Waveserver Rel 1.3 revised. Updated enum definition for typedef connector-type-desc-enum to remove the parentheses in some enum names. Added typedef decimal-3-dig. Added typedef decimal-2-dig-small. Added range statement for decimal-1-dig, decimal-2-dig and decimal-3-dig"
+      },
+      {
+        "revision": "2016-03-03 00:00",
+        "description": "Waveserver Rel 1.1 revised. Modified range of typedef 'tx-power-lvl'."
+      },
+      {
+        "revision": "2015-02-25 00:00",
+        "description": "Initial version."
+      }
+    ]
+  },
+  "ChannelsNumber": {
+    "name": "ChannelsNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ConnectorTypeDescEnum": {
+    "name": "ConnectorTypeDescEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknownorunspecified": 0,
+          "sc": 1,
+          "fibrechannelstyle1copperconnector": 2,
+          "fibrechannelstyle2copperconnector": 3,
+          "bnc": 4,
+          "fibrechannelcoaxheaders": 5,
+          "fiberjack": 6,
+          "lc": 7,
+          "mtrj": 8,
+          "mu": 9,
+          "sg": 10,
+          "opticalpigtail": 11,
+          "mpo1x12": 12,
+          "mpo2x16": 13,
+          "hssdcii": 32,
+          "copperpigtail": 33,
+          "rj45": 34,
+          "noseparableconnector": 35,
+          "mxc2x16": 36
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Decimal1Dig": {
+    "name": "Decimal1Dig",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483640,
+            "max": 2147483640
+          }
+        ]
+      }
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "Decimal2Dig": {
+    "name": "Decimal2Dig",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483600,
+            "max": 2147483600
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "Decimal2DigSmall": {
+    "name": "Decimal2DigSmall",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -3000000,
+            "max": 3000000
+          }
+        ]
+      }
+    },
+    "displayhint": "d-2",
+    "status": "current"
+  },
+  "Decimal3Dig": {
+    "name": "Decimal3Dig",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483000,
+            "max": 2147483000
+          }
+        ]
+      }
+    },
+    "displayhint": "d-3",
+    "status": "current"
+  },
+  "DescriptionString": {
+    "name": "DescriptionString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "displayhint": "128a",
+    "status": "current"
+  },
+  "EnabledDisabledEnum": {
+    "name": "EnabledDisabledEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EnabledDisabledNaEnum": {
+    "name": "EnabledDisabledNaEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1,
+          "na": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EnhancedOptsEnum": {
+    "name": "EnhancedOptsEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 0,
+          "yes": 1,
+          "no": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LicenseStatusEnum": {
+    "name": "LicenseStatusEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notcompliant": 0,
+          "compliant": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LineModuleTypeBits": {
+    "name": "LineModuleTypeBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "wl3eline": 0
+      }
+    },
+    "status": "current"
+  },
+  "LineSysEnum": {
+    "name": "LineSysEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "coloured": 0,
+          "colourless": 1,
+          "contentionless": 2,
+          "cscolored": 3,
+          "cscolorless": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MacString": {
+    "name": "MacString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "displayhint": "20a",
+    "status": "current"
+  },
+  "ModemChannel": {
+    "name": "ModemChannel",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ModemFrequency": {
+    "name": "ModemFrequency",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483640,
+            "max": 2147483640
+          }
+        ]
+      }
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "ModuleTypeBits": {
+    "name": "ModuleTypeBits",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "integrated": 0,
+        "fieldreplaceable": 1
+      }
+    },
+    "status": "current"
+  },
+  "ModuleTypeEnum": {
+    "name": "ModuleTypeEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "integrated": 1,
+          "fieldreplaceable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NameString": {
+    "name": "NameString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "32a",
+    "status": "current"
+  },
+  "OnOffEnum": {
+    "name": "OnOffEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PortId": {
+    "name": "PortId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "PortName": {
+    "name": "PortName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "32a",
+    "status": "current"
+  },
+  "PtpId": {
+    "name": "PtpId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "RecoverLinkDispersionType": {
+    "name": "RecoverLinkDispersionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ServiceDomainIdx": {
+    "name": "ServiceDomainIdx",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ServiceIdx": {
+    "name": "ServiceIdx",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "StringMaxl128": {
+    "name": "StringMaxl128",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "displayhint": "128a",
+    "status": "current"
+  },
+  "StringMaxl15": {
+    "name": "StringMaxl15",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "displayhint": "15a",
+    "status": "current"
+  },
+  "StringMaxl16": {
+    "name": "StringMaxl16",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "16a",
+    "status": "current"
+  },
+  "StringMaxl254": {
+    "name": "StringMaxl254",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "displayhint": "254a",
+    "status": "current"
+  },
+  "StringMaxl256": {
+    "name": "StringMaxl256",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "displayhint": "256a",
+    "status": "current"
+  },
+  "StringMaxl32": {
+    "name": "StringMaxl32",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "32a",
+    "status": "current"
+  },
+  "StringMaxl44": {
+    "name": "StringMaxl44",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 44
+          }
+        ]
+      }
+    },
+    "displayhint": "44a",
+    "status": "current"
+  },
+  "StringMaxl50": {
+    "name": "StringMaxl50",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "displayhint": "50a",
+    "status": "current"
+  },
+  "StringMaxl64": {
+    "name": "StringMaxl64",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "displayhint": "64a",
+    "status": "current"
+  },
+  "StringSci": {
+    "name": "StringSci",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "displayhint": "32a",
+    "status": "current"
+  },
+  "TraceMismatchFailMode": {
+    "name": "TraceMismatchFailMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alarmoff": 0,
+          "alarmon": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TraceMismatchMode": {
+    "name": "TraceMismatchMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operatoronly": 1,
+          "sapi": 2,
+          "dapi": 3,
+          "sapianddapi": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TraceTxOperMode": {
+    "name": "TraceTxOperMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 0,
+          "auto": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "TxPowerLvl": {
+    "name": "TxPowerLvl",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -2147483640,
+            "max": 2147483640
+          }
+        ]
+      }
+    },
+    "displayhint": "d-1",
+    "status": "current"
+  },
+  "UpDownEnum": {
+    "name": "UpDownEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "down": 0,
+          "up": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VendorDateString": {
+    "name": "VendorDateString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "displayhint": "9a",
+    "status": "current"
+  },
+  "VendorRvString": {
+    "name": "VendorRvString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "displayhint": "4a",
+    "status": "current"
+  },
+  "WlSpacing": {
+    "name": "WlSpacing",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed50ghz": 0,
+          "fixed100ghz": 1,
+          "fixed200ghz": 2,
+          "flexgrid": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "XcvrId": {
+    "name": "XcvrId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "XcvrMode": {
+    "name": "XcvrMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "blank": 0,
+          "mode10gig": 1,
+          "mode40gig": 2,
+          "mode100gig": 3,
+          "mode16qam": 4,
+          "modeqpsk": 5,
+          "mode8qam": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "XcvrProfileId": {
+    "name": "XcvrProfileId",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "XcvrSerdesRxAmplitude": {
+    "name": "XcvrSerdesRxAmplitude",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ampUnspecified": -1,
+          "amp0": 0,
+          "amp1": 1,
+          "amp2": 2,
+          "amp3": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "XcvrSerdesRxEmphasis": {
+    "name": "XcvrSerdesRxEmphasis",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "empUnspecified": -1,
+          "emp0": 0,
+          "emp1": 1,
+          "emp2": 2,
+          "emp3": 3,
+          "emp4": 4,
+          "emp5": 5,
+          "emp6": 6,
+          "emp7": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "XcvrSerdesTxEq": {
+    "name": "XcvrSerdesTxEq",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eqUnspecified": -1,
+          "eq0": 0,
+          "eq1": 1,
+          "eq2": 2,
+          "eq3": 3,
+          "eq4": 4,
+          "eq5": 5,
+          "eq6": 6,
+          "eq7": 7,
+          "eq8": 8,
+          "eq9": 9,
+          "eq10": 10
+        }
+      }
+    },
+    "status": "current"
+  },
+  "XcvrType": {
+    "name": "XcvrType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notavailable": 0,
+          "unsupported": 1,
+          "qsfpplus": 2,
+          "qsfp28": 3,
+          "wavelogic3extreme": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "YesNoEnum": {
+    "name": "YesNoEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "YesNoNaEnum": {
+    "name": "YesNoNaEnum",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1,
+          "na": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-WS-TYPEDEFS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:21:38 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CIENA-WS-TYPEDEFS-MIB"
+  }
+}

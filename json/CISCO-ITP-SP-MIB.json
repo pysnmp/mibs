@@ -1,0 +1,6872 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-ITP-TC-MIB": [
+      "CItpTcLinkType",
+      "CItpTcTimerMtp3T34",
+      "CItpTcTimerMtp3T11",
+      "CItpTcDisplayPC",
+      "CItpTcPointCodeType",
+      "CItpTcNetworkIndicator",
+      "CItpTcTimerMtp3T14",
+      "CItpTcTimerMtp2T03",
+      "CItpTcTimerMtp3T23",
+      "CItpTcLinksetId",
+      "CItpTcTimerMtp3T28",
+      "CItpTcTimerMtp2T04E",
+      "CItpTcTimerLinkMessage",
+      "CItpTcTimerMtp3T13",
+      "CItpTcTimerMtp3T08",
+      "CItpTcTimerMtp3T31",
+      "CItpTcTimerMtp3T26",
+      "CItpTcTimerMtp3T32",
+      "CItpTcTimerMtp3T03",
+      "CItpTcTimerMtp3T05",
+      "CItpTcQos",
+      "CItpTcTimerMtp3T02",
+      "CItpTcTimerMtp3T16",
+      "CItpTcPointCode",
+      "CItpTcTimerMtp3T20",
+      "CItpTcTimerMtp2T01",
+      "CItpTcTimerMtp3T27",
+      "CItpTcTimerMtp3T29",
+      "CItpTcCLLI",
+      "CItpTcLinkSLC",
+      "CItpTcTimerMtp3T04",
+      "CItpTcTimerMtp3T12",
+      "CItpTcTimerMtp3T22",
+      "CItpTcAclId",
+      "CItpTcTimerMtp3T21",
+      "CItpTcTimerLinkTest",
+      "CItpTcTimerMtp2T02",
+      "CItpTcTimerMtp3T17",
+      "CItpTcTimerMtp3T15",
+      "CItpTcRouteTableName",
+      "CItpTcTimerMtp2T06",
+      "CItpTcTimerMtp2T04N",
+      "CItpTcTimerMtp3T10",
+      "CItpTcTimerMtp3T33",
+      "CItpTcTimerMtp2T07",
+      "CItpTcTimerMtp3T18",
+      "CItpTcTimerLinkActRetry",
+      "CItpTcTimerMtp2T05",
+      "CItpTcTimerMtp3T24",
+      "CItpTcTimerMtp3T19",
+      "CItpTcTimerMtp3T30",
+      "CItpTcTimerMtp3T07",
+      "CItpTcSs7Variant",
+      "CItpTcTimerMtp3T25",
+      "CItpTcTimerMtp3T06",
+      "CItpTcTimerMtp3T01"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoItpSpMIB": {
+    "name": "ciscoItpSpMIB",
+    "oid": "1.3.6.1.4.1.9.9.232",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2003-02-18 00:00",
+        "description": "The ability to allow multiple instances of Signalling Points to run in the same device has introduce a new index structure. All objects in this MIB will be deprecated and replaced by objects in the CISCO-ITP-GSP-MIB.my MIB."
+      },
+      {
+        "revision": "2002-03-07 00:00",
+        "description": "Added support for notification on link utilization. Textual conventions: CItpSpSampleInterval CItpSpPercentThreshold CItpSpLinkUtilization CItpSpLinkCapacity CItpSpLinkUtilizationState Scalars: cItpSpUtilSampleInterval cItpSpUtilThreshold cItpSpUtilAbateDelta Linkset table: cItpSpLinksetPlanCapacity - deprecated. Link table: cItpSpLinkPlanCapacityRcvd cItpSpLinkUtilThresholdRcvd cItpSpLinkUtilizationRcvd cItpSpLinkUtilStateRcvd cItpSpLinkL2BytesRcvd cItpSpLinkPlanCapacitySent cItpSpLinkUtilThresholdSent cItpSpLinkUtilizationSent cItpSpLinkUtilStateSent cItpSpLinkL2BytesSent Notification enable: cItpSpLinkUtilNotifEnabled Notification: cItpSpLinkRcvdUtilChange cItpSpLinkSentUtilChange"
+      },
+      {
+        "revision": "2002-01-23 00:00",
+        "description": "Modified the following objects: cItpSpLinkType: Added new high speed link type to textual convention CItpTcLinkType. cItpSpVariant: Added new China SS7 variant to textual convention CItpTcSs7Variant. Add new enumerate Added the following objects: cItpSpDistSccpUnseq cItpSpSummaryRoutingException cItpSpLinksetVariant cItpSpLinkDroppedPkts cItpSpLinkTransmittedLssu cItpSpLinkReceivedLssu cItpSpLinkProtocolDetails cItpSpLinkLsacState cItpSpLinkTsrcState cItpSpLinkTcocState cItpSpLinkTcocLocalBSNT cItpSpLinkTcocRemoteBSNT cItpSpLinkTcbcState cItpSpLinkReceivedSIB cItpSpLinkTransmittedSIB cItpSpLinkMtp2ExpiredT01 cItpSpLinkMtp2ExpiredT02 cItpSpLinkMtp2ExpiredT03 cItpSpLinkMtp2ExpiredT04 cItpSpLinkMtp2ExpiredT05 cItpSpLinkMtp2ExpiredT06 cItpSpLinkMtp2ExpiredT07 cItpSpLinkOMAERMCount cItpSpLinkOMAERMFailCount cItpSpLinkOMSURMCount cItpSpLinkOMSURMFailCount"
+      },
+      {
+        "revision": "2001-08-29 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "cItpSpMIBNotifs": {
+    "name": "cItpSpMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.232.0",
+    "class": "objectidentity"
+  },
+  "cItpSpMIBObjects": {
+    "name": "cItpSpMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.232.1",
+    "class": "objectidentity"
+  },
+  "cItpSpMIBConformance": {
+    "name": "cItpSpMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.232.2",
+    "class": "objectidentity"
+  },
+  "cItpSpScalars": {
+    "name": "cItpSpScalars",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1",
+    "class": "objectidentity"
+  },
+  "cItpSpPointCode": {
+    "name": "cItpSpPointCode",
+    "oid": "1.3.6.1.4.1.9.9.232.1.2",
+    "class": "objectidentity"
+  },
+  "cItpSpLinkset": {
+    "name": "cItpSpLinkset",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3",
+    "class": "objectidentity"
+  },
+  "cItpSpLink": {
+    "name": "cItpSpLink",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4",
+    "class": "objectidentity"
+  },
+  "cItpSpNotificationsEnable": {
+    "name": "cItpSpNotificationsEnable",
+    "oid": "1.3.6.1.4.1.9.9.232.1.5",
+    "class": "objectidentity"
+  },
+  "CItpSpSequenceNumber": {
+    "name": "CItpSpSequenceNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "deprecated"
+  },
+  "CItpSpSampleInterval": {
+    "name": "CItpSpSampleInterval",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "status": "deprecated"
+  },
+  "CItpSpPercentThreshold": {
+    "name": "CItpSpPercentThreshold",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "status": "deprecated"
+  },
+  "CItpSpLinkUtilization": {
+    "name": "CItpSpLinkUtilization",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "status": "deprecated"
+  },
+  "CItpSpLinkCapacity": {
+    "name": "CItpSpLinkCapacity",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 56000,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "status": "deprecated"
+  },
+  "CItpSpLinkUtilizationState": {
+    "name": "CItpSpLinkUtilizationState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unMonitored": 0,
+          "underThreshold": 1,
+          "overThreshold": 2
+        }
+      }
+    },
+    "status": "deprecated"
+  },
+  "cItpSpVariant": {
+    "name": "cItpSpVariant",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSs7Variant",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpCLLICode": {
+    "name": "cItpSpCLLICode",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcCLLI",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpDisplayName": {
+    "name": "cItpSpDisplayName",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpDescription": {
+    "name": "cItpSpDescription",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp2T01": {
+    "name": "cItpSpMtp2T01",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T01",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp2T02": {
+    "name": "cItpSpMtp2T02",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T02",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp2T03": {
+    "name": "cItpSpMtp2T03",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T03",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp2T04E": {
+    "name": "cItpSpMtp2T04E",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T04E",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp2T04N": {
+    "name": "cItpSpMtp2T04N",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T04N",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp2T05": {
+    "name": "cItpSpMtp2T05",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T05",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp2T06": {
+    "name": "cItpSpMtp2T06",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T06",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp2T07": {
+    "name": "cItpSpMtp2T07",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T07",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T01": {
+    "name": "cItpSpMtp3T01",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T01",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T02": {
+    "name": "cItpSpMtp3T02",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T02",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T03": {
+    "name": "cItpSpMtp3T03",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T03",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T04": {
+    "name": "cItpSpMtp3T04",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T04",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T05": {
+    "name": "cItpSpMtp3T05",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T05",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T06": {
+    "name": "cItpSpMtp3T06",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T06",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T07": {
+    "name": "cItpSpMtp3T07",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T07",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T08": {
+    "name": "cItpSpMtp3T08",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T08",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T10": {
+    "name": "cItpSpMtp3T10",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T10",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T11": {
+    "name": "cItpSpMtp3T11",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T11",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T12": {
+    "name": "cItpSpMtp3T12",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T12",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T13": {
+    "name": "cItpSpMtp3T13",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T13",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T14": {
+    "name": "cItpSpMtp3T14",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T14",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T15": {
+    "name": "cItpSpMtp3T15",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T15",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T16": {
+    "name": "cItpSpMtp3T16",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T16",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T17": {
+    "name": "cItpSpMtp3T17",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T17",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T18": {
+    "name": "cItpSpMtp3T18",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T18",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T19": {
+    "name": "cItpSpMtp3T19",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T19",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T20": {
+    "name": "cItpSpMtp3T20",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T20",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T21": {
+    "name": "cItpSpMtp3T21",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T21",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T22": {
+    "name": "cItpSpMtp3T22",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T22",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T23": {
+    "name": "cItpSpMtp3T23",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T23",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T24": {
+    "name": "cItpSpMtp3T24",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T24",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T25": {
+    "name": "cItpSpMtp3T25",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T25",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T26": {
+    "name": "cItpSpMtp3T26",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T26",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T27": {
+    "name": "cItpSpMtp3T27",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T27",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T28": {
+    "name": "cItpSpMtp3T28",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T28",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T29": {
+    "name": "cItpSpMtp3T29",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T29",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T30": {
+    "name": "cItpSpMtp3T30",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T30",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T31": {
+    "name": "cItpSpMtp3T31",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T31",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T32": {
+    "name": "cItpSpMtp3T32",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T33": {
+    "name": "cItpSpMtp3T33",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T33",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpMtp3T34": {
+    "name": "cItpSpMtp3T34",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T34",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpTimerLinkTest": {
+    "name": "cItpSpTimerLinkTest",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerLinkTest",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpTimerLinkMessage": {
+    "name": "cItpSpTimerLinkMessage",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerLinkMessage",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpTimerLinkActRetry": {
+    "name": "cItpSpTimerLinkActRetry",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerLinkActRetry",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpTFR": {
+    "name": "cItpSpTFR",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpCongestionsLevels": {
+    "name": "cItpSpCongestionsLevels",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpFastRestart": {
+    "name": "cItpSpFastRestart",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpDistSccpUnseq": {
+    "name": "cItpSpDistSccpUnseq",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpSummaryRoutingException": {
+    "name": "cItpSpSummaryRoutingException",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpUtilSampleInterval": {
+    "name": "cItpSpUtilSampleInterval",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpSampleInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 300,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpUtilThreshold": {
+    "name": "cItpSpUtilThreshold",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpPercentThreshold",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpUtilAbateDelta": {
+    "name": "cItpSpUtilAbateDelta",
+    "oid": "1.3.6.1.4.1.9.9.232.1.1.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpPercentThreshold",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpPointCodeTable": {
+    "name": "cItpSpPointCodeTable",
+    "oid": "1.3.6.1.4.1.9.9.232.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpSpPointCodeTableEntry": {
+    "name": "cItpSpPointCodeTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.232.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpPointCodeNi",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpPointCodeBin",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpPointCodeNi": {
+    "name": "cItpSpPointCodeNi",
+    "oid": "1.3.6.1.4.1.9.9.232.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkIndicator",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpSpPointCodeBin": {
+    "name": "cItpSpPointCodeBin",
+    "oid": "1.3.6.1.4.1.9.9.232.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpSpPointCodeType": {
+    "name": "cItpSpPointCodeType",
+    "oid": "1.3.6.1.4.1.9.9.232.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCodeType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpPointCodeDisplay": {
+    "name": "cItpSpPointCodeDisplay",
+    "oid": "1.3.6.1.4.1.9.9.232.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcDisplayPC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpPointCodeRowStatus": {
+    "name": "cItpSpPointCodeRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.232.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetTable": {
+    "name": "cItpSpLinksetTable",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetTableEntry": {
+    "name": "cItpSpLinksetTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetName",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpLinksetName": {
+    "name": "cItpSpLinksetName",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcLinksetId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSourcePointCode": {
+    "name": "cItpSpLinksetSourcePointCode",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSourceDisplayPC": {
+    "name": "cItpSpLinksetSourceDisplayPC",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcDisplayPC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetAdjacentPointCode": {
+    "name": "cItpSpLinksetAdjacentPointCode",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcPointCode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetAdjacentDisplayPC": {
+    "name": "cItpSpLinksetAdjacentDisplayPC",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcDisplayPC",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetState": {
+    "name": "cItpSpLinksetState",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "shutdown": 2,
+          "unavailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetInboundAcl": {
+    "name": "cItpSpLinksetInboundAcl",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcAclId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetOutboundAcl": {
+    "name": "cItpSpLinksetOutboundAcl",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcAclId",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSnmmRTN": {
+    "name": "cItpSpLinksetSnmmRTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSntmRTN": {
+    "name": "cItpSpLinksetSntmRTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSpare2RTN": {
+    "name": "cItpSpLinksetSpare2RTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSccpRTN": {
+    "name": "cItpSpLinksetSccpRTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetTupRTN": {
+    "name": "cItpSpLinksetTupRTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetIsupRTN": {
+    "name": "cItpSpLinksetIsupRTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetDupcRTN": {
+    "name": "cItpSpLinksetDupcRTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetDupfRTN": {
+    "name": "cItpSpLinksetDupfRTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtupRTN": {
+    "name": "cItpSpLinksetMtupRTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetBisupRTN": {
+    "name": "cItpSpLinksetBisupRTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSisupRTN": {
+    "name": "cItpSpLinksetSisupRTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSpare11RTN": {
+    "name": "cItpSpLinksetSpare11RTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSpare12RTN": {
+    "name": "cItpSpLinksetSpare12RTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSpare13RTN": {
+    "name": "cItpSpLinksetSpare13RTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSpare14RTN": {
+    "name": "cItpSpLinksetSpare14RTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetSpare15RTN": {
+    "name": "cItpSpLinksetSpare15RTN",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcRouteTableName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetAccountingEnabled": {
+    "name": "cItpSpLinksetAccountingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetNumLinks": {
+    "name": "cItpSpLinksetNumLinks",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetDurationInService": {
+    "name": "cItpSpLinksetDurationInService",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetDurationOutService": {
+    "name": "cItpSpLinksetDurationOutService",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp2T01": {
+    "name": "cItpSpLinksetMtp2T01",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T01",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp2T02": {
+    "name": "cItpSpLinksetMtp2T02",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T02",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp2T03": {
+    "name": "cItpSpLinksetMtp2T03",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T03",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp2T04E": {
+    "name": "cItpSpLinksetMtp2T04E",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T04E",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp2T04N": {
+    "name": "cItpSpLinksetMtp2T04N",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T04N",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp2T05": {
+    "name": "cItpSpLinksetMtp2T05",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T05",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp2T06": {
+    "name": "cItpSpLinksetMtp2T06",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T06",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp2T07": {
+    "name": "cItpSpLinksetMtp2T07",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T07",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T01": {
+    "name": "cItpSpLinksetMtp3T01",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T01",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T02": {
+    "name": "cItpSpLinksetMtp3T02",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T02",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T03": {
+    "name": "cItpSpLinksetMtp3T03",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T03",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T04": {
+    "name": "cItpSpLinksetMtp3T04",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T04",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T05": {
+    "name": "cItpSpLinksetMtp3T05",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T05",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T06": {
+    "name": "cItpSpLinksetMtp3T06",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T06",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T07": {
+    "name": "cItpSpLinksetMtp3T07",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T07",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T08": {
+    "name": "cItpSpLinksetMtp3T08",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T08",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T10": {
+    "name": "cItpSpLinksetMtp3T10",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T10",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T11": {
+    "name": "cItpSpLinksetMtp3T11",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T11",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T12": {
+    "name": "cItpSpLinksetMtp3T12",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T12",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T13": {
+    "name": "cItpSpLinksetMtp3T13",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T13",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T14": {
+    "name": "cItpSpLinksetMtp3T14",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T14",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T15": {
+    "name": "cItpSpLinksetMtp3T15",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T15",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T16": {
+    "name": "cItpSpLinksetMtp3T16",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T16",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T17": {
+    "name": "cItpSpLinksetMtp3T17",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T17",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T18": {
+    "name": "cItpSpLinksetMtp3T18",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T18",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T19": {
+    "name": "cItpSpLinksetMtp3T19",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T19",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T20": {
+    "name": "cItpSpLinksetMtp3T20",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T20",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T21": {
+    "name": "cItpSpLinksetMtp3T21",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T21",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T22": {
+    "name": "cItpSpLinksetMtp3T22",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T22",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T23": {
+    "name": "cItpSpLinksetMtp3T23",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T23",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T24": {
+    "name": "cItpSpLinksetMtp3T24",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T24",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T25": {
+    "name": "cItpSpLinksetMtp3T25",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T25",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T26": {
+    "name": "cItpSpLinksetMtp3T26",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T26",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T27": {
+    "name": "cItpSpLinksetMtp3T27",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T27",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T28": {
+    "name": "cItpSpLinksetMtp3T28",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T28",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T29": {
+    "name": "cItpSpLinksetMtp3T29",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T29",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T30": {
+    "name": "cItpSpLinksetMtp3T30",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T30",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T31": {
+    "name": "cItpSpLinksetMtp3T31",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T31",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T32": {
+    "name": "cItpSpLinksetMtp3T32",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T33": {
+    "name": "cItpSpLinksetMtp3T33",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T33",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetMtp3T34": {
+    "name": "cItpSpLinksetMtp3T34",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T34",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetTimerLinkTest": {
+    "name": "cItpSpLinksetTimerLinkTest",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerLinkTest",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetTimerLinkMessage": {
+    "name": "cItpSpLinksetTimerLinkMessage",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerLinkMessage",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetTimerLinkActRetry": {
+    "name": "cItpSpLinksetTimerLinkActRetry",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerLinkActRetry",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetPlanCapacity": {
+    "name": "cItpSpLinksetPlanCapacity",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 56000,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetActPriority": {
+    "name": "cItpSpLinksetActPriority",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetType": {
+    "name": "cItpSpLinksetType",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "access": 1,
+          "bridge": 2,
+          "cross": 3,
+          "diagonal": 4,
+          "fullyAssoc": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetRowStatus": {
+    "name": "cItpSpLinksetRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetNi": {
+    "name": "cItpSpLinksetNi",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcNetworkIndicator",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetDisplayName": {
+    "name": "cItpSpLinksetDisplayName",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetDescription": {
+    "name": "cItpSpLinksetDescription",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinksetVariant": {
+    "name": "cItpSpLinksetVariant",
+    "oid": "1.3.6.1.4.1.9.9.232.1.3.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcSs7Variant",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTable": {
+    "name": "cItpSpLinkTable",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTableEntry": {
+    "name": "cItpSpLinkTableEntry",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkSlc",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpLinkSlc": {
+    "name": "cItpSpLinkSlc",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcLinkSLC",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "cItpSpLinkDescription": {
+    "name": "cItpSpLinkDescription",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkState": {
+    "name": "cItpSpLinkState",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "available": 1,
+          "failed": 2,
+          "shutdown": 3,
+          "unavailable": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkType": {
+    "name": "cItpSpLinkType",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcLinkType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkifIndex": {
+    "name": "cItpSpLinkifIndex",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkSctpAssociation": {
+    "name": "cItpSpLinkSctpAssociation",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3PacketsRcvd": {
+    "name": "cItpSpLinkMtp3PacketsRcvd",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3PacketsSent": {
+    "name": "cItpSpLinkMtp3PacketsSent",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3BytesRcvd": {
+    "name": "cItpSpLinkMtp3BytesRcvd",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3BytesSent": {
+    "name": "cItpSpLinkMtp3BytesSent",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2T01": {
+    "name": "cItpSpLinkMtp2T01",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T01",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2T02": {
+    "name": "cItpSpLinkMtp2T02",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T02",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2T03": {
+    "name": "cItpSpLinkMtp2T03",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T03",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2T04E": {
+    "name": "cItpSpLinkMtp2T04E",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T04E",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2T04N": {
+    "name": "cItpSpLinkMtp2T04N",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T04N",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2T05": {
+    "name": "cItpSpLinkMtp2T05",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T05",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2T06": {
+    "name": "cItpSpLinkMtp2T06",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T06",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2T07": {
+    "name": "cItpSpLinkMtp2T07",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp2T07",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T01": {
+    "name": "cItpSpLinkMtp3T01",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T01",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T02": {
+    "name": "cItpSpLinkMtp3T02",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T02",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T03": {
+    "name": "cItpSpLinkMtp3T03",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T03",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T04": {
+    "name": "cItpSpLinkMtp3T04",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T04",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T05": {
+    "name": "cItpSpLinkMtp3T05",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T05",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T06": {
+    "name": "cItpSpLinkMtp3T06",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T06",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T07": {
+    "name": "cItpSpLinkMtp3T07",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T07",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T08": {
+    "name": "cItpSpLinkMtp3T08",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T08",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T10": {
+    "name": "cItpSpLinkMtp3T10",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T10",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T11": {
+    "name": "cItpSpLinkMtp3T11",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T11",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T12": {
+    "name": "cItpSpLinkMtp3T12",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T12",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T13": {
+    "name": "cItpSpLinkMtp3T13",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T13",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T14": {
+    "name": "cItpSpLinkMtp3T14",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T14",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T15": {
+    "name": "cItpSpLinkMtp3T15",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T15",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T16": {
+    "name": "cItpSpLinkMtp3T16",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T16",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T17": {
+    "name": "cItpSpLinkMtp3T17",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T17",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T18": {
+    "name": "cItpSpLinkMtp3T18",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T18",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T19": {
+    "name": "cItpSpLinkMtp3T19",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T19",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T20": {
+    "name": "cItpSpLinkMtp3T20",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T20",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T21": {
+    "name": "cItpSpLinkMtp3T21",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T21",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T22": {
+    "name": "cItpSpLinkMtp3T22",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T22",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T23": {
+    "name": "cItpSpLinkMtp3T23",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T23",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T24": {
+    "name": "cItpSpLinkMtp3T24",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T24",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T25": {
+    "name": "cItpSpLinkMtp3T25",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.42",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T25",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T26": {
+    "name": "cItpSpLinkMtp3T26",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.43",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T26",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T27": {
+    "name": "cItpSpLinkMtp3T27",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.44",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T27",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T28": {
+    "name": "cItpSpLinkMtp3T28",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.45",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T28",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T29": {
+    "name": "cItpSpLinkMtp3T29",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T29",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T30": {
+    "name": "cItpSpLinkMtp3T30",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T30",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T31": {
+    "name": "cItpSpLinkMtp3T31",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T31",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T32": {
+    "name": "cItpSpLinkMtp3T32",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T33": {
+    "name": "cItpSpLinkMtp3T33",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T33",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3T34": {
+    "name": "cItpSpLinkMtp3T34",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerMtp3T34",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTimerLinkTest": {
+    "name": "cItpSpLinkTimerLinkTest",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.52",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerLinkTest",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTimerLinkMessage": {
+    "name": "cItpSpLinkTimerLinkMessage",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.53",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerLinkMessage",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTimerLinkActRetry": {
+    "name": "cItpSpLinkTimerLinkActRetry",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.54",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcTimerLinkActRetry",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkXmitQueueDepth": {
+    "name": "cItpSpLinkXmitQueueDepth",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.55",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkXmitQueueDepthHigh": {
+    "name": "cItpSpLinkXmitQueueDepthHigh",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.56",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkXmitQueueDepthHighRT": {
+    "name": "cItpSpLinkXmitQueueDepthHighRT",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.57",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkCongestionState": {
+    "name": "cItpSpLinkCongestionState",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.58",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkCongestionAbate1": {
+    "name": "cItpSpLinkCongestionAbate1",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.59",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkCongestionAbate2": {
+    "name": "cItpSpLinkCongestionAbate2",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.60",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkCongestionAbate3": {
+    "name": "cItpSpLinkCongestionAbate3",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkCongestionOnset1": {
+    "name": "cItpSpLinkCongestionOnset1",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkCongestionOnset2": {
+    "name": "cItpSpLinkCongestionOnset2",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkCongestionOnset3": {
+    "name": "cItpSpLinkCongestionOnset3",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkSigLinkTest": {
+    "name": "cItpSpLinkSigLinkTest",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E1": {
+    "name": "cItpSpLinkQ752T1E1",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E2": {
+    "name": "cItpSpLinkQ752T1E2",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E3": {
+    "name": "cItpSpLinkQ752T1E3",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E4": {
+    "name": "cItpSpLinkQ752T1E4",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E5": {
+    "name": "cItpSpLinkQ752T1E5",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E6": {
+    "name": "cItpSpLinkQ752T1E6",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E7": {
+    "name": "cItpSpLinkQ752T1E7",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.72",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E8": {
+    "name": "cItpSpLinkQ752T1E8",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.73",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E9": {
+    "name": "cItpSpLinkQ752T1E9",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.74",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "negative acknowledgements",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E10": {
+    "name": "cItpSpLinkQ752T1E10",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.75",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T1E11": {
+    "name": "cItpSpLinkQ752T1E11",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T2E1": {
+    "name": "cItpSpLinkQ752T2E1",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T2E5": {
+    "name": "cItpSpLinkQ752T2E5",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T2E6": {
+    "name": "cItpSpLinkQ752T2E6",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.79",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T2E7": {
+    "name": "cItpSpLinkQ752T2E7",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.80",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T2E9": {
+    "name": "cItpSpLinkQ752T2E9",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.81",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T2E10": {
+    "name": "cItpSpLinkQ752T2E10",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.82",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T2E15": {
+    "name": "cItpSpLinkQ752T2E15",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.83",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T2E16": {
+    "name": "cItpSpLinkQ752T2E16",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.84",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T2E18": {
+    "name": "cItpSpLinkQ752T2E18",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.85",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "occurrences",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3PacketsRetrans": {
+    "name": "cItpSpLinkMtp3PacketsRetrans",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.86",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp3BytesRetrans": {
+    "name": "cItpSpLinkMtp3BytesRetrans",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.87",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T3E6": {
+    "name": "cItpSpLinkQ752T3E6",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.88",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "events",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T3E7": {
+    "name": "cItpSpLinkQ752T3E7",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.89",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T3E10L1": {
+    "name": "cItpSpLinkQ752T3E10L1",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.90",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T3E10L2": {
+    "name": "cItpSpLinkQ752T3E10L2",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.91",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T3E10L3": {
+    "name": "cItpSpLinkQ752T3E10L3",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.92",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T3E11L1": {
+    "name": "cItpSpLinkQ752T3E11L1",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.93",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T3E11L2": {
+    "name": "cItpSpLinkQ752T3E11L2",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.94",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQ752T3E11L3": {
+    "name": "cItpSpLinkQ752T3E11L3",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.95",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkIPType1": {
+    "name": "cItpSpLinkIPType1",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.96",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkIPType2": {
+    "name": "cItpSpLinkIPType2",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.97",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkIPType3": {
+    "name": "cItpSpLinkIPType3",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.98",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkIPType4": {
+    "name": "cItpSpLinkIPType4",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.99",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkIPAddr1": {
+    "name": "cItpSpLinkIPAddr1",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.100",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkIPAddr2": {
+    "name": "cItpSpLinkIPAddr2",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.101",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkIPAddr3": {
+    "name": "cItpSpLinkIPAddr3",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.102",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkIPAddr4": {
+    "name": "cItpSpLinkIPAddr4",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.103",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkLocalPort": {
+    "name": "cItpSpLinkLocalPort",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.104",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkRemotePort": {
+    "name": "cItpSpLinkRemotePort",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.105",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkQosClass": {
+    "name": "cItpSpLinkQosClass",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.106",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpTcQos",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkRowStatus": {
+    "name": "cItpSpLinkRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.107",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkStateReason": {
+    "name": "cItpSpLinkStateReason",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.108",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "localInhibit": 0,
+        "remoteInhibit": 1,
+        "blocked": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkDisplayName": {
+    "name": "cItpSpLinkDisplayName",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.109",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkDroppedPkts": {
+    "name": "cItpSpLinkDroppedPkts",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.110",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTransmittedLssu": {
+    "name": "cItpSpLinkTransmittedLssu",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.111",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "LSSU",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkReceivedLssu": {
+    "name": "cItpSpLinkReceivedLssu",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.112",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "LSSU",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkProtocolDetails": {
+    "name": "cItpSpLinkProtocolDetails",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.113",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "tcbcBuffering": 0,
+        "tcocBuffering": 1,
+        "tlacAdjacentSpRestarting": 2,
+        "tlacEmergencyCoInProgress": 3,
+        "tlacChangebackInProgress": 4,
+        "tlacChangeoverInProgress": 5,
+        "tlacChangeoverFailed": 6,
+        "tlacInhibitRetry": 7,
+        "tlacManagementRequest": 8,
+        "tlacSpRestarting": 9,
+        "tsrcChangeOverComplete": 10,
+        "tsrcAdjacentSpRestart": 11
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkLsacState": {
+    "name": "cItpSpLinkLsacState",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.114",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "inactive": 2,
+          "active": 3,
+          "activatingRestoring": 4,
+          "failed": 5,
+          "actT17wait": 6,
+          "actAnsiWaitDeloaded": 7,
+          "actItuWaitStmReady": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTsrcState": {
+    "name": "cItpSpLinkTsrcState",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.115",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "idle": 2,
+          "wait5": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTcocState": {
+    "name": "cItpSpLinkTcocState",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.116",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "idle": 2,
+          "wait2": 3,
+          "waitForAck": 4,
+          "retrieving": 5,
+          "wait5": 6,
+          "wait7": 7,
+          "wait8": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTcocLocalBSNT": {
+    "name": "cItpSpLinkTcocLocalBSNT",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.117",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpSequenceNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTcocRemoteBSNT": {
+    "name": "cItpSpLinkTcocRemoteBSNT",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.118",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpSequenceNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTcbcState": {
+    "name": "cItpSpLinkTcbcState",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.119",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "idle": 2,
+          "firstAttempt": 3,
+          "secondAttempt": 4,
+          "timeControlledDiversion": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkReceivedSIB": {
+    "name": "cItpSpLinkReceivedSIB",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.120",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SIB",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkTransmittedSIB": {
+    "name": "cItpSpLinkTransmittedSIB",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.121",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SIB",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2ExpiredT01": {
+    "name": "cItpSpLinkMtp2ExpiredT01",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.122",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2ExpiredT02": {
+    "name": "cItpSpLinkMtp2ExpiredT02",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.123",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2ExpiredT03": {
+    "name": "cItpSpLinkMtp2ExpiredT03",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.124",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2ExpiredT04": {
+    "name": "cItpSpLinkMtp2ExpiredT04",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.125",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2ExpiredT05": {
+    "name": "cItpSpLinkMtp2ExpiredT05",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.126",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2ExpiredT06": {
+    "name": "cItpSpLinkMtp2ExpiredT06",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.127",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkMtp2ExpiredT07": {
+    "name": "cItpSpLinkMtp2ExpiredT07",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.128",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkOMAERMCount": {
+    "name": "cItpSpLinkOMAERMCount",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.129",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkOMAERMFailCount": {
+    "name": "cItpSpLinkOMAERMFailCount",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.130",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkOMSURMCount": {
+    "name": "cItpSpLinkOMSURMCount",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.131",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkOMSURMFailCount": {
+    "name": "cItpSpLinkOMSURMFailCount",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.132",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkPlanCapacityRcvd": {
+    "name": "cItpSpLinkPlanCapacityRcvd",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.133",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpLinkCapacity",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkUtilThresholdRcvd": {
+    "name": "cItpSpLinkUtilThresholdRcvd",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.134",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpPercentThreshold",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkUtilizationRcvd": {
+    "name": "cItpSpLinkUtilizationRcvd",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.135",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpLinkUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkUtilStateRcvd": {
+    "name": "cItpSpLinkUtilStateRcvd",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.136",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpLinkUtilizationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkL2BytesRcvd": {
+    "name": "cItpSpLinkL2BytesRcvd",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.137",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkPlanCapacitySent": {
+    "name": "cItpSpLinkPlanCapacitySent",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.138",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpLinkCapacity",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkUtilThresholdSent": {
+    "name": "cItpSpLinkUtilThresholdSent",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.139",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpPercentThreshold",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cItpSpLinkUtilizationSent": {
+    "name": "cItpSpLinkUtilizationSent",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.140",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpLinkUtilization",
+      "class": "type"
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkUtilStateSent": {
+    "name": "cItpSpLinkUtilStateSent",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.141",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CItpSpLinkUtilizationState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLinkL2BytesSent": {
+    "name": "cItpSpLinkL2BytesSent",
+    "oid": "1.3.6.1.4.1.9.9.232.1.4.1.1.142",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cItpSpLsStateChangeNotifEnabled": {
+    "name": "cItpSpLsStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.232.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpLnkStateChangeNotifEnabled": {
+    "name": "cItpSpLnkStateChangeNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.232.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpCongestionNotifEnabled": {
+    "name": "cItpSpCongestionNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.232.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpLinkUtilNotifEnabled": {
+    "name": "cItpSpLinkUtilNotifEnabled",
+    "oid": "1.3.6.1.4.1.9.9.232.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cItpSpNotifications": {
+    "name": "cItpSpNotifications",
+    "oid": "1.3.6.1.4.1.9.9.232.0.0",
+    "class": "objectidentity"
+  },
+  "cItpSpLinksetStateChange": {
+    "name": "cItpSpLinksetStateChange",
+    "oid": "1.3.6.1.4.1.9.9.232.0.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAdjacentDisplayPC"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpLinkStateChange": {
+    "name": "cItpSpLinkStateChange",
+    "oid": "1.3.6.1.4.1.9.9.232.0.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkStateReason"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpCongestionChange": {
+    "name": "cItpSpCongestionChange",
+    "oid": "1.3.6.1.4.1.9.9.232.0.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAdjacentDisplayPC"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpLinkRcvdUtilChange": {
+    "name": "cItpSpLinkRcvdUtilChange",
+    "oid": "1.3.6.1.4.1.9.9.232.0.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilStateRcvd"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilizationRcvd"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpLinkSentUtilChange": {
+    "name": "cItpSpLinkSentUtilChange",
+    "oid": "1.3.6.1.4.1.9.9.232.0.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilStateSent"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilizationSent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpMIBCompliances": {
+    "name": "cItpSpMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.232.2.1",
+    "class": "objectidentity"
+  },
+  "cItpSpMIBGroups": {
+    "name": "cItpSpMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2",
+    "class": "objectidentity"
+  },
+  "cItpSpMIBCompliance": {
+    "name": "cItpSpMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.232.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cItpSpScalarsGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpPointCodeGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpLinksetGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpLinkGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpNotificationsEnableGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpNotificationsGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpMIBComplianceRev1": {
+    "name": "cItpSpMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.232.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cItpSpScalarsGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpPointCodeGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpLinksetGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpLinkGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpNotificationsEnableGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpNotificationsGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpStatsGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpMIBComplianceRev2": {
+    "name": "cItpSpMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.232.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cItpSpPointCodeGroup",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpScalarsGroupRev2",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpLinksetGroupRev2",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpLinkGroupRev2",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpNotificationsEnableGroupRev2",
+        "module": "CISCO-ITP-SP-MIB"
+      },
+      {
+        "object": "cItpSpNotificationsGroupRev2",
+        "module": "CISCO-ITP-SP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpScalarsGroup": {
+    "name": "cItpSpScalarsGroup",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpVariant"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpDescription"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T04E"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T04N"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T04"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T08"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T10"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T11"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T12"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T13"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T14"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T15"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T16"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T17"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T18"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T19"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T20"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T21"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T22"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T23"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T24"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T25"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T26"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T27"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T28"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T29"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T30"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T31"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T32"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T33"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T34"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpTimerLinkTest"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpTimerLinkMessage"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpTimerLinkActRetry"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpTFR"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCongestionsLevels"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpFastRestart"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpPointCodeGroup": {
+    "name": "cItpSpPointCodeGroup",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpPointCodeType"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpPointCodeDisplay"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpPointCodeRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpLinksetGroup": {
+    "name": "cItpSpLinksetGroup",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSourcePointCode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAdjacentPointCode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetInboundAcl"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetOutboundAcl"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSnmmRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSntmRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare2RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSccpRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetTupRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetIsupRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDupcRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDupfRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtupRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetBisupRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSisupRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare11RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare12RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare13RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare14RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare15RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAccountingEnabled"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetNumLinks"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDurationInService"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDurationOutService"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T04E"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T04N"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T04"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T08"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T10"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T11"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T12"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T13"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T14"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T15"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T16"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T17"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T18"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T19"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T20"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T21"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T22"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T23"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T24"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T25"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T26"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T27"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T28"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T29"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T30"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T31"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T32"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T33"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T34"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetTimerLinkTest"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetTimerLinkMessage"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetTimerLinkActRetry"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetPlanCapacity"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetActPriority"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetType"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetNi"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDescription"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpLinkGroup": {
+    "name": "cItpSpLinkGroup",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkDescription"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkType"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkifIndex"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkSctpAssociation"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3PacketsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3PacketsSent"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3BytesRcvd"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3BytesSent"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T04E"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T04N"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T04"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T08"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T10"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T11"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T12"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T13"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T14"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T15"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T16"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T17"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T18"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T19"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T20"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T21"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T22"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T23"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T24"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T25"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T26"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T27"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T28"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T29"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T30"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T31"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T32"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T33"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T34"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTimerLinkTest"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTimerLinkMessage"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTimerLinkActRetry"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkXmitQueueDepth"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkXmitQueueDepthHigh"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkXmitQueueDepthHighRT"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionAbate1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionAbate2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionAbate3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionOnset1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionOnset2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionOnset3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkSigLinkTest"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E4"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E5"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E6"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E7"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E8"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E9"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E10"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E11"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E5"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E6"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E7"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E9"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E10"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E15"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E16"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E18"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3PacketsRetrans"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3BytesRetrans"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E6"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E7"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E10L1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E10L2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E10L3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E11L1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E11L2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E11L3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPType1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPType2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPType3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPType4"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPAddr1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPAddr2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPAddr3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPAddr4"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkLocalPort"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkRemotePort"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQosClass"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkStateReason"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkDisplayName"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpNotificationsEnableGroup": {
+    "name": "cItpSpNotificationsEnableGroup",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLsStateChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLnkStateChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCongestionNotifEnabled"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpNotificationsGroup": {
+    "name": "cItpSpNotificationsGroup",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetStateChange"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkStateChange"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCongestionChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpStatsGroup": {
+    "name": "cItpSpStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpDistSccpUnseq"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpSummaryRoutingException"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetVariant"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkDroppedPkts"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTransmittedLssu"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkReceivedLssu"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkProtocolDetails"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkLsacState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTsrcState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTcocState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTcocLocalBSNT"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTcocRemoteBSNT"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTcbcState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkReceivedSIB"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTransmittedSIB"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT04"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkOMAERMCount"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkOMAERMFailCount"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkOMSURMCount"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkOMSURMFailCount"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpScalarsGroupRev2": {
+    "name": "cItpSpScalarsGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpVariant"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCLLICode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpDescription"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T04E"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T04N"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp2T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T04"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T08"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T10"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T11"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T12"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T13"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T14"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T15"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T16"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T17"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T18"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T19"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T20"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T21"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T22"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T23"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T24"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T25"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T26"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T27"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T28"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T29"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T30"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T31"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T32"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T33"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpMtp3T34"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpTimerLinkTest"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpTimerLinkMessage"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpTimerLinkActRetry"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpTFR"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCongestionsLevels"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpFastRestart"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpDistSccpUnseq"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpSummaryRoutingException"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpUtilSampleInterval"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpUtilThreshold"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpUtilAbateDelta"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpLinksetGroupRev2": {
+    "name": "cItpSpLinksetGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSourcePointCode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSourceDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAdjacentPointCode"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAdjacentDisplayPC"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetInboundAcl"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetOutboundAcl"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSnmmRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSntmRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare2RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSccpRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetTupRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetIsupRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDupcRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDupfRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtupRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetBisupRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSisupRTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare11RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare12RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare13RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare14RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetSpare15RTN"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetAccountingEnabled"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetNumLinks"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDurationInService"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDurationOutService"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T04E"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T04N"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp2T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T04"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T08"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T10"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T11"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T12"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T13"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T14"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T15"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T16"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T17"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T18"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T19"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T20"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T21"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T22"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T23"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T24"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T25"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T26"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T27"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T28"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T29"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T30"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T31"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T32"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T33"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetMtp3T34"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetTimerLinkTest"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetTimerLinkMessage"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetTimerLinkActRetry"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetActPriority"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetType"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetNi"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetDescription"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetVariant"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpLinkGroupRev2": {
+    "name": "cItpSpLinkGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkDescription"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkType"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkifIndex"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkSctpAssociation"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3PacketsRcvd"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3PacketsSent"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3BytesRcvd"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3BytesSent"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T04E"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T04N"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T04"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T08"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T10"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T11"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T12"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T13"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T14"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T15"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T16"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T17"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T18"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T19"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T20"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T21"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T22"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T23"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T24"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T25"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T26"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T27"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T28"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T29"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T30"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T31"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T32"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T33"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3T34"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTimerLinkTest"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTimerLinkMessage"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTimerLinkActRetry"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkXmitQueueDepth"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkXmitQueueDepthHigh"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkXmitQueueDepthHighRT"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionAbate1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionAbate2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionAbate3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionOnset1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionOnset2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkCongestionOnset3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkSigLinkTest"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E4"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E5"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E6"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E7"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E8"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E9"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E10"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T1E11"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E5"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E6"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E7"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E9"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E10"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E15"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E16"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T2E18"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3PacketsRetrans"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp3BytesRetrans"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E6"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E7"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E10L1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E10L2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E10L3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E11L1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E11L2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQ752T3E11L3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPType1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPType2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPType3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPType4"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPAddr1"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPAddr2"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPAddr3"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkIPAddr4"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkLocalPort"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkRemotePort"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkQosClass"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkRowStatus"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkStateReason"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkDisplayName"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkDroppedPkts"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTransmittedLssu"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkReceivedLssu"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkProtocolDetails"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkLsacState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTsrcState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTcocState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTcocLocalBSNT"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTcocRemoteBSNT"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTcbcState"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkReceivedSIB"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkTransmittedSIB"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT01"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT02"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT03"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT04"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT05"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT06"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkMtp2ExpiredT07"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkOMAERMCount"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkOMAERMFailCount"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkOMSURMCount"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkOMSURMFailCount"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkPlanCapacityRcvd"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilThresholdRcvd"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilizationRcvd"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilStateRcvd"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkL2BytesRcvd"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkPlanCapacitySent"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilThresholdSent"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilizationSent"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilStateSent"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkL2BytesSent"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpNotificationsEnableGroupRev2": {
+    "name": "cItpSpNotificationsEnableGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLsStateChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLnkStateChangeNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCongestionNotifEnabled"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkUtilNotifEnabled"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cItpSpNotificationsGroupRev2": {
+    "name": "cItpSpNotificationsGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.232.2.2.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinksetStateChange"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkStateChange"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpCongestionChange"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkRcvdUtilChange"
+      },
+      {
+        "module": "CISCO-ITP-SP-MIB",
+        "object": "cItpSpLinkSentUtilChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-SP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:17 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-ITP-SP-MIB"
+  }
+}

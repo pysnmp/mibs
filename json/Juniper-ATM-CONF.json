@@ -1,0 +1,233 @@
+{
+  "imports": {
+    "class": "imports",
+    "Juniper-Agents": [
+      "juniAgents"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "iso"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "juniAtmAgent": {
+    "name": "juniAtmAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-08-17 17:26",
+        "description": "Juniper-UNI-ATM-MIB: Removed SVC support. ATM2-MIB: Removed SVC support."
+      },
+      {
+        "revision": "2005-02-17 23:15",
+        "description": "Juniper-UNI-ATM-MIB: Added circuit OAM support to the ATM VCC end point agent capabilities."
+      },
+      {
+        "revision": "2004-01-06 19:53",
+        "description": "Added support to export the subinterface description to the line cards."
+      },
+      {
+        "revision": "2003-11-07 14:57",
+        "description": "ATM2-MIB: Updated from an Internet Draft to a Proposed Standard (RFC 3606). Juniper-UNI-ATM-MIB: Added ATM sub-interface location support."
+      },
+      {
+        "revision": "2003-05-08 17:57",
+        "description": "Juniper-UNI-ATM-MIB: Added ATM F4 OAM circuits management and ATM VP description support."
+      },
+      {
+        "revision": "2002-09-06 16:54",
+        "description": "Juniper-UNI-ATM-MIB: Replaced Unisphere names with Juniper names."
+      },
+      {
+        "revision": "2002-08-09 14:15",
+        "description": "ATM2-MIB: Added support for the atmSigStatTable, the atmAal5VclStatTable and the atmInterfaceExtTable. Juniper-UNI-ATM-MIB: Added receive bandwith support to CAC. Added E164 public addressing support."
+      },
+      {
+        "revision": "2002-01-29 15:18",
+        "description": "Juniper-UNI-ATM-MIB: Added ATM switched virtual connection (SVC) support to the VCC end point capabilities."
+      },
+      {
+        "revision": "2002-01-24 14:16",
+        "description": "Juniper-UNI-ATM-MIB: Added support for ATM connection admission control (CAC) to the VCC end point capabilities."
+      },
+      {
+        "revision": "2001-12-14 19:51",
+        "description": "Juniper-UNI-ATM-MIB: Added ATM traffic shaping capabilities."
+      },
+      {
+        "revision": "2001-05-23 16:12",
+        "description": "The initial release of this management information module."
+      }
+    ]
+  },
+  "juniAtmVccEndPointAgent": {
+    "name": "juniAtmVccEndPointAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1",
+    "class": "objectidentity"
+  },
+  "juniAtmVccEndPointAgentV1": {
+    "name": "juniAtmVccEndPointAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 3.0 and 3.1 system releases.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV2": {
+    "name": "juniAtmVccEndPointAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.2",
+    "class": "agentcapabilities",
+    "productrelease": "Version 2 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 3.2 and JUNOSe 3.3 system releases.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV3": {
+    "name": "juniAtmVccEndPointAgentV3",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.3",
+    "class": "agentcapabilities",
+    "productrelease": "Version 3 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 3.4 and subsequent 3.x system releases.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV4": {
+    "name": "juniAtmVccEndPointAgentV4",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.4",
+    "class": "agentcapabilities",
+    "productrelease": "Version 4 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 4.0 system releases.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV5": {
+    "name": "juniAtmVccEndPointAgentV5",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.5",
+    "class": "agentcapabilities",
+    "productrelease": "Version 5 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 4.1 thru 5.0 system releases.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV6": {
+    "name": "juniAtmVccEndPointAgentV6",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.6",
+    "class": "agentcapabilities",
+    "productrelease": "Version 6 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was\n        supported in JUNOSe 5.1 system releases.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV7": {
+    "name": "juniAtmVccEndPointAgentV7",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.7",
+    "class": "agentcapabilities",
+    "productrelease": "Version 7 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was supported\n        in JUNOSe 5.2 system release.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV8": {
+    "name": "juniAtmVccEndPointAgentV8",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.8",
+    "class": "agentcapabilities",
+    "productrelease": "Version 8 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was supported\n        in JUNOSe 5.3 and 6.0 system releases.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV9": {
+    "name": "juniAtmVccEndPointAgentV9",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.9",
+    "class": "agentcapabilities",
+    "productrelease": "Version 9 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent was supported\n        in JUNOSe 6.1 system release.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV10": {
+    "name": "juniAtmVccEndPointAgentV10",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.10",
+    "class": "agentcapabilities",
+    "productrelease": "Version 10 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent is supported\n        in JUNOSe 7.0 and subsequent system releases.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV11": {
+    "name": "juniAtmVccEndPointAgentV11",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.11",
+    "class": "agentcapabilities",
+    "productrelease": "Version 11 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent is supported\n        in JUNOSe 7.1 and 7.2 system releases.",
+    "status": "obsolete"
+  },
+  "juniAtmVccEndPointAgentV12": {
+    "name": "juniAtmVccEndPointAgentV12",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.1.12",
+    "class": "agentcapabilities",
+    "productrelease": "Version 12 of the ATM VCC end point agent subcomponent of the JUNOSe\n        SNMP agent.  This version of the ATM end point subcomponent is supported\n        in JUNOSe 7.3 and subsequent system releases.",
+    "status": "current"
+  },
+  "juniAtmVpTunnelAgent": {
+    "name": "juniAtmVpTunnelAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.2",
+    "class": "objectidentity"
+  },
+  "juniAtmVpTunnelAgentV1": {
+    "name": "juniAtmVpTunnelAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.2.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the ATM VP tunnel subcomponent of the JUNOSe SNMP agent.\n        This version of the ATM tunnel subcomponent is supported in JUNOSe 3.0\n        and subsequent system releases.",
+    "status": "current"
+  },
+  "juniAtmNbmaAgent": {
+    "name": "juniAtmNbmaAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.3",
+    "class": "objectidentity"
+  },
+  "juniAtmNbmaAgentV1": {
+    "name": "juniAtmNbmaAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.3.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the ATM NBMA interface subcomponent of the JUNOSe SNMP\n        agent.  This version of the ATM NBMA subcomponent is supported in JUNOSe\n        3.2 and subsequent system releases.",
+    "status": "current"
+  },
+  "juniAtmSwitchAgent": {
+    "name": "juniAtmSwitchAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.4",
+    "class": "objectidentity"
+  },
+  "juniAtmSwitchAgentV1": {
+    "name": "juniAtmSwitchAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.4.1",
+    "class": "objectidentity"
+  },
+  "juniAtmSwitchAgentV2": {
+    "name": "juniAtmSwitchAgentV2",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.4.2",
+    "class": "objectidentity"
+  },
+  "juniAtmTrafficShapingAgent": {
+    "name": "juniAtmTrafficShapingAgent",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.5",
+    "class": "objectidentity"
+  },
+  "juniAtmTrafficShapingAgentV1": {
+    "name": "juniAtmTrafficShapingAgentV1",
+    "oid": "1.3.6.1.4.1.4874.5.2.3.5.1",
+    "class": "agentcapabilities",
+    "productrelease": "Version 1 of the ATM traffic shaping subcomponent of the JUNOSe SNMP\n        agent.  This version of the ATM traffic shaping subcomponent is\n        supported in JUNOSe 3.3 and subsequent system releases.",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-ATM-CONF",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:40:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "Juniper-ATM-CONF"
+  }
+}

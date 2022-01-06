@@ -1,0 +1,841 @@
+{
+  "imports": {
+    "class": "imports",
+    "COLUBRIS-SMI": [
+      "colubrisMgmtV2"
+    ],
+    "COLUBRIS-SYSTEM-MIB": [
+      "systemSerialNumber"
+    ],
+    "COLUBRIS-TC": [
+      "ColubrisNotificationEnable",
+      "ColubrisSSID"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysName"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "iso",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "colubrisWirelessClientMIB": {
+    "name": "colubrisWirelessClientMIB",
+    "oid": "1.3.6.1.4.1.8744.5.20",
+    "class": "moduleidentity"
+  },
+  "colubrisWirelessClientMIBObjects": {
+    "name": "colubrisWirelessClientMIBObjects",
+    "oid": "1.3.6.1.4.1.8744.5.20.1",
+    "class": "objectidentity"
+  },
+  "colubrisWirelessClientInfo": {
+    "name": "colubrisWirelessClientInfo",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1",
+    "class": "objectidentity"
+  },
+  "colubrisWirelessClientStats": {
+    "name": "colubrisWirelessClientStats",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2",
+    "class": "objectidentity"
+  },
+  "colubrisWirelessClientState": {
+    "name": "colubrisWirelessClientState",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disconnected": 1,
+          "scanning": 2,
+          "authenticating": 3,
+          "associating": 4,
+          "associated": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientSSID": {
+    "name": "colubrisWirelessClientSSID",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisSSID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientBSSID": {
+    "name": "colubrisWirelessClientBSSID",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientSignalLevel": {
+    "name": "colubrisWirelessClientSignalLevel",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientNoiseLevel": {
+    "name": "colubrisWirelessClientNoiseLevel",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientSNR": {
+    "name": "colubrisWirelessClientSNR",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientConnectionNotificationEnabled": {
+    "name": "colubrisWirelessClientConnectionNotificationEnabled",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ColubrisNotificationEnable",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "colubrisWirelessClientConnectTime": {
+    "name": "colubrisWirelessClientConnectTime",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientAuthorizedState": {
+    "name": "colubrisWirelessClientAuthorizedState",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notAuthorized": 1,
+          "authorized": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientEncryptionStatus": {
+    "name": "colubrisWirelessClientEncryptionStatus",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "wep": 2,
+          "tkip": 3,
+          "aes": 4,
+          "aesTkip": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientTransmitRate": {
+    "name": "colubrisWirelessClientTransmitRate",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientReceiveRate": {
+    "name": "colubrisWirelessClientReceiveRate",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientInPkts": {
+    "name": "colubrisWirelessClientInPkts",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientOutPkts": {
+    "name": "colubrisWirelessClientOutPkts",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientInOctets": {
+    "name": "colubrisWirelessClientInOctets",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientOutOctets": {
+    "name": "colubrisWirelessClientOutOctets",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate1": {
+    "name": "colubrisWirelessClientPktsTxRate1",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate2": {
+    "name": "colubrisWirelessClientPktsTxRate2",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate5dot5": {
+    "name": "colubrisWirelessClientPktsTxRate5dot5",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate11": {
+    "name": "colubrisWirelessClientPktsTxRate11",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate6": {
+    "name": "colubrisWirelessClientPktsTxRate6",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate9": {
+    "name": "colubrisWirelessClientPktsTxRate9",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate12": {
+    "name": "colubrisWirelessClientPktsTxRate12",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate18": {
+    "name": "colubrisWirelessClientPktsTxRate18",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate24": {
+    "name": "colubrisWirelessClientPktsTxRate24",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate36": {
+    "name": "colubrisWirelessClientPktsTxRate36",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate48": {
+    "name": "colubrisWirelessClientPktsTxRate48",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsTxRate54": {
+    "name": "colubrisWirelessClientPktsTxRate54",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate1": {
+    "name": "colubrisWirelessClientPktsRxRate1",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate2": {
+    "name": "colubrisWirelessClientPktsRxRate2",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate5dot5": {
+    "name": "colubrisWirelessClientPktsRxRate5dot5",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate11": {
+    "name": "colubrisWirelessClientPktsRxRate11",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate6": {
+    "name": "colubrisWirelessClientPktsRxRate6",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate9": {
+    "name": "colubrisWirelessClientPktsRxRate9",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate12": {
+    "name": "colubrisWirelessClientPktsRxRate12",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate18": {
+    "name": "colubrisWirelessClientPktsRxRate18",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate24": {
+    "name": "colubrisWirelessClientPktsRxRate24",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate36": {
+    "name": "colubrisWirelessClientPktsRxRate36",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate48": {
+    "name": "colubrisWirelessClientPktsRxRate48",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientPktsRxRate54": {
+    "name": "colubrisWirelessClientPktsRxRate54",
+    "oid": "1.3.6.1.4.1.8744.5.20.1.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "colubrisWirelessClientMIBNotificationPrefix": {
+    "name": "colubrisWirelessClientMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.8744.5.20.2",
+    "class": "objectidentity"
+  },
+  "colubrisWirelessClientMIBNotifications": {
+    "name": "colubrisWirelessClientMIBNotifications",
+    "oid": "1.3.6.1.4.1.8744.5.20.2.0",
+    "class": "objectidentity"
+  },
+  "colubrisWirelessClientConnectionNotification": {
+    "name": "colubrisWirelessClientConnectionNotification",
+    "oid": "1.3.6.1.4.1.8744.5.20.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMPv2-MIB",
+        "object": "sysName"
+      },
+      {
+        "module": "COLUBRIS-SYSTEM-MIB",
+        "object": "systemSerialNumber"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientSSID"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientBSSID"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisWirelessClientMIBConformance": {
+    "name": "colubrisWirelessClientMIBConformance",
+    "oid": "1.3.6.1.4.1.8744.5.20.3",
+    "class": "objectidentity"
+  },
+  "colubrisWirelessClientMIBCompliances": {
+    "name": "colubrisWirelessClientMIBCompliances",
+    "oid": "1.3.6.1.4.1.8744.5.20.3.1",
+    "class": "objectidentity"
+  },
+  "colubrisWirelessClientMIBGroups": {
+    "name": "colubrisWirelessClientMIBGroups",
+    "oid": "1.3.6.1.4.1.8744.5.20.3.2",
+    "class": "objectidentity"
+  },
+  "colubrisWirelessClientMIBCompliance": {
+    "name": "colubrisWirelessClientMIBCompliance",
+    "oid": "1.3.6.1.4.1.8744.5.20.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "colubrisWirelessClientMIBGroup",
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB"
+      },
+      {
+        "object": "colubrisWirelessClientNotificationGroup",
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB"
+      },
+      {
+        "object": "colubrisWirelessClientMIBGroupCounters",
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisWirelessClientMIBGroup": {
+    "name": "colubrisWirelessClientMIBGroup",
+    "oid": "1.3.6.1.4.1.8744.5.20.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientState"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientSSID"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientBSSID"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientSignalLevel"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientNoiseLevel"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientSNR"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientConnectionNotificationEnabled"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientTransmitRate"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientReceiveRate"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientConnectTime"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientAuthorizedState"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientEncryptionStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisWirelessClientNotificationGroup": {
+    "name": "colubrisWirelessClientNotificationGroup",
+    "oid": "1.3.6.1.4.1.8744.5.20.3.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientConnectionNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "colubrisWirelessClientMIBGroupCounters": {
+    "name": "colubrisWirelessClientMIBGroupCounters",
+    "oid": "1.3.6.1.4.1.8744.5.20.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientInPkts"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientOutPkts"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientInOctets"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientOutOctets"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate1"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate2"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate5dot5"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate11"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate6"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate9"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate12"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate18"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate24"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate36"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate48"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsTxRate54"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate1"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate2"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate5dot5"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate11"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate6"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate9"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate12"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate18"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate24"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate36"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate48"
+      },
+      {
+        "module": "COLUBRIS-WIRELESS-CLIENT-MIB",
+        "object": "colubrisWirelessClientPktsRxRate54"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-WIRELESS-CLIENT-MIB.my",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:36:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COLUBRIS-WIRELESS-CLIENT-MIB"
+  }
+}

@@ -1,0 +1,4037 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoCacheEngineMIB": {
+    "name": "ciscoCacheEngineMIB",
+    "oid": "1.3.6.1.4.1.9.10.39",
+    "class": "moduleidentity"
+  },
+  "ciscoCacheEngineMIBObjects": {
+    "name": "ciscoCacheEngineMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.39.1",
+    "class": "objectidentity"
+  },
+  "ciscoCacheEngineConf": {
+    "name": "ciscoCacheEngineConf",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1",
+    "class": "objectidentity"
+  },
+  "cceConfigGroup": {
+    "name": "cceConfigGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1",
+    "class": "objectidentity"
+  },
+  "cceTuningGroup": {
+    "name": "cceTuningGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2",
+    "class": "objectidentity"
+  },
+  "cceAccessGroup": {
+    "name": "cceAccessGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.3",
+    "class": "objectidentity"
+  },
+  "cceReportGroup": {
+    "name": "cceReportGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4",
+    "class": "objectidentity"
+  },
+  "cceStatsGroup": {
+    "name": "cceStatsGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5",
+    "class": "objectidentity"
+  },
+  "cceHardwareGroup": {
+    "name": "cceHardwareGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.6",
+    "class": "objectidentity"
+  },
+  "cceFarm": {
+    "name": "cceFarm",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "cceBasic": {
+    "name": "cceBasic",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "cceDns": {
+    "name": "cceDns",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "cceIcpClient": {
+    "name": "cceIcpClient",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "cceIcpServer": {
+    "name": "cceIcpServer",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "cceProxy": {
+    "name": "cceProxy",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.6",
+    "class": "objectidentity"
+  },
+  "cceTime": {
+    "name": "cceTime",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.7",
+    "class": "objectidentity"
+  },
+  "cceCacheFarm": {
+    "name": "cceCacheFarm",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "cceFreshness": {
+    "name": "cceFreshness",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "cceTcp": {
+    "name": "cceTcp",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "cceUrlFilter": {
+    "name": "cceUrlFilter",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "cceEvents": {
+    "name": "cceEvents",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "cceLogging": {
+    "name": "cceLogging",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.2",
+    "class": "objectidentity"
+  },
+  "cceDiagDump": {
+    "name": "cceDiagDump",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1",
+    "class": "objectidentity"
+  },
+  "cceIms": {
+    "name": "cceIms",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2",
+    "class": "objectidentity"
+  },
+  "ccePerformance": {
+    "name": "ccePerformance",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3",
+    "class": "objectidentity"
+  },
+  "cceRequests": {
+    "name": "cceRequests",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4",
+    "class": "objectidentity"
+  },
+  "cceSavings": {
+    "name": "cceSavings",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.5",
+    "class": "objectidentity"
+  },
+  "cceUsage": {
+    "name": "cceUsage",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6",
+    "class": "objectidentity"
+  },
+  "cceInterfaces": {
+    "name": "cceInterfaces",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.6.1",
+    "class": "objectidentity"
+  },
+  "cceFarmTable": {
+    "name": "cceFarmTable",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceFarmEntry": {
+    "name": "cceFarmEntry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFarmEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cceFarmEntryIndex": {
+    "name": "cceFarmEntryIndex",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceFarmEntryIpAddress": {
+    "name": "cceFarmEntryIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceBasicIPAddress": {
+    "name": "cceBasicIPAddress",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceBasicNetMask": {
+    "name": "cceBasicNetMask",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceBasicGatewayIpAddress": {
+    "name": "cceBasicGatewayIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceBasicCacheName": {
+    "name": "cceBasicCacheName",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceBasicFarmName": {
+    "name": "cceBasicFarmName",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDnsDomain": {
+    "name": "cceDnsDomain",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDnsTable": {
+    "name": "cceDnsTable",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceDnsEntry": {
+    "name": "cceDnsEntry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDnsEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cceDnsEntryIndex": {
+    "name": "cceDnsEntryIndex",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceDnsEntryIpAddress": {
+    "name": "cceDnsEntryIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpClientEnabled": {
+    "name": "cceIcpClientEnabled",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpClientWait": {
+    "name": "cceIcpClientWait",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpClientRetry": {
+    "name": "cceIcpClientRetry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpClientLocalDomains": {
+    "name": "cceIcpClientLocalDomains",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpClientRemServTable": {
+    "name": "cceIcpClientRemServTable",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceIcpClientRemServEntry": {
+    "name": "cceIcpClientRemServEntry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientRemServIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cceIcpClientRemServIndex": {
+    "name": "cceIcpClientRemServIndex",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceIcpClientRemServIpAddress": {
+    "name": "cceIcpClientRemServIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpClientRemServState": {
+    "name": "cceIcpClientRemServState",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpClientRemServType": {
+    "name": "cceIcpClientRemServType",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "parent": 1,
+          "sibling": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpClientRemServIcpPort": {
+    "name": "cceIcpClientRemServIcpPort",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpClientRemServHttpPort": {
+    "name": "cceIcpClientRemServHttpPort",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpClientRemServSelDomains": {
+    "name": "cceIcpClientRemServSelDomains",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpServerEnabled": {
+    "name": "cceIcpServerEnabled",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpServerPort": {
+    "name": "cceIcpServerPort",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpServerRemClntTable": {
+    "name": "cceIcpServerRemClntTable",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceIcpServerRemClntEntry": {
+    "name": "cceIcpServerRemClntEntry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpServerRemClntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cceIcpServerRemClntIndex": {
+    "name": "cceIcpServerRemClntIndex",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceIcpServerRemClntIPAddress": {
+    "name": "cceIcpServerRemClntIPAddress",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIcpServerRemClntFetch": {
+    "name": "cceIcpServerRemClntFetch",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceProxyIncomingPort": {
+    "name": "cceProxyIncomingPort",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceProxyOutgoingAddress": {
+    "name": "cceProxyOutgoingAddress",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceProxyOutgoingPort": {
+    "name": "cceProxyOutgoingPort",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTimeGmtTime": {
+    "name": "cceTimeGmtTime",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTimeGmtDate": {
+    "name": "cceTimeGmtDate",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTimeTable": {
+    "name": "cceTimeTable",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceTimeEntry": {
+    "name": "cceTimeEntry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTimeEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cceTimeEntryIndex": {
+    "name": "cceTimeEntryIndex",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceTimeEntryIpAddress": {
+    "name": "cceTimeEntryIpAddress",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceCacheFarmHealingModeWait": {
+    "name": "cceCacheFarmHealingModeWait",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceCacheFarmHealingModeRetry": {
+    "name": "cceCacheFarmHealingModeRetry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceCacheFarmVersion": {
+    "name": "cceCacheFarmVersion",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceFreshnessTextAgeMultiplier": {
+    "name": "cceFreshnessTextAgeMultiplier",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceFreshnessBinaryAgeMultiplier": {
+    "name": "cceFreshnessBinaryAgeMultiplier",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceFreshnessTextMaximumTTL": {
+    "name": "cceFreshnessTextMaximumTTL",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceFreshnessBinaryMaximumTTL": {
+    "name": "cceFreshnessBinaryMaximumTTL",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceFreshnessUnitsMaximumTTL": {
+    "name": "cceFreshnessUnitsMaximumTTL",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "seconds": 1,
+          "minutes": 2,
+          "hours": 3,
+          "days": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceFreshnessCacheCookies": {
+    "name": "cceFreshnessCacheCookies",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceFreshnessTextMaxAge": {
+    "name": "cceFreshnessTextMaxAge",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceFreshnessBinaryMaxAge": {
+    "name": "cceFreshnessBinaryMaxAge",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceFreshnessForceMiss": {
+    "name": "cceFreshnessForceMiss",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "revalidate": 1,
+          "retrieve": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTcpServerSendBuffer": {
+    "name": "cceTcpServerSendBuffer",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTcpClientSendBuffer": {
+    "name": "cceTcpClientSendBuffer",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTcpServerRecvBuffer": {
+    "name": "cceTcpServerRecvBuffer",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTcpClientRecvBuffer": {
+    "name": "cceTcpClientRecvBuffer",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "units": "kilobytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTcpServerReadWriteTimeout": {
+    "name": "cceTcpServerReadWriteTimeout",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTcpClientReadWriteTimeout": {
+    "name": "cceTcpClientReadWriteTimeout",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 300
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTcpConnectionIdleTimeout": {
+    "name": "cceTcpConnectionIdleTimeout",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 7200
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTcpConnectionWaitTimeout": {
+    "name": "cceTcpConnectionWaitTimeout",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 30,
+            "max": 7200
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceTcpConnectionRetry": {
+    "name": "cceTcpConnectionRetry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.2.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUrlFilterState": {
+    "name": "cceUrlFilterState",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "blockBad": 2,
+          "allowGood": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceEventsTotal": {
+    "name": "cceEventsTotal",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceEventsCritical": {
+    "name": "cceEventsCritical",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceEventsWarning": {
+    "name": "cceEventsWarning",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceEventsNotice": {
+    "name": "cceEventsNotice",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceEventsTable": {
+    "name": "cceEventsTable",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceEventsEntry": {
+    "name": "cceEventsEntry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceEventsEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cceEventsEntryIndex": {
+    "name": "cceEventsEntryIndex",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceEventsEntryType": {
+    "name": "cceEventsEntryType",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notice": 1,
+          "warning": 2,
+          "critical": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceEventsEntryMessage": {
+    "name": "cceEventsEntryMessage",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceEventsEntryTime": {
+    "name": "cceEventsEntryTime",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceLoggingEnabled": {
+    "name": "cceLoggingEnabled",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceLoggingInterval": {
+    "name": "cceLoggingInterval",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99999999
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceLoggingWorkingLogPresent": {
+    "name": "cceLoggingWorkingLogPresent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceLoggingSize": {
+    "name": "cceLoggingSize",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceLoggingAge": {
+    "name": "cceLoggingAge",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99999999
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceLoggingArchiveLogPresent": {
+    "name": "cceLoggingArchiveLogPresent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceLoggingArchiveLogSize": {
+    "name": "cceLoggingArchiveLogSize",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceLoggingWriteFailReason": {
+    "name": "cceLoggingWriteFailReason",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskCreates": {
+    "name": "cceDiagDumpDiskCreates",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskOpens": {
+    "name": "cceDiagDumpDiskOpens",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskCloses": {
+    "name": "cceDiagDumpDiskCloses",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskDeletes": {
+    "name": "cceDiagDumpDiskDeletes",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskReads": {
+    "name": "cceDiagDumpDiskReads",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskWrites": {
+    "name": "cceDiagDumpDiskWrites",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskStats": {
+    "name": "cceDiagDumpDiskStats",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskFree": {
+    "name": "cceDiagDumpDiskFree",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskWraps": {
+    "name": "cceDiagDumpDiskWraps",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskOverWrites": {
+    "name": "cceDiagDumpDiskOverWrites",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskTruncReads": {
+    "name": "cceDiagDumpDiskTruncReads",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskInodeErrors": {
+    "name": "cceDiagDumpDiskInodeErrors",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskCrcErrors": {
+    "name": "cceDiagDumpDiskCrcErrors",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpDiskDirCollisions": {
+    "name": "cceDiagDumpDiskDirCollisions",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpBufferReads": {
+    "name": "cceDiagDumpBufferReads",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpBufferReadErrors": {
+    "name": "cceDiagDumpBufferReadErrors",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpBufferWrites": {
+    "name": "cceDiagDumpBufferWrites",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpBufferWriteErrors": {
+    "name": "cceDiagDumpBufferWriteErrors",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpBufferHits": {
+    "name": "cceDiagDumpBufferHits",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpBufferMisses": {
+    "name": "cceDiagDumpBufferMisses",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceDiagDumpBufferSeekErrors": {
+    "name": "cceDiagDumpBufferSeekErrors",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientRequestTotal": {
+    "name": "cceImsClientRequestTotal",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsReceived": {
+    "name": "cceImsReceived",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientTotalFromCache": {
+    "name": "cceImsClientTotalFromCache",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientFreshFromCache": {
+    "name": "cceImsClientFreshFromCache",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientStaleFromCache": {
+    "name": "cceImsClientStaleFromCache",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientTotalCacheMiss": {
+    "name": "cceImsClientTotalCacheMiss",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientFreshCacheMiss": {
+    "name": "cceImsClientFreshCacheMiss",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientStaleCacheMiss": {
+    "name": "cceImsClientStaleCacheMiss",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientTotalReval": {
+    "name": "cceImsClientTotalReval",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientFreshReval": {
+    "name": "cceImsClientFreshReval",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientStaleReval": {
+    "name": "cceImsClientStaleReval",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientRequestToServer": {
+    "name": "cceImsClientRequestToServer",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsServerTotalIssued": {
+    "name": "cceImsServerTotalIssued",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsServerTotalDueClient": {
+    "name": "cceImsServerTotalDueClient",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsServerFreshDueClient": {
+    "name": "cceImsServerFreshDueClient",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsServerStaleDueClient": {
+    "name": "cceImsServerStaleDueClient",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsServerTotalDueExpiration": {
+    "name": "cceImsServerTotalDueExpiration",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsClientFreshDueExpiration": {
+    "name": "cceImsClientFreshDueExpiration",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceImsServerStaleDueExpiration": {
+    "name": "cceImsServerStaleDueExpiration",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceReqPerSecMax": {
+    "name": "ccePerformanceReqPerSecMax",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceReqPerSecLast": {
+    "name": "ccePerformanceReqPerSecLast",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceBytesPerSecMax": {
+    "name": "ccePerformanceBytesPerSecMax",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Bytes-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceBytesPerSecLast": {
+    "name": "ccePerformanceBytesPerSecLast",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bytes-per-second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceSecPerReqAvg": {
+    "name": "ccePerformanceSecPerReqAvg",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceSecPerReqMin": {
+    "name": "ccePerformanceSecPerReqMin",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceSecPerReqMax": {
+    "name": "ccePerformanceSecPerReqMax",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceSecPerReqLast": {
+    "name": "ccePerformanceSecPerReqLast",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceHitsSecPerReqAvg": {
+    "name": "ccePerformanceHitsSecPerReqAvg",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceHitsSecPerReqMin": {
+    "name": "ccePerformanceHitsSecPerReqMin",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceHitsSecPerReqMax": {
+    "name": "ccePerformanceHitsSecPerReqMax",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceHitsSecPerReqLast": {
+    "name": "ccePerformanceHitsSecPerReqLast",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceMissSecPerReqAvg": {
+    "name": "ccePerformanceMissSecPerReqAvg",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceMissSecPerReqMin": {
+    "name": "ccePerformanceMissSecPerReqMin",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceMissSecPerReqMax": {
+    "name": "ccePerformanceMissSecPerReqMax",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceMissSecPerReqLast": {
+    "name": "ccePerformanceMissSecPerReqLast",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds-per-req",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceObjectSizeAvg": {
+    "name": "ccePerformanceObjectSizeAvg",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "byte/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceObjectSizeMin": {
+    "name": "ccePerformanceObjectSizeMin",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceObjectSizeMax": {
+    "name": "ccePerformanceObjectSizeMax",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ccePerformanceObjectSizeLast": {
+    "name": "ccePerformanceObjectSizeLast",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.3.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "bytes/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsForcedReloadTotal": {
+    "name": "cceRequestsForcedReloadTotal",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsForcedReloadPercent": {
+    "name": "cceRequestsForcedReloadPercent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "percentage/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsNearHitsTotal": {
+    "name": "cceRequestsNearHitsTotal",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsNearHitsPercent": {
+    "name": "cceRequestsNearHitsPercent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "percentage/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsServerErrorTotal": {
+    "name": "cceRequestsServerErrorTotal",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsServerErrorPercent": {
+    "name": "cceRequestsServerErrorPercent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "percentage/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsUrlBlockedTotal": {
+    "name": "cceRequestsUrlBlockedTotal",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsUrlBlockedPercent": {
+    "name": "cceRequestsUrlBlockedPercent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "percentage/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsIcpClientHits": {
+    "name": "cceRequestsIcpClientHits",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsIcpClientPercentage": {
+    "name": "cceRequestsIcpClientPercentage",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "percentage/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsIcpServerHits": {
+    "name": "cceRequestsIcpServerHits",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceRequestsIcpServerPercentage": {
+    "name": "cceRequestsIcpServerPercentage",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "percentage/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceSavingsRequestsTotal": {
+    "name": "cceSavingsRequestsTotal",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceSavingsRequestsHits": {
+    "name": "cceSavingsRequestsHits",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceSavingsRequestsMiss": {
+    "name": "cceSavingsRequestsMiss",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceSavingsRequestsSavings": {
+    "name": "cceSavingsRequestsSavings",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "percentage/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceSavingsBytesServedTotal": {
+    "name": "cceSavingsBytesServedTotal",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceSavingsBytesServedHits": {
+    "name": "cceSavingsBytesServedHits",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceSavingsBytesServedMiss": {
+    "name": "cceSavingsBytesServedMiss",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceSavingsBytesServedSavings": {
+    "name": "cceSavingsBytesServedSavings",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "percentage/10",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageCPUCurrent": {
+    "name": "cceUsageCPUCurrent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageCPUPeak": {
+    "name": "cceUsageCPUPeak",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDiskCurrent": {
+    "name": "cceUsageDiskCurrent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cceUsageDiskPeak": {
+    "name": "cceUsageDiskPeak",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "cceUsageNetCurrent": {
+    "name": "cceUsageNetCurrent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageNetPeak": {
+    "name": "cceUsageNetPeak",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageConnsCurrent": {
+    "name": "cceUsageConnsCurrent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageConnsPeak": {
+    "name": "cceUsageConnsPeak",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDiskVolumeTable": {
+    "name": "cceUsageDiskVolumeTable",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceUsageDiskVolumeEntry": {
+    "name": "cceUsageDiskVolumeEntry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDiskVolumeEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cceUsageDiskVolumeEntryIndex": {
+    "name": "cceUsageDiskVolumeEntryIndex",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceUsageDiskVolumeName": {
+    "name": "cceUsageDiskVolumeName",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDiskVolumeEverMounted": {
+    "name": "cceUsageDiskVolumeEverMounted",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDiskVolumeCurrentlyMounted": {
+    "name": "cceUsageDiskVolumeCurrentlyMounted",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDiskVolumeUnmountReason": {
+    "name": "cceUsageDiskVolumeUnmountReason",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "normal": 1,
+          "error": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDiskVolumeCurrent": {
+    "name": "cceUsageDiskVolumeCurrent",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDiskVolumePeak": {
+    "name": "cceUsageDiskVolumePeak",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDosfsVolumeTable": {
+    "name": "cceUsageDosfsVolumeTable",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceUsageDosfsVolumeEntry": {
+    "name": "cceUsageDosfsVolumeEntry",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDosfsVolumeEntryIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cceUsageDosfsVolumeEntryIndex": {
+    "name": "cceUsageDosfsVolumeEntryIndex",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cceUsageDosfsVolumeName": {
+    "name": "cceUsageDosfsVolumeName",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDosfsVolumeState": {
+    "name": "cceUsageDosfsVolumeState",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDosfsVolumeFreeSpace": {
+    "name": "cceUsageDosfsVolumeFreeSpace",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceUsageDosfsVolumeTotalSpace": {
+    "name": "cceUsageDosfsVolumeTotalSpace",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.5.6.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cceIfFullDuplex": {
+    "name": "cceIfFullDuplex",
+    "oid": "1.3.6.1.4.1.9.10.39.1.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoCacheEngineMIBTrapPrefix": {
+    "name": "ciscoCacheEngineMIBTrapPrefix",
+    "oid": "1.3.6.1.4.1.9.10.39.2",
+    "class": "objectidentity"
+  },
+  "ciscoCacheEngineMIBTraps": {
+    "name": "ciscoCacheEngineMIBTraps",
+    "oid": "1.3.6.1.4.1.9.10.39.2.0",
+    "class": "objectidentity"
+  },
+  "cacheTrapReadDiskError": {
+    "name": "cacheTrapReadDiskError",
+    "oid": "1.3.6.1.4.1.9.10.39.2.0.1",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cacheTrapWriteDiskError": {
+    "name": "cacheTrapWriteDiskError",
+    "oid": "1.3.6.1.4.1.9.10.39.2.0.2",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cacheTrapWriteTransFailed": {
+    "name": "cacheTrapWriteTransFailed",
+    "oid": "1.3.6.1.4.1.9.10.39.2.0.3",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cacheTrapTooManyThreadsDead": {
+    "name": "cacheTrapTooManyThreadsDead",
+    "oid": "1.3.6.1.4.1.9.10.39.2.0.4",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cacheTrapWccpDisabled": {
+    "name": "cacheTrapWccpDisabled",
+    "oid": "1.3.6.1.4.1.9.10.39.2.0.5",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "cacheTrapDiskVolUnmounted": {
+    "name": "cacheTrapDiskVolUnmounted",
+    "oid": "1.3.6.1.4.1.9.10.39.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDiskVolumeName"
+      }
+    ],
+    "status": "current"
+  },
+  "cacheTrapDosfsVolFull": {
+    "name": "cacheTrapDosfsVolFull",
+    "oid": "1.3.6.1.4.1.9.10.39.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDosfsVolumeName"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoCacheEngineMIBConformance": {
+    "name": "ciscoCacheEngineMIBConformance",
+    "oid": "1.3.6.1.4.1.9.10.39.3",
+    "class": "objectidentity"
+  },
+  "ciscoCacheEngineMIBCompliances": {
+    "name": "ciscoCacheEngineMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.10.39.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoCacheEngineMIBGroups": {
+    "name": "ciscoCacheEngineMIBGroups",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2",
+    "class": "objectidentity"
+  },
+  "ciscoCacheEngineMIBCompliance": {
+    "name": "ciscoCacheEngineMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.10.39.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cceFarmGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceBasicGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceDnsGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceIcpClientGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceIcpServerGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceProxyGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceTimeGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceCacheFarmGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceFreshGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceTCPGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceUrlGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceEventsGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceLogGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceDiagDumpGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceImsGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "ccePerfGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceReqGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceSaveGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceUsageGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      },
+      {
+        "object": "cceInterfacesGroup",
+        "module": "CISCO-CACHE-ENGINE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cceFarmGroup": {
+    "name": "cceFarmGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFarmEntryIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cceBasicGroup": {
+    "name": "cceBasicGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceBasicIPAddress"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceBasicNetMask"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceBasicGatewayIpAddress"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceBasicCacheName"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceBasicFarmName"
+      }
+    ],
+    "status": "current"
+  },
+  "cceDnsGroup": {
+    "name": "cceDnsGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDnsDomain"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDnsEntryIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cceIcpClientGroup": {
+    "name": "cceIcpClientGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientEnabled"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientWait"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientRetry"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientLocalDomains"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientRemServIpAddress"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientRemServState"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientRemServType"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientRemServIcpPort"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientRemServHttpPort"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpClientRemServSelDomains"
+      }
+    ],
+    "status": "current"
+  },
+  "cceIcpServerGroup": {
+    "name": "cceIcpServerGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpServerEnabled"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpServerPort"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpServerRemClntIPAddress"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIcpServerRemClntFetch"
+      }
+    ],
+    "status": "current"
+  },
+  "cceProxyGroup": {
+    "name": "cceProxyGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceProxyIncomingPort"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceProxyOutgoingAddress"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceProxyOutgoingPort"
+      }
+    ],
+    "status": "current"
+  },
+  "cceTimeGroup": {
+    "name": "cceTimeGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTimeGmtTime"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTimeGmtDate"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTimeEntryIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cceCacheFarmGroup": {
+    "name": "cceCacheFarmGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceCacheFarmHealingModeWait"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceCacheFarmHealingModeRetry"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceCacheFarmVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "cceFreshGroup": {
+    "name": "cceFreshGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFreshnessTextAgeMultiplier"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFreshnessBinaryAgeMultiplier"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFreshnessTextMaximumTTL"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFreshnessBinaryMaximumTTL"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFreshnessUnitsMaximumTTL"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFreshnessCacheCookies"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFreshnessTextMaxAge"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFreshnessBinaryMaxAge"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceFreshnessForceMiss"
+      }
+    ],
+    "status": "current"
+  },
+  "cceTCPGroup": {
+    "name": "cceTCPGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTcpServerSendBuffer"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTcpClientSendBuffer"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTcpServerRecvBuffer"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTcpClientRecvBuffer"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTcpServerReadWriteTimeout"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTcpClientReadWriteTimeout"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTcpConnectionIdleTimeout"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTcpConnectionWaitTimeout"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceTcpConnectionRetry"
+      }
+    ],
+    "status": "current"
+  },
+  "cceUrlGroup": {
+    "name": "cceUrlGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUrlFilterState"
+      }
+    ],
+    "status": "current"
+  },
+  "cceEventsGroup": {
+    "name": "cceEventsGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceEventsTotal"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceEventsCritical"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceEventsWarning"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceEventsNotice"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceEventsEntryType"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceEventsEntryMessage"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceEventsEntryTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cceLogGroup": {
+    "name": "cceLogGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceLoggingEnabled"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceLoggingInterval"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceLoggingWorkingLogPresent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceLoggingSize"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceLoggingAge"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceLoggingArchiveLogPresent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceLoggingArchiveLogSize"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceLoggingWriteFailReason"
+      }
+    ],
+    "status": "current"
+  },
+  "cceDiagDumpGroup": {
+    "name": "cceDiagDumpGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskCreates"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskOpens"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskCloses"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskDeletes"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskReads"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskWrites"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskStats"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskFree"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskWraps"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskOverWrites"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskTruncReads"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskInodeErrors"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskCrcErrors"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpDiskDirCollisions"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpBufferReads"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpBufferReadErrors"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpBufferWrites"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpBufferWriteErrors"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpBufferHits"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpBufferMisses"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceDiagDumpBufferSeekErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "cceImsGroup": {
+    "name": "cceImsGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientRequestTotal"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsReceived"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientTotalFromCache"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientFreshFromCache"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientStaleFromCache"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientTotalCacheMiss"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientFreshCacheMiss"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientStaleCacheMiss"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientTotalReval"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientFreshReval"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientStaleReval"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientRequestToServer"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsServerTotalIssued"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsServerTotalDueClient"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsServerFreshDueClient"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsServerStaleDueClient"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsServerTotalDueExpiration"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsClientFreshDueExpiration"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceImsServerStaleDueExpiration"
+      }
+    ],
+    "status": "current"
+  },
+  "ccePerfGroup": {
+    "name": "ccePerfGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceReqPerSecMax"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceReqPerSecLast"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceBytesPerSecMax"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceBytesPerSecLast"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceSecPerReqAvg"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceSecPerReqMin"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceSecPerReqMax"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceSecPerReqLast"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceHitsSecPerReqAvg"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceHitsSecPerReqMin"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceHitsSecPerReqMax"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceHitsSecPerReqLast"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceMissSecPerReqAvg"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceMissSecPerReqMin"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceMissSecPerReqMax"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceMissSecPerReqLast"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceObjectSizeAvg"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceObjectSizeMin"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceObjectSizeMax"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "ccePerformanceObjectSizeLast"
+      }
+    ],
+    "status": "current"
+  },
+  "cceReqGroup": {
+    "name": "cceReqGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsForcedReloadTotal"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsForcedReloadPercent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsNearHitsTotal"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsNearHitsPercent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsServerErrorTotal"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsServerErrorPercent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsUrlBlockedTotal"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsUrlBlockedPercent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsIcpClientHits"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsIcpClientPercentage"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsIcpServerHits"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceRequestsIcpServerPercentage"
+      }
+    ],
+    "status": "current"
+  },
+  "cceSaveGroup": {
+    "name": "cceSaveGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceSavingsRequestsTotal"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceSavingsRequestsHits"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceSavingsRequestsMiss"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceSavingsRequestsSavings"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceSavingsBytesServedTotal"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceSavingsBytesServedHits"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceSavingsBytesServedMiss"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceSavingsBytesServedSavings"
+      }
+    ],
+    "status": "current"
+  },
+  "cceUsageGroup": {
+    "name": "cceUsageGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageCPUCurrent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageCPUPeak"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDiskCurrent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDiskPeak"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageNetCurrent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageNetPeak"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageConnsCurrent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageConnsPeak"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDiskVolumeName"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDiskVolumeEverMounted"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDiskVolumeCurrentlyMounted"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDiskVolumeUnmountReason"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDiskVolumeCurrent"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDiskVolumePeak"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDosfsVolumeName"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDosfsVolumeState"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDosfsVolumeFreeSpace"
+      },
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceUsageDosfsVolumeTotalSpace"
+      }
+    ],
+    "status": "current"
+  },
+  "cceInterfacesGroup": {
+    "name": "cceInterfacesGroup",
+    "oid": "1.3.6.1.4.1.9.10.39.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CACHE-ENGINE-MIB",
+        "object": "cceIfFullDuplex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CACHE-ENGINE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-CACHE-ENGINE-MIB"
+  }
+}

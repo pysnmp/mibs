@@ -1,0 +1,901 @@
+{
+  "imports": {
+    "class": "imports",
+    "ARUBA-MIB": [
+      "wlsxEnterpriseMibModules"
+    ],
+    "ARUBA-TC": [
+      "ArubaEnableValue",
+      "ArubaEncryptionMethods",
+      "ArubaRogueApType",
+      "ArubaAuthenticationMethods",
+      "ArubaActiveState",
+      "ArubaFrameType",
+      "ArubaPhyType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "snmpModules",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "IpAddress",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "Gauge32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TimeInterval",
+      "RowStatus",
+      "StorageType",
+      "TestAndIncr",
+      "TruthValue",
+      "MacAddress",
+      "TDomain",
+      "DisplayString",
+      "TAddress",
+      "PhysAddress"
+    ]
+  },
+  "wlsxMobilityMIB": {
+    "name": "wlsxMobilityMIB",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2020-08-14 17:45",
+        "description": "The initial revision."
+      }
+    ]
+  },
+  "wlsxMobilityConfigGroup": {
+    "name": "wlsxMobilityConfigGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1",
+    "class": "objectidentity"
+  },
+  "wlsxMobilityProxyStatsGroup": {
+    "name": "wlsxMobilityProxyStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.2",
+    "class": "objectidentity"
+  },
+  "wlsxMobilityProxyDHCPStatsGroup": {
+    "name": "wlsxMobilityProxyDHCPStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3",
+    "class": "objectidentity"
+  },
+  "wlsxMobilityHAStatsGroup": {
+    "name": "wlsxMobilityHAStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4",
+    "class": "objectidentity"
+  },
+  "wlsxMobilityFAStatsGroup": {
+    "name": "wlsxMobilityFAStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.5",
+    "class": "objectidentity"
+  },
+  "wlsxMobilityHAFARevocationStatsGroup": {
+    "name": "wlsxMobilityHAFARevocationStatsGroup",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.6",
+    "class": "objectidentity"
+  },
+  "wlsxMobilityDomainTable": {
+    "name": "wlsxMobilityDomainTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMobilityDomainEntry": {
+    "name": "wlsxMobilityDomainEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MOBILITY-MIB",
+        "object": "mobilityDomainName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mobilityDomainName": {
+    "name": "mobilityDomainName",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mobilityDomainIsExclusive": {
+    "name": "mobilityDomainIsExclusive",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ArubaEnableValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "mobilityDomainStatus": {
+    "name": "mobilityDomainStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "wlsxMobilityHomeAgentTable": {
+    "name": "wlsxMobilityHomeAgentTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMobilityHomeAgentEntry": {
+    "name": "wlsxMobilityHomeAgentEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MOBILITY-MIB",
+        "object": "mobilityHomeAgentSubnet",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MOBILITY-MIB",
+        "object": "mobilityHomeAgentMask",
+        "implied": 0
+      },
+      {
+        "module": "WLSX-MOBILITY-MIB",
+        "object": "mobilityHomeAgentIp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mobilityHomeAgentSubnet": {
+    "name": "mobilityHomeAgentSubnet",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHomeAgentMask": {
+    "name": "mobilityHomeAgentMask",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHomeAgentIp": {
+    "name": "mobilityHomeAgentIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mobilityHomeAgentVlan": {
+    "name": "mobilityHomeAgentVlan",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "wlsxMobilityHostTable": {
+    "name": "wlsxMobilityHostTable",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "wlsxMobilityHostEntry": {
+    "name": "wlsxMobilityHostEntry",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WLSX-MOBILITY-MIB",
+        "object": "mobilityHostMac",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mobilityHostMac": {
+    "name": "mobilityHostMac",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mobilityHostIp": {
+    "name": "mobilityHostIp",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHostStatus": {
+    "name": "mobilityHostStatus",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHostServiceTime": {
+    "name": "mobilityHostServiceTime",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHostHomeVlan": {
+    "name": "mobilityHostHomeVlan",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHostHomeNetwork": {
+    "name": "mobilityHostHomeNetwork",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHostHomeMask": {
+    "name": "mobilityHostHomeMask",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHostDhcpInfo": {
+    "name": "mobilityHostDhcpInfo",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyPktRx": {
+    "name": "mobilityProxyPktRx",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyPktHandled": {
+    "name": "mobilityProxyPktHandled",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyPktFwd": {
+    "name": "mobilityProxyPktFwd",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyPktDrop": {
+    "name": "mobilityProxyPktDrop",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyBusy": {
+    "name": "mobilityProxyBusy",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyNoMobility": {
+    "name": "mobilityProxyNoMobility",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyClientIPChg": {
+    "name": "mobilityProxyClientIPChg",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyClientEssidChg": {
+    "name": "mobilityProxyClientEssidChg",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyDhcpBootpRx": {
+    "name": "mobilityProxyDhcpBootpRx",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyDhcpPktProc": {
+    "name": "mobilityProxyDhcpPktProc",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyDhcpPktFwd": {
+    "name": "mobilityProxyDhcpPktFwd",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyDhcpPktDrop": {
+    "name": "mobilityProxyDhcpPktDrop",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyDHCPNak": {
+    "name": "mobilityProxyDHCPNak",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyBadDHCPPkt": {
+    "name": "mobilityProxyBadDHCPPkt",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyNotDHCP": {
+    "name": "mobilityProxyNotDHCP",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyDHCPNoHomeVlan": {
+    "name": "mobilityProxyDHCPNoHomeVlan",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyDHCPUnexpFrame": {
+    "name": "mobilityProxyDHCPUnexpFrame",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityProxyDHCPUnexpRemote": {
+    "name": "mobilityProxyDHCPUnexpRemote",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHARxRRQ": {
+    "name": "mobilityHARxRRQ",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHASentRRP": {
+    "name": "mobilityHASentRRP",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHARRQAccept": {
+    "name": "mobilityHARRQAccept",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHARRQDenied": {
+    "name": "mobilityHARRQDenied",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHARRQIgnore": {
+    "name": "mobilityHARRQIgnore",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHARRQAdminDeny": {
+    "name": "mobilityHARRQAdminDeny",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHARRQNoResource": {
+    "name": "mobilityHARRQNoResource",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHAMNauthFail": {
+    "name": "mobilityHAMNauthFail",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHAFAauthFail": {
+    "name": "mobilityHAFAauthFail",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHABadID": {
+    "name": "mobilityHABadID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHAMalform": {
+    "name": "mobilityHAMalform",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHATooManyBnd": {
+    "name": "mobilityHATooManyBnd",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityHABndExpire": {
+    "name": "mobilityHABndExpire",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityFASentRRQ": {
+    "name": "mobilityFASentRRQ",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityFARcvRRP": {
+    "name": "mobilityFARcvRRP",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityFARRQAccept": {
+    "name": "mobilityFARRQAccept",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityFARRQReject": {
+    "name": "mobilityFARRQReject",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityMNHAauthFAIL": {
+    "name": "mobilityMNHAauthFAIL",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityFAHAauthFAIL": {
+    "name": "mobilityFAHAauthFAIL",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityFABadID": {
+    "name": "mobilityFABadID",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityFAMalform": {
+    "name": "mobilityFAMalform",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilitySentRRVRQ": {
+    "name": "mobilitySentRRVRQ",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityRcvRRVAck": {
+    "name": "mobilityRcvRRVAck",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityRcvRRV": {
+    "name": "mobilityRcvRRV",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilitySentRRVAck": {
+    "name": "mobilitySentRRVAck",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityRRVRQIgnore": {
+    "name": "mobilityRRVRQIgnore",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mobilityRRVAckIgnore": {
+    "name": "mobilityRRVAckIgnore",
+    "oid": "1.3.6.1.4.1.14823.2.2.1.9.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-MOBILITY-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:18:25 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WLSX-MOBILITY-MIB"
+  }
+}

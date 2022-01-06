@@ -1,0 +1,1859 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Gauge32",
+      "zeroDotZero",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "enterprises",
+      "Bits",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowPointer",
+      "TimeStamp",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ],
+    "TRANSPORT-ADDRESS-MIB": [
+      "TransportAddress",
+      "TransportAddressType"
+    ]
+  },
+  "hp": {
+    "name": "hp",
+    "oid": "1.3.6.1.4.1.11",
+    "class": "objectidentity"
+  },
+  "hpSysMgt": {
+    "name": "hpSysMgt",
+    "oid": "1.3.6.1.4.1.11.5",
+    "class": "objectidentity"
+  },
+  "hpEmbeddedServerMgt": {
+    "name": "hpEmbeddedServerMgt",
+    "oid": "1.3.6.1.4.1.11.5.7",
+    "class": "objectidentity"
+  },
+  "hpModuleMgmtProc": {
+    "name": "hpModuleMgmtProc",
+    "oid": "1.3.6.1.4.1.11.5.7.5",
+    "class": "objectidentity"
+  },
+  "virtualConnect": {
+    "name": "virtualConnect",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2",
+    "class": "objectidentity"
+  },
+  "vcDomainMIB": {
+    "name": "vcDomainMIB",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-12-08 00:00",
+        "description": "Draft-0. Initial cut. -Jitendra Vegiraju"
+      },
+      {
+        "revision": "2009-01-08 00:00",
+        "description": "Draft-1. Moved vcModuleRole to VC Module MIB Modified the vcProfileNetworkMap and vcProfileFcFabricMap table to include port number as secondary index. -Jitendra Vegiraju"
+      },
+      {
+        "revision": "2009-02-17 00:00",
+        "description": "Draft-2. Added enclosure UUID object to Vcenclosuretable. Added traps for server status change and profile status change. -Jitendra Vegiraju"
+      },
+      {
+        "revision": "2009-06-27 00:00",
+        "description": "Draft-3. Changed vcDomainLastCheckpointTime to SnmpAdminString type. -Jitendra Vegiraju"
+      },
+      {
+        "revision": "2010-03-08 00:00",
+        "description": "Draft-4. Changed the description of vcCheckpointTimeout and vcCheckpointCompleted to be more specific on when these traps are sent. -Tony Cureington"
+      }
+    ]
+  },
+  "vcDomainMIBObjects": {
+    "name": "vcDomainMIBObjects",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1",
+    "class": "objectidentity"
+  },
+  "vcDomain": {
+    "name": "vcDomain",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.1",
+    "class": "objectidentity"
+  },
+  "vcEnclosure": {
+    "name": "vcEnclosure",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.2",
+    "class": "objectidentity"
+  },
+  "vcModule": {
+    "name": "vcModule",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3",
+    "class": "objectidentity"
+  },
+  "vcPort": {
+    "name": "vcPort",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.4",
+    "class": "objectidentity"
+  },
+  "vcPhysicalServer": {
+    "name": "vcPhysicalServer",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.5",
+    "class": "objectidentity"
+  },
+  "vcEnetNetwork": {
+    "name": "vcEnetNetwork",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.6",
+    "class": "objectidentity"
+  },
+  "vcFcFabric": {
+    "name": "vcFcFabric",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.7",
+    "class": "objectidentity"
+  },
+  "vcProfile": {
+    "name": "vcProfile",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.8",
+    "class": "objectidentity"
+  },
+  "vcEnetNetworkVcPortMap": {
+    "name": "vcEnetNetworkVcPortMap",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.9",
+    "class": "objectidentity"
+  },
+  "vcFcFabricVcPortMap": {
+    "name": "vcFcFabricVcPortMap",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.10",
+    "class": "objectidentity"
+  },
+  "vcProfileNetworkMap": {
+    "name": "vcProfileNetworkMap",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.11",
+    "class": "objectidentity"
+  },
+  "vcProfileFcFabricMap": {
+    "name": "vcProfileFcFabricMap",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.12",
+    "class": "objectidentity"
+  },
+  "VcManagedStatus": {
+    "name": "VcManagedStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "normal": 2,
+          "warning": 3,
+          "minor": 4,
+          "major": 5,
+          "critical": 6,
+          "disabled": 7,
+          "info": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VcDomainModuleRole": {
+    "name": "VcDomainModuleRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unintegrated": 1,
+          "primaryProtected": 2,
+          "primaryUnprotected": 3,
+          "standby": 4,
+          "other": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VcModuleType": {
+    "name": "VcModuleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vcModuleEnet": 1,
+          "vcModuleFC": 2,
+          "vcModuleOther": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VcPortType": {
+    "name": "VcPortType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vcEnetPhysicalPort": 1,
+          "vcEnetLogicallPort": 2,
+          "vcFCPort": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "vcDomainName": {
+    "name": "vcDomainName",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcDomainManagedStatus": {
+    "name": "vcDomainManagedStatus",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcManagedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcDomainPrimaryAddressType": {
+    "name": "vcDomainPrimaryAddressType",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcDomainPrimaryAddress": {
+    "name": "vcDomainPrimaryAddress",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcDomainCheckpointValid": {
+    "name": "vcDomainCheckpointValid",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcDomainLastCheckpointTime": {
+    "name": "vcDomainLastCheckpointTime",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcDomainStackingLinkRedundant": {
+    "name": "vcDomainStackingLinkRedundant",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnclosureTable": {
+    "name": "vcEnclosureTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcEnclosureEntry": {
+    "name": "vcEnclosureEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnclosureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcEnclosureIndex": {
+    "name": "vcEnclosureIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnclosureName": {
+    "name": "vcEnclosureName",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnclosureManagedStatus": {
+    "name": "vcEnclosureManagedStatus",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcManagedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnclosureAddressType": {
+    "name": "vcEnclosureAddressType",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnclosureAddress": {
+    "name": "vcEnclosureAddress",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnclosureUUID": {
+    "name": "vcEnclosureUUID",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleTable": {
+    "name": "vcModuleTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcModuleEntry": {
+    "name": "vcModuleEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcModuleIndex": {
+    "name": "vcModuleIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleType": {
+    "name": "vcModuleType",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcModuleType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleManagedStatus": {
+    "name": "vcModuleManagedStatus",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcManagedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModulePartNumber": {
+    "name": "vcModulePartNumber",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleSerialNumber": {
+    "name": "vcModuleSerialNumber",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleProductName": {
+    "name": "vcModuleProductName",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleFwRev": {
+    "name": "vcModuleFwRev",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleEnclosurePointer": {
+    "name": "vcModuleEnclosurePointer",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleLocation": {
+    "name": "vcModuleLocation",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleAddressType": {
+    "name": "vcModuleAddressType",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleAddress": {
+    "name": "vcModuleAddress",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcModuleID": {
+    "name": "vcModuleID",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPortTable": {
+    "name": "vcPortTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcPortEntry": {
+    "name": "vcPortEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcPortIndex": {
+    "name": "vcPortIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPortType": {
+    "name": "vcPortType",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcPortType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPortManagedStatus": {
+    "name": "vcPortManagedStatus",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcManagedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPortManagerAddressType": {
+    "name": "vcPortManagerAddressType",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPortManagerAddress": {
+    "name": "vcPortManagerAddress",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPortPhysicalPortPointer": {
+    "name": "vcPortPhysicalPortPointer",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPortContainerPointer": {
+    "name": "vcPortContainerPointer",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPhysicalServerTable": {
+    "name": "vcPhysicalServerTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcPhysicalServerEntry": {
+    "name": "vcPhysicalServerEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPhysicalServerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcPhysicalServerIndex": {
+    "name": "vcPhysicalServerIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPhysicalServerEnclosureIndex": {
+    "name": "vcPhysicalServerEnclosureIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPhysicalServerManagedStatus": {
+    "name": "vcPhysicalServerManagedStatus",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcManagedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPhysicalServerPartNumber": {
+    "name": "vcPhysicalServerPartNumber",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPhysicalServerSerialNumber": {
+    "name": "vcPhysicalServerSerialNumber",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPhysicalServerProductName": {
+    "name": "vcPhysicalServerProductName",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcPhysicalServerLocation": {
+    "name": "vcPhysicalServerLocation",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcFcFabricTable": {
+    "name": "vcFcFabricTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcFcFabricEntry": {
+    "name": "vcFcFabricEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcFcFabricIndex": {
+    "name": "vcFcFabricIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcFcFabricName": {
+    "name": "vcFcFabricName",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcFcFabricManagedStatus": {
+    "name": "vcFcFabricManagedStatus",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcManagedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnetNetworkTable": {
+    "name": "vcEnetNetworkTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcEnetNetworkEntry": {
+    "name": "vcEnetNetworkEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcEnetNetworkIndex": {
+    "name": "vcEnetNetworkIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnetNetworkName": {
+    "name": "vcEnetNetworkName",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnetNetworkManagedStatus": {
+    "name": "vcEnetNetworkManagedStatus",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcManagedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnetNetworkUplinkVlanId": {
+    "name": "vcEnetNetworkUplinkVlanId",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfileTable": {
+    "name": "vcProfileTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcProfileEntry": {
+    "name": "vcProfileEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcProfileIndex": {
+    "name": "vcProfileIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfileName": {
+    "name": "vcProfileName",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfileManagedStatus": {
+    "name": "vcProfileManagedStatus",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VcManagedStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfilePhysicalServerIndex": {
+    "name": "vcProfilePhysicalServerIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfileLogicalSerialNumber": {
+    "name": "vcProfileLogicalSerialNumber",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnetNetworkVcPortMapTable": {
+    "name": "vcEnetNetworkVcPortMapTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcEnetNetworkVcPortMapEntry": {
+    "name": "vcEnetNetworkVcPortMapEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkVcPortMapNetworkIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkVcPortMapVcPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcEnetNetworkVcPortMapNetworkIndex": {
+    "name": "vcEnetNetworkVcPortMapNetworkIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcEnetNetworkVcPortMapVcPortIndex": {
+    "name": "vcEnetNetworkVcPortMapVcPortIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcFcFabricVcPortMapTable": {
+    "name": "vcFcFabricVcPortMapTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcFcFabricVcPortMapEntry": {
+    "name": "vcFcFabricVcPortMapEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricVcPortMapFcFabricIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricVcPortMapVcPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcFcFabricVcPortMapFcFabricIndex": {
+    "name": "vcFcFabricVcPortMapFcFabricIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcFcFabricVcPortMapVcPortIndex": {
+    "name": "vcFcFabricVcPortMapVcPortIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfileNetworkMapTable": {
+    "name": "vcProfileNetworkMapTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcProfileNetworkMapEntry": {
+    "name": "vcProfileNetworkMapEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileNetworkMapProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileNetworkMapConnectionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcProfileNetworkMapProfileIndex": {
+    "name": "vcProfileNetworkMapProfileIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfileNetworkMapConnectionIndex": {
+    "name": "vcProfileNetworkMapConnectionIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfileNetworkMapNetworkIndex": {
+    "name": "vcProfileNetworkMapNetworkIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfileFcFabricMapTable": {
+    "name": "vcProfileFcFabricMapTable",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vcProfileFcFabricMapEntry": {
+    "name": "vcProfileFcFabricMapEntry",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileFcFabricMapProfileIndex",
+        "implied": 0
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileFcFabricMapConnectionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vcProfileFcFabricMapProfileIndex": {
+    "name": "vcProfileFcFabricMapProfileIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfileFcFabricMapConnectionIndex": {
+    "name": "vcProfileFcFabricMapConnectionIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcProfileFcFabricMapFcFabricIndex": {
+    "name": "vcProfileFcFabricMapFcFabricIndex",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.1.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vcDomainMIBNotificationPrefix": {
+    "name": "vcDomainMIBNotificationPrefix",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2",
+    "class": "objectidentity"
+  },
+  "vcDomainMIBNotifications": {
+    "name": "vcDomainMIBNotifications",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0",
+    "class": "objectidentity"
+  },
+  "vcDomainMIBNotificationObjects": {
+    "name": "vcDomainMIBNotificationObjects",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.1",
+    "class": "objectidentity"
+  },
+  "vcDomainManagedStatusChange": {
+    "name": "vcDomainManagedStatusChange",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainManagedStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vcCheckpointTimeout": {
+    "name": "vcCheckpointTimeout",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainCheckpointValid"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainLastCheckpointTime"
+      }
+    ],
+    "status": "current"
+  },
+  "vcCheckpointCompleted": {
+    "name": "vcCheckpointCompleted",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainCheckpointValid"
+      }
+    ],
+    "status": "current"
+  },
+  "vcEnetNetworkManagedStatusChange": {
+    "name": "vcEnetNetworkManagedStatusChange",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vcFcFabricManagedStatusChange": {
+    "name": "vcFcFabricManagedStatusChange",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vcModuleManagedStatusChange": {
+    "name": "vcModuleManagedStatusChange",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vcEnclosureManagedStatusChange": {
+    "name": "vcEnclosureManagedStatusChange",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnclosureManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnclosureIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vcPhysicalServerManagedStatusChange": {
+    "name": "vcPhysicalServerManagedStatusChange",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPhysicalServerManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPhysicalServerIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vcProfileManagedStatusChange": {
+    "name": "vcProfileManagedStatusChange",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vcTestTrap": {
+    "name": "vcTestTrap",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainName"
+      }
+    ],
+    "status": "current"
+  },
+  "vcDomainStackingLinkRendundancyStatusChange": {
+    "name": "vcDomainStackingLinkRendundancyStatusChange",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.2.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainStackingLinkRedundant"
+      }
+    ],
+    "status": "current"
+  },
+  "vcDomainMIBConformance": {
+    "name": "vcDomainMIBConformance",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3",
+    "class": "objectidentity"
+  },
+  "vcDomainMIBCompliances": {
+    "name": "vcDomainMIBCompliances",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.1",
+    "class": "objectidentity"
+  },
+  "vcDomainMIBGroups": {
+    "name": "vcDomainMIBGroups",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2",
+    "class": "objectidentity"
+  },
+  "vcDomainMIBCompliance": {
+    "name": "vcDomainMIBCompliance",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vcDomainGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcEnclosureGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcModuleGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcPortGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcPhysicalServerGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcFcFabricGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcEnetNetworkGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcProfileGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcEnetNetworkVcPortMapGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcFcFabricVcPortMapGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcProfileNetworkMapGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcProfileFcFabricMapGroup",
+        "module": "HPVC-MIB"
+      },
+      {
+        "object": "vcManagedStatusNotificationsGroup",
+        "module": "HPVC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vcDomainGroup": {
+    "name": "vcDomainGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainName"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainPrimaryAddressType"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainPrimaryAddress"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainCheckpointValid"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainLastCheckpointTime"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainStackingLinkRedundant"
+      }
+    ],
+    "status": "current"
+  },
+  "vcEnclosureGroup": {
+    "name": "vcEnclosureGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnclosureIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnclosureName"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnclosureManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnclosureAddressType"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnclosureAddress"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnclosureUUID"
+      }
+    ],
+    "status": "current"
+  },
+  "vcModuleGroup": {
+    "name": "vcModuleGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleType"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModulePartNumber"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleFwRev"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleEnclosurePointer"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleLocation"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleAddressType"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleAddress"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleID"
+      }
+    ],
+    "status": "current"
+  },
+  "vcPortGroup": {
+    "name": "vcPortGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPortIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPortType"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPortManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPortManagerAddressType"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPortManagerAddress"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPortContainerPointer"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPortPhysicalPortPointer"
+      }
+    ],
+    "status": "current"
+  },
+  "vcPhysicalServerGroup": {
+    "name": "vcPhysicalServerGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPhysicalServerIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPhysicalServerEnclosureIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPhysicalServerManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPhysicalServerLocation"
+      }
+    ],
+    "status": "current"
+  },
+  "vcFcFabricGroup": {
+    "name": "vcFcFabricGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricName"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricManagedStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vcEnetNetworkGroup": {
+    "name": "vcEnetNetworkGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkName"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkUplinkVlanId"
+      }
+    ],
+    "status": "current"
+  },
+  "vcProfileGroup": {
+    "name": "vcProfileGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileName"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileManagedStatus"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfilePhysicalServerIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileLogicalSerialNumber"
+      }
+    ],
+    "status": "current"
+  },
+  "vcEnetNetworkVcPortMapGroup": {
+    "name": "vcEnetNetworkVcPortMapGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkVcPortMapNetworkIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkVcPortMapVcPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vcFcFabricVcPortMapGroup": {
+    "name": "vcFcFabricVcPortMapGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricVcPortMapFcFabricIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricVcPortMapVcPortIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vcProfileNetworkMapGroup": {
+    "name": "vcProfileNetworkMapGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileNetworkMapProfileIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileNetworkMapNetworkIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vcProfileFcFabricMapGroup": {
+    "name": "vcProfileFcFabricMapGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileFcFabricMapProfileIndex"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileFcFabricMapFcFabricIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vcManagedStatusNotificationsGroup": {
+    "name": "vcManagedStatusNotificationsGroup",
+    "oid": "1.3.6.1.4.1.11.5.7.5.2.1.3.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainManagedStatusChange"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcCheckpointTimeout"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcCheckpointCompleted"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnetNetworkManagedStatusChange"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcFcFabricManagedStatusChange"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcModuleManagedStatusChange"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcEnclosureManagedStatusChange"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcPhysicalServerManagedStatusChange"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcProfileManagedStatusChange"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcTestTrap"
+      },
+      {
+        "module": "HPVC-MIB",
+        "object": "vcDomainStackingLinkRendundancyStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPVC-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:35:36 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HPVC-MIB"
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCOSB-MIB": [
+      "switch001"
+    ],
+    "CISCOSB-PIM-MIB": [
+      "NpgOperStatus"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "MGMD-STD-MIB": [
+      "mgmdRouterInterfaceEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "MibIdentifier",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "rlIgmp": {
+    "name": "rlIgmp",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2011-07-21 00:00",
+        "description": "Added this MODULE-IDENTITY clause."
+      }
+    ]
+  },
+  "AdminStatus": {
+    "name": "AdminStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adminStatusUp": 1,
+          "adminStatusDown": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlMgmdInterfaceExtTable": {
+    "name": "rlMgmdInterfaceExtTable",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlMgmdInterfaceExtEntry": {
+    "name": "rlMgmdInterfaceExtEntry",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "rlMgmdInterfaceExtEntry",
+      "module": "CISCOSB-MGMD-ROUTER-MIB",
+      "object": "mgmdRouterInterfaceEntry"
+    },
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtStatsUpTime": {
+    "name": "rlMgmdRouterInterfaceExtStatsUpTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtEnableStats": {
+    "name": "rlMgmdRouterInterfaceExtEnableStats",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtNumFailedJoins": {
+    "name": "rlMgmdRouterInterfaceExtNumFailedJoins",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtNumIgmpV1Msgs": {
+    "name": "rlMgmdRouterInterfaceExtNumIgmpV1Msgs",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs": {
+    "name": "rlMgmdRouterInterfaceExtNumIgmpV2MldV1Msgs",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs": {
+    "name": "rlMgmdRouterInterfaceExtNumIgmpV3MldV2Msgs",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd": {
+    "name": "rlMgmdRouterInterfaceExtNumInvalidMsgsRcvd",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtNumGenQueriesSent": {
+    "name": "rlMgmdRouterInterfaceExtNumGenQueriesSent",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtNumSpecQueriesSent": {
+    "name": "rlMgmdRouterInterfaceExtNumSpecQueriesSent",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlmgmdRouterInterfaceQrRobustness": {
+    "name": "rlmgmdRouterInterfaceQrRobustness",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlmgmdRouterInterfaceQrQueryInterval": {
+    "name": "rlmgmdRouterInterfaceQrQueryInterval",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlmgmdRouterInterfaceQrQueryMaxResponseTime": {
+    "name": "rlmgmdRouterInterfaceQrQueryMaxResponseTime",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlmgmdRouterInterfaceQrLastMembQueryIntvl": {
+    "name": "rlmgmdRouterInterfaceQrLastMembQueryIntvl",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlmgmdRouterInterfaceExtSrcAndGrpFilter": {
+    "name": "rlmgmdRouterInterfaceExtSrcAndGrpFilter",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtAdminStatus": {
+    "name": "rlMgmdRouterInterfaceExtAdminStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdminStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "adminStatusDown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtOperStatus": {
+    "name": "rlMgmdRouterInterfaceExtOperStatus",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NpgOperStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtIsQuerier": {
+    "name": "rlMgmdRouterInterfaceExtIsQuerier",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlMgmdRouterInterfaceExtProxyDownProtected": {
+    "name": "rlMgmdRouterInterfaceExtProxyDownProtected",
+    "oid": "1.3.6.1.4.1.9.6.1.101.225.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unspecified": -1,
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-MGMD-ROUTER-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCOSB-MGMD-ROUTER-MIB"
+  }
+}

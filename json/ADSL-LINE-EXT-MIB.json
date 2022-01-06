@@ -1,0 +1,1201 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADSL-LINE-MIB": [
+      "adslMIB",
+      "adslLineEntry",
+      "adslAturPerfDataEntry",
+      "adslAtucIntervalEntry",
+      "adslAtucPerfDataEntry",
+      "adslLineConfProfileEntry",
+      "adslLineAlarmConfProfileEntry",
+      "adslAturIntervalEntry"
+    ],
+    "ADSL-TC-MIB": [
+      "AdslPerfPrevDayCount",
+      "AdslPerfCurrDayCount"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfCurrentCount"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "adslExtMIB": {
+    "name": "adslExtMIB",
+    "oid": "1.3.6.1.2.1.10.94.3",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-12-10 00:00",
+        "description": "Initial Version, published as RFC 3440. This MIB module supplements the ADSL-LINE-MIB [RFC2662]."
+      }
+    ]
+  },
+  "adslExtMibObjects": {
+    "name": "adslExtMibObjects",
+    "oid": "1.3.6.1.2.1.10.94.3.1",
+    "class": "objectidentity"
+  },
+  "AdslTransmissionModeType": {
+    "name": "AdslTransmissionModeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ansit1413": 0,
+        "etsi": 1,
+        "q9921PotsNonOverlapped": 2,
+        "q9921PotsOverlapped": 3,
+        "q9921IsdnNonOverlapped": 4,
+        "q9921isdnOverlapped": 5,
+        "q9921tcmIsdnNonOverlapped": 6,
+        "q9921tcmIsdnOverlapped": 7,
+        "q9922potsNonOverlapeed": 8,
+        "q9922potsOverlapped": 9,
+        "q9922tcmIsdnNonOverlapped": 10,
+        "q9922tcmIsdnOverlapped": 11,
+        "q9921tcmIsdnSymmetric": 12
+      }
+    },
+    "status": "current"
+  },
+  "adslLineExtTable": {
+    "name": "adslLineExtTable",
+    "oid": "1.3.6.1.2.1.10.94.3.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adslLineExtEntry": {
+    "name": "adslLineExtEntry",
+    "oid": "1.3.6.1.2.1.10.94.3.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "adslLineExtEntry",
+      "module": "ADSL-LINE-EXT-MIB",
+      "object": "adslLineEntry"
+    },
+    "status": "current"
+  },
+  "adslLineTransAtucCap": {
+    "name": "adslLineTransAtucCap",
+    "oid": "1.3.6.1.2.1.10.94.3.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslTransmissionModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslLineTransAtucConfig": {
+    "name": "adslLineTransAtucConfig",
+    "oid": "1.3.6.1.2.1.10.94.3.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslTransmissionModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adslLineTransAtucActual": {
+    "name": "adslLineTransAtucActual",
+    "oid": "1.3.6.1.2.1.10.94.3.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslTransmissionModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslLineGlitePowerState": {
+    "name": "adslLineGlitePowerState",
+    "oid": "1.3.6.1.2.1.10.94.3.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "l0": 2,
+          "l1": 3,
+          "l3": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslLineConfProfileDualLite": {
+    "name": "adslLineConfProfileDualLite",
+    "oid": "1.3.6.1.2.1.10.94.3.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adslAtucPerfDataExtTable": {
+    "name": "adslAtucPerfDataExtTable",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adslAtucPerfDataExtEntry": {
+    "name": "adslAtucPerfDataExtEntry",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "adslAtucPerfDataExtEntry",
+      "module": "ADSL-LINE-EXT-MIB",
+      "object": "adslAtucPerfDataEntry"
+    },
+    "status": "current"
+  },
+  "adslAtucPerfStatFastR": {
+    "name": "adslAtucPerfStatFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "line retrains",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfStatFailedFastR": {
+    "name": "adslAtucPerfStatFailedFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "line retrains",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfStatSesL": {
+    "name": "adslAtucPerfStatSesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfStatUasL": {
+    "name": "adslAtucPerfStatUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfCurr15MinFastR": {
+    "name": "adslAtucPerfCurr15MinFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfCurr15MinFailedFastR": {
+    "name": "adslAtucPerfCurr15MinFailedFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfCurr15MinSesL": {
+    "name": "adslAtucPerfCurr15MinSesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfCurr15MinUasL": {
+    "name": "adslAtucPerfCurr15MinUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfCurr1DayFastR": {
+    "name": "adslAtucPerfCurr1DayFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfCurr1DayFailedFastR": {
+    "name": "adslAtucPerfCurr1DayFailedFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfCurr1DaySesL": {
+    "name": "adslAtucPerfCurr1DaySesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfCurr1DayUasL": {
+    "name": "adslAtucPerfCurr1DayUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfPrev1DayFastR": {
+    "name": "adslAtucPerfPrev1DayFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfPrev1DayFailedFastR": {
+    "name": "adslAtucPerfPrev1DayFailedFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfPrev1DaySesL": {
+    "name": "adslAtucPerfPrev1DaySesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucPerfPrev1DayUasL": {
+    "name": "adslAtucPerfPrev1DayUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.18.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucIntervalExtTable": {
+    "name": "adslAtucIntervalExtTable",
+    "oid": "1.3.6.1.2.1.10.94.3.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adslAtucIntervalExtEntry": {
+    "name": "adslAtucIntervalExtEntry",
+    "oid": "1.3.6.1.2.1.10.94.3.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "adslAtucIntervalExtEntry",
+      "module": "ADSL-LINE-EXT-MIB",
+      "object": "adslAtucIntervalEntry"
+    },
+    "status": "current"
+  },
+  "adslAtucIntervalFastR": {
+    "name": "adslAtucIntervalFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucIntervalFailedFastR": {
+    "name": "adslAtucIntervalFailedFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucIntervalSesL": {
+    "name": "adslAtucIntervalSesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAtucIntervalUasL": {
+    "name": "adslAtucIntervalUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.19.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAturPerfDataExtTable": {
+    "name": "adslAturPerfDataExtTable",
+    "oid": "1.3.6.1.2.1.10.94.3.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adslAturPerfDataExtEntry": {
+    "name": "adslAturPerfDataExtEntry",
+    "oid": "1.3.6.1.2.1.10.94.3.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "adslAturPerfDataExtEntry",
+      "module": "ADSL-LINE-EXT-MIB",
+      "object": "adslAturPerfDataEntry"
+    },
+    "status": "current"
+  },
+  "adslAturPerfStatSesL": {
+    "name": "adslAturPerfStatSesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAturPerfStatUasL": {
+    "name": "adslAturPerfStatUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAturPerfCurr15MinSesL": {
+    "name": "adslAturPerfCurr15MinSesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAturPerfCurr15MinUasL": {
+    "name": "adslAturPerfCurr15MinUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.20.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCurrentCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAturPerfCurr1DaySesL": {
+    "name": "adslAturPerfCurr1DaySesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.20.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAturPerfCurr1DayUasL": {
+    "name": "adslAturPerfCurr1DayUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.20.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfCurrDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAturPerfPrev1DaySesL": {
+    "name": "adslAturPerfPrev1DaySesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.20.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAturPerfPrev1DayUasL": {
+    "name": "adslAturPerfPrev1DayUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.20.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdslPerfPrevDayCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAturIntervalExtTable": {
+    "name": "adslAturIntervalExtTable",
+    "oid": "1.3.6.1.2.1.10.94.3.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adslAturIntervalExtEntry": {
+    "name": "adslAturIntervalExtEntry",
+    "oid": "1.3.6.1.2.1.10.94.3.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "adslAturIntervalExtEntry",
+      "module": "ADSL-LINE-EXT-MIB",
+      "object": "adslAturIntervalEntry"
+    },
+    "status": "current"
+  },
+  "adslAturIntervalSesL": {
+    "name": "adslAturIntervalSesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslAturIntervalUasL": {
+    "name": "adslAturIntervalUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfIntervalCount",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adslConfProfileExtTable": {
+    "name": "adslConfProfileExtTable",
+    "oid": "1.3.6.1.2.1.10.94.3.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adslConfProfileExtEntry": {
+    "name": "adslConfProfileExtEntry",
+    "oid": "1.3.6.1.2.1.10.94.3.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "adslConfProfileExtEntry",
+      "module": "ADSL-LINE-EXT-MIB",
+      "object": "adslLineConfProfileEntry"
+    },
+    "status": "current"
+  },
+  "adslConfProfileLineType": {
+    "name": "adslConfProfileLineType",
+    "oid": "1.3.6.1.2.1.10.94.3.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noChannel": 1,
+          "fastOnly": 2,
+          "interleavedOnly": 3,
+          "fastOrInterleaved": 4,
+          "fastAndInterleaved": 5
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fastOnly",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adslAlarmConfProfileExtTable": {
+    "name": "adslAlarmConfProfileExtTable",
+    "oid": "1.3.6.1.2.1.10.94.3.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adslAlarmConfProfileExtEntry": {
+    "name": "adslAlarmConfProfileExtEntry",
+    "oid": "1.3.6.1.2.1.10.94.3.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "adslAlarmConfProfileExtEntry",
+      "module": "ADSL-LINE-EXT-MIB",
+      "object": "adslLineAlarmConfProfileEntry"
+    },
+    "status": "current"
+  },
+  "adslAtucThreshold15MinFailedFastR": {
+    "name": "adslAtucThreshold15MinFailedFastR",
+    "oid": "1.3.6.1.2.1.10.94.3.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adslAtucThreshold15MinSesL": {
+    "name": "adslAtucThreshold15MinSesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adslAtucThreshold15MinUasL": {
+    "name": "adslAtucThreshold15MinUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adslAturThreshold15MinSesL": {
+    "name": "adslAturThreshold15MinSesL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adslAturThreshold15MinUasL": {
+    "name": "adslAturThreshold15MinUasL",
+    "oid": "1.3.6.1.2.1.10.94.3.1.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 900
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adslExtTraps": {
+    "name": "adslExtTraps",
+    "oid": "1.3.6.1.2.1.10.94.3.1.24",
+    "class": "objectidentity"
+  },
+  "adslExtAtucTraps": {
+    "name": "adslExtAtucTraps",
+    "oid": "1.3.6.1.2.1.10.94.3.1.24.1",
+    "class": "objectidentity"
+  },
+  "adslExtAtucTrapsPrefix": {
+    "name": "adslExtAtucTrapsPrefix",
+    "oid": "1.3.6.1.2.1.10.94.3.1.24.1.0",
+    "class": "objectidentity"
+  },
+  "adslAtucFailedFastRThreshTrap": {
+    "name": "adslAtucFailedFastRThreshTrap",
+    "oid": "1.3.6.1.2.1.10.94.3.1.24.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr15MinFailedFastR"
+      }
+    ],
+    "status": "current"
+  },
+  "adslAtucSesLThreshTrap": {
+    "name": "adslAtucSesLThreshTrap",
+    "oid": "1.3.6.1.2.1.10.94.3.1.24.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr15MinSesL"
+      }
+    ],
+    "status": "current"
+  },
+  "adslAtucUasLThreshTrap": {
+    "name": "adslAtucUasLThreshTrap",
+    "oid": "1.3.6.1.2.1.10.94.3.1.24.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr15MinUasL"
+      }
+    ],
+    "status": "current"
+  },
+  "adslExtAturTraps": {
+    "name": "adslExtAturTraps",
+    "oid": "1.3.6.1.2.1.10.94.3.1.24.2",
+    "class": "objectidentity"
+  },
+  "adslExtAturTrapsPrefix": {
+    "name": "adslExtAturTrapsPrefix",
+    "oid": "1.3.6.1.2.1.10.94.3.1.24.2.0",
+    "class": "objectidentity"
+  },
+  "adslAturSesLThreshTrap": {
+    "name": "adslAturSesLThreshTrap",
+    "oid": "1.3.6.1.2.1.10.94.3.1.24.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturPerfCurr15MinSesL"
+      }
+    ],
+    "status": "current"
+  },
+  "adslAturUasLThreshTrap": {
+    "name": "adslAturUasLThreshTrap",
+    "oid": "1.3.6.1.2.1.10.94.3.1.24.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturPerfCurr15MinUasL"
+      }
+    ],
+    "status": "current"
+  },
+  "adslExtConformance": {
+    "name": "adslExtConformance",
+    "oid": "1.3.6.1.2.1.10.94.3.2",
+    "class": "objectidentity"
+  },
+  "adslExtGroups": {
+    "name": "adslExtGroups",
+    "oid": "1.3.6.1.2.1.10.94.3.2.1",
+    "class": "objectidentity"
+  },
+  "adslExtCompliances": {
+    "name": "adslExtCompliances",
+    "oid": "1.3.6.1.2.1.10.94.3.2.2",
+    "class": "objectidentity"
+  },
+  "adslExtLineMibAtucCompliance": {
+    "name": "adslExtLineMibAtucCompliance",
+    "oid": "1.3.6.1.2.1.10.94.3.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adslExtLineGroup",
+        "module": "ADSL-LINE-EXT-MIB"
+      },
+      {
+        "object": "adslExtLineConfProfileControlGroup",
+        "module": "ADSL-LINE-EXT-MIB"
+      },
+      {
+        "object": "adslExtLineAlarmConfProfileGroup",
+        "module": "ADSL-LINE-EXT-MIB"
+      },
+      {
+        "object": "adslExtAtucPhysPerfCounterGroup",
+        "module": "ADSL-LINE-EXT-MIB"
+      },
+      {
+        "object": "adslExtAturPhysPerfCounterGroup",
+        "module": "ADSL-LINE-EXT-MIB"
+      },
+      {
+        "object": "adslExtNotificationsGroup",
+        "module": "ADSL-LINE-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "adslExtLineGroup": {
+    "name": "adslExtLineGroup",
+    "oid": "1.3.6.1.2.1.10.94.3.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslLineConfProfileDualLite"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslLineTransAtucCap"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslLineTransAtucConfig"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslLineTransAtucActual"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslLineGlitePowerState"
+      }
+    ],
+    "status": "current"
+  },
+  "adslExtAtucPhysPerfCounterGroup": {
+    "name": "adslExtAtucPhysPerfCounterGroup",
+    "oid": "1.3.6.1.2.1.10.94.3.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfStatFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfStatFailedFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr15MinFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr15MinFailedFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr1DayFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr1DayFailedFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfPrev1DayFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfPrev1DayFailedFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfStatSesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfStatUasL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr15MinSesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr15MinUasL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr1DaySesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfCurr1DayUasL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfPrev1DaySesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucPerfPrev1DayUasL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucIntervalFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucIntervalFailedFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucIntervalSesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucIntervalUasL"
+      }
+    ],
+    "status": "current"
+  },
+  "adslExtAturPhysPerfCounterGroup": {
+    "name": "adslExtAturPhysPerfCounterGroup",
+    "oid": "1.3.6.1.2.1.10.94.3.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturPerfStatSesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturPerfStatUasL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturPerfCurr15MinSesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturPerfCurr15MinUasL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturPerfCurr1DaySesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturPerfCurr1DayUasL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturPerfPrev1DaySesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturPerfPrev1DayUasL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturIntervalSesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturIntervalUasL"
+      }
+    ],
+    "status": "current"
+  },
+  "adslExtLineConfProfileControlGroup": {
+    "name": "adslExtLineConfProfileControlGroup",
+    "oid": "1.3.6.1.2.1.10.94.3.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslConfProfileLineType"
+      }
+    ],
+    "status": "current"
+  },
+  "adslExtLineAlarmConfProfileGroup": {
+    "name": "adslExtLineAlarmConfProfileGroup",
+    "oid": "1.3.6.1.2.1.10.94.3.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucThreshold15MinFailedFastR"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucThreshold15MinSesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucThreshold15MinUasL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturThreshold15MinSesL"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturThreshold15MinUasL"
+      }
+    ],
+    "status": "current"
+  },
+  "adslExtNotificationsGroup": {
+    "name": "adslExtNotificationsGroup",
+    "oid": "1.3.6.1.2.1.10.94.3.2.1.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucFailedFastRThreshTrap"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucSesLThreshTrap"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAtucUasLThreshTrap"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturSesLThreshTrap"
+      },
+      {
+        "module": "ADSL-LINE-EXT-MIB",
+        "object": "adslAturUasLThreshTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ADSL-LINE-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADSL-LINE-EXT-MIB"
+  }
+}

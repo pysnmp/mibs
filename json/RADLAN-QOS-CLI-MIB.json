@@ -1,0 +1,3662 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "RADLAN-MIB": [
+      "Percents",
+      "rnd"
+    ],
+    "RADLAN-SNMPv2": [
+      "TruthValue",
+      "RowStatus",
+      "RowPointer"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "MibIdentifier",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "rlQosCliMib": {
+    "name": "rlQosCliMib",
+    "oid": "1.3.6.1.4.1.89.88",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-03-14 00:00",
+        "description": "Add rlQosPortRateLimitStatus,rlQosCirPortRateLimit, rlQosCbsPortRateLimit to rlQosIfPolicyTable"
+      },
+      {
+        "revision": "2005-02-07 00:00",
+        "description": "Add vpt,ether-type,tcp-flags,icmp-type,icmp-code,igmp-type to ClassTupleType Add mac-Offset,ip-ICMP,ip-IGMP To AceObjectType Add vpt,ethertype To ClassOffsetType"
+      },
+      {
+        "revision": "2005-01-27 00:00",
+        "description": "Add new advanced action : trustCosDscp"
+      },
+      {
+        "revision": "2004-11-15 00:00",
+        "description": "Add DSCP to Queue Default map table."
+      },
+      {
+        "revision": "2003-09-29 00:00",
+        "description": "Add textual convention to QosObjectMode (service)."
+      },
+      {
+        "revision": "2003-09-21 00:00",
+        "description": "Added this MODULE-IDENTITY clause, changed IMPORT, removed ranges in SEQUENCE elements, changed access of rlQosCliQosMode, rlQosCliBasicModeCfg and rlQosMaxNumOfAce."
+      },
+      {
+        "revision": "2005-04-17 00:00",
+        "description": "Added rlQosDscpToDpTable"
+      }
+    ]
+  },
+  "ClassOffsetType": {
+    "name": "ClassOffsetType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "packetStart": 1,
+          "layer2-start": 2,
+          "mpls-start": 3,
+          "layer3-start": 4,
+          "layer4-start": 5,
+          "layer5-start": 6,
+          "vlan": 7,
+          "in-port": 8,
+          "out-port": 9,
+          "vpt": 10,
+          "ethertype": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClassTupleType": {
+    "name": "ClassTupleType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "protocol": 1,
+          "ip-src": 2,
+          "ip-dest": 3,
+          "dscp": 4,
+          "ip-precedence": 5,
+          "udp-port-src": 6,
+          "udp-port-dest": 7,
+          "tcp-port-src": 8,
+          "tcp-port-dest": 9,
+          "mac-src": 10,
+          "mac-dest": 11,
+          "vlan": 12,
+          "in-port": 13,
+          "out-port": 14,
+          "general": 15,
+          "vpt": 16,
+          "ether-type": 17,
+          "tcp-flags": 18,
+          "icmp-type": 19,
+          "icmp-code": 20,
+          "igmp-type": 21
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AceActionType": {
+    "name": "AceActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2,
+          "deny-DisablePort": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AceObjectType": {
+    "name": "AceObjectType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "ip-TCP": 2,
+          "ip-UDP": 3,
+          "ip-Offset": 4,
+          "mac": 5,
+          "mac-Offset": 6,
+          "ip-ICMP": 7,
+          "ip-IGMP": 8
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AclObjectType": {
+    "name": "AclObjectType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "ip": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClassMapType": {
+    "name": "ClassMapType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "matchAll": 1,
+          "matchAny": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClassMapAction": {
+    "name": "ClassMapAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "setIP-Precedence": 2,
+          "setDSCP": 3,
+          "setQueue": 4,
+          "setCos": 5,
+          "trustCos": 6,
+          "trustDSCP": 7,
+          "trustTCP-UDPport": 8,
+          "trustCosDscp": 9
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PolicerType": {
+    "name": "PolicerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "single": 1,
+          "aggregate": 2,
+          "cascade": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PolicerAction": {
+    "name": "PolicerAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "drop": 2,
+          "remark": 3,
+          "explicit-remark": 4,
+          "cascadePointer": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "QosObjectMode": {
+    "name": "QosObjectMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "basic": 2,
+          "advance": 3,
+          "service": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "QosObjectBasicMode": {
+    "name": "QosObjectBasicMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "vpt": 2,
+          "dscp": 3,
+          "dscp-mutation": 4,
+          "tcp-udp": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "BinaryStatus": {
+    "name": "BinaryStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "QueueType": {
+    "name": "QueueType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ef": 1,
+          "wrr": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AclDefaultAction": {
+    "name": "AclDefaultAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny-all": 1,
+          "forward-all": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "InterfaceType": {
+    "name": "InterfaceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "vlan": 1,
+          "port": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "rlQosCliQosMode": {
+    "name": "rlQosCliQosMode",
+    "oid": "1.3.6.1.4.1.89.88.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosObjectMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlQosCliBasicModeCfg": {
+    "name": "rlQosCliBasicModeCfg",
+    "oid": "1.3.6.1.4.1.89.88.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QosObjectBasicMode",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlQosMaxNumOfAce": {
+    "name": "rlQosMaxNumOfAce",
+    "oid": "1.3.6.1.4.1.89.88.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rlQosOffsetTable": {
+    "name": "rlQosOffsetTable",
+    "oid": "1.3.6.1.4.1.89.88.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosOffsetEntry": {
+    "name": "rlQosOffsetEntry",
+    "oid": "1.3.6.1.4.1.89.88.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosOffsetIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosOffsetIndex": {
+    "name": "rlQosOffsetIndex",
+    "oid": "1.3.6.1.4.1.89.88.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosOffsetType": {
+    "name": "rlQosOffsetType",
+    "oid": "1.3.6.1.4.1.89.88.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClassOffsetType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosOffsetValue": {
+    "name": "rlQosOffsetValue",
+    "oid": "1.3.6.1.4.1.89.88.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosOffsetMask": {
+    "name": "rlQosOffsetMask",
+    "oid": "1.3.6.1.4.1.89.88.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosOffsetPattern": {
+    "name": "rlQosOffsetPattern",
+    "oid": "1.3.6.1.4.1.89.88.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosOffsetTuplePointer": {
+    "name": "rlQosOffsetTuplePointer",
+    "oid": "1.3.6.1.4.1.89.88.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosOffsetStatus": {
+    "name": "rlQosOffsetStatus",
+    "oid": "1.3.6.1.4.1.89.88.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTupleTable": {
+    "name": "rlQosTupleTable",
+    "oid": "1.3.6.1.4.1.89.88.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosTupleEntry": {
+    "name": "rlQosTupleEntry",
+    "oid": "1.3.6.1.4.1.89.88.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosTupleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosTupleIndex": {
+    "name": "rlQosTupleIndex",
+    "oid": "1.3.6.1.4.1.89.88.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosTupleType": {
+    "name": "rlQosTupleType",
+    "oid": "1.3.6.1.4.1.89.88.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClassTupleType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTupleValue1": {
+    "name": "rlQosTupleValue1",
+    "oid": "1.3.6.1.4.1.89.88.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTupleValue2": {
+    "name": "rlQosTupleValue2",
+    "oid": "1.3.6.1.4.1.89.88.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTupleStatus": {
+    "name": "rlQosTupleStatus",
+    "oid": "1.3.6.1.4.1.89.88.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTable": {
+    "name": "rlQosAceTable",
+    "oid": "1.3.6.1.4.1.89.88.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosAceEntry": {
+    "name": "rlQosAceEntry",
+    "oid": "1.3.6.1.4.1.89.88.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosAceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosAceIndex": {
+    "name": "rlQosAceIndex",
+    "oid": "1.3.6.1.4.1.89.88.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosAceAction": {
+    "name": "rlQosAceAction",
+    "oid": "1.3.6.1.4.1.89.88.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AceActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceType": {
+    "name": "rlQosAceType",
+    "oid": "1.3.6.1.4.1.89.88.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AceObjectType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTuple1": {
+    "name": "rlQosAceTuple1",
+    "oid": "1.3.6.1.4.1.89.88.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTuple2": {
+    "name": "rlQosAceTuple2",
+    "oid": "1.3.6.1.4.1.89.88.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTuple3": {
+    "name": "rlQosAceTuple3",
+    "oid": "1.3.6.1.4.1.89.88.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTuple4": {
+    "name": "rlQosAceTuple4",
+    "oid": "1.3.6.1.4.1.89.88.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTuple5": {
+    "name": "rlQosAceTuple5",
+    "oid": "1.3.6.1.4.1.89.88.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTuple6": {
+    "name": "rlQosAceTuple6",
+    "oid": "1.3.6.1.4.1.89.88.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTuple7": {
+    "name": "rlQosAceTuple7",
+    "oid": "1.3.6.1.4.1.89.88.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTuple8": {
+    "name": "rlQosAceTuple8",
+    "oid": "1.3.6.1.4.1.89.88.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceAccount": {
+    "name": "rlQosAceAccount",
+    "oid": "1.3.6.1.4.1.89.88.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BinaryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceStatus": {
+    "name": "rlQosAceStatus",
+    "oid": "1.3.6.1.4.1.89.88.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAclTable": {
+    "name": "rlQosAclTable",
+    "oid": "1.3.6.1.4.1.89.88.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosAclEntry": {
+    "name": "rlQosAclEntry",
+    "oid": "1.3.6.1.4.1.89.88.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosAclIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosAclIndex": {
+    "name": "rlQosAclIndex",
+    "oid": "1.3.6.1.4.1.89.88.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosAclName": {
+    "name": "rlQosAclName",
+    "oid": "1.3.6.1.4.1.89.88.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAclType": {
+    "name": "rlQosAclType",
+    "oid": "1.3.6.1.4.1.89.88.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AclObjectType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAclStatus": {
+    "name": "rlQosAclStatus",
+    "oid": "1.3.6.1.4.1.89.88.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAclAceRefTable": {
+    "name": "rlQosAclAceRefTable",
+    "oid": "1.3.6.1.4.1.89.88.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosAclAceRefEntry": {
+    "name": "rlQosAclAceRefEntry",
+    "oid": "1.3.6.1.4.1.89.88.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosAclAceRefAcePointer",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosAclAceRefAcePointer": {
+    "name": "rlQosAclAceRefAcePointer",
+    "oid": "1.3.6.1.4.1.89.88.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosAclAceRefAclPointer": {
+    "name": "rlQosAclAceRefAclPointer",
+    "oid": "1.3.6.1.4.1.89.88.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAclAceRefStatus": {
+    "name": "rlQosAclAceRefStatus",
+    "oid": "1.3.6.1.4.1.89.88.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapTable": {
+    "name": "rlQosClassMapTable",
+    "oid": "1.3.6.1.4.1.89.88.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosClassMapEntry": {
+    "name": "rlQosClassMapEntry",
+    "oid": "1.3.6.1.4.1.89.88.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosClassMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosClassMapIndex": {
+    "name": "rlQosClassMapIndex",
+    "oid": "1.3.6.1.4.1.89.88.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosClassMapName": {
+    "name": "rlQosClassMapName",
+    "oid": "1.3.6.1.4.1.89.88.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapType": {
+    "name": "rlQosClassMapType",
+    "oid": "1.3.6.1.4.1.89.88.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClassMapType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapAction": {
+    "name": "rlQosClassMapAction",
+    "oid": "1.3.6.1.4.1.89.88.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClassMapAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapMarkValue": {
+    "name": "rlQosClassMapMarkValue",
+    "oid": "1.3.6.1.4.1.89.88.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapPolicer": {
+    "name": "rlQosClassMapPolicer",
+    "oid": "1.3.6.1.4.1.89.88.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapMatch1": {
+    "name": "rlQosClassMapMatch1",
+    "oid": "1.3.6.1.4.1.89.88.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapMatch2": {
+    "name": "rlQosClassMapMatch2",
+    "oid": "1.3.6.1.4.1.89.88.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapMarkVlan": {
+    "name": "rlQosClassMapMarkVlan",
+    "oid": "1.3.6.1.4.1.89.88.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BinaryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapNewVlan": {
+    "name": "rlQosClassMapNewVlan",
+    "oid": "1.3.6.1.4.1.89.88.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapNewPort": {
+    "name": "rlQosClassMapNewPort",
+    "oid": "1.3.6.1.4.1.89.88.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapCopyPort": {
+    "name": "rlQosClassMapCopyPort",
+    "oid": "1.3.6.1.4.1.89.88.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosClassMapStatus": {
+    "name": "rlQosClassMapStatus",
+    "oid": "1.3.6.1.4.1.89.88.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicerTable": {
+    "name": "rlQosPolicerTable",
+    "oid": "1.3.6.1.4.1.89.88.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosPolicerEntry": {
+    "name": "rlQosPolicerEntry",
+    "oid": "1.3.6.1.4.1.89.88.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosPolicerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosPolicerIndex": {
+    "name": "rlQosPolicerIndex",
+    "oid": "1.3.6.1.4.1.89.88.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosPolicerName": {
+    "name": "rlQosPolicerName",
+    "oid": "1.3.6.1.4.1.89.88.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicerType": {
+    "name": "rlQosPolicerType",
+    "oid": "1.3.6.1.4.1.89.88.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicerType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicerCir": {
+    "name": "rlQosPolicerCir",
+    "oid": "1.3.6.1.4.1.89.88.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kbps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicerCbs": {
+    "name": "rlQosPolicerCbs",
+    "oid": "1.3.6.1.4.1.89.88.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicerAction": {
+    "name": "rlQosPolicerAction",
+    "oid": "1.3.6.1.4.1.89.88.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PolicerAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicerCasPointerRemVal": {
+    "name": "rlQosPolicerCasPointerRemVal",
+    "oid": "1.3.6.1.4.1.89.88.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicerStatus": {
+    "name": "rlQosPolicerStatus",
+    "oid": "1.3.6.1.4.1.89.88.10.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicyMapTable": {
+    "name": "rlQosPolicyMapTable",
+    "oid": "1.3.6.1.4.1.89.88.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosPolicyMapEntry": {
+    "name": "rlQosPolicyMapEntry",
+    "oid": "1.3.6.1.4.1.89.88.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosPolicyMapIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosPolicyMapIndex": {
+    "name": "rlQosPolicyMapIndex",
+    "oid": "1.3.6.1.4.1.89.88.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosPolicyMapName": {
+    "name": "rlQosPolicyMapName",
+    "oid": "1.3.6.1.4.1.89.88.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicyMapStatus": {
+    "name": "rlQosPolicyMapStatus",
+    "oid": "1.3.6.1.4.1.89.88.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicyClassRefTable": {
+    "name": "rlQosPolicyClassRefTable",
+    "oid": "1.3.6.1.4.1.89.88.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosPolicyClassRefEntry": {
+    "name": "rlQosPolicyClassRefEntry",
+    "oid": "1.3.6.1.4.1.89.88.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosPolicyClassRefClassPointer",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosPolicyClassRefClassPointer": {
+    "name": "rlQosPolicyClassRefClassPointer",
+    "oid": "1.3.6.1.4.1.89.88.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosPolicyClassRefPolicyPointer": {
+    "name": "rlQosPolicyClassRefPolicyPointer",
+    "oid": "1.3.6.1.4.1.89.88.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPolicyClassRefStatus": {
+    "name": "rlQosPolicyClassRefStatus",
+    "oid": "1.3.6.1.4.1.89.88.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosIfPolicyTable": {
+    "name": "rlQosIfPolicyTable",
+    "oid": "1.3.6.1.4.1.89.88.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosIfPolicyEntry": {
+    "name": "rlQosIfPolicyEntry",
+    "oid": "1.3.6.1.4.1.89.88.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlIfType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIfIndex": {
+    "name": "rlIfIndex",
+    "oid": "1.3.6.1.4.1.89.88.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlIfType": {
+    "name": "rlIfType",
+    "oid": "1.3.6.1.4.1.89.88.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosIfPolicyMapPointerIn": {
+    "name": "rlQosIfPolicyMapPointerIn",
+    "oid": "1.3.6.1.4.1.89.88.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosIfPolicyMapPointerOut": {
+    "name": "rlQosIfPolicyMapPointerOut",
+    "oid": "1.3.6.1.4.1.89.88.13.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosIfTrustActive": {
+    "name": "rlQosIfTrustActive",
+    "oid": "1.3.6.1.4.1.89.88.13.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BinaryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPortShaperStatus": {
+    "name": "rlQosPortShaperStatus",
+    "oid": "1.3.6.1.4.1.89.88.13.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BinaryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCirPortShaper": {
+    "name": "rlQosCirPortShaper",
+    "oid": "1.3.6.1.4.1.89.88.13.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCbsPortShaper": {
+    "name": "rlQosCbsPortShaper",
+    "oid": "1.3.6.1.4.1.89.88.13.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosIfProfilePointer": {
+    "name": "rlQosIfProfilePointer",
+    "oid": "1.3.6.1.4.1.89.88.13.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosQueueProfilePointer": {
+    "name": "rlQosQueueProfilePointer",
+    "oid": "1.3.6.1.4.1.89.88.13.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosQueueShapeProfilePointer": {
+    "name": "rlQosQueueShapeProfilePointer",
+    "oid": "1.3.6.1.4.1.89.88.13.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAclDefaultAction": {
+    "name": "rlQosAclDefaultAction",
+    "oid": "1.3.6.1.4.1.89.88.13.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AclDefaultAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosIfPolicyMapStatus": {
+    "name": "rlQosIfPolicyMapStatus",
+    "oid": "1.3.6.1.4.1.89.88.13.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosIfAclIn": {
+    "name": "rlQosIfAclIn",
+    "oid": "1.3.6.1.4.1.89.88.13.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosIfAclOut": {
+    "name": "rlQosIfAclOut",
+    "oid": "1.3.6.1.4.1.89.88.13.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosIfPolicerIn": {
+    "name": "rlQosIfPolicerIn",
+    "oid": "1.3.6.1.4.1.89.88.13.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPortRateLimitStatus": {
+    "name": "rlQosPortRateLimitStatus",
+    "oid": "1.3.6.1.4.1.89.88.13.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BinaryStatus",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCirPortRateLimit": {
+    "name": "rlQosCirPortRateLimit",
+    "oid": "1.3.6.1.4.1.89.88.13.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCbsPortRateLimit": {
+    "name": "rlQosCbsPortRateLimit",
+    "oid": "1.3.6.1.4.1.89.88.13.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosIfProfileCfgTable": {
+    "name": "rlQosIfProfileCfgTable",
+    "oid": "1.3.6.1.4.1.89.88.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosIfProfileCfgEntry": {
+    "name": "rlQosIfProfileCfgEntry",
+    "oid": "1.3.6.1.4.1.89.88.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlIfProfileName",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlIfProfileName": {
+    "name": "rlIfProfileName",
+    "oid": "1.3.6.1.4.1.89.88.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosQueueId": {
+    "name": "rlQosQueueId",
+    "oid": "1.3.6.1.4.1.89.88.14.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosTdThersholdDp0": {
+    "name": "rlQosTdThersholdDp0",
+    "oid": "1.3.6.1.4.1.89.88.14.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTdThersholdDp1": {
+    "name": "rlQosTdThersholdDp1",
+    "oid": "1.3.6.1.4.1.89.88.14.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTdThersholdDp2": {
+    "name": "rlQosTdThersholdDp2",
+    "oid": "1.3.6.1.4.1.89.88.14.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosRedMinDp0": {
+    "name": "rlQosRedMinDp0",
+    "oid": "1.3.6.1.4.1.89.88.14.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosRedMaxDp0": {
+    "name": "rlQosRedMaxDp0",
+    "oid": "1.3.6.1.4.1.89.88.14.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosRedProbDp0": {
+    "name": "rlQosRedProbDp0",
+    "oid": "1.3.6.1.4.1.89.88.14.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosRedMinDp1": {
+    "name": "rlQosRedMinDp1",
+    "oid": "1.3.6.1.4.1.89.88.14.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosRedMaxDp1": {
+    "name": "rlQosRedMaxDp1",
+    "oid": "1.3.6.1.4.1.89.88.14.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosRedProbDp1": {
+    "name": "rlQosRedProbDp1",
+    "oid": "1.3.6.1.4.1.89.88.14.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosRedMinDp2": {
+    "name": "rlQosRedMinDp2",
+    "oid": "1.3.6.1.4.1.89.88.14.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosRedMaxDp2": {
+    "name": "rlQosRedMaxDp2",
+    "oid": "1.3.6.1.4.1.89.88.14.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosRedProbDp2": {
+    "name": "rlQosRedProbDp2",
+    "oid": "1.3.6.1.4.1.89.88.14.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosRedQweight": {
+    "name": "rlQosRedQweight",
+    "oid": "1.3.6.1.4.1.89.88.14.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosIfprofileStatus": {
+    "name": "rlQosIfprofileStatus",
+    "oid": "1.3.6.1.4.1.89.88.14.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosDscpMutationTable": {
+    "name": "rlQosDscpMutationTable",
+    "oid": "1.3.6.1.4.1.89.88.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosDscpMutationEntry": {
+    "name": "rlQosDscpMutationEntry",
+    "oid": "1.3.6.1.4.1.89.88.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosOldDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosOldDscp": {
+    "name": "rlQosOldDscp",
+    "oid": "1.3.6.1.4.1.89.88.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosNewDscp": {
+    "name": "rlQosNewDscp",
+    "oid": "1.3.6.1.4.1.89.88.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosDscpRemarkTable": {
+    "name": "rlQosDscpRemarkTable",
+    "oid": "1.3.6.1.4.1.89.88.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosDscpRemarkEntry": {
+    "name": "rlQosDscpRemarkEntry",
+    "oid": "1.3.6.1.4.1.89.88.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosRmOldDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosRmOldDscp": {
+    "name": "rlQosRmOldDscp",
+    "oid": "1.3.6.1.4.1.89.88.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosRmNewDscp": {
+    "name": "rlQosRmNewDscp",
+    "oid": "1.3.6.1.4.1.89.88.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCosQueueTable": {
+    "name": "rlQosCosQueueTable",
+    "oid": "1.3.6.1.4.1.89.88.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosCosQueueEntry": {
+    "name": "rlQosCosQueueEntry",
+    "oid": "1.3.6.1.4.1.89.88.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosCosIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosCosIndex": {
+    "name": "rlQosCosIndex",
+    "oid": "1.3.6.1.4.1.89.88.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosCosQueueId": {
+    "name": "rlQosCosQueueId",
+    "oid": "1.3.6.1.4.1.89.88.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosDscpQueueTable": {
+    "name": "rlQosDscpQueueTable",
+    "oid": "1.3.6.1.4.1.89.88.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosDscpQueueEntry": {
+    "name": "rlQosDscpQueueEntry",
+    "oid": "1.3.6.1.4.1.89.88.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosDscpIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosDscpIndex": {
+    "name": "rlQosDscpIndex",
+    "oid": "1.3.6.1.4.1.89.88.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosQueueNum": {
+    "name": "rlQosQueueNum",
+    "oid": "1.3.6.1.4.1.89.88.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTcpPortQueueTable": {
+    "name": "rlQosTcpPortQueueTable",
+    "oid": "1.3.6.1.4.1.89.88.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosTcpPortQueueEntry": {
+    "name": "rlQosTcpPortQueueEntry",
+    "oid": "1.3.6.1.4.1.89.88.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosTcpPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosTcpPort": {
+    "name": "rlQosTcpPort",
+    "oid": "1.3.6.1.4.1.89.88.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosTcpQueueValue": {
+    "name": "rlQosTcpQueueValue",
+    "oid": "1.3.6.1.4.1.89.88.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTcpPortQueueStatus": {
+    "name": "rlQosTcpPortQueueStatus",
+    "oid": "1.3.6.1.4.1.89.88.19.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosUdpPortQueueTable": {
+    "name": "rlQosUdpPortQueueTable",
+    "oid": "1.3.6.1.4.1.89.88.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosUdpPortQueueEntry": {
+    "name": "rlQosUdpPortQueueEntry",
+    "oid": "1.3.6.1.4.1.89.88.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosUdpPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosUdpPort": {
+    "name": "rlQosUdpPort",
+    "oid": "1.3.6.1.4.1.89.88.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosUdpQueueValue": {
+    "name": "rlQosUdpQueueValue",
+    "oid": "1.3.6.1.4.1.89.88.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosUdpPortQueueStatus": {
+    "name": "rlQosUdpPortQueueStatus",
+    "oid": "1.3.6.1.4.1.89.88.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosEfManageTable": {
+    "name": "rlQosEfManageTable",
+    "oid": "1.3.6.1.4.1.89.88.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosEfManageEntry": {
+    "name": "rlQosEfManageEntry",
+    "oid": "1.3.6.1.4.1.89.88.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosEfQueueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosEfQueueId": {
+    "name": "rlQosEfQueueId",
+    "oid": "1.3.6.1.4.1.89.88.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosEfState": {
+    "name": "rlQosEfState",
+    "oid": "1.3.6.1.4.1.89.88.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BinaryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosEfPriority": {
+    "name": "rlQosEfPriority",
+    "oid": "1.3.6.1.4.1.89.88.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosQueueProfileTable": {
+    "name": "rlQosQueueProfileTable",
+    "oid": "1.3.6.1.4.1.89.88.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosQueueProfileEntry": {
+    "name": "rlQosQueueProfileEntry",
+    "oid": "1.3.6.1.4.1.89.88.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQueueProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQueueProfileName": {
+    "name": "rlQueueProfileName",
+    "oid": "1.3.6.1.4.1.89.88.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosTypeQueue1": {
+    "name": "rlQosTypeQueue1",
+    "oid": "1.3.6.1.4.1.89.88.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosValueQueue1": {
+    "name": "rlQosValueQueue1",
+    "oid": "1.3.6.1.4.1.89.88.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTypeQueue2": {
+    "name": "rlQosTypeQueue2",
+    "oid": "1.3.6.1.4.1.89.88.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosValueQueue2": {
+    "name": "rlQosValueQueue2",
+    "oid": "1.3.6.1.4.1.89.88.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTypeQueue3": {
+    "name": "rlQosTypeQueue3",
+    "oid": "1.3.6.1.4.1.89.88.22.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosValueQueue3": {
+    "name": "rlQosValueQueue3",
+    "oid": "1.3.6.1.4.1.89.88.22.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTypeQueue4": {
+    "name": "rlQosTypeQueue4",
+    "oid": "1.3.6.1.4.1.89.88.22.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosValueQueue4": {
+    "name": "rlQosValueQueue4",
+    "oid": "1.3.6.1.4.1.89.88.22.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTypeQueue5": {
+    "name": "rlQosTypeQueue5",
+    "oid": "1.3.6.1.4.1.89.88.22.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosValueQueue5": {
+    "name": "rlQosValueQueue5",
+    "oid": "1.3.6.1.4.1.89.88.22.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTypeQueue6": {
+    "name": "rlQosTypeQueue6",
+    "oid": "1.3.6.1.4.1.89.88.22.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosValueQueue6": {
+    "name": "rlQosValueQueue6",
+    "oid": "1.3.6.1.4.1.89.88.22.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTypeQueue7": {
+    "name": "rlQosTypeQueue7",
+    "oid": "1.3.6.1.4.1.89.88.22.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosValueQueue7": {
+    "name": "rlQosValueQueue7",
+    "oid": "1.3.6.1.4.1.89.88.22.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosTypeQueue8": {
+    "name": "rlQosTypeQueue8",
+    "oid": "1.3.6.1.4.1.89.88.22.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosValueQueue8": {
+    "name": "rlQosValueQueue8",
+    "oid": "1.3.6.1.4.1.89.88.22.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosQueueProfileStatus": {
+    "name": "rlQosQueueProfileStatus",
+    "oid": "1.3.6.1.4.1.89.88.22.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosNumOfIfConnections": {
+    "name": "rlQosNumOfIfConnections",
+    "oid": "1.3.6.1.4.1.89.88.22.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosQueueShapeProfileTable": {
+    "name": "rlQosQueueShapeProfileTable",
+    "oid": "1.3.6.1.4.1.89.88.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosQueueShapeProfileEntry": {
+    "name": "rlQosQueueShapeProfileEntry",
+    "oid": "1.3.6.1.4.1.89.88.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosQueueShapeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosQueueShapeIndex": {
+    "name": "rlQosQueueShapeIndex",
+    "oid": "1.3.6.1.4.1.89.88.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosCirQueue1": {
+    "name": "rlQosCirQueue1",
+    "oid": "1.3.6.1.4.1.89.88.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCbsQueue1": {
+    "name": "rlQosCbsQueue1",
+    "oid": "1.3.6.1.4.1.89.88.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCirQueue2": {
+    "name": "rlQosCirQueue2",
+    "oid": "1.3.6.1.4.1.89.88.23.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCbsQueue2": {
+    "name": "rlQosCbsQueue2",
+    "oid": "1.3.6.1.4.1.89.88.23.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCirQueue3": {
+    "name": "rlQosCirQueue3",
+    "oid": "1.3.6.1.4.1.89.88.23.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCbsQueue3": {
+    "name": "rlQosCbsQueue3",
+    "oid": "1.3.6.1.4.1.89.88.23.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCirQueue4": {
+    "name": "rlQosCirQueue4",
+    "oid": "1.3.6.1.4.1.89.88.23.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCbsQueue4": {
+    "name": "rlQosCbsQueue4",
+    "oid": "1.3.6.1.4.1.89.88.23.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCirQueue5": {
+    "name": "rlQosCirQueue5",
+    "oid": "1.3.6.1.4.1.89.88.23.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCbsQueue5": {
+    "name": "rlQosCbsQueue5",
+    "oid": "1.3.6.1.4.1.89.88.23.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCirQueue6": {
+    "name": "rlQosCirQueue6",
+    "oid": "1.3.6.1.4.1.89.88.23.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCbsQueue6": {
+    "name": "rlQosCbsQueue6",
+    "oid": "1.3.6.1.4.1.89.88.23.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCirQueue7": {
+    "name": "rlQosCirQueue7",
+    "oid": "1.3.6.1.4.1.89.88.23.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCbsQueue7": {
+    "name": "rlQosCbsQueue7",
+    "oid": "1.3.6.1.4.1.89.88.23.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCirQueue8": {
+    "name": "rlQosCirQueue8",
+    "oid": "1.3.6.1.4.1.89.88.23.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosCbsQueue8": {
+    "name": "rlQosCbsQueue8",
+    "oid": "1.3.6.1.4.1.89.88.23.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosQueueShapeProfileStatus": {
+    "name": "rlQosQueueShapeProfileStatus",
+    "oid": "1.3.6.1.4.1.89.88.23.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAclCounterTable": {
+    "name": "rlQosAclCounterTable",
+    "oid": "1.3.6.1.4.1.89.88.24",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosAclCounterEntry": {
+    "name": "rlQosAclCounterEntry",
+    "oid": "1.3.6.1.4.1.89.88.24.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosAclCounterInterface",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosAclCounterAclIndex",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosAclCounterAceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosAclCounterInterface": {
+    "name": "rlQosAclCounterInterface",
+    "oid": "1.3.6.1.4.1.89.88.24.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosAclCounterAclIndex": {
+    "name": "rlQosAclCounterAclIndex",
+    "oid": "1.3.6.1.4.1.89.88.24.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosAclCounterAceIndex": {
+    "name": "rlQosAclCounterAceIndex",
+    "oid": "1.3.6.1.4.1.89.88.24.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosAclCounterValue": {
+    "name": "rlQosAclCounterValue",
+    "oid": "1.3.6.1.4.1.89.88.24.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosFreeIndexesTable": {
+    "name": "rlQosFreeIndexesTable",
+    "oid": "1.3.6.1.4.1.89.88.25",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosFreeIndexesEntry": {
+    "name": "rlQosFreeIndexesEntry",
+    "oid": "1.3.6.1.4.1.89.88.25.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosFreeIndexesTableId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosFreeIndexesTableId": {
+    "name": "rlQosFreeIndexesTableId",
+    "oid": "1.3.6.1.4.1.89.88.25.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tuple": 1,
+          "offset": 2,
+          "ace": 3,
+          "acl": 4,
+          "class": 5,
+          "policy": 6,
+          "policer": 7,
+          "shaper": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosFreeIndexesValue": {
+    "name": "rlQosFreeIndexesValue",
+    "oid": "1.3.6.1.4.1.89.88.25.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosNamesToIndexesTable": {
+    "name": "rlQosNamesToIndexesTable",
+    "oid": "1.3.6.1.4.1.89.88.26",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosNamesToIndexesEntry": {
+    "name": "rlQosNamesToIndexesEntry",
+    "oid": "1.3.6.1.4.1.89.88.26.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosNamesToIndexesTableId",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosNamesToIndexesName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosNamesToIndexesTableId": {
+    "name": "rlQosNamesToIndexesTableId",
+    "oid": "1.3.6.1.4.1.89.88.26.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "acl": 1,
+          "class": 2,
+          "policy": 3,
+          "policer": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosNamesToIndexesName": {
+    "name": "rlQosNamesToIndexesName",
+    "oid": "1.3.6.1.4.1.89.88.26.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosNamesToIndexesValue": {
+    "name": "rlQosNamesToIndexesValue",
+    "oid": "1.3.6.1.4.1.89.88.26.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosStackControlQueue": {
+    "name": "rlQosStackControlQueue",
+    "oid": "1.3.6.1.4.1.89.88.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosStackControlCos": {
+    "name": "rlQosStackControlCos",
+    "oid": "1.3.6.1.4.1.89.88.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosCosQueueDefaultMapTable": {
+    "name": "rlQosCosQueueDefaultMapTable",
+    "oid": "1.3.6.1.4.1.89.88.29",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosCosQueueDefaultMapEntry": {
+    "name": "rlQosCosQueueDefaultMapEntry",
+    "oid": "1.3.6.1.4.1.89.88.29.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosCosQueueDefaultMapVpt",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosCosQueueDefaultMapVpt": {
+    "name": "rlQosCosQueueDefaultMapVpt",
+    "oid": "1.3.6.1.4.1.89.88.29.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosCosQueueDefaultMapQueueId": {
+    "name": "rlQosCosQueueDefaultMapQueueId",
+    "oid": "1.3.6.1.4.1.89.88.29.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosPredefBlockAclTable": {
+    "name": "rlQosPredefBlockAclTable",
+    "oid": "1.3.6.1.4.1.89.88.30",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosPredefBlockAclEntry": {
+    "name": "rlQosPredefBlockAclEntry",
+    "oid": "1.3.6.1.4.1.89.88.30.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosPredefBlockAclIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosPredefBlockAclIfType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosPredefBlockAclIfIndex": {
+    "name": "rlQosPredefBlockAclIfIndex",
+    "oid": "1.3.6.1.4.1.89.88.30.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosPredefBlockAclIfType": {
+    "name": "rlQosPredefBlockAclIfType",
+    "oid": "1.3.6.1.4.1.89.88.30.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosPredefBlockAclMask": {
+    "name": "rlQosPredefBlockAclMask",
+    "oid": "1.3.6.1.4.1.89.88.30.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosPredefBlockAclStatus": {
+    "name": "rlQosPredefBlockAclStatus",
+    "oid": "1.3.6.1.4.1.89.88.30.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxTable": {
+    "name": "rlQosAceTidxTable",
+    "oid": "1.3.6.1.4.1.89.88.31",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosAceTidxEntry": {
+    "name": "rlQosAceTidxEntry",
+    "oid": "1.3.6.1.4.1.89.88.31.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosAceTidxAclIndex",
+        "implied": 0
+      },
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosAceTidxIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosAceTidxAclIndex": {
+    "name": "rlQosAceTidxAclIndex",
+    "oid": "1.3.6.1.4.1.89.88.31.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosAceTidxIndex": {
+    "name": "rlQosAceTidxIndex",
+    "oid": "1.3.6.1.4.1.89.88.31.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosAceTidxAction": {
+    "name": "rlQosAceTidxAction",
+    "oid": "1.3.6.1.4.1.89.88.31.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AceActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxType": {
+    "name": "rlQosAceTidxType",
+    "oid": "1.3.6.1.4.1.89.88.31.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AceObjectType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxTuple1": {
+    "name": "rlQosAceTidxTuple1",
+    "oid": "1.3.6.1.4.1.89.88.31.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxTuple2": {
+    "name": "rlQosAceTidxTuple2",
+    "oid": "1.3.6.1.4.1.89.88.31.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxTuple3": {
+    "name": "rlQosAceTidxTuple3",
+    "oid": "1.3.6.1.4.1.89.88.31.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxTuple4": {
+    "name": "rlQosAceTidxTuple4",
+    "oid": "1.3.6.1.4.1.89.88.31.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxTuple5": {
+    "name": "rlQosAceTidxTuple5",
+    "oid": "1.3.6.1.4.1.89.88.31.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxTuple6": {
+    "name": "rlQosAceTidxTuple6",
+    "oid": "1.3.6.1.4.1.89.88.31.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxTuple7": {
+    "name": "rlQosAceTidxTuple7",
+    "oid": "1.3.6.1.4.1.89.88.31.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxTuple8": {
+    "name": "rlQosAceTidxTuple8",
+    "oid": "1.3.6.1.4.1.89.88.31.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxAccount": {
+    "name": "rlQosAceTidxAccount",
+    "oid": "1.3.6.1.4.1.89.88.31.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "BinaryStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosAceTidxStatus": {
+    "name": "rlQosAceTidxStatus",
+    "oid": "1.3.6.1.4.1.89.88.31.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rlQosMibVersion": {
+    "name": "rlQosMibVersion",
+    "oid": "1.3.6.1.4.1.89.88.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosDscpQueueDefaultMapTable": {
+    "name": "rlQosDscpQueueDefaultMapTable",
+    "oid": "1.3.6.1.4.1.89.88.33",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosDscpQueueDefaultMapEntry": {
+    "name": "rlQosDscpQueueDefaultMapEntry",
+    "oid": "1.3.6.1.4.1.89.88.33.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosDscpQueueDefaultMapDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosDscpQueueDefaultMapDscp": {
+    "name": "rlQosDscpQueueDefaultMapDscp",
+    "oid": "1.3.6.1.4.1.89.88.33.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosDscpQueueDefaultMapQueueId": {
+    "name": "rlQosDscpQueueDefaultMapQueueId",
+    "oid": "1.3.6.1.4.1.89.88.33.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rlQosDscpToDpTable": {
+    "name": "rlQosDscpToDpTable",
+    "oid": "1.3.6.1.4.1.89.88.34",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosDscpToDpEntry": {
+    "name": "rlQosDscpToDpEntry",
+    "oid": "1.3.6.1.4.1.89.88.34.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RADLAN-QOS-CLI-MIB",
+        "object": "rlQosDscp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rlQosDscp": {
+    "name": "rlQosDscp",
+    "oid": "1.3.6.1.4.1.89.88.34.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rlQosDp": {
+    "name": "rlQosDp",
+    "oid": "1.3.6.1.4.1.89.88.34.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radlan/RADLAN-QOS-CLI-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:30 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RADLAN-QOS-CLI-MIB"
+  }
+}

@@ -1,0 +1,5057 @@
+{
+  "imports": {
+    "class": "imports",
+    "EATON-OIDS": [
+      "pduAgent"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "iso",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "eaton": {
+    "name": "eaton",
+    "oid": "1.3.6.1.4.1.534",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.534.6",
+    "class": "objectidentity"
+  },
+  "pduAgent": {
+    "name": "pduAgent",
+    "oid": "1.3.6.1.4.1.534.6.6",
+    "class": "objectidentity"
+  },
+  "eatonEpdu": {
+    "name": "eatonEpdu",
+    "oid": "1.3.6.1.4.1.534.6.6.7",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2018-05-30 15:00",
+        "description": "- Add information about architecture of the ePDU. - Add outlet automatic shutoff."
+      },
+      {
+        "revision": "2017-09-11 12:00",
+        "description": "- Add physical name for input, outlet and gang. - Add friendly name for input. - Add input identification for outlet. - Add the nominal power for ePDU input. - Add a new outlet type sdg300 (31)."
+      },
+      {
+        "revision": "2017-04-20 12:00",
+        "description": "Add color codes for each input and group. Color codes are decimal values."
+      },
+      {
+        "revision": "2015-02-23 12:00",
+        "description": "Fix compatibility with some SNMP host software by adding some assignments."
+      },
+      {
+        "revision": "2014-09-29 12:00",
+        "description": "Added outletControlSwitchable and outletControlShutoffDelay object."
+      },
+      {
+        "revision": "2013-12-18 12:00",
+        "description": "Added notifyStrappingStatus and strappingStatus object."
+      },
+      {
+        "revision": "2013-09-02 12:00",
+        "description": "- Add values for commInterface : ftp (4), xml (5)"
+      },
+      {
+        "revision": "2013-05-29 12:00",
+        "description": "- Edited values for outletType: removed nema51520(21); added nemaL715(29), rf203p277 (30)"
+      },
+      {
+        "revision": "2013-02-21 12:00",
+        "description": "- Added unit objects : unitType. - Added input objects : inputCurrentCrestFactor, inputCurrentPercentLoad, inputPowerFactor, inputVAR, inputPlugType. - Added gang objects : groupCurrentCrestFactor, groupCurrentPercentLoad, groupPowerFactor, groupVAR. - Added outlet objects : outletCurrentCrestFactor, outletCurrentPercentLoad, outletPowerFactor, outletVAR."
+      },
+      {
+        "revision": "2011-11-21 12:00",
+        "description": "- Added notifyGroupBreakerStatus object. - Renamed groupStatus object to groupBreakerStatus. This object had not yet been implemented so there is no user impact. - Updated descriptions for inputWhTimer, groupWhTimer, and outletWhTimer."
+      },
+      {
+        "revision": "2011-10-24 12:00",
+        "description": "- Added notifyBootUp object. - Added outletType object. - Updated description for all lower and upper thresholds to indicate that a value of -1 indicates that it is not supported by a particular ePDU model. - Updated descriptions for inputVA, inputWatts, groupVA, groupWatts, outletVA, outletWatts to indicate that a value of -1 indicates that it is not supported by a particular ePDU model. - Added a note to unit, group, and outlet level control command objects indicating that some products (mainly with part numbers that begin with IPV or IPC) do not support delayed outlet control commands and will reply with an error if a command value is written that is > 0. - Corrected description for inputType. - Added a UnixTimeStamp Textual Convention and changed the SYNTAX of inputWhTimer, groupWhTimer, and outletWhTimer to use it. - Updated the contact info to reference the ePDU website."
+      },
+      {
+        "revision": "2011-02-07 15:29",
+        "description": "Initial release."
+      }
+    ]
+  },
+  "UnixTimeStamp": {
+    "name": "UnixTimeStamp",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "notifications": {
+    "name": "notifications",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0",
+    "class": "objectidentity"
+  },
+  "units": {
+    "name": "units",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1",
+    "class": "objectidentity"
+  },
+  "inputs": {
+    "name": "inputs",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3",
+    "class": "objectidentity"
+  },
+  "groups": {
+    "name": "groups",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5",
+    "class": "objectidentity"
+  },
+  "outlets": {
+    "name": "outlets",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6",
+    "class": "objectidentity"
+  },
+  "environmental": {
+    "name": "environmental",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7",
+    "class": "objectidentity"
+  },
+  "conformance": {
+    "name": "conformance",
+    "oid": "1.3.6.1.4.1.534.6.6.7.25",
+    "class": "objectidentity"
+  },
+  "objectGroups": {
+    "name": "objectGroups",
+    "oid": "1.3.6.1.4.1.534.6.6.7.25.5",
+    "class": "objectidentity"
+  },
+  "notifyUserLogin": {
+    "name": "notifyUserLogin",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "commInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyUserLogout": {
+    "name": "notifyUserLogout",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "commInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyFailedLogin": {
+    "name": "notifyFailedLogin",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "userName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "commInterface"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyBootUp": {
+    "name": "notifyBootUp",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyInputVoltageThStatus": {
+    "name": "notifyInputVoltageThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltage"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageThStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyInputCurrentThStatus": {
+    "name": "notifyInputCurrentThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrent"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentThStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyInputFrequencyStatus": {
+    "name": "notifyInputFrequencyStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputFrequency"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputFrequencyStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyGroupVoltageThStatus": {
+    "name": "notifyGroupVoltageThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.21",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVoltage"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVoltageThStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyGroupCurrentThStatus": {
+    "name": "notifyGroupCurrentThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.22",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrent"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrentThStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyGroupBreakerStatus": {
+    "name": "notifyGroupBreakerStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.23",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupBreakerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyOutletVoltageThStatus": {
+    "name": "notifyOutletVoltageThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletVoltage"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletVoltageThStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyOutletCurrentThStatus": {
+    "name": "notifyOutletCurrentThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrent"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrentThStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyOutletControlStatus": {
+    "name": "notifyOutletControlStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletControlStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyTemperatureThStatus": {
+    "name": "notifyTemperatureThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.41",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureValue"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureThStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyHumidityThStatus": {
+    "name": "notifyHumidityThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.42",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityValue"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityThStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyContactState": {
+    "name": "notifyContactState",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.43",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "contactIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "contactState"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyProbeStatus": {
+    "name": "notifyProbeStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.44",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureProbeStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyCommunicationStatus": {
+    "name": "notifyCommunicationStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.51",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "communicationStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyInternalStatus": {
+    "name": "notifyInternalStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.52",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "internalStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "notifyTest": {
+    "name": "notifyTest",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.53",
+    "class": "notificationtype",
+    "status": "current"
+  },
+  "notifyStrappingStatus": {
+    "name": "notifyStrappingStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.0.54",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "unitsPresent": {
+    "name": "unitsPresent",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitTable": {
+    "name": "unitTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "unitEntry": {
+    "name": "unitEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "strappingIndex": {
+    "name": "strappingIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "productName": {
+    "name": "productName",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "partNumber": {
+    "name": "partNumber",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "firmwareVersion": {
+    "name": "firmwareVersion",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "unitName": {
+    "name": "unitName",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lcdControl": {
+    "name": "lcdControl",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "lcdScreenOff": 1,
+          "lcdKeyLock": 2,
+          "lcdScreenOffAndKeyLock": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "clockValue": {
+    "name": "clockValue",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureScale": {
+    "name": "temperatureScale",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "celsius": 0,
+          "fahrenheit": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitType": {
+    "name": "unitType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "switched": 1,
+          "advancedMonitored": 2,
+          "managed": 3,
+          "monitored": 4,
+          "basic": 5,
+          "inlineMonitored": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "systemType": {
+    "name": "systemType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "g3ePDU": 1,
+          "g3HDePDU": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputCount": {
+    "name": "inputCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupCount": {
+    "name": "groupCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletCount": {
+    "name": "outletCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureCount": {
+    "name": "temperatureCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityCount": {
+    "name": "humidityCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "contactCount": {
+    "name": "contactCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "communicationStatus": {
+    "name": "communicationStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "communicationLost": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "internalStatus": {
+    "name": "internalStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "internalFailure": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "strappingStatus": {
+    "name": "strappingStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "communicationLost": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "userName": {
+    "name": "userName",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "commInterface": {
+    "name": "commInterface",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.2.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "serial": 0,
+          "usb": 1,
+          "telnet": 2,
+          "web": 3,
+          "ftp": 4,
+          "xml": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "unitControlTable": {
+    "name": "unitControlTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "unitControlEntry": {
+    "name": "unitControlEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "unitControlOffCmd": {
+    "name": "unitControlOffCmd",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "unitControlOnCmd": {
+    "name": "unitControlOnCmd",
+    "oid": "1.3.6.1.4.1.534.6.6.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputTable": {
+    "name": "inputTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inputEntry": {
+    "name": "inputEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "inputIndex": {
+    "name": "inputIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "inputType": {
+    "name": "inputType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase": 1,
+          "splitPhase": 2,
+          "threePhaseDelta": 3,
+          "threePhaseWye": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputFrequency": {
+    "name": "inputFrequency",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputFrequencyStatus": {
+    "name": "inputFrequencyStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "outOfRange": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputVoltageCount": {
+    "name": "inputVoltageCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputCurrentCount": {
+    "name": "inputCurrentCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputPowerCount": {
+    "name": "inputPowerCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputPlugType": {
+    "name": "inputPlugType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other1Phase": 100,
+          "other2Phase": 200,
+          "other3Phase": 300,
+          "iecC14Inlet": 101,
+          "iecC20Inlet": 102,
+          "iec316P6": 103,
+          "iec332P6": 104,
+          "iec360P6": 105,
+          "iecC14Plug": 106,
+          "iecC20Plug": 107,
+          "nema515": 120,
+          "nemaL515": 121,
+          "nema520": 122,
+          "nemaL520": 123,
+          "nema615": 124,
+          "nemaL615": 125,
+          "nemaL530": 126,
+          "nema620": 127,
+          "nemaL620": 128,
+          "nemaL630": 129,
+          "cs8265": 130,
+          "french": 150,
+          "schuko": 151,
+          "uk": 152,
+          "nemaL1420": 201,
+          "nemaL1430": 202,
+          "iec516P6": 301,
+          "iec460P9": 302,
+          "iec560P9": 303,
+          "iec532P6": 304,
+          "iec563P6": 306,
+          "nemaL1520": 320,
+          "nemaL2120": 321,
+          "nemaL1530": 322,
+          "nemaL2130": 323,
+          "cs8365": 324,
+          "nemaL2220": 325,
+          "nemaL2230": 326,
+          "bladeUps208V": 350,
+          "bladeUps400V": 351
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputFeedColor": {
+    "name": "inputFeedColor",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputFeedName": {
+    "name": "inputFeedName",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputVoltageTable": {
+    "name": "inputVoltageTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inputVoltageEntry": {
+    "name": "inputVoltageEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "inputVoltageIndex": {
+    "name": "inputVoltageIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "inputVoltageMeasType": {
+    "name": "inputVoltageMeasType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase": 1,
+          "phase1toN": 2,
+          "phase2toN": 3,
+          "phase3toN": 4,
+          "phase1to2": 5,
+          "phase2to3": 6,
+          "phase3to1": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputVoltage": {
+    "name": "inputVoltage",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputVoltageThStatus": {
+    "name": "inputVoltageThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "lowWarning": 1,
+          "lowCritical": 2,
+          "highWarning": 3,
+          "highCritical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputVoltageThLowerWarning": {
+    "name": "inputVoltageThLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputVoltageThLowerCritical": {
+    "name": "inputVoltageThLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputVoltageThUpperWarning": {
+    "name": "inputVoltageThUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputVoltageThUpperCritical": {
+    "name": "inputVoltageThUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputCurrentTable": {
+    "name": "inputCurrentTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inputCurrentEntry": {
+    "name": "inputCurrentEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "inputCurrentIndex": {
+    "name": "inputCurrentIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "inputCurrentMeasType": {
+    "name": "inputCurrentMeasType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase": 1,
+          "neutral": 2,
+          "phase1": 3,
+          "phase2": 4,
+          "phase3": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputCurrentCapacity": {
+    "name": "inputCurrentCapacity",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputCurrent": {
+    "name": "inputCurrent",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputCurrentThStatus": {
+    "name": "inputCurrentThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "lowWarning": 1,
+          "lowCritical": 2,
+          "highWarning": 3,
+          "highCritical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputCurrentThLowerWarning": {
+    "name": "inputCurrentThLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputCurrentThLowerCritical": {
+    "name": "inputCurrentThLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputCurrentThUpperWarning": {
+    "name": "inputCurrentThUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputCurrentThUpperCritical": {
+    "name": "inputCurrentThUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputCurrentCrestFactor": {
+    "name": "inputCurrentCrestFactor",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputCurrentPercentLoad": {
+    "name": "inputCurrentPercentLoad",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputPhaseDesignator": {
+    "name": "inputPhaseDesignator",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputPowerTable": {
+    "name": "inputPowerTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inputPowerEntry": {
+    "name": "inputPowerEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "inputPowerIndex": {
+    "name": "inputPowerIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inputPowerMeasType": {
+    "name": "inputPowerMeasType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "phase1": 1,
+          "phase2": 2,
+          "phase3": 3,
+          "total": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputVA": {
+    "name": "inputVA",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputWatts": {
+    "name": "inputWatts",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputWh": {
+    "name": "inputWh",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputWhTimer": {
+    "name": "inputWhTimer",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputPowerFactor": {
+    "name": "inputPowerFactor",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputVAR": {
+    "name": "inputVAR",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTotalPowerTable": {
+    "name": "inputTotalPowerTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "inputTotalPowerEntry": {
+    "name": "inputTotalPowerEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "inputTotalVA": {
+    "name": "inputTotalVA",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTotalWatts": {
+    "name": "inputTotalWatts",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTotalWh": {
+    "name": "inputTotalWh",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "inputTotalWhTimer": {
+    "name": "inputTotalWhTimer",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTotalPowerFactor": {
+    "name": "inputTotalPowerFactor",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputTotalVAR": {
+    "name": "inputTotalVAR",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "inputPowerCapacity": {
+    "name": "inputPowerCapacity",
+    "oid": "1.3.6.1.4.1.534.6.6.7.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupTable": {
+    "name": "groupTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "groupEntry": {
+    "name": "groupEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "groupIndex": {
+    "name": "groupIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "groupID": {
+    "name": "groupID",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupName": {
+    "name": "groupName",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupType": {
+    "name": "groupType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "breaker1pole": 1,
+          "breaker2pole": 2,
+          "breaker3pole": 3,
+          "outletSection": 4,
+          "userDefined": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupBreakerStatus": {
+    "name": "groupBreakerStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "breakerOn": 1,
+          "breakerOff": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupChildCount": {
+    "name": "groupChildCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupColor": {
+    "name": "groupColor",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupDesignator": {
+    "name": "groupDesignator",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupInputIndex": {
+    "name": "groupInputIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupChildTable": {
+    "name": "groupChildTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "groupChildEntry": {
+    "name": "groupChildEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupChildIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "groupChildIndex": {
+    "name": "groupChildIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "groupChildType": {
+    "name": "groupChildType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "section": 2,
+          "custom": 3,
+          "outlet": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupChildOID": {
+    "name": "groupChildOID",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupVoltageTable": {
+    "name": "groupVoltageTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "groupVoltageEntry": {
+    "name": "groupVoltageEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "groupVoltageMeasType": {
+    "name": "groupVoltageMeasType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "singlePhase": 1,
+          "phase1toN": 2,
+          "phase2toN": 3,
+          "phase3toN": 4,
+          "phase1to2": 5,
+          "phase2to3": 6,
+          "phase3to1": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupVoltage": {
+    "name": "groupVoltage",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupVoltageThStatus": {
+    "name": "groupVoltageThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "lowWarning": 1,
+          "lowCritical": 2,
+          "highWarning": 3,
+          "highCritical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupVoltageThLowerWarning": {
+    "name": "groupVoltageThLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupVoltageThLowerCritical": {
+    "name": "groupVoltageThLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupVoltageThUpperWarning": {
+    "name": "groupVoltageThUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupVoltageThUpperCritical": {
+    "name": "groupVoltageThUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupCurrentTable": {
+    "name": "groupCurrentTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "groupCurrentEntry": {
+    "name": "groupCurrentEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "groupCurrentCapacity": {
+    "name": "groupCurrentCapacity",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupCurrent": {
+    "name": "groupCurrent",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupCurrentThStatus": {
+    "name": "groupCurrentThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "lowWarning": 1,
+          "lowCritical": 2,
+          "highWarning": 3,
+          "highCritical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupCurrentThLowerWarning": {
+    "name": "groupCurrentThLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupCurrentThLowerCritical": {
+    "name": "groupCurrentThLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupCurrentThUpperWarning": {
+    "name": "groupCurrentThUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupCurrentThUpperCritical": {
+    "name": "groupCurrentThUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupCurrentCrestFactor": {
+    "name": "groupCurrentCrestFactor",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupCurrentPercentLoad": {
+    "name": "groupCurrentPercentLoad",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupPowerTable": {
+    "name": "groupPowerTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "groupPowerEntry": {
+    "name": "groupPowerEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "groupVA": {
+    "name": "groupVA",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupWatts": {
+    "name": "groupWatts",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupWh": {
+    "name": "groupWh",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupWhTimer": {
+    "name": "groupWhTimer",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupPowerFactor": {
+    "name": "groupPowerFactor",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupVAR": {
+    "name": "groupVAR",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupControlTable": {
+    "name": "groupControlTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "groupControlEntry": {
+    "name": "groupControlEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "groupControlStatus": {
+    "name": "groupControlStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "rebooting": 2,
+          "mixed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "groupControlOffCmd": {
+    "name": "groupControlOffCmd",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupControlOnCmd": {
+    "name": "groupControlOnCmd",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "groupControlRebootCmd": {
+    "name": "groupControlRebootCmd",
+    "oid": "1.3.6.1.4.1.534.6.6.7.5.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 0
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletTable": {
+    "name": "outletTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletEntry": {
+    "name": "outletEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletIndex": {
+    "name": "outletIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "outletID": {
+    "name": "outletID",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletName": {
+    "name": "outletName",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletParentCount": {
+    "name": "outletParentCount",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletType": {
+    "name": "outletType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "iecC13": 1,
+          "iecC19": 2,
+          "uk": 10,
+          "french": 11,
+          "schuko": 12,
+          "nema515": 20,
+          "nema51520": 21,
+          "nema520": 22,
+          "nemaL520": 23,
+          "nemaL530": 24,
+          "nema615": 25,
+          "nema620": 26,
+          "nemaL620": 27,
+          "nemaL630": 28,
+          "nemaL715": 29,
+          "rf203p277": 30,
+          "sdg300": 31
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletDesignator": {
+    "name": "outletDesignator",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletPhaseID": {
+    "name": "outletPhaseID",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singlePhase": 1,
+          "phase1toN": 2,
+          "phase2toN": 3,
+          "phase3toN": 4,
+          "phase1to2": 5,
+          "phase2to3": 6,
+          "phase3to1": 7,
+          "phase12N": 8,
+          "phase23N": 9,
+          "phase31N": 10,
+          "phase123": 11,
+          "phase123N": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletParentTable": {
+    "name": "outletParentTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletParentEntry": {
+    "name": "outletParentEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletParentIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletParentIndex": {
+    "name": "outletParentIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletParentType": {
+    "name": "outletParentType",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "breaker": 1,
+          "section": 2,
+          "custom": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletParentOID": {
+    "name": "outletParentOID",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletVoltageTable": {
+    "name": "outletVoltageTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletVoltageEntry": {
+    "name": "outletVoltageEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletVoltage": {
+    "name": "outletVoltage",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletVoltageThStatus": {
+    "name": "outletVoltageThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "lowWarning": 1,
+          "lowCritical": 2,
+          "highWarning": 3,
+          "highCritical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletVoltageThLowerWarning": {
+    "name": "outletVoltageThLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletVoltageThLowerCritical": {
+    "name": "outletVoltageThLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletVoltageThUpperWarning": {
+    "name": "outletVoltageThUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletVoltageThUpperCritical": {
+    "name": "outletVoltageThUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 500000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCurrentTable": {
+    "name": "outletCurrentTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletCurrentEntry": {
+    "name": "outletCurrentEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletCurrentCapacity": {
+    "name": "outletCurrentCapacity",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletCurrent": {
+    "name": "outletCurrent",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletCurrentThStatus": {
+    "name": "outletCurrentThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "lowWarning": 1,
+          "lowCritical": 2,
+          "highWarning": 3,
+          "highCritical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletCurrentThLowerWarning": {
+    "name": "outletCurrentThLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCurrentThLowerCritical": {
+    "name": "outletCurrentThLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCurrentThUpperWarning": {
+    "name": "outletCurrentThUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCurrentThUpperCritical": {
+    "name": "outletCurrentThUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletCurrentCrestFactor": {
+    "name": "outletCurrentCrestFactor",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletCurrentPercentLoad": {
+    "name": "outletCurrentPercentLoad",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletPowerTable": {
+    "name": "outletPowerTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletPowerEntry": {
+    "name": "outletPowerEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletVA": {
+    "name": "outletVA",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletWatts": {
+    "name": "outletWatts",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletWh": {
+    "name": "outletWh",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletWhTimer": {
+    "name": "outletWhTimer",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnixTimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletPowerFactor": {
+    "name": "outletPowerFactor",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletVAR": {
+    "name": "outletVAR",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletControlTable": {
+    "name": "outletControlTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletControlEntry": {
+    "name": "outletControlEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletControlStatus": {
+    "name": "outletControlStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "pendingOff": 2,
+          "pendingOn": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "outletControlOffCmd": {
+    "name": "outletControlOffCmd",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletControlOnCmd": {
+    "name": "outletControlOnCmd",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletControlRebootCmd": {
+    "name": "outletControlRebootCmd",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletControlPowerOnState": {
+    "name": "outletControlPowerOnState",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 0,
+          "on": 1,
+          "lastState": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletControlSequenceDelay": {
+    "name": "outletControlSequenceDelay",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletControlRebootOffTime": {
+    "name": "outletControlRebootOffTime",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletControlSwitchable": {
+    "name": "outletControlSwitchable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "switchable": 1,
+          "notSwitchable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletControlShutoffDelay": {
+    "name": "outletControlShutoffDelay",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "outletGlobalTable": {
+    "name": "outletGlobalTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "outletGlobalEntry": {
+    "name": "outletGlobalEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "outletAutomaticShutoff": {
+    "name": "outletAutomaticShutoff",
+    "oid": "1.3.6.1.4.1.534.6.6.7.6.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 0,
+          "keepTheCurrentPosition": 1,
+          "shutoffTheOutlets": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureTable": {
+    "name": "temperatureTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "temperatureEntry": {
+    "name": "temperatureEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "temperatureIndex": {
+    "name": "temperatureIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "temperatureName": {
+    "name": "temperatureName",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureProbeStatus": {
+    "name": "temperatureProbeStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bad": -1,
+          "disconnected": 0,
+          "connected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureValue": {
+    "name": "temperatureValue",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureThStatus": {
+    "name": "temperatureThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "lowWarning": 1,
+          "lowCritical": 2,
+          "highWarning": 3,
+          "highCritical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "temperatureThLowerWarning": {
+    "name": "temperatureThLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureThLowerCritical": {
+    "name": "temperatureThLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureThUpperWarning": {
+    "name": "temperatureThUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "temperatureThUpperCritical": {
+    "name": "temperatureThUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 150000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityTable": {
+    "name": "humidityTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "humidityEntry": {
+    "name": "humidityEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "humidityIndex": {
+    "name": "humidityIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "humidityName": {
+    "name": "humidityName",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityProbeStatus": {
+    "name": "humidityProbeStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bad": -1,
+          "disconnected": 0,
+          "connected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityValue": {
+    "name": "humidityValue",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityThStatus": {
+    "name": "humidityThStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "good": 0,
+          "lowWarning": 1,
+          "lowCritical": 2,
+          "highWarning": 3,
+          "highCritical": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "humidityThLowerWarning": {
+    "name": "humidityThLowerWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityThLowerCritical": {
+    "name": "humidityThLowerCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityThUpperWarning": {
+    "name": "humidityThUpperWarning",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "humidityThUpperCritical": {
+    "name": "humidityThUpperCritical",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "contactTable": {
+    "name": "contactTable",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "contactEntry": {
+    "name": "contactEntry",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex",
+        "implied": 0
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "contactIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "contactIndex": {
+    "name": "contactIndex",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "contactName": {
+    "name": "contactName",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "contactProbeStatus": {
+    "name": "contactProbeStatus",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bad": -1,
+          "disconnected": 0,
+          "connected": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "contactState": {
+    "name": "contactState",
+    "oid": "1.3.6.1.4.1.534.6.6.7.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "contactBad": -1,
+          "contactOpen": 0,
+          "contactClosed": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "eatonEpduCompliances": {
+    "name": "eatonEpduCompliances",
+    "oid": "1.3.6.1.4.1.534.6.6.7.25.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "epduRequiredGroup",
+        "module": "EATON-EPDU-MIB"
+      },
+      {
+        "object": "epduOptionalGroup",
+        "module": "EATON-EPDU-MIB"
+      },
+      {
+        "object": "epduNotifyGroup",
+        "module": "EATON-EPDU-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "epduRequiredGroup": {
+    "name": "epduRequiredGroup",
+    "oid": "1.3.6.1.4.1.534.6.6.7.25.5.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "unitName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "firmwareVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "epduOptionalGroup": {
+    "name": "epduOptionalGroup",
+    "oid": "1.3.6.1.4.1.534.6.6.7.25.5.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "clockValue"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "commInterface"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "communicationStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "contactCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "contactIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "contactName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "contactProbeStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "contactState"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupBreakerStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupChildCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupChildOID"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupChildType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupColor"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupControlOnCmd"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupControlOffCmd"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupControlRebootCmd"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupControlStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrent"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrentCapacity"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrentCrestFactor"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrentPercentLoad"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrentThLowerCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrentThLowerWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrentThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrentThUpperCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupCurrentThUpperWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupDesignator"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupID"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupInputIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupPowerFactor"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVA"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVAR"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVoltage"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVoltageMeasType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVoltageThLowerCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVoltageThLowerWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVoltageThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVoltageThUpperCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupVoltageThUpperWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupWatts"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupWh"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "groupWhTimer"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityProbeStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityThLowerCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityThLowerWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityThUpperCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityThUpperWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "humidityValue"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrent"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentCapacity"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentCrestFactor"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentMeasType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentPercentLoad"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentThLowerCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentThLowerWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentThUpperCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputCurrentThUpperWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputFeedColor"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputFeedName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputFrequency"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputFrequencyStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputPhaseDesignator"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputPlugType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputPowerCapacity"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputPowerCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputPowerFactor"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputPowerMeasType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputTotalPowerFactor"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputTotalVA"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputTotalVAR"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputTotalWatts"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputTotalWh"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputTotalWhTimer"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVA"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVAR"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltage"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageMeasType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageThLowerCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageThLowerWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageThUpperCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputVoltageThUpperWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputWatts"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputWh"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "inputWhTimer"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "internalStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "lcdControl"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletAutomaticShutoff"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletControlSwitchable"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletControlShutoffDelay"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletControlOffCmd"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletControlOnCmd"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletControlPowerOnState"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletControlRebootCmd"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletControlRebootOffTime"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletControlSequenceDelay"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletControlStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrent"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrentCapacity"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrentCrestFactor"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrentPercentLoad"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrentThLowerCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrentThLowerWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrentThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrentThUpperCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletCurrentThUpperWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletDesignator"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletID"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletParentCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletParentOID"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletParentType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletPhaseID"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletPowerFactor"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletVA"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletVAR"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletVoltage"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletVoltageThLowerCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletVoltageThLowerWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletVoltageThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletVoltageThUpperCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletVoltageThUpperWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletWatts"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletWh"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "outletWhTimer"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "partNumber"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "productName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "serialNumber"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "strappingStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "systemType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureCount"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureIndex"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureProbeStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureScale"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureThLowerCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureThLowerWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureThUpperCritical"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureThUpperWarning"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "temperatureValue"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "unitControlOffCmd"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "unitControlOnCmd"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "unitName"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "unitsPresent"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "unitType"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "userName"
+      }
+    ],
+    "status": "current"
+  },
+  "epduNotifyGroup": {
+    "name": "epduNotifyGroup",
+    "oid": "1.3.6.1.4.1.534.6.6.7.25.5.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyBootUp"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyCommunicationStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyContactState"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyFailedLogin"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyGroupCurrentThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyGroupVoltageThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyGroupBreakerStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyHumidityThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyInputCurrentThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyInputFrequencyStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyInputVoltageThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyInternalStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyOutletControlStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyOutletCurrentThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyOutletVoltageThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyProbeStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyStrappingStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyTemperatureThStatus"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyTest"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyUserLogin"
+      },
+      {
+        "module": "EATON-EPDU-MIB",
+        "object": "notifyUserLogout"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eaton/EATON-EPDU-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:53 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "EATON-EPDU-MIB"
+  }
+}

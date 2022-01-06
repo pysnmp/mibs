@@ -1,0 +1,806 @@
+{
+  "imports": {
+    "class": "imports",
+    "HH3C-FC-TC-MIB": [
+      "Hh3cFcNameIdOrZero"
+    ],
+    "HH3C-VSAN-MIB": [
+      "hh3cSan"
+    ],
+    "IF-MIB": [
+      "ifDescr",
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "hh3cFcPsm": {
+    "name": "hh3cFcPsm",
+    "oid": "1.3.6.1.4.1.25506.2.127.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-10-17 00:00",
+        "description": "HH3C-FC-PSM-MIB module is for managing the implementation of FC port security."
+      }
+    ]
+  },
+  "hh3cFcPsmNotifications": {
+    "name": "hh3cFcPsmNotifications",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.0",
+    "class": "objectidentity"
+  },
+  "hh3cFcPsmObjects": {
+    "name": "hh3cFcPsmObjects",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1",
+    "class": "objectidentity"
+  },
+  "hh3cFcPsmScalarObjects": {
+    "name": "hh3cFcPsmScalarObjects",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.1",
+    "class": "objectidentity"
+  },
+  "hh3cFcPsmConfiguration": {
+    "name": "hh3cFcPsmConfiguration",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2",
+    "class": "objectidentity"
+  },
+  "hh3cFcPsmStats": {
+    "name": "hh3cFcPsmStats",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3",
+    "class": "objectidentity"
+  },
+  "Hh3cFcPsmPortBindDevType": {
+    "name": "Hh3cFcPsmPortBindDevType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nWWN": 1,
+          "pWWN": 2,
+          "sWWN": 3,
+          "wildCard": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "Hh3cFcPsmClearEntryType": {
+    "name": "Hh3cFcPsmClearEntryType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearStatic": 1,
+          "clearAutoLearn": 2,
+          "clearAll": 3,
+          "noop": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "hh3cFcPsmNotifyEnable": {
+    "name": "hh3cFcPsmNotifyEnable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFcPsmEnableTable": {
+    "name": "hh3cFcPsmEnableTable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmEnableEntry": {
+    "name": "hh3cFcPsmEnableEntry",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmEnableVsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcPsmEnableVsanIndex": {
+    "name": "hh3cFcPsmEnableVsanIndex",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmEnable": {
+    "name": "hh3cFcPsmEnable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "enableWithAutoLearn": 2,
+          "disable": 3,
+          "noop": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFcPsmEnableState": {
+    "name": "hh3cFcPsmEnableState",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmConfigTable": {
+    "name": "hh3cFcPsmConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmConfigEntry": {
+    "name": "hh3cFcPsmConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmEnableVsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcPsmIndex": {
+    "name": "hh3cFcPsmIndex",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32768
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmLoginDevType": {
+    "name": "hh3cFcPsmLoginDevType",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFcPsmPortBindDevType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFcPsmLoginDev": {
+    "name": "hh3cFcPsmLoginDev",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFcPsmLoginPoint": {
+    "name": "hh3cFcPsmLoginPoint",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFcPsmRowStatus": {
+    "name": "hh3cFcPsmRowStatus",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "hh3cFcPsmEnfTable": {
+    "name": "hh3cFcPsmEnfTable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmEnfEntry": {
+    "name": "hh3cFcPsmEnfEntry",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmEnableVsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmEnfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcPsmEnfIndex": {
+    "name": "hh3cFcPsmEnfIndex",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 32768
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmEnfLoginDevType": {
+    "name": "hh3cFcPsmEnfLoginDevType",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFcPsmPortBindDevType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmEnfLoginDev": {
+    "name": "hh3cFcPsmEnfLoginDev",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmEnfLoginPoint": {
+    "name": "hh3cFcPsmEnfLoginPoint",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmEnfEntryType": {
+    "name": "hh3cFcPsmEnfEntryType",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "learning": 1,
+          "learned": 2,
+          "static": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmCopyToConfigTable": {
+    "name": "hh3cFcPsmCopyToConfigTable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmCopyToConfigEntry": {
+    "name": "hh3cFcPsmCopyToConfigEntry",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmEnableVsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcPsmCopyToConfig": {
+    "name": "hh3cFcPsmCopyToConfig",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copy": 1,
+          "noop": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFcPsmAutoLearnTable": {
+    "name": "hh3cFcPsmAutoLearnTable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmAutoLearnEntry": {
+    "name": "hh3cFcPsmAutoLearnEntry",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmEnableVsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcPsmAutoLearnEnable": {
+    "name": "hh3cFcPsmAutoLearnEnable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFcPsmClearTable": {
+    "name": "hh3cFcPsmClearTable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmClearEntry": {
+    "name": "hh3cFcPsmClearEntry",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmEnableVsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcPsmClearType": {
+    "name": "hh3cFcPsmClearType",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFcPsmClearEntryType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFcPsmClearIntf": {
+    "name": "hh3cFcPsmClearIntf",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFcPsmStatsTable": {
+    "name": "hh3cFcPsmStatsTable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmStatsEntry": {
+    "name": "hh3cFcPsmStatsEntry",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmEnableVsanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcPsmAllowedLogins": {
+    "name": "hh3cFcPsmAllowedLogins",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmDeniedLogins": {
+    "name": "hh3cFcPsmDeniedLogins",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmStatsClear": {
+    "name": "hh3cFcPsmStatsClear",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clear": 1,
+          "noop": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noop",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hh3cFcPsmViolationTable": {
+    "name": "hh3cFcPsmViolationTable",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmViolationEntry": {
+    "name": "hh3cFcPsmViolationEntry",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmEnableVsanIndex",
+        "implied": 0
+      },
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmViolationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcPsmViolationIndex": {
+    "name": "hh3cFcPsmViolationIndex",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hh3cFcPsmLoginPWWN": {
+    "name": "hh3cFcPsmLoginPWWN",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmLoginNWWN": {
+    "name": "hh3cFcPsmLoginNWWN",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmLoginSWWN": {
+    "name": "hh3cFcPsmLoginSWWN",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Hh3cFcNameIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmLoginIntf": {
+    "name": "hh3cFcPsmLoginIntf",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmLoginTime": {
+    "name": "hh3cFcPsmLoginTime",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmLoginCount": {
+    "name": "hh3cFcPsmLoginCount",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hh3cFcPsmFPortDenyNotify": {
+    "name": "hh3cFcPsmFPortDenyNotify",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmLoginPWWN"
+      },
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmLoginIntf"
+      },
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmLoginTime"
+      }
+    ],
+    "status": "current"
+  },
+  "hh3cFcPsmEPortDenyNotify": {
+    "name": "hh3cFcPsmEPortDenyNotify",
+    "oid": "1.3.6.1.4.1.25506.2.127.8.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmLoginSWWN"
+      },
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmLoginIntf"
+      },
+      {
+        "module": "HH3C-FC-PSM-MIB",
+        "object": "hh3cFcPsmLoginTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FC-PSM-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:25:02 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "HH3C-FC-PSM-MIB"
+  }
+}

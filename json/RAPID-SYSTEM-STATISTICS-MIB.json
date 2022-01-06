@@ -1,0 +1,183 @@
+{
+  "imports": {
+    "class": "imports",
+    "RAPID-MIB": [
+      "rapidstream"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "OBJECT-TYPE",
+      "enterprises",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "rsInfoModule": {
+    "name": "rsInfoModule",
+    "oid": "1.3.6.1.4.1.4355.6",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-05-16 12:00",
+        "description": "Initial revision."
+      },
+      {
+        "revision": "2002-11-01 12:00",
+        "description": "Changed CONTACT-INFO."
+      }
+    ]
+  },
+  "rsSystemStatisticsMIB": {
+    "name": "rsSystemStatisticsMIB",
+    "oid": "1.3.6.1.4.1.4355.6.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rsSystemCpuUtil": {
+    "name": "rsSystemCpuUtil",
+    "oid": "1.3.6.1.4.1.4355.6.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsSystemTotalSendBytes": {
+    "name": "rsSystemTotalSendBytes",
+    "oid": "1.3.6.1.4.1.4355.6.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsSystemTotalRecvBytes": {
+    "name": "rsSystemTotalRecvBytes",
+    "oid": "1.3.6.1.4.1.4355.6.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsSystemTotalSendPackets": {
+    "name": "rsSystemTotalSendPackets",
+    "oid": "1.3.6.1.4.1.4355.6.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsSystemTotalRecvPackets": {
+    "name": "rsSystemTotalRecvPackets",
+    "oid": "1.3.6.1.4.1.4355.6.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsSystemStreamReqTotal": {
+    "name": "rsSystemStreamReqTotal",
+    "oid": "1.3.6.1.4.1.4355.6.3.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsSystemStreamReqDrop": {
+    "name": "rsSystemStreamReqDrop",
+    "oid": "1.3.6.1.4.1.4355.6.3.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsSystemCpuUtil1": {
+    "name": "rsSystemCpuUtil1",
+    "oid": "1.3.6.1.4.1.4355.6.3.77",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsSystemCpuUtil5": {
+    "name": "rsSystemCpuUtil5",
+    "oid": "1.3.6.1.4.1.4355.6.3.78",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rsSystemCpuUtil15": {
+    "name": "rsSystemCpuUtil15",
+    "oid": "1.3.6.1.4.1.4355.6.3.79",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-SYSTEM-STATISTICS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:45:14 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "RAPID-SYSTEM-STATISTICS-MIB"
+  }
+}

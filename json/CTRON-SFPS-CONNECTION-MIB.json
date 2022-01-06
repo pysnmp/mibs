@@ -1,0 +1,1604 @@
+{
+  "imports": {
+    "class": "imports",
+    "CTRON-SFPS-INCLUDE-MIB": [
+      "sfpsConnectionConfigAPI",
+      "sfpsCNXPacketStats",
+      "sfpsConnectionAPI",
+      "sfpsConnectionTestAPI",
+      "sfpsConnectionStats",
+      "sfpsSwitchConnections",
+      "sfpsConnectionLookupAPI",
+      "sfpsConnectionQueryAPI"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "SfpsSwitchPort": {
+    "name": "SfpsSwitchPort",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "SfpsAddress": {
+    "name": "SfpsAddress",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    }
+  },
+  "sfpsConnectionTable": {
+    "name": "sfpsConnectionTable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "sfpsConnectionEntry": {
+    "name": "sfpsConnectionEntry",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CTRON-SFPS-CONNECTION-MIB",
+        "object": "sfpsConnectionDestination",
+        "implied": 0
+      },
+      {
+        "module": "CTRON-SFPS-CONNECTION-MIB",
+        "object": "sfpsConnectionSource",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "sfpsConnectionDestination": {
+    "name": "sfpsConnectionDestination",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionSource": {
+    "name": "sfpsConnectionSource",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionPrimInPort": {
+    "name": "sfpsConnectionPrimInPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionPrimOutPort": {
+    "name": "sfpsConnectionPrimOutPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionSecInPort": {
+    "name": "sfpsConnectionSecInPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionSecOutPort": {
+    "name": "sfpsConnectionSecOutPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionCtrlStatus": {
+    "name": "sfpsConnectionCtrlStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "activate": 2,
+          "delete": 3,
+          "under-creation": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionAdminStatus": {
+    "name": "sfpsConnectionAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionAge": {
+    "name": "sfpsConnectionAge",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionType": {
+    "name": "sfpsConnectionType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "filter": 1,
+          "provisioned": 2,
+          "switched": 3,
+          "netport-filter": 4,
+          "self-prog-non-filter": 5,
+          "vlan": 6,
+          "tap": 7,
+          "mcast": 8
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionPkts": {
+    "name": "sfpsConnectionPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionBytes": {
+    "name": "sfpsConnectionBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionCanAge": {
+    "name": "sfpsConnectionCanAge",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionPrimOutPorts": {
+    "name": "sfpsConnectionPrimOutPorts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionSecOutPorts": {
+    "name": "sfpsConnectionSecOutPorts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsAPIVerb": {
+    "name": "sfpsAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "map": 2,
+          "unmap": 3,
+          "unmapall": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "map",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIInPort": {
+    "name": "sfpsAPIInPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsSwitchPort",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIInHeaderType": {
+    "name": "sfpsAPIInHeaderType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "mac-da-sa": 2,
+          "atm-vpi-vci": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mac-da-sa",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIInHeaderLength": {
+    "name": "sfpsAPIInHeaderLength",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 12,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIInHeaderValue": {
+    "name": "sfpsAPIInHeaderValue",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIOutPort": {
+    "name": "sfpsAPIOutPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsSwitchPort",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIOutHeaderType": {
+    "name": "sfpsAPIOutHeaderType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "mac-da-sa": 2,
+          "atm-vpi-vci": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIOutHeaderLength": {
+    "name": "sfpsAPIOutHeaderLength",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIOutHeaderValue": {
+    "name": "sfpsAPIOutHeaderValue",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIArgumentDirection": {
+    "name": "sfpsAPIArgumentDirection",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "bi-directional": 2,
+          "uni-directional": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "bi-directional",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIArgumentOwner": {
+    "name": "sfpsAPIArgumentOwner",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "own-the-call": 2,
+          "dont-own-the-call": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "dont-own-the-call",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIArgumentPriority": {
+    "name": "sfpsAPIArgumentPriority",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "priority-1": 2,
+          "priority-2": 3,
+          "priority-3": 4,
+          "priority-4": 5,
+          "priority-5": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsAPIType": {
+    "name": "sfpsAPIType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "switched": 2,
+          "filtered": 3,
+          "provisioned": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "switched",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsMaxCnxs": {
+    "name": "sfpsConnectionStatsMaxCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsTotalCnxs": {
+    "name": "sfpsConnectionStatsTotalCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsSwitchedCnxs": {
+    "name": "sfpsConnectionStatsSwitchedCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsVlanCnxs": {
+    "name": "sfpsConnectionStatsVlanCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsFilterCnxs": {
+    "name": "sfpsConnectionStatsFilterCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsSelfProgCnxs": {
+    "name": "sfpsConnectionStatsSelfProgCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsProvsnedCnxs": {
+    "name": "sfpsConnectionStatsProvsnedCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsTapCnxs": {
+    "name": "sfpsConnectionStatsTapCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsMcastCnxs": {
+    "name": "sfpsConnectionStatsMcastCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsNetPortFilterCnxs": {
+    "name": "sfpsConnectionStatsNetPortFilterCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsNonCriticalVlans": {
+    "name": "sfpsConnectionStatsNonCriticalVlans",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsAddErrors": {
+    "name": "sfpsConnectionStatsAddErrors",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionStatsDeleteErrors": {
+    "name": "sfpsConnectionStatsDeleteErrors",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionTestAPIVerb": {
+    "name": "sfpsConnectionTestAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fillTable": 1,
+          "reapAllCnxs": 2,
+          "reapCnxsGivenMac": 3,
+          "reapCnxsGivenPort": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionTestAPIType": {
+    "name": "sfpsConnectionTestAPIType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "filter": 1,
+          "provisioned": 2,
+          "switched": 3,
+          "netport-filter": 4,
+          "self-prog-non-filter": 5,
+          "vlan": 6,
+          "tap": 7,
+          "mcast": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionTestAPINumCnxs": {
+    "name": "sfpsConnectionTestAPINumCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionTestAPIMacAddr": {
+    "name": "sfpsConnectionTestAPIMacAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionTestAPIPort": {
+    "name": "sfpsConnectionTestAPIPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPIVerb": {
+    "name": "sfpsConnectionConfigAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "agePartial": 1,
+          "ageFull": 2,
+          "setParameter": 3,
+          "ageFilters": 4,
+          "stopAging": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPICnxHiMark": {
+    "name": "sfpsConnectionConfigAPICnxHiMark",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 95,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPICnxNumToAge": {
+    "name": "sfpsConnectionConfigAPICnxNumToAge",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPIAgePeriod": {
+    "name": "sfpsConnectionConfigAPIAgePeriod",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPIAgePassInProgress": {
+    "name": "sfpsConnectionConfigAPIAgePassInProgress",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPICurCapacity": {
+    "name": "sfpsConnectionConfigAPICurCapacity",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPILastPassTime": {
+    "name": "sfpsConnectionConfigAPILastPassTime",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPITimeSinceLastPass": {
+    "name": "sfpsConnectionConfigAPITimeSinceLastPass",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPIAgePassDelta": {
+    "name": "sfpsConnectionConfigAPIAgePassDelta",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPIAgePassCount": {
+    "name": "sfpsConnectionConfigAPIAgePassCount",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPIAgeStatsHiMark": {
+    "name": "sfpsConnectionConfigAPIAgeStatsHiMark",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPIStatsAgingEnable": {
+    "name": "sfpsConnectionConfigAPIStatsAgingEnable",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPIAgeStatsAgingSupported": {
+    "name": "sfpsConnectionConfigAPIAgeStatsAgingSupported",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPIIdleCnxs": {
+    "name": "sfpsConnectionConfigAPIIdleCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionConfigAPIActiveCnxs": {
+    "name": "sfpsConnectionConfigAPIActiveCnxs",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.3.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIVerb": {
+    "name": "sfpsConnectionQueryAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lookup": 1,
+          "add": 2,
+          "delete": 3,
+          "mapPort": 4,
+          "unmapPort": 5,
+          "reapCnxsGivenMac": 6,
+          "mapPorts": 7,
+          "unMapPorts": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIDestAddr": {
+    "name": "sfpsConnectionQueryAPIDestAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPISourceAddr": {
+    "name": "sfpsConnectionQueryAPISourceAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIInPort": {
+    "name": "sfpsConnectionQueryAPIInPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIOutPort": {
+    "name": "sfpsConnectionQueryAPIOutPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPICtrlStatus": {
+    "name": "sfpsConnectionQueryAPICtrlStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "activate": 2,
+          "delete": 3,
+          "under-creation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIAdminStatus": {
+    "name": "sfpsConnectionQueryAPIAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIAge": {
+    "name": "sfpsConnectionQueryAPIAge",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIQueryType": {
+    "name": "sfpsConnectionQueryAPIQueryType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "filter": 1,
+          "provisioned": 2,
+          "switched": 3,
+          "netport-filter": 4,
+          "self-prog-non-filter": 5,
+          "vlan": 6,
+          "tap": 7,
+          "mcast": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIOwner": {
+    "name": "sfpsConnectionQueryAPIOwner",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIPkts": {
+    "name": "sfpsConnectionQueryAPIPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIBytes": {
+    "name": "sfpsConnectionQueryAPIBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPICanAge": {
+    "name": "sfpsConnectionQueryAPICanAge",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIOutPorts": {
+    "name": "sfpsConnectionQueryAPIOutPorts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPIMacAddr": {
+    "name": "sfpsConnectionQueryAPIMacAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPISecInPort": {
+    "name": "sfpsConnectionQueryAPISecInPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPISecOutPort": {
+    "name": "sfpsConnectionQueryAPISecOutPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionQueryAPISecOutPorts": {
+    "name": "sfpsConnectionQueryAPISecOutPorts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIVerb": {
+    "name": "sfpsConnectionLookupAPIVerb",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "getEntry": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIMacAddr": {
+    "name": "sfpsConnectionLookupAPIMacAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIDestAddr": {
+    "name": "sfpsConnectionLookupAPIDestAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPISourceAddr": {
+    "name": "sfpsConnectionLookupAPISourceAddr",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SfpsAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIPrimInPort": {
+    "name": "sfpsConnectionLookupAPIPrimInPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIPrimOutPort": {
+    "name": "sfpsConnectionLookupAPIPrimOutPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPISecInPort": {
+    "name": "sfpsConnectionLookupAPISecInPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPISecOutPort": {
+    "name": "sfpsConnectionLookupAPISecOutPort",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPICtrlStatus": {
+    "name": "sfpsConnectionLookupAPICtrlStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "activate": 2,
+          "delete": 3,
+          "under-creation": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIAdminStatus": {
+    "name": "sfpsConnectionLookupAPIAdminStatus",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "disabled": 2,
+          "enabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIAge": {
+    "name": "sfpsConnectionLookupAPIAge",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIType": {
+    "name": "sfpsConnectionLookupAPIType",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "provisioned": 2,
+          "switched": 3,
+          "self-prog-filter": 4,
+          "self-prog-non-filter": 5,
+          "vlan": 6,
+          "tap": 7,
+          "mcast": 8,
+          "flood": 9
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIPkts": {
+    "name": "sfpsConnectionLookupAPIPkts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIBytes": {
+    "name": "sfpsConnectionLookupAPIBytes",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPICanAge": {
+    "name": "sfpsConnectionLookupAPICanAge",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPIPrimOutPorts": {
+    "name": "sfpsConnectionLookupAPIPrimOutPorts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsConnectionLookupAPISecOutPorts": {
+    "name": "sfpsConnectionLookupAPISecOutPorts",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.3.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCNXPacketStatsVer1Tx": {
+    "name": "sfpsCNXPacketStatsVer1Tx",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.15.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCNXPacketStatsVer2Tx": {
+    "name": "sfpsCNXPacketStatsVer2Tx",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCNXPacketStatsVer1Rx": {
+    "name": "sfpsCNXPacketStatsVer1Rx",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCNXPacketStatsVer2Rx": {
+    "name": "sfpsCNXPacketStatsVer2Rx",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCNXPacketStatsOpCode1Tx": {
+    "name": "sfpsCNXPacketStatsOpCode1Tx",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.15.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCNXPacketStatsOpCode2Tx": {
+    "name": "sfpsCNXPacketStatsOpCode2Tx",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.15.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCNXPacketStatsOpCode1Rx": {
+    "name": "sfpsCNXPacketStatsOpCode1Rx",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.15.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCNXPacketStatsOpCode2Rx": {
+    "name": "sfpsCNXPacketStatsOpCode2Rx",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.15.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sfpsCNXPacketStatsRxErrors": {
+    "name": "sfpsCNXPacketStatsRxErrors",
+    "oid": "1.3.6.1.4.1.52.4.2.4.2.1.15.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-CONNECTION-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:29:18 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CTRON-SFPS-CONNECTION-MIB"
+  }
+}

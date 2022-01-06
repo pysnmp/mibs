@@ -1,0 +1,6983 @@
+{
+  "imports": {
+    "class": "imports",
+    "DASAN-SMI": [
+      "sleMgmt"
+    ],
+    "SLE-TC-MIB": [
+      "SleControlStatusType",
+      "SleControlRequestResultType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Counter64",
+      "iso",
+      "NOTIFICATION-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "sleMlsQos": {
+    "name": "sleMlsQos",
+    "oid": "1.3.6.1.4.1.6296.101.28",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-08-04 09:03",
+        "description": " "
+      }
+    ]
+  },
+  "MlsQosStatusType": {
+    "name": "MlsQosStatusType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 0
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MlsQosMappingType": {
+    "name": "MlsQosMappingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cosToCos": 1,
+          "cosToQueue": 2,
+          "dscpToDscp": 3,
+          "dscpToQueue": 4,
+          "expToExp": 5,
+          "expToQueue": 6,
+          "expToClass": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ACLMatchType": {
+    "name": "ACLMatchType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mac": 1,
+          "ethType": 2,
+          "l3Proto": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ACLMatchActionType": {
+    "name": "ACLMatchActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deny": 0,
+          "permit": 1,
+          "remark": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ACLEtherType": {
+    "name": "ACLEtherType",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "AclTcpUdpPortActionType": {
+    "name": "AclTcpUdpPortActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "eq": 1,
+          "neq": 2,
+          "lt": 3,
+          "gt": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClassMapMatchType": {
+    "name": "ClassMapMatchType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cos": 1,
+          "innerCos": 2,
+          "ipDscp": 3,
+          "ipPrecedence": 4,
+          "ip6Dscp": 5,
+          "ip6Precedence": 6,
+          "tcpSrcPort": 7,
+          "tcpDstPort": 8,
+          "udpSrcPort": 9,
+          "udpDstPort": 10,
+          "vlanId": 11,
+          "innerVlanId": 12,
+          "layer4SrcPort": 13,
+          "layer4DstPort": 14
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ClassMapMatchRangeType": {
+    "name": "ClassMapMatchRangeType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tcpSrcPort": 1,
+          "tcpDstPort": 2,
+          "udpSrcPort": 3,
+          "udpDstPort": 4,
+          "vlanId": 5,
+          "layer4SrcPort": 6,
+          "layer4DstPort": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmapPriorityType": {
+    "name": "PmapPriorityType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "medium": 1,
+          "high": 2,
+          "highest": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmapPoliceType": {
+    "name": "PmapPoliceType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "srtcm": 1,
+          "trtcm": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmapExceedActionType": {
+    "name": "PmapExceedActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "setDscpTransmit": 2,
+          "setTosTransmit": 3,
+          "setCosTransmit": 4,
+          "transmit": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmapViolateActionType": {
+    "name": "PmapViolateActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "drop": 1,
+          "dscpTx": 2,
+          "cosTx": 3,
+          "tosTx": 4,
+          "transmit": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PmapSetActionType": {
+    "name": "PmapSetActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cos": 1,
+          "cpuCos": 2,
+          "ipDscp": 3,
+          "ipPrecedence": 4,
+          "redirectToPort": 5,
+          "mirrorToPort": 6,
+          "vlan": 7,
+          "ip6Dscp": 8,
+          "ip6Precedence": 9,
+          "cpuCopy": 10,
+          "deny": 11,
+          "qosGroup": 12,
+          "none": 13,
+          "queue": 14,
+          "vlanCos": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MlsQosIntfTrustState": {
+    "name": "MlsQosIntfTrustState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cos": 1,
+          "dscp": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MlsQosInterfaceMapingType": {
+    "name": "MlsQosInterfaceMapingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cos": 1,
+          "cosToCos": 2,
+          "cosToQueue": 3,
+          "dscp": 4,
+          "dscpToDscp": 5,
+          "dscpToQueue": 6,
+          "expToExp": 7,
+          "trust": 8,
+          "trustPassThrough": 9,
+          "cosToClass": 10,
+          "dscpToClass": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "MlsQosIntfQueProfilingType": {
+    "name": "MlsQosIntfQueProfilingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shaping": 1,
+          "wrrQWt": 2,
+          "wrrRandomDetect": 3,
+          "tailDrop": 4,
+          "strictQ": 5,
+          "reservedBandwidth": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ACLMacType": {
+    "name": "ACLMacType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "src": 1,
+          "dst": 2,
+          "srcWildcard": 3,
+          "dstWildcard": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ACLIpType": {
+    "name": "ACLIpType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "src": 1,
+          "dst": 2,
+          "srcWildcard": 3,
+          "dstWildcard": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PolMapClassMatchPrioType": {
+    "name": "PolMapClassMatchPrioType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "highest": 2,
+          "low": 3,
+          "medium": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PoliceExceedActionType": {
+    "name": "PoliceExceedActionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "setCosTransmit": 2,
+          "setDscpTransmit": 3,
+          "setTosTransmit": 4,
+          "transmit": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "sleMlsQosGlobal": {
+    "name": "sleMlsQosGlobal",
+    "oid": "1.3.6.1.4.1.6296.101.28.1",
+    "class": "objectidentity"
+  },
+  "sleMlsQosGlobalInfo": {
+    "name": "sleMlsQosGlobalInfo",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1",
+    "class": "objectidentity"
+  },
+  "sleMlsQosStatus": {
+    "name": "sleMlsQosStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MlsQosStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapCosToCos": {
+    "name": "sleMlsQosMapCosToCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapCosToQueue": {
+    "name": "sleMlsQosMapCosToQueue",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapDscpToDscp": {
+    "name": "sleMlsQosMapDscpToDscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapDscpToQueue": {
+    "name": "sleMlsQosMapDscpToQueue",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapExpToExp": {
+    "name": "sleMlsQosMapExpToExp",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapExpToQueue": {
+    "name": "sleMlsQosMapExpToQueue",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapStrictQueueId": {
+    "name": "sleMlsQosMapStrictQueueId",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapWrrQueueWeight": {
+    "name": "sleMlsQosMapWrrQueueWeight",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapCpuMaxPpsRate": {
+    "name": "sleMlsQosMapCpuMaxPpsRate",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapCpuQueueWeight": {
+    "name": "sleMlsQosMapCpuQueueWeight",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapNodeCpuMaxPpsRate": {
+    "name": "sleMlsQosMapNodeCpuMaxPpsRate",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapNodeCpuQueueWeight": {
+    "name": "sleMlsQosMapNodeCpuQueueWeight",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosMapExpToClass": {
+    "name": "sleMlsQosMapExpToClass",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHQosStatistics": {
+    "name": "sleHQosStatistics",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MlsQosStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleQosPhbPriorityColor": {
+    "name": "sleQosPhbPriorityColor",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHQosDefaultClassToDscp": {
+    "name": "sleHQosDefaultClassToDscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleQosDefaultCosToClassTrust": {
+    "name": "sleQosDefaultCosToClassTrust",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleQosDefaultCosToClassNoTrust": {
+    "name": "sleQosDefaultCosToClassNoTrust",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleQosDefaultDscpToClassTrust": {
+    "name": "sleQosDefaultDscpToClassTrust",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleQosDefaultDscpToClassNoTrust": {
+    "name": "sleQosDefaultDscpToClassNoTrust",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControl": {
+    "name": "sleMlsQosGlobalControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2",
+    "class": "objectidentity"
+  },
+  "sleMlsQosGlobalControlRequest": {
+    "name": "sleMlsQosGlobalControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setMlQosStatus": 1,
+          "setMlsQosMapping": 2,
+          "unSetMlsQosMapping": 3,
+          "setMlsQosStrictQueue": 4,
+          "unSetMlsQosStrictQueue": 5,
+          "setMlsQosWrr": 6,
+          "unSetMlsQosWrr": 7,
+          "setMlsQosCpuRate": 8,
+          "setMlsQosCpuQueueWt": 9,
+          "setMlsQosNodeCpuRate": 10,
+          "setMlsQosNodeCpuQueueWt": 11,
+          "setHQosStatistics": 12,
+          "unsetHQosStatistics": 13
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlStatus": {
+    "name": "sleMlsQosGlobalControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosGlobalCtrlTimer": {
+    "name": "sleMlsQosGlobalCtrlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlTimeStamp": {
+    "name": "sleMlsQosGlobalControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlReqResult": {
+    "name": "sleMlsQosGlobalControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosCtrlGlobalStatus": {
+    "name": "sleMlsQosCtrlGlobalStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MlsQosStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlMappingType": {
+    "name": "sleMlsQosGlobalControlMappingType",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MlsQosMappingType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlMappingIngValue": {
+    "name": "sleMlsQosGlobalControlMappingIngValue",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlMappingEgrValue": {
+    "name": "sleMlsQosGlobalControlMappingEgrValue",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlQueueId": {
+    "name": "sleMlsQosGlobalControlQueueId",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlWrrQueueWeight": {
+    "name": "sleMlsQosGlobalControlWrrQueueWeight",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlCpuMaxPpsRate": {
+    "name": "sleMlsQosGlobalControlCpuMaxPpsRate",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlCpuQueueWt": {
+    "name": "sleMlsQosGlobalControlCpuQueueWt",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlNodeId": {
+    "name": "sleMlsQosGlobalControlNodeId",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGlobalControlMappingEgrClassValue": {
+    "name": "sleMlsQosGlobalControlMappingEgrClassValue",
+    "oid": "1.3.6.1.4.1.6296.101.28.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosAggPolice": {
+    "name": "sleMlsQosAggPolice",
+    "oid": "1.3.6.1.4.1.6296.101.28.2",
+    "class": "objectidentity"
+  },
+  "sleMlsQosAggPoliceTable": {
+    "name": "sleMlsQosAggPoliceTable",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceEntry": {
+    "name": "sleMlsQosAggPoliceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceIndex": {
+    "name": "sleMlsQosAggPoliceIndex",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceName": {
+    "name": "sleMlsQosAggPoliceName",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceTrafficRate": {
+    "name": "sleMlsQosAggPoliceTrafficRate",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceBurstSize": {
+    "name": "sleMlsQosAggPoliceBurstSize",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceControl": {
+    "name": "sleMlsQosAggPoliceControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.2",
+    "class": "objectidentity"
+  },
+  "sleMlsQosAggPoliceCtrlRequest": {
+    "name": "sleMlsQosAggPoliceCtrlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createAggrPolice": 1,
+          "deleteAggrPolice": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceCtrlStatus": {
+    "name": "sleMlsQosAggPoliceCtrlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceConfigCtrlTimer": {
+    "name": "sleMlsQosAggPoliceConfigCtrlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceCtrlTimeStamp": {
+    "name": "sleMlsQosAggPoliceCtrlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceCtrlReqResult": {
+    "name": "sleMlsQosAggPoliceCtrlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceCtrlName": {
+    "name": "sleMlsQosAggPoliceCtrlName",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceCtrlTrafficRate": {
+    "name": "sleMlsQosAggPoliceCtrlTrafficRate",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosAggPoliceCtrlBurstSize": {
+    "name": "sleMlsQosAggPoliceCtrlBurstSize",
+    "oid": "1.3.6.1.4.1.6296.101.28.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACL": {
+    "name": "sleMlsQosACL",
+    "oid": "1.3.6.1.4.1.6296.101.28.3",
+    "class": "objectidentity"
+  },
+  "sleMlsQosACLTable": {
+    "name": "sleMlsQosACLTable",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosACLEntry": {
+    "name": "sleMlsQosACLEntry",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLFilterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMlsQosACLIndex": {
+    "name": "sleMlsQosACLIndex",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosACLFilterIndex": {
+    "name": "sleMlsQosACLFilterIndex",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosACLName": {
+    "name": "sleMlsQosACLName",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLMatchType": {
+    "name": "sleMlsQosACLMatchType",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACLMatchType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLMatchAction": {
+    "name": "sleMlsQosACLMatchAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACLMatchActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLEtherType": {
+    "name": "sleMlsQosACLEtherType",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACLEtherType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLL3Protocol": {
+    "name": "sleMlsQosACLL3Protocol",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLSrcIpAddress": {
+    "name": "sleMlsQosACLSrcIpAddress",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLDstIpAddress": {
+    "name": "sleMlsQosACLDstIpAddress",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLSrcIpAddrMask": {
+    "name": "sleMlsQosACLSrcIpAddrMask",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLDstIpAddrMask": {
+    "name": "sleMlsQosACLDstIpAddrMask",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLSrcMacAddress": {
+    "name": "sleMlsQosACLSrcMacAddress",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLDstMacAddress": {
+    "name": "sleMlsQosACLDstMacAddress",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLSrcMacAddrMask": {
+    "name": "sleMlsQosACLSrcMacAddrMask",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLDstMacAddrMask": {
+    "name": "sleMlsQosACLDstMacAddrMask",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLTcpUdpSrcPortAction": {
+    "name": "sleMlsQosACLTcpUdpSrcPortAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AclTcpUdpPortActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLTcpUdpDstPortAction": {
+    "name": "sleMlsQosACLTcpUdpDstPortAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AclTcpUdpPortActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLTcpUdpSrcPort": {
+    "name": "sleMlsQosACLTcpUdpSrcPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLTcpUdpDstPort": {
+    "name": "sleMlsQosACLTcpUdpDstPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLNameSrcIpExactMatch": {
+    "name": "sleMlsQosACLNameSrcIpExactMatch",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLActionRemarkDesc": {
+    "name": "sleMlsQosACLActionRemarkDesc",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLIcmpType": {
+    "name": "sleMlsQosACLIcmpType",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLIcmpCode": {
+    "name": "sleMlsQosACLIcmpCode",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLTcpUdpSrcPortEnd": {
+    "name": "sleMlsQosACLTcpUdpSrcPortEnd",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLTcpUdpDstPortEnd": {
+    "name": "sleMlsQosACLTcpUdpDstPortEnd",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLControl": {
+    "name": "sleMlsQosACLControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2",
+    "class": "objectidentity"
+  },
+  "sleMlsQosACLControlRequest": {
+    "name": "sleMlsQosACLControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setStandAclMatchSrcIp": 1,
+          "unSetStandAclMatchSrcIp": 2,
+          "setExtenAclMatchMac": 3,
+          "unSetExtenAclMatchMac": 4,
+          "setExtenAclMatchEthType": 5,
+          "unSetExtenAclMatchEthType": 6,
+          "setExtenAclMatchL3Proto": 7,
+          "unSetExtenAclMatchL3Proto": 8,
+          "setExtenAclMatchTcpUdp": 9,
+          "unSetExtenAclMatchTcpUdp": 10,
+          "setAclNameSrcIp": 11,
+          "unSetAclNameSrcIp": 12,
+          "setAclWithActionRemark": 13,
+          "unSetAclWithActionRemark": 14
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLControlStatus": {
+    "name": "sleMlsQosACLControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLConfigControlTimer": {
+    "name": "sleMlsQosACLConfigControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLControlTimeStamp": {
+    "name": "sleMlsQosACLControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLControlReqResult": {
+    "name": "sleMlsQosACLControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlName": {
+    "name": "sleMlsQosACLCtrlName",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlMatchType": {
+    "name": "sleMlsQosACLCtrlMatchType",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACLMatchType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlMatchAction": {
+    "name": "sleMlsQosACLCtrlMatchAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACLMatchActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlEtherType": {
+    "name": "sleMlsQosACLCtrlEtherType",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ACLEtherType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlL3Protocol": {
+    "name": "sleMlsQosACLCtrlL3Protocol",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlSrcAddress": {
+    "name": "sleMlsQosACLCtrlSrcAddress",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlDstAddress": {
+    "name": "sleMlsQosACLCtrlDstAddress",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlSrcAddrMask": {
+    "name": "sleMlsQosACLCtrlSrcAddrMask",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlDstAddrMask": {
+    "name": "sleMlsQosACLCtrlDstAddrMask",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlTcpUdpSrcPortAction": {
+    "name": "sleMlsQosACLCtrlTcpUdpSrcPortAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AclTcpUdpPortActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlTcpUdpDstPortAction": {
+    "name": "sleMlsQosACLCtrlTcpUdpDstPortAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AclTcpUdpPortActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlTcpUdpSrcPort": {
+    "name": "sleMlsQosACLCtrlTcpUdpSrcPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlTcpUdpDstPort": {
+    "name": "sleMlsQosACLCtrlTcpUdpDstPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlAclNameExactMatch": {
+    "name": "sleMlsQosACLCtrlAclNameExactMatch",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlActionRemarkDesc": {
+    "name": "sleMlsQosACLCtrlActionRemarkDesc",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlIcmpType": {
+    "name": "sleMlsQosACLCtrlIcmpType",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlIcmpCode": {
+    "name": "sleMlsQosACLCtrlIcmpCode",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlTcpUdpSrcPortEnd": {
+    "name": "sleMlsQosACLCtrlTcpUdpSrcPortEnd",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLCtrlTcpUdpDstPortEnd": {
+    "name": "sleMlsQosACLCtrlTcpUdpDstPortEnd",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosACLNotification": {
+    "name": "sleMlsQosACLNotification",
+    "oid": "1.3.6.1.4.1.6296.101.28.3.3",
+    "class": "objectidentity"
+  },
+  "sleMlsQosClassMap": {
+    "name": "sleMlsQosClassMap",
+    "oid": "1.3.6.1.4.1.6296.101.28.4",
+    "class": "objectidentity"
+  },
+  "sleMlsQosClassMapTable": {
+    "name": "sleMlsQosClassMapTable",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosClassMapEntry": {
+    "name": "sleMlsQosClassMapEntry",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMlsQosClassMapName": {
+    "name": "sleMlsQosClassMapName",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchCosValue": {
+    "name": "sleMlsQosClassMapMatchCosValue",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchInnerCosValue": {
+    "name": "sleMlsQosClassMapMatchInnerCosValue",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchEgressInterface": {
+    "name": "sleMlsQosClassMapMatchEgressInterface",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchEtherType": {
+    "name": "sleMlsQosClassMapMatchEtherType",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchSrcIpAddr": {
+    "name": "sleMlsQosClassMapMatchSrcIpAddr",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchDstIpAddr": {
+    "name": "sleMlsQosClassMapMatchDstIpAddr",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchSrcIpMaskLen": {
+    "name": "sleMlsQosClassMapMatchSrcIpMaskLen",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchDstIpMaskLen": {
+    "name": "sleMlsQosClassMapMatchDstIpMaskLen",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchSrcIpV6Addr": {
+    "name": "sleMlsQosClassMapMatchSrcIpV6Addr",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchDstIpV6Addr": {
+    "name": "sleMlsQosClassMapMatchDstIpV6Addr",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchSrcIpV6MaskLen": {
+    "name": "sleMlsQosClassMapMatchSrcIpV6MaskLen",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchDstIpV6MaskLen": {
+    "name": "sleMlsQosClassMapMatchDstIpV6MaskLen",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchIpDscp": {
+    "name": "sleMlsQosClassMapMatchIpDscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchIpPrecedence": {
+    "name": "sleMlsQosClassMapMatchIpPrecedence",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchIp6Dscp": {
+    "name": "sleMlsQosClassMapMatchIp6Dscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchIp6Precedence": {
+    "name": "sleMlsQosClassMapMatchIp6Precedence",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchTcpSrcPort": {
+    "name": "sleMlsQosClassMapMatchTcpSrcPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchTcpDstPort": {
+    "name": "sleMlsQosClassMapMatchTcpDstPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchTcpSrcPortRange": {
+    "name": "sleMlsQosClassMapMatchTcpSrcPortRange",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchTcpDstPortRange": {
+    "name": "sleMlsQosClassMapMatchTcpDstPortRange",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchUdpSrcPort": {
+    "name": "sleMlsQosClassMapMatchUdpSrcPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchUdpDstPort": {
+    "name": "sleMlsQosClassMapMatchUdpDstPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchUdpSrcPortRange": {
+    "name": "sleMlsQosClassMapMatchUdpSrcPortRange",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchUdpDstPortRange": {
+    "name": "sleMlsQosClassMapMatchUdpDstPortRange",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchSrcMacAddr": {
+    "name": "sleMlsQosClassMapMatchSrcMacAddr",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchSrcMacMask": {
+    "name": "sleMlsQosClassMapMatchSrcMacMask",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchDstMacAddr": {
+    "name": "sleMlsQosClassMapMatchDstMacAddr",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchDstMacMask": {
+    "name": "sleMlsQosClassMapMatchDstMacMask",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchVlanId": {
+    "name": "sleMlsQosClassMapMatchVlanId",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchVlanIdRange": {
+    "name": "sleMlsQosClassMapMatchVlanIdRange",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchInnerVlanId": {
+    "name": "sleMlsQosClassMapMatchInnerVlanId",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchVlanTpid": {
+    "name": "sleMlsQosClassMapMatchVlanTpid",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchAccessGroup": {
+    "name": "sleMlsQosClassMapMatchAccessGroup",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchLayer4SrcPort": {
+    "name": "sleMlsQosClassMapMatchLayer4SrcPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchLayer4DstPort": {
+    "name": "sleMlsQosClassMapMatchLayer4DstPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchLayer4SrcPortRange": {
+    "name": "sleMlsQosClassMapMatchLayer4SrcPortRange",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapMatchLayer4DstPortRange": {
+    "name": "sleMlsQosClassMapMatchLayer4DstPortRange",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsQosClassMapMatchCriteria": {
+    "name": "sleMplsQosClassMapMatchCriteria",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noMatch": 0,
+          "matchAll": 1,
+          "matchAny": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapControl": {
+    "name": "sleMlsQosClassMapControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2",
+    "class": "objectidentity"
+  },
+  "sleMlsQosClassMapControlRequest": {
+    "name": "sleMlsQosClassMapControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createClassMap": 1,
+          "deleteClassMap": 2,
+          "setClassMapMatch": 3,
+          "unSetClassMapMatch": 4,
+          "setClassMapMatchRange": 5,
+          "unSetClassMapMatchRange": 6,
+          "setClassMapMatchEtherType": 7,
+          "unSetClassMapMatchEtherType": 8,
+          "setClassMapMatchIpAddr": 9,
+          "unSetClassMapMatchIpAddr": 10,
+          "setClassMapMatchMac": 11,
+          "unSetClassMapMatchMac": 12,
+          "setClassMapMatchVlanTpid": 13,
+          "unSetClassMapMatchVlanTpid": 14,
+          "setClassMapMatchAccessGroup": 15,
+          "unSetClassMapMatchAccessGroup": 16,
+          "setClassMapMatchEgressIntf": 17,
+          "unSetClassMapMatchEgressIntf": 18
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapControlStatus": {
+    "name": "sleMlsQosClassMapControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapControlTimer": {
+    "name": "sleMlsQosClassMapControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapontrolTimeStamp": {
+    "name": "sleMlsQosClassMapontrolTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapControlReqResult": {
+    "name": "sleMlsQosClassMapControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlName": {
+    "name": "sleMlsQosClassMapCtrlName",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchType": {
+    "name": "sleMlsQosClassMapCtrlMatchType",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClassMapMatchType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchVal": {
+    "name": "sleMlsQosClassMapCtrlMatchVal",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchRangeType": {
+    "name": "sleMlsQosClassMapCtrlMatchRangeType",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ClassMapMatchRangeType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchRangeLow": {
+    "name": "sleMlsQosClassMapCtrlMatchRangeLow",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchRangeHigh": {
+    "name": "sleMlsQosClassMapCtrlMatchRangeHigh",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchEtherType": {
+    "name": "sleMlsQosClassMapCtrlMatchEtherType",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchSrcType": {
+    "name": "sleMlsQosClassMapCtrlMatchSrcType",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "mac": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchSrcAddr": {
+    "name": "sleMlsQosClassMapCtrlMatchSrcAddr",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchDstAddr": {
+    "name": "sleMlsQosClassMapCtrlMatchDstAddr",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchSrcIpMaskLen": {
+    "name": "sleMlsQosClassMapCtrlMatchSrcIpMaskLen",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchDstIpMaskLen": {
+    "name": "sleMlsQosClassMapCtrlMatchDstIpMaskLen",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchSrcMacMask": {
+    "name": "sleMlsQosClassMapCtrlMatchSrcMacMask",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchDstMacMask": {
+    "name": "sleMlsQosClassMapCtrlMatchDstMacMask",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchAcessGroup": {
+    "name": "sleMlsQosClassMapCtrlMatchAcessGroup",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchVlanTpid": {
+    "name": "sleMlsQosClassMapCtrlMatchVlanTpid",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapCtrlMatchEgressInterface": {
+    "name": "sleMlsQosClassMapCtrlMatchEgressInterface",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMplsQosClassMapCtrlMatchCriteria": {
+    "name": "sleMplsQosClassMapCtrlMatchCriteria",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "matchAll": 1,
+          "matchAny": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosClassMapNotification": {
+    "name": "sleMlsQosClassMapNotification",
+    "oid": "1.3.6.1.4.1.6296.101.28.4.3",
+    "class": "objectidentity"
+  },
+  "sleMlsQosPolicyMap": {
+    "name": "sleMlsQosPolicyMap",
+    "oid": "1.3.6.1.4.1.6296.101.28.5",
+    "class": "objectidentity"
+  },
+  "sleMlsQosPolicyMapTable": {
+    "name": "sleMlsQosPolicyMapTable",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapEntry": {
+    "name": "sleMlsQosPolicyMapEntry",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapName",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMlsQosPmapName": {
+    "name": "sleMlsQosPmapName",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassName": {
+    "name": "sleMlsQosPmapClassName",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassMatchPriority": {
+    "name": "sleMlsQosPmapClassMatchPriority",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmapPriorityType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassOperMode": {
+    "name": "sleMlsQosPmapClassOperMode",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "allow": 1,
+          "deny": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceType": {
+    "name": "sleMlsQosPmapClassPoliceType",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmapPoliceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceCIR": {
+    "name": "sleMlsQosPmapClassPoliceCIR",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPolicePIR": {
+    "name": "sleMlsQosPmapClassPolicePIR",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceCBS": {
+    "name": "sleMlsQosPmapClassPoliceCBS",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceEBS": {
+    "name": "sleMlsQosPmapClassPoliceEBS",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceExdAction": {
+    "name": "sleMlsQosPmapClassPoliceExdAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmapExceedActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceExdActionCos": {
+    "name": "sleMlsQosPmapClassPoliceExdActionCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceExdActionDscp": {
+    "name": "sleMlsQosPmapClassPoliceExdActionDscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceExdActionTos": {
+    "name": "sleMlsQosPmapClassPoliceExdActionTos",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceExdActionViolateAction": {
+    "name": "sleMlsQosPmapClassPoliceExdActionViolateAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmapViolateActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceExdActionViolateValue": {
+    "name": "sleMlsQosPmapClassPoliceExdActionViolateValue",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassPoliceAggregateName": {
+    "name": "sleMlsQosPmapClassPoliceAggregateName",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionDeny": {
+    "name": "sleMlsQosPmapClassSetActionDeny",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionCos": {
+    "name": "sleMlsQosPmapClassSetActionCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionCpuCos": {
+    "name": "sleMlsQosPmapClassSetActionCpuCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionIpDscp": {
+    "name": "sleMlsQosPmapClassSetActionIpDscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionIp6Dscp": {
+    "name": "sleMlsQosPmapClassSetActionIp6Dscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionIpPrecedence": {
+    "name": "sleMlsQosPmapClassSetActionIpPrecedence",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionIp6Precedence": {
+    "name": "sleMlsQosPmapClassSetActionIp6Precedence",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionMirrorToPortVal": {
+    "name": "sleMlsQosPmapClassSetActionMirrorToPortVal",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionRedirectToPortVal": {
+    "name": "sleMlsQosPmapClassSetActionRedirectToPortVal",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionVlanId": {
+    "name": "sleMlsQosPmapClassSetActionVlanId",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionVlanCos": {
+    "name": "sleMlsQosPmapClassSetActionVlanCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPmapClassSetActionQosGroup": {
+    "name": "sleMlsQosPmapClassSetActionQosGroup",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsQosPmapClassSetActionQueue": {
+    "name": "sleMplsQosPmapClassSetActionQueue",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMplsQosPmapClassSetActionCopyCpu": {
+    "name": "sleMplsQosPmapClassSetActionCopyCpu",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapControl": {
+    "name": "sleMlsQosPolicyMapControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2",
+    "class": "objectidentity"
+  },
+  "sleMlsQosPolicyMapControlRequest": {
+    "name": "sleMlsQosPolicyMapControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createPolicyMapClass": 1,
+          "deletePolicyMapClass": 2,
+          "setPolicyMapClassMatchPriority": 3,
+          "setPolicyMapClassOperMode": 4,
+          "unSetPolicyMapClassOperMode": 5,
+          "setPolicyMapClassPolicer": 6,
+          "unSetPolicyMapClassPolicer": 7,
+          "setPolicyMapClassPolicerAggregate": 8,
+          "unSetPolicyMapClassPolicerAggregate": 9,
+          "setPolicyMapClassSet": 10,
+          "unSetPolicyMapClassSet": 11,
+          "deletePolicyMap": 12
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapControlStatus": {
+    "name": "sleMlsQosPolicyMapControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapControlTimer": {
+    "name": "sleMlsQosPolicyMapControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapontrolTimeStamp": {
+    "name": "sleMlsQosPolicyMapontrolTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapControlReqResult": {
+    "name": "sleMlsQosPolicyMapControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlName": {
+    "name": "sleMlsQosPolicyMapCtrlName",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassName": {
+    "name": "sleMlsQosPolicyMapCtrlClassName",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassMatchPriority": {
+    "name": "sleMlsQosPolicyMapCtrlClassMatchPriority",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmapPriorityType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassOperMode": {
+    "name": "sleMlsQosPolicyMapCtrlClassOperMode",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "allow": 1,
+          "deny": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceType": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceType",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmapPoliceType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceCIR": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceCIR",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPolicePIR": {
+    "name": "sleMlsQosPolicyMapCtrlClassPolicePIR",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceCBS": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceCBS",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceEBS": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceEBS",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceExdAction": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceExdAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmapExceedActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceExdActionCos": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceExdActionCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceExdActionDscp": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceExdActionDscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceExdActionTos": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceExdActionTos",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceExdActionViolateAction": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceExdActionViolateAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmapViolateActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceExdActionViolateValue": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceExdActionViolateValue",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassPoliceAggregateName": {
+    "name": "sleMlsQosPolicyMapCtrlClassPoliceAggregateName",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetAction": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetAction",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PmapSetActionType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionCos": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionCpuCos": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionCpuCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionIpDscp": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionIpDscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionIp6Dscp": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionIp6Dscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionIpPrecedence": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionIpPrecedence",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionIp6Precedence": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionIp6Precedence",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionMirrorToPort": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionMirrorToPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionRedirectToPort": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionRedirectToPort",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionVlanId": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionVlanId",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionVlanCos": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionVlanCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionQosGroup": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionQosGroup",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosPolicyMapCtrlClassSetActionQueue": {
+    "name": "sleMlsQosPolicyMapCtrlClassSetActionQueue",
+    "oid": "1.3.6.1.4.1.6296.101.28.5.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterface": {
+    "name": "sleMlsQosInterface",
+    "oid": "1.3.6.1.4.1.6296.101.28.6",
+    "class": "objectidentity"
+  },
+  "sleMlsQosInterfaceTable": {
+    "name": "sleMlsQosInterfaceTable",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceEntry": {
+    "name": "sleMlsQosInterfaceEntry",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMlsQosInterfaceIndex": {
+    "name": "sleMlsQosInterfaceIndex",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceName": {
+    "name": "sleMlsQosInterfaceName",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceTrustState": {
+    "name": "sleMlsQosInterfaceTrustState",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MlsQosIntfTrustState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCos": {
+    "name": "sleMlsQosInterfaceCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCosOverride": {
+    "name": "sleMlsQosInterfaceCosOverride",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCosToCos": {
+    "name": "sleMlsQosInterfaceCosToCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCosToQueue": {
+    "name": "sleMlsQosInterfaceCosToQueue",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceDscp": {
+    "name": "sleMlsQosInterfaceDscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceDscpToDscp": {
+    "name": "sleMlsQosInterfaceDscpToDscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceDscpToQueue": {
+    "name": "sleMlsQosInterfaceDscpToQueue",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceExpToExp": {
+    "name": "sleMlsQosInterfaceExpToExp",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceTrafficShapeRate": {
+    "name": "sleMlsQosInterfaceTrafficShapeRate",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceTrafficShapeBurst": {
+    "name": "sleMlsQosInterfaceTrafficShapeBurst",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceInputPolicyMap": {
+    "name": "sleMlsQosInterfaceInputPolicyMap",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceOutputPolicyMap": {
+    "name": "sleMlsQosInterfaceOutputPolicyMap",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceTrustPassthroughCos": {
+    "name": "sleMlsQosInterfaceTrustPassthroughCos",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceTrustPassthroughDscp": {
+    "name": "sleMlsQosInterfaceTrustPassthroughDscp",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHQosInterfaceCosToClass": {
+    "name": "sleHQosInterfaceCosToClass",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHQosInterfaceDscpToClass": {
+    "name": "sleHQosInterfaceDscpToClass",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHQosInterfaceReplace": {
+    "name": "sleHQosInterfaceReplace",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "cos": 1,
+          "dscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceTrafficIfgExclude": {
+    "name": "sleMlsQosInterfaceTrafficIfgExclude",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceTrafficPolicingRate": {
+    "name": "sleMlsQosInterfaceTrafficPolicingRate",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceTrafficPolicingBurst": {
+    "name": "sleMlsQosInterfaceTrafficPolicingBurst",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceControl": {
+    "name": "sleMlsQosInterfaceControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2",
+    "class": "objectidentity"
+  },
+  "sleMlsQosInterfaceControlRequest": {
+    "name": "sleMlsQosInterfaceControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setInterfaceQosMapping": 1,
+          "unSetInterfaceQosMapping": 2,
+          "setInterfaceTrafficShaping": 3,
+          "unSetInterfaceTrafficShaping": 4,
+          "setInterfaceInputPolicyMap": 5,
+          "unSetInterfaceInputPolicyMap": 6,
+          "setInterfaceOutputPolicyMap": 7,
+          "unSetInterfaceOutputPolicyMap": 8,
+          "setInterfaceOveride": 9,
+          "unsetInterfaceOveride": 10,
+          "setInterfaceReplace": 11,
+          "unsetInterfaceReplace": 12,
+          "setInterfaceTrafficIfgExclude": 13,
+          "unsetInterfaceTrafficIfgExclude": 14,
+          "setInterfaceTrafficPolicingDot3x": 15,
+          "unsetInterfaceTrafficPolicingDot3x": 16
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceControlStatus": {
+    "name": "sleMlsQosInterfaceControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceControlTimer": {
+    "name": "sleMlsQosInterfaceControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceontrolTimeStamp": {
+    "name": "sleMlsQosInterfaceontrolTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceControlReqResult": {
+    "name": "sleMlsQosInterfaceControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlIndex": {
+    "name": "sleMlsQosInterfaceCtrlIndex",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlMapingType": {
+    "name": "sleMlsQosInterfaceCtrlMapingType",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MlsQosInterfaceMapingType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlMapingIngVal": {
+    "name": "sleMlsQosInterfaceCtrlMapingIngVal",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlMapingEgrVal": {
+    "name": "sleMlsQosInterfaceCtrlMapingEgrVal",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlMapingCosOverride": {
+    "name": "sleMlsQosInterfaceCtrlMapingCosOverride",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlMapingTrustState": {
+    "name": "sleMlsQosInterfaceCtrlMapingTrustState",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MlsQosIntfTrustState",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlTrafficShapeRate": {
+    "name": "sleMlsQosInterfaceCtrlTrafficShapeRate",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlTrafficShapeBurst": {
+    "name": "sleMlsQosInterfaceCtrlTrafficShapeBurst",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlInputPolicyMap": {
+    "name": "sleMlsQosInterfaceCtrlInputPolicyMap",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlOutputPolicyMap": {
+    "name": "sleMlsQosInterfaceCtrlOutputPolicyMap",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlMapingCNGValue": {
+    "name": "sleMlsQosInterfaceCtrlMapingCNGValue",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlMapingEgrClassVal": {
+    "name": "sleMlsQosInterfaceCtrlMapingEgrClassVal",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosInterfaceCtrlReplace": {
+    "name": "sleMlsQosInterfaceCtrlReplace",
+    "oid": "1.3.6.1.4.1.6296.101.28.6.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "cos": 1,
+          "dscp": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQue": {
+    "name": "sleMlsQosIntfQue",
+    "oid": "1.3.6.1.4.1.6296.101.28.7",
+    "class": "objectidentity"
+  },
+  "sleMlsQosIntfQueTable": {
+    "name": "sleMlsQosIntfQueTable",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueEntry": {
+    "name": "sleMlsQosIntfQueEntry",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueIntfIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMlsQosIntfQueIntfIndex": {
+    "name": "sleMlsQosIntfQueIntfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueId": {
+    "name": "sleMlsQosIntfQueId",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueShapeQueueRate": {
+    "name": "sleMlsQosIntfQueShapeQueueRate",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueWrrQueueWeight": {
+    "name": "sleMlsQosIntfQueWrrQueueWeight",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueWrrRandomDetectMinThr": {
+    "name": "sleMlsQosIntfQueWrrRandomDetectMinThr",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueWrrRandomDetectMaxThr": {
+    "name": "sleMlsQosIntfQueWrrRandomDetectMaxThr",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueWrrRandomDetectExpWt": {
+    "name": "sleMlsQosIntfQueWrrRandomDetectExpWt",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueTailDropThr": {
+    "name": "sleMlsQosIntfQueTailDropThr",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueStrictQueue": {
+    "name": "sleMlsQosIntfQueStrictQueue",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueRandomDetectDropStart": {
+    "name": "sleMlsQosIntfQueRandomDetectDropStart",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueRandomDetectDropSlope": {
+    "name": "sleMlsQosIntfQueRandomDetectDropSlope",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueRandomDetectColor": {
+    "name": "sleMlsQosIntfQueRandomDetectColor",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yellow": 1,
+          "red": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueReservedBandwidth": {
+    "name": "sleMlsQosIntfQueReservedBandwidth",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueControl": {
+    "name": "sleMlsQosIntfQueControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2",
+    "class": "objectidentity"
+  },
+  "sleMlsQosIntfQueControlRequest": {
+    "name": "sleMlsQosIntfQueControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setQueueProfile": 1,
+          "unSetQueueProfile": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueControlStatus": {
+    "name": "sleMlsQosIntfQueControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueControlTimer": {
+    "name": "sleMlsQosIntfQueControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueontrolTimeStamp": {
+    "name": "sleMlsQosIntfQueontrolTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueControlReqResult": {
+    "name": "sleMlsQosIntfQueControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlInterfaceIndex": {
+    "name": "sleMlsQosIntfQueCtrlInterfaceIndex",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlQueueId": {
+    "name": "sleMlsQosIntfQueCtrlQueueId",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlProfileType": {
+    "name": "sleMlsQosIntfQueCtrlProfileType",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MlsQosIntfQueProfilingType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlShapeQueueRate": {
+    "name": "sleMlsQosIntfQueCtrlShapeQueueRate",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlWrrQueueWeight": {
+    "name": "sleMlsQosIntfQueCtrlWrrQueueWeight",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlWrrRandomDetectMinThr": {
+    "name": "sleMlsQosIntfQueCtrlWrrRandomDetectMinThr",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlWrrRandomDetectMaxThr": {
+    "name": "sleMlsQosIntfQueCtrlWrrRandomDetectMaxThr",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlWrrRandomDetectExpWt": {
+    "name": "sleMlsQosIntfQueCtrlWrrRandomDetectExpWt",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlTailDropThr": {
+    "name": "sleMlsQosIntfQueCtrlTailDropThr",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlRandomDetectDropStart": {
+    "name": "sleMlsQosIntfQueCtrlRandomDetectDropStart",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlRandomDetectDropSlope": {
+    "name": "sleMlsQosIntfQueCtrlRandomDetectDropSlope",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlRandomDetectColor": {
+    "name": "sleMlsQosIntfQueCtrlRandomDetectColor",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yellow": 1,
+          "red": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosIntfQueCtrlReservedBandwidth": {
+    "name": "sleMlsQosIntfQueCtrlReservedBandwidth",
+    "oid": "1.3.6.1.4.1.6296.101.28.7.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosQStats": {
+    "name": "sleMlsQosQStats",
+    "oid": "1.3.6.1.4.1.6296.101.28.8",
+    "class": "objectidentity"
+  },
+  "sleMlsQosQStatsTable": {
+    "name": "sleMlsQosQStatsTable",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosQStatsEntry": {
+    "name": "sleMlsQosQStatsEntry",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQstatsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleMlsQosQstatsIfIndex": {
+    "name": "sleMlsQosQstatsIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosQId": {
+    "name": "sleMlsQosQId",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleMlsQosWredGreenDropPkts": {
+    "name": "sleMlsQosWredGreenDropPkts",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosWredYellowDropPkts": {
+    "name": "sleMlsQosWredYellowDropPkts",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosWredRedDropPkts": {
+    "name": "sleMlsQosWredRedDropPkts",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosTailDropPkts": {
+    "name": "sleMlsQosTailDropPkts",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosTailDropBytes": {
+    "name": "sleMlsQosTailDropBytes",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsOutPkts": {
+    "name": "sleMlsQosQStatsOutPkts",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsOutBytes": {
+    "name": "sleMlsQosQStatsOutBytes",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsMcastOutPkts": {
+    "name": "sleMlsQosQStatsMcastOutPkts",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsMcastOutBytes": {
+    "name": "sleMlsQosQStatsMcastOutBytes",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsDropPkts": {
+    "name": "sleMlsQosQStatsDropPkts",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsDropBytes": {
+    "name": "sleMlsQosQStatsDropBytes",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsMcastDropPkts": {
+    "name": "sleMlsQosQStatsMcastDropPkts",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsMcastDropBytes": {
+    "name": "sleMlsQosQStatsMcastDropBytes",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsEnqueuedPkts": {
+    "name": "sleMlsQosQStatsEnqueuedPkts",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsEnqueuedBytes": {
+    "name": "sleMlsQosQStatsEnqueuedBytes",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsControl": {
+    "name": "sleMlsQosQStatsControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.2",
+    "class": "objectidentity"
+  },
+  "sleMlsQosQStatsControlRequest": {
+    "name": "sleMlsQosQStatsControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clearWredStats": 1,
+          "clearTailDropStats": 2,
+          "clearQueueStats": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosQStatsControlStatus": {
+    "name": "sleMlsQosQStatsControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsControlTimer": {
+    "name": "sleMlsQosQStatsControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosQStatsontrolTimeStamp": {
+    "name": "sleMlsQosQStatsontrolTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQStatsControlReqResult": {
+    "name": "sleMlsQosQStatsControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosQstatsCtrlIfIndex": {
+    "name": "sleMlsQosQstatsCtrlIfIndex",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosQstatsCtrlQId": {
+    "name": "sleMlsQosQstatsCtrlQId",
+    "oid": "1.3.6.1.4.1.6296.101.28.8.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosClassMapQueue": {
+    "name": "sleHqosClassMapQueue",
+    "oid": "1.3.6.1.4.1.6296.101.28.9",
+    "class": "objectidentity"
+  },
+  "sleHqosClassMapQueueInfoTable": {
+    "name": "sleHqosClassMapQueueInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosClassMapQueueInfoEntry": {
+    "name": "sleHqosClassMapQueueInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "indices": [
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueInfoName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleHqosClassMapQueueInfoName": {
+    "name": "sleHqosClassMapQueueInfoName",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleHqosClassMapQueueInfoMatchGroup": {
+    "name": "sleHqosClassMapQueueInfoMatchGroup",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosClassMapQueueControl": {
+    "name": "sleHqosClassMapQueueControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.2",
+    "class": "objectidentity"
+  },
+  "sleHqosClassMapQueueControlRequest": {
+    "name": "sleHqosClassMapQueueControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createSleHqosClassMapQueueControlEntry": 1,
+          "deleteSleHqosClassMapQueueControlEntry": 2,
+          "setSleHqosClassMapQueueControlMatchGroup": 3,
+          "unsetSleHqosClassMapQueueControlMatchGroup": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosClassMapQueueControlStatus": {
+    "name": "sleHqosClassMapQueueControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosClassMapQueueControlTimer": {
+    "name": "sleHqosClassMapQueueControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosClassMapQueueControlTimeStamp": {
+    "name": "sleHqosClassMapQueueControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosClassMapQueueControlReqResult": {
+    "name": "sleHqosClassMapQueueControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosClassMapQueueControlName": {
+    "name": "sleHqosClassMapQueueControlName",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosClassMapQueueControlMatchGroup": {
+    "name": "sleHqosClassMapQueueControlMatchGroup",
+    "oid": "1.3.6.1.4.1.6296.101.28.9.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueue": {
+    "name": "sleHqosPolicyMapQueue",
+    "oid": "1.3.6.1.4.1.6296.101.28.10",
+    "class": "objectidentity"
+  },
+  "sleHqosPolicyMapQueueInfoTable": {
+    "name": "sleHqosPolicyMapQueueInfoTable",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueInfoEntry": {
+    "name": "sleHqosPolicyMapQueueInfoEntry",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "read-only",
+    "indices": [
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueInfoName",
+        "implied": 0
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueInfoName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueInfoName": {
+    "name": "sleHqosPolicyMapQueueInfoName",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueInfoShape": {
+    "name": "sleHqosPolicyMapQueueInfoShape",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueInfoBandwidth": {
+    "name": "sleHqosPolicyMapQueueInfoBandwidth",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueInfoBandwidthRemainingPercent": {
+    "name": "sleHqosPolicyMapQueueInfoBandwidthRemainingPercent",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueInfoQueueLimit": {
+    "name": "sleHqosPolicyMapQueueInfoQueueLimit",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueInfoServicePolicyName": {
+    "name": "sleHqosPolicyMapQueueInfoServicePolicyName",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueInfoPriority": {
+    "name": "sleHqosPolicyMapQueueInfoPriority",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueInfoRDMinThreshold": {
+    "name": "sleHqosPolicyMapQueueInfoRDMinThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueInfoRDMaxThreshold": {
+    "name": "sleHqosPolicyMapQueueInfoRDMaxThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControl": {
+    "name": "sleHqosPolicyMapQueueControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2",
+    "class": "objectidentity"
+  },
+  "sleHqosPolicyMapQueueControlRequest": {
+    "name": "sleHqosPolicyMapQueueControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "createPolicyMapQueueEntry": 1,
+          "deletePolicyMapQueueEntry": 2,
+          "setPolicyMapQueueParameters": 3,
+          "unsetPolicyMapQueueParameters": 4,
+          "setPolicyMapQueueServicePolicy": 5,
+          "unsetPolicyMapQueueServicePolicy": 6,
+          "setPolicyMapQueueRandomDetect": 7,
+          "unsetPolicyMapQueueRandomDetect": 8
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlStatus": {
+    "name": "sleHqosPolicyMapQueueControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlTimer": {
+    "name": "sleHqosPolicyMapQueueControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlTimeStamp": {
+    "name": "sleHqosPolicyMapQueueControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlReqResult": {
+    "name": "sleHqosPolicyMapQueueControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlName": {
+    "name": "sleHqosPolicyMapQueueControlName",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlClassMapQueueName": {
+    "name": "sleHqosPolicyMapQueueControlClassMapQueueName",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlParams": {
+    "name": "sleHqosPolicyMapQueueControlParams",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "shape": 1,
+          "queueLimit": 2,
+          "bandwidth": 3,
+          "bandwidthRemain": 4,
+          "priority": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlParamsValue": {
+    "name": "sleHqosPolicyMapQueueControlParamsValue",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlUnits": {
+    "name": "sleHqosPolicyMapQueueControlUnits",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bps": 1,
+          "kbps": 2,
+          "mbps": 3,
+          "gbps": 4,
+          "packets": 5,
+          "bytes": 6,
+          "kbytes": 7,
+          "average": 8,
+          "percent": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlRDMiniThreshold": {
+    "name": "sleHqosPolicyMapQueueControlRDMiniThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 131072
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlRDMaxThreshold": {
+    "name": "sleHqosPolicyMapQueueControlRDMaxThreshold",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 131072
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlRDMinimumUnits": {
+    "name": "sleHqosPolicyMapQueueControlRDMinimumUnits",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bytes": 1,
+          "kbytes": 2,
+          "packets": 3,
+          "percent": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlRDMaximumUnits": {
+    "name": "sleHqosPolicyMapQueueControlRDMaximumUnits",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bytes": 1,
+          "kbytes": 2,
+          "packets": 3,
+          "percent": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleHqosPolicyMapQueueControlServicePolicyName": {
+    "name": "sleHqosPolicyMapQueueControlServicePolicyName",
+    "oid": "1.3.6.1.4.1.6296.101.28.10.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosAclGlobal": {
+    "name": "sleMlsQosAclGlobal",
+    "oid": "1.3.6.1.4.1.6296.101.28.11",
+    "class": "objectidentity"
+  },
+  "sleMlsQosAclGlobalInfo": {
+    "name": "sleMlsQosAclGlobalInfo",
+    "oid": "1.3.6.1.4.1.6296.101.28.11.1",
+    "class": "objectidentity"
+  },
+  "sleMlsQosAclGlobalInfoMaxAccessList": {
+    "name": "sleMlsQosAclGlobalInfoMaxAccessList",
+    "oid": "1.3.6.1.4.1.6296.101.28.11.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosAclGlobalControl": {
+    "name": "sleMlsQosAclGlobalControl",
+    "oid": "1.3.6.1.4.1.6296.101.28.11.2",
+    "class": "objectidentity"
+  },
+  "sleMlsQosAclGlobalControlRequest": {
+    "name": "sleMlsQosAclGlobalControlRequest",
+    "oid": "1.3.6.1.4.1.6296.101.28.11.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "setMaxAccessList": 1,
+          "unsetMaxAccessList": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosAclGlobalControlStatus": {
+    "name": "sleMlsQosAclGlobalControlStatus",
+    "oid": "1.3.6.1.4.1.6296.101.28.11.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlStatusType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosAclGlobalControlTimer": {
+    "name": "sleMlsQosAclGlobalControlTimer",
+    "oid": "1.3.6.1.4.1.6296.101.28.11.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosAclGlobalControlTimeStamp": {
+    "name": "sleMlsQosAclGlobalControlTimeStamp",
+    "oid": "1.3.6.1.4.1.6296.101.28.11.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosAclGlobalControlReqResult": {
+    "name": "sleMlsQosAclGlobalControlReqResult",
+    "oid": "1.3.6.1.4.1.6296.101.28.11.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SleControlRequestResultType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sleMlsQosAclGlobalControlMaxAccessList": {
+    "name": "sleMlsQosAclGlobalControlMaxAccessList",
+    "oid": "1.3.6.1.4.1.6296.101.28.11.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sleMlsQosGroup": {
+    "name": "sleMlsQosGroup",
+    "oid": "1.3.6.1.4.1.6296.101.28.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapCosToCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapCosToQueue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapDscpToDscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapDscpToQueue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapExpToExp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapExpToQueue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapStrictQueueId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapWrrQueueWeight"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapCpuMaxPpsRate"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapCpuQueueWeight"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapNodeCpuMaxPpsRate"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapNodeCpuQueueWeight"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosMapExpToClass"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHQosStatistics"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleQosPhbPriorityColor"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHQosDefaultClassToDscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleQosDefaultCosToClassTrust"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleQosDefaultCosToClassNoTrust"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleQosDefaultDscpToClassTrust"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleQosDefaultDscpToClassNoTrust"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalCtrlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosCtrlGlobalStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlMappingType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlMappingIngValue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlMappingEgrValue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlQueueId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlWrrQueueWeight"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlCpuMaxPpsRate"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlCpuQueueWt"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlNodeId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosGlobalControlMappingEgrClassValue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceIndex"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceTrafficRate"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceBurstSize"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceCtrlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceCtrlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceConfigCtrlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceCtrlTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceCtrlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceCtrlName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceCtrlTrafficRate"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAggPoliceCtrlBurstSize"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLIndex"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLFilterIndex"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLMatchType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLMatchAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLEtherType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLL3Protocol"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLSrcIpAddress"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLDstIpAddress"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLSrcIpAddrMask"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLDstIpAddrMask"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLSrcMacAddress"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLDstMacAddress"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLSrcMacAddrMask"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLDstMacAddrMask"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLTcpUdpSrcPortAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLTcpUdpDstPortAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLTcpUdpSrcPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLTcpUdpDstPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLNameSrcIpExactMatch"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLActionRemarkDesc"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLIcmpType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLIcmpCode"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLTcpUdpSrcPortEnd"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLTcpUdpDstPortEnd"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLControlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLControlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLConfigControlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLControlTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLControlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlMatchType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlMatchAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlEtherType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlL3Protocol"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlSrcAddress"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlDstAddress"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlSrcAddrMask"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlDstAddrMask"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlTcpUdpSrcPortAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlTcpUdpDstPortAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlTcpUdpSrcPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlTcpUdpDstPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlAclNameExactMatch"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlActionRemarkDesc"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlIcmpType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlIcmpCode"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlTcpUdpSrcPortEnd"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosACLCtrlTcpUdpDstPortEnd"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchCosValue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchInnerCosValue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchEgressInterface"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchEtherType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchSrcIpAddr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchDstIpAddr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchSrcIpMaskLen"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchDstIpMaskLen"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchSrcIpV6Addr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchDstIpV6Addr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchSrcIpV6MaskLen"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchDstIpV6MaskLen"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchIpDscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchIpPrecedence"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchIp6Dscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchIp6Precedence"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchTcpSrcPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchTcpDstPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchTcpSrcPortRange"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchTcpDstPortRange"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchUdpSrcPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchUdpDstPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchUdpSrcPortRange"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchUdpDstPortRange"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchSrcMacAddr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchSrcMacMask"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchDstMacAddr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchDstMacMask"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchVlanId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchVlanIdRange"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchInnerVlanId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchVlanTpid"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchAccessGroup"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchLayer4SrcPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchLayer4DstPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchLayer4SrcPortRange"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapMatchLayer4DstPortRange"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMplsQosClassMapMatchCriteria"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapControlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapControlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapControlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapontrolTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapControlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchVal"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchRangeType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchRangeLow"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchRangeHigh"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchEtherType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchSrcType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchSrcAddr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchDstAddr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchSrcIpMaskLen"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchDstIpMaskLen"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchSrcMacMask"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchDstMacMask"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchAcessGroup"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchVlanTpid"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosClassMapCtrlMatchEgressInterface"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMplsQosClassMapCtrlMatchCriteria"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassMatchPriority"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassOperMode"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceCIR"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPolicePIR"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceCBS"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceEBS"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceExdAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceExdActionCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceExdActionDscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceExdActionTos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceExdActionViolateAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceExdActionViolateValue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassPoliceAggregateName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionDeny"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionCpuCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionIpDscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionIp6Dscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionIpPrecedence"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionIp6Precedence"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionMirrorToPortVal"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionRedirectToPortVal"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionVlanId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionVlanCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPmapClassSetActionQosGroup"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMplsQosPmapClassSetActionQueue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMplsQosPmapClassSetActionCopyCpu"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapControlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapControlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapControlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapontrolTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapControlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassMatchPriority"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassOperMode"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceCIR"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPolicePIR"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceCBS"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceEBS"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceExdAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceExdActionCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceExdActionDscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceExdActionTos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceExdActionViolateAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceExdActionViolateValue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassPoliceAggregateName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetAction"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionCpuCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionIpDscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionIp6Dscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionIpPrecedence"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionIp6Precedence"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionMirrorToPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionRedirectToPort"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionVlanId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionVlanCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionQosGroup"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosPolicyMapCtrlClassSetActionQueue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceIndex"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceTrustState"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCosOverride"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCosToCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCosToQueue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceDscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceDscpToDscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceDscpToQueue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceExpToExp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceTrafficShapeRate"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceTrafficShapeBurst"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceInputPolicyMap"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceOutputPolicyMap"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceTrustPassthroughCos"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceTrustPassthroughDscp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHQosInterfaceCosToClass"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHQosInterfaceDscpToClass"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHQosInterfaceReplace"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceTrafficIfgExclude"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceTrafficPolicingRate"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceTrafficPolicingBurst"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceControlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceControlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceControlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceontrolTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceControlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlIndex"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlMapingType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlMapingIngVal"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlMapingEgrVal"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlMapingCosOverride"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlMapingTrustState"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlTrafficShapeRate"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlTrafficShapeBurst"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlInputPolicyMap"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlOutputPolicyMap"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlMapingCNGValue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlMapingEgrClassVal"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosInterfaceCtrlReplace"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueIntfIndex"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueShapeQueueRate"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueWrrQueueWeight"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueWrrRandomDetectMinThr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueWrrRandomDetectMaxThr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueWrrRandomDetectExpWt"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueTailDropThr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueStrictQueue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueRandomDetectDropStart"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueRandomDetectDropSlope"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueRandomDetectColor"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueReservedBandwidth"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueControlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueControlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueControlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueontrolTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueControlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlInterfaceIndex"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlQueueId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlProfileType"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlShapeQueueRate"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlWrrQueueWeight"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlWrrRandomDetectMinThr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlWrrRandomDetectMaxThr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlWrrRandomDetectExpWt"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlTailDropThr"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlRandomDetectDropStart"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlRandomDetectDropSlope"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlRandomDetectColor"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosIntfQueCtrlReservedBandwidth"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQstatsIfIndex"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosWredGreenDropPkts"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosWredYellowDropPkts"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosWredRedDropPkts"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosTailDropPkts"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosTailDropBytes"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsOutPkts"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsOutBytes"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsMcastOutPkts"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsMcastOutBytes"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsDropPkts"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsDropBytes"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsMcastDropPkts"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsMcastDropBytes"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsEnqueuedPkts"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsEnqueuedBytes"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsControlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsControlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsControlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsontrolTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQStatsControlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQstatsCtrlIfIndex"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosQstatsCtrlQId"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueInfoName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueInfoMatchGroup"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueControlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueControlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueControlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueControlTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueControlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueControlName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosClassMapQueueControlMatchGroup"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueInfoName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueInfoShape"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueInfoBandwidth"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueInfoBandwidthRemainingPercent"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueInfoQueueLimit"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueInfoServicePolicyName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueInfoPriority"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueInfoRDMinThreshold"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueInfoRDMaxThreshold"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlClassMapQueueName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlParams"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlParamsValue"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlUnits"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlRDMiniThreshold"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlRDMaxThreshold"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlRDMinimumUnits"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlRDMaximumUnits"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleHqosPolicyMapQueueControlServicePolicyName"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAclGlobalInfoMaxAccessList"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAclGlobalControlRequest"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAclGlobalControlStatus"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAclGlobalControlTimer"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAclGlobalControlTimeStamp"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAclGlobalControlReqResult"
+      },
+      {
+        "module": "SLE-MLSQOS-MIB",
+        "object": "sleMlsQosAclGlobalControlMaxAccessList"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-MLSQOS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:26:16 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SLE-MLSQOS-MIB"
+  }
+}

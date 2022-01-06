@@ -1,0 +1,1148 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-LWAPP-AP-MIB": [
+      "cLApSysMacAddress"
+    ],
+    "CISCO-LWAPP-WLAN-MIB": [
+      "cLWlanIndex"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ciscoLwappReapMIB": {
+    "name": "ciscoLwappReapMIB",
+    "oid": "1.3.6.1.4.1.9.9.517",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-10-06 00:00",
+        "description": "Added cLReapWlanApAuth, ciscoLwappReapWlanConfigGroupSup1, ciscoLwappReapMIBComplianceRev5. Deprecated ciscoLwappReapMIBComplianceRev4."
+      },
+      {
+        "revision": "2010-02-06 00:00",
+        "description": "Added cLReapWlanClientIpLearnEnable, cLReapHomeApEnable,cLReapApLeastLatencyJoinEnable and cLReapHomeApLocalSsidReset. Updated the description for cLReapGroupUserConfigTable,cLReapGroupUserName, and cLReapGroupPassword. In module identity's description removed EAP and added Home AP. ciscoLwappReapMIBComplianceRev2 is deprecated. Added all the groups which are in ciscoLwappReapMIBComplianceRev2 to ciscoLwappReapMIBComplianceRev3. cLReapGroupRadiusPacTimeout is deprecated and created a new OID called cLReapGroupRadiusPacTimeoutCtrl. Created new group ciscoLwappReapApConfigGroupHomeAp."
+      },
+      {
+        "revision": "2007-11-01 00:00",
+        "description": "Added ciscoLwappReapGroupConfigRadiusGroup and ciscoLwappReapGroupConfigUserAuthGroup."
+      },
+      {
+        "revision": "2007-04-19 00:00",
+        "description": "Added cLReapGroupConfigTable and cLReapGroupApConfigTable."
+      },
+      {
+        "revision": "2006-04-19 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ciscoLwappReapMIBNotifs": {
+    "name": "ciscoLwappReapMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.517.0",
+    "class": "objectidentity"
+  },
+  "ciscoLwappReapMIBObjects": {
+    "name": "ciscoLwappReapMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.517.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappReapMIBConform": {
+    "name": "ciscoLwappReapMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.517.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappReapWlanConfig": {
+    "name": "ciscoLwappReapWlanConfig",
+    "oid": "1.3.6.1.4.1.9.9.517.1.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappReapApConfig": {
+    "name": "ciscoLwappReapApConfig",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappReapGroupConfig": {
+    "name": "ciscoLwappReapGroupConfig",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3",
+    "class": "objectidentity"
+  },
+  "cLReapWlanConfigTable": {
+    "name": "cLReapWlanConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLReapWlanConfigEntry": {
+    "name": "cLReapWlanConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.517.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLReapWlanEnLocalSwitching": {
+    "name": "cLReapWlanEnLocalSwitching",
+    "oid": "1.3.6.1.4.1.9.9.517.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapWlanClientIpLearnEnable": {
+    "name": "cLReapWlanClientIpLearnEnable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapWlanApAuth": {
+    "name": "cLReapWlanApAuth",
+    "oid": "1.3.6.1.4.1.9.9.517.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapApConfigTable": {
+    "name": "cLReapApConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLReapApConfigEntry": {
+    "name": "cLReapApConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLReapApNativeVlanId": {
+    "name": "cLReapApNativeVlanId",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapApVlanEnable": {
+    "name": "cLReapApVlanEnable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapHomeApEnable": {
+    "name": "cLReapHomeApEnable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapApLeastLatencyJoinEnable": {
+    "name": "cLReapApLeastLatencyJoinEnable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapHomeApLocalSsidReset": {
+    "name": "cLReapHomeApLocalSsidReset",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapApVlanIdTable": {
+    "name": "cLReapApVlanIdTable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLReapApVlanIdEntry": {
+    "name": "cLReapApVlanIdEntry",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-WLAN-MIB",
+        "object": "cLWlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLReapApVlanId": {
+    "name": "cLReapApVlanId",
+    "oid": "1.3.6.1.4.1.9.9.517.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cLReapGroupConfigTable": {
+    "name": "cLReapGroupConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLReapGroupConfigEntry": {
+    "name": "cLReapGroupConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLReapGroupName": {
+    "name": "cLReapGroupName",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLReapGroupPrimaryRadiusIndex": {
+    "name": "cLReapGroupPrimaryRadiusIndex",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupSecondaryRadiusIndex": {
+    "name": "cLReapGroupSecondaryRadiusIndex",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupStorageType": {
+    "name": "cLReapGroupStorageType",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupRowStatus": {
+    "name": "cLReapGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupRadiusPacTimeout": {
+    "name": "cLReapGroupRadiusPacTimeout",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 2,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "days",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cLReapGroupRadiusAuthorityId": {
+    "name": "cLReapGroupRadiusAuthorityId",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupRadiusAuthorityInfo": {
+    "name": "cLReapGroupRadiusAuthorityInfo",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupRadiusServerKey": {
+    "name": "cLReapGroupRadiusServerKey",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "****",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupRadiusIgnoreKey": {
+    "name": "cLReapGroupRadiusIgnoreKey",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupRadiusEnable": {
+    "name": "cLReapGroupRadiusEnable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupRadiusLeapEnable": {
+    "name": "cLReapGroupRadiusLeapEnable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupRadiusEapFastEnable": {
+    "name": "cLReapGroupRadiusEapFastEnable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupRadiusPacTimeoutCtrl": {
+    "name": "cLReapGroupRadiusPacTimeoutCtrl",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupApConfigTable": {
+    "name": "cLReapGroupApConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLReapGroupApConfigEntry": {
+    "name": "cLReapGroupApConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-AP-MIB",
+        "object": "cLApSysMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLReapGroupApStorageType": {
+    "name": "cLReapGroupApStorageType",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupApRowStatus": {
+    "name": "cLReapGroupApRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupUserConfigTable": {
+    "name": "cLReapGroupUserConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLReapGroupUserConfigEntry": {
+    "name": "cLReapGroupUserConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupUserName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cLReapGroupUserName": {
+    "name": "cLReapGroupUserName",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cLReapGroupUserPassword": {
+    "name": "cLReapGroupUserPassword",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupUserStorageType": {
+    "name": "cLReapGroupUserStorageType",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cLReapGroupUserRowStatus": {
+    "name": "cLReapGroupUserRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.517.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoLwappReapMIBCompliances": {
+    "name": "ciscoLwappReapMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.517.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLwappReapMIBGroups": {
+    "name": "ciscoLwappReapMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.517.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoLwappReapMIBCompliance": {
+    "name": "ciscoLwappReapMIBCompliance",
+    "oid": "1.3.6.1.4.1.9.9.517.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappReapWlanConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapApConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappReapMIBComplianceRev1": {
+    "name": "ciscoLwappReapMIBComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.517.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappReapWlanConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapApConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappReapMIBComplianceRev2": {
+    "name": "ciscoLwappReapMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.517.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappReapWlanConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapApConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappReapMIBComplianceRev3": {
+    "name": "ciscoLwappReapMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.517.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappReapWlanConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapApConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigRadiusGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigUserAuthGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapApConfigGroupHomeAp",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappReapMIBComplianceRev4": {
+    "name": "ciscoLwappReapMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.517.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappReapWlanConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapApConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigUserAuthGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapApConfigGroupHomeAp",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigRadiusGroup1",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappReapMIBComplianceRev5": {
+    "name": "ciscoLwappReapMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.517.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLwappReapWlanConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapApConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigUserAuthGroup",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapApConfigGroupHomeAp",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapGroupConfigRadiusGroup1",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      },
+      {
+        "object": "ciscoLwappReapWlanConfigGroupSup1",
+        "module": "CISCO-LWAPP-REAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappReapWlanConfigGroup": {
+    "name": "ciscoLwappReapWlanConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.517.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapWlanEnLocalSwitching"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappReapApConfigGroup": {
+    "name": "ciscoLwappReapApConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.517.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapApNativeVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapApVlanId"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapApVlanEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappReapGroupConfigGroup": {
+    "name": "ciscoLwappReapGroupConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.517.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupPrimaryRadiusIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupSecondaryRadiusIndex"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRowStatus"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupApStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupApRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappReapGroupConfigRadiusGroup": {
+    "name": "ciscoLwappReapGroupConfigRadiusGroup",
+    "oid": "1.3.6.1.4.1.9.9.517.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusPacTimeout"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusAuthorityId"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusAuthorityInfo"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusServerKey"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusIgnoreKey"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusLeapEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusEapFastEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoLwappReapGroupConfigUserAuthGroup": {
+    "name": "ciscoLwappReapGroupConfigUserAuthGroup",
+    "oid": "1.3.6.1.4.1.9.9.517.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupUserPassword"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupUserStorageType"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupUserRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappReapApConfigGroupHomeAp": {
+    "name": "ciscoLwappReapApConfigGroupHomeAp",
+    "oid": "1.3.6.1.4.1.9.9.517.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapHomeApEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapApLeastLatencyJoinEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapWlanClientIpLearnEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapHomeApLocalSsidReset"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappReapGroupConfigRadiusGroup1": {
+    "name": "ciscoLwappReapGroupConfigRadiusGroup1",
+    "oid": "1.3.6.1.4.1.9.9.517.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusAuthorityId"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusAuthorityInfo"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusServerKey"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusIgnoreKey"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusLeapEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusEapFastEnable"
+      },
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapGroupRadiusPacTimeoutCtrl"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoLwappReapWlanConfigGroupSup1": {
+    "name": "ciscoLwappReapWlanConfigGroupSup1",
+    "oid": "1.3.6.1.4.1.9.9.517.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LWAPP-REAP-MIB",
+        "object": "cLReapWlanApAuth"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-REAP-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:19 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-LWAPP-REAP-MIB"
+  }
+}

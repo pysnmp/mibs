@@ -1,0 +1,454 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "TimeTicks",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwPowerSavingMIB": {
+    "name": "dlinkSwPowerSavingMIB",
+    "oid": "1.3.6.1.4.1.171.14.16",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-01-31 00:00",
+        "description": "Initial version of this MIB module."
+      },
+      {
+        "revision": "2013-07-08 00:00",
+        "description": "1.Modify the MIB file and object name, DLINK-POWER-SAVING-MIB to DLINKSW-POWER-SAVING-MIB, dlinkPowerSavingMIB to dlinkSwPowerSavingMIB."
+      }
+    ]
+  },
+  "dPowerSavingMIBNotifications": {
+    "name": "dPowerSavingMIBNotifications",
+    "oid": "1.3.6.1.4.1.171.14.16.0",
+    "class": "objectidentity"
+  },
+  "dPowerSavingMIBObjects": {
+    "name": "dPowerSavingMIBObjects",
+    "oid": "1.3.6.1.4.1.171.14.16.1",
+    "class": "objectidentity"
+  },
+  "dPowerSavingMIBConformance": {
+    "name": "dPowerSavingMIBConformance",
+    "oid": "1.3.6.1.4.1.171.14.16.2",
+    "class": "objectidentity"
+  },
+  "dPowerSavingGeneral": {
+    "name": "dPowerSavingGeneral",
+    "oid": "1.3.6.1.4.1.171.14.16.1.1",
+    "class": "objectidentity"
+  },
+  "dpsLinkDetectionEnabled": {
+    "name": "dpsLinkDetectionEnabled",
+    "oid": "1.3.6.1.4.1.171.14.16.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsLengthDetectionEnabled": {
+    "name": "dpsLengthDetectionEnabled",
+    "oid": "1.3.6.1.4.1.171.14.16.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsHibernationEnabled": {
+    "name": "dpsHibernationEnabled",
+    "oid": "1.3.6.1.4.1.171.14.16.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsDimLedEnabled": {
+    "name": "dpsDimLedEnabled",
+    "oid": "1.3.6.1.4.1.171.14.16.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsLedAdminEnabled": {
+    "name": "dpsLedAdminEnabled",
+    "oid": "1.3.6.1.4.1.171.14.16.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsPortShutdownEnabled": {
+    "name": "dpsPortShutdownEnabled",
+    "oid": "1.3.6.1.4.1.171.14.16.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dPowerSavingIfObjects": {
+    "name": "dPowerSavingIfObjects",
+    "oid": "1.3.6.1.4.1.171.14.16.1.2",
+    "class": "objectidentity"
+  },
+  "dpsIfEeeTable": {
+    "name": "dpsIfEeeTable",
+    "oid": "1.3.6.1.4.1.171.14.16.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dpsIfEeeEntry": {
+    "name": "dpsIfEeeEntry",
+    "oid": "1.3.6.1.4.1.171.14.16.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dpsIfEeeStatus": {
+    "name": "dpsIfEeeStatus",
+    "oid": "1.3.6.1.4.1.171.14.16.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "notAvailable": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsScheduleCtrl": {
+    "name": "dpsScheduleCtrl",
+    "oid": "1.3.6.1.4.1.171.14.16.1.3",
+    "class": "objectidentity"
+  },
+  "dpsHibernationTimeRange": {
+    "name": "dpsHibernationTimeRange",
+    "oid": "1.3.6.1.4.1.171.14.16.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsDimLedTimeRange": {
+    "name": "dpsDimLedTimeRange",
+    "oid": "1.3.6.1.4.1.171.14.16.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsPortShutdownScheduleTable": {
+    "name": "dpsPortShutdownScheduleTable",
+    "oid": "1.3.6.1.4.1.171.14.16.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dpsPortShutdownScheduleEntry": {
+    "name": "dpsPortShutdownScheduleEntry",
+    "oid": "1.3.6.1.4.1.171.14.16.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dpsPortShutdownTimeRange": {
+    "name": "dpsPortShutdownTimeRange",
+    "oid": "1.3.6.1.4.1.171.14.16.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dpsMIBCompliances": {
+    "name": "dpsMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.16.2.1",
+    "class": "objectidentity"
+  },
+  "dpsMIBGroups": {
+    "name": "dpsMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.16.2.2",
+    "class": "objectidentity"
+  },
+  "dpsMIBCompliance": {
+    "name": "dpsMIBCompliance",
+    "oid": "1.3.6.1.4.1.171.14.16.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dpsLinkCfgGroup",
+        "module": "DLINKSW-POWER-SAVING-MIB"
+      },
+      {
+        "object": "dpsLenCfgGroup",
+        "module": "DLINKSW-POWER-SAVING-MIB"
+      },
+      {
+        "object": "dpsHiberCfgGroup",
+        "module": "DLINKSW-POWER-SAVING-MIB"
+      },
+      {
+        "object": "dpsDimLedCfgGroup",
+        "module": "DLINKSW-POWER-SAVING-MIB"
+      },
+      {
+        "object": "dpsShutdownCfgGroup",
+        "module": "DLINKSW-POWER-SAVING-MIB"
+      },
+      {
+        "object": "dpsIfEeeCfgGroup",
+        "module": "DLINKSW-POWER-SAVING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dpsLinkCfgGroup": {
+    "name": "dpsLinkCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.16.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-POWER-SAVING-MIB",
+        "object": "dpsLinkDetectionEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dpsLenCfgGroup": {
+    "name": "dpsLenCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.16.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-POWER-SAVING-MIB",
+        "object": "dpsLengthDetectionEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "dpsHiberCfgGroup": {
+    "name": "dpsHiberCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.16.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-POWER-SAVING-MIB",
+        "object": "dpsHibernationEnabled"
+      },
+      {
+        "module": "DLINKSW-POWER-SAVING-MIB",
+        "object": "dpsHibernationTimeRange"
+      }
+    ],
+    "status": "current"
+  },
+  "dpsDimLedCfgGroup": {
+    "name": "dpsDimLedCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.16.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-POWER-SAVING-MIB",
+        "object": "dpsDimLedEnabled"
+      },
+      {
+        "module": "DLINKSW-POWER-SAVING-MIB",
+        "object": "dpsLedAdminEnabled"
+      },
+      {
+        "module": "DLINKSW-POWER-SAVING-MIB",
+        "object": "dpsDimLedTimeRange"
+      }
+    ],
+    "status": "current"
+  },
+  "dpsShutdownCfgGroup": {
+    "name": "dpsShutdownCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.16.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-POWER-SAVING-MIB",
+        "object": "dpsPortShutdownEnabled"
+      },
+      {
+        "module": "DLINKSW-POWER-SAVING-MIB",
+        "object": "dpsPortShutdownTimeRange"
+      }
+    ],
+    "status": "current"
+  },
+  "dpsIfEeeCfgGroup": {
+    "name": "dpsIfEeeCfgGroup",
+    "oid": "1.3.6.1.4.1.171.14.16.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-POWER-SAVING-MIB",
+        "object": "dpsIfEeeStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-POWER-SAVING-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-POWER-SAVING-MIB"
+  }
+}

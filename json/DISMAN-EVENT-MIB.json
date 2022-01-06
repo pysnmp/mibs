@@ -1,0 +1,2479 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMP-TARGET-MIB": [
+      "SnmpTagValue"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-MIB": [
+      "sysUpTime"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "Counter32",
+      "mib-2",
+      "zeroDotZero",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "dismanEventMIB": {
+    "name": "dismanEventMIB",
+    "oid": "1.3.6.1.2.1.88",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-10-16 00:00",
+        "description": "This is the initial version of this MIB. Published as RFC 2981"
+      }
+    ]
+  },
+  "dismanEventMIBObjects": {
+    "name": "dismanEventMIBObjects",
+    "oid": "1.3.6.1.2.1.88.1",
+    "class": "objectidentity"
+  },
+  "mteResource": {
+    "name": "mteResource",
+    "oid": "1.3.6.1.2.1.88.1.1",
+    "class": "objectidentity"
+  },
+  "mteTrigger": {
+    "name": "mteTrigger",
+    "oid": "1.3.6.1.2.1.88.1.2",
+    "class": "objectidentity"
+  },
+  "mteObjects": {
+    "name": "mteObjects",
+    "oid": "1.3.6.1.2.1.88.1.3",
+    "class": "objectidentity"
+  },
+  "mteEvent": {
+    "name": "mteEvent",
+    "oid": "1.3.6.1.2.1.88.1.4",
+    "class": "objectidentity"
+  },
+  "FailureReason": {
+    "name": "FailureReason",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localResourceLack": -1,
+          "badDestination": -2,
+          "destinationUnreachable": -3,
+          "noResponse": -4,
+          "badType": -5,
+          "sampleOverrun": -6,
+          "noError": 0,
+          "tooBig": 1,
+          "noSuchName": 2,
+          "badValue": 3,
+          "readOnly": 4,
+          "genErr": 5,
+          "noAccess": 6,
+          "wrongType": 7,
+          "wrongLength": 8,
+          "wrongEncoding": 9,
+          "wrongValue": 10,
+          "noCreation": 11,
+          "inconsistentValue": 12,
+          "resourceUnavailable": 13,
+          "commitFailed": 14,
+          "undoFailed": 15,
+          "authorizationError": 16,
+          "notWritable": 17,
+          "inconsistentName": 18
+        }
+      }
+    },
+    "status": "current"
+  },
+  "mteResourceSampleMinimum": {
+    "name": "mteResourceSampleMinimum",
+    "oid": "1.3.6.1.2.1.88.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteResourceSampleInstanceMaximum": {
+    "name": "mteResourceSampleInstanceMaximum",
+    "oid": "1.3.6.1.2.1.88.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "instances",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteResourceSampleInstances": {
+    "name": "mteResourceSampleInstances",
+    "oid": "1.3.6.1.2.1.88.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "instances",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mteResourceSampleInstancesHigh": {
+    "name": "mteResourceSampleInstancesHigh",
+    "oid": "1.3.6.1.2.1.88.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "instances",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mteResourceSampleInstanceLacks": {
+    "name": "mteResourceSampleInstanceLacks",
+    "oid": "1.3.6.1.2.1.88.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "instances",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mteTriggerFailures": {
+    "name": "mteTriggerFailures",
+    "oid": "1.3.6.1.2.1.88.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failures",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mteTriggerTable": {
+    "name": "mteTriggerTable",
+    "oid": "1.3.6.1.2.1.88.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteTriggerEntry": {
+    "name": "mteTriggerEntry",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteOwner",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "mteOwner": {
+    "name": "mteOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteTriggerName": {
+    "name": "mteTriggerName",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteTriggerComment": {
+    "name": "mteTriggerComment",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerTest": {
+    "name": "mteTriggerTest",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "existence": 0,
+        "boolean": 1,
+        "threshold": 2
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "boolean": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerSampleType": {
+    "name": "mteTriggerSampleType",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "absoluteValue": 1,
+          "deltaValue": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "absoluteValue",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerValueID": {
+    "name": "mteTriggerValueID",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerValueIDWildcard": {
+    "name": "mteTriggerValueIDWildcard",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerTargetTag": {
+    "name": "mteTriggerTargetTag",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerContextName": {
+    "name": "mteTriggerContextName",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerContextNameWildcard": {
+    "name": "mteTriggerContextNameWildcard",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerFrequency": {
+    "name": "mteTriggerFrequency",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerObjectsOwner": {
+    "name": "mteTriggerObjectsOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerObjects": {
+    "name": "mteTriggerObjects",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerEnabled": {
+    "name": "mteTriggerEnabled",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerEntryStatus": {
+    "name": "mteTriggerEntryStatus",
+    "oid": "1.3.6.1.2.1.88.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteTriggerDeltaTable": {
+    "name": "mteTriggerDeltaTable",
+    "oid": "1.3.6.1.2.1.88.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteTriggerDeltaEntry": {
+    "name": "mteTriggerDeltaEntry",
+    "oid": "1.3.6.1.2.1.88.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteOwner",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "sysUpTimeInstance": {
+    "name": "sysUpTimeInstance",
+    "oid": "1.3.6.1.2.1.1.3.0",
+    "class": "objectidentity"
+  },
+  "mteTriggerDeltaDiscontinuityID": {
+    "name": "mteTriggerDeltaDiscontinuityID",
+    "oid": "1.3.6.1.2.1.88.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(1, 3, 6, 1, 2, 1, 1, 3, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerDeltaDiscontinuityIDWildcard": {
+    "name": "mteTriggerDeltaDiscontinuityIDWildcard",
+    "oid": "1.3.6.1.2.1.88.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerDeltaDiscontinuityIDType": {
+    "name": "mteTriggerDeltaDiscontinuityIDType",
+    "oid": "1.3.6.1.2.1.88.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timeTicks": 1,
+          "timeStamp": 2,
+          "dateAndTime": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "timeTicks",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerExistenceTable": {
+    "name": "mteTriggerExistenceTable",
+    "oid": "1.3.6.1.2.1.88.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteTriggerExistenceEntry": {
+    "name": "mteTriggerExistenceEntry",
+    "oid": "1.3.6.1.2.1.88.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteOwner",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "mteTriggerExistenceTest": {
+    "name": "mteTriggerExistenceTest",
+    "oid": "1.3.6.1.2.1.88.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "present": 0,
+        "absent": 1,
+        "changed": 2
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "present": 0,
+          "absent": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerExistenceStartup": {
+    "name": "mteTriggerExistenceStartup",
+    "oid": "1.3.6.1.2.1.88.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "present": 0,
+        "absent": 1
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "present": 0,
+          "absent": 1
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerExistenceObjectsOwner": {
+    "name": "mteTriggerExistenceObjectsOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerExistenceObjects": {
+    "name": "mteTriggerExistenceObjects",
+    "oid": "1.3.6.1.2.1.88.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerExistenceEventOwner": {
+    "name": "mteTriggerExistenceEventOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerExistenceEvent": {
+    "name": "mteTriggerExistenceEvent",
+    "oid": "1.3.6.1.2.1.88.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerBooleanTable": {
+    "name": "mteTriggerBooleanTable",
+    "oid": "1.3.6.1.2.1.88.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteTriggerBooleanEntry": {
+    "name": "mteTriggerBooleanEntry",
+    "oid": "1.3.6.1.2.1.88.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteOwner",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "mteTriggerBooleanComparison": {
+    "name": "mteTriggerBooleanComparison",
+    "oid": "1.3.6.1.2.1.88.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unequal": 1,
+          "equal": 2,
+          "less": 3,
+          "lessOrEqual": 4,
+          "greater": 5,
+          "greaterOrEqual": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unequal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerBooleanValue": {
+    "name": "mteTriggerBooleanValue",
+    "oid": "1.3.6.1.2.1.88.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerBooleanStartup": {
+    "name": "mteTriggerBooleanStartup",
+    "oid": "1.3.6.1.2.1.88.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerBooleanObjectsOwner": {
+    "name": "mteTriggerBooleanObjectsOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerBooleanObjects": {
+    "name": "mteTriggerBooleanObjects",
+    "oid": "1.3.6.1.2.1.88.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerBooleanEventOwner": {
+    "name": "mteTriggerBooleanEventOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerBooleanEvent": {
+    "name": "mteTriggerBooleanEvent",
+    "oid": "1.3.6.1.2.1.88.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdTable": {
+    "name": "mteTriggerThresholdTable",
+    "oid": "1.3.6.1.2.1.88.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteTriggerThresholdEntry": {
+    "name": "mteTriggerThresholdEntry",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteOwner",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "mteTriggerThresholdStartup": {
+    "name": "mteTriggerThresholdStartup",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rising": 1,
+          "falling": 2,
+          "risingOrFalling": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "risingOrFalling",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdRising": {
+    "name": "mteTriggerThresholdRising",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdFalling": {
+    "name": "mteTriggerThresholdFalling",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdDeltaRising": {
+    "name": "mteTriggerThresholdDeltaRising",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdDeltaFalling": {
+    "name": "mteTriggerThresholdDeltaFalling",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdObjectsOwner": {
+    "name": "mteTriggerThresholdObjectsOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdObjects": {
+    "name": "mteTriggerThresholdObjects",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdRisingEventOwner": {
+    "name": "mteTriggerThresholdRisingEventOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdRisingEvent": {
+    "name": "mteTriggerThresholdRisingEvent",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdFallingEventOwner": {
+    "name": "mteTriggerThresholdFallingEventOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdFallingEvent": {
+    "name": "mteTriggerThresholdFallingEvent",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdDeltaRisingEventOwner": {
+    "name": "mteTriggerThresholdDeltaRisingEventOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdDeltaRisingEvent": {
+    "name": "mteTriggerThresholdDeltaRisingEvent",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdDeltaFallingEventOwner": {
+    "name": "mteTriggerThresholdDeltaFallingEventOwner",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteTriggerThresholdDeltaFallingEvent": {
+    "name": "mteTriggerThresholdDeltaFallingEvent",
+    "oid": "1.3.6.1.2.1.88.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteObjectsTable": {
+    "name": "mteObjectsTable",
+    "oid": "1.3.6.1.2.1.88.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteObjectsEntry": {
+    "name": "mteObjectsEntry",
+    "oid": "1.3.6.1.2.1.88.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteOwner",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteObjectsName",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteObjectsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mteObjectsName": {
+    "name": "mteObjectsName",
+    "oid": "1.3.6.1.2.1.88.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteObjectsIndex": {
+    "name": "mteObjectsIndex",
+    "oid": "1.3.6.1.2.1.88.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteObjectsID": {
+    "name": "mteObjectsID",
+    "oid": "1.3.6.1.2.1.88.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteObjectsIDWildcard": {
+    "name": "mteObjectsIDWildcard",
+    "oid": "1.3.6.1.2.1.88.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteObjectsEntryStatus": {
+    "name": "mteObjectsEntryStatus",
+    "oid": "1.3.6.1.2.1.88.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteEventFailures": {
+    "name": "mteEventFailures",
+    "oid": "1.3.6.1.2.1.88.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mteEventTable": {
+    "name": "mteEventTable",
+    "oid": "1.3.6.1.2.1.88.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteEventEntry": {
+    "name": "mteEventEntry",
+    "oid": "1.3.6.1.2.1.88.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteOwner",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "mteEventName": {
+    "name": "mteEventName",
+    "oid": "1.3.6.1.2.1.88.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteEventComment": {
+    "name": "mteEventComment",
+    "oid": "1.3.6.1.2.1.88.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteEventActions": {
+    "name": "mteEventActions",
+    "oid": "1.3.6.1.2.1.88.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "notification": 0,
+        "set": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteEventEnabled": {
+    "name": "mteEventEnabled",
+    "oid": "1.3.6.1.2.1.88.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteEventEntryStatus": {
+    "name": "mteEventEntryStatus",
+    "oid": "1.3.6.1.2.1.88.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "mteEventNotificationTable": {
+    "name": "mteEventNotificationTable",
+    "oid": "1.3.6.1.2.1.88.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteEventNotificationEntry": {
+    "name": "mteEventNotificationEntry",
+    "oid": "1.3.6.1.2.1.88.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteOwner",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "mteEventNotification": {
+    "name": "mteEventNotification",
+    "oid": "1.3.6.1.2.1.88.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteEventNotificationObjectsOwner": {
+    "name": "mteEventNotificationObjectsOwner",
+    "oid": "1.3.6.1.2.1.88.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteEventNotificationObjects": {
+    "name": "mteEventNotificationObjects",
+    "oid": "1.3.6.1.2.1.88.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteEventSetTable": {
+    "name": "mteEventSetTable",
+    "oid": "1.3.6.1.2.1.88.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mteEventSetEntry": {
+    "name": "mteEventSetEntry",
+    "oid": "1.3.6.1.2.1.88.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteOwner",
+        "implied": 0
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "mteEventSetObject": {
+    "name": "mteEventSetObject",
+    "oid": "1.3.6.1.2.1.88.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteEventSetObjectWildcard": {
+    "name": "mteEventSetObjectWildcard",
+    "oid": "1.3.6.1.2.1.88.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteEventSetValue": {
+    "name": "mteEventSetValue",
+    "oid": "1.3.6.1.2.1.88.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteEventSetTargetTag": {
+    "name": "mteEventSetTargetTag",
+    "oid": "1.3.6.1.2.1.88.1.4.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteEventSetContextName": {
+    "name": "mteEventSetContextName",
+    "oid": "1.3.6.1.2.1.88.1.4.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mteEventSetContextNameWildcard": {
+    "name": "mteEventSetContextNameWildcard",
+    "oid": "1.3.6.1.2.1.88.1.4.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dismanEventMIBNotificationPrefix": {
+    "name": "dismanEventMIBNotificationPrefix",
+    "oid": "1.3.6.1.2.1.88.2",
+    "class": "objectidentity"
+  },
+  "dismanEventMIBNotifications": {
+    "name": "dismanEventMIBNotifications",
+    "oid": "1.3.6.1.2.1.88.2.0",
+    "class": "objectidentity"
+  },
+  "dismanEventMIBNotificationObjects": {
+    "name": "dismanEventMIBNotificationObjects",
+    "oid": "1.3.6.1.2.1.88.2.1",
+    "class": "objectidentity"
+  },
+  "mteHotTrigger": {
+    "name": "mteHotTrigger",
+    "oid": "1.3.6.1.2.1.88.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mteHotTargetName": {
+    "name": "mteHotTargetName",
+    "oid": "1.3.6.1.2.1.88.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mteHotContextName": {
+    "name": "mteHotContextName",
+    "oid": "1.3.6.1.2.1.88.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mteHotOID": {
+    "name": "mteHotOID",
+    "oid": "1.3.6.1.2.1.88.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mteHotValue": {
+    "name": "mteHotValue",
+    "oid": "1.3.6.1.2.1.88.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mteFailedReason": {
+    "name": "mteFailedReason",
+    "oid": "1.3.6.1.2.1.88.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FailureReason",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "mteTriggerFired": {
+    "name": "mteTriggerFired",
+    "oid": "1.3.6.1.2.1.88.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTrigger"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTargetName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotContextName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotOID"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotValue"
+      }
+    ],
+    "status": "current"
+  },
+  "mteTriggerRising": {
+    "name": "mteTriggerRising",
+    "oid": "1.3.6.1.2.1.88.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTrigger"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTargetName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotContextName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotOID"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotValue"
+      }
+    ],
+    "status": "current"
+  },
+  "mteTriggerFalling": {
+    "name": "mteTriggerFalling",
+    "oid": "1.3.6.1.2.1.88.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTrigger"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTargetName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotContextName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotOID"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotValue"
+      }
+    ],
+    "status": "current"
+  },
+  "mteTriggerFailure": {
+    "name": "mteTriggerFailure",
+    "oid": "1.3.6.1.2.1.88.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTrigger"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTargetName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotContextName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotOID"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "mteEventSetFailure": {
+    "name": "mteEventSetFailure",
+    "oid": "1.3.6.1.2.1.88.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTrigger"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTargetName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotContextName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotOID"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "dismanEventMIBConformance": {
+    "name": "dismanEventMIBConformance",
+    "oid": "1.3.6.1.2.1.88.3",
+    "class": "objectidentity"
+  },
+  "dismanEventMIBCompliances": {
+    "name": "dismanEventMIBCompliances",
+    "oid": "1.3.6.1.2.1.88.3.1",
+    "class": "objectidentity"
+  },
+  "dismanEventMIBGroups": {
+    "name": "dismanEventMIBGroups",
+    "oid": "1.3.6.1.2.1.88.3.2",
+    "class": "objectidentity"
+  },
+  "dismanEventMIBCompliance": {
+    "name": "dismanEventMIBCompliance",
+    "oid": "1.3.6.1.2.1.88.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dismanEventResourceGroup",
+        "module": "DISMAN-EVENT-MIB"
+      },
+      {
+        "object": "dismanEventTriggerGroup",
+        "module": "DISMAN-EVENT-MIB"
+      },
+      {
+        "object": "dismanEventObjectsGroup",
+        "module": "DISMAN-EVENT-MIB"
+      },
+      {
+        "object": "dismanEventEventGroup",
+        "module": "DISMAN-EVENT-MIB"
+      },
+      {
+        "object": "dismanEventNotificationObjectGroup",
+        "module": "DISMAN-EVENT-MIB"
+      },
+      {
+        "object": "dismanEventNotificationGroup",
+        "module": "DISMAN-EVENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dismanEventResourceGroup": {
+    "name": "dismanEventResourceGroup",
+    "oid": "1.3.6.1.2.1.88.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteResourceSampleMinimum"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteResourceSampleInstanceMaximum"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteResourceSampleInstances"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteResourceSampleInstancesHigh"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteResourceSampleInstanceLacks"
+      }
+    ],
+    "status": "current"
+  },
+  "dismanEventTriggerGroup": {
+    "name": "dismanEventTriggerGroup",
+    "oid": "1.3.6.1.2.1.88.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerFailures"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerComment"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerTest"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerSampleType"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerValueID"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerValueIDWildcard"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerTargetTag"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerContextName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerContextNameWildcard"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerFrequency"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerObjectsOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerObjects"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerEnabled"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerEntryStatus"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerDeltaDiscontinuityID"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerDeltaDiscontinuityIDWildcard"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerDeltaDiscontinuityIDType"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerExistenceTest"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerExistenceStartup"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerExistenceObjectsOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerExistenceObjects"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerExistenceEventOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerExistenceEvent"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerBooleanComparison"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerBooleanValue"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerBooleanStartup"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerBooleanObjectsOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerBooleanObjects"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerBooleanEventOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerBooleanEvent"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdStartup"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdObjectsOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdObjects"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdRising"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdFalling"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdDeltaRising"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdDeltaFalling"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdRisingEventOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdRisingEvent"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdFallingEventOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdFallingEvent"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdDeltaRisingEventOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdDeltaRisingEvent"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdDeltaFallingEventOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerThresholdDeltaFallingEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "dismanEventObjectsGroup": {
+    "name": "dismanEventObjectsGroup",
+    "oid": "1.3.6.1.2.1.88.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteObjectsID"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteObjectsIDWildcard"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteObjectsEntryStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dismanEventEventGroup": {
+    "name": "dismanEventEventGroup",
+    "oid": "1.3.6.1.2.1.88.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventFailures"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventComment"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventActions"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventEnabled"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventEntryStatus"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventNotification"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventNotificationObjectsOwner"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventNotificationObjects"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventSetObject"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventSetObjectWildcard"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventSetValue"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventSetTargetTag"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventSetContextName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventSetContextNameWildcard"
+      }
+    ],
+    "status": "current"
+  },
+  "dismanEventNotificationObjectGroup": {
+    "name": "dismanEventNotificationObjectGroup",
+    "oid": "1.3.6.1.2.1.88.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTrigger"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotTargetName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotContextName"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotOID"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteHotValue"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteFailedReason"
+      }
+    ],
+    "status": "current"
+  },
+  "dismanEventNotificationGroup": {
+    "name": "dismanEventNotificationGroup",
+    "oid": "1.3.6.1.2.1.88.3.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerFired"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerRising"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerFalling"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteTriggerFailure"
+      },
+      {
+        "module": "DISMAN-EVENT-MIB",
+        "object": "mteEventSetFailure"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DISMAN-EVENT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:15:32 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DISMAN-EVENT-MIB"
+  }
+}

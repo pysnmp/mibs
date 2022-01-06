@@ -1,0 +1,1244 @@
+{
+  "imports": {
+    "class": "imports",
+    "DLINK-ID-REC-MIB": [
+      "dlinkIndustrialCommon"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dlinkSwEntityExtMIB": {
+    "name": "dlinkSwEntityExtMIB",
+    "oid": "1.3.6.1.4.1.171.14.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-09-06 00:00",
+        "description": "Add dEntityExtFactoryResetButton to support factory reset button trap."
+      },
+      {
+        "revision": "2013-03-13 00:00",
+        "description": "This is the first version of this MIB."
+      }
+    ]
+  },
+  "dEntityExtNotifications": {
+    "name": "dEntityExtNotifications",
+    "oid": "1.3.6.1.4.1.171.14.5.0",
+    "class": "objectidentity"
+  },
+  "dEntityExtObjects": {
+    "name": "dEntityExtObjects",
+    "oid": "1.3.6.1.4.1.171.14.5.1",
+    "class": "objectidentity"
+  },
+  "dEntityExtConformance": {
+    "name": "dEntityExtConformance",
+    "oid": "1.3.6.1.4.1.171.14.5.2",
+    "class": "objectidentity"
+  },
+  "dEntityExtEnvObjects": {
+    "name": "dEntityExtEnvObjects",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1",
+    "class": "objectidentity"
+  },
+  "dEntityExtEnvTempTable": {
+    "name": "dEntityExtEnvTempTable",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvTempEntry": {
+    "name": "dEntityExtEnvTempEntry",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvTempUnitId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvTempIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtEnvTempUnitId": {
+    "name": "dEntityExtEnvTempUnitId",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvTempIndex": {
+    "name": "dEntityExtEnvTempIndex",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvTempDescr": {
+    "name": "dEntityExtEnvTempDescr",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtEnvTempCurrent": {
+    "name": "dEntityExtEnvTempCurrent",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtEnvTempThresholdLow": {
+    "name": "dEntityExtEnvTempThresholdLow",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dEntityExtEnvTempThresholdHigh": {
+    "name": "dEntityExtEnvTempThresholdHigh",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "degrees Celsius",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dEntityExtEnvTempStatus": {
+    "name": "dEntityExtEnvTempStatus",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "abnormal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtEnvFanTable": {
+    "name": "dEntityExtEnvFanTable",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvFanEntry": {
+    "name": "dEntityExtEnvFanEntry",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvFanUnitId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvFanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtEnvFanUnitId": {
+    "name": "dEntityExtEnvFanUnitId",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvFanIndex": {
+    "name": "dEntityExtEnvFanIndex",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvFanDescr": {
+    "name": "dEntityExtEnvFanDescr",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtEnvFanStatus": {
+    "name": "dEntityExtEnvFanStatus",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "fault": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtEnvPowerTable": {
+    "name": "dEntityExtEnvPowerTable",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvPowerEntry": {
+    "name": "dEntityExtEnvPowerEntry",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvPowerUnitId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvPowerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtEnvPowerUnitId": {
+    "name": "dEntityExtEnvPowerUnitId",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvPowerIndex": {
+    "name": "dEntityExtEnvPowerIndex",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvPowerDescr": {
+    "name": "dEntityExtEnvPowerDescr",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtEnvPowerUsedPower": {
+    "name": "dEntityExtEnvPowerUsedPower",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtEnvPowerMaxPower": {
+    "name": "dEntityExtEnvPowerMaxPower",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "watts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtEnvPowerStatus": {
+    "name": "dEntityExtEnvPowerStatus",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inOperation": 1,
+          "failed": 2,
+          "empty": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtEnvAirFlowTable": {
+    "name": "dEntityExtEnvAirFlowTable",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvAirFlowEntry": {
+    "name": "dEntityExtEnvAirFlowEntry",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvAirFlowUnitId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtEnvAirFlowUnitId": {
+    "name": "dEntityExtEnvAirFlowUnitId",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtEnvAirFlowStatus": {
+    "name": "dEntityExtEnvAirFlowStatus",
+    "oid": "1.3.6.1.4.1.171.14.5.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "abnormal": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtEnvTrap": {
+    "name": "dEntityExtEnvTrap",
+    "oid": "1.3.6.1.4.1.171.14.5.1.2",
+    "class": "objectidentity"
+  },
+  "dEntityExtEnvNotifyEnable": {
+    "name": "dEntityExtEnvNotifyEnable",
+    "oid": "1.3.6.1.4.1.171.14.5.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "fan": 0,
+        "power": 1,
+        "temperature": 2
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dEntityExtUnitTable": {
+    "name": "dEntityExtUnitTable",
+    "oid": "1.3.6.1.4.1.171.14.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtUnitEntry": {
+    "name": "dEntityExtUnitEntry",
+    "oid": "1.3.6.1.4.1.171.14.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtUnitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtUnitIndex": {
+    "name": "dEntityExtUnitIndex",
+    "oid": "1.3.6.1.4.1.171.14.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtUnitStatus": {
+    "name": "dEntityExtUnitStatus",
+    "oid": "1.3.6.1.4.1.171.14.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ok": 1,
+          "failed": 2,
+          "empty": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtUnitUpTime": {
+    "name": "dEntityExtUnitUpTime",
+    "oid": "1.3.6.1.4.1.171.14.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtMemoryUtilTable": {
+    "name": "dEntityExtMemoryUtilTable",
+    "oid": "1.3.6.1.4.1.171.14.5.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtMemoryUtilEntry": {
+    "name": "dEntityExtMemoryUtilEntry",
+    "oid": "1.3.6.1.4.1.171.14.5.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtMemUtilUnitId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtMemUtilType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtMemUtilUnitId": {
+    "name": "dEntityExtMemUtilUnitId",
+    "oid": "1.3.6.1.4.1.171.14.5.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtMemUtilType": {
+    "name": "dEntityExtMemUtilType",
+    "oid": "1.3.6.1.4.1.171.14.5.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dram": 1,
+          "flash": 2,
+          "nvram": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtMemUtilTotal": {
+    "name": "dEntityExtMemUtilTotal",
+    "oid": "1.3.6.1.4.1.171.14.5.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtMemUtilUsed": {
+    "name": "dEntityExtMemUtilUsed",
+    "oid": "1.3.6.1.4.1.171.14.5.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtMemUtilFree": {
+    "name": "dEntityExtMemUtilFree",
+    "oid": "1.3.6.1.4.1.171.14.5.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtCpuUtilTable": {
+    "name": "dEntityExtCpuUtilTable",
+    "oid": "1.3.6.1.4.1.171.14.5.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtCpuUtilEntry": {
+    "name": "dEntityExtCpuUtilEntry",
+    "oid": "1.3.6.1.4.1.171.14.5.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtCpuUtilUnitId",
+        "implied": 0
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtCpuUtilCpuID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtCpuUtilUnitId": {
+    "name": "dEntityExtCpuUtilUnitId",
+    "oid": "1.3.6.1.4.1.171.14.5.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtCpuUtilCpuID": {
+    "name": "dEntityExtCpuUtilCpuID",
+    "oid": "1.3.6.1.4.1.171.14.5.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtCpuUtilFiveSeconds": {
+    "name": "dEntityExtCpuUtilFiveSeconds",
+    "oid": "1.3.6.1.4.1.171.14.5.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtCpuUtilOneMinute": {
+    "name": "dEntityExtCpuUtilOneMinute",
+    "oid": "1.3.6.1.4.1.171.14.5.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "percentage",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtCpuUtilFiveMinutes": {
+    "name": "dEntityExtCpuUtilFiveMinutes",
+    "oid": "1.3.6.1.4.1.171.14.5.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtVersionTable": {
+    "name": "dEntityExtVersionTable",
+    "oid": "1.3.6.1.4.1.171.14.5.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtVersionEntry": {
+    "name": "dEntityExtVersionEntry",
+    "oid": "1.3.6.1.4.1.171.14.5.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtVersionUnitId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtVersionUnitId": {
+    "name": "dEntityExtVersionUnitId",
+    "oid": "1.3.6.1.4.1.171.14.5.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dEntityExtVersionBootloader": {
+    "name": "dEntityExtVersionBootloader",
+    "oid": "1.3.6.1.4.1.171.14.5.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtVersionRuntime": {
+    "name": "dEntityExtVersionRuntime",
+    "oid": "1.3.6.1.4.1.171.14.5.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dEntityExtFanStatusChg": {
+    "name": "dEntityExtFanStatusChg",
+    "oid": "1.3.6.1.4.1.171.14.5.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvFanUnitId"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvFanIndex"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvFanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtThermalStatusChg": {
+    "name": "dEntityExtThermalStatusChg",
+    "oid": "1.3.6.1.4.1.171.14.5.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvTempUnitId"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvTempIndex"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvTempStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtPowerStatusChg": {
+    "name": "dEntityExtPowerStatusChg",
+    "oid": "1.3.6.1.4.1.171.14.5.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvPowerUnitId"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvPowerIndex"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvPowerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtAirFlowChg": {
+    "name": "dEntityExtAirFlowChg",
+    "oid": "1.3.6.1.4.1.171.14.5.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvAirFlowUnitId"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvAirFlowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtFactoryResetButton": {
+    "name": "dEntityExtFactoryResetButton",
+    "oid": "1.3.6.1.4.1.171.14.5.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtUnitIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtMIBCompliances": {
+    "name": "dEntityExtMIBCompliances",
+    "oid": "1.3.6.1.4.1.171.14.5.2.1",
+    "class": "objectidentity"
+  },
+  "dEntityExtMIBGroups": {
+    "name": "dEntityExtMIBGroups",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2",
+    "class": "objectidentity"
+  },
+  "dEntityExtCompliance": {
+    "name": "dEntityExtCompliance",
+    "oid": "1.3.6.1.4.1.171.14.5.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dEntityExtSystemInfoGroup",
+        "module": "DLINKSW-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "dEntityExtTempGroup",
+        "module": "DLINKSW-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "dEntityExtThermalNotifGroup",
+        "module": "DLINKSW-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "dEntityExtFanGroup",
+        "module": "DLINKSW-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "dEntityExtFanNotifGroup",
+        "module": "DLINKSW-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "dEntityExtPowerGroup",
+        "module": "DLINKSW-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "dEntityExtPowerNotifGroup",
+        "module": "DLINKSW-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "dEntityExtAirFlowNotifGroup",
+        "module": "DLINKSW-ENTITY-EXT-MIB"
+      },
+      {
+        "object": "dEntityExtGenericNotifInfoGroup",
+        "module": "DLINKSW-ENTITY-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtTempGroup": {
+    "name": "dEntityExtTempGroup",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvTempDescr"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvTempCurrent"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvTempThresholdLow"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvTempThresholdHigh"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvTempStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtFanGroup": {
+    "name": "dEntityExtFanGroup",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvFanDescr"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvFanStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtPowerGroup": {
+    "name": "dEntityExtPowerGroup",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvPowerDescr"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvPowerUsedPower"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvPowerMaxPower"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvPowerStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtSystemInfoGroup": {
+    "name": "dEntityExtSystemInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtUnitStatus"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtUnitUpTime"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtMemUtilTotal"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtMemUtilUsed"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtMemUtilFree"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtCpuUtilFiveSeconds"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtCpuUtilOneMinute"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtCpuUtilFiveMinutes"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtVersionBootloader"
+      },
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtVersionRuntime"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtGenericNotifInfoGroup": {
+    "name": "dEntityExtGenericNotifInfoGroup",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtEnvNotifyEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtFanNotifGroup": {
+    "name": "dEntityExtFanNotifGroup",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtFanStatusChg"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtThermalNotifGroup": {
+    "name": "dEntityExtThermalNotifGroup",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2.7",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtThermalStatusChg"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtPowerNotifGroup": {
+    "name": "dEntityExtPowerNotifGroup",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtPowerStatusChg"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtAirFlowNotifGroup": {
+    "name": "dEntityExtAirFlowNotifGroup",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtAirFlowChg"
+      }
+    ],
+    "status": "current"
+  },
+  "dEntityExtFactoryResetButtonNotifGroup": {
+    "name": "dEntityExtFactoryResetButtonNotifGroup",
+    "oid": "1.3.6.1.4.1.171.14.5.2.2.10",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DLINKSW-ENTITY-EXT-MIB",
+        "object": "dEntityExtFactoryResetButton"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-ENTITY-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:27:34 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DLINKSW-ENTITY-EXT-MIB"
+  }
+}

@@ -1,0 +1,3399 @@
+{
+  "imports": {
+    "class": "imports",
+    "BASIS-MIB": [
+      "voice",
+      "cardSpecific"
+    ],
+    "CISCOWAN-SMI": [
+      "ciscoWan"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoVismModuleMIB": {
+    "name": "ciscoVismModuleMIB",
+    "oid": "1.3.6.1.4.1.351.150.82",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-10-17 00:00",
+        "description": "Added objects - vismOamLoopbackSetCLP - vismFaxDeJitterMode - vismFaxDeJitterInitialDelay - vismPvcAlarmLogEnable - vismPvcAlarmLogAdminTimer - vismPvcAlarmLogOperTimer - vismContinuityCheckCellEnable "
+      },
+      {
+        "revision": "2005-03-01 00:00",
+        "description": "Added objects - vismSplModemToneBitMap - vismSSRCEnable "
+      },
+      {
+        "revision": "2004-05-24 00:00",
+        "description": "Corrected description for vismConfigChangeTypeBitMap Added new objects - vismBearerIpPingEnable - vismTrapFilteringEnable - vismTrapIntegerValue "
+      },
+      {
+        "revision": "2004-03-09 00:00",
+        "description": "Deprecated object: -vismAisSuppression Modified description for vismConfigChangeTypeBitMap "
+      },
+      {
+        "revision": "2003-10-31 00:00",
+        "description": "Update descriptions in MIB. Add new object vismAisSuppression to vismSystemGrp. "
+      },
+      {
+        "revision": "2003-06-18 00:00",
+        "description": "Initial version of the MIB. The content of this MIB was originally available in SMIv1 version. The MIB has been converted to SMIv2 version and descriptions of some of the objects have been modified."
+      }
+    ]
+  },
+  "vismSystemPerfStats": {
+    "name": "vismSystemPerfStats",
+    "oid": "1.3.6.1.4.1.351.110.3.25",
+    "class": "objectidentity"
+  },
+  "vismCallStats": {
+    "name": "vismCallStats",
+    "oid": "1.3.6.1.4.1.351.110.5.5.13",
+    "class": "objectidentity"
+  },
+  "vismConfig": {
+    "name": "vismConfig",
+    "oid": "1.3.6.1.4.1.351.110.3.17",
+    "class": "objectidentity"
+  },
+  "vismIpGrp": {
+    "name": "vismIpGrp",
+    "oid": "1.3.6.1.4.1.351.110.3.17.1",
+    "class": "objectidentity"
+  },
+  "vismVoIpGrp": {
+    "name": "vismVoIpGrp",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2",
+    "class": "objectidentity"
+  },
+  "vismDspGrp": {
+    "name": "vismDspGrp",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3",
+    "class": "objectidentity"
+  },
+  "vismSystemGrp": {
+    "name": "vismSystemGrp",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4",
+    "class": "objectidentity"
+  },
+  "vismTrapObjGrp": {
+    "name": "vismTrapObjGrp",
+    "oid": "1.3.6.1.4.1.351.110.3.17.5",
+    "class": "objectidentity"
+  },
+  "vismAal2Grp": {
+    "name": "vismAal2Grp",
+    "oid": "1.3.6.1.4.1.351.110.3.17.6",
+    "class": "objectidentity"
+  },
+  "vismInteropGrp": {
+    "name": "vismInteropGrp",
+    "oid": "1.3.6.1.4.1.351.110.3.17.7",
+    "class": "objectidentity"
+  },
+  "VismFaxDeJitterMode": {
+    "name": "VismFaxDeJitterMode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unSpecified": 1,
+          "adaptive": 2,
+          "fixedWithTS": 3,
+          "fixedWithoutTS": 4,
+          "passThrough": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "VismFaxDeJitterInitDelay": {
+    "name": "VismFaxDeJitterInitDelay",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unSpecified": 0,
+          "five": 5,
+          "ten": 10,
+          "fifteen": 15,
+          "twenty": 20,
+          "twentyfive": 25,
+          "thirty": 30,
+          "thirtyfive": 35,
+          "forty": 40,
+          "fortyfive": 45,
+          "fifty": 50,
+          "fiftyfive": 55,
+          "sixty": 60,
+          "sixtyfive": 65,
+          "seventy": 70,
+          "seventyfive": 75,
+          "eighty": 80,
+          "eightyfive": 85,
+          "ninety": 90,
+          "ninetyfive": 95,
+          "hundred": 100
+        }
+      }
+    },
+    "status": "current"
+  },
+  "vismCPUUtilization": {
+    "name": "vismCPUUtilization",
+    "oid": "1.3.6.1.4.1.351.110.3.25.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismMemoryUtilization": {
+    "name": "vismMemoryUtilization",
+    "oid": "1.3.6.1.4.1.351.110.3.25.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSysPerfClrButton": {
+    "name": "vismSysPerfClrButton",
+    "oid": "1.3.6.1.4.1.351.110.3.25.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismTotalCalls": {
+    "name": "vismTotalCalls",
+    "oid": "1.3.6.1.4.1.351.110.5.5.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismSuccessfulCalls": {
+    "name": "vismSuccessfulCalls",
+    "oid": "1.3.6.1.4.1.351.110.5.5.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismFailedCalls": {
+    "name": "vismFailedCalls",
+    "oid": "1.3.6.1.4.1.351.110.5.5.13.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismCallStatsClrButton": {
+    "name": "vismCallStatsClrButton",
+    "oid": "1.3.6.1.4.1.351.110.5.5.13.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noaction": 1,
+          "clear": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismIpAddress": {
+    "name": "vismIpAddress",
+    "oid": "1.3.6.1.4.1.351.110.3.17.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismSubNetMask": {
+    "name": "vismSubNetMask",
+    "oid": "1.3.6.1.4.1.351.110.3.17.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismControlTos": {
+    "name": "vismControlTos",
+    "oid": "1.3.6.1.4.1.351.110.3.17.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 96,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismBearerIpAddress": {
+    "name": "vismBearerIpAddress",
+    "oid": "1.3.6.1.4.1.351.110.3.17.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismBearerSubNetMask": {
+    "name": "vismBearerSubNetMask",
+    "oid": "1.3.6.1.4.1.351.110.3.17.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismBearerTos": {
+    "name": "vismBearerTos",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 160,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismRtcpRepInterval": {
+    "name": "vismRtcpRepInterval",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 500,
+            "max": 15000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismRtpReceiveTimer": {
+    "name": "vismRtpReceiveTimer",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismPacketizationPeriod": {
+    "name": "vismPacketizationPeriod",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenms": 10,
+          "twentyms": 20,
+          "thirtyms": 30,
+          "fourtyms": 40
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tenms",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vismVoIpDtmfRelay": {
+    "name": "vismVoIpDtmfRelay",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVoIpCasTransport": {
+    "name": "vismVoIpCasTransport",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVoIpTripleRedundancy": {
+    "name": "vismVoIpTripleRedundancy",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVoIpVADTimer": {
+    "name": "vismVoIpVADTimer",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 250,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 250,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVoIpNTECapabilityNegotiate": {
+    "name": "vismVoIpNTECapabilityNegotiate",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVoIpSIDPayloadType": {
+    "name": "vismVoIpSIDPayloadType",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 13,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVoIpDPvcOamCellGap": {
+    "name": "vismVoIpDPvcOamCellGap",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 5000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVoIpDPvcRetryCnt": {
+    "name": "vismVoIpDPvcRetryCnt",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVoIpDPvcRecoverCnt": {
+    "name": "vismVoIpDPvcRecoverCnt",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismRtcpRecvMultiplier": {
+    "name": "vismRtcpRecvMultiplier",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVoIpLapdTrunkPVC": {
+    "name": "vismVoIpLapdTrunkPVC",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "control": 1,
+          "bearer": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "control",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVoIpEventNegotiationPolicy": {
+    "name": "vismVoIpEventNegotiationPolicy",
+    "oid": "1.3.6.1.4.1.351.110.3.17.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "proprietary": 2,
+          "all": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "proprietary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismEcanCnfIdlePattern": {
+    "name": "vismEcanCnfIdlePattern",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pattern1": 1,
+          "pattern2": 2,
+          "pattern3": 3,
+          "pattern4": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vismEcanCnfIdleDirection": {
+    "name": "vismEcanCnfIdleDirection",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "both": 1,
+          "either": 2,
+          "send": 3,
+          "receive": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "both",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vismCompCnfPacketSize": {
+    "name": "vismCompCnfPacketSize",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 80,
+            "max": 80
+          },
+          {
+            "min": 160,
+            "max": 160
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 80,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismERL": {
+    "name": "vismERL",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zerodb": 1,
+          "threedb": 2,
+          "sixdb": 3,
+          "worstdb": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sixdb",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismJitterDelayMode": {
+    "name": "vismJitterDelayMode",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fixed": 1,
+          "adaptive": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fixed",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "vismJitterInitialDelay": {
+    "name": "vismJitterInitialDelay",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "zero": 1,
+          "five": 5,
+          "ten": 10,
+          "fifteen": 15,
+          "twenty": 20,
+          "twentyfive": 25,
+          "thirty": 30,
+          "thirtyfive": 35,
+          "fourty": 40,
+          "fortyfive": 45,
+          "fifty": 50,
+          "fiftyfive": 55,
+          "sixty": 60,
+          "sixtyfive": 65,
+          "seventy": 70,
+          "seventyfive": 75,
+          "eighty": 80,
+          "eightyfive": 85,
+          "ninty": 90,
+          "ninetyfive": 95,
+          "hundred": 100
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "fourty",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "vismAdaptiveGainControl": {
+    "name": "vismAdaptiveGainControl",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "off": 1,
+          "on": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismDspHealth": {
+    "name": "vismDspHealth",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismUpspeedCodec": {
+    "name": "vismUpspeedCodec",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "g-711u": 1,
+          "g-711a": 2,
+          "g-726-32": 3,
+          "clearChannel": 4,
+          "g-723h": 5,
+          "g-723l": 6,
+          "g-726-16": 7,
+          "g-726-24": 8,
+          "g-726-40": 9
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismPayloadType": {
+    "name": "vismPayloadType",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 256,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismDSPHeartbeat": {
+    "name": "vismDSPHeartbeat",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismFaxDeJitterMode": {
+    "name": "vismFaxDeJitterMode",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VismFaxDeJitterMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unSpecified",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismFaxDeJitterInitialDelay": {
+    "name": "vismFaxDeJitterInitialDelay",
+    "oid": "1.3.6.1.4.1.351.110.3.17.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VismFaxDeJitterInitDelay",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unSpecified",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismDaughterCardSerialNum": {
+    "name": "vismDaughterCardSerialNum",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismDaughterCardDescription": {
+    "name": "vismDaughterCardDescription",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismDaughterCardHWRev": {
+    "name": "vismDaughterCardHWRev",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismEcanEncoding": {
+    "name": "vismEcanEncoding",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mu-law": 1,
+          "a-law": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismMode": {
+    "name": "vismMode",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voipSwitching": 1,
+          "aal2Trunking": 2,
+          "aal1Svc": 3,
+          "switchedVoipCASBh": 4,
+          "switchedVoipPRIBh": 5,
+          "switchedAal2CASBh": 6,
+          "switchedAal2Svc": 7,
+          "switchedAal2Pvc": 8,
+          "voipAndAal1Svc": 9,
+          "voipAndAal2Trunking": 10,
+          "superMode": 99,
+          "unknownMode": 100
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "voipSwitching",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismPrevMode": {
+    "name": "vismPrevMode",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "voipSwitching": 1,
+          "aal2Trunking": 2,
+          "aal1Svc": 3,
+          "aal2PvcSwitching": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "voipSwitching",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "vismCacEnable": {
+    "name": "vismCacEnable",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismAvailableDs0Count": {
+    "name": "vismAvailableDs0Count",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 248
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismAppliedTemplate": {
+    "name": "vismAppliedTemplate",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismTftpServerDn": {
+    "name": "vismTftpServerDn",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismXgcpBearerNetworkType": {
+    "name": "vismXgcpBearerNetworkType",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "atm": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ip",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismXgcpBearerVCType": {
+    "name": "vismXgcpBearerVCType",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 1,
+          "svc": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pvc",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismXgcpBearerConnectionType": {
+    "name": "vismXgcpBearerConnectionType",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aal1Sdt": 1,
+          "aal2": 2,
+          "notApplicable": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "notApplicable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismBearerContinuityTimer": {
+    "name": "vismBearerContinuityTimer",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismCodecNegotiationOption": {
+    "name": "vismCodecNegotiationOption",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lcoRcdLcl": 1,
+          "lcoLclRcd": 2,
+          "rcdLcoLcl": 3,
+          "rcdLclLco": 4,
+          "lclLcoRcd": 5,
+          "lclRcdLco": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "lcoRcdLcl",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismProfileNegotiationOption": {
+    "name": "vismProfileNegotiationOption",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "lcoRcdLcl": 1,
+          "lcoLclRcd": 2,
+          "rcdLcoLcl": 3,
+          "rcdLclLco": 4,
+          "lclLcoRcd": 5,
+          "lclRcdLco": 6
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "lcoRcdLcl",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismCarrierLossPolicy": {
+    "name": "vismCarrierLossPolicy",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "previousCodec": 1,
+          "upspeedCodec": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "previousCodec",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismCacRejectionPolicy": {
+    "name": "vismCacRejectionPolicy",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "delete": 1,
+          "maintain": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "maintain",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismExtDnsServerDn": {
+    "name": "vismExtDnsServerDn",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismFeatureBitMap": {
+    "name": "vismFeatureBitMap",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVADTolerance": {
+    "name": "vismVADTolerance",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismVADDutyCycle": {
+    "name": "vismVADDutyCycle",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 61,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismAggregateTrafficClipping": {
+    "name": "vismAggregateTrafficClipping",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disable": 1,
+          "enable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismAggregateSvcBandwidth": {
+    "name": "vismAggregateSvcBandwidth",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismBearerContinuityTest": {
+    "name": "vismBearerContinuityTest",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismCaleaEnable": {
+    "name": "vismCaleaEnable",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismMaxConfNum": {
+    "name": "vismMaxConfNum",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 50
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismLongDurationTimer": {
+    "name": "vismLongDurationTimer",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismContinuityCo1Timer": {
+    "name": "vismContinuityCo1Timer",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismContinuityCo2Timer": {
+    "name": "vismContinuityCo2Timer",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismReverseCotTone": {
+    "name": "vismReverseCotTone",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismSendDnEnable": {
+    "name": "vismSendDnEnable",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismSendDataGramSize": {
+    "name": "vismSendDataGramSize",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 20000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismOamLoopThreshold": {
+    "name": "vismOamLoopThreshold",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismFreeDs0Threshold": {
+    "name": "vismFreeDs0Threshold",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 248
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismCPUUtilizationThreshold": {
+    "name": "vismCPUUtilizationThreshold",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismMemoryUtilizationThreshold": {
+    "name": "vismMemoryUtilizationThreshold",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismDualToneDetect": {
+    "name": "vismDualToneDetect",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismAisSuppression": {
+    "name": "vismAisSuppression",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "vismBearerIpPingEnable": {
+    "name": "vismBearerIpPingEnable",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismTrapFilteringEnable": {
+    "name": "vismTrapFilteringEnable",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismSplModemToneBitMap": {
+    "name": "vismSplModemToneBitMap",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "vism1560980Tone": 0
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismSSRCEnable": {
+    "name": "vismSSRCEnable",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismOamLoopbackSetCLP": {
+    "name": "vismOamLoopbackSetCLP",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismPvcAlarmLogEnable": {
+    "name": "vismPvcAlarmLogEnable",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismPvcAlarmLogAdminTimer": {
+    "name": "vismPvcAlarmLogAdminTimer",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 7200,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismPvcAlarmLogOperTimer": {
+    "name": "vismPvcAlarmLogOperTimer",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismContinuityCheckCellEnable": {
+    "name": "vismContinuityCheckCellEnable",
+    "oid": "1.3.6.1.4.1.351.110.3.17.4.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismXgcpSdpOst": {
+    "name": "vismXgcpSdpOst",
+    "oid": "1.3.6.1.4.1.351.110.3.17.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismDynamicPT": {
+    "name": "vismDynamicPT",
+    "oid": "1.3.6.1.4.1.351.110.3.17.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismConfigChangeTypeBitMap": {
+    "name": "vismConfigChangeTypeBitMap",
+    "oid": "1.3.6.1.4.1.351.110.3.17.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismTrapIntIndex1": {
+    "name": "vismTrapIntIndex1",
+    "oid": "1.3.6.1.4.1.351.110.3.17.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismTrapIntIndex2": {
+    "name": "vismTrapIntIndex2",
+    "oid": "1.3.6.1.4.1.351.110.3.17.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismTrapStrIndex1": {
+    "name": "vismTrapStrIndex1",
+    "oid": "1.3.6.1.4.1.351.110.3.17.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 66
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vismTrapIntegerValue": {
+    "name": "vismTrapIntegerValue",
+    "oid": "1.3.6.1.4.1.351.110.3.17.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "vismAal2SubcellMuxing": {
+    "name": "vismAal2SubcellMuxing",
+    "oid": "1.3.6.1.4.1.351.110.3.17.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismAal2DtmfRelay": {
+    "name": "vismAal2DtmfRelay",
+    "oid": "1.3.6.1.4.1.351.110.3.17.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismAal2CasTransport": {
+    "name": "vismAal2CasTransport",
+    "oid": "1.3.6.1.4.1.351.110.3.17.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismAal2Type3Redundancy": {
+    "name": "vismAal2Type3Redundancy",
+    "oid": "1.3.6.1.4.1.351.110.3.17.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismAal2VADTimer": {
+    "name": "vismAal2VADTimer",
+    "oid": "1.3.6.1.4.1.351.110.3.17.6.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 250,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 250,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vismAal2CidFillTimer": {
+    "name": "vismAal2CidFillTimer",
+    "oid": "1.3.6.1.4.1.351.110.3.17.6.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoVismModuleMIBConformance": {
+    "name": "ciscoVismModuleMIBConformance",
+    "oid": "1.3.6.1.4.1.351.150.82.2",
+    "class": "objectidentity"
+  },
+  "ciscoVismModuleMIBGroups": {
+    "name": "ciscoVismModuleMIBGroups",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoVismModuleMIBCompliances": {
+    "name": "ciscoVismModuleMIBCompliances",
+    "oid": "1.3.6.1.4.1.351.150.82.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoVismModuleCompliance": {
+    "name": "ciscoVismModuleCompliance",
+    "oid": "1.3.6.1.4.1.351.150.82.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVismPerfStatsGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismCallStatsGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismIpGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismVoIpGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismDspGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismSystemGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismInteropGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismTrapObjGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismAal2Group",
+        "module": "CISCO-VISM-MODULE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVismModuleCompliance1": {
+    "name": "ciscoVismModuleCompliance1",
+    "oid": "1.3.6.1.4.1.351.150.82.2.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVismPerfStatsGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismCallStatsGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismIpGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismVoIpGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismDspGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismSystemGroup1",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismInteropGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismTrapObjGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismAal2Group",
+        "module": "CISCO-VISM-MODULE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVismModuleComplianceRev2": {
+    "name": "ciscoVismModuleComplianceRev2",
+    "oid": "1.3.6.1.4.1.351.150.82.2.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVismPerfStatsGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismCallStatsGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismIpGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismVoIpGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismDspGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismSystemGroup1",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismInteropGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismTrapObjGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismAal2Group",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismSystemFeatureGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismTrapVarbindGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVismModuleComplianceRev3": {
+    "name": "ciscoVismModuleComplianceRev3",
+    "oid": "1.3.6.1.4.1.351.150.82.2.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVismPerfStatsGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismCallStatsGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismIpGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismVoIpGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismDspGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismSystemGroup1",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismInteropGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismTrapObjGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismAal2Group",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismSystemFeatureGroupRev1",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismTrapVarbindGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVismModuleComplianceRev4": {
+    "name": "ciscoVismModuleComplianceRev4",
+    "oid": "1.3.6.1.4.1.351.150.82.2.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVismPerfStatsGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismCallStatsGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismIpGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismVoIpGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismDspGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismSystemGroup1",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismInteropGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismTrapObjGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismAal2Group",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismSystemFeatureGroupRev1",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismTrapVarbindGroup",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismDspGroupSup1",
+        "module": "CISCO-VISM-MODULE-MIB"
+      },
+      {
+        "object": "ciscoVismSystemGroupSup1",
+        "module": "CISCO-VISM-MODULE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismPerfStatsGroup": {
+    "name": "ciscoVismPerfStatsGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCPUUtilization"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismMemoryUtilization"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismSysPerfClrButton"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismCallStatsGroup": {
+    "name": "ciscoVismCallStatsGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTotalCalls"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismSuccessfulCalls"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismFailedCalls"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCallStatsClrButton"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismIpGroup": {
+    "name": "ciscoVismIpGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismIpAddress"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismSubNetMask"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismControlTos"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismBearerIpAddress"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismBearerSubNetMask"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismVoIpGroup": {
+    "name": "ciscoVismVoIpGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismBearerTos"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismRtcpRepInterval"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismRtpReceiveTimer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpDtmfRelay"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpCasTransport"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpTripleRedundancy"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpVADTimer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpNTECapabilityNegotiate"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpSIDPayloadType"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpDPvcOamCellGap"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpDPvcRetryCnt"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpDPvcRecoverCnt"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismRtcpRecvMultiplier"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpLapdTrunkPVC"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVoIpEventNegotiationPolicy"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismDspGroup": {
+    "name": "ciscoVismDspGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCompCnfPacketSize"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismERL"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAdaptiveGainControl"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDspHealth"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismUpspeedCodec"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismPayloadType"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDSPHeartbeat"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismSystemGroup": {
+    "name": "ciscoVismSystemGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDaughterCardSerialNum"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDaughterCardDescription"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDaughterCardHWRev"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismEcanEncoding"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismMode"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCacEnable"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAvailableDs0Count"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAppliedTemplate"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTftpServerDn"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismXgcpBearerNetworkType"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismXgcpBearerVCType"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismXgcpBearerConnectionType"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismBearerContinuityTimer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCodecNegotiationOption"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismProfileNegotiationOption"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCarrierLossPolicy"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCacRejectionPolicy"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismExtDnsServerDn"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismFeatureBitMap"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVADTolerance"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVADDutyCycle"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAggregateTrafficClipping"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAggregateSvcBandwidth"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismBearerContinuityTest"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCaleaEnable"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismMaxConfNum"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismLongDurationTimer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismContinuityCo1Timer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismContinuityCo2Timer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismReverseCotTone"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismSendDnEnable"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismSendDataGramSize"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismOamLoopThreshold"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismFreeDs0Threshold"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCPUUtilizationThreshold"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismMemoryUtilizationThreshold"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDualToneDetect"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAisSuppression"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVismInteropGroup": {
+    "name": "ciscoVismInteropGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismXgcpSdpOst"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDynamicPT"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismTrapObjGroup": {
+    "name": "ciscoVismTrapObjGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismConfigChangeTypeBitMap"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex1"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntIndex2"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapStrIndex1"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismAal2Group": {
+    "name": "ciscoVismAal2Group",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAal2SubcellMuxing"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAal2DtmfRelay"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAal2CasTransport"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAal2Type3Redundancy"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAal2VADTimer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAal2CidFillTimer"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismDspDeprecatedGroup": {
+    "name": "ciscoVismDspDeprecatedGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismEcanCnfIdlePattern"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismEcanCnfIdleDirection"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismJitterDelayMode"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismJitterInitialDelay"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVismSystemDeprecatedGroup": {
+    "name": "ciscoVismSystemDeprecatedGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismPrevMode"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVismVoIpDeprecateGroup": {
+    "name": "ciscoVismVoIpDeprecateGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismPacketizationPeriod"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVismSystemGroup1": {
+    "name": "ciscoVismSystemGroup1",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDaughterCardSerialNum"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDaughterCardDescription"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDaughterCardHWRev"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismEcanEncoding"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismMode"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCacEnable"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAvailableDs0Count"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAppliedTemplate"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTftpServerDn"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismXgcpBearerNetworkType"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismXgcpBearerVCType"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismXgcpBearerConnectionType"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismBearerContinuityTimer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCodecNegotiationOption"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismProfileNegotiationOption"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCarrierLossPolicy"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCacRejectionPolicy"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismExtDnsServerDn"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismFeatureBitMap"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVADTolerance"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismVADDutyCycle"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAggregateTrafficClipping"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismAggregateSvcBandwidth"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismBearerContinuityTest"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCaleaEnable"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismMaxConfNum"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismLongDurationTimer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismContinuityCo1Timer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismContinuityCo2Timer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismReverseCotTone"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismSendDnEnable"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismSendDataGramSize"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismOamLoopThreshold"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismFreeDs0Threshold"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismCPUUtilizationThreshold"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismMemoryUtilizationThreshold"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismDualToneDetect"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismSystemFeatureGroup": {
+    "name": "ciscoVismSystemFeatureGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismBearerIpPingEnable"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapFilteringEnable"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoVismTrapVarbindGroup": {
+    "name": "ciscoVismTrapVarbindGroup",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapIntegerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismSystemFeatureGroupRev1": {
+    "name": "ciscoVismSystemFeatureGroupRev1",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismBearerIpPingEnable"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismTrapFilteringEnable"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismSplModemToneBitMap"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismSSRCEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismSystemGroupSup1": {
+    "name": "ciscoVismSystemGroupSup1",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismOamLoopbackSetCLP"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismPvcAlarmLogEnable"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismPvcAlarmLogAdminTimer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismPvcAlarmLogOperTimer"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismContinuityCheckCellEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVismDspGroupSup1": {
+    "name": "ciscoVismDspGroupSup1",
+    "oid": "1.3.6.1.4.1.351.150.82.2.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismFaxDeJitterMode"
+      },
+      {
+        "module": "CISCO-VISM-MODULE-MIB",
+        "object": "vismFaxDeJitterInitialDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VISM-MODULE-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:24:20 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-VISM-MODULE-MIB"
+  }
+}

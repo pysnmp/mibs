@@ -1,0 +1,3392 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "TimeTicks",
+      "Integer32",
+      "Gauge32",
+      "TRAP-TYPE",
+      "MibIdentifier",
+      "enterprises"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
+    ]
+  },
+  "wut": {
+    "name": "wut",
+    "oid": "1.3.6.1.4.1.5040",
+    "class": "objectidentity"
+  },
+  "wtComServer": {
+    "name": "wtComServer",
+    "oid": "1.3.6.1.4.1.5040.1",
+    "class": "objectidentity"
+  },
+  "wtWebio": {
+    "name": "wtWebio",
+    "oid": "1.3.6.1.4.1.5040.1.2",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygro": {
+    "name": "wtWebGraphThermoHygro",
+    "oid": "1.3.6.1.4.1.5040.1.2.42",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroTemp": {
+    "name": "wtWebGraphThermoHygroTemp",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroSessCntrl": {
+    "name": "wtWebGraphThermoHygroSessCntrl",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.2",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroConfig": {
+    "name": "wtWebGraphThermoHygroConfig",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroDiag": {
+    "name": "wtWebGraphThermoHygroDiag",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.4",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroDevice": {
+    "name": "wtWebGraphThermoHygroDevice",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroPorts": {
+    "name": "wtWebGraphThermoHygroPorts",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroManufact": {
+    "name": "wtWebGraphThermoHygroManufact",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.3",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroText": {
+    "name": "wtWebGraphThermoHygroText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.1",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroTimeDate": {
+    "name": "wtWebGraphThermoHygroTimeDate",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroBasic": {
+    "name": "wtWebGraphThermoHygroBasic",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroDatalogger": {
+    "name": "wtWebGraphThermoHygroDatalogger",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.4",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroAlarm": {
+    "name": "wtWebGraphThermoHygroAlarm",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroGraphics": {
+    "name": "wtWebGraphThermoHygroGraphics",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroTimeZone": {
+    "name": "wtWebGraphThermoHygroTimeZone",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroTimeServer": {
+    "name": "wtWebGraphThermoHygroTimeServer",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.2",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroDeviceClock": {
+    "name": "wtWebGraphThermoHygroDeviceClock",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.3",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroNetwork": {
+    "name": "wtWebGraphThermoHygroNetwork",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.1",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroHTTP": {
+    "name": "wtWebGraphThermoHygroHTTP",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.2",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroMail": {
+    "name": "wtWebGraphThermoHygroMail",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.3",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroSNMP": {
+    "name": "wtWebGraphThermoHygroSNMP",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.4",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroUDP": {
+    "name": "wtWebGraphThermoHygroUDP",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.5",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroSyslog": {
+    "name": "wtWebGraphThermoHygroSyslog",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.6",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroFTP": {
+    "name": "wtWebGraphThermoHygroFTP",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.7",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroRSS": {
+    "name": "wtWebGraphThermoHygroRSS",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroLanguage": {
+    "name": "wtWebGraphThermoHygroLanguage",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.9",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroMQTT": {
+    "name": "wtWebGraphThermoHygroMQTT",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroREST": {
+    "name": "wtWebGraphThermoHygroREST",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.13",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroGraphicsBase": {
+    "name": "wtWebGraphThermoHygroGraphicsBase",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.1",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroGraphicsSelect": {
+    "name": "wtWebGraphThermoHygroGraphicsSelect",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.2",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroGraphicsScale": {
+    "name": "wtWebGraphThermoHygroGraphicsScale",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3",
+    "class": "objectidentity"
+  },
+  "wtWebGraphThermoHygroSensors": {
+    "name": "wtWebGraphThermoHygroSensors",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSensorTable": {
+    "name": "wtWebGraphThermoHygroSensorTable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSensorEntry": {
+    "name": "wtWebGraphThermoHygroSensorEntry",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroSensorNo",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSensorNo": {
+    "name": "wtWebGraphThermoHygroSensorNo",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTempValueTable": {
+    "name": "wtWebGraphThermoHygroTempValueTable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTempValueEntry": {
+    "name": "wtWebGraphThermoHygroTempValueEntry",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroSensorNo",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTempValue": {
+    "name": "wtWebGraphThermoHygroTempValue",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroBinaryTempValueTable": {
+    "name": "wtWebGraphThermoHygroBinaryTempValueTable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroBinaryTempValueEntry": {
+    "name": "wtWebGraphThermoHygroBinaryTempValueEntry",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroSensorNo",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroBinaryTempValue": {
+    "name": "wtWebGraphThermoHygroBinaryTempValue",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTempValuePktTable": {
+    "name": "wtWebGraphThermoHygroTempValuePktTable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTempValuePktEntry": {
+    "name": "wtWebGraphThermoHygroTempValuePktEntry",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroSensorNo",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTempValuePkt": {
+    "name": "wtWebGraphThermoHygroTempValuePkt",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSessCntrlPassword": {
+    "name": "wtWebGraphThermoHygroSessCntrlPassword",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSessCntrlConfigMode": {
+    "name": "wtWebGraphThermoHygroSessCntrlConfigMode",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wtWebGraphThermoHygroSessCntrl-NoSession": 0,
+          "wtWebGraphThermoHygroSessCntrl-Session": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSessCntrlLogout": {
+    "name": "wtWebGraphThermoHygroSessCntrlLogout",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSessCntrlAdminPassword": {
+    "name": "wtWebGraphThermoHygroSessCntrlAdminPassword",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSessCntrlConfigPassword": {
+    "name": "wtWebGraphThermoHygroSessCntrlConfigPassword",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDeviceName": {
+    "name": "wtWebGraphThermoHygroDeviceName",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDeviceText": {
+    "name": "wtWebGraphThermoHygroDeviceText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDeviceLocation": {
+    "name": "wtWebGraphThermoHygroDeviceLocation",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDeviceContact": {
+    "name": "wtWebGraphThermoHygroDeviceContact",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTzOffsetHrs": {
+    "name": "wtWebGraphThermoHygroTzOffsetHrs",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTzOffsetMin": {
+    "name": "wtWebGraphThermoHygroTzOffsetMin",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTzEnable": {
+    "name": "wtWebGraphThermoHygroTzEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzOffsetHrs": {
+    "name": "wtWebGraphThermoHygroStTzOffsetHrs",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzOffsetMin": {
+    "name": "wtWebGraphThermoHygroStTzOffsetMin",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzEnable": {
+    "name": "wtWebGraphThermoHygroStTzEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzStartMonth": {
+    "name": "wtWebGraphThermoHygroStTzStartMonth",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wtWebGraphThermoHygroStartMonth-January": 1,
+          "wtWebGraphThermoHygroStartMonth-February": 2,
+          "wtWebGraphThermoHygroStartMonth-March": 3,
+          "wtWebGraphThermoHygroStartMonth-April": 4,
+          "wtWebGraphThermoHygroStartMonth-May": 5,
+          "wtWebGraphThermoHygroStartMonth-June": 6,
+          "wtWebGraphThermoHygroStartMonth-July": 7,
+          "wtWebGraphThermoHygroStartMonth-August": 8,
+          "wtWebGraphThermoHygroStartMonth-September": 9,
+          "wtWebGraphThermoHygroStartMonth-October": 10,
+          "wtWebGraphThermoHygroStartMonth-November": 11,
+          "wtWebGraphThermoHygroStartMonth-December": 12
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzStartMode": {
+    "name": "wtWebGraphThermoHygroStTzStartMode",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wtWebGraphThermoHygroStartMode-first": 1,
+          "wtWebGraphThermoHygroStartMode-second": 2,
+          "wtWebGraphThermoHygroStartMode-third": 3,
+          "wtWebGraphThermoHygroStartMode-fourth": 4,
+          "wtWebGraphThermoHygroStartMode-last": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzStartWday": {
+    "name": "wtWebGraphThermoHygroStTzStartWday",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wtWebGraphThermoHygroStartWday-Sunday": 1,
+          "wtWebGraphThermoHygroStartWday-Monday": 2,
+          "wtWebGraphThermoHygroStartWday-Tuesday": 3,
+          "wtWebGraphThermoHygroStartWday-Thursday": 4,
+          "wtWebGraphThermoHygroStartWday-Wednesday": 5,
+          "wtWebGraphThermoHygroStartWday-Friday": 6,
+          "wtWebGraphThermoHygroStartWday-Saturday": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzStartHrs": {
+    "name": "wtWebGraphThermoHygroStTzStartHrs",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzStartMin": {
+    "name": "wtWebGraphThermoHygroStTzStartMin",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzStopMonth": {
+    "name": "wtWebGraphThermoHygroStTzStopMonth",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wtWebGraphThermoHygroStopMonth-January": 1,
+          "wtWebGraphThermoHygroStopMonth-February": 2,
+          "wtWebGraphThermoHygroStopMonth-March": 3,
+          "wtWebGraphThermoHygroStopMonth-April": 4,
+          "wtWebGraphThermoHygroStopMonth-May": 5,
+          "wtWebGraphThermoHygroStopMonth-June": 6,
+          "wtWebGraphThermoHygroStopMonth-July": 7,
+          "wtWebGraphThermoHygroStopMonth-August": 8,
+          "wtWebGraphThermoHygroStopMonth-September": 9,
+          "wtWebGraphThermoHygroStopMonth-October": 10,
+          "wtWebGraphThermoHygroStopMonth-November": 11,
+          "wtWebGraphThermoHygroStopMonth-December": 12
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzStopMode": {
+    "name": "wtWebGraphThermoHygroStTzStopMode",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wtWebGraphThermoHygroStopMode-first": 1,
+          "wtWebGraphThermoHygroStopMode-second": 2,
+          "wtWebGraphThermoHygroStopMode-third": 3,
+          "wtWebGraphThermoHygroStopMode-fourth": 4,
+          "wtWebGraphThermoHygroStopMode-last": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzStopWday": {
+    "name": "wtWebGraphThermoHygroStTzStopWday",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wtWebGraphThermoHygroStopWday-Sunday": 1,
+          "wtWebGraphThermoHygroStopWday-Monday": 2,
+          "wtWebGraphThermoHygroStopWday-Tuesday": 3,
+          "wtWebGraphThermoHygroStopWday-Thursday": 4,
+          "wtWebGraphThermoHygroStopWday-Wednesday": 5,
+          "wtWebGraphThermoHygroStopWday-Friday": 6,
+          "wtWebGraphThermoHygroStopWday-Saturday": 7
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzStopHrs": {
+    "name": "wtWebGraphThermoHygroStTzStopHrs",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStTzStopMin": {
+    "name": "wtWebGraphThermoHygroStTzStopMin",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTimeServer1": {
+    "name": "wtWebGraphThermoHygroTimeServer1",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTimeServer2": {
+    "name": "wtWebGraphThermoHygroTimeServer2",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTsEnable": {
+    "name": "wtWebGraphThermoHygroTsEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroTsSyncTime": {
+    "name": "wtWebGraphThermoHygroTsSyncTime",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroClockHrs": {
+    "name": "wtWebGraphThermoHygroClockHrs",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 23
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroClockMin": {
+    "name": "wtWebGraphThermoHygroClockMin",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 59
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroClockDay": {
+    "name": "wtWebGraphThermoHygroClockDay",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroClockMonth": {
+    "name": "wtWebGraphThermoHygroClockMonth",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wtWebGraphThermoHygroClockMonth-January": 1,
+          "wtWebGraphThermoHygroClockMonth-February": 2,
+          "wtWebGraphThermoHygroClockMonth-March": 3,
+          "wtWebGraphThermoHygroClockMonth-April": 4,
+          "wtWebGraphThermoHygroClockMonth-May": 5,
+          "wtWebGraphThermoHygroClockMonth-June": 6,
+          "wtWebGraphThermoHygroClockMonth-July": 7,
+          "wtWebGraphThermoHygroClockMonth-August": 8,
+          "wtWebGraphThermoHygroClockMonth-September": 9,
+          "wtWebGraphThermoHygroClockMonth-October": 10,
+          "wtWebGraphThermoHygroClockMonth-November": 11,
+          "wtWebGraphThermoHygroClockMonth-December": 12
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroClockYear": {
+    "name": "wtWebGraphThermoHygroClockYear",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.2.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroIpAddress": {
+    "name": "wtWebGraphThermoHygroIpAddress",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSubnetMask": {
+    "name": "wtWebGraphThermoHygroSubnetMask",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGateway": {
+    "name": "wtWebGraphThermoHygroGateway",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDnsServer1": {
+    "name": "wtWebGraphThermoHygroDnsServer1",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDnsServer2": {
+    "name": "wtWebGraphThermoHygroDnsServer2",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAddConfig": {
+    "name": "wtWebGraphThermoHygroAddConfig",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroStartup": {
+    "name": "wtWebGraphThermoHygroStartup",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGetHeaderEnable": {
+    "name": "wtWebGraphThermoHygroGetHeaderEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroHttpPort": {
+    "name": "wtWebGraphThermoHygroHttpPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMailAdName": {
+    "name": "wtWebGraphThermoHygroMailAdName",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMailReply": {
+    "name": "wtWebGraphThermoHygroMailReply",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMailServer": {
+    "name": "wtWebGraphThermoHygroMailServer",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebioAn1MailEnable": {
+    "name": "wtWebioAn1MailEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMailAuthentication": {
+    "name": "wtWebGraphThermoHygroMailAuthentication",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMailAuthUser": {
+    "name": "wtWebGraphThermoHygroMailAuthUser",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMailAuthPassword": {
+    "name": "wtWebGraphThermoHygroMailAuthPassword",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMailPop3Server": {
+    "name": "wtWebGraphThermoHygroMailPop3Server",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSnmpCommunityStringRead": {
+    "name": "wtWebGraphThermoHygroSnmpCommunityStringRead",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSnmpCommunityStringReadWrite": {
+    "name": "wtWebGraphThermoHygroSnmpCommunityStringReadWrite",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSystemTrapManagerIP": {
+    "name": "wtWebGraphThermoHygroSystemTrapManagerIP",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSystemTrapEnable": {
+    "name": "wtWebGraphThermoHygroSystemTrapEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSnmpEnable": {
+    "name": "wtWebGraphThermoHygroSnmpEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSnmpCommunityStringTrap": {
+    "name": "wtWebGraphThermoHygroSnmpCommunityStringTrap",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSnmpSystemTrapManagerPort": {
+    "name": "wtWebGraphThermoHygroSnmpSystemTrapManagerPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroUdpPort": {
+    "name": "wtWebGraphThermoHygroUdpPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroUdpEnable": {
+    "name": "wtWebGraphThermoHygroUdpEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSyslogServerIP": {
+    "name": "wtWebGraphThermoHygroSyslogServerIP",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.6.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSyslogServerPort": {
+    "name": "wtWebGraphThermoHygroSyslogServerPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.6.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSyslogSystemMessagesEnable": {
+    "name": "wtWebGraphThermoHygroSyslogSystemMessagesEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSyslogEnable": {
+    "name": "wtWebGraphThermoHygroSyslogEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroFTPServerIP": {
+    "name": "wtWebGraphThermoHygroFTPServerIP",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroFTPServerControlPort": {
+    "name": "wtWebGraphThermoHygroFTPServerControlPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroFTPUserName": {
+    "name": "wtWebGraphThermoHygroFTPUserName",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroFTPPassword": {
+    "name": "wtWebGraphThermoHygroFTPPassword",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroFTPAccount": {
+    "name": "wtWebGraphThermoHygroFTPAccount",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroFTPOption": {
+    "name": "wtWebGraphThermoHygroFTPOption",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.7.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroFTPEnable": {
+    "name": "wtWebGraphThermoHygroFTPEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.7.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroLanguageSelect": {
+    "name": "wtWebGraphThermoHygroLanguageSelect",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTEnable": {
+    "name": "wtWebGraphThermoHygroMQTTEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTBrockerIP": {
+    "name": "wtWebGraphThermoHygroMQTTBrockerIP",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTUserName": {
+    "name": "wtWebGraphThermoHygroMQTTUserName",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTPassword": {
+    "name": "wtWebGraphThermoHygroMQTTPassword",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTLocalPort": {
+    "name": "wtWebGraphThermoHygroMQTTLocalPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTBrokerServerPort": {
+    "name": "wtWebGraphThermoHygroMQTTBrokerServerPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTInterval": {
+    "name": "wtWebGraphThermoHygroMQTTInterval",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTLastWillEnable": {
+    "name": "wtWebGraphThermoHygroMQTTLastWillEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTLastWillTopic": {
+    "name": "wtWebGraphThermoHygroMQTTLastWillTopic",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTLastWillMsg": {
+    "name": "wtWebGraphThermoHygroMQTTLastWillMsg",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTLastWillQoS": {
+    "name": "wtWebGraphThermoHygroMQTTLastWillQoS",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTLastWillRetain": {
+    "name": "wtWebGraphThermoHygroMQTTLastWillRetain",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTLastWillConnectEnable": {
+    "name": "wtWebGraphThermoHygroMQTTLastWillConnectEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMQTTLastWillConnectMsg": {
+    "name": "wtWebGraphThermoHygroMQTTLastWillConnectMsg",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.12.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRESTEnable": {
+    "name": "wtWebGraphThermoHygroRESTEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.13.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRESTDigestAuthEnable": {
+    "name": "wtWebGraphThermoHygroRESTDigestAuthEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.13.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroLoggerTimebase": {
+    "name": "wtWebGraphThermoHygroLoggerTimebase",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wtWebGraphThermoHygroDatalogger-1Min": 1,
+          "wtWebGraphThermoHygroDatalogger-5Min": 2,
+          "wtWebGraphThermoHygroDatalogger-15Min": 3,
+          "wtWebGraphThermoHygroDatalogger-60Min": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroLoggerSensorSel": {
+    "name": "wtWebGraphThermoHygroLoggerSensorSel",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRSSChannelTitle": {
+    "name": "wtWebGraphThermoHygroRSSChannelTitle",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRSSChannelLink": {
+    "name": "wtWebGraphThermoHygroRSSChannelLink",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRSSChannelDescription": {
+    "name": "wtWebGraphThermoHygroRSSChannelDescription",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRSSChannelImage": {
+    "name": "wtWebGraphThermoHygroRSSChannelImage",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRSSChannelImageTitle": {
+    "name": "wtWebGraphThermoHygroRSSChannelImageTitle",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRSSChannelImageLink": {
+    "name": "wtWebGraphThermoHygroRSSChannelImageLink",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRSSChannelItemTitle": {
+    "name": "wtWebGraphThermoHygroRSSChannelItemTitle",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRSSChannelItemLink": {
+    "name": "wtWebGraphThermoHygroRSSChannelItemLink",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRSSChannelItemDescription": {
+    "name": "wtWebGraphThermoHygroRSSChannelItemDescription",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroRSSChannelItemQuantity": {
+    "name": "wtWebGraphThermoHygroRSSChannelItemQuantity",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.3.8.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmCount": {
+    "name": "wtWebGraphThermoHygroAlarmCount",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmIfTable": {
+    "name": "wtWebGraphThermoHygroAlarmIfTable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmIfEntry": {
+    "name": "wtWebGraphThermoHygroAlarmIfEntry",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmNo",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmNo": {
+    "name": "wtWebGraphThermoHygroAlarmNo",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmTable": {
+    "name": "wtWebGraphThermoHygroAlarmTable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmEntry": {
+    "name": "wtWebGraphThermoHygroAlarmEntry",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmNo",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmTrigger": {
+    "name": "wtWebGraphThermoHygroAlarmTrigger",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmMin": {
+    "name": "wtWebGraphThermoHygroAlarmMin",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmMax": {
+    "name": "wtWebGraphThermoHygroAlarmMax",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmHysteresis": {
+    "name": "wtWebGraphThermoHygroAlarmHysteresis",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmDelay": {
+    "name": "wtWebGraphThermoHygroAlarmDelay",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmInterval": {
+    "name": "wtWebGraphThermoHygroAlarmInterval",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmEnable": {
+    "name": "wtWebGraphThermoHygroAlarmEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmEMailAddr": {
+    "name": "wtWebGraphThermoHygroAlarmEMailAddr",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmMailSubject": {
+    "name": "wtWebGraphThermoHygroAlarmMailSubject",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmMailText": {
+    "name": "wtWebGraphThermoHygroAlarmMailText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmManagerIP": {
+    "name": "wtWebGraphThermoHygroAlarmManagerIP",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmTrapText": {
+    "name": "wtWebGraphThermoHygroAlarmTrapText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmMailOptions": {
+    "name": "wtWebGraphThermoHygroAlarmMailOptions",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmTcpIpAddr": {
+    "name": "wtWebGraphThermoHygroAlarmTcpIpAddr",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmTcpPort": {
+    "name": "wtWebGraphThermoHygroAlarmTcpPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmTcpText": {
+    "name": "wtWebGraphThermoHygroAlarmTcpText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmClearMailSubject": {
+    "name": "wtWebGraphThermoHygroAlarmClearMailSubject",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmClearMailText": {
+    "name": "wtWebGraphThermoHygroAlarmClearMailText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmClearTrapText": {
+    "name": "wtWebGraphThermoHygroAlarmClearTrapText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmClearTcpText": {
+    "name": "wtWebGraphThermoHygroAlarmClearTcpText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmDeltaTemp": {
+    "name": "wtWebGraphThermoHygroAlarmDeltaTemp",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmRHMin": {
+    "name": "wtWebGraphThermoHygroAlarmRHMin",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmRHMax": {
+    "name": "wtWebGraphThermoHygroAlarmRHMax",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmRHHysteresis": {
+    "name": "wtWebGraphThermoHygroAlarmRHHysteresis",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmAHMin": {
+    "name": "wtWebGraphThermoHygroAlarmAHMin",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmAHMax": {
+    "name": "wtWebGraphThermoHygroAlarmAHMax",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmSyslogIpAddr": {
+    "name": "wtWebGraphThermoHygroAlarmSyslogIpAddr",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmSyslogPort": {
+    "name": "wtWebGraphThermoHygroAlarmSyslogPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmSyslogText": {
+    "name": "wtWebGraphThermoHygroAlarmSyslogText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmSyslogClearText": {
+    "name": "wtWebGraphThermoHygroAlarmSyslogClearText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmFtpDataPort": {
+    "name": "wtWebGraphThermoHygroAlarmFtpDataPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmFtpFileName": {
+    "name": "wtWebGraphThermoHygroAlarmFtpFileName",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmFtpText": {
+    "name": "wtWebGraphThermoHygroAlarmFtpText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmFtpClearText": {
+    "name": "wtWebGraphThermoHygroAlarmFtpClearText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmFtpOption": {
+    "name": "wtWebGraphThermoHygroAlarmFtpOption",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmTimerCron": {
+    "name": "wtWebGraphThermoHygroAlarmTimerCron",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmName": {
+    "name": "wtWebGraphThermoHygroAlarmName",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmActive": {
+    "name": "wtWebGraphThermoHygroAlarmActive",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmHttpReqAuthEnable": {
+    "name": "wtWebGraphThermoHygroAlarmHttpReqAuthEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.61",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmHttpReqAuthUser": {
+    "name": "wtWebGraphThermoHygroAlarmHttpReqAuthUser",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.62",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmHttpReqAuthPassword": {
+    "name": "wtWebGraphThermoHygroAlarmHttpReqAuthPassword",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.63",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmHttpReqSetUrl": {
+    "name": "wtWebGraphThermoHygroAlarmHttpReqSetUrl",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.64",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmHttpReqClearUrl": {
+    "name": "wtWebGraphThermoHygroAlarmHttpReqClearUrl",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.65",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmHttpReqServerPort": {
+    "name": "wtWebGraphThermoHygroAlarmHttpReqServerPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.66",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmMqttTopicPath": {
+    "name": "wtWebGraphThermoHygroAlarmMqttTopicPath",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.67",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmMqttTopicSetTopic": {
+    "name": "wtWebGraphThermoHygroAlarmMqttTopicSetTopic",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.68",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmMqttTopicClear": {
+    "name": "wtWebGraphThermoHygroAlarmMqttTopicClear",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.69",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmSensorLostSelection": {
+    "name": "wtWebGraphThermoHygroAlarmSensorLostSelection",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.70",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmLimitWindow": {
+    "name": "wtWebGraphThermoHygroAlarmLimitWindow",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.71",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmSnmpManagerPort": {
+    "name": "wtWebGraphThermoHygroAlarmSnmpManagerPort",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.76",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmMqttQoS": {
+    "name": "wtWebGraphThermoHygroAlarmMqttQoS",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.77",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlarmMqttRetain": {
+    "name": "wtWebGraphThermoHygroAlarmMqttRetain",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.5.3.1.78",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsBaseEnable": {
+    "name": "wtWebGraphThermoHygroGraphicsBaseEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsBaseWidth": {
+    "name": "wtWebGraphThermoHygroGraphicsBaseWidth",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsBaseHeight": {
+    "name": "wtWebGraphThermoHygroGraphicsBaseHeight",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsBaseFrameColor": {
+    "name": "wtWebGraphThermoHygroGraphicsBaseFrameColor",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsBaseBackgroundColor": {
+    "name": "wtWebGraphThermoHygroGraphicsBaseBackgroundColor",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsBasePollingrate": {
+    "name": "wtWebGraphThermoHygroGraphicsBasePollingrate",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsSelectDisplaySensorSel": {
+    "name": "wtWebGraphThermoHygroGraphicsSelectDisplaySensorSel",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsSelectDisplayShowExtrem": {
+    "name": "wtWebGraphThermoHygroGraphicsSelectDisplayShowExtrem",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSensorColorTable": {
+    "name": "wtWebGraphThermoHygroSensorColorTable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroSensorColorEntry": {
+    "name": "wtWebGraphThermoHygroSensorColorEntry",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroSensorNo",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsSensorColor": {
+    "name": "wtWebGraphThermoHygroGraphicsSensorColor",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsSelectScale": {
+    "name": "wtWebGraphThermoHygroGraphicsSelectScale",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScaleAutoScaleEnable": {
+    "name": "wtWebGraphThermoHygroGraphicsScaleAutoScaleEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScaleAutoFitEnable": {
+    "name": "wtWebGraphThermoHygroGraphicsScaleAutoFitEnable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale1Min": {
+    "name": "wtWebGraphThermoHygroGraphicsScale1Min",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale2Min": {
+    "name": "wtWebGraphThermoHygroGraphicsScale2Min",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale3Min": {
+    "name": "wtWebGraphThermoHygroGraphicsScale3Min",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale4Min": {
+    "name": "wtWebGraphThermoHygroGraphicsScale4Min",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale1Max": {
+    "name": "wtWebGraphThermoHygroGraphicsScale1Max",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale2Max": {
+    "name": "wtWebGraphThermoHygroGraphicsScale2Max",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale3Max": {
+    "name": "wtWebGraphThermoHygroGraphicsScale3Max",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale4Max": {
+    "name": "wtWebGraphThermoHygroGraphicsScale4Max",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale1Unit": {
+    "name": "wtWebGraphThermoHygroGraphicsScale1Unit",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale2Unit": {
+    "name": "wtWebGraphThermoHygroGraphicsScale2Unit",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale3Unit": {
+    "name": "wtWebGraphThermoHygroGraphicsScale3Unit",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroGraphicsScale4Unit": {
+    "name": "wtWebGraphThermoHygroGraphicsScale4Unit",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.1.6.3.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroPortTable": {
+    "name": "wtWebGraphThermoHygroPortTable",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroPortEntry": {
+    "name": "wtWebGraphThermoHygroPortEntry",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroSensorNo",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroPortName": {
+    "name": "wtWebGraphThermoHygroPortName",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroPortText": {
+    "name": "wtWebGraphThermoHygroPortText",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroPortOffset1": {
+    "name": "wtWebGraphThermoHygroPortOffset1",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroPortTemperature1": {
+    "name": "wtWebGraphThermoHygroPortTemperature1",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroPortOffset2": {
+    "name": "wtWebGraphThermoHygroPortOffset2",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroPortTemperature2": {
+    "name": "wtWebGraphThermoHygroPortTemperature2",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroPortComment": {
+    "name": "wtWebGraphThermoHygroPortComment",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroPortAltidude": {
+    "name": "wtWebGraphThermoHygroPortAltidude",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMfName": {
+    "name": "wtWebGraphThermoHygroMfName",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMfAddr": {
+    "name": "wtWebGraphThermoHygroMfAddr",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMfHotline": {
+    "name": "wtWebGraphThermoHygroMfHotline",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMfInternet": {
+    "name": "wtWebGraphThermoHygroMfInternet",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMfDeviceTyp": {
+    "name": "wtWebGraphThermoHygroMfDeviceTyp",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroMfOrderNo": {
+    "name": "wtWebGraphThermoHygroMfOrderNo",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.3.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDiagErrorCount": {
+    "name": "wtWebGraphThermoHygroDiagErrorCount",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDiagBinaryError": {
+    "name": "wtWebGraphThermoHygroDiagBinaryError",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDiagErrorIndex": {
+    "name": "wtWebGraphThermoHygroDiagErrorIndex",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDiagErrorMessage": {
+    "name": "wtWebGraphThermoHygroDiagErrorMessage",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroDiagErrorClear": {
+    "name": "wtWebGraphThermoHygroDiagErrorClear",
+    "oid": "1.3.6.1.4.1.5040.1.2.42.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "write-only",
+    "status": "mandatory"
+  },
+  "wtWebGraphThermoHygroAlert1": {
+    "name": "wtWebGraphThermoHygroAlert1",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.31",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert2": {
+    "name": "wtWebGraphThermoHygroAlert2",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.32",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert3": {
+    "name": "wtWebGraphThermoHygroAlert3",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.33",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert4": {
+    "name": "wtWebGraphThermoHygroAlert4",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.34",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert5": {
+    "name": "wtWebGraphThermoHygroAlert5",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.35",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert6": {
+    "name": "wtWebGraphThermoHygroAlert6",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.36",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert7": {
+    "name": "wtWebGraphThermoHygroAlert7",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.37",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert8": {
+    "name": "wtWebGraphThermoHygroAlert8",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.38",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert9": {
+    "name": "wtWebGraphThermoHygroAlert9",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.91",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmClearTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert10": {
+    "name": "wtWebGraphThermoHygroAlert10",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.92",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmClearTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert11": {
+    "name": "wtWebGraphThermoHygroAlert11",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.93",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmClearTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert12": {
+    "name": "wtWebGraphThermoHygroAlert12",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.94",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmClearTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert13": {
+    "name": "wtWebGraphThermoHygroAlert13",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.95",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmClearTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert14": {
+    "name": "wtWebGraphThermoHygroAlert14",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.96",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmClearTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert15": {
+    "name": "wtWebGraphThermoHygroAlert15",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.97",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmClearTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlert16": {
+    "name": "wtWebGraphThermoHygroAlert16",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.98",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroAlarmClearTrapText"
+      }
+    ]
+  },
+  "wtWebGraphThermoHygroAlertDiag": {
+    "name": "wtWebGraphThermoHygroAlertDiag",
+    "oid": "1.3.6.1.4.1.5040.1.2.420.110",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroDiagErrorIndex"
+      },
+      {
+        "module": "WebGraph-Thermo-Hygrometer-US-MIB",
+        "object": "wtWebGraphThermoHygroDiagErrorMessage"
+      }
+    ]
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wut/WebGraph-Thermo-Hygrometer-US-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan  6 19:48:27 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "WebGraph-Thermo-Hygrometer-US-MIB"
+  }
+}
