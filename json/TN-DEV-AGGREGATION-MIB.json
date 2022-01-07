@@ -8,28 +8,28 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "iso",
-      "Unsigned32",
       "OBJECT-IDENTITY",
+      "Gauge32",
+      "Counter64",
       "MODULE-IDENTITY",
-      "Bits",
-      "MibIdentifier",
-      "Counter32",
+      "Unsigned32",
+      "IpAddress",
       "Integer32",
-      "Gauge32"
+      "Bits",
+      "Counter32",
+      "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ],
     "TN-MGMT-MIB": [
@@ -198,8 +198,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-DEV-AGGREGATION-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:40:16 2022",
-      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 17:22:32 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "TN-DEV-AGGREGATION-MIB"

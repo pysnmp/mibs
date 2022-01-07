@@ -2,46 +2,46 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifCounterDiscontinuityGroup",
       "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifCounterDiscontinuityGroup"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
-      "InetPortNumber",
       "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetPortNumber"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "mib-2",
-      "Gauge32",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Integer32",
       "MibIdentifier",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "MODULE-IDENTITY",
       "TimeTicks",
+      "IpAddress",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Bits",
-      "Counter64"
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus",
+      "StorageType"
     ],
     "VPN-TC-STD-MIB": [
       "VPNIdOrZero"
@@ -4189,8 +4189,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/NAT-TC",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:07:59 2022",
-      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:50:18 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "NAT-MIB"

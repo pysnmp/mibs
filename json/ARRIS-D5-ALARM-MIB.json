@@ -5,11 +5,11 @@
       "d5QamExtServingGroup"
     ],
     "ARRIS-D5-VIDEO-MIB": [
-      "d5vStreamEsPidIndex",
-      "d5vIpUdpIndex",
-      "d5vIpDestIndex",
       "d5vStreamProgIndex",
-      "d5vIpSrcIndex"
+      "d5vIpSrcIndex",
+      "d5vStreamEsPidIndex",
+      "d5vIpDestIndex",
+      "d5vIpUdpIndex"
     ],
     "ARRIS-MIB": [
       "arrisD5UEQam"
@@ -28,31 +28,31 @@
       "entPhySensorValue"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
+      "Counter64",
       "enterprises",
       "Unsigned32",
-      "TimeTicks",
-      "Bits",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Counter32",
-      "Integer32"
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowStatus",
       "DisplayString"
     ]
   },
@@ -2429,8 +2429,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:10:14 2022",
-      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:52:41 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ARRIS-D5-ALARM-MIB"

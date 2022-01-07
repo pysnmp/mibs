@@ -8,8 +8,8 @@
       "ifName"
     ],
     "IPV6-TC": [
-      "Ipv6Address",
-      "Ipv6AddressPrefix"
+      "Ipv6AddressPrefix",
+      "Ipv6Address"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -19,20 +19,20 @@
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
+      "Counter32",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "iso",
+      "Unsigned32",
       "TimeTicks",
       "OBJECT-TYPE",
-      "Unsigned32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "IpAddress",
       "MibIdentifier",
-      "Bits",
-      "Counter32",
       "NOTIFICATION-TYPE",
+      "iso",
       "MODULE-IDENTITY",
-      "Gauge32"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1778,8 +1778,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arbornet/ARBORNET-PEAKFLOW-TMS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:09:46 2022",
-      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:52:12 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "PEAKFLOW-TMS-MIB"
