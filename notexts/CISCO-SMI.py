@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module CISCO-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source https://pysnmp.github.io:443/mibs/asn1/CISCO-SMI
-# Produced by pysmi-1.1.8 at Fri Jan  7 00:05:01 2022
-# On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan  7 00:53:09 2022
+# On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Counter64, Unsigned32, iso, enterprises, IpAddress, Bits, Integer32, ObjectIdentity, TimeTicks, NotificationType, Gauge32, MibIdentifier, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Counter64", "Unsigned32", "iso", "enterprises", "IpAddress", "Bits", "Integer32", "ObjectIdentity", "TimeTicks", "NotificationType", "Gauge32", "MibIdentifier", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Gauge32, Counter64, NotificationType, Unsigned32, iso, ObjectIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, IpAddress, MibIdentifier, ModuleIdentity, enterprises, Counter32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "Counter64", "NotificationType", "Unsigned32", "iso", "ObjectIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "IpAddress", "MibIdentifier", "ModuleIdentity", "enterprises", "Counter32", "TimeTicks")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 cisco = ModuleIdentity((1, 3, 6, 1, 4, 1, 9))
-cisco.setRevisions(('2012-08-29 00:00', '2009-02-03 00:00', '2002-03-21 00:00', '2001-05-22 00:00', '2000-11-01 22:46', '2000-01-11 00:00', '1997-04-09 00:00', '1995-05-16 00:00', '1994-04-26 20:00',))
-if mibBuilder.loadTexts: cisco.setLastUpdated('201208290000Z')
+cisco.setRevisions(('2016-01-15 00:00', '2012-08-29 00:00', '2009-02-03 00:00', '2002-03-21 00:00', '2001-05-22 00:00', '2000-11-01 22:46', '2000-01-11 00:00', '1997-04-09 00:00', '1995-05-16 00:00', '1994-04-26 20:00',))
+if mibBuilder.loadTexts: cisco.setLastUpdated('201601150000Z')
 if mibBuilder.loadTexts: cisco.setOrganization('Cisco Systems, Inc.')
 ciscoProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 1))
 if mibBuilder.loadTexts: ciscoProducts.setStatus('current')
@@ -69,6 +69,8 @@ ciscoCibProvGroup = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 20, 2))
 if mibBuilder.loadTexts: ciscoCibProvGroup.setStatus('current')
 ciscoPKI = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 21))
 if mibBuilder.loadTexts: ciscoPKI.setStatus('current')
+ciscoLDAP = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 22))
+if mibBuilder.loadTexts: ciscoLDAP.setStatus('current')
 ciscoProxy = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 11, 1))
 if mibBuilder.loadTexts: ciscoProxy.setStatus('current')
 ciscoPartyProxy = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 11, 1, 1))
@@ -118,4 +120,4 @@ ciscoTDomainSctpIpv4 = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 19, 99999, 10))
 if mibBuilder.loadTexts: ciscoTDomainSctpIpv4.setStatus('current')
 ciscoTDomainSctpIpv6 = ObjectIdentity((1, 3, 6, 1, 4, 1, 9, 19, 99999, 11))
 if mibBuilder.loadTexts: ciscoTDomainSctpIpv6.setStatus('current')
-mibBuilder.exportSymbols("CISCO-SMI", ciscoPKI=ciscoPKI, ciscoMgmt=ciscoMgmt, pakmon=pakmon, lightstream=lightstream, ciscoTDomainIpx=ciscoTDomainIpx, ciscoPartnerProducts=ciscoPartnerProducts, ciscoCibMmiGroup=ciscoCibMmiGroup, ciscoContextProxy=ciscoContextProxy, ciscoTDomains=ciscoTDomains, ciscoAgentCapability=ciscoAgentCapability, newport=newport, ciscoTDomainTcpIpv6=ciscoTDomainTcpIpv6, ciscoPibToMib=ciscoPibToMib, PYSNMP_MODULE_ID=cisco, ciscoTDomainTcpIpv4=ciscoTDomainTcpIpv4, ciscoTDomainSctpIpv6=ciscoTDomainSctpIpv6, ciscoTDomainCons=ciscoTDomainCons, ciscoChipSetSaint1=ciscoChipSetSaint1, cisco=cisco, ciscoSMB=ciscoSMB, ciscoWsx5020RptrGroup=ciscoWsx5020RptrGroup, ciscoChipSetSaint3=ciscoChipSetSaint3, ciscoPartyProxy=ciscoPartyProxy, otherEnterprises=otherEnterprises, ciscoTDomainClns=ciscoTDomainClns, workgroup=workgroup, ciscoPolicy=ciscoPolicy, ciscoModules=ciscoModules, ciscoUnknownRptrGroup=ciscoUnknownRptrGroup, ciscoExperiment=ciscoExperiment, ciscoTDomainUdpIpv4=ciscoTDomainUdpIpv4, ciscoAdmin=ciscoAdmin, ciscoRptrGroupObjectID=ciscoRptrGroupObjectID, local=local, ciscoCibProvGroup=ciscoCibProvGroup, ciscoChipSetSaint4=ciscoChipSetSaint4, ciscoPolicyAuto=ciscoPolicyAuto, ciscoTDomainSctpIpv4=ciscoTDomainSctpIpv4, ciscoCIB=ciscoCIB, ciscoConfig=ciscoConfig, ciscoProducts=ciscoProducts, ciscoSB=ciscoSB, ciscoTDomainUdpIpv6=ciscoTDomainUdpIpv6, cisco2505RptrGroup=cisco2505RptrGroup, ciscoChipSetSaint2=ciscoChipSetSaint2, ciscoworks=ciscoworks, ciscoProxy=ciscoProxy, ciscoTDomainDdp=ciscoTDomainDdp, temporary=temporary, ciscoDomains=ciscoDomains, cisco2507RptrGroup=cisco2507RptrGroup, ciscoChipSets=ciscoChipSets, ciscoPIB=ciscoPIB, ciscoTDomainLocal=ciscoTDomainLocal, cisco2516RptrGroup=cisco2516RptrGroup)
+mibBuilder.exportSymbols("CISCO-SMI", ciscoDomains=ciscoDomains, ciscoCibProvGroup=ciscoCibProvGroup, cisco2516RptrGroup=cisco2516RptrGroup, ciscoModules=ciscoModules, workgroup=workgroup, ciscoSMB=ciscoSMB, ciscoExperiment=ciscoExperiment, ciscoTDomainClns=ciscoTDomainClns, ciscoTDomainDdp=ciscoTDomainDdp, ciscoPartyProxy=ciscoPartyProxy, local=local, ciscoSB=ciscoSB, ciscoChipSetSaint3=ciscoChipSetSaint3, PYSNMP_MODULE_ID=cisco, ciscoCibMmiGroup=ciscoCibMmiGroup, ciscoRptrGroupObjectID=ciscoRptrGroupObjectID, ciscoTDomainTcpIpv6=ciscoTDomainTcpIpv6, ciscoChipSetSaint1=ciscoChipSetSaint1, newport=newport, ciscoLDAP=ciscoLDAP, ciscoTDomainSctpIpv6=ciscoTDomainSctpIpv6, ciscoProxy=ciscoProxy, ciscoMgmt=ciscoMgmt, ciscoTDomains=ciscoTDomains, ciscoProducts=ciscoProducts, ciscoTDomainUdpIpv4=ciscoTDomainUdpIpv4, ciscoTDomainTcpIpv4=ciscoTDomainTcpIpv4, ciscoCIB=ciscoCIB, lightstream=lightstream, cisco2507RptrGroup=cisco2507RptrGroup, ciscoChipSets=ciscoChipSets, ciscoPKI=ciscoPKI, ciscoContextProxy=ciscoContextProxy, ciscoUnknownRptrGroup=ciscoUnknownRptrGroup, ciscoPolicyAuto=ciscoPolicyAuto, ciscoAdmin=ciscoAdmin, ciscoChipSetSaint4=ciscoChipSetSaint4, ciscoTDomainLocal=ciscoTDomainLocal, temporary=temporary, ciscoPIB=ciscoPIB, cisco2505RptrGroup=cisco2505RptrGroup, ciscoTDomainCons=ciscoTDomainCons, ciscoPartnerProducts=ciscoPartnerProducts, ciscoTDomainIpx=ciscoTDomainIpx, ciscoPibToMib=ciscoPibToMib, ciscoTDomainUdpIpv6=ciscoTDomainUdpIpv6, pakmon=pakmon, ciscoTDomainSctpIpv4=ciscoTDomainSctpIpv4, ciscoPolicy=ciscoPolicy, ciscoChipSetSaint2=ciscoChipSetSaint2, otherEnterprises=otherEnterprises, cisco=cisco, ciscoWsx5020RptrGroup=ciscoWsx5020RptrGroup, ciscoConfig=ciscoConfig, ciscoAgentCapability=ciscoAgentCapability, ciscoworks=ciscoworks)

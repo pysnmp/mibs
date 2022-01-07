@@ -5,20 +5,20 @@
       "d5QamExtServingGroup"
     ],
     "ARRIS-D5-VIDEO-MIB": [
-      "d5vIpUdpIndex",
-      "d5vStreamEsPidIndex",
+      "d5vIpDestIndex",
       "d5vStreamProgIndex",
       "d5vIpSrcIndex",
-      "d5vIpDestIndex"
+      "d5vIpUdpIndex",
+      "d5vStreamEsPidIndex"
     ],
     "ARRIS-MIB": [
       "arrisD5UEQam"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
+      "docsDevEvId",
       "docsDevEvText",
       "docsDevEventEntry",
-      "docsDevEvLevel",
-      "docsDevEvId"
+      "docsDevEvLevel"
     ],
     "ENTITY-MIB": [
       "entPhysicalIndex",
@@ -28,31 +28,31 @@
       "entPhySensorValue"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Bits",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "Gauge32",
       "enterprises",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "TimeTicks",
       "iso",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
-      "NOTIFICATION-TYPE",
       "Counter64",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "TimeTicks"
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "DisplayString",
       "RowStatus",
+      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -2429,8 +2429,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 00:07:58 2022",
-      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:55:46 2022",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ARRIS-D5-ALARM-MIB"

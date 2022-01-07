@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "NSCRTV-HFCEMS-COMMON-MIB": [
-      "commonNELogicalID",
-      "commonPhysAddress"
+      "commonPhysAddress",
+      "commonNELogicalID"
     ],
     "NSCRTV-ROOT": [
       "nscrtvHFCemsTree",
@@ -14,25 +14,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "MibIdentifier",
       "TRAP-TYPE",
-      "TimeTicks",
-      "iso",
       "Bits",
-      "OBJECT-IDENTITY",
+      "Counter32",
+      "Integer32",
       "Unsigned32",
       "IpAddress",
-      "Counter32",
-      "MibIdentifier",
+      "Counter64",
       "Gauge32",
       "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "Integer32"
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "alarmLogNumberOfEntries": {
@@ -160,8 +160,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/NSCRTV-HFCEMS-ALARMS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 00:10:40 2022",
-      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:58:11 2022",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "NSCRTV-HFCEMS-ALARMS-MIB"

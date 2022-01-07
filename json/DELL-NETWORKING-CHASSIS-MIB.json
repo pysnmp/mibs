@@ -5,47 +5,47 @@
       "dellNetMgmt"
     ],
     "DELL-NETWORKING-TC": [
+      "DellNetChassisType",
+      "DellNetDeviceType",
+      "DellNetHundredthdB",
+      "DellNetSystemCardType",
+      "DellNetIfType",
+      "DellNetMfgDate",
       "DellNetPEOperStatus",
       "DellNetSwDate",
-      "DellNetCardOperStatus",
-      "DellNetSystemCardType",
-      "DellNetDeviceType",
-      "DellNetChassisType",
-      "DellNetHundredthdB",
       "DellNetProcessorModuleType",
-      "DellNetIfType",
-      "DellNetMfgDate"
+      "DellNetCardOperStatus"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
       "IpAddress",
-      "MibIdentifier",
-      "Integer32",
-      "MODULE-IDENTITY",
       "Counter32",
+      "MibIdentifier",
       "TimeTicks",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "Unsigned32",
-      "iso",
-      "OBJECT-TYPE"
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "MacAddress"
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "dellNetChassisMib": {
@@ -4673,8 +4673,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/DELL-NETWORKING-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 00:17:10 2022",
-      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 01:04:15 2022",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "DELL-NETWORKING-CHASSIS-MIB"
