@@ -9,37 +9,50 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "Counter32",
       "Unsigned32",
-      "IpAddress",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Counter64",
       "Bits",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
-    ],
-    "SNMPv2-TC-v1": [
-      "PhysAddress",
-      "TruthValue"
+      "PhysAddress"
     ]
   },
   "ciscoVinesMIB": {
     "name": "ciscoVinesMIB",
     "oid": "1.3.6.1.4.1.9.9.17",
-    "class": "objectidentity"
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1995-06-07 00:00",
+        "description": "Miscellaneous updates/corrections, including making CiscoNetworkProtocol enumerations contiguous."
+      },
+      {
+        "revision": "1994-12-21 00:00",
+        "description": "Minor update/cleanup. Incorporate review comments."
+      },
+      {
+        "revision": "1994-11-30 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
   },
   "ciscoVinesMIBObjects": {
     "name": "ciscoVinesMIBObjects",
@@ -66,24 +79,9 @@
     "oid": "1.3.6.1.4.1.9.9.17.1.4",
     "class": "objectidentity"
   },
-  "ciscoVinesMIBConformance": {
-    "name": "ciscoVinesMIBConformance",
-    "oid": "1.3.6.1.4.1.9.9.17.3",
-    "class": "objectidentity"
-  },
-  "ciscoVinesMIBCompliances": {
-    "name": "ciscoVinesMIBCompliances",
-    "oid": "1.3.6.1.4.1.9.9.17.3.1",
-    "class": "objectidentity"
-  },
-  "ciscoVinesMIBGroups": {
-    "name": "ciscoVinesMIBGroups",
-    "oid": "1.3.6.1.4.1.9.9.17.3.2",
-    "class": "objectidentity"
-  },
   "VinesNetworkNumber": {
     "name": "VinesNetworkNumber",
-    "class": "type",
+    "class": "textualconvention",
     "type": {
       "type": "Integer32",
       "class": "type",
@@ -95,11 +93,12 @@
           }
         ]
       }
-    }
+    },
+    "status": "current"
   },
   "VinesHostNumber": {
     "name": "VinesHostNumber",
-    "class": "type",
+    "class": "textualconvention",
     "type": {
       "type": "Integer32",
       "class": "type",
@@ -111,11 +110,12 @@
           }
         ]
       }
-    }
+    },
+    "status": "current"
   },
   "VinesMetric": {
     "name": "VinesMetric",
-    "class": "type",
+    "class": "textualconvention",
     "type": {
       "type": "Integer32",
       "class": "type",
@@ -127,7 +127,8 @@
           }
         ]
       }
-    }
+    },
+    "status": "current"
   },
   "cvBasicNetwork": {
     "name": "cvBasicNetwork",
@@ -139,7 +140,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvBasicHost": {
     "name": "cvBasicHost",
@@ -151,7 +152,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvBasicNextClient": {
     "name": "cvBasicNextClient",
@@ -163,7 +164,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborNeighborCount": {
     "name": "cvForwNeighborNeighborCount",
@@ -175,7 +176,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborPathCount": {
     "name": "cvForwNeighborPathCount",
@@ -187,7 +188,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborVersion": {
     "name": "cvForwNeighborVersion",
@@ -199,7 +200,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborTable": {
     "name": "cvForwNeighborTable",
@@ -207,7 +208,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborEntry": {
     "name": "cvForwNeighborEntry",
@@ -237,7 +238,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborNetwork": {
     "name": "cvForwNeighborNetwork",
@@ -249,7 +250,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborHost": {
     "name": "cvForwNeighborHost",
@@ -261,7 +262,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborPhysAddress": {
     "name": "cvForwNeighborPhysAddress",
@@ -273,7 +274,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborSource": {
     "name": "cvForwNeighborSource",
@@ -297,7 +298,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborRtpVersion": {
     "name": "cvForwNeighborRtpVersion",
@@ -317,7 +318,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborUsageType": {
     "name": "cvForwNeighborUsageType",
@@ -336,7 +337,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborAge": {
     "name": "cvForwNeighborAge",
@@ -355,8 +356,9 @@
         ]
       }
     },
+    "units": "seconds",
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborMetric": {
     "name": "cvForwNeighborMetric",
@@ -367,8 +369,9 @@
       "type": "VinesMetric",
       "class": "type"
     },
+    "units": "milleseconds",
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwNeighborUses": {
     "name": "cvForwNeighborUses",
@@ -380,7 +383,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteRouterCount": {
     "name": "cvForwRouteRouterCount",
@@ -392,7 +395,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteRouteCount": {
     "name": "cvForwRouteRouteCount",
@@ -404,7 +407,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteVersion": {
     "name": "cvForwRouteVersion",
@@ -416,7 +419,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteUpdateCountdown": {
     "name": "cvForwRouteUpdateCountdown",
@@ -427,8 +430,9 @@
       "type": "Gauge32",
       "class": "type"
     },
+    "units": "seconds",
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteTable": {
     "name": "cvForwRouteTable",
@@ -436,7 +440,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteEntry": {
     "name": "cvForwRouteEntry",
@@ -456,7 +460,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteNetworkNumber": {
     "name": "cvForwRouteNetworkNumber",
@@ -468,7 +472,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteNeighborNetwork": {
     "name": "cvForwRouteNeighborNetwork",
@@ -480,7 +484,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteSource": {
     "name": "cvForwRouteSource",
@@ -503,7 +507,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteRtpVersion": {
     "name": "cvForwRouteRtpVersion",
@@ -523,7 +527,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteUseNext": {
     "name": "cvForwRouteUseNext",
@@ -535,7 +539,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteForwardBroadcast": {
     "name": "cvForwRouteForwardBroadcast",
@@ -547,7 +551,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteSuppress": {
     "name": "cvForwRouteSuppress",
@@ -559,7 +563,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteLoadShareEligible": {
     "name": "cvForwRouteLoadShareEligible",
@@ -571,7 +575,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteAge": {
     "name": "cvForwRouteAge",
@@ -590,8 +594,9 @@
         ]
       }
     },
+    "units": "seconds",
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteMetric": {
     "name": "cvForwRouteMetric",
@@ -602,8 +607,9 @@
       "type": "VinesMetric",
       "class": "type"
     },
+    "units": "milleseconds",
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvForwRouteUses": {
     "name": "cvForwRouteUses",
@@ -615,7 +621,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalInputPackets": {
     "name": "cvTotalInputPackets",
@@ -627,7 +633,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalOutputPackets": {
     "name": "cvTotalOutputPackets",
@@ -639,7 +645,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalLocalDestPackets": {
     "name": "cvTotalLocalDestPackets",
@@ -651,7 +657,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalForwardedPackets": {
     "name": "cvTotalForwardedPackets",
@@ -663,7 +669,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalBroadcastInPackets": {
     "name": "cvTotalBroadcastInPackets",
@@ -675,7 +681,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalBroadcastOutPackets": {
     "name": "cvTotalBroadcastOutPackets",
@@ -687,7 +693,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalBroadcastForwardPackets": {
     "name": "cvTotalBroadcastForwardPackets",
@@ -699,7 +705,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalLanOnlyPackets": {
     "name": "cvTotalLanOnlyPackets",
@@ -711,7 +717,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalNotOver4800Packets": {
     "name": "cvTotalNotOver4800Packets",
@@ -723,7 +729,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalNoChargesPackets": {
     "name": "cvTotalNoChargesPackets",
@@ -735,7 +741,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalFormatErrors": {
     "name": "cvTotalFormatErrors",
@@ -747,7 +753,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalChecksumErrors": {
     "name": "cvTotalChecksumErrors",
@@ -759,7 +765,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalHopCountsExceeded": {
     "name": "cvTotalHopCountsExceeded",
@@ -771,7 +777,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalNoRouteDrops": {
     "name": "cvTotalNoRouteDrops",
@@ -783,7 +789,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalEncapsFailedDrops": {
     "name": "cvTotalEncapsFailedDrops",
@@ -795,7 +801,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalUnknownPackets": {
     "name": "cvTotalUnknownPackets",
@@ -807,7 +813,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalIcpInPackets": {
     "name": "cvTotalIcpInPackets",
@@ -819,7 +825,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalIcpOutPackets": {
     "name": "cvTotalIcpOutPackets",
@@ -831,7 +837,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalMetricOutPackets": {
     "name": "cvTotalMetricOutPackets",
@@ -843,7 +849,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalMacEchoInPackets": {
     "name": "cvTotalMacEchoInPackets",
@@ -855,7 +861,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalMacEchoOutPackets": {
     "name": "cvTotalMacEchoOutPackets",
@@ -867,7 +873,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalEchoInPackets": {
     "name": "cvTotalEchoInPackets",
@@ -879,7 +885,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalEchoOutPackets": {
     "name": "cvTotalEchoOutPackets",
@@ -891,7 +897,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalProxyOutPackets": {
     "name": "cvTotalProxyOutPackets",
@@ -903,7 +909,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvTotalProxyReplyOutPackets": {
     "name": "cvTotalProxyReplyOutPackets",
@@ -915,7 +921,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigTable": {
     "name": "cvIfConfigTable",
@@ -923,7 +929,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigEntry": {
     "name": "cvIfConfigEntry",
@@ -938,7 +944,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigMetric": {
     "name": "cvIfConfigMetric",
@@ -950,7 +956,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigEncapsulation": {
     "name": "cvIfConfigEncapsulation",
@@ -969,7 +975,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigAccesslist": {
     "name": "cvIfConfigAccesslist",
@@ -981,7 +987,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigPropagate": {
     "name": "cvIfConfigPropagate",
@@ -1000,7 +1006,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigArpEnabled": {
     "name": "cvIfConfigArpEnabled",
@@ -1019,7 +1025,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigServerless": {
     "name": "cvIfConfigServerless",
@@ -1039,7 +1045,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigRedirectInterval": {
     "name": "cvIfConfigRedirectInterval",
@@ -1050,8 +1056,9 @@
       "type": "Integer32",
       "class": "type"
     },
+    "units": "milleseconds",
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigSplitDisabled": {
     "name": "cvIfConfigSplitDisabled",
@@ -1063,7 +1070,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigLineup": {
     "name": "cvIfConfigLineup",
@@ -1075,7 +1082,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigFastokay": {
     "name": "cvIfConfigFastokay",
@@ -1087,7 +1094,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigRouteCache": {
     "name": "cvIfConfigRouteCache",
@@ -1099,7 +1106,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigInputRouterFilter": {
     "name": "cvIfConfigInputRouterFilter",
@@ -1111,7 +1118,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigInputNetworkFilter": {
     "name": "cvIfConfigInputNetworkFilter",
@@ -1123,7 +1130,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfConfigOutputNetworkFilter": {
     "name": "cvIfConfigOutputNetworkFilter",
@@ -1135,7 +1142,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInTable": {
     "name": "cvIfCountInTable",
@@ -1143,7 +1150,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInEntry": {
     "name": "cvIfCountInEntry",
@@ -1158,7 +1165,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInNotEnabledDrops": {
     "name": "cvIfCountInNotEnabledDrops",
@@ -1170,7 +1177,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInFormatErrors": {
     "name": "cvIfCountInFormatErrors",
@@ -1182,7 +1189,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInLocalDestPackets": {
     "name": "cvIfCountInLocalDestPackets",
@@ -1194,7 +1201,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInBroadcastPackets": {
     "name": "cvIfCountInBroadcastPackets",
@@ -1206,7 +1213,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInForwardedPackets": {
     "name": "cvIfCountInForwardedPackets",
@@ -1218,7 +1225,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInNoRouteDrops": {
     "name": "cvIfCountInNoRouteDrops",
@@ -1230,7 +1237,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInZeroHopCountDrops": {
     "name": "cvIfCountInZeroHopCountDrops",
@@ -1242,7 +1249,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInChecksumErrors": {
     "name": "cvIfCountInChecksumErrors",
@@ -1254,7 +1261,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInArpQueryRequests": {
     "name": "cvIfCountInArpQueryRequests",
@@ -1266,7 +1273,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInArpQueryResponses": {
     "name": "cvIfCountInArpQueryResponses",
@@ -1278,7 +1285,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInArpAssignmentRequests": {
     "name": "cvIfCountInArpAssignmentRequests",
@@ -1290,7 +1297,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInArpAssignmentResponses": {
     "name": "cvIfCountInArpAssignmentResponses",
@@ -1302,7 +1309,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInArpIllegalMessages": {
     "name": "cvIfCountInArpIllegalMessages",
@@ -1314,7 +1321,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInIcpErrorMessages": {
     "name": "cvIfCountInIcpErrorMessages",
@@ -1326,7 +1333,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInIcpMetricMessages": {
     "name": "cvIfCountInIcpMetricMessages",
@@ -1338,7 +1345,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInIcpIllegalMessages": {
     "name": "cvIfCountInIcpIllegalMessages",
@@ -1350,7 +1357,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInIpcMessages": {
     "name": "cvIfCountInIpcMessages",
@@ -1362,7 +1369,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInRtp0Messages": {
     "name": "cvIfCountInRtp0Messages",
@@ -1374,7 +1381,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInRtp1Messages": {
     "name": "cvIfCountInRtp1Messages",
@@ -1386,7 +1393,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInRtp2Messages": {
     "name": "cvIfCountInRtp2Messages",
@@ -1398,7 +1405,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInRtp3Messages": {
     "name": "cvIfCountInRtp3Messages",
@@ -1410,7 +1417,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInRtpUpdateMessages": {
     "name": "cvIfCountInRtpUpdateMessages",
@@ -1422,7 +1429,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInRtpResponseMessages": {
     "name": "cvIfCountInRtpResponseMessages",
@@ -1434,7 +1441,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInRtpRedirectMessages": {
     "name": "cvIfCountInRtpRedirectMessages",
@@ -1446,7 +1453,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInRtpIllegalMessages": {
     "name": "cvIfCountInRtpIllegalMessages",
@@ -1458,7 +1465,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInSppMessages": {
     "name": "cvIfCountInSppMessages",
@@ -1470,7 +1477,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInIpUnknownProtocols": {
     "name": "cvIfCountInIpUnknownProtocols",
@@ -1482,7 +1489,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInIpcUnknownPorts": {
     "name": "cvIfCountInIpcUnknownPorts",
@@ -1494,7 +1501,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInBroadcastsHelpered": {
     "name": "cvIfCountInBroadcastsHelpered",
@@ -1506,7 +1513,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInBroadcastsForwarded": {
     "name": "cvIfCountInBroadcastsForwarded",
@@ -1518,7 +1525,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInBroadcastDuplicates": {
     "name": "cvIfCountInBroadcastDuplicates",
@@ -1530,7 +1537,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInEchoPackets": {
     "name": "cvIfCountInEchoPackets",
@@ -1542,7 +1549,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInMacEchoPackets": {
     "name": "cvIfCountInMacEchoPackets",
@@ -1554,7 +1561,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountInProxyReplyPackets": {
     "name": "cvIfCountInProxyReplyPackets",
@@ -1566,7 +1573,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutTable": {
     "name": "cvIfCountOutTable",
@@ -1574,7 +1581,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutEntry": {
     "name": "cvIfCountOutEntry",
@@ -1589,7 +1596,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutUnicastPackets": {
     "name": "cvIfCountOutUnicastPackets",
@@ -1601,7 +1608,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutBroadcastPackets": {
     "name": "cvIfCountOutBroadcastPackets",
@@ -1613,7 +1620,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutForwardedPackets": {
     "name": "cvIfCountOutForwardedPackets",
@@ -1625,7 +1632,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutEncapsulationFailures": {
     "name": "cvIfCountOutEncapsulationFailures",
@@ -1637,7 +1644,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutAccessFailures": {
     "name": "cvIfCountOutAccessFailures",
@@ -1649,7 +1656,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutDownFailures": {
     "name": "cvIfCountOutDownFailures",
@@ -1661,7 +1668,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutPacketsNotBroadcastToSource": {
     "name": "cvIfCountOutPacketsNotBroadcastToSource",
@@ -1673,7 +1680,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutPacketsNotBroadcastLanOnly": {
     "name": "cvIfCountOutPacketsNotBroadcastLanOnly",
@@ -1685,7 +1692,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutPacketsNotBroadcastNotOver4800": {
     "name": "cvIfCountOutPacketsNotBroadcastNotOver4800",
@@ -1697,7 +1704,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutPacketsNotBroadcastNoCharge": {
     "name": "cvIfCountOutPacketsNotBroadcastNoCharge",
@@ -1709,7 +1716,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutBroadcastsForwarded": {
     "name": "cvIfCountOutBroadcastsForwarded",
@@ -1721,7 +1728,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutBroadcastsHelpered": {
     "name": "cvIfCountOutBroadcastsHelpered",
@@ -1733,7 +1740,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutArpQueryRequests": {
     "name": "cvIfCountOutArpQueryRequests",
@@ -1745,7 +1752,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutArpQueryResponses": {
     "name": "cvIfCountOutArpQueryResponses",
@@ -1757,7 +1764,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutArpAssignmentRequests": {
     "name": "cvIfCountOutArpAssignmentRequests",
@@ -1769,7 +1776,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutArpAssignmentResponses": {
     "name": "cvIfCountOutArpAssignmentResponses",
@@ -1781,7 +1788,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutIcpErrorMessages": {
     "name": "cvIfCountOutIcpErrorMessages",
@@ -1793,7 +1800,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutIcpMetricMessages": {
     "name": "cvIfCountOutIcpMetricMessages",
@@ -1805,7 +1812,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutIpcMessages": {
     "name": "cvIfCountOutIpcMessages",
@@ -1817,7 +1824,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutRtp0Messages": {
     "name": "cvIfCountOutRtp0Messages",
@@ -1829,7 +1836,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutRtpRequestMessages": {
     "name": "cvIfCountOutRtpRequestMessages",
@@ -1841,7 +1848,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutRtp2Messages": {
     "name": "cvIfCountOutRtp2Messages",
@@ -1853,7 +1860,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutRtp3Messages": {
     "name": "cvIfCountOutRtp3Messages",
@@ -1865,7 +1872,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutRtpUpdateMessages": {
     "name": "cvIfCountOutRtpUpdateMessages",
@@ -1877,7 +1884,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutRtpResponseMessages": {
     "name": "cvIfCountOutRtpResponseMessages",
@@ -1889,7 +1896,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutRtpRedirectMessages": {
     "name": "cvIfCountOutRtpRedirectMessages",
@@ -1901,7 +1908,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutSppMessages": {
     "name": "cvIfCountOutSppMessages",
@@ -1913,7 +1920,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutEchoPackets": {
     "name": "cvIfCountOutEchoPackets",
@@ -1925,7 +1932,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutMacEchoPackets": {
     "name": "cvIfCountOutMacEchoPackets",
@@ -1937,7 +1944,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "cvIfCountOutProxyPackets": {
     "name": "cvIfCountOutProxyPackets",
@@ -1949,23 +1956,560 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
-  "ciscoVinesMIBGroup": {
-    "name": "ciscoVinesMIBGroup",
-    "oid": "1.3.6.1.4.1.9.9.17.3.2.1",
+  "ciscoVinesMIBConformance": {
+    "name": "ciscoVinesMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.17.3",
+    "class": "objectidentity"
+  },
+  "ciscoVinesMIBCompliances": {
+    "name": "ciscoVinesMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.17.3.1",
+    "class": "objectidentity"
+  },
+  "ciscoVinesMIBGroups": {
+    "name": "ciscoVinesMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.17.3.2",
     "class": "objectidentity"
   },
   "ciscoVinesMIBCompliance": {
     "name": "ciscoVinesMIBCompliance",
     "oid": "1.3.6.1.4.1.9.9.17.3.1.1",
-    "class": "objectidentity"
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoVinesMIBGroup",
+        "module": "CISCO-VINES-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoVinesMIBGroup": {
+    "name": "ciscoVinesMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.17.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvBasicNetwork"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvBasicHost"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvBasicNextClient"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborNeighborCount"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborPathCount"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborVersion"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborSource"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborRtpVersion"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborUsageType"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborAge"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborMetric"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwNeighborUses"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteRouterCount"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteRouteCount"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteVersion"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteUpdateCountdown"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteSource"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteRtpVersion"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteUseNext"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteForwardBroadcast"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteSuppress"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteLoadShareEligible"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteAge"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteMetric"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvForwRouteUses"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalInputPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalOutputPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalLocalDestPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalForwardedPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalBroadcastInPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalBroadcastOutPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalBroadcastForwardPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalLanOnlyPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalNotOver4800Packets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalNoChargesPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalFormatErrors"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalChecksumErrors"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalHopCountsExceeded"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalNoRouteDrops"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalEncapsFailedDrops"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalUnknownPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalIcpInPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalIcpOutPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalMetricOutPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalMacEchoInPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalMacEchoOutPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalEchoInPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalEchoOutPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalProxyOutPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvTotalProxyReplyOutPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigMetric"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigEncapsulation"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigAccesslist"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigPropagate"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigArpEnabled"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigServerless"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigRedirectInterval"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigSplitDisabled"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigLineup"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigFastokay"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigRouteCache"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigInputRouterFilter"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigInputNetworkFilter"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfConfigOutputNetworkFilter"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInNotEnabledDrops"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInFormatErrors"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInLocalDestPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInBroadcastPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInForwardedPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInNoRouteDrops"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInZeroHopCountDrops"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInChecksumErrors"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInArpQueryRequests"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInArpQueryResponses"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInArpAssignmentRequests"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInArpAssignmentResponses"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInArpIllegalMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInIcpErrorMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInIcpMetricMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInIcpIllegalMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInIpcMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInRtp0Messages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInRtp1Messages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInRtp2Messages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInRtp3Messages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInRtpUpdateMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInRtpResponseMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInRtpRedirectMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInRtpIllegalMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInSppMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInIpUnknownProtocols"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInIpcUnknownPorts"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInBroadcastsHelpered"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInBroadcastsForwarded"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInBroadcastDuplicates"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInEchoPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInMacEchoPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountInProxyReplyPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutUnicastPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutBroadcastPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutForwardedPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutEncapsulationFailures"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutAccessFailures"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutDownFailures"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutPacketsNotBroadcastToSource"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutPacketsNotBroadcastLanOnly"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutPacketsNotBroadcastNotOver4800"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutPacketsNotBroadcastNoCharge"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutBroadcastsForwarded"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutBroadcastsHelpered"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutArpQueryRequests"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutArpQueryResponses"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutArpAssignmentRequests"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutArpAssignmentResponses"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutIcpErrorMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutIcpMetricMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutIpcMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutRtp0Messages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutRtpRequestMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutRtp2Messages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutRtp3Messages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutRtpUpdateMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutRtpResponseMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutRtpRedirectMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutSppMessages"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutEchoPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutMacEchoPackets"
+      },
+      {
+        "module": "CISCO-VINES-MIB",
+        "object": "cvIfCountOutProxyPackets"
+      }
+    ],
+    "status": "current"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-VINES-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:12 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:22 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-VINES-MIB"

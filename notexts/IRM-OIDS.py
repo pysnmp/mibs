@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Thu Jan  6 20:12:35 2022
-# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan  7 00:19:05 2022
+# On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, MibIdentifier, Bits, Integer32, Counter32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, NotificationType, iso, Counter64, IpAddress, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "Bits", "Integer32", "Counter32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "NotificationType", "iso", "Counter64", "IpAddress", "ObjectIdentity")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, iso, MibIdentifier, NotificationType, IpAddress, Bits, Gauge32, ModuleIdentity, Integer32, ObjectIdentity, Unsigned32, Counter64, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "iso", "MibIdentifier", "NotificationType", "IpAddress", "Bits", "Gauge32", "ModuleIdentity", "Integer32", "ObjectIdentity", "Unsigned32", "Counter64", "TimeTicks")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", dl=dl, product=product, commonRev1=commonRev1, sysRepeaters=sysRepeaters, ups=ups, nb30Rev1=nb30Rev1, sysOtherType=sysOtherType, repeaterRev2=repeaterRev2, sysRouters=sysRouters, common=common, sysBridges=sysBridges, subsystem=subsystem, sysChassis=sysChassis, layerMgmt=layerMgmt, router=router, repeaterRev1=repeaterRev1, commsDevice=commsDevice, repeater=repeater, sysOIDs=sysOIDs, bridge=bridge, sysIntDev=sysIntDev, subSysDevice=subSysDevice, subSysMMAC=subSysMMAC, backplaneProtocol=backplaneProtocol)
+mibBuilder.exportSymbols("IRM-OIDS", repeater=repeater, layerMgmt=layerMgmt, router=router, subsystem=subsystem, sysRouters=sysRouters, commsDevice=commsDevice, product=product, repeaterRev1=repeaterRev1, sysBridges=sysBridges, repeaterRev2=repeaterRev2, sysIntDev=sysIntDev, subSysDevice=subSysDevice, sysOtherType=sysOtherType, common=common, sysChassis=sysChassis, sysRepeaters=sysRepeaters, subSysMMAC=subSysMMAC, sysOIDs=sysOIDs, dl=dl, nb30Rev1=nb30Rev1, ups=ups, commonRev1=commonRev1, bridge=bridge, backplaneProtocol=backplaneProtocol)

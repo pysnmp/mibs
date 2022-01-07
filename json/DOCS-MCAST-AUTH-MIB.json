@@ -1,0 +1,785 @@
+{
+  "imports": {
+    "class": "imports",
+    "CLAB-DEF-MIB": [
+      "clabProjDocsis"
+    ],
+    "DOCS-IF3-MIB": [
+      "docsIf3CmtsCmRegStatusId"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMP-TARGET-MIB": [
+      "SnmpTagList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus"
+    ]
+  },
+  "docsMcastAuthMib": {
+    "name": "docsMcastAuthMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.19",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-12-06 00:00",
+        "description": "Revised version includes ECN OSSIv3.0-N-07.0551-4 and published as I05."
+      },
+      {
+        "revision": "2006-12-07 17:00",
+        "description": "Initial version, published as part of the CableLabs OSSIv3.0 specification CM-SP-OSSIv3.0-I01-061207."
+      }
+    ]
+  },
+  "docsMcastAuthMibObjects": {
+    "name": "docsMcastAuthMibObjects",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1",
+    "class": "objectidentity"
+  },
+  "docsMcastAuthCtrl": {
+    "name": "docsMcastAuthCtrl",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.1",
+    "class": "objectidentity"
+  },
+  "docsMcastAuthCtrlEnable": {
+    "name": "docsMcastAuthCtrlEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsMcastAuthCtrlDefProfileNameList": {
+    "name": "docsMcastAuthCtrlDefProfileNameList",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsMcastAuthCtrlDefAction": {
+    "name": "docsMcastAuthCtrlDefAction",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsMcastAuthCtrlDefMaxNumSess": {
+    "name": "docsMcastAuthCtrlDefMaxNumSess",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsMcastAuthCmtsCmStatusTable": {
+    "name": "docsMcastAuthCmtsCmStatusTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsMcastAuthCmtsCmStatusEntry": {
+    "name": "docsMcastAuthCmtsCmStatusEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3CmtsCmRegStatusId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsMcastAuthCmtsCmStatusCfgProfileNameList": {
+    "name": "docsMcastAuthCmtsCmStatusCfgProfileNameList",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthCmtsCmStatusCfgListId": {
+    "name": "docsMcastAuthCmtsCmStatusCfgListId",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthCmtsCmStatusMaxNumSess": {
+    "name": "docsMcastAuthCmtsCmStatusMaxNumSess",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthCmtsCmStatusCfgParamFlag": {
+    "name": "docsMcastAuthCmtsCmStatusCfgParamFlag",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "profile": 0,
+        "staticMulticast": 1,
+        "maxNumSessions": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRuleTable": {
+    "name": "docsMcastAuthProfileSessRuleTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRuleEntry": {
+    "name": "docsMcastAuthProfileSessRuleEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfilesName",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfileSessRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRuleId": {
+    "name": "docsMcastAuthProfileSessRuleId",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRulePriority": {
+    "name": "docsMcastAuthProfileSessRulePriority",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRulePrefixAddrType": {
+    "name": "docsMcastAuthProfileSessRulePrefixAddrType",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRuleSrcPrefixAddr": {
+    "name": "docsMcastAuthProfileSessRuleSrcPrefixAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRuleSrcPrefixLen": {
+    "name": "docsMcastAuthProfileSessRuleSrcPrefixLen",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRuleGrpPrefixAddr": {
+    "name": "docsMcastAuthProfileSessRuleGrpPrefixAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRuleGrpPrefixLen": {
+    "name": "docsMcastAuthProfileSessRuleGrpPrefixLen",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRuleAction": {
+    "name": "docsMcastAuthProfileSessRuleAction",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "accept": 1,
+          "deny": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "deny",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsMcastAuthProfileSessRuleRowStatus": {
+    "name": "docsMcastAuthProfileSessRuleRowStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRuleTable": {
+    "name": "docsMcastAuthStaticSessRuleTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRuleEntry": {
+    "name": "docsMcastAuthStaticSessRuleEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthStaticSessRuleCfgListId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthStaticSessRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRuleCfgListId": {
+    "name": "docsMcastAuthStaticSessRuleCfgListId",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRuleId": {
+    "name": "docsMcastAuthStaticSessRuleId",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRulePriority": {
+    "name": "docsMcastAuthStaticSessRulePriority",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRulePrefixAddrType": {
+    "name": "docsMcastAuthStaticSessRulePrefixAddrType",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRuleSrcPrefixAddr": {
+    "name": "docsMcastAuthStaticSessRuleSrcPrefixAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRuleSrcPrefixLen": {
+    "name": "docsMcastAuthStaticSessRuleSrcPrefixLen",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRuleGrpPrefixAddr": {
+    "name": "docsMcastAuthStaticSessRuleGrpPrefixAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRuleGrpPrefixLen": {
+    "name": "docsMcastAuthStaticSessRuleGrpPrefixLen",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthStaticSessRuleAction": {
+    "name": "docsMcastAuthStaticSessRuleAction",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "permit": 1,
+          "deny": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsMcastAuthProfilesTable": {
+    "name": "docsMcastAuthProfilesTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsMcastAuthProfilesEntry": {
+    "name": "docsMcastAuthProfilesEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfilesName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsMcastAuthProfilesName": {
+    "name": "docsMcastAuthProfilesName",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsMcastAuthProfilesDescription": {
+    "name": "docsMcastAuthProfilesDescription",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsMcastAuthProfilesRowStatus": {
+    "name": "docsMcastAuthProfilesRowStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsMcastAuthMibConformance": {
+    "name": "docsMcastAuthMibConformance",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.2",
+    "class": "objectidentity"
+  },
+  "docsMcastAuthMibCompliances": {
+    "name": "docsMcastAuthMibCompliances",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.2.1",
+    "class": "objectidentity"
+  },
+  "docsMcastAuthMibGroups": {
+    "name": "docsMcastAuthMibGroups",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.2.2",
+    "class": "objectidentity"
+  },
+  "docsMcastAuthCompliance": {
+    "name": "docsMcastAuthCompliance",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "docsMcastAuthGroup",
+        "module": "DOCS-MCAST-AUTH-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "docsMcastAuthGroup": {
+    "name": "docsMcastAuthGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.19.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthCtrlEnable"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthCtrlDefProfileNameList"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthCtrlDefAction"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthCtrlDefMaxNumSess"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthCmtsCmStatusCfgProfileNameList"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthCmtsCmStatusCfgListId"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthCmtsCmStatusMaxNumSess"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthCmtsCmStatusCfgParamFlag"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfileSessRulePriority"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfileSessRulePrefixAddrType"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfileSessRuleSrcPrefixAddr"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfileSessRuleSrcPrefixLen"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfileSessRuleGrpPrefixAddr"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfileSessRuleGrpPrefixLen"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfileSessRuleAction"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfileSessRuleRowStatus"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthStaticSessRulePriority"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthStaticSessRulePrefixAddrType"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthStaticSessRuleSrcPrefixAddr"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthStaticSessRuleSrcPrefixLen"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthStaticSessRuleGrpPrefixAddr"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthStaticSessRuleGrpPrefixLen"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthStaticSessRuleAction"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfilesDescription"
+      },
+      {
+        "module": "DOCS-MCAST-AUTH-MIB",
+        "object": "docsMcastAuthProfilesRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-MCAST-AUTH-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DOCS-MCAST-AUTH-MIB"
+  }
+}

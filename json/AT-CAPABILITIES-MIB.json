@@ -6,29 +6,29 @@
       "atRouter"
     ],
     "SNMPv2-CONF": [
-      "AGENT-CAPABILITIES",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks",
+      "OBJECT-TYPE",
       "Integer32",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "Counter32",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Bits",
-      "OBJECT-TYPE"
+      "Counter64",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "atrRapier": {
@@ -41,8 +41,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-CAPABILITIES-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:01:36 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:06:59 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "AT-CAPABILITIES-MIB"

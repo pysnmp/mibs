@@ -2,56 +2,57 @@
   "imports": {
     "class": "imports",
     "DOCS-CABLE-DEVICE-MIB": [
+      "docsDev",
       "docsDevEvLevel",
       "docsDevServerDhcp",
-      "docsDevEvId",
-      "docsDevSwFilename",
-      "docsDev",
-      "docsDevServerTime",
+      "docsDevSwServer",
       "docsDevEvText",
       "docsDevNotification",
-      "docsDevSwServer"
+      "docsDevEvId",
+      "docsDevServerTime",
+      "docsDevSwFilename"
     ],
     "DOCS-IF-EXT-MIB": [
-      "docsIfDocsisOperMode",
+      "docsIfCmtsCmStatusDocsisMode",
       "docsIfDocsisCapability",
-      "docsIfCmtsCmStatusDocsisMode"
+      "docsIfDocsisOperMode"
     ],
     "DOCS-IF-MIB": [
-      "docsIfCmStatusDocsisOperMode",
-      "docsIfCmtsCmStatusMacAddress",
       "docsIfCmCmtsAddress",
-      "docsIfCmtsCmStatusModulationType",
-      "docsIfCmStatusModulationType",
+      "docsIfCmtsCmStatusMacAddress",
+      "docsIfCmStatusDocsisOperMode",
+      "docsIfCmtsCmStatusDocsisRegMode",
       "docsIfDocsisBaseCapability",
-      "docsIfCmtsCmStatusDocsisRegMode"
+      "docsIfCmtsCmStatusModulationType",
+      "docsIfCmStatusModulationType"
     ],
     "IF-MIB": [
       "ifPhysAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Unsigned32",
-      "IpAddress",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Counter32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Counter64",
-      "MODULE-IDENTITY"
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "docsDevTrapMIB": {
@@ -61,7 +62,7 @@
     "revisions": [
       {
         "revision": "1970-01-01 00:00",
-        "description": "The CABLE DEVICE TRAP MIB is an extension of the CABLE DEVICE MIB defined in RFC2669. It defines various trap objects for both cable modem and cable modem termination systems. Two groups of SNMP notification objects are defined. One group is for notifying cable modem events and one group for notifying cable modem termination system events. Common to all CM notification objects (traps) is that their OBJECTS statements contain information about the event priority, the event Id, the event message body, the CM DOCSIS capability, the CM DOCSIS QOS level, the CM DOCSIS upstream modulation type, the cable interface MAC address of the cable modem and the cable card MAC address of the CMTS to which the modem is connectede. These objects are docsDevEvLevel, docsDevId, docsDevEvText, docsIfDocsisBaseCapability, docsIfCmStatusDocsisOperMode, docsIfCmStatusModulationType,ifPhysAddress and docsIfCmCmtsAddress. The values of docsDevEvLevel, docsDevId, and docsDevEvText are from the entry which logs this event in the docsDevEventTable, which is defined in DOCS-CABLE-DEVICE-MIB of RFC2669. The docsIfDocsisBaseCapability, docsIfCmStatusDocsisOperMode, and docsIfCmStatusModulationType are defined in the DOCS-IF-MIB. The ifPhysAddress value is the MAC address of the cable interface of this cable modem. The docsIfCmCmtsAddress specifies the MAC address of the CMTS (if there is a cable.card/ interface in the CMTS, then it is actually the cable interface interface MAC address to which the CM is connected). Individual CM trap may contain additional objects to provide necessary information. Common to all CMTS notification objects (traps) is that their OBJECTS statements contain information about the event priority, the event Id, the event message body, the connected CM DOCSIS QOS status, the connected CM DOCSIS modulation type, the CM cable interface MAC address, the CMTS DOCSIS capability, and the CMTS MAC address. These objects are docsDevEvLevel, docsDevId, docsDevEvText, docsIfCmtsCmStatusDocsisRegMode, docsIfCmtsCmStatusModulationType, docsIfCmtsCmStatusMacAddress, docsIfDocsisBaseCapability, and ifPhysAddress. The values of docsDevEvLevel, docsDevId, and docsDevEvText are similar to those in CM traps. The values of docsIfCmtsCmStatusDocsisRegMode, docsIfCmtsCmStatusModulationType, and docsIfCmtsCmStatusMacAddress are from the docsIfCmtsCmStatusEntry (defined in DOCS-IF-MIB) corresponding to a connected CM. The docsIfDocsisBaseCapability indicates the CMTS DOCSIS capability. The ifPhysAddress value is the CMTS MAC address (if there is a cable card/ interface in the CMTS, then it is actually the MAC address of the cable interface which connected to the CM). "
+        "description": "The CABLE DEVICE TRAP MIB is an extension of the CABLE DEVICE MIB defined in RFC2669. It defines various trap objects for both cable modem and cable modem termination systems. Two groups of SNMP notification objects are defined. One group is for notifying cable modem events and one group for notifying cable modem termination system events. Common to all CM notification objects (traps) is that their OBJECTS statements contain information about the event priority, the event Id, the event message body, the CM DOCSIS capability, the CM DOCSIS QOS level, the CM DOCSIS upstream modulation type, the cable interface MAC address of the cable modem and the cable card MAC address of the CMTS to which the modem is connectede. These objects are docsDevEvLevel, docsDevId, docsDevEvText, docsIfDocsisBaseCapability, docsIfCmStatusDocsisOperMode, docsIfCmStatusModulationType ifPhysAddress and docsIfCmCmtsAddress. The values of docsDevEvLevel, docsDevId, and docsDevEvText are from the entry which logs this event in the docsDevEventTable, which is defined in DOCS-CABLE-DEVICE-MIB of RFC2669. The docsIfDocsisBaseCapability, docsIfCmStatusDocsisOperMode, and docsIfCmStatusModulationType are defined in the DOCS-IF-MIB. The ifPhysAddress value is the MAC address of the cable interface of this cable modem. The docsIfCmCmtsAddress specifies the MAC address of the CMTS (if there is a cable card/ interface in the CMTS, then it is actually the cable interface interface MAC address to which the CM is connected). Individual CM trap may contain additional objects to provide necessary information. Common to all CMTS notification objects (traps) is that their OBJECTS statements contain information about the event priority, the event Id, the event message body, the connected CM DOCSIS QOS status, the connected CM DOCSIS modulation type, the CM cable interface MAC address, the CMTS DOCSIS capability, and the CMTS MAC address. These objects are docsDevEvLevel, docsDevId, docsDevEvText, docsIfCmtsCmStatusDocsisRegMode, docsIfCmtsCmStatusModulationType, docsIfCmtsCmStatusMacAddress, docsIfDocsisBaseCapability, and ifPhysAddress. The values of docsDevEvLevel, docsDevId, and docsDevEvText are similar to those in CM traps. The values of docsIfCmtsCmStatusDocsisRegMode, docsIfCmtsCmStatusModulationType, and docsIfCmtsCmStatusMacAddress are from the docsIfCmtsCmStatusEntry (defined in DOCS-IF-MIB) corresponding to a connected CM. The docsIfDocsisBaseCapability indicates the CMTS DOCSIS capability. The ifPhysAddress value is the CMTS MAC address (if there is a cable card/ interface in the CMTS, then it is actually the MAC address of the cable interface which connected to the CM). "
       }
     ]
   },
@@ -112,12 +113,6 @@
         "cmDCCAckFailTrap": 15
       }
     },
-    "default": {
-      "default": {
-        "value": "00",
-        "format": "hex"
-      }
-    },
     "maxaccess": "read-write",
     "status": "current"
   },
@@ -142,12 +137,6 @@
         "cmtsDCCReqFailTrap": 9,
         "cmtsDCCRspFailTrap": 10,
         "cmtsDCCAckFailTrap": 11
-      }
-    },
-    "default": {
-      "default": {
-        "value": "00",
-        "format": "hex"
       }
     },
     "maxaccess": "read-write",
@@ -1730,9 +1719,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/DOCS-CABLE-DEVICE-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:02:21 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-CABLE-DEVICE-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "DOCS-CABLE-DEVICE-TRAP-MIB"

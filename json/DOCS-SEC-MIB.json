@@ -1,0 +1,807 @@
+{
+  "imports": {
+    "class": "imports",
+    "CLAB-DEF-MIB": [
+      "clabProjDocsis"
+    ],
+    "DOCS-IF3-MIB": [
+      "docsIf3CmtsCmRegStatusEntry",
+      "docsIf3CmtsCmRegStatusId"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetPortNumber",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMP-TARGET-MIB": [
+      "SnmpTagList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "MacAddress",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "docsSecMib": {
+    "name": "docsSecMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.11",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-02-23 00:00",
+        "description": "Revised Version includes ECN OSSIv3.0-N-06.0357-1 and published as IO2"
+      },
+      {
+        "revision": "2006-12-07 17:00",
+        "description": "Initial version, published as part of the CableLabs OSSIv3.0 specification CM-SP-OSSIv3.0-I01-061207 Copyright 1999-2006 Cable Television Laboratories, Inc. All rights reserved."
+      }
+    ]
+  },
+  "docsSecMibObjects": {
+    "name": "docsSecMibObjects",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1",
+    "class": "objectidentity"
+  },
+  "docsSecCmtsServerCfg": {
+    "name": "docsSecCmtsServerCfg",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.1",
+    "class": "objectidentity"
+  },
+  "docsSecCmtsServerCfgTftpOptions": {
+    "name": "docsSecCmtsServerCfgTftpOptions",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "hwAddr": 0,
+        "netAddr": 1
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsSecCmtsServerCfgConfigFileLearningEnable": {
+    "name": "docsSecCmtsServerCfgConfigFileLearningEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsSecCmtsEncrypt": {
+    "name": "docsSecCmtsEncrypt",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.2",
+    "class": "objectidentity"
+  },
+  "docsSecCmtsEncryptEncryptAlgPriority": {
+    "name": "docsSecCmtsEncryptEncryptAlgPriority",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "aes128CbcMode des56CbcMode des40CbcMode",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsSecCmtsCmEaeExclusionTable": {
+    "name": "docsSecCmtsCmEaeExclusionTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsSecCmtsCmEaeExclusionEntry": {
+    "name": "docsSecCmtsCmEaeExclusionEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsCmEaeExclusionId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsSecCmtsCmEaeExclusionId": {
+    "name": "docsSecCmtsCmEaeExclusionId",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsSecCmtsCmEaeExclusionMacAddr": {
+    "name": "docsSecCmtsCmEaeExclusionMacAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsSecCmtsCmEaeExclusionMacAddrMask": {
+    "name": "docsSecCmtsCmEaeExclusionMacAddrMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsSecCmtsCmEaeExclusionRowStatus": {
+    "name": "docsSecCmtsCmEaeExclusionRowStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsSecCmtsSavControl": {
+    "name": "docsSecCmtsSavControl",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.4",
+    "class": "objectidentity"
+  },
+  "docsSecCmtsSavControlCmAuthEnable": {
+    "name": "docsSecCmtsSavControlCmAuthEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsSecSavCmAuthTable": {
+    "name": "docsSecSavCmAuthTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsSecSavCmAuthEntry": {
+    "name": "docsSecSavCmAuthEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-IF3-MIB",
+        "object": "docsIf3CmtsCmRegStatusId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsSecSavCmAuthGrpName": {
+    "name": "docsSecSavCmAuthGrpName",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsSecSavCmAuthStaticPrefixListId": {
+    "name": "docsSecSavCmAuthStaticPrefixListId",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsSecSavCfgListTable": {
+    "name": "docsSecSavCfgListTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsSecSavCfgListEntry": {
+    "name": "docsSecSavCfgListEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavCfgListName",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavCfgListRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsSecSavCfgListName": {
+    "name": "docsSecSavCfgListName",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsSecSavCfgListRuleId": {
+    "name": "docsSecSavCfgListRuleId",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsSecSavCfgListPrefixAddrType": {
+    "name": "docsSecSavCfgListPrefixAddrType",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsSecSavCfgListPrefixAddr": {
+    "name": "docsSecSavCfgListPrefixAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsSecSavCfgListPrefixLen": {
+    "name": "docsSecSavCfgListPrefixLen",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsSecSavCfgListRowStatus": {
+    "name": "docsSecSavCfgListRowStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsSecSavStaticListTable": {
+    "name": "docsSecSavStaticListTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsSecSavStaticListEntry": {
+    "name": "docsSecSavStaticListEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavStaticListId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavStaticListRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsSecSavStaticListId": {
+    "name": "docsSecSavStaticListId",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsSecSavStaticListRuleId": {
+    "name": "docsSecSavStaticListRuleId",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsSecSavStaticListPrefixAddrType": {
+    "name": "docsSecSavStaticListPrefixAddrType",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsSecSavStaticListPrefixAddr": {
+    "name": "docsSecSavStaticListPrefixAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsSecSavStaticListPrefixLen": {
+    "name": "docsSecSavStaticListPrefixLen",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsSecCmtsCmSavStatsTable": {
+    "name": "docsSecCmtsCmSavStatsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsSecCmtsCmSavStatsEntry": {
+    "name": "docsSecCmtsCmSavStatsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "docsSecCmtsCmSavStatsEntry",
+      "module": "DOCS-SEC-MIB",
+      "object": "docsIf3CmtsCmRegStatusEntry"
+    },
+    "status": "current"
+  },
+  "docsSecCmtsCmSavStatsSavDiscards": {
+    "name": "docsSecCmtsCmSavStatsSavDiscards",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsSecCmtsCertificate": {
+    "name": "docsSecCmtsCertificate",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.9",
+    "class": "objectidentity"
+  },
+  "docsSecCmtsCertificateCertRevocationMethod": {
+    "name": "docsSecCmtsCertificateCertRevocationMethod",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "crl": 2,
+          "ocsp": 3,
+          "crlAndOcsp": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsSecCmtsCertRevocationList": {
+    "name": "docsSecCmtsCertRevocationList",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.10",
+    "class": "objectidentity"
+  },
+  "docsSecCmtsCertRevocationListUrl": {
+    "name": "docsSecCmtsCertRevocationListUrl",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsSecCmtsCertRevocationListRefreshInterval": {
+    "name": "docsSecCmtsCertRevocationListRefreshInterval",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.10.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 524160
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10080,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsSecCmtsCertRevocationListLastUpdate": {
+    "name": "docsSecCmtsCertRevocationListLastUpdate",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.10.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsSecCmtsOnlineCertStatusProtocol": {
+    "name": "docsSecCmtsOnlineCertStatusProtocol",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.11",
+    "class": "objectidentity"
+  },
+  "docsSecCmtsOnlineCertStatusProtocolUrl": {
+    "name": "docsSecCmtsOnlineCertStatusProtocolUrl",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.11.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsSecCmtsOnlineCertStatusProtocolSignatureBypass": {
+    "name": "docsSecCmtsOnlineCertStatusProtocolSignatureBypass",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.1.11.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsSecMibConformance": {
+    "name": "docsSecMibConformance",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.2",
+    "class": "objectidentity"
+  },
+  "docsSecMibCompliances": {
+    "name": "docsSecMibCompliances",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.2.1",
+    "class": "objectidentity"
+  },
+  "docsSecMibGroups": {
+    "name": "docsSecMibGroups",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.2.2",
+    "class": "objectidentity"
+  },
+  "docsSecCompliance": {
+    "name": "docsSecCompliance",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "docsSecGroup",
+        "module": "DOCS-SEC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "docsSecGroup": {
+    "name": "docsSecGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.11.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsCertRevocationListUrl"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsCertRevocationListRefreshInterval"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsCertRevocationListLastUpdate"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsOnlineCertStatusProtocolUrl"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsOnlineCertStatusProtocolSignatureBypass"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsServerCfgTftpOptions"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsServerCfgConfigFileLearningEnable"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsEncryptEncryptAlgPriority"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsSavControlCmAuthEnable"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsCmEaeExclusionMacAddr"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsCmEaeExclusionMacAddrMask"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsCmEaeExclusionRowStatus"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavCmAuthGrpName"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavCmAuthStaticPrefixListId"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavCfgListPrefixAddrType"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavCfgListPrefixAddr"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavCfgListPrefixLen"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavCfgListRowStatus"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavStaticListPrefixAddrType"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavStaticListPrefixAddr"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecSavStaticListPrefixLen"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsCmSavStatsSavDiscards"
+      },
+      {
+        "module": "DOCS-SEC-MIB",
+        "object": "docsSecCmtsCertificateCertRevocationMethod"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-SEC-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DOCS-SEC-MIB"
+  }
+}

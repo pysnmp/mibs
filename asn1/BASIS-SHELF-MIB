@@ -8,7 +8,7 @@
 -- *****************************************************************
 
 -- 
--- LAST-UPDATED "200204220000Z"
+-- LAST-UPDATED "200109210000Z"
 -- DESCRIPTION "This MIB contains information on the shelf and
 --              redundancy configuration.
 --              The shelf information constitutes the card types
@@ -17,25 +17,6 @@
 --              The redundancy information constitutes the
 --              configuring the redundancy between the service modules
 --              and service resource modules."
---
--- REVISION "200204220000Z"
--- DESCRIPTION
--- 	"Added following object: 
--- 	shelfFilteredAlarm (24)
---
--- REVISION "200110150000Z"
--- DESCRIPTION
--- 	"Added following enumeration in <shelfFunctionModuleType>, 
--- 	<redPrimaryType>, <redSecondaryType>
--- 	vism-pr-8T1   (563)
---	vism-pr-8E1   (564)
---	"
--- REVISION "200109240000Z"
--- DESCRIPTION
---    "Added following enumeration in <shelfFunctionModuleType>,
---     <redPrimaryType> and <redSecondaryType>
---     cesmB-8T1 (787)
---    "
 --
 -- REVISION "200109210000Z"
 -- DESCRIPTION
@@ -83,7 +64,6 @@ IMPORTS
 -- axisSvcBilling	   OBJECT IDENTIFIER ::= {basisShelf 21}
 -- shelfCBClkRateTable	   OBJECT IDENTIFIER ::= {basisShelf 22}
 -- shelfPowerSupplyVoltage OBJECT IDENTIFIER ::= {basisShelf 23}
--- shelfFilteredAlarm	   OBJECT IDENTIFIER ::= {basisShelf 24}
 --
 --
 -- shelf table                                      
@@ -273,12 +253,6 @@ shelfFunctionModuleType OBJECT-TYPE
 -- VISM
         vism-8T1   (150),
         vism-8E1   (151),
-
--- VISM PR 
-        vism-pr-8T1   (563),
-        vism-pr-8E1   (564),
-
-	cesmB-8T1  (787),
 
 	pxm1	   (1000),
 	pxm1-2t3e3  (1001),
@@ -649,37 +623,6 @@ shelfPowerSupplyVoltage OBJECT-TYPE
 
 	::= { basisShelf 23}
 
-shelfFilteredAlarm OBJECT-TYPE
-   SYNTAX  INTEGER {
-        clear (1),
-        minor (2),
-        major (3),
-	critical (4)
-        }
-   ACCESS  read-only
-   STATUS  mandatory
-   DESCRIPTION
-        "Alarm status of the shelf that allows only a filtered subset of the 
-         shelf alarms to be considered in the alarm status. An implementation 
-         may not support all the values.
-         
-	 Possible values are :
-	
-          clear (1)	: shelf is not in alarm
-	  minor (2)     : Indicates that a non-service affecting condition
-                          has occurred and that corrective action should
-			  be taken in order to prevent a more serious fault.
-	  major (3)	: Indicates that a service affecting condition
-	                  has occurred and urgent corrective action is 
-			  required.
-	  critical (4)	: Indicates that a service affecting condition has
-			  occurred and immediate corrective action is required.
-	 The definition for minor(2),major(3),critical(4) are taken from
-	 Bell Core document : GR-1248-CORE.
-        "
-   DEFVAL { clear }
-   ::= { basisShelf 24 }
-
 -- ----------------------------------------------------------------
 --
 -- Group "axisRedundancy"
@@ -873,12 +816,6 @@ redPrimaryType OBJECT-TYPE
         vism-8T1   (150),
         vism-8E1   (151),
 
--- VISM PR
-        vism-pr-8T1   (563),
-        vism-pr-8E1   (564),
-
-	cesmB-8T1  (787),
-
 -- reserved for MGX8850 after 1000
         pxm1       (1000),
         pxm1-2t3e3  (1001),
@@ -1016,12 +953,6 @@ redSecondaryType OBJECT-TYPE
 -- VISM
         vism-8T1   (150),
         vism-8E1   (151),
-
--- VISM PR 
-        vism-pr-8T1   (563),
-        vism-pr-8E1   (564),
-
-	cesmB-8T1  (787),
 
 -- reserved for MGX8850 after 1000
         pxm1       (1000),

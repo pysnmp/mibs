@@ -14,34 +14,35 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "transmission",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "TimeTicks",
-      "Gauge32",
-      "Counter32",
-      "Bits",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "iso",
+      "Unsigned32",
+      "transmission",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "TimeStamp",
-      "TruthValue",
       "MacAddress",
-      "DisplayString",
-      "RowStatus"
+      "TimeStamp",
+      "RowStatus",
+      "TimeInterval",
+      "StorageType",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "docsIfMib": {
@@ -50,12 +51,12 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2002-12-20 00:00",
-        "description": "pre-RFC draft v5: Modified by David Raftus to add channel utilization related objects, upstream channel equalization related objects, a cmts upstream minislot counter table, a cmts downstream byte counter table, 64 bit versions of existing 32 bit docsIfSigQTable objects, and perform some editorial adjustments. pre-RFC draft v4: Modified by David Raftus to fix docsIfUpChannelWidth range in compliance statements to accommodate 6.4Mhz channel at 5.12 Msymbol/sec. Also adjusted description of docsIfUpChannelStatus to use correct rowStatus terminology. pre-RFC draft v3: Modified by David Raftus to add new textual convention describing upstream modulation status. Also clarified some object descriptions, fixed error in docsIfSignalQualityEntry, fixed upstreamTable compliance statements. pre-RFC draft v2: Modified by David Raftus to add capability to adjust and verify upstream channel parameters as a group. Also adjusted syntax and clarified descriptions of selected objects. pre-RFC draft v1: Modified by Aviv Goren and David Raftus to accommodate Docsis 2.0 Advanced Phy capabilities, as well as to incorporate objects from the docsIfExt mib. Modified by Rich Woundy to use IPv6-friendly address objects, to accommodate EuroDOCSIS, and to correct the SYNTAX of various objects."
+        "revision": "2006-05-24 00:00",
+        "description": "Revision of the IETF RF MIB module for DOCSIS 2.0. This version published as RFC 4546. This MIB module revision includes the following among others: Usage of ifType (205) for upstream logical channels. Addition of downstream and upstream utilization counters. Additional statistics per upstream interface. Upstream channel offline configuration mechanism. Added MIB support for new DOCSIS 2.0 modulation attributes. Euro-DOCSIS downstream interleave values. Adjustments to RFC 2670 definitions based on the MIB review guidelines from the IETF Operations and Management Area (OPS)."
       },
       {
         "revision": "1999-08-19 00:00",
-        "description": "Initial Version, published as RFC 2670. Modified by Mike StJohns to fix problems identified by the first pass of the MIB doctor. Of special note, docsIfRangingResp and docsIfCmtsInsertionInterval were obsoleted and replaced by other objects with the same functionality, but more appropriate SYNTAX."
+        "description": "Initial version, published as RFC 2670. Modified by Mike St. Johns to fix problems identified by the first pass of the MIB doctor. Of special note, docsIfRangingResp and docsIfCmtsInsertionInterval were obsoleted and replaced by other objects with the same functionality, but with more appropriate syntax."
       }
     ]
   },
@@ -128,19 +129,23 @@
     },
     "status": "current"
   },
-  "DocsisUpstreamTypeStatus": {
-    "name": "DocsisUpstreamTypeStatus",
+  "DocsEqualizerData": {
+    "name": "DocsEqualizerData",
     "class": "textualconvention",
     "type": {
-      "type": "INTEGER",
+      "type": "OCTET STRING",
       "class": "type",
       "constraints": {
-        "enumeration": {
-          "unknown": 0,
-          "tdma": 1,
-          "atdma": 2,
-          "scdma": 3
-        }
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 36,
+            "max": 260
+          }
+        ]
       }
     },
     "status": "current"
@@ -263,11 +268,7 @@
           "unknown": 1,
           "other": 2,
           "qam64": 3,
-          "qam256": 4,
-          "qam512": 5,
-          "qam1024": 6,
-          "qpsk": 7,
-          "qam16": 8
+          "qam256": 4
         }
       }
     },
@@ -328,6 +329,18 @@
           "annexC": 5
         }
       }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIfDownChannelStorageType": {
+    "name": "docsIfDownChannelStorageType",
+    "oid": "1.3.6.1.2.1.10.127.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -438,6 +451,7 @@
       "type": "Unsigned32",
       "class": "type"
     },
+    "units": "ticks",
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -549,6 +563,58 @@
           },
           {
             "min": 64,
+            "max": 66
+          },
+          {
+            "min": 68,
+            "max": 70
+          },
+          {
+            "min": 72,
+            "max": 72
+          },
+          {
+            "min": 74,
+            "max": 78
+          },
+          {
+            "min": 80,
+            "max": 82
+          },
+          {
+            "min": 84,
+            "max": 88
+          },
+          {
+            "min": 90,
+            "max": 96
+          },
+          {
+            "min": 98,
+            "max": 100
+          },
+          {
+            "min": 102,
+            "max": 102
+          },
+          {
+            "min": 104,
+            "max": 106
+          },
+          {
+            "min": 108,
+            "max": 108
+          },
+          {
+            "min": 110,
+            "max": 112
+          },
+          {
+            "min": 114,
+            "max": 126
+          },
+          {
+            "min": 128,
             "max": 128
           }
         ]
@@ -578,6 +644,7 @@
         ]
       }
     },
+    "units": "codesperMinislots",
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -598,6 +665,7 @@
         ]
       }
     },
+    "units": "spreadIntervals",
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -630,7 +698,7 @@
       "type": "DocsisUpstreamType",
       "class": "type"
     },
-    "maxaccess": "read-create",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "docsIfUpChannelCloneFrom": {
@@ -677,6 +745,12 @@
     "syntax": {
       "type": "TruthValue",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
     },
     "maxaccess": "read-create",
     "status": "current"
@@ -741,7 +815,7 @@
         ]
       }
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "docsIfQosProfMaxUpBandwidth": {
@@ -761,7 +835,8 @@
         ]
       }
     },
-    "maxaccess": "read-only",
+    "units": "bits per second",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "docsIfQosProfGuarUpBandwidth": {
@@ -781,7 +856,8 @@
         ]
       }
     },
-    "maxaccess": "read-only",
+    "units": "bits per second",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "docsIfQosProfMaxDownBandwidth": {
@@ -801,7 +877,8 @@
         ]
       }
     },
-    "maxaccess": "read-only",
+    "units": "bits per second",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "docsIfQosProfMaxTxBurst": {
@@ -821,7 +898,8 @@
         ]
       }
     },
-    "maxaccess": "read-only",
+    "units": "mini-slots",
+    "maxaccess": "read-create",
     "status": "deprecated"
   },
   "docsIfQosProfBaselinePrivacy": {
@@ -839,7 +917,7 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "docsIfQosProfStatus": {
@@ -851,7 +929,7 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "docsIfQosProfMaxTransmitBurst": {
@@ -870,6 +948,19 @@
           }
         ]
       }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIfQosProfStorageType": {
+    "name": "docsIfQosProfStorageType",
+    "oid": "1.3.6.1.2.1.10.127.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -918,6 +1009,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -930,6 +1022,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -942,6 +1035,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -954,7 +1048,7 @@
       "type": "TenthdB",
       "class": "type"
     },
-    "units": "dB",
+    "units": "TenthdB",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -975,7 +1069,7 @@
         ]
       }
     },
-    "units": "dBc",
+    "units": "-dBc",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -985,7 +1079,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
+      "type": "DocsEqualizerData",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1000,6 +1094,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1012,6 +1107,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1024,6 +1120,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1123,6 +1220,7 @@
         "format": "decimal"
       }
     },
+    "units": "HundredOfSeconds",
     "maxaccess": "read-write",
     "status": "current"
   },
@@ -1185,7 +1283,23 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1199,7 +1313,7 @@
       "type": "TenthdBmV",
       "class": "type"
     },
-    "units": "dBmV",
+    "units": "TenthdBmV",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1212,6 +1326,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "resets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1236,6 +1351,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "maps",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1248,6 +1364,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "messages",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1260,6 +1377,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "messages",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1272,6 +1390,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "messages",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1284,6 +1403,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "timeouts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1296,6 +1416,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "timeouts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1308,6 +1429,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "timeouts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1320,6 +1442,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "timeouts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1332,6 +1455,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "attempts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1353,7 +1477,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DocsisUpstreamTypeStatus",
+      "type": "DocsisUpstreamType",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1365,9 +1489,35 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
+      "type": "DocsEqualizerData",
       "class": "type"
     },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIfCmStatusUCCs": {
+    "name": "docsIfCmStatusUCCs",
+    "oid": "1.3.6.1.2.1.10.127.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIfCmStatusUCCFails": {
+    "name": "docsIfCmStatusUCCFails",
+    "oid": "1.3.6.1.2.1.10.127.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "attempts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1448,6 +1598,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1460,6 +1611,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1472,6 +1624,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "attempts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1484,6 +1637,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "attempts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1496,6 +1650,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "attempts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1508,6 +1663,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "attempts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1520,6 +1676,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1532,6 +1689,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1633,6 +1791,7 @@
         ]
       }
     },
+    "units": "SIDs",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1665,6 +1824,7 @@
         ]
       }
     },
+    "units": "attempts",
     "maxaccess": "read-write",
     "status": "current"
   },
@@ -1677,7 +1837,20 @@
       "type": "TimeInterval",
       "class": "type"
     },
+    "units": "HundredOfSeconds",
     "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsIfCmtsMacStorageType": {
+    "name": "docsIfCmtsMacStorageType",
+    "oid": "1.3.6.1.2.1.10.127.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
     "status": "current"
   },
   "docsIfCmtsStatusTable": {
@@ -1712,6 +1885,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "messages",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1724,6 +1898,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "attempts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1736,6 +1911,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "messages",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1748,6 +1924,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "attempts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1760,6 +1937,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "messages",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1772,6 +1950,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "timeouts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1875,7 +2054,7 @@
       "type": "TenthdBmV",
       "class": "type"
     },
-    "units": "dBmV",
+    "units": "ThenthdBmV",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1886,9 +2065,17 @@
     "class": "objecttype",
     "syntax": {
       "type": "Unsigned32",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
     },
-    "maxaccess": "read-write",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "docsIfCmtsCmStatusEqualizationData": {
@@ -1897,7 +2084,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
+      "type": "DocsEqualizerData",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1937,6 +2124,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1949,6 +2137,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1961,6 +2150,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1973,7 +2163,7 @@
       "type": "TenthdB",
       "class": "type"
     },
-    "units": "dB",
+    "units": "TenthdB",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1994,7 +2184,7 @@
         ]
       }
     },
-    "units": "dBc",
+    "units": "-dBc",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2007,6 +2197,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2019,6 +2210,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2031,6 +2223,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "codewords",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2052,7 +2245,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "DocsisUpstreamTypeStatus",
+      "type": "DocsisUpstreamType",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -2090,6 +2283,26 @@
     "syntax": {
       "type": "TimeStamp",
       "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIfCmtsCmStatusHighResolutionTimingOffset": {
+    "name": "docsIfCmtsCmStatusHighResolutionTimingOffset",
+    "oid": "1.3.6.1.2.1.10.127.1.3.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2222,6 +2435,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "Bytes",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2234,6 +2448,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2358,8 +2573,7 @@
           "qam8": 4,
           "qam32": 5,
           "qam64": 6,
-          "qam128": 7,
-          "qam256": 8
+          "qam128": 7
         }
       }
     },
@@ -2389,6 +2603,7 @@
         ]
       }
     },
+    "units": "bits",
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -2427,6 +2642,7 @@
         ]
       }
     },
+    "units": "Bytes",
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -2453,6 +2669,7 @@
         "format": "decimal"
       }
     },
+    "units": "Bytes",
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -2493,6 +2710,7 @@
         ]
       }
     },
+    "units": "mini-slots",
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -2505,6 +2723,7 @@
       "type": "Unsigned32",
       "class": "type"
     },
+    "units": "Symbol-times",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2713,6 +2932,24 @@
     "maxaccess": "read-create",
     "status": "current"
   },
+  "docsIfCmtsModStorageType": {
+    "name": "docsIfCmtsModStorageType",
+    "oid": "1.3.6.1.2.1.10.127.1.3.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "docsIfCmtsQosProfilePermissions": {
     "name": "docsIfCmtsQosProfilePermissions",
     "oid": "1.3.6.1.2.1.10.127.1.3.6",
@@ -2862,7 +3099,7 @@
       "constraints": {
         "range": [
           {
-            "min": 1,
+            "min": 0,
             "max": 255
           }
         ]
@@ -2944,6 +3181,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "Bytes",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2956,6 +3194,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "Bytes",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2968,6 +3207,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "Bytes",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2980,6 +3220,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "Bytes",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3035,6 +3276,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3047,6 +3289,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3059,6 +3302,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3071,6 +3315,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3083,6 +3328,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3095,6 +3341,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3107,6 +3354,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3119,6 +3367,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3131,6 +3380,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3143,6 +3393,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3155,6 +3406,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3167,6 +3419,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3179,6 +3432,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3191,6 +3445,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3203,6 +3458,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3215,6 +3471,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3239,6 +3496,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3251,6 +3509,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3263,6 +3522,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3275,6 +3535,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3287,6 +3548,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3299,6 +3561,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3311,6 +3574,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3323,6 +3587,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3335,6 +3600,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3347,6 +3613,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3359,6 +3626,7 @@
       "type": "Counter64",
       "class": "type"
     },
+    "units": "mini-slots",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3400,11 +3668,463 @@
         "module": "DOCS-IF-MIB"
       }
     ],
+    "status": "deprecated"
+  },
+  "docsIfBasicComplianceV2": {
+    "name": "docsIfBasicComplianceV2",
+    "oid": "1.3.6.1.2.1.10.127.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "docsIfBasicGroupV2",
+        "module": "DOCS-IF-MIB"
+      },
+      {
+        "object": "docsIfCmGroupV2",
+        "module": "DOCS-IF-MIB"
+      },
+      {
+        "object": "docsIfCmtsGroupV2",
+        "module": "DOCS-IF-MIB"
+      }
+    ],
     "status": "current"
   },
   "docsIfBasicGroup": {
     "name": "docsIfBasicGroup",
     "oid": "1.3.6.1.2.1.10.127.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfDownChannelId"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfDownChannelFrequency"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfDownChannelWidth"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfDownChannelModulation"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfDownChannelInterleave"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfDownChannelPower"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfUpChannelId"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfUpChannelFrequency"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfUpChannelWidth"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfUpChannelModulationProfile"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfUpChannelSlotSize"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfUpChannelTxTimingOffset"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfUpChannelRangingBackoffStart"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfUpChannelRangingBackoffEnd"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfUpChannelTxBackoffStart"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfUpChannelTxBackoffEnd"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfQosProfPriority"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfQosProfMaxUpBandwidth"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfQosProfGuarUpBandwidth"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfQosProfMaxDownBandwidth"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfQosProfMaxTxBurst"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfQosProfBaselinePrivacy"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfQosProfStatus"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfSigQIncludesContention"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfSigQUnerroreds"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfSigQCorrecteds"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfSigQUncorrectables"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfSigQSignalNoise"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfSigQMicroreflections"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfSigQEqualizationData"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "docsIfCmGroup": {
+    "name": "docsIfCmGroup",
+    "oid": "1.3.6.1.2.1.10.127.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmCmtsAddress"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmCapabilities"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmRangingTimeout"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusValue"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusCode"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusTxPower"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusResets"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusLostSyncs"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusInvalidMaps"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusInvalidUcds"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusInvalidRangingResponses"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusInvalidRegistrationResponses"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusT1Timeouts"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusT2Timeouts"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusT3Timeouts"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusT4Timeouts"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusRangingAborteds"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmServiceQosProfile"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmServiceTxSlotsImmed"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmServiceTxSlotsDed"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmServiceTxRetries"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmServiceTxExceededs"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmServiceRqRetries"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmServiceRqExceededs"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "docsIfCmtsGroup": {
+    "name": "docsIfCmtsGroup",
+    "oid": "1.3.6.1.2.1.10.127.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCapabilities"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsSyncInterval"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsUcdInterval"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsMaxServiceIds"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsInvitedRangingAttempts"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsInsertInterval"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsStatusInvalidRangeReqs"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsStatusRangingAborteds"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsStatusInvalidRegReqs"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsStatusFailedRegReqs"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsStatusInvalidDataReqs"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsStatusT5Timeouts"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusMacAddress"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusIpAddress"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusDownChannelIfIndex"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusUpChannelIfIndex"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusRxPower"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusTimingOffset"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusEqualizationData"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusValue"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusUnerroreds"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusCorrecteds"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusUncorrectables"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusSignalNoise"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusMicroreflections"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsServiceCmStatusIndex"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsServiceAdminStatus"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsServiceQosProfile"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsServiceCreateTime"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsServiceInOctets"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsServiceInPackets"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModType"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModControl"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModPreambleLen"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModDifferentialEncoding"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModFECErrorCorrection"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModFECCodewordLength"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModScramblerSeed"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModMaxBurstSize"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModGuardTimeSize"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModLastCodewordShortened"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModScrambler"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsQosProfilePermissions"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmPtr"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "docsIfObsoleteGroup": {
+    "name": "docsIfObsoleteGroup",
+    "oid": "1.3.6.1.2.1.10.127.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmRangingRespTimeout"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsInsertionInterval"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "docsIfBasicGroupV2": {
+    "name": "docsIfBasicGroupV2",
+    "oid": "1.3.6.1.2.1.10.127.3.2.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -3565,10 +4285,6 @@
       },
       {
         "module": "DOCS-IF-MIB",
-        "object": "docsIfSigQEqualizationData"
-      },
-      {
-        "module": "DOCS-IF-MIB",
         "object": "docsIfSigQExtUnerroreds"
       },
       {
@@ -3586,9 +4302,9 @@
     ],
     "status": "current"
   },
-  "docsIfCmGroup": {
-    "name": "docsIfCmGroup",
-    "oid": "1.3.6.1.2.1.10.127.3.2.2",
+  "docsIfCmGroupV2": {
+    "name": "docsIfCmGroupV2",
+    "oid": "1.3.6.1.2.1.10.127.3.2.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -3673,6 +4389,14 @@
       },
       {
         "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusUCCs"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmStatusUCCFails"
+      },
+      {
+        "module": "DOCS-IF-MIB",
         "object": "docsIfCmServiceQosProfile"
       },
       {
@@ -3706,13 +4430,17 @@
       {
         "module": "DOCS-IF-MIB",
         "object": "docsIfCmServiceExtTxSlotsDed"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfSigQEqualizationData"
       }
     ],
     "status": "current"
   },
-  "docsIfCmtsGroup": {
-    "name": "docsIfCmtsGroup",
-    "oid": "1.3.6.1.2.1.10.127.3.2.3",
+  "docsIfCmtsGroupV2": {
+    "name": "docsIfCmtsGroupV2",
+    "oid": "1.3.6.1.2.1.10.127.3.2.7",
     "class": "objectgroup",
     "objects": [
       {
@@ -3738,6 +4466,10 @@
       {
         "module": "DOCS-IF-MIB",
         "object": "docsIfCmtsInsertInterval"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsMacStorageType"
       },
       {
         "module": "DOCS-IF-MIB",
@@ -3845,6 +4577,10 @@
       },
       {
         "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusHighResolutionTimingOffset"
+      },
+      {
+        "module": "DOCS-IF-MIB",
         "object": "docsIfCmtsServiceAdminStatus"
       },
       {
@@ -3945,6 +4681,10 @@
       },
       {
         "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsModStorageType"
+      },
+      {
+        "module": "DOCS-IF-MIB",
         "object": "docsIfCmtsQosProfilePermissions"
       },
       {
@@ -3961,6 +4701,10 @@
       },
       {
         "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsDownChnlCtrId"
+      },
+      {
+        "module": "DOCS-IF-MIB",
         "object": "docsIfCmtsDownChnlCtrTotalBytes"
       },
       {
@@ -3974,6 +4718,10 @@
       {
         "module": "DOCS-IF-MIB",
         "object": "docsIfCmtsDownChnlCtrExtUsedBytes"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsUpChnlCtrId"
       },
       {
         "module": "DOCS-IF-MIB",
@@ -4086,51 +4834,23 @@
       {
         "module": "DOCS-IF-MIB",
         "object": "docsIfCmtsUpChnlCtrExtCollCntnInitMaintMslots"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfDownChannelStorageType"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfQosProfStorageType"
       }
     ],
     "status": "current"
   },
-  "docsIfObsoleteGroup": {
-    "name": "docsIfObsoleteGroup",
-    "oid": "1.3.6.1.2.1.10.127.3.2.4",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "DOCS-IF-MIB",
-        "object": "docsIfCmRangingRespTimeout"
-      },
-      {
-        "module": "DOCS-IF-MIB",
-        "object": "docsIfCmtsInsertionInterval"
-      }
-    ],
-    "status": "obsolete"
-  },
-  "docsIfDeprecatedGroup": {
-    "name": "docsIfDeprecatedGroup",
-    "oid": "1.3.6.1.2.1.10.127.3.2.5",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "DOCS-IF-MIB",
-        "object": "docsIfQosProfMaxTxBurst"
-      },
-      {
-        "module": "DOCS-IF-MIB",
-        "object": "docsIfCmtsCmStatusIpAddress"
-      },
-      {
-        "module": "DOCS-IF-MIB",
-        "object": "docsIfCmtsServiceCmStatusIndex"
-      }
-    ],
-    "status": "deprecated"
-  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-IF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:00:06 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "DOCS-IF-MIB"

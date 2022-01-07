@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "CISCO-QOS-PIB-MIB": [
-      "Percent",
-      "QosLayer2Cos"
+      "QosLayer2Cos",
+      "Percent"
     ],
     "CISCO-QOS-TC-MIB": [
       "QosIpPrecedence",
-      "QosMutationMapName",
-      "QosMplsExpValue",
-      "QosThresholdNumber",
-      "QosMutationMapNameOrEmpty",
       "QosQueueNumber",
-      "QosPolicerType"
+      "QosMutationMapName",
+      "QosMutationMapNameOrEmpty",
+      "QosPolicerType",
+      "QosMplsExpValue",
+      "QosThresholdNumber"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -34,29 +34,29 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
       "Unsigned32",
-      "Integer32",
-      "IpAddress",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Counter64",
       "Bits",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -65,6 +65,10 @@
     "oid": "1.3.6.1.4.1.9.9.580",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2016-06-30 00:00",
+        "description": "Updated QosStatsType to add new value ucastWatchdogDroppedPkts(20). Added ciscoSwitchQosHwServicePoolUsageGroup and ciscoSwitchQosServicePoolUsageTxGroup."
+      },
       {
         "revision": "2014-09-19 00:00",
         "description": "Updated csqIfQosGroupInfoScheduling to add new values dwrr(3) and notApplicable(4). Updated csqIfQosGroupInfoBandwidthUnits to add new value notApplicable(3). Updated csqIfQosGroupInfoShapeUnits to add new value notApplicable(3). Updated csqIfQosGroupInfoDropType to add new value notApplicable(3). Updated QosStatsType to add new values ucastSentOobfcPkts(16), ucastSentOobfcBytes(17), ucastDroppedOobfcPkts(18), ucastDroppedOobfcBytes(19). Added ciscoSwitchQosIfQosGroupInfoShapeGroup. Modified the description of the following objects to add more information: csqIfQosGroupInfoQueueSize, csqIfQosGroupInfoHwMTU, csqIfQosGroupInfoMTU, csqIfQosGroupInfoResumeThresh, csqIfQosGroupInfoPauseThresh, csqIfQosGroupInfoBandwidth."
@@ -175,7 +179,8 @@
           "ucastSentOobfcPkts": 16,
           "ucastSentOobfcBytes": 17,
           "ucastDroppedOobfcPkts": 18,
-          "ucastDroppedOobfcBytes": 19
+          "ucastDroppedOobfcBytes": 19,
+          "ucastWatchdogDroppedPkts": 20
         }
       }
     },
@@ -2907,6 +2912,228 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "csqSharedPoolUsageUsedTx": {
+    "name": "csqSharedPoolUsageUsedTx",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csqSharedPoolUsageRemainTx": {
+    "name": "csqSharedPoolUsageRemainTx",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csqSharedPoolUsagePeakTx": {
+    "name": "csqSharedPoolUsagePeakTx",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csqSharedPoolUsageTotalTx": {
+    "name": "csqSharedPoolUsageTotalTx",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csqSharedPoolUsageNameTx": {
+    "name": "csqSharedPoolUsageNameTx",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csqHwSharedPoolUsageTable": {
+    "name": "csqHwSharedPoolUsageTable",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csqHwSharedPoolUsageEntry": {
+    "name": "csqHwSharedPoolUsageEntry",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ENTITY-MIB",
+        "object": "entPhysicalIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqHwSharedPoolDeviceId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqHwSharedPoolUsageInstNo",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqHwSharedPoolStatsDirection",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqHwSharedPoolStatsType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csqHwSharedPoolDeviceId": {
+    "name": "csqHwSharedPoolDeviceId",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "northStar": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csqHwSharedPoolUsageInstNo": {
+    "name": "csqHwSharedPoolUsageInstNo",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csqHwSharedPoolStatsDirection": {
+    "name": "csqHwSharedPoolStatsDirection",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inputStats_ingressStraight": 1,
+          "inputStats_ingressHairpin": 2,
+          "inputStats_egress": 3,
+          "outputStats_ingressStraight": 4,
+          "outputStats_ingressHairpin": 5,
+          "outputStats_egress": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csqHwSharedPoolStatsType": {
+    "name": "csqHwSharedPoolStatsType",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "drop": 1,
+          "nodrop": 2,
+          "span": 3,
+          "sup": 4
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csqHwSharedPoolUsageUsed": {
+    "name": "csqHwSharedPoolUsageUsed",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csqHwSharedPoolUsageRemain": {
+    "name": "csqHwSharedPoolUsageRemain",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csqHwSharedPoolUsageShared": {
+    "name": "csqHwSharedPoolUsageShared",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csqHwSharedPoolUsageTotal": {
+    "name": "csqHwSharedPoolUsageTotal",
+    "oid": "1.3.6.1.4.1.9.9.580.1.5.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "csqPolicerUsageTable": {
     "name": "csqPolicerUsageTable",
     "oid": "1.3.6.1.4.1.9.9.580.1.6.1",
@@ -4600,11 +4827,63 @@
     ],
     "status": "current"
   },
+  "ciscoSwitchQosHwServicePoolUsageGroup": {
+    "name": "ciscoSwitchQosHwServicePoolUsageGroup",
+    "oid": "1.3.6.1.4.1.9.9.580.2.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqHwSharedPoolUsageUsed"
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqHwSharedPoolUsageRemain"
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqHwSharedPoolUsageShared"
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqHwSharedPoolUsageTotal"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoSwitchQosServicePoolUsageTxGroup": {
+    "name": "ciscoSwitchQosServicePoolUsageTxGroup",
+    "oid": "1.3.6.1.4.1.9.9.580.2.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqSharedPoolUsageUsedTx"
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqSharedPoolUsageRemainTx"
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqSharedPoolUsagePeakTx"
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqSharedPoolUsageTotalTx"
+      },
+      {
+        "module": "CISCO-SWITCH-QOS-MIB",
+        "object": "csqSharedPoolUsageNameTx"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:14 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:24 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-SWITCH-QOS-MIB"

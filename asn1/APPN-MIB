@@ -1,7 +1,14 @@
-
--- WinAgents MIB Extraction Wizard
--- Extracted from rfc2455.txt 16.03.2005 20:21:48
-
+-- *****************************************************************
+-- APPN MIB definitions
+--
+-- June 1997, Vivian Tseng 
+--
+-- Copyright (c) 1997-1999 by cisco Systems, Inc.
+-- All rights reserved.
+-- *****************************************************************
+--
+-- This mib was extracted from appndraftv202.def 
+ 
 APPN-MIB DEFINITIONS          ::= BEGIN
 
 IMPORTS
@@ -10,7 +17,6 @@ IMPORTS
                 FROM IANAifType-MIB
 
         DisplayString, VariablePointer, RowPointer, DateAndTime,
-
         TruthValue, TimeStamp, TEXTUAL-CONVENTION
                 FROM SNMPv2-TC
 
@@ -47,7 +53,6 @@ appnMIB MODULE-IDENTITY
                         Research Triangle Park, NC 27709, USA
                         Tel:    1 919 254 4436
                         E-mail: remoore@us.ibm.com
-
                 "
       DESCRIPTION
                 "This is the MIB module for objects used to
@@ -59,7 +64,6 @@ appnMIB MODULE-IDENTITY
                 "Minor editorial fixes; new value 'none(5)' added
                 to the enumeration for the appnLocalTgBranchLinkType
                 object."
-
       REVISION  "9805261800Z"
       DESCRIPTION
                 "Post-RFC 2155 conformance definitions added,
@@ -108,7 +112,6 @@ SnaNodeIdentification ::= TEXTUAL-CONVENTION
       SYNTAX OCTET STRING (SIZE (8))
 
 SnaControlPointName ::= TEXTUAL-CONVENTION
-
       STATUS current
       DESCRIPTION
           "A fully qualified SNA control point name, consisting of a 1 to
@@ -157,7 +160,6 @@ SnaModeName ::= TEXTUAL-CONVENTION
 
              -  a user-defined mode name is constructed from the
                 uppercase letters 'A' - 'Z' and the numerics '0' - '9',
-
                 with the restriction that the first character of the name
                 must be a letter.
              -  an SNA-defined user-session mode name begins with the
@@ -206,7 +208,6 @@ DisplayableDlcAddress ::= TEXTUAL-CONVENTION
 AppnNodeCounter ::= TEXTUAL-CONVENTION
       STATUS current
       DESCRIPTION
-
           "An object providing global statistics for the entire APPN
           node.  A Management Station can detect discontinuities in this
           counter by monitoring the appnNodeCounterDisconTime object."
@@ -254,7 +255,6 @@ AppnTgDlcData ::= TEXTUAL-CONVENTION
                 X.25 Switched   - dial digits
                 X.21 Switched   - dial digits
                 Circuit Switch  - dial digits
-
 
           This MIB does not specify formats for these or any other types
           of DLC-specific data.  Formats may, however, be specified in
@@ -304,7 +304,6 @@ AppnTgSecurity ::= TEXTUAL-CONVENTION
             guardedConduit(128) -
                               (X'80'):  guarded conduit; protected
                               against physical tapping
-
             encrypted(160) -
                               (X'A0'):  link-level encryption is provided
             guardedRadiation(192) -
@@ -353,7 +352,6 @@ appnNode              OBJECT IDENTIFIER ::= { appnObjects 1 }
   appnNnUniqueInfoAndCaps     OBJECT IDENTIFIER ::= { appnNode 2 }
   appnEnUniqueCaps            OBJECT IDENTIFIER ::= { appnNode 3 }
   appnPortInformation         OBJECT IDENTIFIER ::= { appnNode 4 }
-
   appnLinkStationInformation  OBJECT IDENTIFIER ::= { appnNode 5 }
   appnVrnInfo                 OBJECT IDENTIFIER ::= { appnNode 6 }
 
@@ -402,7 +400,6 @@ appnNodeType OBJECT-TYPE
 
           Note:  A branch network node SHALL return endNode(2)
           as the value of this object.  A management application
-
           can distinguish between a branch network node and an
           actual end node by retrieving the appnNodeBrNn object."
 
@@ -450,7 +447,6 @@ appnNodeHprSupport OBJECT-TYPE
       DESCRIPTION
           "Indicates this node's level of support for high-performance
           routing (HPR):
-
 
              noHprSupport(1)             - no HPR support
              hprBaseOnly(2)              - HPR base (option set 1400)
@@ -500,7 +496,6 @@ appnNodeHprIntRteRejects OBJECT-TYPE
 
 appnNodeHprOrgRteSetups OBJECT-TYPE
       SYNTAX AppnNodeCounter
-
       MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
@@ -548,7 +543,6 @@ appnNodeCounterDisconTime OBJECT-TYPE
       DESCRIPTION
           "The value of the sysUpTime object the last time the APPN node
           was reinitialized."
-
 
       ::= { appnGeneralInfoAndCaps 16 }
 
@@ -598,7 +592,6 @@ appnNodeBrNn OBJECT-TYPE
           network node is treated as a third node type, parallel to
           network node and end node.  This is not how branch network
           nodes are treated in the base APPN architecture, but it
-
           increases clarity to do it here."
 
       ::= { appnGeneralInfoAndCaps 18 }
@@ -647,7 +640,6 @@ appnNodeNnRouteAddResist OBJECT-TYPE
       MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
-
           "Route addition resistance.
 
           This administratively assigned value indicates the relative
@@ -696,7 +688,6 @@ appnNodeNnPeriBorderSup OBJECT-TYPE
 
 appnNodeNnInterchangeSup OBJECT-TYPE
       SYNTAX TruthValue
-
       MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
@@ -755,6 +746,7 @@ appnNodeNnCongested OBJECT-TYPE
           stop routing traffic to this node while this flag is on.
 
           This object corresponds to cv4580, byte 7, bit 0."
+
       ::= { appnNnUniqueInfoAndCaps 11 }
 
 appnNodeNnIsrDepleted OBJECT-TYPE
@@ -794,7 +786,6 @@ appnNodeNnGateway OBJECT-TYPE
 
 
 -- *********************************************************************
-
 -- APPN End Node Information
 -- This section provides global information about an APPN end node.  Two
 -- of the objects are also implemented by a branch network node.
@@ -841,7 +832,6 @@ appnNodeEnLuSearch OBJECT-TYPE
 -- APPN Port information
 -- This section provides information about an APPN node's ports.
 -- *********************************************************************
-
 
 
 appnPortTable OBJECT-TYPE
@@ -892,11 +882,9 @@ AppnPortEntry ::= SEQUENCE {
                      }
 
 appnPortName OBJECT-TYPE
-
       SYNTAX DisplayString (SIZE (1..10))
       MAX-ACCESS not-accessible
       STATUS current
-
       DESCRIPTION
           "Administratively assigned name for this APPN port."
 
@@ -990,7 +978,6 @@ appnPortLsRole OBJECT-TYPE
       MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
-
              "Initial role for link stations activated through this port.
              The values map to the following settings in the initial XID,
              where 'ABM' indicates asynchronous balanced mode and 'NRM'
@@ -1088,7 +1075,6 @@ appnPortDynLsGoodXids OBJECT-TYPE
       ::= { appnPortEntry 14 }
 
 appnPortDynLsBadXids OBJECT-TYPE
-
       SYNTAX AppnPortCounter
       UNITS "XID exchanges"
       MAX-ACCESS read-only
@@ -1186,7 +1172,6 @@ AppnLsEntry ::= SEQUENCE {
       appnLsInMsgFrames           AppnLinkStationCounter,
       appnLsOutXidBytes           AppnLinkStationCounter,
       appnLsOutMsgBytes           AppnLinkStationCounter,
-
       appnLsOutXidFrames          AppnLinkStationCounter,
       appnLsOutMsgFrames          AppnLinkStationCounter,
 -- propagation delay
@@ -1235,7 +1220,6 @@ appnLsCommand OBJECT-TYPE
                       recycle(3),
                       ready(4)
                      }
-
       MAX-ACCESS read-write
       STATUS current
       DESCRIPTION
@@ -1284,7 +1268,6 @@ appnLsPortName OBJECT-TYPE
       STATUS current
       DESCRIPTION
           "Administratively assigned name for the port associated with
-
           this link station.  The name can be from one to ten
           characters."
 
@@ -1382,7 +1365,6 @@ appnLsActOnDemand OBJECT-TYPE
       MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
-
           "Indicates whether the link station is activatable on demand.
 
           Such a link station is reported in the topology as active
@@ -1480,7 +1462,6 @@ appnLsInMsgBytes OBJECT-TYPE
 appnLsInXidFrames OBJECT-TYPE
       SYNTAX AppnLinkStationCounter
       UNITS "XID frames"
-
       MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
@@ -1578,7 +1559,6 @@ appnLsMaxDelay OBJECT-TYPE
       DESCRIPTION
           "The longest time it took for a test signal to be sent and
           returned from this link station to the adjacent link station.
-
           This time is represented in milliseconds .
 
           The value 0 is returned if no test signal has been sent and
@@ -1626,7 +1606,6 @@ appnLsGoodXids OBJECT-TYPE
       DESCRIPTION
           "The total number of successful XID exchanges that have
           occurred on this link station since the time it was started."
-
 
       ::= { appnLsEntry 29 }
 
@@ -1676,7 +1655,6 @@ appnLsCurrentStateTime OBJECT-TYPE
       STATUS current
       DESCRIPTION
           "The amount of time, measured in hundredths of a second, that
-
           the link station has been in its current state."
 
       ::= { appnLsEntry 33 }
@@ -1823,7 +1801,6 @@ appnLsMltgMember OBJECT-TYPE
           "Indicates whether the link is a member of a multi-link TG.  If
           the link's TG has been brought up as a multi-link TG, then the
           link is reported as a member of a multi-link TG, even if it is
-
           currently the only active link in the TG."
 
       ::= { appnLsEntry 45 }
@@ -1872,7 +1849,6 @@ AppnLsStatusEntry ::= SEQUENCE {
       appnLsStatusTime               DateAndTime,
       appnLsStatusLsName             DisplayString,
       appnLsStatusCpName             DisplayString,
-
       appnLsStatusPartnerId          SnaNodeIdentification,
       appnLsStatusTgNum              INTEGER,
       appnLsStatusGeneralSense       SnaSenseData,
@@ -1920,7 +1896,6 @@ appnLsStatusLsName OBJECT-TYPE
       DESCRIPTION
           "Administratively assigned name for the link station
           experiencing the condition."
-
 
       ::= { appnLsStatusEntry 3 }
 
@@ -1970,7 +1945,6 @@ appnLsStatusTgNum OBJECT-TYPE
       ::= { appnLsStatusEntry 6 }
 
 appnLsStatusGeneralSense OBJECT-TYPE
-
       SYNTAX SnaSenseData
       MAX-ACCESS read-only
       STATUS current
@@ -2019,7 +1993,6 @@ appnLsStatusXidLocalSense OBJECT-TYPE
       ::= { appnLsStatusEntry 10 }
 
 appnLsStatusXidRemoteSense OBJECT-TYPE
-
       SYNTAX SnaSenseData
       MAX-ACCESS read-only
       STATUS current
@@ -2157,6 +2130,8 @@ appnVrnPortName OBJECT-TYPE
 
       ::= { appnVrnEntry 3 }
 
+
+
 -- ************** The APPN Topology Group ******************************
 
 appnNn                OBJECT IDENTIFIER ::= { appnObjects 2 }
@@ -2166,7 +2141,6 @@ appnNnTopology     OBJECT IDENTIFIER ::= { appnNn 2 }
 -- This group is used to represent the entire APPN network-node topology
 -- including network nodes, virtual routing nodes and all TGs associated
 -- with these nodes, including intersubnetwork TGs (ISTGs) and branch TGs.
-
 --
 -- Network nodes
 -- The APPN topology database consists of information about every APPN
@@ -2215,7 +2189,6 @@ appnNnTopoMaxNodes OBJECT-TYPE
       STATUS current
       DESCRIPTION
           "Maximum number of node entries allowed in the APPN topology
-
           database.  It is an implementation choice whether to count only
           network-node entries, or to count all node entries.  If the
           number of node entries exceeds this value, APPN will issue an
@@ -2264,7 +2237,6 @@ appnNnTopoTgPurges OBJECT-TYPE
       ::= { appnNnTopo 4 }
 
 appnNnTopoTotalTduWars OBJECT-TYPE
-
       SYNTAX AppnNodeCounter
       UNITS "TDU wars"
       MAX-ACCESS read-only
@@ -2312,7 +2284,6 @@ AppnNnTopologyFREntry ::= SEQUENCE {
       appnNnNodeFRName                     SnaControlPointName,
       appnNnNodeFREntryTimeLeft            AppnTopologyEntryTimeLeft,
       appnNnNodeFRType                     INTEGER,
-
 
       appnNnNodeFRRsn                      Unsigned32,
       appnNnNodeFRRouteAddResist           INTEGER,
@@ -2362,7 +2333,6 @@ appnNnNodeFREntryTimeLeft OBJECT-TYPE
       DESCRIPTION
           "Number of days before deletion of this network node entry."
 
-
       ::= { appnNnTopologyFREntry 3 }
 
 appnNnNodeFRType OBJECT-TYPE
@@ -2411,7 +2381,6 @@ appnNnNodeFRRouteAddResist OBJECT-TYPE
 appnNnNodeFRCongested OBJECT-TYPE
       SYNTAX TruthValue
       MAX-ACCESS read-only
-
       STATUS current
       DESCRIPTION
           "Indicates whether this node is congested.  This node is not be
@@ -2459,7 +2428,6 @@ appnNnNodeFRGateway OBJECT-TYPE
 
 
       ::= { appnNnTopologyFREntry 10 }
-
 
 appnNnNodeFRCentralDirectory OBJECT-TYPE
       SYNTAX TruthValue
@@ -2509,7 +2477,6 @@ appnNnNodeFRHprSupport OBJECT-TYPE
       MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
-
           "Indicates the node's level of support for high-performance
           routing (HPR):
 
@@ -2580,6 +2547,7 @@ appnNnNodeFRBranchAwareness OBJECT-TYPE
 -- TG is repeated here to provide a means of correlating the TGs with
 -- the nodes.
 
+
 appnNnTgTopologyFRTable OBJECT-TYPE
       SYNTAX SEQUENCE OF AppnNnTgTopologyFREntry
       MAX-ACCESS not-accessible
@@ -2606,7 +2574,6 @@ appnNnTgTopologyFREntry OBJECT-TYPE
               appnNnTgFRNum}
 
       ::= { appnNnTgTopologyFRTable 1 }
-
 
 AppnNnTgTopologyFREntry ::= SEQUENCE {
 
@@ -2655,7 +2622,6 @@ appnNnTgFRFrsn OBJECT-TYPE
           resource was updated at this node."
 
       ::= { appnNnTgTopologyFREntry 1 }
-
 
 appnNnTgFROwner OBJECT-TYPE
       SYNTAX SnaControlPointName
@@ -2754,7 +2720,6 @@ appnNnTgFRQuiescing OBJECT-TYPE
           the appnNnNodeFRExteBorderSup and appnNnNodeFRBranchAwareness
           objects in the corresponding appnNnTopologyFREntry), then
           this indicator is artificially set to TRUE in the APPN
-
           topology database, to remove the TG from other nodes'
           route calculations.  A management application can
           determine whether the TG is actually quiescing by
@@ -2803,7 +2768,6 @@ appnNnTgFRConnCost OBJECT-TYPE
 
           This is an administratively assigned value representing the
           relative cost per unit of time to use this TG.  Range is from
-
           0, which means no cost, to 255, which indicates maximum cost.
 
           This object corresponds to cv47, byte 13."
@@ -2852,7 +2816,6 @@ appnNnTgFRUsr1 OBJECT-TYPE
       SYNTAX INTEGER (0..255)
       MAX-ACCESS read-only
       STATUS current
-
       DESCRIPTION
           "First user-defined TG characteristic for this TG.  This is
           an administratively assigned value associated with the TG.
@@ -2901,7 +2864,6 @@ appnNnTgFRGarbageCollect OBJECT-TYPE
 appnNnTgFRSubareaNum OBJECT-TYPE
       SYNTAX Unsigned32
       MAX-ACCESS read-only
-
       STATUS current
       DESCRIPTION
           "The subarea number associated with this TG.
@@ -2949,7 +2911,6 @@ appnNnTgFRTypeIndicator OBJECT-TYPE
           This object corresponds to cv4680, byte m+1, bits 3-4."
 
       ::= { appnNnTgTopologyFREntry 24 }
-
 
 appnNnTgFRIntersubnet OBJECT-TYPE
       SYNTAX TruthValue
@@ -3048,8 +3009,8 @@ AppnLocalTgEntry ::= SEQUENCE {
       appnLocalTgDelay            AppnTgDelay,
       appnLocalTgUsr1             INTEGER,
       appnLocalTgUsr2             INTEGER,
-
       appnLocalTgUsr3             INTEGER,
+
       appnLocalTgHprSup           INTEGER,
       appnLocalTgIntersubnet      TruthValue,
       appnLocalTgMltgLinkType     TruthValue,
@@ -3097,7 +3058,6 @@ appnLocalTgDlcData OBJECT-TYPE
 
 appnLocalTgPortName OBJECT-TYPE
       SYNTAX DisplayString (SIZE (0..10))
-
       MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
@@ -3146,7 +3106,6 @@ appnLocalTgCpCpSession OBJECT-TYPE
 appnLocalTgEffCap OBJECT-TYPE
       SYNTAX AppnTgEffectiveCapacity
       MAX-ACCESS read-only
-
       STATUS current
       DESCRIPTION
           "Effective capacity for this TG."
@@ -3189,13 +3148,13 @@ appnLocalTgDelay OBJECT-TYPE
       STATUS current
       DESCRIPTION
           "Administratively assigned delay associated with this TG."
+
       ::= { appnLocalTgEntry 13 }
 
 appnLocalTgUsr1 OBJECT-TYPE
       SYNTAX INTEGER (0..255)
       MAX-ACCESS read-only
       STATUS current
-
       DESCRIPTION
           "First user-defined TG characteristic for this TG.  This is
           an administratively assigned value associated with the TG."
@@ -3244,7 +3203,6 @@ appnLocalTgHprSup OBJECT-TYPE
                                            control flows over RTP
                                            (option set 1402) supported"
 
-
       ::= { appnLocalTgEntry 17 }
 
 appnLocalTgIntersubnet OBJECT-TYPE
@@ -3282,6 +3240,7 @@ appnLocalTgBranchLinkType OBJECT-TYPE
       STATUS current
       DESCRIPTION
           "Branch link type of this TG:
+
              other(1)             = the agent has determined the TG's
                                     branch link type to be a value other
                                     than branch uplink or branch
@@ -3293,7 +3252,6 @@ appnLocalTgBranchLinkType OBJECT-TYPE
                                     end node.
              downlinkToBranchNetworkNode(4) = the TG is a branch
                                     downlink to a cascaded branch
-
                                     network node.
              none(5)              = the TG is not a branch TG.
              unknown(255)         = the agent cannot determine the
@@ -3342,7 +3300,6 @@ AppnLocalEnTgEntry ::= SEQUENCE {
       appnLocalEnTgEntryTimeLeft AppnTopologyEntryTimeLeft,
 
       appnLocalEnTgDestVirtual   TruthValue,
-
       appnLocalEnTgDlcData       AppnTgDlcData,
 
       appnLocalEnTgOperational   TruthValue,
@@ -3391,7 +3348,6 @@ appnLocalEnTgNum OBJECT-TYPE
 appnLocalEnTgEntryTimeLeft OBJECT-TYPE
       SYNTAX AppnTopologyEntryTimeLeft
       UNITS "days"
-
       MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
@@ -3440,7 +3396,6 @@ appnLocalEnTgCpCpSession OBJECT-TYPE
           "Indicates whether CP-CP sessions are supported on this TG, and
           whether the TG owner's contention-winner session is active on
           this TG.  Some nodes in the network are not able to
-
           differentiate support and status of CP-CP sessions, and thus
           may report the 'supportedUnknownStatus' value."
 
@@ -3489,7 +3444,6 @@ appnLocalEnTgDelay OBJECT-TYPE
       SYNTAX AppnTgDelay
       MAX-ACCESS read-only
       STATUS current
-
       DESCRIPTION
             "Administratively assigned delay associated with this TG."
 
@@ -3538,7 +3492,6 @@ appnLocalEnTgMltgLinkType OBJECT-TYPE
       ::= { appnLocalEnTgEntry 17 }
 
 -- ************** The APPN Directory Group *****************************
-
 appnDir               OBJECT IDENTIFIER ::= { appnObjects 4 }
 appnDirPerf  OBJECT IDENTIFIER ::= { appnDir 1 }
 
@@ -3587,7 +3540,6 @@ appnDirRegEntries OBJECT-TYPE
       SYNTAX Gauge32
       UNITS "directory entries"
       MAX-ACCESS read-only
-
       STATUS current
       DESCRIPTION
           "Current number of registered entries."
@@ -3635,7 +3587,6 @@ appnDirOutBcastLocates OBJECT-TYPE
       DESCRIPTION
           "Number of broadcast Locates sent since the node was last
           reinitialized."
-
 
       ::= { appnDirPerf 8 }
 
@@ -3685,7 +3636,6 @@ appnDirTable OBJECT-TYPE
       DESCRIPTION
           "Table containing information about all known LUs."
 
-
       ::= { appnDir 2 }
 
 appnDirEntry OBJECT-TYPE
@@ -3708,6 +3658,7 @@ AppnDirEntry ::= SEQUENCE {
       appnDirType                     INTEGER,
       appnDirApparentLuOwnerName      DisplayString
                      }
+
 appnDirLuName OBJECT-TYPE
       SYNTAX DisplayString  (SIZE (1..17))
       MAX-ACCESS not-accessible
@@ -3734,7 +3685,6 @@ appnDirNnServerName OBJECT-TYPE
           server.  For unassociated end node entries, a zero-length
           string is returned."
 
-
       ::= { appnDirEntry 2 }
 
 appnDirLuOwnerName OBJECT-TYPE
@@ -3755,7 +3705,6 @@ appnDirLuLocation OBJECT-TYPE
                      local(1),     --Local
                      domain(2),    --Domain
                      xdomain(3)    --Cross Domain
-
                      }
       MAX-ACCESS read-only
       STATUS current
@@ -3782,7 +3731,6 @@ appnDirType OBJECT-TYPE
             2 - Cache
                   The LU has previously been located by a broadcast
                   search, and the location information has been saved.
-
 
             3 - Registered
                   The LU is at an end node that is in the domain
@@ -3881,7 +3829,6 @@ appnCosModeName OBJECT-TYPE
       ::= { appnCosModeEntry 1 }
 
 appnCosModeCosName OBJECT-TYPE
-
       SYNTAX SnaClassOfServiceName
       MAX-ACCESS read-only
       STATUS current
@@ -3930,7 +3877,6 @@ appnCosName OBJECT-TYPE
       ::= { appnCosNameEntry 1 }
 
 appnCosTransPriority OBJECT-TYPE
-
       SYNTAX INTEGER {
                      low(1),               --X'01'
                      medium(2),            --X'02'
@@ -3979,7 +3925,6 @@ AppnCosNodeRowEntry ::= SEQUENCE {
       appnCosNodeRowIndex                INTEGER,
       appnCosNodeRowWgt                  DisplayString,
       appnCosNodeRowResistMin            INTEGER,
-
       appnCosNodeRowResistMax            INTEGER,
       appnCosNodeRowMinCongestAllow      INTEGER,
       appnCosNodeRowMaxCongestAllow      INTEGER
@@ -4028,7 +3973,6 @@ appnCosNodeRowResistMin OBJECT-TYPE
       STATUS current
       DESCRIPTION
           "Minimum route addition resistance value for this node.
-
           Range of values is 0-255.  The lower the value, the more
           desirable the node is for intermediate routing."
 
@@ -4126,7 +4070,6 @@ AppnCosTgRowEntry ::= SEQUENCE {
       appnCosTgRowSecurityMin           AppnTgSecurity,
       appnCosTgRowSecurityMax           AppnTgSecurity,
       appnCosTgRowDelayMin              AppnTgDelay,
-
       appnCosTgRowDelayMax              AppnTgDelay,
       appnCosTgRowUsr1Min               INTEGER,
       appnCosTgRowUsr1Max               INTEGER,
@@ -4175,7 +4118,6 @@ appnCosTgRowWgt OBJECT-TYPE
 
 appnCosTgRowEffCapMin OBJECT-TYPE
       SYNTAX AppnTgEffectiveCapacity
-
       MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
@@ -4224,7 +4166,6 @@ appnCosTgRowByteCostMin OBJECT-TYPE
       SYNTAX INTEGER (0..255)
       MAX-ACCESS read-only
       STATUS current
-
       DESCRIPTION
           "Minimum acceptable cost per byte transmitted for this class
           of service.
@@ -4273,7 +4214,6 @@ appnCosTgRowDelayMin OBJECT-TYPE
       STATUS current
       DESCRIPTION
           "Minimum acceptable propagation delay for this class of
-
           service."
 
       ::= { appnCosTgRowEntry 12 }
@@ -4322,7 +4262,6 @@ appnCosTgRowUsr2Max OBJECT-TYPE
       SYNTAX INTEGER (0..255)
       MAX-ACCESS read-only
       STATUS current
-
       DESCRIPTION
           "Maximum acceptable value for this user-defined
           characteristic."
@@ -4371,7 +4310,6 @@ appnIsInGlobeCtrAdminStatus OBJECT-TYPE
       MAX-ACCESS read-write
       STATUS current
       DESCRIPTION
-
           "Object by which a Management Station can deactivate or
           activate capture of intermediate-session counts and names, by
           setting the value to notActive(1) or active(2), respectively.
@@ -4419,7 +4357,6 @@ appnIsInGlobeCtrOperStatus OBJECT-TYPE
               notActive(1):  collection of counts is not active; if it
                              is queried, a count returns the value 0.
               active(2):     collection of counts is active."
-
 
       ::= { appnIsInGlobal 2 }
 
@@ -4554,6 +4491,7 @@ AppnIsInEntry ::= SEQUENCE {
       appnIsInPsRecvPacingType    INTEGER,
       appnIsInPsRecvRpc           Gauge32,
       appnIsInPsRecvNxWndwSize    Gauge32,
+
       appnIsInSsAdjCpName         SnaControlPointName,
       appnIsInSsAdjTgNum          INTEGER,
       appnIsInSsSendMaxBtuSize    INTEGER,
@@ -4567,7 +4505,6 @@ AppnIsInEntry ::= SEQUENCE {
       appnIsInRouteInfo           OCTET STRING,
 
       appnIsInRtpNceId            OCTET STRING,
-
       appnIsInRtpTcid             OCTET STRING
                      }
 
@@ -4615,7 +4552,6 @@ appnIsInSessState OBJECT-TYPE
 
           Active sessions can be deactivated by setting this object
           to inactive(1)."
-
 
       ::= { appnIsInEntry 3 }
 
@@ -4665,7 +4601,6 @@ appnIsInTransPriority OBJECT-TYPE
                      network(4)            --X'04'
                      }
       MAX-ACCESS read-only
-
       STATUS current
       DESCRIPTION
           "Transmission priority for this class of service.  Values are:
@@ -4714,7 +4649,6 @@ appnIsInSessType OBJECT-TYPE
 
 appnIsInSessUpTime OBJECT-TYPE
       SYNTAX TimeTicks
-
       UNITS "hundredths of a second"
       MAX-ACCESS read-only
       STATUS current
@@ -4763,7 +4697,6 @@ appnIsInP2SNonFmdPius OBJECT-TYPE
       UNITS "path information units (PIUs)"
       MAX-ACCESS read-only
       STATUS current
-
       DESCRIPTION
           "Number of non-FMD PIUs sent from the Primary LU to the
           Secondary LU since the counts were last activated."
@@ -4811,7 +4744,6 @@ appnIsInP2SNonFmdBytes OBJECT-TYPE
       DESCRIPTION
           "Number of non-FMD bytes sent from the Primary LU to the
           Secondary LU since the counts were last activated."
-
 
       ::= { appnIsInEntry 18 }
 
@@ -4910,7 +4842,6 @@ appnIsInPsRecvPacingType OBJECT-TYPE
 
       ::= { appnIsInEntry 26 }
 
-
 appnIsInPsRecvRpc OBJECT-TYPE
       SYNTAX Gauge32
       UNITS "message units (MUs)"
@@ -4958,7 +4889,6 @@ appnIsInSsAdjTgNum OBJECT-TYPE
           TG 'stand-ins' that may be added to APPN in the future."
 
       ::= { appnIsInEntry 30 }
-
 
 appnIsInSsSendMaxBtuSize OBJECT-TYPE
       SYNTAX INTEGER (99..32767)
@@ -5008,7 +4938,6 @@ appnIsInSsSendNxWndwSize OBJECT-TYPE
       ::= { appnIsInEntry 34 }
 
 appnIsInSsRecvPacingType OBJECT-TYPE
-
       SYNTAX INTEGER {
                      fixed(1),
                      adaptive(2)
@@ -5057,7 +4986,6 @@ appnIsInRouteInfo OBJECT-TYPE
 
       ::= { appnIsInEntry 38 }
 
-
 appnIsInRtpNceId OBJECT-TYPE
       SYNTAX OCTET STRING (SIZE (1..8))
       MAX-ACCESS read-only
@@ -5105,7 +5033,6 @@ appnIsRtpEntry OBJECT-TYPE
                appnIsRtpTcid }
 
       ::= { appnIsRtpTable 1 }
-
 
 AppnIsRtpEntry ::= SEQUENCE {
       appnIsRtpNceId              OCTET STRING,
@@ -5158,7 +5085,8 @@ alertTrap NOTIFICATION-TYPE
 
 alertIdNumber OBJECT-TYPE
       SYNTAX OCTET STRING (SIZE (4))
-      MAX-ACCESS accessible-for-notify
+--    MAX-ACCESS accessible-for-notify
+      MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
           "A 32-bit SNA Management Services (SNA/MS) Alert ID Number, as
@@ -5168,7 +5096,8 @@ alertIdNumber OBJECT-TYPE
 
 affectedObject OBJECT-TYPE
       SYNTAX VariablePointer
-      MAX-ACCESS accessible-for-notify
+--    MAX-ACCESS accessible-for-notify
+      MAX-ACCESS read-only
       STATUS current
       DESCRIPTION
           "The MIB object associated with the Alert condition, if there
@@ -5204,7 +5133,6 @@ appnCompliance2  MODULE-COMPLIANCE
         MODULE  -- this module
 
 --      Unconditionally mandatory groups
-
                 MANDATORY-GROUPS  {
                         appnGeneralConfGroup2,
                         appnPortConfGroup,
@@ -5253,7 +5181,6 @@ appnCompliance2  MODULE-COMPLIANCE
                     nodes."
 
                 GROUP  appnIntSessConfGroup
-
                 DESCRIPTION
                     "The appnIntSessConfGroup is mandatory for
                     network nodes and branch network nodes."
@@ -5262,6 +5189,7 @@ appnCompliance2  MODULE-COMPLIANCE
                 DESCRIPTION
                     "The appnHprBaseConfGroup is mandatory for nodes
                     that implement the HPR base (APPN option set 1400)."
+
                 GROUP  appnHprRtpConfGroup
                 DESCRIPTION
                     "The appnHprRtpConfGroup is mandatory for nodes
@@ -5302,14 +5230,12 @@ appnGeneralConfGroup2  OBJECT-GROUP
                  appnNodeId,
                  appnNodeType,
                  appnNodeUpTime,
-
                  appnNodeParallelTg,
                  appnNodeAdaptiveBindPacing,
                  appnNodeHprSupport,
                  appnNodeCounterDisconTime,
                  appnNodeLsCounterType,
                  appnNodeBrNn
-
                  }
         STATUS  current
         DESCRIPTION
@@ -5351,7 +5277,6 @@ appnLinkConfGroup2  OBJECT-GROUP
                  appnLsPortName,
                  appnLsDlcType,
                  appnLsDynamic,
-
                  appnLsAdjCpName,
                  appnLsAdjNodeType,
                  appnLsTgNum,
@@ -5400,7 +5325,6 @@ appnLinkConfGroup2  OBJECT-GROUP
                  appnLsStatusRemoteAddr,
                  appnLsCounterDisconTime,
                  appnLsMltgMember
-
                  }
         STATUS  current
         DESCRIPTION
@@ -5449,7 +5373,6 @@ appnDirTableConfGroup2  OBJECT-GROUP
         ::= { appnGroups 29 }
 
 appnNnUniqueConfGroup  OBJECT-GROUP
-
         OBJECTS  {
                  appnNodeNnCentralDirectory,
                  appnNodeNnTreeCache,
@@ -5498,7 +5421,6 @@ appnVrnConfGroup       OBJECT-GROUP
 appnNnTopoConfGroup2    OBJECT-GROUP
         OBJECTS  {
                  appnNnTopoMaxNodes,
-
                  appnNnTopoCurNumNodes,
                  appnNnTopoNodePurges,
                  appnNnTopoTgPurges,
@@ -5547,7 +5469,6 @@ appnNnTopoConfGroup2    OBJECT-GROUP
         DESCRIPTION
             "The appnNnTopoConfGroup is mandatory only for network
             nodes."
-
         ::= { appnGroups 30 }
 
 appnLocalEnTopoConfGroup2   OBJECT-GROUP
@@ -5596,7 +5517,6 @@ appnLocalDirPerfConfGroup  OBJECT-GROUP
 
 appnCosConfGroup          OBJECT-GROUP
         OBJECTS  {
-
                  appnCosModeCosName,
                  appnCosTransPriority,
                  appnCosNodeRowWgt,
@@ -5645,7 +5565,6 @@ appnIntSessConfGroup    OBJECT-GROUP
                  appnIsInSessType,
                  appnIsInSessUpTime,
                  appnIsInCtrUpTime,
-
                  appnIsInP2SFmdPius,
                  appnIsInS2PFmdPius,
                  appnIsInP2SNonFmdPius,
@@ -5693,7 +5612,6 @@ appnHprBaseConfGroup    OBJECT-GROUP
             "The appnHprBaseConfGroup is mandatory only for nodes that
             implement the HPR base (APPN option set 1400)."
         ::= { appnGroups 14 }
-
 
 appnHprRtpConfGroup    OBJECT-GROUP
         OBJECTS  {
@@ -5743,7 +5661,6 @@ appnTrapConfGroup    OBJECT-GROUP
         STATUS  current
         DESCRIPTION
             "The appnTrapConfGroup is optional for all APPN nodes.  Nodes
-
             implementing this group shall also implement the
             appnTrapNotifGroup."
         ::= { appnGroups 18 }
@@ -5792,7 +5709,6 @@ appnNodeMibVersion OBJECT-TYPE
 
           Since this object incorporates the Year 2000-unfriendly
           2-digit year specified in SMI for the LAST-UPDATED field, and
-
           since it was not found to be particularly useful, it has been
           deprecated.  No replacement object has been defined."
 
@@ -5841,7 +5757,6 @@ appnCompliance  MODULE-COMPLIANCE
                     "The appnNnTopoConfGroup is mandatory only for
                     network nodes."
 
-
                 GROUP  appnLocalEnTopoConfGroup
                 DESCRIPTION
                     "The appnLocalEnTopoConfGroup is mandatory only for
@@ -5872,6 +5787,7 @@ appnCompliance  MODULE-COMPLIANCE
                     "The appnHprRtpConfGroup is mandatory only for nodes
                     that implement the HPR RTP tower (APPN option set
                     1401)."
+
                 GROUP  appnHprCtrlFlowsRtpConfGroup
                 DESCRIPTION
                     "The appnHprCtrlFlowsRtpConfGroup is mandatory only
@@ -5939,7 +5855,6 @@ appnLinkConfGroup  OBJECT-GROUP
                  appnLsOutMsgBytes,
                  appnLsOutXidFrames,
                  appnLsOutMsgFrames,
-
                  appnLsEchoRsps,
                  appnLsCurrentDelay,
                  appnLsMaxDelay,
@@ -5988,7 +5903,6 @@ appnLocalTgConfGroup  OBJECT-GROUP
                  appnLocalTgPortName,
                  appnLocalTgQuiescing,
                  appnLocalTgOperational,
-
                  appnLocalTgCpCpSession,
                  appnLocalTgEffCap,
                  appnLocalTgConnCost,
@@ -6037,7 +5951,6 @@ appnNnTopoConfGroup    OBJECT-GROUP
                  appnNnTopoTotalTduWars,
                  appnNnNodeFREntryTimeLeft,
                  appnNnNodeFRType,
-
                  appnNnNodeFRRsn,
                  appnNnNodeFRRouteAddResist,
                  appnNnNodeFRCongested,
@@ -6086,7 +5999,6 @@ appnNnTopoConfGroup    OBJECT-GROUP
 
 appnLocalEnTopoConfGroup   OBJECT-GROUP
         OBJECTS  {
-
                  appnLocalEnTgEntryTimeLeft,
                  appnLocalEnTgDestVirtual,
                  appnLocalEnTgDlcData,

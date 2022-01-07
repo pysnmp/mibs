@@ -8,34 +8,34 @@
       "snanauMIB"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
-      "Bits",
       "Integer32",
-      "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "iso",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "VariablePointer",
-      "TruthValue",
       "RowPointer",
+      "DateAndTime",
       "DisplayString",
-      "DateAndTime"
+      "VariablePointer",
+      "TimeStamp",
+      "TruthValue"
     ]
   },
   "appnMIB": {
@@ -5362,7 +5362,7 @@
         ]
       }
     },
-    "maxaccess": "accessible-for-notify",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "affectedObject": {
@@ -5374,7 +5374,7 @@
       "type": "VariablePointer",
       "class": "type"
     },
-    "maxaccess": "accessible-for-notify",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "appnConformance": {
@@ -7446,9 +7446,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/APPN-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:00:07 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/APPN-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:24:21 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "APPN-MIB"

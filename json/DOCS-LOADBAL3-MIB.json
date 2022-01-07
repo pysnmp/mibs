@@ -1,0 +1,1746 @@
+{
+  "imports": {
+    "class": "imports",
+    "CLAB-DEF-MIB": [
+      "clabProjDocsis"
+    ],
+    "CLAB-TOPO-MIB": [
+      "NodeName"
+    ],
+    "DOCS-IF3-MIB": [
+      "RcpId",
+      "docsIf3CmtsCmRegStatusEntry",
+      "ChannelList"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMP-TARGET-MIB": [
+      "SnmpTagList"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TimeStamp",
+      "RowPointer",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "docsLoadbal3Mib": {
+    "name": "docsLoadbal3Mib",
+    "oid": "1.3.6.1.4.1.4491.2.1.22",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-05-22 00:00",
+        "description": "Revised Version includes ECN OSSIv3.0-N-08.0645-4 and published as I07"
+      },
+      {
+        "revision": "2007-12-06 00:00",
+        "description": "Initial version, published as part of the CableLabs OSSIv3.0 specification CM-SP-OSSIv3.0-I05-071206 via ECN OSSIv3.0-N-07.0522-7"
+      }
+    ]
+  },
+  "ChChgInitTechMap": {
+    "name": "ChChgInitTechMap",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "reinitializeMac": 0,
+        "broadcastInitRanging": 1,
+        "unicastInitRanging": 2,
+        "initRanging": 3,
+        "direct": 4
+      }
+    },
+    "status": "current"
+  },
+  "docsLoadbal3MibObjects": {
+    "name": "docsLoadbal3MibObjects",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1",
+    "class": "objectidentity"
+  },
+  "docsLoadbal3System": {
+    "name": "docsLoadbal3System",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.1",
+    "class": "objectidentity"
+  },
+  "docsLoadbal3SystemEnable": {
+    "name": "docsLoadbal3SystemEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3SystemEnableError": {
+    "name": "docsLoadbal3SystemEnableError",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroup": {
+    "name": "docsLoadbal3ChgOverGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2",
+    "class": "objectidentity"
+  },
+  "docsLoadbal3ChgOverGroupMacAddress": {
+    "name": "docsLoadbal3ChgOverGroupMacAddress",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupInitTech": {
+    "name": "docsLoadbal3ChgOverGroupInitTech",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChChgInitTechMap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupForceUCC": {
+    "name": "docsLoadbal3ChgOverGroupForceUCC",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupdownFrequency": {
+    "name": "docsLoadbal3ChgOverGroupdownFrequency",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupMdIfIndex": {
+    "name": "docsLoadbal3ChgOverGroupMdIfIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupRcpId": {
+    "name": "docsLoadbal3ChgOverGroupRcpId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RcpId",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupRccId": {
+    "name": "docsLoadbal3ChgOverGroupRccId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupUsChSet": {
+    "name": "docsLoadbal3ChgOverGroupUsChSet",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupServiceFlowInfo": {
+    "name": "docsLoadbal3ChgOverGroupServiceFlowInfo",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupTransactionId": {
+    "name": "docsLoadbal3ChgOverGroupTransactionId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupCommit": {
+    "name": "docsLoadbal3ChgOverGroupCommit",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverGroupLastCommit": {
+    "name": "docsLoadbal3ChgOverGroupLastCommit",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusTable": {
+    "name": "docsLoadbal3ChgOverStatusTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusEntry": {
+    "name": "docsLoadbal3ChgOverStatusEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusId": {
+    "name": "docsLoadbal3ChgOverStatusId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusMacAddr": {
+    "name": "docsLoadbal3ChgOverStatusMacAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusInitTech": {
+    "name": "docsLoadbal3ChgOverStatusInitTech",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChChgInitTechMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusDownFrequency": {
+    "name": "docsLoadbal3ChgOverStatusDownFrequency",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusMdIfIndex": {
+    "name": "docsLoadbal3ChgOverStatusMdIfIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusRcpId": {
+    "name": "docsLoadbal3ChgOverStatusRcpId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RcpId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusRccId": {
+    "name": "docsLoadbal3ChgOverStatusRccId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusUsChSet": {
+    "name": "docsLoadbal3ChgOverStatusUsChSet",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusServiceFlowInfo": {
+    "name": "docsLoadbal3ChgOverStatusServiceFlowInfo",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 484
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusCmd": {
+    "name": "docsLoadbal3ChgOverStatusCmd",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ucc": 1,
+          "dcc": 2,
+          "dbc": 3,
+          "crossMD": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusTransactionId": {
+    "name": "docsLoadbal3ChgOverStatusTransactionId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusValue": {
+    "name": "docsLoadbal3ChgOverStatusValue",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "messageSent": 1,
+          "noOpNeeded": 2,
+          "modemDeparting": 3,
+          "waitToSendMessage": 4,
+          "cmOperationRejected": 5,
+          "cmtsOperationRejected": 6,
+          "timeOutT13": 7,
+          "timeOutT15": 8,
+          "rejectinit": 9,
+          "success": 10,
+          "dbcTimeout": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3ChgOverStatusUpdate": {
+    "name": "docsLoadbal3ChgOverStatusUpdate",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3CmtsCmParamsTable": {
+    "name": "docsLoadbal3CmtsCmParamsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3CmtsCmParamsEntry": {
+    "name": "docsLoadbal3CmtsCmParamsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "docsLoadbal3CmtsCmParamsEntry",
+      "module": "DOCS-LOADBAL3-MIB",
+      "object": "docsIf3CmtsCmRegStatusEntry"
+    },
+    "status": "current"
+  },
+  "docsLoadbal3CmtsCmParamsProvGrpId": {
+    "name": "docsLoadbal3CmtsCmParamsProvGrpId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3CmtsCmParamsCurrentGrpId": {
+    "name": "docsLoadbal3CmtsCmParamsCurrentGrpId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3CmtsCmParamsProvServiceTypeID": {
+    "name": "docsLoadbal3CmtsCmParamsProvServiceTypeID",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3CmtsCmParamsCurrentServiceTypeID": {
+    "name": "docsLoadbal3CmtsCmParamsCurrentServiceTypeID",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3CmtsCmParamsPolicyId": {
+    "name": "docsLoadbal3CmtsCmParamsPolicyId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3CmtsCmParamsPriority": {
+    "name": "docsLoadbal3CmtsCmParamsPriority",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3GeneralGrpDefaults": {
+    "name": "docsLoadbal3GeneralGrpDefaults",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.5",
+    "class": "objectidentity"
+  },
+  "docsLoadbal3GeneralGrpDefaultsEnable": {
+    "name": "docsLoadbal3GeneralGrpDefaultsEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3GeneralGrpDefaultsPolicyId": {
+    "name": "docsLoadbal3GeneralGrpDefaultsPolicyId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3GeneralGrpDefaultsInitTech": {
+    "name": "docsLoadbal3GeneralGrpDefaultsInitTech",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChChgInitTechMap",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "F8",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3GeneralGrpCfgTable": {
+    "name": "docsLoadbal3GeneralGrpCfgTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3GeneralGrpCfgEntry": {
+    "name": "docsLoadbal3GeneralGrpCfgEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GeneralGrpCfgNodeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadbal3GeneralGrpCfgNodeName": {
+    "name": "docsLoadbal3GeneralGrpCfgNodeName",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NodeName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3GeneralGrpCfgEnable": {
+    "name": "docsLoadbal3GeneralGrpCfgEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3GeneralGrpCfgPolicyId": {
+    "name": "docsLoadbal3GeneralGrpCfgPolicyId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3GeneralGrpCfgInitTech": {
+    "name": "docsLoadbal3GeneralGrpCfgInitTech",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChChgInitTechMap",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3GeneralGrpCfgStatus": {
+    "name": "docsLoadbal3GeneralGrpCfgStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgTable": {
+    "name": "docsLoadbal3ResGrpCfgTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgEntry": {
+    "name": "docsLoadbal3ResGrpCfgEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ResGrpCfgId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgId": {
+    "name": "docsLoadbal3ResGrpCfgId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgMdIfIndex": {
+    "name": "docsLoadbal3ResGrpCfgMdIfIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgDsChList": {
+    "name": "docsLoadbal3ResGrpCfgDsChList",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgUsChList": {
+    "name": "docsLoadbal3ResGrpCfgUsChList",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelList",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgEnable": {
+    "name": "docsLoadbal3ResGrpCfgEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgInitTech": {
+    "name": "docsLoadbal3ResGrpCfgInitTech",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChChgInitTechMap",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "F8",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgPolicyId": {
+    "name": "docsLoadbal3ResGrpCfgPolicyId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgServiceTypeId": {
+    "name": "docsLoadbal3ResGrpCfgServiceTypeId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpTagList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3ResGrpCfgStatus": {
+    "name": "docsLoadbal3ResGrpCfgStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusTable": {
+    "name": "docsLoadbal3GrpStatusTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusEntry": {
+    "name": "docsLoadbal3GrpStatusEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusId": {
+    "name": "docsLoadbal3GrpStatusId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusCfgIdOrZero": {
+    "name": "docsLoadbal3GrpStatusCfgIdOrZero",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusMdIfIndex": {
+    "name": "docsLoadbal3GrpStatusMdIfIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusMdCmSgId": {
+    "name": "docsLoadbal3GrpStatusMdCmSgId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusDsChList": {
+    "name": "docsLoadbal3GrpStatusDsChList",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusUsChList": {
+    "name": "docsLoadbal3GrpStatusUsChList",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusEnable": {
+    "name": "docsLoadbal3GrpStatusEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusInitTech": {
+    "name": "docsLoadbal3GrpStatusInitTech",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChChgInitTechMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusPolicyId": {
+    "name": "docsLoadbal3GrpStatusPolicyId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusChgOverSuccess": {
+    "name": "docsLoadbal3GrpStatusChgOverSuccess",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3GrpStatusChgOverFails": {
+    "name": "docsLoadbal3GrpStatusChgOverFails",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadbal3RestrictCmCfgTable": {
+    "name": "docsLoadbal3RestrictCmCfgTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3RestrictCmCfgEntry": {
+    "name": "docsLoadbal3RestrictCmCfgEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3RestrictCmCfgId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadbal3RestrictCmCfgId": {
+    "name": "docsLoadbal3RestrictCmCfgId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3RestrictCmCfgMacAddr": {
+    "name": "docsLoadbal3RestrictCmCfgMacAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3RestrictCmCfgMacAddrMask": {
+    "name": "docsLoadbal3RestrictCmCfgMacAddrMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3RestrictCmCfgGrpId": {
+    "name": "docsLoadbal3RestrictCmCfgGrpId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3RestrictCmCfgServiceTypeId": {
+    "name": "docsLoadbal3RestrictCmCfgServiceTypeId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3RestrictCmCfgStatus": {
+    "name": "docsLoadbal3RestrictCmCfgStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3PolicyTable": {
+    "name": "docsLoadbal3PolicyTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3PolicyEntry": {
+    "name": "docsLoadbal3PolicyEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3PolicyId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3PolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadbal3PolicyId": {
+    "name": "docsLoadbal3PolicyId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3PolicyRuleId": {
+    "name": "docsLoadbal3PolicyRuleId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3PolicyPtr": {
+    "name": "docsLoadbal3PolicyPtr",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3PolicyRowStatus": {
+    "name": "docsLoadbal3PolicyRowStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3BasicRuleTable": {
+    "name": "docsLoadbal3BasicRuleTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3BasicRuleEntry": {
+    "name": "docsLoadbal3BasicRuleEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3BasicRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadbal3BasicRuleId": {
+    "name": "docsLoadbal3BasicRuleId",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadbal3BasicRuleEnable": {
+    "name": "docsLoadbal3BasicRuleEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "disabledPeriod": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3BasicRuleDisStart": {
+    "name": "docsLoadbal3BasicRuleDisStart",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3BasicRuleDisPeriod": {
+    "name": "docsLoadbal3BasicRuleDisPeriod",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3BasicRuleRowStatus": {
+    "name": "docsLoadbal3BasicRuleRowStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadbal3MibConformance": {
+    "name": "docsLoadbal3MibConformance",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.2",
+    "class": "objectidentity"
+  },
+  "docsLoadbal3MibCompliances": {
+    "name": "docsLoadbal3MibCompliances",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.2.1",
+    "class": "objectidentity"
+  },
+  "docsLoadbal3MibGroups": {
+    "name": "docsLoadbal3MibGroups",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.2.2",
+    "class": "objectidentity"
+  },
+  "docsLoadbal3Compliance": {
+    "name": "docsLoadbal3Compliance",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "docsLoadbal3Group",
+        "module": "DOCS-LOADBAL3-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadbal3Group": {
+    "name": "docsLoadbal3Group",
+    "oid": "1.3.6.1.4.1.4491.2.1.22.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3SystemEnable"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3SystemEnableError"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3PolicyPtr"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3PolicyRowStatus"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3BasicRuleEnable"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3BasicRuleDisStart"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3BasicRuleDisPeriod"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3BasicRuleRowStatus"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupMacAddress"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupInitTech"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupForceUCC"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupdownFrequency"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupMdIfIndex"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupRcpId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupRccId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupUsChSet"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupServiceFlowInfo"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupTransactionId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupCommit"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverGroupLastCommit"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusMacAddr"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusInitTech"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusDownFrequency"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusMdIfIndex"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusRcpId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusRccId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusUsChSet"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusServiceFlowInfo"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusCmd"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusTransactionId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusValue"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ChgOverStatusUpdate"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3CmtsCmParamsProvGrpId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3CmtsCmParamsCurrentGrpId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3CmtsCmParamsProvServiceTypeID"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3CmtsCmParamsCurrentServiceTypeID"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3CmtsCmParamsPolicyId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3CmtsCmParamsPriority"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GeneralGrpDefaultsEnable"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GeneralGrpDefaultsPolicyId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GeneralGrpDefaultsInitTech"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GeneralGrpCfgEnable"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GeneralGrpCfgPolicyId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GeneralGrpCfgInitTech"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GeneralGrpCfgStatus"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ResGrpCfgMdIfIndex"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ResGrpCfgDsChList"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ResGrpCfgUsChList"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ResGrpCfgEnable"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ResGrpCfgInitTech"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ResGrpCfgPolicyId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ResGrpCfgServiceTypeId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3ResGrpCfgStatus"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusCfgIdOrZero"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusMdIfIndex"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusMdCmSgId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusDsChList"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusUsChList"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusEnable"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusInitTech"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusPolicyId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusChgOverSuccess"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3GrpStatusChgOverFails"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3RestrictCmCfgMacAddr"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3RestrictCmCfgMacAddrMask"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3RestrictCmCfgGrpId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3RestrictCmCfgServiceTypeId"
+      },
+      {
+        "module": "DOCS-LOADBAL3-MIB",
+        "object": "docsLoadbal3RestrictCmCfgStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-LOADBAL3-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DOCS-LOADBAL3-MIB"
+  }
+}

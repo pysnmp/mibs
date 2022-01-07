@@ -3,7 +3,7 @@
 --   
 -- August 2005, Katherine Yang
 --   
--- Copyright (c) 2005-2014 by Cisco Systems Inc.
+-- Copyright (c) 2005-2012 by Cisco Systems, Inc.
 -- All rights reserved.
 --   
 -- *****************************************************************
@@ -21,7 +21,7 @@ IMPORTS
 
 
 ciscoRttMonTCMIB MODULE-IDENTITY
-    LAST-UPDATED    "201403190000Z"
+    LAST-UPDATED    "201205250000Z"
     ORGANIZATION    "Cisco Systems, Inc."
     CONTACT-INFO
             "Cisco Systems, Inc.
@@ -49,26 +49,6 @@ ciscoRttMonTCMIB MODULE-IDENTITY
           SAA: Service Assurance Agent
           VPN: Virtual Private Network
           CFM: Connection Fault Management"
-    REVISION        "201403190000Z"
-    DESCRIPTION
-        "Added new fabricPathEcho type to RttMonRttType and
-        fabricPathEchoAppl type to RttMonProtocol"
-    REVISION        "201311260000Z"
-    DESCRIPTION
-        "Added new RttMonReactVar type named 'protocolSpecificError'"
-    REVISION        "201211020000Z"
-    DESCRIPTION
-        "Added RttMonScheduleStartType TC.
-
-        Added  enumeration y1731dmmv1 to RttMonProtocol.
-
-        Added the following to RttMonReactVar:
-          lpdGroup, lpdTreeTrace, lpdAll,
-          unavailSD, unavailDS, pktLossPctSD,
-          pktLossPctDS, rttPct, maxOfLatencySDPct,
-          maxOfLatencyDSPct, latencySDAvgPct, latencyDSAvgPct,
-          jitterSDAvgPct, jitterDSAvgPct, jitterAvgPct,
-          overThreshold."
     REVISION        "201205250000Z"
     DESCRIPTION
         "Added enumeration y1731slm to RttMonProtocol
@@ -109,29 +89,6 @@ ciscoRttMonTCMIB MODULE-IDENTITY
 
 
 -- Textual Conventions
-
-RttMonScheduleStartType ::= TEXTUAL-CONVENTION
-    STATUS          current
-    DESCRIPTION
-        "These are defined values for scheduling the start time of a
-        probe
-
-        pending(1)    - Pending state
-        now(2)        - Schedule the start time of probe to current time
-                        and probe is immediately started
-        random(3)     - Schedule the start time of probe at a random 
-                        time over a range.
-        after(4)      - Schedule the start time of probe after a certain
-                        amount of time from now.
-        specific(5)   - Schedule the start time of probe at a specific
-                        given time interval"
-    SYNTAX          INTEGER  {
-                        pending(1),
-                        now(2),
-                        random(3),
-                        after(4),
-                        specific(5)
-                    }
 
 RttReset ::= TEXTUAL-CONVENTION
     STATUS          current
@@ -410,17 +367,10 @@ RttMonRttType ::= TEXTUAL-CONVENTION
 
         The value 'video' will cause the the RTT application to perform
         a video stream analysis directed at the 'RttMonTargetAddress
-        The value 'y1731Delay' will cause the RTT application to perform
-        a ITU-T standard Y.1731 delay variance analysis
-        The value 'y1731Loss' will cause the RTT application to perform
-        a ITU-T standard Y.1731 loss measure analysis
-        The value 'mcastJitter' will cause the RTT application to
-        perform 
-        udp jitter stream analysis on a multicast network.
-
-        The value 'fabricPathEcho' will cause the RTT application to
-        perform delay performance measurment and verify connectivity in
-        a Fabric Path Network."
+        The value 'y1731Delay' will cause the RTT application to perform a ITU-T standard Y.1731 delay variance analysis
+        The value 'y1731Loss' will cause the RTT application to perform a ITU-T standard Y.1731 loss measure analysis
+        The value 'mcastJitter' will cause the RTT application to perform 
+        udp jitter stream analysis on a multicast network."
     SYNTAX          INTEGER  {
                         echo(1),
                         pathEcho(2),
@@ -446,8 +396,7 @@ RttMonRttType ::= TEXTUAL-CONVENTION
                         video(22),
                         y1731Delay(23),
                         y1731Loss(24),
-                        mcastJitter(25),
-                        fabricPathEcho(26)
+                        mcastJitter(25)
                     }
 
 -- Operation type for Auto SAA L3 MPLS VPN textual convention
@@ -626,17 +575,13 @@ RttMonProtocol ::= TEXTUAL-CONVENTION
         ethernetPingAppl    - uses regular 802.1ag loopback frame
         ethernetJitterAppl  - uses CFM frames .
         videoAppl           - uses synthetic traffic depending on video 
-                               profile
+                                         profile
         y1731dmm            - used to measure Y1731 delay
         y17311dm            - used to measure Y1731 1DM
         y1731lmm            - used to measure Y1731 Loss measurement
-        mcastJitterAppl     - uses udp jitter to measure multicast
-                               network performance
-        y1731slm            - used to measure Y1731 Synthetic Loss
-                               measurement
-        y1731dmmv1          - used to measure Y1731 DMMv1 measurement
-
-        fabricPathEchoAppl  - uses Fabric Path connect mechanism"
+        y1731slm            - used to measure Y1731 Synthetic Loss measurement
+        mcastJitterAppl     - uses udp jitter to measure multicast network
+                              performance"
     SYNTAX          INTEGER  {
                         notApplicable(1),
                         ipIcmpEcho(2),
@@ -679,9 +624,7 @@ RttMonProtocol ::= TEXTUAL-CONVENTION
                         y17311dm(39),
                         y1731lmm(40),
                         mcastJitterAppl(41),
-                        y1731slm(42),
-                        y1731dmmv1(43),
-                        fabricPathEchoAppl(44)
+                        y1731slm(42)
                     }
 
 RttMonCodecType ::= TEXTUAL-CONVENTION
@@ -842,38 +785,7 @@ RttMonReactVar ::= TEXTUAL-CONVENTION
                                    Source to Destination
          mosCQSD(31)             - Conversational quality MOS at 
                                    Destination
-         rFactorSD(32)           - R-Factor value at Destination.
-         lpdGroup(33)            - Label Path Discovery (LPD) group
-         lpdTreeTrace(34)        - LPD Tree Trace
-         lpdAll(35)              - LPD All
-         unavailSD(36)           - Unavailability threshold crossing
-                                   crossing - Source to Destination
-         unavailDS(37)           - Unavailability threshold crossing
-                                   crossing - Destination to source
-         pktLossPctSD(38)        - Loss ratio threshold crossing
-                                   based on percent - Source to
-                                   Destination
-         pktLossPctDS(39)        - Loss ratio threshold crossing
-                                   based on percent - Destination to
-                                   Source
-         rttPct(40)              - Percentile Round Trip Time
-         maxOfLatencySDPct(41)   - Percentile Maximum Latency from
-                                   Source to Destination
-         maxOfLatencyDSPct(42)   - Percentile Maximum Latency from
-                                   Destination to Source
-         latencySDAvgPct(43)     - Percentile Latency Average from
-                                   Source to Destination
-         latencyDSAvgPct(44)     - Percentile Latency Average from
-                                   Destination to Source
-         jitterSDAvgPct(45)      - Percentile Jitter Average from
-                                   Source to Destination
-         jitterDSAvgPct(46)      - Percentile Jitter Average from
-                                   Destination to Source
-         jitterAvgPct(47)        - Percentile Jitter Average in
-                                   both directions
-         overThreshold(48)       - Percent of Round Trip Times
-                                   over threshold.
-         protocolSpecificError(49)-Any protocol specific error."
+         rFactorSD(32)           - R-Factor value at Destination."
     SYNTAX          INTEGER  {
                         rtt(1),
                         jitterSDAvg(2),
@@ -906,24 +818,7 @@ RttMonReactVar ::= TEXTUAL-CONVENTION
                         packetLoss(29),
                         iaJitterSD(30),
                         mosCQSD(31),
-                        rFactorSD(32),
-                        lpdGroup(33),
-                        lpdTreeTrace(34),
-                        lpdAll(35),
-                        unavailSD(36),
-                        unavailDS(37),
-                        pktLossPctSD(38),
-                        pktLossPctDS(39),
-                        rttPct(40),
-                        maxOfLatencySDPct(41),
-                        maxOfLatencyDSPct(42),
-                        latencySDAvgPct(43),
-                        latencyDSAvgPct(44),
-                        jitterSDAvgPct(45),
-                        jitterDSAvgPct(46),
-                        jitterAvgPct(47),
-                        overThreshold(48),
-                        protocolSpecificError(49)
+                        rFactorSD(32)
                     }
 
 RttMonIdLst ::= TEXTUAL-CONVENTION
@@ -950,13 +845,41 @@ RttMonCtrlIndex ::= TEXTUAL-CONVENTION
 END
 
 
--- %DNP%  MLC -Submitted MLC
 
--- %DNP%  MRS -with reviewer MRS
 
--- %DNP%  MRC - ciscoRttMonTCMIB~2~ - 2014031805:01 PST - vivsreev -11.0 -ACK
--- %DNP%  - Can we allign the description of mcastJitterAppl into one line or two 
--- %DNP%lines for better readability? in Line: 633
--- %DNP%
--- %DNP% -0 MRC 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

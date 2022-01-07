@@ -1,0 +1,2007 @@
+{
+  "imports": {
+    "class": "imports",
+    "IANATn3270eTC-MIB": [
+      "IANATn3270DeviceType",
+      "IANATn3270eClientType",
+      "IANATn3270ResourceType",
+      "IANATn3270Functions",
+      "IANATn3270eAddrType",
+      "IANATn3270eAddress",
+      "IANATn3270eLogData"
+    ],
+    "SNA-NAU-MIB": [
+      "snanauMIB"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "TimeStamp",
+      "TestAndIncr",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "SYSAPPL-MIB": [
+      "Utf8String"
+    ]
+  },
+  "tn3270eMIB": {
+    "name": "tn3270eMIB",
+    "oid": "1.3.6.1.2.1.34.8",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-13 00:00",
+        "description": "Removed the IMPORTing of Unsigned32 from CISCO-TC, by changing it back to be IMPORTed from SNMPv2-SMI (as in RFC 2561)."
+      },
+      {
+        "revision": "1998-07-27 00:00",
+        "description": "Initial version of this MIB Module, published as RFC 2561."
+      }
+    ]
+  },
+  "SnaResourceName": {
+    "name": "SnaResourceName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "Tn3270eTraceData": {
+    "name": "Tn3270eTraceData",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "tn3270eNotifications": {
+    "name": "tn3270eNotifications",
+    "oid": "1.3.6.1.2.1.34.8.0",
+    "class": "objectidentity"
+  },
+  "tn3270eObjects": {
+    "name": "tn3270eObjects",
+    "oid": "1.3.6.1.2.1.34.8.1",
+    "class": "objectidentity"
+  },
+  "tn3270eConformance": {
+    "name": "tn3270eConformance",
+    "oid": "1.3.6.1.2.1.34.8.3",
+    "class": "objectidentity"
+  },
+  "tn3270eSrvrConfTable": {
+    "name": "tn3270eSrvrConfTable",
+    "oid": "1.3.6.1.2.1.34.8.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eSrvrConfEntry": {
+    "name": "tn3270eSrvrConfEntry",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eSrvrConfIndex": {
+    "name": "tn3270eSrvrConfIndex",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eSrvrConfInactivityTimeout": {
+    "name": "tn3270eSrvrConfInactivityTimeout",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999999
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSrvrConfConnectivityChk": {
+    "name": "tn3270eSrvrConfConnectivityChk",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "timingMark": 1,
+          "nop": 2,
+          "noCheck": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "noCheck",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSrvrConfTmNopInactTime": {
+    "name": "tn3270eSrvrConfTmNopInactTime",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSrvrConfTmNopInterval": {
+    "name": "tn3270eSrvrConfTmNopInterval",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 120,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSrvrFunctionsSupported": {
+    "name": "tn3270eSrvrFunctionsSupported",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270Functions",
+      "class": "type"
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "scsCtlCodes": 5,
+          "dataStreamCtl": 6,
+          "responses": 7,
+          "bindImage": 8,
+          "sysreq": 9
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrConfAdminStatus": {
+    "name": "tn3270eSrvrConfAdminStatus",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "stopImmediate": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSrvrConfOperStatus": {
+    "name": "tn3270eSrvrConfOperStatus",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "busy": 3,
+          "shuttingDown": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "up",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrConfSessionTermState": {
+    "name": "tn3270eSrvrConfSessionTermState",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "terminate": 1,
+          "luSessionPend": 2,
+          "queueSession": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "terminate",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSrvrConfSrvrType": {
+    "name": "tn3270eSrvrConfSrvrType",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "host": 1,
+          "gateway": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrConfContact": {
+    "name": "tn3270eSrvrConfContact",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSrvrConfRowStatus": {
+    "name": "tn3270eSrvrConfRowStatus",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSrvrConfLastActTime": {
+    "name": "tn3270eSrvrConfLastActTime",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrConfTmTimeout": {
+    "name": "tn3270eSrvrConfTmTimeout",
+    "oid": "1.3.6.1.2.1.34.8.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSrvrPortTable": {
+    "name": "tn3270eSrvrPortTable",
+    "oid": "1.3.6.1.2.1.34.8.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eSrvrPortEntry": {
+    "name": "tn3270eSrvrPortEntry",
+    "oid": "1.3.6.1.2.1.34.8.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrPort",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrPortAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrPortAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eSrvrPort": {
+    "name": "tn3270eSrvrPort",
+    "oid": "1.3.6.1.2.1.34.8.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eSrvrPortAddrType": {
+    "name": "tn3270eSrvrPortAddrType",
+    "oid": "1.3.6.1.2.1.34.8.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eAddrType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eSrvrPortAddress": {
+    "name": "tn3270eSrvrPortAddress",
+    "oid": "1.3.6.1.2.1.34.8.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eSrvrPortRowStatus": {
+    "name": "tn3270eSrvrPortRowStatus",
+    "oid": "1.3.6.1.2.1.34.8.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsTable": {
+    "name": "tn3270eSrvrStatsTable",
+    "oid": "1.3.6.1.2.1.34.8.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsEntry": {
+    "name": "tn3270eSrvrStatsEntry",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrPort",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrPortAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrPortAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eSrvrStatsUpTime": {
+    "name": "tn3270eSrvrStatsUpTime",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsMaxTerms": {
+    "name": "tn3270eSrvrStatsMaxTerms",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "LUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsInUseTerms": {
+    "name": "tn3270eSrvrStatsInUseTerms",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "LUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsSpareTerms": {
+    "name": "tn3270eSrvrStatsSpareTerms",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "LUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsMaxPtrs": {
+    "name": "tn3270eSrvrStatsMaxPtrs",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Printer Resources",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsInUsePtrs": {
+    "name": "tn3270eSrvrStatsInUsePtrs",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Printer Resources",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsSparePtrs": {
+    "name": "tn3270eSrvrStatsSparePtrs",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Spare Printer Resources",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsInConnects": {
+    "name": "tn3270eSrvrStatsInConnects",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsConnResrceRejs": {
+    "name": "tn3270eSrvrStatsConnResrceRejs",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connection attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsDisconnects": {
+    "name": "tn3270eSrvrStatsDisconnects",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "disconnections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsHCInOctets": {
+    "name": "tn3270eSrvrStatsHCInOctets",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsInOctets": {
+    "name": "tn3270eSrvrStatsInOctets",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsHCOutOctets": {
+    "name": "tn3270eSrvrStatsHCOutOctets",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsOutOctets": {
+    "name": "tn3270eSrvrStatsOutOctets",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSrvrStatsConnErrorRejs": {
+    "name": "tn3270eSrvrStatsConnErrorRejs",
+    "oid": "1.3.6.1.2.1.34.8.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "connection attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eClientGroupTable": {
+    "name": "tn3270eClientGroupTable",
+    "oid": "1.3.6.1.2.1.34.8.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eClientGroupEntry": {
+    "name": "tn3270eClientGroupEntry",
+    "oid": "1.3.6.1.2.1.34.8.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eClientGroupName",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eClientGroupAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eClientGroupAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eClientGroupName": {
+    "name": "tn3270eClientGroupName",
+    "oid": "1.3.6.1.2.1.34.8.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eClientGroupAddrType": {
+    "name": "tn3270eClientGroupAddrType",
+    "oid": "1.3.6.1.2.1.34.8.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eAddrType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eClientGroupAddress": {
+    "name": "tn3270eClientGroupAddress",
+    "oid": "1.3.6.1.2.1.34.8.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eClientGroupSubnetMask": {
+    "name": "tn3270eClientGroupSubnetMask",
+    "oid": "1.3.6.1.2.1.34.8.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "FFFFFFFF",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eClientGroupPfxLength": {
+    "name": "tn3270eClientGroupPfxLength",
+    "oid": "1.3.6.1.2.1.34.8.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eClientGroupRowStatus": {
+    "name": "tn3270eClientGroupRowStatus",
+    "oid": "1.3.6.1.2.1.34.8.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eResPoolTable": {
+    "name": "tn3270eResPoolTable",
+    "oid": "1.3.6.1.2.1.34.8.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eResPoolEntry": {
+    "name": "tn3270eResPoolEntry",
+    "oid": "1.3.6.1.2.1.34.8.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eResPoolName",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eResPoolElementName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eResPoolName": {
+    "name": "tn3270eResPoolName",
+    "oid": "1.3.6.1.2.1.34.8.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eResPoolElementName": {
+    "name": "tn3270eResPoolElementName",
+    "oid": "1.3.6.1.2.1.34.8.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaResourceName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eResPoolElementType": {
+    "name": "tn3270eResPoolElementType",
+    "oid": "1.3.6.1.2.1.34.8.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270ResourceType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eResPoolRowStatus": {
+    "name": "tn3270eResPoolRowStatus",
+    "oid": "1.3.6.1.2.1.34.8.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eSnaMapTable": {
+    "name": "tn3270eSnaMapTable",
+    "oid": "1.3.6.1.2.1.34.8.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eSnaMapEntry": {
+    "name": "tn3270eSnaMapEntry",
+    "oid": "1.3.6.1.2.1.34.8.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSnaMapSscpSuppliedName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eSnaMapSscpSuppliedName": {
+    "name": "tn3270eSnaMapSscpSuppliedName",
+    "oid": "1.3.6.1.2.1.34.8.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaResourceName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eSnaMapLocalName": {
+    "name": "tn3270eSnaMapLocalName",
+    "oid": "1.3.6.1.2.1.34.8.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaResourceName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eSnaMapPrimaryLuName": {
+    "name": "tn3270eSnaMapPrimaryLuName",
+    "oid": "1.3.6.1.2.1.34.8.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaResourceName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eClientResMapTable": {
+    "name": "tn3270eClientResMapTable",
+    "oid": "1.3.6.1.2.1.34.8.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eClientResMapEntry": {
+    "name": "tn3270eClientResMapEntry",
+    "oid": "1.3.6.1.2.1.34.8.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eClientResMapPoolName",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eClientResMapClientGroupName",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eClientResMapClientPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eClientResMapPoolName": {
+    "name": "tn3270eClientResMapPoolName",
+    "oid": "1.3.6.1.2.1.34.8.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eClientResMapClientGroupName": {
+    "name": "tn3270eClientResMapClientGroupName",
+    "oid": "1.3.6.1.2.1.34.8.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 24
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eClientResMapClientPort": {
+    "name": "tn3270eClientResMapClientPort",
+    "oid": "1.3.6.1.2.1.34.8.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eClientResMapRowStatus": {
+    "name": "tn3270eClientResMapRowStatus",
+    "oid": "1.3.6.1.2.1.34.8.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "tn3270eResMapTable": {
+    "name": "tn3270eResMapTable",
+    "oid": "1.3.6.1.2.1.34.8.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eResMapEntry": {
+    "name": "tn3270eResMapEntry",
+    "oid": "1.3.6.1.2.1.34.8.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfIndex",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eResMapElementName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eResMapElementName": {
+    "name": "tn3270eResMapElementName",
+    "oid": "1.3.6.1.2.1.34.8.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaResourceName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eResMapAddrType": {
+    "name": "tn3270eResMapAddrType",
+    "oid": "1.3.6.1.2.1.34.8.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eAddrType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eResMapAddress": {
+    "name": "tn3270eResMapAddress",
+    "oid": "1.3.6.1.2.1.34.8.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eResMapPort": {
+    "name": "tn3270eResMapPort",
+    "oid": "1.3.6.1.2.1.34.8.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eResMapElementType": {
+    "name": "tn3270eResMapElementType",
+    "oid": "1.3.6.1.2.1.34.8.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270ResourceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eResMapSscpSuppliedName": {
+    "name": "tn3270eResMapSscpSuppliedName",
+    "oid": "1.3.6.1.2.1.34.8.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaResourceName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnTable": {
+    "name": "tn3270eTcpConnTable",
+    "oid": "1.3.6.1.2.1.34.8.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eTcpConnEntry": {
+    "name": "tn3270eTcpConnEntry",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnRemAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnRemAddress",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnRemPort",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnLocalAddrType",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnLocalAddress",
+        "implied": 0
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnLocalPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eTcpConnRemAddrType": {
+    "name": "tn3270eTcpConnRemAddrType",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eAddrType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eTcpConnRemAddress": {
+    "name": "tn3270eTcpConnRemAddress",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eTcpConnRemPort": {
+    "name": "tn3270eTcpConnRemPort",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eTcpConnLocalAddrType": {
+    "name": "tn3270eTcpConnLocalAddrType",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eAddrType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eTcpConnLocalAddress": {
+    "name": "tn3270eTcpConnLocalAddress",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eTcpConnLocalPort": {
+    "name": "tn3270eTcpConnLocalPort",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "tn3270eTcpConnLastActivity": {
+    "name": "tn3270eTcpConnLastActivity",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnBytesIn": {
+    "name": "tn3270eTcpConnBytesIn",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnBytesOut": {
+    "name": "tn3270eTcpConnBytesOut",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnResourceElement": {
+    "name": "tn3270eTcpConnResourceElement",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaResourceName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnResourceType": {
+    "name": "tn3270eTcpConnResourceType",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270ResourceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnDeviceType": {
+    "name": "tn3270eTcpConnDeviceType",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270DeviceType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnFunctions": {
+    "name": "tn3270eTcpConnFunctions",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270Functions",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnId": {
+    "name": "tn3270eTcpConnId",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnClientIdFormat": {
+    "name": "tn3270eTcpConnClientIdFormat",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eClientType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnClientId": {
+    "name": "tn3270eTcpConnClientId",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnTraceData": {
+    "name": "tn3270eTcpConnTraceData",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Tn3270eTraceData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnLogInfo": {
+    "name": "tn3270eTcpConnLogInfo",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANATn3270eLogData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnLuLuBindImage": {
+    "name": "tn3270eTcpConnLuLuBindImage",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnSnaState": {
+    "name": "tn3270eTcpConnSnaState",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "noSluSession": 2,
+          "sscpLuSession": 3,
+          "luLuSession": 4,
+          "sscpLuSessionAndLuLuSession": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnStateLastDiscReason": {
+    "name": "tn3270eTcpConnStateLastDiscReason",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "hostSendsUnbind": 2,
+          "hostDontAcceptConnection": 3,
+          "outOfResource": 4,
+          "clientProtocolError": 5,
+          "invalidDeviceName": 6,
+          "deviceInUse": 7,
+          "inactivityTimeout": 8,
+          "hostNotResponding": 9,
+          "clientNotResponding": 10,
+          "serverClose": 11,
+          "sysreqLogoff": 12,
+          "serverSpecificHexCode": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnSrvrConfIndex": {
+    "name": "tn3270eTcpConnSrvrConfIndex",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eTcpConnActivationTime": {
+    "name": "tn3270eTcpConnActivationTime",
+    "oid": "1.3.6.1.2.1.34.8.1.9.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "tn3270eConfSpinLock": {
+    "name": "tn3270eConfSpinLock",
+    "oid": "1.3.6.1.2.1.34.8.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "tn3270eGroups": {
+    "name": "tn3270eGroups",
+    "oid": "1.3.6.1.2.1.34.8.3.1",
+    "class": "objectidentity"
+  },
+  "tn3270eCompliances": {
+    "name": "tn3270eCompliances",
+    "oid": "1.3.6.1.2.1.34.8.3.2",
+    "class": "objectidentity"
+  },
+  "tn3270eCompliance": {
+    "name": "tn3270eCompliance",
+    "oid": "1.3.6.1.2.1.34.8.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "tn3270eBasicGroup",
+        "module": "TN3270E-MIB"
+      },
+      {
+        "object": "tn3270eSessionGroup",
+        "module": "TN3270E-MIB"
+      },
+      {
+        "object": "tn3270eResMapGroup",
+        "module": "TN3270E-MIB"
+      },
+      {
+        "object": "tn3270eHiCapacityGroup",
+        "module": "TN3270E-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eBasicGroup": {
+    "name": "tn3270eBasicGroup",
+    "oid": "1.3.6.1.2.1.34.8.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfInactivityTimeout"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfConnectivityChk"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfTmNopInactTime"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfTmNopInterval"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrFunctionsSupported"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfAdminStatus"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfOperStatus"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfSessionTermState"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfSrvrType"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfContact"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfRowStatus"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfLastActTime"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrConfTmTimeout"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrPortRowStatus"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsUpTime"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsMaxTerms"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsInUseTerms"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsSpareTerms"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsMaxPtrs"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsInUsePtrs"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsSparePtrs"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsInConnects"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsConnResrceRejs"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsDisconnects"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsInOctets"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsOutOctets"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsConnErrorRejs"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eClientGroupSubnetMask"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eClientGroupPfxLength"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eClientGroupRowStatus"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSnaMapLocalName"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSnaMapPrimaryLuName"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eConfSpinLock"
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eSessionGroup": {
+    "name": "tn3270eSessionGroup",
+    "oid": "1.3.6.1.2.1.34.8.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eResMapAddrType"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eResMapAddress"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eResMapPort"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eResMapElementType"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eResMapSscpSuppliedName"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnLastActivity"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnBytesIn"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnBytesOut"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnResourceElement"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnResourceType"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnDeviceType"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnFunctions"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnSrvrConfIndex"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnActivationTime"
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eResMapGroup": {
+    "name": "tn3270eResMapGroup",
+    "oid": "1.3.6.1.2.1.34.8.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eResPoolElementType"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eResPoolRowStatus"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eClientResMapRowStatus"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnId"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnClientIdFormat"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnClientId"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnTraceData"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnLogInfo"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnLuLuBindImage"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnSnaState"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eTcpConnStateLastDiscReason"
+      }
+    ],
+    "status": "current"
+  },
+  "tn3270eHiCapacityGroup": {
+    "name": "tn3270eHiCapacityGroup",
+    "oid": "1.3.6.1.2.1.34.8.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsHCInOctets"
+      },
+      {
+        "module": "TN3270E-MIB",
+        "object": "tn3270eSrvrStatsHCOutOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/TN3270E-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:26 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TN3270E-MIB"
+  }
+}

@@ -1,0 +1,3222 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-CBP-TC-MIB": [
+      "CbpElementName"
+    ],
+    "CISCO-DYNAMIC-TEMPLATE-TC-MIB": [
+      "DynamicTemplateTargetType",
+      "DynamicTemplateType",
+      "DynamicTemplateName",
+      "DynamicTemplateTargetId"
+    ],
+    "CISCO-IP-URPF-MIB": [
+      "UnicastRpfType",
+      "UnicastRpfOptions"
+    ],
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoVrfName"
+    ],
+    "IF-MIB": [
+      "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
+      "InetAddressIPv4",
+      "InetAddressIPv6"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "StorageType",
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDynamicTemplateMIB": {
+    "name": "ciscoDynamicTemplateMIB",
+    "oid": "1.3.6.1.4.1.9.9.784",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-09-06 00:00",
+        "description": "The initial version of the MIB module."
+      }
+    ]
+  },
+  "ciscoDynamicTemplateMIBNotifs": {
+    "name": "ciscoDynamicTemplateMIBNotifs",
+    "oid": "1.3.6.1.4.1.9.9.784.0",
+    "class": "objectidentity"
+  },
+  "ciscoDynamicTemplateMIBObjects": {
+    "name": "ciscoDynamicTemplateMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.784.1",
+    "class": "objectidentity"
+  },
+  "ciscoDynamicTemplateMIBConform": {
+    "name": "ciscoDynamicTemplateMIBConform",
+    "oid": "1.3.6.1.4.1.9.9.784.2",
+    "class": "objectidentity"
+  },
+  "cdtBase": {
+    "name": "cdtBase",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1",
+    "class": "objectidentity"
+  },
+  "cdtCommonIf": {
+    "name": "cdtCommonIf",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2",
+    "class": "objectidentity"
+  },
+  "cdtPpp": {
+    "name": "cdtPpp",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3",
+    "class": "objectidentity"
+  },
+  "cdtEthernet": {
+    "name": "cdtEthernet",
+    "oid": "1.3.6.1.4.1.9.9.784.1.4",
+    "class": "objectidentity"
+  },
+  "cdtIpSubscriber": {
+    "name": "cdtIpSubscriber",
+    "oid": "1.3.6.1.4.1.9.9.784.1.5",
+    "class": "objectidentity"
+  },
+  "cdtService": {
+    "name": "cdtService",
+    "oid": "1.3.6.1.4.1.9.9.784.1.6",
+    "class": "objectidentity"
+  },
+  "cdtSubscriberGroup": {
+    "name": "cdtSubscriberGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.1.7",
+    "class": "objectidentity"
+  },
+  "cdtTemplateTable": {
+    "name": "cdtTemplateTable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtTemplateEntry": {
+    "name": "cdtTemplateEntry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdtTemplateName": {
+    "name": "cdtTemplateName",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DynamicTemplateName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdtTemplateStatus": {
+    "name": "cdtTemplateStatus",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtTemplateStorage": {
+    "name": "cdtTemplateStorage",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtTemplateType": {
+    "name": "cdtTemplateType",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DynamicTemplateType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtTemplateSrc": {
+    "name": "cdtTemplateSrc",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "derived": 2,
+          "local": 3,
+          "aaaUserProfile": 4,
+          "aaaServiceProfile": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdtTemplateUsageCount": {
+    "name": "cdtTemplateUsageCount",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdtTemplateTargetTable": {
+    "name": "cdtTemplateTargetTable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtTemplateTargetEntry": {
+    "name": "cdtTemplateTargetEntry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateTargetType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateTargetId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdtTemplateTargetType": {
+    "name": "cdtTemplateTargetType",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DynamicTemplateTargetType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtTemplateTargetId": {
+    "name": "cdtTemplateTargetId",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DynamicTemplateTargetId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtTemplateTargetStatus": {
+    "name": "cdtTemplateTargetStatus",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtTemplateTargetStorage": {
+    "name": "cdtTemplateTargetStorage",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtTemplateAssociationTable": {
+    "name": "cdtTemplateAssociationTable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtTemplateAssociationEntry": {
+    "name": "cdtTemplateAssociationEntry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateTargetType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateTargetId",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateAssociationName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdtTemplateAssociationName": {
+    "name": "cdtTemplateAssociationName",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DynamicTemplateName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdtTemplateAssociationPrecedence": {
+    "name": "cdtTemplateAssociationPrecedence",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdtTemplateUsageTable": {
+    "name": "cdtTemplateUsageTable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtTemplateUsageEntry": {
+    "name": "cdtTemplateUsageEntry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateUsageTargetType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateUsageTargetId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdtTemplateUsageTargetType": {
+    "name": "cdtTemplateUsageTargetType",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DynamicTemplateTargetType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdtTemplateUsageTargetId": {
+    "name": "cdtTemplateUsageTargetId",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DynamicTemplateTargetId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdtTemplateCommonTable": {
+    "name": "cdtTemplateCommonTable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtTemplateCommonEntry": {
+    "name": "cdtTemplateCommonEntry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdtCommonValid": {
+    "name": "cdtCommonValid",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "descr": 0,
+        "keepalive": 1,
+        "vrf": 2,
+        "addrPool": 3,
+        "ipv4AccessGroup": 4,
+        "ipv4Unreachables": 5,
+        "ipv6AccessGroup": 6,
+        "ipv6Unreachables": 7,
+        "srvSubControl": 8,
+        "srvRedirect": 9,
+        "srvAcct": 10,
+        "srvQos": 11,
+        "srvNetflow": 12
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonDescr": {
+    "name": "cdtCommonDescr",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonKeepaliveInt": {
+    "name": "cdtCommonKeepaliveInt",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonKeepaliveRetries": {
+    "name": "cdtCommonKeepaliveRetries",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "retries",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonVrf": {
+    "name": "cdtCommonVrf",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoVrfName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonAddrPool": {
+    "name": "cdtCommonAddrPool",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonIpv4AccessGroup": {
+    "name": "cdtCommonIpv4AccessGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonIpv4Unreachables": {
+    "name": "cdtCommonIpv4Unreachables",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonIpv6AccessGroup": {
+    "name": "cdtCommonIpv6AccessGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonIpv6Unreachables": {
+    "name": "cdtCommonIpv6Unreachables",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonSrvSubControl": {
+    "name": "cdtCommonSrvSubControl",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbpElementName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonSrvRedirect": {
+    "name": "cdtCommonSrvRedirect",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbpElementName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonSrvAcct": {
+    "name": "cdtCommonSrvAcct",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbpElementName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonSrvQos": {
+    "name": "cdtCommonSrvQos",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbpElementName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtCommonSrvNetflow": {
+    "name": "cdtCommonSrvNetflow",
+    "oid": "1.3.6.1.4.1.9.9.784.1.1.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbpElementName",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfTemplateTable": {
+    "name": "cdtIfTemplateTable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtIfTemplateEntry": {
+    "name": "cdtIfTemplateEntry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdtIfValid": {
+    "name": "cdtIfValid",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mtu": 0,
+        "cdpEnable": 1,
+        "flowMonitor": 2,
+        "ipv4Unnumbered": 3,
+        "ipv4SubEnable": 4,
+        "ipv4Mtu": 5,
+        "ipv4TcpMssAdjust": 6,
+        "ipv4VerifyUniRpf": 7,
+        "ipv4VerifyUniRpfAcl": 8,
+        "ipv4VerifyUniRpfOpts": 9,
+        "ipv6Enable": 10,
+        "ipv6SubEnable": 11,
+        "ipv6TcpMssAdjust": 12,
+        "ipv6VerifyUniRpf": 13,
+        "ipv6VerifyUniRpfAcl": 14,
+        "ipv6VerifyUniRpfOpts": 15,
+        "ipv6NdPrefix": 16,
+        "ipv6NdValidLife": 17,
+        "ipv6NdPreferredLife": 18,
+        "ipv6NdOpts": 19,
+        "ipv6NdDadAttempts": 20,
+        "ipv6NdNsInterval": 21,
+        "ipv6NdReachableTime": 22,
+        "ipv6NdRaIntervalMax": 23,
+        "ipv6NdRaIntervalMin": 24,
+        "ipv6NdRaLife": 25,
+        "ipv6NdRaRouterPreference": 26
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfMtu": {
+    "name": "cdtIfMtu",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 64,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfCdpEnable": {
+    "name": "cdtIfCdpEnable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfFlowMonitor": {
+    "name": "cdtIfFlowMonitor",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv4Unnumbered": {
+    "name": "cdtIfIpv4Unnumbered",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv4SubEnable": {
+    "name": "cdtIfIpv4SubEnable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv4Mtu": {
+    "name": "cdtIfIpv4Mtu",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 128,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv4TcpMssAdjust": {
+    "name": "cdtIfIpv4TcpMssAdjust",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 500,
+            "max": 1460
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv4VerifyUniRpf": {
+    "name": "cdtIfIpv4VerifyUniRpf",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnicastRpfType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv4VerifyUniRpfAcl": {
+    "name": "cdtIfIpv4VerifyUniRpfAcl",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv4VerifyUniRpfOpts": {
+    "name": "cdtIfIpv4VerifyUniRpfOpts",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnicastRpfOptions",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6Enable": {
+    "name": "cdtIfIpv6Enable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6SubEnable": {
+    "name": "cdtIfIpv6SubEnable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6TcpMssAdjust": {
+    "name": "cdtIfIpv6TcpMssAdjust",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 500,
+            "max": 1460
+          }
+        ]
+      }
+    },
+    "units": "octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6VerifyUniRpf": {
+    "name": "cdtIfIpv6VerifyUniRpf",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnicastRpfType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6VerifyUniRpfAcl": {
+    "name": "cdtIfIpv6VerifyUniRpfAcl",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6VerifyUniRpfOpts": {
+    "name": "cdtIfIpv6VerifyUniRpfOpts",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UnicastRpfOptions",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdPrefix": {
+    "name": "cdtIfIpv6NdPrefix",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv6",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000000000000000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdPrefixLength": {
+    "name": "cdtIfIpv6NdPrefixLength",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdValidLife": {
+    "name": "cdtIfIpv6NdValidLife",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2592000,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdPreferredLife": {
+    "name": "cdtIfIpv6NdPreferredLife",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 604800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdOpts": {
+    "name": "cdtIfIpv6NdOpts",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "advertise": 0,
+        "onlink": 1,
+        "router": 2,
+        "autoConfig": 3,
+        "advertisementInterval": 4,
+        "managedConfigFlag": 5,
+        "otherConfigFlag": 6,
+        "framedIpv6Prefix": 7,
+        "raSuppress": 8
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "advertise": 0,
+          "onlink": 1,
+          "router": 2,
+          "autoConfig": 3
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdDadAttempts": {
+    "name": "cdtIfIpv6NdDadAttempts",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdNsInterval": {
+    "name": "cdtIfIpv6NdNsInterval",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1000,
+            "max": 3600000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdReachableTime": {
+    "name": "cdtIfIpv6NdReachableTime",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdRaIntervalUnits": {
+    "name": "cdtIfIpv6NdRaIntervalUnits",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "seconds": 1,
+          "milliseconds": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "seconds",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdRaIntervalMax": {
+    "name": "cdtIfIpv6NdRaIntervalMax",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdRaIntervalMin": {
+    "name": "cdtIfIpv6NdRaIntervalMin",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdRaLife": {
+    "name": "cdtIfIpv6NdRaLife",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1800,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtIfIpv6NdRouterPreference": {
+    "name": "cdtIfIpv6NdRouterPreference",
+    "oid": "1.3.6.1.4.1.9.9.784.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "high": 1,
+          "medium": 2,
+          "low": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "medium",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppTemplateTable": {
+    "name": "cdtPppTemplateTable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtPppTemplateEntry": {
+    "name": "cdtPppTemplateEntry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdtPppValid": {
+    "name": "cdtPppValid",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "valid": 0,
+        "accounting": 1,
+        "authentication": 2,
+        "autthenticationMethods": 3,
+        "authorization": 4,
+        "loopbackIgnore": 5,
+        "maxBadAuth": 6,
+        "maxConfigure": 7,
+        "maxFailure": 8,
+        "maxTerminate": 9,
+        "timeoutAuthentication": 10,
+        "timeoutRetry": 11,
+        "chapOpts": 12,
+        "chapHostname": 13,
+        "chapPassword": 14,
+        "msChapV1Opts": 15,
+        "msChapV1Hostname": 16,
+        "msChapV1Password": 17,
+        "msChapV2Opts": 18,
+        "msChapV2Hostname": 19,
+        "msChapV2Password": 20,
+        "papOpts": 21,
+        "papUsername": 22,
+        "papPassword": 23,
+        "eapOpts": 24,
+        "eapIdentity": 25,
+        "eapPassword": 26,
+        "ipcpAddrOption": 27,
+        "ipcpDnsOption": 28,
+        "ipcpDnsPrimary": 29,
+        "ipcpDnsSecondary": 30,
+        "ipcpWinsOption": 31,
+        "ipcpWinsPrimary": 32,
+        "ipcpWinsSecondary": 33,
+        "ipcpMaskOption": 34,
+        "ipcpMask": 35,
+        "peerDefIpAddrOpts": 36,
+        "peerDefIpAddrSrc": 37,
+        "peerDefIpAddr": 38
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppAccounting": {
+    "name": "cdtPppAccounting",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppAuthentication": {
+    "name": "cdtPppAuthentication",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "chap": 0,
+        "msChap": 1,
+        "msChapV2": 2,
+        "pap": 3,
+        "eap": 4,
+        "optional": 5,
+        "callin": 6,
+        "oneTime": 7
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppAuthenticationMethods": {
+    "name": "cdtPppAuthenticationMethods",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppAuthorization": {
+    "name": "cdtPppAuthorization",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppLoopbackIgnore": {
+    "name": "cdtPppLoopbackIgnore",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppMaxBadAuth": {
+    "name": "cdtPppMaxBadAuth",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppMaxConfigure": {
+    "name": "cdtPppMaxConfigure",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppMaxFailure": {
+    "name": "cdtPppMaxFailure",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppMaxTerminate": {
+    "name": "cdtPppMaxTerminate",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppTimeoutAuthentication": {
+    "name": "cdtPppTimeoutAuthentication",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppTimeoutRetry": {
+    "name": "cdtPppTimeoutRetry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppChapOpts": {
+    "name": "cdtPppChapOpts",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "refuse": 0,
+        "callin": 1,
+        "wait": 2,
+        "encrypted": 3
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "wait": 2
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppChapHostname": {
+    "name": "cdtPppChapHostname",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppChapPassword": {
+    "name": "cdtPppChapPassword",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppMsChapV1Opts": {
+    "name": "cdtPppMsChapV1Opts",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "refuse": 0,
+        "callin": 1,
+        "wait": 2,
+        "encrypted": 3
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "wait": 2
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppMsChapV1Hostname": {
+    "name": "cdtPppMsChapV1Hostname",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppMsChapV1Password": {
+    "name": "cdtPppMsChapV1Password",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppMsChapV2Opts": {
+    "name": "cdtPppMsChapV2Opts",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "refuse": 0,
+        "callin": 1,
+        "wait": 2,
+        "encrypted": 3
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "wait": 2
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppMsChapV2Hostname": {
+    "name": "cdtPppMsChapV2Hostname",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppMsChapV2Password": {
+    "name": "cdtPppMsChapV2Password",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppPapOpts": {
+    "name": "cdtPppPapOpts",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "refuse": 0,
+        "encrypted": 1
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppPapUsername": {
+    "name": "cdtPppPapUsername",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppPapPassword": {
+    "name": "cdtPppPapPassword",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppEapOpts": {
+    "name": "cdtPppEapOpts",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "refuse": 0,
+        "callin": 1,
+        "wait": 2,
+        "local": 3
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppEapIdentity": {
+    "name": "cdtPppEapIdentity",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppEapPassword": {
+    "name": "cdtPppEapPassword",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppIpcpAddrOption": {
+    "name": "cdtPppIpcpAddrOption",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "accept": 2,
+          "required": 3,
+          "unique": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppIpcpDnsOption": {
+    "name": "cdtPppIpcpDnsOption",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "accept": 2,
+          "request": 3,
+          "reject": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppIpcpDnsPrimary": {
+    "name": "cdtPppIpcpDnsPrimary",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppIpcpDnsSecondary": {
+    "name": "cdtPppIpcpDnsSecondary",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppIpcpWinsOption": {
+    "name": "cdtPppIpcpWinsOption",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "accept": 2,
+          "request": 3,
+          "reject": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppIpcpWinsPrimary": {
+    "name": "cdtPppIpcpWinsPrimary",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppIpcpWinsSecondary": {
+    "name": "cdtPppIpcpWinsSecondary",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppIpcpMaskOption": {
+    "name": "cdtPppIpcpMaskOption",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "request": 2,
+          "reject": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "other",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppIpcpMask": {
+    "name": "cdtPppIpcpMask",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppPeerDefIpAddrOpts": {
+    "name": "cdtPppPeerDefIpAddrOpts",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "ipAddrForced": 0,
+        "matchAaaPools": 1,
+        "staticPool": 2
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "ipAddrForced": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppPeerDefIpAddrSrc": {
+    "name": "cdtPppPeerDefIpAddrSrc",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "pool": 2,
+          "dhcp": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "pool",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppPeerDefIpAddr": {
+    "name": "cdtPppPeerDefIpAddr",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressIPv4",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppPeerIpAddrPoolTable": {
+    "name": "cdtPppPeerIpAddrPoolTable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtPppPeerIpAddrPoolEntry": {
+    "name": "cdtPppPeerIpAddrPoolEntry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateName",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppPeerIpAddrPoolPriority",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdtPppPeerIpAddrPoolPriority": {
+    "name": "cdtPppPeerIpAddrPoolPriority",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtPppPeerIpAddrPoolStatus": {
+    "name": "cdtPppPeerIpAddrPoolStatus",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppPeerIpAddrPoolStorage": {
+    "name": "cdtPppPeerIpAddrPoolStorage",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtPppPeerIpAddrPoolName": {
+    "name": "cdtPppPeerIpAddrPoolName",
+    "oid": "1.3.6.1.4.1.9.9.784.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtEthernetTemplateTable": {
+    "name": "cdtEthernetTemplateTable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtEthernetTemplateEntry": {
+    "name": "cdtEthernetTemplateEntry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdtEthernetValid": {
+    "name": "cdtEthernetValid",
+    "oid": "1.3.6.1.4.1.9.9.784.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "bridgeDomain": 0,
+        "pppoeEnable": 1,
+        "ipv4PointToPoint": 2,
+        "macAddr": 3
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtEthernetBridgeDomain": {
+    "name": "cdtEthernetBridgeDomain",
+    "oid": "1.3.6.1.4.1.9.9.784.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtEthernetPppoeEnable": {
+    "name": "cdtEthernetPppoeEnable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtEthernetIpv4PointToPoint": {
+    "name": "cdtEthernetIpv4PointToPoint",
+    "oid": "1.3.6.1.4.1.9.9.784.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtEthernetMacAddr": {
+    "name": "cdtEthernetMacAddr",
+    "oid": "1.3.6.1.4.1.9.9.784.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtSrvTemplateTable": {
+    "name": "cdtSrvTemplateTable",
+    "oid": "1.3.6.1.4.1.9.9.784.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdtSrvTemplateEntry": {
+    "name": "cdtSrvTemplateEntry",
+    "oid": "1.3.6.1.4.1.9.9.784.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdtSrvValid": {
+    "name": "cdtSrvValid",
+    "oid": "1.3.6.1.4.1.9.9.784.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "networkSrv": 0,
+        "vpdnGroup": 1,
+        "sgSrvGroup": 2,
+        "sgSrvType": 3,
+        "multicast": 4
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtSrvNetworkSrv": {
+    "name": "cdtSrvNetworkSrv",
+    "oid": "1.3.6.1.4.1.9.9.784.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "local": 3,
+          "vpdn": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtSrvVpdnGroup": {
+    "name": "cdtSrvVpdnGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtSrvSgSrvGroup": {
+    "name": "cdtSrvSgSrvGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtSrvSgSrvType": {
+    "name": "cdtSrvSgSrvType",
+    "oid": "1.3.6.1.4.1.9.9.784.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "secondary": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "secondary",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdtSrvMulticast": {
+    "name": "cdtSrvMulticast",
+    "oid": "1.3.6.1.4.1.9.9.784.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ciscoDynamicTemplateMIBCompliances": {
+    "name": "ciscoDynamicTemplateMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.784.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoDynamicTemplateMIBGroups": {
+    "name": "ciscoDynamicTemplateMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.784.2.2",
+    "class": "objectidentity"
+  },
+  "ciscoDynamicTemplateR1Compliance": {
+    "name": "ciscoDynamicTemplateR1Compliance",
+    "oid": "1.3.6.1.4.1.9.9.784.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdtBaseGroup",
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB"
+      },
+      {
+        "object": "cdtCommonGroup",
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB"
+      },
+      {
+        "object": "cdtIfGroup",
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB"
+      },
+      {
+        "object": "cdtPppGroup",
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB"
+      },
+      {
+        "object": "cdtEthernetGroup",
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB"
+      },
+      {
+        "object": "cdtSrvGroup",
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdtBaseGroup": {
+    "name": "cdtBaseGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateStatus"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateStorage"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateType"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateSrc"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateUsageCount"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateTargetStatus"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateTargetStorage"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateAssociationPrecedence"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateUsageTargetType"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtTemplateUsageTargetId"
+      }
+    ],
+    "status": "current"
+  },
+  "cdtCommonGroup": {
+    "name": "cdtCommonGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonValid"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonDescr"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonKeepaliveInt"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonKeepaliveRetries"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonVrf"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonAddrPool"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonIpv4AccessGroup"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonIpv4Unreachables"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonIpv6AccessGroup"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonIpv6Unreachables"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonSrvSubControl"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonSrvRedirect"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonSrvAcct"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonSrvQos"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtCommonSrvNetflow"
+      }
+    ],
+    "status": "current"
+  },
+  "cdtIfGroup": {
+    "name": "cdtIfGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfValid"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfMtu"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfCdpEnable"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfFlowMonitor"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv4Unnumbered"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv4SubEnable"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv4Mtu"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv4TcpMssAdjust"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv4VerifyUniRpf"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv4VerifyUniRpfAcl"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv4VerifyUniRpfOpts"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6Enable"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6SubEnable"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6TcpMssAdjust"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6VerifyUniRpf"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6VerifyUniRpfAcl"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6VerifyUniRpfOpts"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdPrefix"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdPrefixLength"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdValidLife"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdPreferredLife"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdOpts"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdDadAttempts"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdNsInterval"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdReachableTime"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdRaIntervalUnits"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdRaIntervalMax"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdRaIntervalMin"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdRaLife"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtIfIpv6NdRouterPreference"
+      }
+    ],
+    "status": "current"
+  },
+  "cdtPppGroup": {
+    "name": "cdtPppGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppValid"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppAccounting"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppAuthentication"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppAuthenticationMethods"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppAuthorization"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppLoopbackIgnore"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppMaxBadAuth"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppMaxConfigure"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppMaxFailure"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppMaxTerminate"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppTimeoutAuthentication"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppTimeoutRetry"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppChapOpts"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppChapHostname"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppChapPassword"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppMsChapV1Opts"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppMsChapV1Hostname"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppMsChapV1Password"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppMsChapV2Opts"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppMsChapV2Hostname"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppMsChapV2Password"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppPapOpts"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppPapUsername"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppPapPassword"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppEapOpts"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppEapIdentity"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppEapPassword"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppIpcpAddrOption"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppIpcpDnsOption"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppIpcpDnsPrimary"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppIpcpDnsSecondary"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppIpcpWinsOption"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppIpcpWinsPrimary"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppIpcpWinsSecondary"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppIpcpMaskOption"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppIpcpMask"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppPeerDefIpAddrOpts"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppPeerDefIpAddrSrc"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppPeerDefIpAddr"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppPeerIpAddrPoolStatus"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppPeerIpAddrPoolStorage"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtPppPeerIpAddrPoolName"
+      }
+    ],
+    "status": "current"
+  },
+  "cdtEthernetGroup": {
+    "name": "cdtEthernetGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtEthernetValid"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtEthernetBridgeDomain"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtEthernetPppoeEnable"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtEthernetIpv4PointToPoint"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtEthernetMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "cdtSrvGroup": {
+    "name": "cdtSrvGroup",
+    "oid": "1.3.6.1.4.1.9.9.784.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtSrvValid"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtSrvNetworkSrv"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtSrvVpdnGroup"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtSrvSgSrvGroup"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtSrvSgSrvType"
+      },
+      {
+        "module": "CISCO-DYNAMIC-TEMPLATE-MIB",
+        "object": "cdtSrvMulticast"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DYNAMIC-TEMPLATE-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:22 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DYNAMIC-TEMPLATE-MIB"
+  }
+}

@@ -1,6 +1,13 @@
+-- *****************************************************************
+-- PTOPO MIB: Extracted from RFC 2922 
+-- 
+-- Apr 2001, Arvind Prabhudev
+--
+-- Copyright (c) 2001 by cisco Systems, Inc.
+-- All rights reserved.
+-- *****************************************************************
 
--- WinAgents MIB Extraction Wizard
--- Extracted from rfc2922.txt 16.03.2005 20:21:53
+
 
 PTOPO-MIB DEFINITIONS ::= BEGIN
 
@@ -11,14 +18,14 @@ IMPORTS
     TEXTUAL-CONVENTION, AutonomousType, RowStatus, TimeStamp, TruthValue
         FROM SNMPv2-TC
     MODULE-COMPLIANCE, OBJECT-GROUP, NOTIFICATION-GROUP
-
         FROM SNMPv2-CONF
     TimeFilter
         FROM RMON2-MIB
     PhysicalIndex
         FROM ENTITY-MIB
     AddressFamilyNumbers
-        FROM IANA-ADDRESS-FAMILY-NUMBERS-MIB;
+        FROM IANA-ADDRESS-FAMILY-NUMBERS-MIB
+    ; 
 
 ptopoMIB MODULE-IDENTITY
     LAST-UPDATED "200009210000Z"
@@ -53,13 +60,13 @@ ptopoMIB MODULE-IDENTITY
 
 ptopoMIBObjects   OBJECT IDENTIFIER ::= { ptopoMIB 1 }
 
-
 -- MIB groups
 ptopoData         OBJECT IDENTIFIER ::= { ptopoMIBObjects 1 }
 ptopoGeneral      OBJECT IDENTIFIER ::= { ptopoMIBObjects 2 }
 ptopoConfig       OBJECT IDENTIFIER ::= { ptopoMIBObjects 3 }
 
 -- textual conventions
+
 
 PtopoGenAddr ::= TEXTUAL-CONVENTION
     STATUS      current
@@ -109,6 +116,7 @@ PtopoChassisIdType ::= TEXTUAL-CONVENTION
 
 PtopoChassisId ::= TEXTUAL-CONVENTION
     STATUS      current
+
 
     DESCRIPTION
             "This TC describes the format of a chassis identifier
@@ -208,9 +216,9 @@ PtopoPortId ::= TEXTUAL-CONVENTION
             contains the IANA AddressFamilyNumbers enumeration value for
             the specific address type, and octets 2 through N contain
 
+
             the PtopoGenAddr address value in network byte order."
     SYNTAX      OCTET STRING (SIZE (1..32))
-
 
 PtopoAddrSeenState ::= TEXTUAL-CONVENTION
     STATUS      current
@@ -305,7 +313,6 @@ PtopoConnEntry ::= SEQUENCE {
       ptopoConnAgentNetAddr        PtopoGenAddr,
       ptopoConnMultiMacSASeen      PtopoAddrSeenState,
       ptopoConnMultiNetSASeen      PtopoAddrSeenState,
-
       ptopoConnIsStatic            TruthValue,
       ptopoConnLastVerifyTime      TimeStamp,
       ptopoConnRowStatus           RowStatus
@@ -354,6 +361,7 @@ ptopoConnIndex    OBJECT-TYPE
 
             An agent is encouraged to assign monotonically increasing
             index values to new entries, starting with one, after each
+
 
             reboot.  It is considered unlikely that the ptopoConnIndex
             will wrap between reboots."
@@ -453,6 +461,7 @@ ptopoConnAgentNetAddr  OBJECT-TYPE
             This object may not be modified if the associated
             ptopoConnRowStatus object has a value of active(1)."
 
+
     ::= { ptopoConnEntry 11 }
 
 ptopoConnMultiMacSASeen  OBJECT-TYPE
@@ -501,6 +510,7 @@ ptopoConnMultiNetSASeen  OBJECT-TYPE
             If the agent has not yet detected any network source
             addresses of the appropriate type from the remote port, then
             the value 'unknown(2)' is returned.
+
 
             If the agent has detected exactly one network source address
             of the appropriate type from the remote port, then the value
@@ -551,6 +561,7 @@ ptopoConnRowStatus OBJECT-TYPE
     STATUS      current
     DESCRIPTION
 
+
             "The status of this conceptual row."
     ::= { ptopoConnEntry 16 }
 
@@ -599,6 +610,7 @@ ptopoConnTabDrops OBJECT-TYPE
     SYNTAX      Counter32
     UNITS       "table entries"
     MAX-ACCESS  read-only
+
 
     STATUS      current
     DESCRIPTION
@@ -693,10 +705,10 @@ ptopoConfigMaxHoldTime OBJECT-TYPE
     DEFVAL { 300 }
     ::= { ptopoConfig 2 }
 
-
 -- PTOPO MIB Notification Definitions
 ptopoMIBNotifications  OBJECT IDENTIFIER ::= { ptopoMIB 2 }
 ptopoMIBTrapPrefix     OBJECT IDENTIFIER ::=
+
 
       { ptopoMIBNotifications 0 }
 
@@ -718,7 +730,6 @@ ptopoConfigChange NOTIFICATION-TYPE
             'ptopoConfigTrapInterval' object."
    ::= { ptopoMIBTrapPrefix 1 }
 
-
 -- PTOPO Registration Points
 ptopoRegistrationPoints  OBJECT IDENTIFIER ::= { ptopoMIB 3 }
 
@@ -729,13 +740,11 @@ ptopoDiscoveryMechanisms OBJECT IDENTIFIER ::=
 ptopoDiscoveryLocal      OBJECT IDENTIFIER ::=
       { ptopoDiscoveryMechanisms 1 }
 
-
 -- conformance information
 ptopoConformance OBJECT IDENTIFIER ::= { ptopoMIB 4 }
 
 ptopoCompliances OBJECT IDENTIFIER ::= { ptopoConformance 1 }
 ptopoGroups      OBJECT IDENTIFIER ::= { ptopoConformance 2 }
-
 
 -- compliance statements
 ptopoCompliance MODULE-COMPLIANCE
@@ -746,6 +755,7 @@ ptopoCompliance MODULE-COMPLIANCE
     MODULE  -- this module
         MANDATORY-GROUPS {
               ptopoDataGroup,
+
 
               ptopoGeneralGroup,
               ptopoConfigGroup,
@@ -796,6 +806,7 @@ ptopoGeneralGroup    OBJECT-GROUP
             PTOPO MIB."
     ::= { ptopoGroups 2 }
 
+
 ptopoConfigGroup    OBJECT-GROUP
     OBJECTS {
          ptopoConfigTrapInterval,
@@ -824,4 +835,3 @@ ptopoNotificationsGroup NOTIFICATION-GROUP
     ::= { ptopoGroups 4 }
 
 END
-

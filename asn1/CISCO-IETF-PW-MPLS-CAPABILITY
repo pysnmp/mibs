@@ -50,7 +50,7 @@ IMPORTS
 
      ::= { ciscoAgentCapability 429 } 
 
-cpwVcMplsCapability1 AGENT-CAPABILITIES
+cpwVcMplsCapability AGENT-CAPABILITIES
 
 PRODUCT-RELEASE "Cisco IOS 12.0(29)S"
 STATUS      current

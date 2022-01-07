@@ -14,25 +14,25 @@
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
-      "IpAddress",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "IpAddress",
       "OBJECT-IDENTITY",
+      "TimeTicks",
       "Gauge32",
       "MibIdentifier",
-      "TimeTicks",
-      "Counter32"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
+      "Counter32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "PhysAddress",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -592,8 +592,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-TRUNK-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:22:30 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:30:23 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-TRUNK-MIB"

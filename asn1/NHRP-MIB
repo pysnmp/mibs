@@ -1,5 +1,11 @@
--- extracted from rfc2677.txt
--- at Mon Nov 15 17:12:07 1999
+-- *****************************************************************
+-- CISCO-NHRP-MIB.my: NHRP MIB file (RFC 2677)
+-- October - 2006 Arun Kumar Ayachith
+--   
+-- Copyright (c) 2005-2008 by cisco Systems, Inc.
+-- All rights reserved.
+-- REFERENCE RFC-2677
+-- *****************************************************************
 
    NHRP-MIB DEFINITIONS ::= BEGIN
 
@@ -31,6 +37,10 @@
 
             James V. Luciani (luciani@baynetworks.com)
             Bay Networks"
+
+
+
+
 
        DESCRIPTION
            "This MIB contains managed object definitions for the Next
@@ -77,6 +87,10 @@
             nhrpClientTable and the nhrpServerTable.
             The value of this variable is a currently unused value
             for nhrpClientIndex and nhrpServerIndex.
+
+
+
+
             The value returned when reading this variable must be
             unique for the NHC's and NHS's indices associated with
             this row. Subsequent attempts to read this variable
@@ -125,6 +139,7 @@
            When created based by NHRP protocol operations
            this entry is largely based on contents contained in
            the Client Information Entry (CIE).
+
            Zero or more Client Information Entries (CIEs) may be
            included in the NHRP Packet. For a complete description
            of the CIE, refer to Section 5.2.0.1 of
@@ -173,6 +188,7 @@
        SYNTAX      NhrpGenAddr
        MAX-ACCESS  not-accessible
        STATUS      current
+
        DESCRIPTION
            "The value of the internetwork address of the
            destination."
@@ -220,6 +236,8 @@
            nhrpCacheNbmaSubaddr."
        ::= { nhrpCacheEntry 6 }
 
+
+
    nhrpCacheNbmaAddr OBJECT-TYPE
        SYNTAX      NhrpGenAddr
        MAX-ACCESS  read-create
@@ -265,6 +283,9 @@
            'resolveAuthoritative(3)'    In a client, added based on
                                         receiving an Authoritative
                                         NHRP Resolution Reply.
+
+
+
 
            'resolveNonauthoritative(4)' In a client, added based on
                                         receiving a Nonauthoritative
@@ -314,6 +335,7 @@
                                Request but has not yet received the
                                NHRP Resolution Reply.
 
+
                'ackReply(2)'   For a client or server, this is a
                                cached valid mapping.
 
@@ -360,6 +382,9 @@
            false(2) then this object is undefined."
        ::= { nhrpCacheEntry 12 }
 
+
+
+
    nhrpCacheNegotiatedMtu OBJECT-TYPE
        SYNTAX      Integer32 (0..65535)
        MAX-ACCESS  read-only
@@ -405,6 +430,9 @@
            object is 'other(1)'."
        DEFVAL      { nonVolatile }
        ::= { nhrpCacheEntry 15 }
+
+
+
 
    nhrpCacheRowStatus OBJECT-TYPE
        SYNTAX      RowStatus
@@ -453,6 +481,7 @@
            "An index for this entry that has local significance
            within the scope of this table."
        ::= { nhrpPurgeReqEntry 1 }
+
 
    nhrpPurgeCacheIdentifier OBJECT-TYPE
        SYNTAX      Unsigned32 (1..4294967295)
@@ -548,6 +577,10 @@
        nhrpClientStorageType                StorageType,
        nhrpClientRowStatus                  RowStatus
    }
+
+
+
+
    nhrpClientIndex OBJECT-TYPE
        SYNTAX      Unsigned32 (1..4294967295)
        MAX-ACCESS  not-accessible
@@ -595,6 +628,8 @@
        SYNTAX      NhrpGenAddr
        MAX-ACCESS  read-create
        STATUS      current
+
+
        DESCRIPTION
            "The NBMA subnetwork address of this client."
        ::= { nhrpClientEntry 5 }
@@ -692,6 +727,7 @@
            Specification, RFC 2332 [17], the Request ID must
            be kept in non-volatile storage, so that if an NHC
            crashes and  re-initializes, it will use a different
+
            Request ID during the registration process
            when reregistering with the same NHS."
        REFERENCE
@@ -739,6 +775,8 @@
        SYNTAX      NhrpClientRegistrationEntry
        MAX-ACCESS  not-accessible
        STATUS      current
+
+
        DESCRIPTION
            "An NHC needs to maintain registration request information
            between the NHC and the NHS.  An entry in this table
@@ -835,6 +873,8 @@
            table that corresponds to the client's default router."
        ::= { nhrpClientObjects 3 }
 
+
+
    nhrpClientNhsEntry OBJECT-TYPE
        SYNTAX      NhrpClientNhsEntry
        MAX-ACCESS  not-accessible
@@ -881,6 +921,9 @@
        DESCRIPTION
            "The value of the destination internetwork layer
            address of the NHRP server represented by this
+
+
+
            entry.  If this value is not known, this will be
            a zero-length OCTET STRING."
        ::= { nhrpClientNhsEntry 3 }
@@ -928,6 +971,8 @@
        SYNTAX      RowStatus
        MAX-ACCESS  read-create
        STATUS      current
+
+
        DESCRIPTION
            "An object that allows entries in this table to be
            created and deleted using the RowStatus convention."
@@ -976,6 +1021,7 @@
        nhrpClientStatTxErrorIndication               Counter32,
        nhrpClientStatRxErrUnrecognizedExtension      Counter32,
        nhrpClientStatRxErrLoopDetected               Counter32,
+
        nhrpClientStatRxErrProtoAddrUnreachable       Counter32,
        nhrpClientStatRxErrProtoError                 Counter32,
        nhrpClientStatRxErrSduSizeExceeded            Counter32,
@@ -1023,6 +1069,8 @@
            "The number of NAKed NHRP Resolution Replies received
            by this client that contained the code indicating
            'Administratively Prohibited'.
+
+
            Discontinuities in the value of this counter can occur
            at re-initialization of the management system, at
            NHRP Client re-initialization and at
@@ -1068,6 +1116,10 @@
        SYNTAX      Counter32
        MAX-ACCESS  read-only
        STATUS      current
+
+
+
+
        DESCRIPTION
            "The number of NAKed NHRP Resolution Replies received
            by this client that contained the code indicating
@@ -1114,6 +1166,9 @@
        SYNTAX      Counter32
        MAX-ACCESS  read-only
        STATUS      current
+
+
+
        DESCRIPTION
            "The number of NAKed NHRP Registration Replies received
            by this client that contained the code indicating
@@ -1162,6 +1217,7 @@
        SYNTAX      Counter32
        MAX-ACCESS  read-only
        STATUS      current
+
        DESCRIPTION
            "The number of NHRP Purge Requests received by this
            client.
@@ -1210,6 +1266,7 @@
        DESCRIPTION
            "The number of NHRP Purge Replies transmitted by this
            client.
+
            Discontinuities in the value of this counter can occur
            at re-initialization of the management system, at
            NHRP Client re-initialization and at
@@ -1256,6 +1313,9 @@
        SYNTAX      Counter32
        MAX-ACCESS  read-only
        STATUS      current
+
+
+
        DESCRIPTION
            "The number of NHRP Error Indication packets received
            by this client with the error code 'NHRP Loop Detected'.
@@ -1304,6 +1364,7 @@
            "Section 5.2.7 NHRP Error Indication, RFC 2332 [17]."
        ::= { nhrpClientStatEntry 20 }
 
+
    nhrpClientStatRxErrSduSizeExceeded OBJECT-TYPE
        SYNTAX      Counter32
        MAX-ACCESS  read-only
@@ -1348,6 +1409,11 @@
            "The number of NHRP Error Indication packets received
            by this client with the error code 'Authentication
            Failure'.
+
+
+
+
+
            Discontinuities in the value of this counter can occur
            at re-initialization of the management system, at
            NHRP Client re-initialization and at
@@ -1390,6 +1456,12 @@
        REFERENCE
            "RFC 2233 [18]."
        ::= { nhrpClientStatEntry 25 }
+
+
+
+
+
+
 
    --****************************************************************
    -- NHRP Server Objects
@@ -1439,6 +1511,7 @@
            scope of this agent."
        ::= { nhrpServerEntry 1 }
 
+
    nhrpServerInternetworkAddrType OBJECT-TYPE
        SYNTAX      AddressFamilyNumbers
        MAX-ACCESS  read-create
@@ -1487,6 +1560,7 @@
            concept, this will be a zero-length OCTET STRING."
        ::= { nhrpServerEntry 6 }
 
+
    nhrpServerStorageType OBJECT-TYPE
        SYNTAX      StorageType
        MAX-ACCESS  read-create
@@ -1534,6 +1608,8 @@
        SYNTAX      NhrpServerCacheEntry
        MAX-ACCESS  not-accessible
        STATUS      current
+
+
        DESCRIPTION
            "Additional information kept by a NHS for a relevant
            Next Hop Resolution Cache entry."
@@ -1580,6 +1656,9 @@
        SYNTAX      SEQUENCE OF NhrpServerNhcEntry
        MAX-ACCESS  not-accessible
        STATUS      current
+
+
+
        DESCRIPTION
            "A table of NHCs that are available for use by this NHS
            (Server)."
@@ -1626,6 +1705,8 @@
            layer prefix associated with the
            nhrpServerNhcInternetworkAddr."
        ::= { nhrpServerNhcEntry 2 }
+
+
 
    nhrpServerNhcInternetworkAddrType OBJECT-TYPE
        SYNTAX      AddressFamilyNumbers
@@ -1674,6 +1755,8 @@
        SYNTAX      NhrpGenAddr
        MAX-ACCESS  read-create
        STATUS      current
+
+
        DESCRIPTION
            "The NBMA subaddress of the NHC. For NMBA address familes
            that do not have the concept of subaddress, this will
@@ -1720,6 +1803,8 @@
            by a transit NHS."
        INDEX       { nhrpServerIndex }
        ::= { nhrpServerStatTable 1 }
+
+
 
    NhrpServerStatEntry ::= SEQUENCE {
        nhrpServerStatRxResolveReq                    Counter32,
@@ -1818,6 +1903,7 @@
            nhrpServerStatDiscontinuityTime."
        ::= { nhrpServerStatEntry 3 }
 
+
    nhrpServerStatTxResolveReplyNakInsufResources OBJECT-TYPE
        SYNTAX      Counter32
        MAX-ACCESS  read-only
@@ -1913,6 +1999,9 @@
            nhrpServerStatDiscontinuityTime."
        ::= { nhrpServerStatEntry 9 }
 
+
+
+
    nhrpServerStatTxRegisterNakInsufResources OBJECT-TYPE
        SYNTAX      Counter32
        MAX-ACCESS  read-only
@@ -1960,6 +2049,7 @@
            other times as indicated by the value of
            nhrpServerStatDiscontinuityTime."
        ::= { nhrpServerStatEntry 12 }
+
 
    nhrpServerStatTxPurgeReq OBJECT-TYPE
        SYNTAX      Counter32
@@ -2009,6 +2099,7 @@
    nhrpServerStatRxErrUnrecognizedExtension OBJECT-TYPE
        SYNTAX      Counter32
        MAX-ACCESS  read-only
+
        STATUS      current
        DESCRIPTION
            "The number of NHRP Error Indication packets received
@@ -2102,6 +2193,11 @@
        SYNTAX      Counter32
        MAX-ACCESS  read-only
        STATUS      current
+
+
+
+
+
        DESCRIPTION
            "The number of NHRP Error Indication packets received
            by this server with the error code 'Invalid Extension'.
@@ -2196,6 +2292,10 @@
            "The number of NHRP Error Indication packets
            transmitted by this server with the error code
            'NHRP Loop Detected'.
+
+
+
+
            Discontinuities in the value of this counter can occur
            at re-initialization of the management system, at
            NHRP Server re-initialization and at
@@ -2240,6 +2340,10 @@
        REFERENCE
            "Section 5.2.7 NHRP Error Indication, RFC 2332 [17]."
        ::= { nhrpServerStatEntry 28 }
+
+
+
+
 
    nhrpServerStatTxErrSduSizeExceeded OBJECT-TYPE
        SYNTAX      Counter32
@@ -2286,6 +2390,10 @@
            "The number of NHRP Error Indication packets
            transmitted by this server with the error code
            'Authentication Failure'.
+
+
+
+
            Discontinuities in the value of this counter can occur
            at re-initialization of the management system, at
            NHRP Server re-initialization and at
@@ -2332,6 +2440,9 @@
        SYNTAX      Counter32
        MAX-ACCESS  read-only
        STATUS      current
+
+
+
        DESCRIPTION
            "The number of NHRP Resolution Replies forwarded
            by this server acting as a transit NHS.
@@ -2379,6 +2490,8 @@
        DESCRIPTION
            "The number of NHRP Purge Requests forwarded
            by this server acting as a transit NHS.
+
+
            Discontinuities in the value of this counter can occur
            at re-initialization of the management system, at
            NHRP Server re-initialization and at
@@ -2425,6 +2538,9 @@
            which any one or more of this Server's counters
            suffered a discontinuity.  If no such discontinuities
            have occurred since the last re-initialization of the
+
+
+
            local management subsystem or the NHRP Server
            re-initialization associated with this entry, then
            this object contains a zero value."
@@ -2473,6 +2589,7 @@
            nhrpCacheNbmaSubaddr,
            nhrpCacheType,
            nhrpCacheState,
+
            nhrpCacheHoldingTimeValid,
            nhrpCacheHoldingTime,
            nhrpCacheNegotiatedMtu,
@@ -2521,6 +2638,7 @@
            nhrpClientStatTxResolveReq,
            nhrpClientStatRxResolveReplyAck,
            nhrpClientStatRxResolveReplyNakProhibited,
+
            nhrpClientStatRxResolveReplyNakInsufResources,
            nhrpClientStatRxResolveReplyNakNoBinding,
            nhrpClientStatRxResolveReplyNakNotUnique,
@@ -2569,6 +2687,7 @@
            nhrpServerNhcInUse,
            nhrpServerNhcRowStatus,
            nhrpServerStatRxResolveReq,
+
            nhrpServerStatTxResolveReplyAck,
            nhrpServerStatTxResolveReplyNakProhibited,
            nhrpServerStatTxResolveReplyNakInsufResources,
@@ -2615,32 +2734,4 @@
        ::= { nhrpGroups 3 }
 
    END
-
--- 
---    Copyright (C) The Internet Society (1999).  All Rights Reserved.
--- 
---    This document and translations of it may be copied and furnished to
---    others, and derivative works that comment on or otherwise explain it
---    or assist in its implementation may be prepared, copied, published
---    and distributed, in whole or in part, without restriction of any
---    kind, provided that the above copyright notice and this paragraph are
---    included on all such copies and derivative works.  However, this
---    document itself may not be modified in any way, such as by removing
---    the copyright notice or references to the Internet Society or other
---    Internet organizations, except as needed for the purpose of
---    developing Internet standards in which case the procedures for
---    copyrights defined in the Internet Standards process must be
---    followed, or as required to translate it into languages other than
---    English.
--- 
---    The limited permissions granted above are perpetual and will not be
---    revoked by the Internet Society or its successors or assigns.
--- 
---    This document and the information contained herein is provided on an
---    "AS IS" basis and THE INTERNET SOCIETY AND THE INTERNET ENGINEERING
---    TASK FORCE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING
---    BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION
---    HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF
---    MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
--- 
 

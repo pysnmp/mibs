@@ -1,0 +1,209 @@
+{
+  "imports": {
+    "class": "imports",
+    "PCUBE-SMI": [
+      "pcubeMgmt"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pcubeConfigCopyMIB": {
+    "name": "pcubeConfigCopyMIB",
+    "oid": "1.3.6.1.4.1.5655.3.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-04-06 20:00",
+        "description": "The original mib has been chagned to use SMIv2 syntax. Clarified descriptions in the mib."
+      },
+      {
+        "revision": "2002-01-14 20:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "ConfigFileType": {
+    "name": "ConfigFileType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "startupConfig": 1,
+          "runningConfig": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "pcubeConfigCopyMIBObjects": {
+    "name": "pcubeConfigCopyMIBObjects",
+    "oid": "1.3.6.1.4.1.5655.3.1.1",
+    "class": "objectidentity"
+  },
+  "pcubeConfigCopyMIBConformance": {
+    "name": "pcubeConfigCopyMIBConformance",
+    "oid": "1.3.6.1.4.1.5655.3.1.2",
+    "class": "objectidentity"
+  },
+  "pcubeConfigCopyMIBGroups": {
+    "name": "pcubeConfigCopyMIBGroups",
+    "oid": "1.3.6.1.4.1.5655.3.1.2.1",
+    "class": "objectidentity"
+  },
+  "pcubeConfigCopyMIBCompliances": {
+    "name": "pcubeConfigCopyMIBCompliances",
+    "oid": "1.3.6.1.4.1.5655.3.1.2.2",
+    "class": "objectidentity"
+  },
+  "pcubeCopy": {
+    "name": "pcubeCopy",
+    "oid": "1.3.6.1.4.1.5655.3.1.1.1",
+    "class": "objectidentity"
+  },
+  "pcubeCopyTable": {
+    "name": "pcubeCopyTable",
+    "oid": "1.3.6.1.4.1.5655.3.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pcubeCopyEntry": {
+    "name": "pcubeCopyEntry",
+    "oid": "1.3.6.1.4.1.5655.3.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCUBE-CONFIG-COPY-MIB",
+        "object": "pcubeCopyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "pcubeCopyIndex": {
+    "name": "pcubeCopyIndex",
+    "oid": "1.3.6.1.4.1.5655.3.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "pcubeCopyEntryRowStatus": {
+    "name": "pcubeCopyEntryRowStatus",
+    "oid": "1.3.6.1.4.1.5655.3.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pcubeCopySourceFileType": {
+    "name": "pcubeCopySourceFileType",
+    "oid": "1.3.6.1.4.1.5655.3.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigFileType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pcubeCopyDestFileType": {
+    "name": "pcubeCopyDestFileType",
+    "oid": "1.3.6.1.4.1.5655.3.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ConfigFileType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "pcubeConfigCopyMIBCompliance": {
+    "name": "pcubeConfigCopyMIBCompliance",
+    "oid": "1.3.6.1.4.1.5655.3.1.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pcubeCopyGroup",
+        "module": "PCUBE-CONFIG-COPY-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pcubeCopyGroup": {
+    "name": "pcubeCopyGroup",
+    "oid": "1.3.6.1.4.1.5655.3.1.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PCUBE-CONFIG-COPY-MIB",
+        "object": "pcubeCopyEntryRowStatus"
+      },
+      {
+        "module": "PCUBE-CONFIG-COPY-MIB",
+        "object": "pcubeCopySourceFileType"
+      },
+      {
+        "module": "PCUBE-CONFIG-COPY-MIB",
+        "object": "pcubeCopyDestFileType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/PCUBE-CONFIG-COPY",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:22 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "PCUBE-CONFIG-COPY-MIB"
+  }
+}

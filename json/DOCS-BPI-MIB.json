@@ -1,0 +1,1931 @@
+{
+  "imports": {
+    "class": "imports",
+    "DOCS-IF-MIB": [
+      "docsIfCmtsServiceId",
+      "docsIfCmServiceId",
+      "docsIfMib"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "MacAddress",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "docsBpiMIB": {
+    "name": "docsBpiMIB",
+    "oid": "1.3.6.1.2.1.10.127.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2001-03-13 00:00",
+        "description": "Version published as RFC 3083."
+      },
+      {
+        "revision": "2000-11-03 19:30",
+        "description": "Modified by Richard Woundy to fix problems identified by the MIB doctor. I marked docsBpiCmtsDefaultAuthGraceTime and docsBpiCmtsDefaultTEKGraceTime as obsolete objects, to prevent OID reassignment. Several object descriptions were also corrected."
+      },
+      {
+        "revision": "2000-02-16 19:30",
+        "description": "Initial version. CableLabs requires the implementation of this MIB in certified DOCSIS 1.0 cable modems implementing the Baseline Privacy Interface, per DOCSIS 1.0 engineering change notice oss-n-99027."
+      }
+    ]
+  },
+  "docsBpiMIBObjects": {
+    "name": "docsBpiMIBObjects",
+    "oid": "1.3.6.1.2.1.10.127.5.1",
+    "class": "objectidentity"
+  },
+  "docsBpiCmObjects": {
+    "name": "docsBpiCmObjects",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1",
+    "class": "objectidentity"
+  },
+  "docsBpiCmBaseTable": {
+    "name": "docsBpiCmBaseTable",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiCmBaseEntry": {
+    "name": "docsBpiCmBaseEntry",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsBpiCmPrivacyEnable": {
+    "name": "docsBpiCmPrivacyEnable",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmPublicKey": {
+    "name": "docsBpiCmPublicKey",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 74,
+            "max": 74
+          },
+          {
+            "min": 106,
+            "max": 106
+          },
+          {
+            "min": 140,
+            "max": 140
+          },
+          {
+            "min": 270,
+            "max": 270
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthState": {
+    "name": "docsBpiCmAuthState",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authWait": 2,
+          "authorized": 3,
+          "reauthWait": 4,
+          "authRejectWait": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthKeySequenceNumber": {
+    "name": "docsBpiCmAuthKeySequenceNumber",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthExpires": {
+    "name": "docsBpiCmAuthExpires",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthReset": {
+    "name": "docsBpiCmAuthReset",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsBpiCmAuthGraceTime": {
+    "name": "docsBpiCmAuthGraceTime",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKGraceTime": {
+    "name": "docsBpiCmTEKGraceTime",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthWaitTimeout": {
+    "name": "docsBpiCmAuthWaitTimeout",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmReauthWaitTimeout": {
+    "name": "docsBpiCmReauthWaitTimeout",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmOpWaitTimeout": {
+    "name": "docsBpiCmOpWaitTimeout",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmRekeyWaitTimeout": {
+    "name": "docsBpiCmRekeyWaitTimeout",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthRejectWaitTimeout": {
+    "name": "docsBpiCmAuthRejectWaitTimeout",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthRequests": {
+    "name": "docsBpiCmAuthRequests",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthReplies": {
+    "name": "docsBpiCmAuthReplies",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthRejects": {
+    "name": "docsBpiCmAuthRejects",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthInvalids": {
+    "name": "docsBpiCmAuthInvalids",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthRejectErrorCode": {
+    "name": "docsBpiCmAuthRejectErrorCode",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unknown": 2,
+          "unauthorizedCm": 3,
+          "unauthorizedSid": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthRejectErrorString": {
+    "name": "docsBpiCmAuthRejectErrorString",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthInvalidErrorCode": {
+    "name": "docsBpiCmAuthInvalidErrorCode",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unknown": 2,
+          "unauthorizedCm": 3,
+          "unsolicited": 5,
+          "invalidKeySequence": 6,
+          "keyRequestAuthenticationFailure": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmAuthInvalidErrorString": {
+    "name": "docsBpiCmAuthInvalidErrorString",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKTable": {
+    "name": "docsBpiCmTEKTable",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiCmTEKEntry": {
+    "name": "docsBpiCmTEKEntry",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmServiceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsBpiCmTEKPrivacyEnable": {
+    "name": "docsBpiCmTEKPrivacyEnable",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKState": {
+    "name": "docsBpiCmTEKState",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "start": 1,
+          "opWait": 2,
+          "opReauthWait": 3,
+          "operational": 4,
+          "rekeyWait": 5,
+          "rekeyReauthWait": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKExpiresOld": {
+    "name": "docsBpiCmTEKExpiresOld",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKExpiresNew": {
+    "name": "docsBpiCmTEKExpiresNew",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKKeyRequests": {
+    "name": "docsBpiCmTEKKeyRequests",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKKeyReplies": {
+    "name": "docsBpiCmTEKKeyReplies",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKKeyRejects": {
+    "name": "docsBpiCmTEKKeyRejects",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKInvalids": {
+    "name": "docsBpiCmTEKInvalids",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKAuthPends": {
+    "name": "docsBpiCmTEKAuthPends",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKKeyRejectErrorCode": {
+    "name": "docsBpiCmTEKKeyRejectErrorCode",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unknown": 2,
+          "unauthorizedSid": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKKeyRejectErrorString": {
+    "name": "docsBpiCmTEKKeyRejectErrorString",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKInvalidErrorCode": {
+    "name": "docsBpiCmTEKInvalidErrorCode",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unknown": 2,
+          "invalidKeySequence": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmTEKInvalidErrorString": {
+    "name": "docsBpiCmTEKInvalidErrorString",
+    "oid": "1.3.6.1.2.1.10.127.5.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsObjects": {
+    "name": "docsBpiCmtsObjects",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2",
+    "class": "objectidentity"
+  },
+  "docsBpiCmtsBaseTable": {
+    "name": "docsBpiCmtsBaseTable",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiCmtsBaseEntry": {
+    "name": "docsBpiCmtsBaseEntry",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsBpiCmtsDefaultAuthLifetime": {
+    "name": "docsBpiCmtsDefaultAuthLifetime",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6048000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsBpiCmtsDefaultTEKLifetime": {
+    "name": "docsBpiCmtsDefaultTEKLifetime",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsBpiCmtsDefaultAuthGraceTime": {
+    "name": "docsBpiCmtsDefaultAuthGraceTime",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "docsBpiCmtsDefaultTEKGraceTime": {
+    "name": "docsBpiCmtsDefaultTEKGraceTime",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "obsolete"
+  },
+  "docsBpiCmtsAuthRequests": {
+    "name": "docsBpiCmtsAuthRequests",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthReplies": {
+    "name": "docsBpiCmtsAuthReplies",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthRejects": {
+    "name": "docsBpiCmtsAuthRejects",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthInvalids": {
+    "name": "docsBpiCmtsAuthInvalids",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthTable": {
+    "name": "docsBpiCmtsAuthTable",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthEntry": {
+    "name": "docsBpiCmtsAuthEntry",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmMacAddress": {
+    "name": "docsBpiCmtsAuthCmMacAddress",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmPublicKey": {
+    "name": "docsBpiCmtsAuthCmPublicKey",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 74,
+            "max": 74
+          },
+          {
+            "min": 106,
+            "max": 106
+          },
+          {
+            "min": 140,
+            "max": 140
+          },
+          {
+            "min": 270,
+            "max": 270
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmKeySequenceNumber": {
+    "name": "docsBpiCmtsAuthCmKeySequenceNumber",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmExpires": {
+    "name": "docsBpiCmtsAuthCmExpires",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmLifetime": {
+    "name": "docsBpiCmtsAuthCmLifetime",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 6048000
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmGraceTime": {
+    "name": "docsBpiCmtsAuthCmGraceTime",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmReset": {
+    "name": "docsBpiCmtsAuthCmReset",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noResetRequested": 1,
+          "invalidateAuth": 2,
+          "sendAuthInvalid": 3,
+          "invalidateTeks": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmRequests": {
+    "name": "docsBpiCmtsAuthCmRequests",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmReplies": {
+    "name": "docsBpiCmtsAuthCmReplies",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmRejects": {
+    "name": "docsBpiCmtsAuthCmRejects",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthCmInvalids": {
+    "name": "docsBpiCmtsAuthCmInvalids",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthRejectErrorCode": {
+    "name": "docsBpiCmtsAuthRejectErrorCode",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unknown": 2,
+          "unauthorizedCm": 3,
+          "unauthorizedSid": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthRejectErrorString": {
+    "name": "docsBpiCmtsAuthRejectErrorString",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthInvalidErrorCode": {
+    "name": "docsBpiCmtsAuthInvalidErrorCode",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unknown": 2,
+          "unauthorizedCm": 3,
+          "unsolicited": 5,
+          "invalidKeySequence": 6,
+          "keyRequestAuthenticationFailure": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsAuthInvalidErrorString": {
+    "name": "docsBpiCmtsAuthInvalidErrorString",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsTEKTable": {
+    "name": "docsBpiCmtsTEKTable",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiCmtsTEKEntry": {
+    "name": "docsBpiCmtsTEKEntry",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsServiceId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsBpiCmtsTEKLifetime": {
+    "name": "docsBpiCmtsTEKLifetime",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 604800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsBpiCmtsTEKGraceTime": {
+    "name": "docsBpiCmtsTEKGraceTime",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsTEKExpiresOld": {
+    "name": "docsBpiCmtsTEKExpiresOld",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsTEKExpiresNew": {
+    "name": "docsBpiCmtsTEKExpiresNew",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsTEKReset": {
+    "name": "docsBpiCmtsTEKReset",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsBpiCmtsKeyRequests": {
+    "name": "docsBpiCmtsKeyRequests",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsKeyReplies": {
+    "name": "docsBpiCmtsKeyReplies",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsKeyRejects": {
+    "name": "docsBpiCmtsKeyRejects",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsTEKInvalids": {
+    "name": "docsBpiCmtsTEKInvalids",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsKeyRejectErrorCode": {
+    "name": "docsBpiCmtsKeyRejectErrorCode",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unknown": 2,
+          "unauthorizedSid": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsKeyRejectErrorString": {
+    "name": "docsBpiCmtsKeyRejectErrorString",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsTEKInvalidErrorCode": {
+    "name": "docsBpiCmtsTEKInvalidErrorCode",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unknown": 2,
+          "invalidKeySequence": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiCmtsTEKInvalidErrorString": {
+    "name": "docsBpiCmtsTEKInvalidErrorString",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsBpiMulticastControl": {
+    "name": "docsBpiMulticastControl",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4",
+    "class": "objectidentity"
+  },
+  "docsBpiIpMulticastMapTable": {
+    "name": "docsBpiIpMulticastMapTable",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiIpMulticastMapEntry": {
+    "name": "docsBpiIpMulticastMapEntry",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiIpMulticastAddress",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiIpMulticastPrefixLength",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsBpiIpMulticastAddress": {
+    "name": "docsBpiIpMulticastAddress",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiIpMulticastPrefixLength": {
+    "name": "docsBpiIpMulticastPrefixLength",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiIpMulticastServiceId": {
+    "name": "docsBpiIpMulticastServiceId",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8192,
+            "max": 16368
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsBpiIpMulticastMapControl": {
+    "name": "docsBpiIpMulticastMapControl",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsBpiMulticastAuthTable": {
+    "name": "docsBpiMulticastAuthTable",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiMulticastAuthEntry": {
+    "name": "docsBpiMulticastAuthEntry",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiMulticastServiceId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiMulticastCmMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsBpiMulticastServiceId": {
+    "name": "docsBpiMulticastServiceId",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 8192,
+            "max": 16368
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiMulticastCmMacAddress": {
+    "name": "docsBpiMulticastCmMacAddress",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsBpiMulticastAuthControl": {
+    "name": "docsBpiMulticastAuthControl",
+    "oid": "1.3.6.1.2.1.10.127.5.1.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsBpiNotification": {
+    "name": "docsBpiNotification",
+    "oid": "1.3.6.1.2.1.10.127.5.2",
+    "class": "objectidentity"
+  },
+  "docsBpiConformance": {
+    "name": "docsBpiConformance",
+    "oid": "1.3.6.1.2.1.10.127.5.3",
+    "class": "objectidentity"
+  },
+  "docsBpiCompliances": {
+    "name": "docsBpiCompliances",
+    "oid": "1.3.6.1.2.1.10.127.5.3.1",
+    "class": "objectidentity"
+  },
+  "docsBpiGroups": {
+    "name": "docsBpiGroups",
+    "oid": "1.3.6.1.2.1.10.127.5.3.2",
+    "class": "objectidentity"
+  },
+  "docsBpiBasicCompliance": {
+    "name": "docsBpiBasicCompliance",
+    "oid": "1.3.6.1.2.1.10.127.5.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "docsBpiCmGroup",
+        "module": "DOCS-BPI-MIB"
+      },
+      {
+        "object": "docsBpiCmtsGroup",
+        "module": "DOCS-BPI-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "docsBpiCmGroup": {
+    "name": "docsBpiCmGroup",
+    "oid": "1.3.6.1.2.1.10.127.5.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmPrivacyEnable"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmPublicKey"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthState"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthKeySequenceNumber"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthExpires"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthReset"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthGraceTime"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKGraceTime"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthWaitTimeout"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmReauthWaitTimeout"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmOpWaitTimeout"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmRekeyWaitTimeout"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthRejectWaitTimeout"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthRequests"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthReplies"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthRejects"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthInvalids"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthRejectErrorCode"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthRejectErrorString"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthInvalidErrorCode"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmAuthInvalidErrorString"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKPrivacyEnable"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKState"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKExpiresOld"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKExpiresNew"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKKeyRequests"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKKeyReplies"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKKeyRejects"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKInvalids"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKAuthPends"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKKeyRejectErrorCode"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKKeyRejectErrorString"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKInvalidErrorCode"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmTEKInvalidErrorString"
+      }
+    ],
+    "status": "current"
+  },
+  "docsBpiCmtsGroup": {
+    "name": "docsBpiCmtsGroup",
+    "oid": "1.3.6.1.2.1.10.127.5.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsDefaultAuthLifetime"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsDefaultTEKLifetime"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthRequests"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthReplies"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthRejects"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthInvalids"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmPublicKey"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmKeySequenceNumber"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmExpires"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmLifetime"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmGraceTime"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmReset"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmRequests"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmReplies"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmRejects"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthCmInvalids"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthRejectErrorCode"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthRejectErrorString"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthInvalidErrorCode"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsAuthInvalidErrorString"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsTEKLifetime"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsTEKGraceTime"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsTEKExpiresOld"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsTEKExpiresNew"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsTEKReset"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsKeyRequests"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsKeyReplies"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsKeyRejects"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsTEKInvalids"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsKeyRejectErrorCode"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsKeyRejectErrorString"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsTEKInvalidErrorCode"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsTEKInvalidErrorString"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiIpMulticastServiceId"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiIpMulticastMapControl"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiMulticastAuthControl"
+      }
+    ],
+    "status": "current"
+  },
+  "docsBpiObsoleteObjectsGroup": {
+    "name": "docsBpiObsoleteObjectsGroup",
+    "oid": "1.3.6.1.2.1.10.127.5.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsDefaultAuthGraceTime"
+      },
+      {
+        "module": "DOCS-BPI-MIB",
+        "object": "docsBpiCmtsDefaultTEKGraceTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-BPI-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DOCS-BPI-MIB"
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "Counter32",
+      "enterprises",
+      "Integer32",
+      "Bits",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "compatible": {
+    "name": "compatible",
+    "oid": "1.3.6.1.4.1.255",
+    "class": "objectidentity"
+  },
+  "compatVars": {
+    "name": "compatVars",
+    "oid": "1.3.6.1.4.1.255.1",
+    "class": "objectidentity"
+  },
+  "compatVPN": {
+    "name": "compatVPN",
+    "oid": "1.3.6.1.4.1.255.2",
+    "class": "objectidentity"
+  },
+  "vpnLoginTable": {
+    "name": "vpnLoginTable",
+    "oid": "1.3.6.1.4.1.255.2.1",
+    "class": "objectidentity"
+  },
+  "vPNTunnelTable": {
+    "name": "vPNTunnelTable",
+    "oid": "1.3.6.1.4.1.255.2.2",
+    "class": "objectidentity"
+  },
+  "failedLogins": {
+    "name": "failedLogins",
+    "oid": "1.3.6.1.4.1.255.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "failedSecurID": {
+    "name": "failedSecurID",
+    "oid": "1.3.6.1.4.1.255.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "failedRadiusAuth": {
+    "name": "failedRadiusAuth",
+    "oid": "1.3.6.1.4.1.255.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "processorUtilizationPercentage": {
+    "name": "processorUtilizationPercentage",
+    "oid": "1.3.6.1.4.1.255.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTable": {
+    "name": "vpnTunnelTable",
+    "oid": "1.3.6.1.4.1.255.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableEntry": {
+    "name": "vpnTunnelTableEntry",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COMPAT-MIB",
+        "object": "vpnTunnelTableIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "vpnTunnelTableIndex": {
+    "name": "vpnTunnelTableIndex",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableUserName": {
+    "name": "vpnTunnelTableUserName",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableGroupName": {
+    "name": "vpnTunnelTableGroupName",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableIpAddress": {
+    "name": "vpnTunnelTableIpAddress",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableAssignedIpAddress": {
+    "name": "vpnTunnelTableAssignedIpAddress",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableIpBytesRcvd": {
+    "name": "vpnTunnelTableIpBytesRcvd",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableIpBytesSent": {
+    "name": "vpnTunnelTableIpBytesSent",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableIpxBytesRcvd": {
+    "name": "vpnTunnelTableIpxBytesRcvd",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableIpxBytesSent": {
+    "name": "vpnTunnelTableIpxBytesSent",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableAppletalkBytesRcvd": {
+    "name": "vpnTunnelTableAppletalkBytesRcvd",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableAppletalkBytesSent": {
+    "name": "vpnTunnelTableAppletalkBytesSent",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableUptime": {
+    "name": "vpnTunnelTableUptime",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableLatency": {
+    "name": "vpnTunnelTableLatency",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableBandwidthOut": {
+    "name": "vpnTunnelTableBandwidthOut",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "vpnTunnelTableBandwidthReturn": {
+    "name": "vpnTunnelTableBandwidthReturn",
+    "oid": "1.3.6.1.4.1.255.2.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/COMPAT-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "COMPAT-MIB"
+  }
+}

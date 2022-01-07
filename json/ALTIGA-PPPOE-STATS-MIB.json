@@ -1,0 +1,522 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTIGA-GLOBAL-REG": [
+      "alPPPoEMibModule"
+    ],
+    "ALTIGA-MIB": [
+      "alStatsPPPoE",
+      "alPPPoEGroup"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "altigaPPPoEStatsMibModule": {
+    "name": "altigaPPPoEStatsMibModule",
+    "oid": "1.3.6.1.4.1.3076.1.1.45.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-07-11 00:00",
+        "description": "Added range for Index Object alPPPoEStatsIfIndex object "
+      },
+      {
+        "revision": "2002-09-05 13:00",
+        "description": "Added module compliance."
+      },
+      {
+        "revision": "2002-07-10 00:00",
+        "description": "Updated with new header"
+      }
+    ]
+  },
+  "alStatsPPPoEGlobal": {
+    "name": "alStatsPPPoEGlobal",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.1",
+    "class": "objectidentity"
+  },
+  "alPPPoEStatsActiveSessions": {
+    "name": "alPPPoEStatsActiveSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsTotalSessions": {
+    "name": "alPPPoEStatsTotalSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsMaxSessions": {
+    "name": "alPPPoEStatsMaxSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfTable": {
+    "name": "alPPPoEStatsIfTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alPPPoEStatsIfEntry": {
+    "name": "alPPPoEStatsIfEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alPPPoEStatsIfIndex": {
+    "name": "alPPPoEStatsIfIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfPADTRx": {
+    "name": "alPPPoEStatsIfPADTRx",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfPADTTx": {
+    "name": "alPPPoEStatsIfPADTTx",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfGenericErrorsRx": {
+    "name": "alPPPoEStatsIfGenericErrorsRx",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfMalformedPacketsRx": {
+    "name": "alPPPoEStatsIfMalformedPacketsRx",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfPADITimeouts": {
+    "name": "alPPPoEStatsIfPADITimeouts",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfPADRTimeouts": {
+    "name": "alPPPoEStatsIfPADRTimeouts",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfMultPADORx": {
+    "name": "alPPPoEStatsIfMultPADORx",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfSessionID": {
+    "name": "alPPPoEStatsIfSessionID",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfPeerAddr": {
+    "name": "alPPPoEStatsIfPeerAddr",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfSessionState": {
+    "name": "alPPPoEStatsIfSessionState",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noState": 1,
+          "pADISent": 2,
+          "pADIRcvd": 3,
+          "pADOSent": 4,
+          "pADORcvd": 5,
+          "pADRSent": 6,
+          "pADRRcvd": 7,
+          "pADSSent": 8,
+          "pADSRcvd": 9,
+          "sessionStage": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfVersion": {
+    "name": "alPPPoEStatsIfVersion",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfType": {
+    "name": "alPPPoEStatsIfType",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfConnectTime": {
+    "name": "alPPPoEStatsIfConnectTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfDuration": {
+    "name": "alPPPoEStatsIfDuration",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfPeerName": {
+    "name": "alPPPoEStatsIfPeerName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfACCookie": {
+    "name": "alPPPoEStatsIfACCookie",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfHostUnique": {
+    "name": "alPPPoEStatsIfHostUnique",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alPPPoEStatsIfRelaySessID": {
+    "name": "alPPPoEStatsIfRelaySessID",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.40.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altigaPPPoEStatsMibConformance": {
+    "name": "altigaPPPoEStatsMibConformance",
+    "oid": "1.3.6.1.4.1.3076.1.1.45.2.1",
+    "class": "objectidentity"
+  },
+  "altigaPPPoEStatsMibCompliances": {
+    "name": "altigaPPPoEStatsMibCompliances",
+    "oid": "1.3.6.1.4.1.3076.1.1.45.2.1.1",
+    "class": "objectidentity"
+  },
+  "altigaPPPoEStatsMibCompliance": {
+    "name": "altigaPPPoEStatsMibCompliance",
+    "oid": "1.3.6.1.4.1.3076.1.1.45.2.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaPPPoEStatsGroup",
+        "module": "ALTIGA-PPPOE-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "altigaPPPoEStatsGroup": {
+    "name": "altigaPPPoEStatsGroup",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.40.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsActiveSessions"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsTotalSessions"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsMaxSessions"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfIndex"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfPADTRx"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfPADTTx"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfGenericErrorsRx"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfMalformedPacketsRx"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfPADITimeouts"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfPADRTimeouts"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfMultPADORx"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfSessionID"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfPeerAddr"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfSessionState"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfVersion"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfType"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfConnectTime"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfDuration"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfPeerName"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfACCookie"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfHostUnique"
+      },
+      {
+        "module": "ALTIGA-PPPOE-STATS-MIB",
+        "object": "alPPPoEStatsIfRelaySessID"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ALTIGA-PPPOE-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:18 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALTIGA-PPPOE-STATS-MIB"
+  }
+}

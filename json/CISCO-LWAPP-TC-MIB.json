@@ -10,23 +10,23 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "Integer32",
-      "IpAddress",
+      "Counter32",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "Counter64",
       "MibIdentifier",
-      "Counter64"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoLwappTextualConventions": {
@@ -36,11 +36,15 @@
     "revisions": [
       {
         "revision": "2011-09-13 00:00",
-        "description": "Added new textual conventions CcxServiceVersion."
+        "description": "Added new textual conventions CcxServiceVersion"
       },
       {
-        "revision": "2007-10-30 00:00",
-        "description": "Added new textual conventions CLApEthernetIfStatus and CLApDot11RadioSubband."
+        "revision": "2010-02-23 00:00",
+        "description": "Added new textual conventions CLApDot11RadioRole, CLClientPowerSaveMode,and CLApDot11RadioSubband."
+      },
+      {
+        "revision": "2007-09-11 00:00",
+        "description": "Added new textual convention CLWebAuthType."
       },
       {
         "revision": "2007-02-05 00:00",
@@ -52,7 +56,7 @@
       },
       {
         "revision": "2006-04-13 00:00",
-        "description": "Initial version of this MIB module. "
+        "description": "Initial version of this MIB module."
       }
     ]
   },
@@ -66,14 +70,7 @@
         "enumeration": {
           "dot11bg": 1,
           "dot11a": 2,
-          "uwb": 3,
-          "dot11abgn": 4,
-          "dot11ac": 5,
-          "dot11b": 6,
-          "dot11g": 7,
-          "dot11n24": 8,
-          "dot11n5": 9,
-          "unknown": 10
+          "uwb": 3
         }
       }
     },
@@ -154,18 +151,6 @@
           {
             "min": 161,
             "max": 161
-          },
-          {
-            "min": 165,
-            "max": 165
-          },
-          {
-            "min": 169,
-            "max": 169
-          },
-          {
-            "min": 173,
-            "max": 173
           }
         ]
       }
@@ -439,21 +424,6 @@
     },
     "status": "current"
   },
-  "CLApEthernetIfStatus": {
-    "name": "CLApEthernetIfStatus",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "up": 1,
-          "down": 2
-        }
-      }
-    },
-    "status": "current"
-  },
   "CLApDot11RadioSubband": {
     "name": "CLApDot11RadioSubband",
     "class": "textualconvention",
@@ -481,13 +451,13 @@
       "constraints": {
         "enumeration": {
           "shutdown": 0,
-          "updownlink": 1,
+          "upDownlink": 1,
           "uplink": 2,
           "downlink": 3,
           "access": 4,
-          "uplinkaccess": 5,
-          "downlinkaccess": 6,
-          "updownlinkaccess": 7,
+          "uplinkAccess": 5,
+          "downlinkAccess": 6,
+          "upDownlinkAccess": 7,
           "unknown": 8
         }
       }
@@ -510,31 +480,11 @@
     },
     "status": "current"
   },
-  "CLApMode": {
-    "name": "CLApMode",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "local": 0,
-          "monitor": 1,
-          "remote": 2,
-          "roguedetector": 3,
-          "sniffer": 4,
-          "bridge": 5,
-          "seConnect": 6
-        }
-      }
-    },
-    "status": "current"
-  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-TC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:14 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:24 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-TC-MIB"

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCO-BUS-MIB": [
-      "CiscoVciInteger",
-      "CiscoVpiInteger"
+      "CiscoVpiInteger",
+      "CiscoVciInteger"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -13,39 +13,37 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "Counter32",
       "Unsigned32",
-      "IpAddress",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Counter64",
       "Bits",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
-    ],
-    "SNMPv2-TC-v1": [
-      "MacAddress",
+      "DisplayString",
       "RowStatus",
+      "MacAddress",
       "TimeStamp",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoLesMIB": {
     "name": "ciscoLesMIB",
     "oid": "1.3.6.1.4.1.9.9.39",
-    "class": "objectidentity"
+    "class": "moduleidentity"
   },
   "ciscoLesMIBObjects": {
     "name": "ciscoLesMIBObjects",
@@ -67,28 +65,13 @@
     "oid": "1.3.6.1.4.1.9.9.39.1.3",
     "class": "objectidentity"
   },
-  "ciscoLesMIBConformance": {
-    "name": "ciscoLesMIBConformance",
-    "oid": "1.3.6.1.4.1.9.9.39.2",
-    "class": "objectidentity"
-  },
-  "ciscoLesMIBGroups": {
-    "name": "ciscoLesMIBGroups",
-    "oid": "1.3.6.1.4.1.9.9.39.2.1",
-    "class": "objectidentity"
-  },
-  "ciscoLesMIBCompliances": {
-    "name": "ciscoLesMIBCompliances",
-    "oid": "1.3.6.1.4.1.9.9.39.2.2",
-    "class": "objectidentity"
-  },
   "lesTable": {
     "name": "lesTable",
     "oid": "1.3.6.1.4.1.9.9.39.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesEntry": {
     "name": "lesEntry",
@@ -108,7 +91,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lesElanName": {
     "name": "lesElanName",
@@ -128,7 +111,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesIndex": {
     "name": "lesIndex",
@@ -148,7 +131,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesAtmAddrSpec": {
     "name": "lesAtmAddrSpec",
@@ -159,8 +142,8 @@
       "type": "AtmLaneAddress",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesAtmAddrMask": {
     "name": "lesAtmAddrMask",
@@ -174,13 +157,17 @@
         "size": [
           {
             "min": 0,
+            "max": 0
+          },
+          {
+            "min": 20,
             "max": 20
           }
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesAtmAddrActual": {
     "name": "lesAtmAddrActual",
@@ -192,7 +179,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesIfIndex": {
     "name": "lesIfIndex",
@@ -203,8 +190,8 @@
       "type": "Integer32",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesSubIfNum": {
     "name": "lesSubIfNum",
@@ -215,8 +202,8 @@
       "type": "Integer32",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesColocBusAtmAddrSpec": {
     "name": "lesColocBusAtmAddrSpec",
@@ -227,8 +214,8 @@
       "type": "AtmLaneAddress",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesColocBusAtmAddrMask": {
     "name": "lesColocBusAtmAddrMask",
@@ -242,13 +229,17 @@
         "size": [
           {
             "min": 0,
+            "max": 0
+          },
+          {
+            "min": 20,
             "max": 20
           }
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesColocBusAtmAddrActl": {
     "name": "lesColocBusAtmAddrActl",
@@ -260,7 +251,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesUpTime": {
     "name": "lesUpTime",
@@ -272,7 +263,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesLanType": {
     "name": "lesLanType",
@@ -295,8 +286,8 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesMaxFrm": {
     "name": "lesMaxFrm",
@@ -321,8 +312,8 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesJoinTimeout": {
     "name": "lesJoinTimeout",
@@ -347,8 +338,9 @@
         "format": "decimal"
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesLecsAtmAddr": {
     "name": "lesLecsAtmAddr",
@@ -359,8 +351,8 @@
       "type": "AtmLaneAddress",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesControlDistVpi": {
     "name": "lesControlDistVpi",
@@ -372,7 +364,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesControlDistVci": {
     "name": "lesControlDistVci",
@@ -384,7 +376,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesOperStatus": {
     "name": "lesOperStatus",
@@ -408,7 +400,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesAdminStatus": {
     "name": "lesAdminStatus",
@@ -425,8 +417,8 @@
         }
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesStatus": {
     "name": "lesStatus",
@@ -437,8 +429,8 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesSegmentID": {
     "name": "lesSegmentID",
@@ -457,8 +449,8 @@
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lesStatsTable": {
     "name": "lesStatsTable",
@@ -466,7 +458,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesStatsEntry": {
     "name": "lesStatsEntry",
@@ -486,7 +478,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInErrors": {
     "name": "lesInErrors",
@@ -498,7 +490,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInErrorLastLec": {
     "name": "lesInErrorLastLec",
@@ -510,7 +502,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInFlushReplies": {
     "name": "lesInFlushReplies",
@@ -522,7 +514,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInJoinReqs": {
     "name": "lesInJoinReqs",
@@ -534,7 +526,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesOutJoinFails": {
     "name": "lesOutJoinFails",
@@ -546,7 +538,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesJoinLastFailCause": {
     "name": "lesJoinLastFailCause",
@@ -558,7 +550,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesJoinLastFailLec": {
     "name": "lesJoinLastFailLec",
@@ -570,7 +562,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesOutConfigReqs": {
     "name": "lesOutConfigReqs",
@@ -582,7 +574,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInConfigResps": {
     "name": "lesInConfigResps",
@@ -594,7 +586,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInConfigFails": {
     "name": "lesInConfigFails",
@@ -606,7 +598,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInRegisReqs": {
     "name": "lesInRegisReqs",
@@ -618,7 +610,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesOutRegisFails": {
     "name": "lesOutRegisFails",
@@ -630,7 +622,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesRegisLastFailCause": {
     "name": "lesRegisLastFailCause",
@@ -642,7 +634,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesRegisLastFailLec": {
     "name": "lesRegisLastFailLec",
@@ -654,7 +646,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInUnregReqs": {
     "name": "lesInUnregReqs",
@@ -666,7 +658,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInLearpUcasts": {
     "name": "lesInLearpUcasts",
@@ -678,7 +670,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInLearpBroadcasts": {
     "name": "lesInLearpBroadcasts",
@@ -690,7 +682,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesOutLearpFwd": {
     "name": "lesOutLearpFwd",
@@ -702,7 +694,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInLearpResps": {
     "name": "lesInLearpResps",
@@ -714,7 +706,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInNarpReqs": {
     "name": "lesInNarpReqs",
@@ -726,7 +718,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesInTopolReqs": {
     "name": "lesInTopolReqs",
@@ -738,7 +730,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesClientTable": {
     "name": "lesClientTable",
@@ -746,7 +738,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesClientEntry": {
     "name": "lesClientEntry",
@@ -771,7 +763,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lesClientLecid": {
     "name": "lesClientLecid",
@@ -791,7 +783,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesClientAtmAddr": {
     "name": "lesClientAtmAddr",
@@ -803,7 +795,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesClientState": {
     "name": "lesClientState",
@@ -826,7 +818,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesClientIfIndex": {
     "name": "lesClientIfIndex",
@@ -838,7 +830,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesClientControlVpi": {
     "name": "lesClientControlVpi",
@@ -850,7 +842,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesClientControlVci": {
     "name": "lesClientControlVci",
@@ -862,7 +854,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesClientStatus": {
     "name": "lesClientStatus",
@@ -874,7 +866,7 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesMacRegTable": {
     "name": "lesMacRegTable",
@@ -882,7 +874,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesMacRegEntry": {
     "name": "lesMacRegEntry",
@@ -907,7 +899,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lesMacRegMacAddress": {
     "name": "lesMacRegMacAddress",
@@ -919,7 +911,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesMacRegAtmAddr": {
     "name": "lesMacRegAtmAddr",
@@ -931,7 +923,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesMacRegLecid": {
     "name": "lesMacRegLecid",
@@ -951,7 +943,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesRDRegTable": {
     "name": "lesRDRegTable",
@@ -959,7 +951,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesRDRegEntry": {
     "name": "lesRDRegEntry",
@@ -989,7 +981,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lesRDRegSegmentId": {
     "name": "lesRDRegSegmentId",
@@ -1009,7 +1001,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesRDRegBridgeNum": {
     "name": "lesRDRegBridgeNum",
@@ -1029,7 +1021,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesRDRegAtmAddr": {
     "name": "lesRDRegAtmAddr",
@@ -1041,7 +1033,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lesRDRegLecid": {
     "name": "lesRDRegLecid",
@@ -1061,58 +1053,340 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
+  },
+  "ciscoLesMIBConformance": {
+    "name": "ciscoLesMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.39.2",
+    "class": "objectidentity"
+  },
+  "ciscoLesMIBGroups": {
+    "name": "ciscoLesMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.39.2.1",
+    "class": "objectidentity"
+  },
+  "ciscoLesMIBCompliances": {
+    "name": "ciscoLesMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.39.2.2",
+    "class": "objectidentity"
   },
   "ciscoLesGroup": {
     "name": "ciscoLesGroup",
     "oid": "1.3.6.1.4.1.9.9.39.2.1.1",
-    "class": "objectidentity"
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesAtmAddrSpec"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesAtmAddrMask"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesAtmAddrActual"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesIfIndex"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesUpTime"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesLanType"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesMaxFrm"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesJoinTimeout"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesControlDistVpi"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesControlDistVci"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesOperStatus"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesAdminStatus"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesStatus"
+      }
+    ],
+    "status": "current"
   },
   "ciscoLesStatsGroup": {
     "name": "ciscoLesStatsGroup",
     "oid": "1.3.6.1.4.1.9.9.39.2.1.2",
-    "class": "objectidentity"
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInErrors"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInErrorLastLec"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInFlushReplies"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInJoinReqs"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesOutJoinFails"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesJoinLastFailCause"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesJoinLastFailLec"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInRegisReqs"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesOutRegisFails"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesRegisLastFailCause"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesRegisLastFailLec"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInUnregReqs"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInLearpUcasts"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInLearpBroadcasts"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesOutLearpFwd"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInLearpResps"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInNarpReqs"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInTopolReqs"
+      }
+    ],
+    "status": "current"
   },
   "ciscoLesColocatedGroup": {
     "name": "ciscoLesColocatedGroup",
     "oid": "1.3.6.1.4.1.9.9.39.2.1.3",
-    "class": "objectidentity"
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesColocBusAtmAddrSpec"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesColocBusAtmAddrMask"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesColocBusAtmAddrActl"
+      }
+    ],
+    "status": "current"
   },
   "ciscoLesLecsGroup": {
     "name": "ciscoLesLecsGroup",
     "oid": "1.3.6.1.4.1.9.9.39.2.1.4",
-    "class": "objectidentity"
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesLecsAtmAddr"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesOutConfigReqs"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInConfigResps"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesInConfigFails"
+      }
+    ],
+    "status": "current"
   },
   "ciscoLesCntrlDistGroup": {
     "name": "ciscoLesCntrlDistGroup",
     "oid": "1.3.6.1.4.1.9.9.39.2.1.5",
-    "class": "objectidentity"
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesControlDistVpi"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesControlDistVci"
+      }
+    ],
+    "status": "current"
   },
   "ciscoLesSubIfGroup": {
     "name": "ciscoLesSubIfGroup",
     "oid": "1.3.6.1.4.1.9.9.39.2.1.6",
-    "class": "objectidentity"
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesSubIfNum"
+      }
+    ],
+    "status": "current"
   },
   "ciscoLesClientGroup": {
     "name": "ciscoLesClientGroup",
     "oid": "1.3.6.1.4.1.9.9.39.2.1.7",
-    "class": "objectidentity"
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientAtmAddr"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientState"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientIfIndex"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientControlVpi"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientControlVci"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesClientStatus"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesMacRegAtmAddr"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesMacRegLecid"
+      }
+    ],
+    "status": "current"
   },
   "ciscoLesTokenRingGroup": {
     "name": "ciscoLesTokenRingGroup",
     "oid": "1.3.6.1.4.1.9.9.39.2.1.8",
-    "class": "objectidentity"
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesSegmentID"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesRDRegAtmAddr"
+      },
+      {
+        "module": "CISCO-LES-MIB",
+        "object": "lesRDRegLecid"
+      }
+    ],
+    "status": "current"
   },
   "ciscoLesMIBCompliance": {
     "name": "ciscoLesMIBCompliance",
     "oid": "1.3.6.1.4.1.9.9.39.2.2.1",
-    "class": "objectidentity"
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoLesGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesStatsGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesClientGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesSubIfGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesColocatedGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesLecsGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesCntrlDistGroup",
+        "module": "CISCO-LES-MIB"
+      },
+      {
+        "object": "ciscoLesTokenRingGroup",
+        "module": "CISCO-LES-MIB"
+      }
+    ],
+    "status": "current"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LES-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:13 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:23 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-LES-MIB"

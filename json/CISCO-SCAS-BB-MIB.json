@@ -1,0 +1,1030 @@
+{
+  "imports": {
+    "class": "imports",
+    "PCUBE-SE-MIB": [
+      "linkIndex",
+      "linkModuleIndex",
+      "pmoduleIndex",
+      "spvIndex"
+    ],
+    "PCUBE-SMI": [
+      "pcubeModules",
+      "pcubeWorkgroup"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pcubeEngageMIB": {
+    "name": "pcubeEngageMIB",
+    "oid": "1.3.6.1.4.1.5655.2.4",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-05-10 00:00",
+        "description": "MIB revised as a part of integration into Cisco SNMP MIB standard. Changed contacts, Added OBJECT-GROUPS, Added MODULE-COMPLIANCE."
+      },
+      {
+        "revision": "2004-12-21 00:00",
+        "description": "Main SNMP MIB for P-cube's Engage Applictaion, revised for Engage 2.5."
+      },
+      {
+        "revision": "2004-07-01 00:00",
+        "description": "Main SNMP MIB for P-cube's Engage Applictaion."
+      },
+      {
+        "revision": "2002-07-03 20:00",
+        "description": "This MIB provides runtime status and monitoring capabilities for the SCAS BB application."
+      }
+    ]
+  },
+  "pcubeEngageObjs": {
+    "name": "pcubeEngageObjs",
+    "oid": "1.3.6.1.4.1.5655.4.2",
+    "class": "objectidentity"
+  },
+  "pcubeEngageConformance": {
+    "name": "pcubeEngageConformance",
+    "oid": "1.3.6.1.4.1.5655.2.4.3",
+    "class": "objectidentity"
+  },
+  "pcubeEngageGroups": {
+    "name": "pcubeEngageGroups",
+    "oid": "1.3.6.1.4.1.5655.2.4.3.1",
+    "class": "objectidentity"
+  },
+  "pcubeEngageCompliances": {
+    "name": "pcubeEngageCompliances",
+    "oid": "1.3.6.1.4.1.5655.2.4.3.2",
+    "class": "objectidentity"
+  },
+  "serviceGrp": {
+    "name": "serviceGrp",
+    "oid": "1.3.6.1.4.1.5655.4.2.1",
+    "class": "objectidentity"
+  },
+  "linkGrp": {
+    "name": "linkGrp",
+    "oid": "1.3.6.1.4.1.5655.4.2.2",
+    "class": "objectidentity"
+  },
+  "packageGrp": {
+    "name": "packageGrp",
+    "oid": "1.3.6.1.4.1.5655.4.2.3",
+    "class": "objectidentity"
+  },
+  "subscriberGrp": {
+    "name": "subscriberGrp",
+    "oid": "1.3.6.1.4.1.5655.4.2.4",
+    "class": "objectidentity"
+  },
+  "serviceCounterGrp": {
+    "name": "serviceCounterGrp",
+    "oid": "1.3.6.1.4.1.5655.4.2.5",
+    "class": "objectidentity"
+  },
+  "serviceTable": {
+    "name": "serviceTable",
+    "oid": "1.3.6.1.4.1.5655.4.2.1.1",
+    "class": "objectidentity"
+  },
+  "linkServiceUsageTable": {
+    "name": "linkServiceUsageTable",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "linkServiceUsageEntry": {
+    "name": "linkServiceUsageEntry",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCUBE-SE-MIB",
+        "object": "linkModuleIndex",
+        "implied": 0
+      },
+      {
+        "module": "PCUBE-SE-MIB",
+        "object": "linkIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "globalScopeServiceCounterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "linkServiceUsageUpVolume": {
+    "name": "linkServiceUsageUpVolume",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkServiceUsageDownVolume": {
+    "name": "linkServiceUsageDownVolume",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkServiceUsageNumSessions": {
+    "name": "linkServiceUsageNumSessions",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkServiceUsageDuration": {
+    "name": "linkServiceUsageDuration",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkServiceUsageConcurrentSessions": {
+    "name": "linkServiceUsageConcurrentSessions",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkServiceUsageActiveSubscribers": {
+    "name": "linkServiceUsageActiveSubscribers",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "subscribers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkServiceUpDroppedPackets": {
+    "name": "linkServiceUpDroppedPackets",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkServiceDownDroppedPackets": {
+    "name": "linkServiceDownDroppedPackets",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkServiceUpDroppedBytes": {
+    "name": "linkServiceUpDroppedBytes",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "linkServiceDownDroppedBytes": {
+    "name": "linkServiceDownDroppedBytes",
+    "oid": "1.3.6.1.4.1.5655.4.2.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageCounterTable": {
+    "name": "packageCounterTable",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "packageCounterEntry": {
+    "name": "packageCounterEntry",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCUBE-SE-MIB",
+        "object": "pmoduleIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageCounterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "packageCounterIndex": {
+    "name": "packageCounterIndex",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "packageCounterStatus": {
+    "name": "packageCounterStatus",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageCounterName": {
+    "name": "packageCounterName",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageCounterActiveSubscribers": {
+    "name": "packageCounterActiveSubscribers",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageServiceUsageTable": {
+    "name": "packageServiceUsageTable",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "packageServiceUsageEntry": {
+    "name": "packageServiceUsageEntry",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCUBE-SE-MIB",
+        "object": "pmoduleIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageCounterIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "globalScopeServiceCounterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "packageServiceUsageUpVolume": {
+    "name": "packageServiceUsageUpVolume",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageServiceUsageDownVolume": {
+    "name": "packageServiceUsageDownVolume",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageServiceUsageNumSessions": {
+    "name": "packageServiceUsageNumSessions",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageServiceUsageDuration": {
+    "name": "packageServiceUsageDuration",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageServiceUsageConcurrentSessions": {
+    "name": "packageServiceUsageConcurrentSessions",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageServiceUsageActiveSubscribers": {
+    "name": "packageServiceUsageActiveSubscribers",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "subscribers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageServiceUpDroppedPackets": {
+    "name": "packageServiceUpDroppedPackets",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageServiceDownDroppedPackets": {
+    "name": "packageServiceDownDroppedPackets",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageServiceUpDroppedBytes": {
+    "name": "packageServiceUpDroppedBytes",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "packageServiceDownDroppedBytes": {
+    "name": "packageServiceDownDroppedBytes",
+    "oid": "1.3.6.1.4.1.5655.4.2.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscribersTable": {
+    "name": "subscribersTable",
+    "oid": "1.3.6.1.4.1.5655.4.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "subscribersEntry": {
+    "name": "subscribersEntry",
+    "oid": "1.3.6.1.4.1.5655.4.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCUBE-SE-MIB",
+        "object": "pmoduleIndex",
+        "implied": 0
+      },
+      {
+        "module": "PCUBE-SE-MIB",
+        "object": "spvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "subscriberPackageIndex": {
+    "name": "subscriberPackageIndex",
+    "oid": "1.3.6.1.4.1.5655.4.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberServiceUsageTable": {
+    "name": "subscriberServiceUsageTable",
+    "oid": "1.3.6.1.4.1.5655.4.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "subscriberServiceUsageEntry": {
+    "name": "subscriberServiceUsageEntry",
+    "oid": "1.3.6.1.4.1.5655.4.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCUBE-SE-MIB",
+        "object": "pmoduleIndex",
+        "implied": 0
+      },
+      {
+        "module": "PCUBE-SE-MIB",
+        "object": "spvIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "subscriberScopeServiceCounterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "subscriberServiceUsageUpVolume": {
+    "name": "subscriberServiceUsageUpVolume",
+    "oid": "1.3.6.1.4.1.5655.4.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberServiceUsageDownVolume": {
+    "name": "subscriberServiceUsageDownVolume",
+    "oid": "1.3.6.1.4.1.5655.4.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "KBytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberServiceUsageNumSessions": {
+    "name": "subscriberServiceUsageNumSessions",
+    "oid": "1.3.6.1.4.1.5655.4.2.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberServiceUsageDuration": {
+    "name": "subscriberServiceUsageDuration",
+    "oid": "1.3.6.1.4.1.5655.4.2.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "globalScopeServiceCounterTable": {
+    "name": "globalScopeServiceCounterTable",
+    "oid": "1.3.6.1.4.1.5655.4.2.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "globalScopeServiceCounterEntry": {
+    "name": "globalScopeServiceCounterEntry",
+    "oid": "1.3.6.1.4.1.5655.4.2.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCUBE-SE-MIB",
+        "object": "pmoduleIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "globalScopeServiceCounterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "globalScopeServiceCounterIndex": {
+    "name": "globalScopeServiceCounterIndex",
+    "oid": "1.3.6.1.4.1.5655.4.2.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "globalScopeServiceCounterStatus": {
+    "name": "globalScopeServiceCounterStatus",
+    "oid": "1.3.6.1.4.1.5655.4.2.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "globalScopeServiceCounterName": {
+    "name": "globalScopeServiceCounterName",
+    "oid": "1.3.6.1.4.1.5655.4.2.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberScopeServiceCounterTable": {
+    "name": "subscriberScopeServiceCounterTable",
+    "oid": "1.3.6.1.4.1.5655.4.2.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "subscriberScopeServiceCounterEntry": {
+    "name": "subscriberScopeServiceCounterEntry",
+    "oid": "1.3.6.1.4.1.5655.4.2.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PCUBE-SE-MIB",
+        "object": "pmoduleIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "subscriberScopeServiceCounterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "subscriberScopeServiceCounterIndex": {
+    "name": "subscriberScopeServiceCounterIndex",
+    "oid": "1.3.6.1.4.1.5655.4.2.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "subscriberScopeServiceCounterStatus": {
+    "name": "subscriberScopeServiceCounterStatus",
+    "oid": "1.3.6.1.4.1.5655.4.2.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 0,
+          "enabled": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "subscriberScopeServiceCounterName": {
+    "name": "subscriberScopeServiceCounterName",
+    "oid": "1.3.6.1.4.1.5655.4.2.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "pcubeEngageCompliance": {
+    "name": "pcubeEngageCompliance",
+    "oid": "1.3.6.1.4.1.5655.2.4.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "pcubeLinkGroup",
+        "module": "CISCO-SCAS-BB-MIB"
+      },
+      {
+        "object": "pcubePackageGroup",
+        "module": "CISCO-SCAS-BB-MIB"
+      },
+      {
+        "object": "pcubeSubscriberGroup",
+        "module": "CISCO-SCAS-BB-MIB"
+      },
+      {
+        "object": "pcubeServiceCounterGroup",
+        "module": "CISCO-SCAS-BB-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "pcubeLinkGroup": {
+    "name": "pcubeLinkGroup",
+    "oid": "1.3.6.1.4.1.5655.2.4.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "linkServiceUsageUpVolume"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "linkServiceUsageDownVolume"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "linkServiceUsageNumSessions"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "linkServiceUsageDuration"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "linkServiceUsageConcurrentSessions"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "linkServiceUsageActiveSubscribers"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "linkServiceUpDroppedPackets"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "linkServiceDownDroppedPackets"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "linkServiceUpDroppedBytes"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "linkServiceDownDroppedBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "pcubePackageGroup": {
+    "name": "pcubePackageGroup",
+    "oid": "1.3.6.1.4.1.5655.2.4.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageCounterStatus"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageCounterName"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageCounterActiveSubscribers"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageServiceUsageUpVolume"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageServiceUsageDownVolume"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageServiceUsageNumSessions"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageServiceUsageDuration"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageServiceUsageConcurrentSessions"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageServiceUsageActiveSubscribers"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageServiceUpDroppedPackets"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageServiceDownDroppedPackets"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageServiceUpDroppedBytes"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "packageServiceDownDroppedBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "pcubeSubscriberGroup": {
+    "name": "pcubeSubscriberGroup",
+    "oid": "1.3.6.1.4.1.5655.2.4.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "subscriberPackageIndex"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "subscriberServiceUsageUpVolume"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "subscriberServiceUsageDownVolume"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "subscriberServiceUsageNumSessions"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "subscriberServiceUsageDuration"
+      }
+    ],
+    "status": "current"
+  },
+  "pcubeServiceCounterGroup": {
+    "name": "pcubeServiceCounterGroup",
+    "oid": "1.3.6.1.4.1.5655.2.4.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "globalScopeServiceCounterStatus"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "globalScopeServiceCounterName"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "subscriberScopeServiceCounterStatus"
+      },
+      {
+        "module": "CISCO-SCAS-BB-MIB",
+        "object": "subscriberScopeServiceCounterName"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/PCUBE-ENGAGE-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-SCAS-BB-MIB"
+  }
+}

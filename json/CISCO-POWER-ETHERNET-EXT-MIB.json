@@ -8,9 +8,9 @@
       "EntPhysicalIndexOrZero"
     ],
     "POWER-ETHERNET-MIB": [
-      "pethPsePortIndex",
-      "pethPsePortGroupIndex",
       "pethMainPseGroupIndex",
+      "pethPsePortGroupIndex",
+      "pethPsePortIndex",
       "pethPsePortEntry"
     ],
     "SNMP-FRAMEWORK-MIB": [
@@ -18,29 +18,29 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "Integer32",
-      "IpAddress",
+      "Counter32",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Counter64",
       "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoPowerEthernetExtMIB": {
@@ -48,10 +48,6 @@
     "oid": "1.3.6.1.4.1.9.9.402",
     "class": "moduleidentity",
     "revisions": [
-      {
-        "revision": "2018-01-19 00:00",
-        "description": "Added following OBJECT-GROUP - cpeExtPseInfoPwrGroup Added new compliance - cpeExtMIBCompliance6."
-      },
       {
         "revision": "2013-07-10 00:00",
         "description": "Added following TEXTUAL-CONVENTION - CpeExtLldpPwrClassOrZero Added following OBJECT-GROUP - cpeExtPsePortLldpPowerGroup Added new compliance - cpeExtMIBCompliance5."
@@ -495,32 +491,6 @@
       "type": "TruthValue",
       "class": "type"
     },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "cpeExtMainPseUsedPower": {
-    "name": "cpeExtMainPseUsedPower",
-    "oid": "1.3.6.1.4.1.9.9.402.1.3.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "units": "miliwatts",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "cpeExtMainPseRemainingPower": {
-    "name": "cpeExtMainPseRemainingPower",
-    "oid": "1.3.6.1.4.1.9.9.402.1.3.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Unsigned32",
-      "class": "type"
-    },
-    "units": "miliwatts",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1103,82 +1073,6 @@
         "module": "CISCO-POWER-ETHERNET-EXT-MIB"
       }
     ],
-    "status": "deprecated"
-  },
-  "cpeExtMIBCompliance6": {
-    "name": "cpeExtMIBCompliance6",
-    "oid": "1.3.6.1.4.1.9.9.402.2.1.6",
-    "class": "modulecompliance",
-    "modulecompliance": [
-      {
-        "object": "cpeExtPsePortGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPsePortGlobalConfigGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPsePortPwrMonitorGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtMainPseGroup2",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPseGrpPwrGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPortEntityIndexGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPortPolicingGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPdStatsGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPortPolicingActionGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPortPwrManAllocGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPolicingNotifEnableGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPolicingNotifGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPowerPriorityGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPsePortLldpGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPsePortCapabilitiesGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPsePortLldpPowerGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      },
-      {
-        "object": "cpeExtPseInfoPwrGroup",
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB"
-      }
-    ],
     "status": "current"
   },
   "cpeExtPsePortGroup": {
@@ -1485,27 +1379,11 @@
     ],
     "status": "current"
   },
-  "cpeExtPseInfoPwrGroup": {
-    "name": "cpeExtPseInfoPwrGroup",
-    "oid": "1.3.6.1.4.1.9.9.402.2.2.18",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
-        "object": "cpeExtMainPseUsedPower"
-      },
-      {
-        "module": "CISCO-POWER-ETHERNET-EXT-MIB",
-        "object": "cpeExtMainPseRemainingPower"
-      }
-    ],
-    "status": "current"
-  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-POWER-ETHERNET-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:10 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:19 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-POWER-ETHERNET-EXT-MIB"

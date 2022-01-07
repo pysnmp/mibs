@@ -2,47 +2,58 @@
   "imports": {
     "class": "imports",
     "OSPF-MIB": [
+      "ospfNbrRestartHelperStatus",
+      "ospfRestartExitReason",
       "ospfIfIpAddress",
-      "ospfVirtNbrRtrId",
-      "ospfVirtIfState",
-      "ospfNbrRtrId",
-      "ospfLsdbLsid",
-      "ospfNbrState",
-      "ospfExtLsdbLimit",
-      "ospfAddressLessIf",
-      "ospfVirtIfNeighbor",
-      "ospfLsdbRouterId",
-      "ospfVirtIfAreaId",
-      "ospfVirtNbrState",
-      "ospf",
       "ospfIfState",
-      "ospfVirtNbrArea",
-      "ospfNbrAddressLessIndex",
-      "ospfLsdbType",
-      "ospfNbrIpAddr",
+      "ospfAreaId",
       "ospfLsdbAreaId",
-      "ospfRouterId"
+      "ospfNbrIpAddr",
+      "ospfRestartStatus",
+      "ospfLsdbRouterId",
+      "ospf",
+      "ospfRestartInterval",
+      "ospfVirtIfAreaId",
+      "ospfNbrRestartHelperExitReason",
+      "ospfAddressLessIf",
+      "ospfRouterId",
+      "ospfAreaNssaTranslatorState",
+      "ospfNbrRestartHelperAge",
+      "ospfVirtNbrRestartHelperExitReason",
+      "ospfVirtNbrRtrId",
+      "ospfNbrRtrId",
+      "ospfVirtIfState",
+      "ospfLsdbType",
+      "ospfNbrState",
+      "ospfVirtIfNeighbor",
+      "ospfVirtNbrState",
+      "ospfExtLsdbLimit",
+      "ospfVirtNbrRestartHelperAge",
+      "ospfVirtNbrRestartHelperStatus",
+      "ospfNbrAddressLessIndex",
+      "ospfVirtNbrArea",
+      "ospfLsdbLsid"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Gauge32",
-      "Counter32",
-      "Bits",
-      "Integer32",
-      "Unsigned32",
-      "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "iso",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -52,7 +63,17 @@
   "ospfTrap": {
     "name": "ospfTrap",
     "oid": "1.3.6.1.2.1.14.16",
-    "class": "moduleidentity"
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-11-10 00:00",
+        "description": "Updated for latest changes to OSPFv2: -added graceful restart related traps -added new config error types -added ospfNssaTranslatorStatusChange trap. See Appendix B of RFC 4750 for more details. This version published as part of RFC 4750"
+      },
+      {
+        "revision": "1995-01-20 12:25",
+        "description": "The initial SMIv2 revision of this MIB module, published in RFC 1850."
+      }
+    ]
   },
   "ospfTrapControl": {
     "name": "ospfTrapControl",
@@ -103,7 +124,10 @@
           "netMaskMismatch": 7,
           "helloIntervalMismatch": 8,
           "deadIntervalMismatch": 9,
-          "optionMismatch": 10
+          "optionMismatch": 10,
+          "mtuMismatch": 11,
+          "duplicateRouterId": 12,
+          "noError": 13
         }
       }
     },
@@ -124,7 +148,8 @@
           "dbDescript": 2,
           "lsReq": 3,
           "lsUpdate": 4,
-          "lsAck": 5
+          "lsAck": 5,
+          "nullPacket": 6
         }
       }
     },
@@ -141,30 +166,6 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
-  },
-  "ospfIfStateChange": {
-    "name": "ospfIfStateChange",
-    "oid": "1.3.6.1.2.1.14.16.2.16",
-    "class": "notificationtype",
-    "objects": [
-      {
-        "module": "OSPF-MIB",
-        "object": "ospfRouterId"
-      },
-      {
-        "module": "OSPF-MIB",
-        "object": "ospfIfIpAddress"
-      },
-      {
-        "module": "OSPF-MIB",
-        "object": "ospfAddressLessIf"
-      },
-      {
-        "module": "OSPF-MIB",
-        "object": "ospfIfState"
-      }
-    ],
     "status": "current"
   },
   "ospfVirtIfStateChange": {
@@ -579,6 +580,142 @@
     ],
     "status": "current"
   },
+  "ospfIfStateChange": {
+    "name": "ospfIfStateChange",
+    "oid": "1.3.6.1.2.1.14.16.2.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfIpAddress"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAddressLessIf"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfIfState"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfNssaTranslatorStatusChange": {
+    "name": "ospfNssaTranslatorStatusChange",
+    "oid": "1.3.6.1.2.1.14.16.2.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfAreaNssaTranslatorState"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfRestartStatusChange": {
+    "name": "ospfRestartStatusChange",
+    "oid": "1.3.6.1.2.1.14.16.2.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRestartStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRestartInterval"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRestartExitReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfNbrRestartHelperStatusChange": {
+    "name": "ospfNbrRestartHelperStatusChange",
+    "oid": "1.3.6.1.2.1.14.16.2.19",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrIpAddr"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrAddressLessIndex"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRtrId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRestartHelperStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRestartHelperAge"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfNbrRestartHelperExitReason"
+      }
+    ],
+    "status": "current"
+  },
+  "ospfVirtNbrRestartHelperStatusChange": {
+    "name": "ospfVirtNbrRestartHelperStatusChange",
+    "oid": "1.3.6.1.2.1.14.16.2.20",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfRouterId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrArea"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrRtrId"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrRestartHelperStatus"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrRestartHelperAge"
+      },
+      {
+        "module": "OSPF-MIB",
+        "object": "ospfVirtNbrRestartHelperExitReason"
+      }
+    ],
+    "status": "current"
+  },
   "ospfTrapConformance": {
     "name": "ospfTrapConformance",
     "oid": "1.3.6.1.2.1.14.16.3",
@@ -602,9 +739,21 @@
       {
         "object": "ospfTrapControlGroup",
         "module": "OSPF-TRAP-MIB"
-      },
+      }
+    ],
+    "status": "obsolete"
+  },
+  "ospfTrapCompliance2": {
+    "name": "ospfTrapCompliance2",
+    "oid": "1.3.6.1.2.1.14.16.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
       {
         "object": "ospfTrapControlGroup",
+        "module": "OSPF-TRAP-MIB"
+      },
+      {
+        "object": "ospfTrapEventGroup",
         "module": "OSPF-TRAP-MIB"
       }
     ],
@@ -634,11 +783,99 @@
     ],
     "status": "current"
   },
+  "ospfTrapEventGroup": {
+    "name": "ospfTrapEventGroup",
+    "oid": "1.3.6.1.2.1.14.16.3.1.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfVirtIfStateChange"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfNbrStateChange"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfVirtNbrStateChange"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfIfConfigError"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfVirtIfConfigError"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfIfAuthFailure"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfVirtIfAuthFailure"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfIfRxBadPacket"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfVirtIfRxBadPacket"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfTxRetransmit"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfVirtIfTxRetransmit"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfOriginateLsa"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfMaxAgeLsa"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfLsdbOverflow"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfLsdbApproachingOverflow"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfIfStateChange"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfNssaTranslatorStatusChange"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfRestartStatusChange"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfNbrRestartHelperStatusChange"
+      },
+      {
+        "module": "OSPF-TRAP-MIB",
+        "object": "ospfVirtNbrRestartHelperStatusChange"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/OSPF-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:00:07 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:26 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "OSPF-TRAP-MIB"

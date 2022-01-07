@@ -9,45 +9,43 @@
     ],
     "LAN-EMULATION-CLIENT-MIB": [
       "VciInteger",
-      "AtmLaneAddress",
-      "VpiInteger"
+      "VpiInteger",
+      "AtmLaneAddress"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "Counter32",
       "Unsigned32",
-      "IpAddress",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Counter64",
       "Bits",
-      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
-    ],
-    "SNMPv2-TC-v1": [
-      "TimeStamp",
-      "TruthValue",
-      "MacAddress",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "MacAddress",
+      "TruthValue",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoLecsMIB": {
     "name": "ciscoLecsMIB",
     "oid": "1.3.6.1.4.1.9.9.38",
-    "class": "objectidentity"
+    "class": "moduleidentity"
   },
   "ciscoLecsMIBObjects": {
     "name": "ciscoLecsMIBObjects",
@@ -64,28 +62,13 @@
     "oid": "1.3.6.1.4.1.9.9.38.1.2",
     "class": "objectidentity"
   },
-  "lecsMIBConformance": {
-    "name": "lecsMIBConformance",
-    "oid": "1.3.6.1.4.1.9.9.38.2",
-    "class": "objectidentity"
-  },
-  "lecsMIBCompliances": {
-    "name": "lecsMIBCompliances",
-    "oid": "1.3.6.1.4.1.9.9.38.2.1",
-    "class": "objectidentity"
-  },
-  "lecsMIBGroups": {
-    "name": "lecsMIBGroups",
-    "oid": "1.3.6.1.4.1.9.9.38.2.2",
-    "class": "objectidentity"
-  },
   "lecsTable": {
     "name": "lecsTable",
     "oid": "1.3.6.1.4.1.9.9.38.1.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsEntry": {
     "name": "lecsEntry",
@@ -100,7 +83,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigTableName": {
     "name": "lecsConfigTableName",
@@ -119,8 +102,8 @@
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsUpTime": {
     "name": "lecsUpTime",
@@ -132,7 +115,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsInConfigReqs": {
     "name": "lecsInConfigReqs",
@@ -144,7 +127,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsInConfigErrors": {
     "name": "lecsInConfigErrors",
@@ -156,7 +139,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsOutConfigFails": {
     "name": "lecsOutConfigFails",
@@ -168,7 +151,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsLastFailCause": {
     "name": "lecsLastFailCause",
@@ -180,7 +163,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsLastFailLec": {
     "name": "lecsLastFailLec",
@@ -192,7 +175,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsOperStatus": {
     "name": "lecsOperStatus",
@@ -210,7 +193,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAdminStatus": {
     "name": "lecsAdminStatus",
@@ -233,8 +216,8 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsStatus": {
     "name": "lecsStatus",
@@ -245,8 +228,8 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsMasterState": {
     "name": "lecsMasterState",
@@ -258,7 +241,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrTable": {
     "name": "lecsAtmAddrTable",
@@ -266,7 +249,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrEntry": {
     "name": "lecsAtmAddrEntry",
@@ -286,7 +269,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrIndex": {
     "name": "lecsAtmAddrIndex",
@@ -306,7 +289,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrSpec": {
     "name": "lecsAtmAddrSpec",
@@ -317,8 +300,8 @@
       "type": "AtmLaneAddress",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsAtmAddrMask": {
     "name": "lecsAtmAddrMask",
@@ -332,13 +315,17 @@
         "size": [
           {
             "min": 0,
+            "max": 0
+          },
+          {
+            "min": 20,
             "max": 20
           }
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsAtmAddrActual": {
     "name": "lecsAtmAddrActual",
@@ -350,7 +337,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrState": {
     "name": "lecsAtmAddrState",
@@ -374,7 +361,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrStatus": {
     "name": "lecsAtmAddrStatus",
@@ -385,8 +372,8 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsConfigDirectConnTable": {
     "name": "lecsConfigDirectConnTable",
@@ -394,7 +381,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigDirectConnEntry": {
     "name": "lecsConfigDirectConnEntry",
@@ -419,7 +406,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigDirectConnVpi": {
     "name": "lecsConfigDirectConnVpi",
@@ -431,7 +418,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigDirectConnVci": {
     "name": "lecsConfigDirectConnVci",
@@ -443,7 +430,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigDirectConnVCType": {
     "name": "lecsConfigDirectConnVCType",
@@ -461,7 +448,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigDirectConnSrc": {
     "name": "lecsConfigDirectConnSrc",
@@ -473,7 +460,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigDirectConnDst": {
     "name": "lecsConfigDirectConnDst",
@@ -485,7 +472,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigDirectDstType": {
     "name": "lecsConfigDirectDstType",
@@ -505,7 +492,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigTblTable": {
     "name": "lecsConfigTblTable",
@@ -513,7 +500,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigTblEntry": {
     "name": "lecsConfigTblEntry",
@@ -528,7 +515,7 @@
         "implied": 1
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigTblName": {
     "name": "lecsConfigTblName",
@@ -548,7 +535,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsConfigTblDefaultElanName": {
     "name": "lecsConfigTblDefaultElanName",
@@ -573,8 +560,8 @@
         "format": "hex"
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsConfigTblStatus": {
     "name": "lecsConfigTblStatus",
@@ -585,8 +572,8 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsElanConfigTable": {
     "name": "lecsElanConfigTable",
@@ -594,7 +581,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsElanConfigEntry": {
     "name": "lecsElanConfigEntry",
@@ -614,7 +601,7 @@
         "implied": 1
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsElanConfigName": {
     "name": "lecsElanConfigName",
@@ -634,7 +621,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsElanLesAtmAddr": {
     "name": "lecsElanLesAtmAddr",
@@ -645,8 +632,8 @@
       "type": "AtmLaneAddress",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsElanAccess": {
     "name": "lecsElanAccess",
@@ -669,8 +656,8 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsElanConfigStatus": {
     "name": "lecsElanConfigStatus",
@@ -681,8 +668,8 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsElanSegmentId": {
     "name": "lecsElanSegmentId",
@@ -701,8 +688,8 @@
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsMacConfigTable": {
     "name": "lecsMacConfigTable",
@@ -710,7 +697,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsMacConfigEntry": {
     "name": "lecsMacConfigEntry",
@@ -730,7 +717,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsMacConfigAddress": {
     "name": "lecsMacConfigAddress",
@@ -742,7 +729,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsMacConfigElanName": {
     "name": "lecsMacConfigElanName",
@@ -761,8 +748,8 @@
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsMacConfigLastUsed": {
     "name": "lecsMacConfigLastUsed",
@@ -774,7 +761,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsMacConfigStatus": {
     "name": "lecsMacConfigStatus",
@@ -785,8 +772,8 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsAtmAddrConfigTable": {
     "name": "lecsAtmAddrConfigTable",
@@ -794,7 +781,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrConfigEntry": {
     "name": "lecsAtmAddrConfigEntry",
@@ -819,7 +806,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrConfigAddress": {
     "name": "lecsAtmAddrConfigAddress",
@@ -839,7 +826,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrConfigMask": {
     "name": "lecsAtmAddrConfigMask",
@@ -859,7 +846,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrConfigElanName": {
     "name": "lecsAtmAddrConfigElanName",
@@ -878,8 +865,8 @@
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsAtmAddrLastUsed": {
     "name": "lecsAtmAddrLastUsed",
@@ -891,7 +878,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsAtmAddrConfigStatus": {
     "name": "lecsAtmAddrConfigStatus",
@@ -902,8 +889,8 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsLesConfigTable": {
     "name": "lecsLesConfigTable",
@@ -911,7 +898,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsLesConfigEntry": {
     "name": "lecsLesConfigEntry",
@@ -936,7 +923,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsLesAtmAddr": {
     "name": "lecsLesAtmAddr",
@@ -956,7 +943,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsLesPriority": {
     "name": "lecsLesPriority",
@@ -975,8 +962,8 @@
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsLesConnState": {
     "name": "lecsLesConnState",
@@ -995,7 +982,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsLesConfigStatus": {
     "name": "lecsLesConfigStatus",
@@ -1006,8 +993,8 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsRDConfigTable": {
     "name": "lecsRDConfigTable",
@@ -1015,7 +1002,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsRDConfigEntry": {
     "name": "lecsRDConfigEntry",
@@ -1040,7 +1027,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsRDConfigSegmentId": {
     "name": "lecsRDConfigSegmentId",
@@ -1060,7 +1047,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsRDConfigBridgeNum": {
     "name": "lecsRDConfigBridgeNum",
@@ -1080,7 +1067,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsRDConfigElanName": {
     "name": "lecsRDConfigElanName",
@@ -1099,8 +1086,8 @@
         ]
       }
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
   "lecsRDConfigLastUsed": {
     "name": "lecsRDConfigLastUsed",
@@ -1112,7 +1099,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "lecsRDConfigStatus": {
     "name": "lecsRDConfigStatus",
@@ -1123,34 +1110,217 @@
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-write",
-    "status": "mandatory"
+    "maxaccess": "read-create",
+    "status": "current"
   },
-  "lecsMIBGroup": {
-    "name": "lecsMIBGroup",
-    "oid": "1.3.6.1.4.1.9.9.38.2.2.1",
+  "lecsMIBConformance": {
+    "name": "lecsMIBConformance",
+    "oid": "1.3.6.1.4.1.9.9.38.2",
     "class": "objectidentity"
   },
-  "lecsTokenRingMIBGroup": {
-    "name": "lecsTokenRingMIBGroup",
-    "oid": "1.3.6.1.4.1.9.9.38.2.2.2",
+  "lecsMIBCompliances": {
+    "name": "lecsMIBCompliances",
+    "oid": "1.3.6.1.4.1.9.9.38.2.1",
     "class": "objectidentity"
   },
-  "lecsRedundancyMIBGroup": {
-    "name": "lecsRedundancyMIBGroup",
-    "oid": "1.3.6.1.4.1.9.9.38.2.2.3",
+  "lecsMIBGroups": {
+    "name": "lecsMIBGroups",
+    "oid": "1.3.6.1.4.1.9.9.38.2.2",
     "class": "objectidentity"
   },
   "lecsMIBCompliance": {
     "name": "lecsMIBCompliance",
     "oid": "1.3.6.1.4.1.9.9.38.2.1.1",
-    "class": "objectidentity"
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lecsMIBGroup",
+        "module": "CISCO-LECS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lecsMIBGroup": {
+    "name": "lecsMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.38.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsConfigTableName"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsUpTime"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsInConfigReqs"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsInConfigErrors"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsOutConfigFails"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsLastFailCause"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsLastFailLec"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsOperStatus"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsAdminStatus"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsStatus"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsAtmAddrSpec"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsAtmAddrMask"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsAtmAddrActual"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsAtmAddrState"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsAtmAddrStatus"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsConfigDirectConnSrc"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsConfigDirectConnDst"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsConfigTblStatus"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsElanLesAtmAddr"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsElanConfigStatus"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsMacConfigElanName"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsMacConfigLastUsed"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsMacConfigStatus"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsAtmAddrConfigElanName"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsAtmAddrLastUsed"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsAtmAddrConfigStatus"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsConfigDirectConnVCType"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsConfigTblDefaultElanName"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsElanAccess"
+      }
+    ],
+    "status": "current"
+  },
+  "lecsTokenRingMIBGroup": {
+    "name": "lecsTokenRingMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.38.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsElanSegmentId"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsRDConfigElanName"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsRDConfigLastUsed"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsRDConfigStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "lecsRedundancyMIBGroup": {
+    "name": "lecsRedundancyMIBGroup",
+    "oid": "1.3.6.1.4.1.9.9.38.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsMasterState"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsConfigDirectDstType"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsLesPriority"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsLesConnState"
+      },
+      {
+        "module": "CISCO-LECS-MIB",
+        "object": "lecsLesConfigStatus"
+      }
+    ],
+    "status": "current"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LECS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:10 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:20 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-LECS-MIB"

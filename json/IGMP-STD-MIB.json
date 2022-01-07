@@ -2,62 +2,57 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "TimeTicks",
-      "experimental",
-      "Counter32",
-      "Bits",
-      "Integer32",
-      "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "igmpStdMIB": {
     "name": "igmpStdMIB",
-    "oid": "1.3.6.1.3.59",
+    "oid": "1.3.6.1.2.1.85",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "1999-09-17 12:00",
-        "description": "Initial version, published as RFC xxxx (to be filled in by RFC-Editor)."
+        "revision": "2000-09-28 00:00",
+        "description": "Initial version, published as RFC 2933."
       }
     ]
   },
   "igmpMIBObjects": {
     "name": "igmpMIBObjects",
-    "oid": "1.3.6.1.3.59.1",
-    "class": "objectidentity"
-  },
-  "igmp": {
-    "name": "igmp",
-    "oid": "1.3.6.1.3.59.1.1",
+    "oid": "1.3.6.1.2.1.85.1",
     "class": "objectidentity"
   },
   "igmpInterfaceTable": {
     "name": "igmpInterfaceTable",
-    "oid": "1.3.6.1.3.59.1.1.1",
+    "oid": "1.3.6.1.2.1.85.1.1",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -65,7 +60,7 @@
   },
   "igmpInterfaceEntry": {
     "name": "igmpInterfaceEntry",
-    "oid": "1.3.6.1.3.59.1.1.1.1",
+    "oid": "1.3.6.1.2.1.85.1.1.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -80,7 +75,7 @@
   },
   "igmpInterfaceIfIndex": {
     "name": "igmpInterfaceIfIndex",
-    "oid": "1.3.6.1.3.59.1.1.1.1.1",
+    "oid": "1.3.6.1.2.1.85.1.1.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -92,11 +87,11 @@
   },
   "igmpInterfaceQueryInterval": {
     "name": "igmpInterfaceQueryInterval",
-    "oid": "1.3.6.1.3.59.1.1.1.1.2",
+    "oid": "1.3.6.1.2.1.85.1.1.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "Unsigned32",
       "class": "type"
     },
     "default": {
@@ -106,48 +101,42 @@
       }
     },
     "units": "seconds",
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "igmpInterfaceStatus": {
     "name": "igmpInterfaceStatus",
-    "oid": "1.3.6.1.3.59.1.1.1.1.3",
+    "oid": "1.3.6.1.2.1.85.1.1.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "igmpInterfaceVersion": {
     "name": "igmpInterfaceVersion",
-    "oid": "1.3.6.1.3.59.1.1.1.1.4",
+    "oid": "1.3.6.1.2.1.85.1.1.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "version1": 1,
-          "version2": 2
-        }
-      }
+      "type": "Unsigned32",
+      "class": "type"
     },
     "default": {
       "default": {
-        "value": "version2",
-        "format": "enum"
+        "value": 2,
+        "format": "decimal"
       }
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "igmpInterfaceQuerier": {
     "name": "igmpInterfaceQuerier",
-    "oid": "1.3.6.1.3.59.1.1.1.1.5",
+    "oid": "1.3.6.1.2.1.85.1.1.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -159,12 +148,20 @@
   },
   "igmpInterfaceQueryMaxResponseTime": {
     "name": "igmpInterfaceQueryMaxResponseTime",
-    "oid": "1.3.6.1.3.59.1.1.1.1.6",
+    "oid": "1.3.6.1.2.1.85.1.1.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
-      "class": "type"
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
     },
     "default": {
       "default": {
@@ -173,109 +170,12 @@
       }
     },
     "units": "tenths of seconds",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "igmpInterfaceVersion1QuerierTimer": {
-    "name": "igmpInterfaceVersion1QuerierTimer",
-    "oid": "1.3.6.1.3.59.1.1.1.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TimeTicks",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "igmpInterfaceWrongVersionQueries": {
-    "name": "igmpInterfaceWrongVersionQueries",
-    "oid": "1.3.6.1.3.59.1.1.1.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "igmpInterfaceJoins": {
-    "name": "igmpInterfaceJoins",
-    "oid": "1.3.6.1.3.59.1.1.1.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "igmpInterfaceGroups": {
-    "name": "igmpInterfaceGroups",
-    "oid": "1.3.6.1.3.59.1.1.1.1.13",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Gauge32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "igmpInterfaceRobustness": {
-    "name": "igmpInterfaceRobustness",
-    "oid": "1.3.6.1.3.59.1.1.1.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": 2,
-        "format": "decimal"
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "igmpInterfaceLastMembQueryIntvl": {
-    "name": "igmpInterfaceLastMembQueryIntvl",
-    "oid": "1.3.6.1.3.59.1.1.1.1.15",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": 10,
-        "format": "decimal"
-      }
-    },
-    "units": "tenths of seconds",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "igmpInterfaceProxyIfIndex": {
-    "name": "igmpInterfaceProxyIfIndex",
-    "oid": "1.3.6.1.3.59.1.1.1.1.16",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "InterfaceIndexOrZero",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "igmpInterfaceQuerierUpTime": {
     "name": "igmpInterfaceQuerierUpTime",
-    "oid": "1.3.6.1.3.59.1.1.1.1.17",
+    "oid": "1.3.6.1.2.1.85.1.1.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -287,7 +187,7 @@
   },
   "igmpInterfaceQuerierExpiryTime": {
     "name": "igmpInterfaceQuerierExpiryTime",
-    "oid": "1.3.6.1.3.59.1.1.1.1.18",
+    "oid": "1.3.6.1.2.1.85.1.1.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -297,9 +197,122 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "igmpInterfaceVersion1QuerierTimer": {
+    "name": "igmpInterfaceVersion1QuerierTimer",
+    "oid": "1.3.6.1.2.1.85.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "igmpInterfaceWrongVersionQueries": {
+    "name": "igmpInterfaceWrongVersionQueries",
+    "oid": "1.3.6.1.2.1.85.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "igmpInterfaceJoins": {
+    "name": "igmpInterfaceJoins",
+    "oid": "1.3.6.1.2.1.85.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "igmpInterfaceProxyIfIndex": {
+    "name": "igmpInterfaceProxyIfIndex",
+    "oid": "1.3.6.1.2.1.85.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "igmpInterfaceGroups": {
+    "name": "igmpInterfaceGroups",
+    "oid": "1.3.6.1.2.1.85.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "igmpInterfaceRobustness": {
+    "name": "igmpInterfaceRobustness",
+    "oid": "1.3.6.1.2.1.85.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "igmpInterfaceLastMembQueryIntvl": {
+    "name": "igmpInterfaceLastMembQueryIntvl",
+    "oid": "1.3.6.1.2.1.85.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "tenths of seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
   "igmpCacheTable": {
     "name": "igmpCacheTable",
-    "oid": "1.3.6.1.3.59.1.1.2",
+    "oid": "1.3.6.1.2.1.85.1.2",
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -307,7 +320,7 @@
   },
   "igmpCacheEntry": {
     "name": "igmpCacheEntry",
-    "oid": "1.3.6.1.3.59.1.1.2.1",
+    "oid": "1.3.6.1.2.1.85.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -327,7 +340,7 @@
   },
   "igmpCacheAddress": {
     "name": "igmpCacheAddress",
-    "oid": "1.3.6.1.3.59.1.1.2.1.1",
+    "oid": "1.3.6.1.2.1.85.1.2.1.1",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -339,7 +352,7 @@
   },
   "igmpCacheIfIndex": {
     "name": "igmpCacheIfIndex",
-    "oid": "1.3.6.1.3.59.1.1.2.1.2",
+    "oid": "1.3.6.1.2.1.85.1.2.1.2",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -351,7 +364,7 @@
   },
   "igmpCacheSelf": {
     "name": "igmpCacheSelf",
-    "oid": "1.3.6.1.3.59.1.1.2.1.3",
+    "oid": "1.3.6.1.2.1.85.1.2.1.3",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -364,12 +377,12 @@
         "format": "enum"
       }
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "igmpCacheLastReporter": {
     "name": "igmpCacheLastReporter",
-    "oid": "1.3.6.1.3.59.1.1.2.1.4",
+    "oid": "1.3.6.1.2.1.85.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -381,7 +394,7 @@
   },
   "igmpCacheUpTime": {
     "name": "igmpCacheUpTime",
-    "oid": "1.3.6.1.3.59.1.1.2.1.5",
+    "oid": "1.3.6.1.2.1.85.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -393,7 +406,7 @@
   },
   "igmpCacheExpiryTime": {
     "name": "igmpCacheExpiryTime",
-    "oid": "1.3.6.1.3.59.1.1.2.1.6",
+    "oid": "1.3.6.1.2.1.85.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -405,19 +418,19 @@
   },
   "igmpCacheStatus": {
     "name": "igmpCacheStatus",
-    "oid": "1.3.6.1.3.59.1.1.2.1.7",
+    "oid": "1.3.6.1.2.1.85.1.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
       "type": "RowStatus",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "read-create",
     "status": "current"
   },
   "igmpCacheVersion1HostTimer": {
     "name": "igmpCacheVersion1HostTimer",
-    "oid": "1.3.6.1.3.59.1.1.2.1.8",
+    "oid": "1.3.6.1.2.1.85.1.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -429,22 +442,22 @@
   },
   "igmpMIBConformance": {
     "name": "igmpMIBConformance",
-    "oid": "1.3.6.1.3.59.2",
+    "oid": "1.3.6.1.2.1.85.2",
     "class": "objectidentity"
   },
   "igmpMIBCompliances": {
     "name": "igmpMIBCompliances",
-    "oid": "1.3.6.1.3.59.2.1",
+    "oid": "1.3.6.1.2.1.85.2.1",
     "class": "objectidentity"
   },
   "igmpMIBGroups": {
     "name": "igmpMIBGroups",
-    "oid": "1.3.6.1.3.59.2.2",
+    "oid": "1.3.6.1.2.1.85.2.2",
     "class": "objectidentity"
   },
   "igmpV1HostMIBCompliance": {
     "name": "igmpV1HostMIBCompliance",
-    "oid": "1.3.6.1.3.59.2.1.1",
+    "oid": "1.3.6.1.2.1.85.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -456,7 +469,7 @@
   },
   "igmpV1RouterMIBCompliance": {
     "name": "igmpV1RouterMIBCompliance",
-    "oid": "1.3.6.1.3.59.2.1.2",
+    "oid": "1.3.6.1.2.1.85.2.1.2",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -472,7 +485,7 @@
   },
   "igmpV2HostMIBCompliance": {
     "name": "igmpV2HostMIBCompliance",
-    "oid": "1.3.6.1.3.59.2.1.3",
+    "oid": "1.3.6.1.2.1.85.2.1.3",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -488,7 +501,7 @@
   },
   "igmpV2RouterMIBCompliance": {
     "name": "igmpV2RouterMIBCompliance",
-    "oid": "1.3.6.1.3.59.2.1.4",
+    "oid": "1.3.6.1.2.1.85.2.1.4",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -508,7 +521,7 @@
   },
   "igmpBaseMIBGroup": {
     "name": "igmpBaseMIBGroup",
-    "oid": "1.3.6.1.3.59.2.2.1",
+    "oid": "1.3.6.1.2.1.85.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -528,7 +541,7 @@
   },
   "igmpRouterMIBGroup": {
     "name": "igmpRouterMIBGroup",
-    "oid": "1.3.6.1.3.59.2.2.2",
+    "oid": "1.3.6.1.2.1.85.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -568,7 +581,7 @@
   },
   "igmpV2HostMIBGroup": {
     "name": "igmpV2HostMIBGroup",
-    "oid": "1.3.6.1.3.59.2.2.3",
+    "oid": "1.3.6.1.2.1.85.2.2.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -580,7 +593,7 @@
   },
   "igmpHostOptMIBGroup": {
     "name": "igmpHostOptMIBGroup",
-    "oid": "1.3.6.1.3.59.2.2.4",
+    "oid": "1.3.6.1.2.1.85.2.2.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -596,7 +609,7 @@
   },
   "igmpV2RouterMIBGroup": {
     "name": "igmpV2RouterMIBGroup",
-    "oid": "1.3.6.1.3.59.2.2.5",
+    "oid": "1.3.6.1.2.1.85.2.2.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -632,7 +645,7 @@
   },
   "igmpV2ProxyMIBGroup": {
     "name": "igmpV2ProxyMIBGroup",
-    "oid": "1.3.6.1.3.59.2.2.6",
+    "oid": "1.3.6.1.2.1.85.2.2.6",
     "class": "objectgroup",
     "objects": [
       {
@@ -645,8 +658,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IGMP-STD-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:00:07 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:26 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "IGMP-STD-MIB"

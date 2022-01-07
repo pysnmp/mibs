@@ -1,0 +1,2098 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "enterprises",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "actona": {
+    "name": "actona",
+    "oid": "1.3.6.1.4.1.17471",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-07-30 00:00",
+        "description": "Added cifs AO related objects"
+      },
+      {
+        "revision": "2004-12-23 00:00",
+        "description": "(1) Added aclogSeverity and aclogMsgText objects. (2) deprecated csLogsTrap, esLogsTrap, mgrLogsTrap objects and replaced it with acCsLOgsTrap, acEsLogsTrap, and acMgrLogsTrap objects. (2) deprecated logNotificationsGroup and replaced it with logNotificationsGroupRev1."
+      },
+      {
+        "revision": "2003-11-24 16:10",
+        "description": "Actona Technologies"
+      }
+    ]
+  },
+  "acNotifications": {
+    "name": "acNotifications",
+    "oid": "1.3.6.1.4.1.17471.0",
+    "class": "objectidentity"
+  },
+  "actastor": {
+    "name": "actastor",
+    "oid": "1.3.6.1.4.1.17471.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "generalInformation": {
+    "name": "generalInformation",
+    "oid": "1.3.6.1.4.1.17471.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "actastorVersion": {
+    "name": "actastorVersion",
+    "oid": "1.3.6.1.4.1.17471.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "buildString": {
+    "name": "buildString",
+    "oid": "1.3.6.1.4.1.17471.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "support": {
+    "name": "support",
+    "oid": "1.3.6.1.4.1.17471.1.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "email": {
+    "name": "email",
+    "oid": "1.3.6.1.4.1.17471.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "license": {
+    "name": "license",
+    "oid": "1.3.6.1.4.1.17471.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "isValid": {
+    "name": "isValid",
+    "oid": "1.3.6.1.4.1.17471.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "daysLeft": {
+    "name": "daysLeft",
+    "oid": "1.3.6.1.4.1.17471.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "units": "days (99999 is unlimited license)",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "manager": {
+    "name": "manager",
+    "oid": "1.3.6.1.4.1.17471.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mgrCentralServerHost": {
+    "name": "mgrCentralServerHost",
+    "oid": "1.3.6.1.4.1.17471.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mgrLogsTrap": {
+    "name": "mgrLogsTrap",
+    "oid": "1.3.6.1.4.1.17471.1.2.2",
+    "class": "notificationtype",
+    "status": "deprecated"
+  },
+  "coreServer": {
+    "name": "coreServer",
+    "oid": "1.3.6.1.4.1.17471.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "csGeneral": {
+    "name": "csGeneral",
+    "oid": "1.3.6.1.4.1.17471.1.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "csIsConfigured": {
+    "name": "csIsConfigured",
+    "oid": "1.3.6.1.4.1.17471.1.3.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csIsAlive": {
+    "name": "csIsAlive",
+    "oid": "1.3.6.1.4.1.17471.1.3.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csUpTime": {
+    "name": "csUpTime",
+    "oid": "1.3.6.1.4.1.17471.1.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csState": {
+    "name": "csState",
+    "oid": "1.3.6.1.4.1.17471.1.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "csConnectivityTable": {
+    "name": "csConnectivityTable",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csConnectivityEntry": {
+    "name": "csConnectivityEntry",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csConTabIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csConTabIndex": {
+    "name": "csConTabIndex",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csConTabClusterID": {
+    "name": "csConTabClusterID",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csConTabClusterName": {
+    "name": "csConTabClusterName",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csConTabIsConnected": {
+    "name": "csConTabIsConnected",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csConTabTotalSentMessages": {
+    "name": "csConTabTotalSentMessages",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csConTabSentCompressionRatio": {
+    "name": "csConTabSentCompressionRatio",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csConTabTotalReceivedMessages": {
+    "name": "csConTabTotalReceivedMessages",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csConTabReceivedCompressionRatio": {
+    "name": "csConTabReceivedCompressionRatio",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csConTabTotalSentKBytes": {
+    "name": "csConTabTotalSentKBytes",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csConTabTotalReceivedKBytes": {
+    "name": "csConTabTotalReceivedKBytes",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csDeviceName": {
+    "name": "csDeviceName",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csWINS": {
+    "name": "csWINS",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csCIFSServersTable": {
+    "name": "csCIFSServersTable",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csCIFSServersEntry": {
+    "name": "csCIFSServersEntry",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csCIFSServersTabIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csCIFSServersTabIndex": {
+    "name": "csCIFSServersTabIndex",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csCIFSServersTabServerName": {
+    "name": "csCIFSServersTabServerName",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csNFSServersTable": {
+    "name": "csNFSServersTable",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csNFSServersEntry": {
+    "name": "csNFSServersEntry",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csNFSServersTabIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "csNFSServersTabIndex": {
+    "name": "csNFSServersTabIndex",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "csNFSServersTabServerName": {
+    "name": "csNFSServersTabServerName",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csNFSServersTabUseTCP": {
+    "name": "csNFSServersTabUseTCP",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csNFSServersTabUseUDP": {
+    "name": "csNFSServersTabUseUDP",
+    "oid": "1.3.6.1.4.1.17471.1.3.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "csLogsTrap": {
+    "name": "csLogsTrap",
+    "oid": "1.3.6.1.4.1.17471.1.3.3",
+    "class": "notificationtype",
+    "status": "deprecated"
+  },
+  "edgeServer": {
+    "name": "edgeServer",
+    "oid": "1.3.6.1.4.1.17471.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "esGeneral": {
+    "name": "esGeneral",
+    "oid": "1.3.6.1.4.1.17471.1.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "esIsConfigured": {
+    "name": "esIsConfigured",
+    "oid": "1.3.6.1.4.1.17471.1.4.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esIsAlive": {
+    "name": "esIsAlive",
+    "oid": "1.3.6.1.4.1.17471.1.4.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esUpTime": {
+    "name": "esUpTime",
+    "oid": "1.3.6.1.4.1.17471.1.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esState": {
+    "name": "esState",
+    "oid": "1.3.6.1.4.1.17471.1.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "esConnectivityTable": {
+    "name": "esConnectivityTable",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esConnectivityEntry": {
+    "name": "esConnectivityEntry",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConTabIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "esConTabIndex": {
+    "name": "esConTabIndex",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "esConTabClusterID": {
+    "name": "esConTabClusterID",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esConTabClusterName": {
+    "name": "esConTabClusterName",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esConTabIsConnected": {
+    "name": "esConTabIsConnected",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esConTabTotalSentMessages": {
+    "name": "esConTabTotalSentMessages",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esConTabSentCompressionRatio": {
+    "name": "esConTabSentCompressionRatio",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esConTabTotalReceivedMessages": {
+    "name": "esConTabTotalReceivedMessages",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esConTabReceivedCompressionRatio": {
+    "name": "esConTabReceivedCompressionRatio",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esConTabTotalSentKBytes": {
+    "name": "esConTabTotalSentKBytes",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esConTabTotalReceivedKBytes": {
+    "name": "esConTabTotalReceivedKBytes",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esCIFSInfo": {
+    "name": "esCIFSInfo",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "esTotalBytesRead": {
+    "name": "esTotalBytesRead",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esTotalWrittenBytes": {
+    "name": "esTotalWrittenBytes",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esRemoteRequestCount": {
+    "name": "esRemoteRequestCount",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esLocalRequestCount": {
+    "name": "esLocalRequestCount",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esTotalRemoteTime": {
+    "name": "esTotalRemoteTime",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esTotalLocalTime": {
+    "name": "esTotalLocalTime",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esConnectedSessionCount": {
+    "name": "esConnectedSessionCount",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esCifsOpenFiles": {
+    "name": "esCifsOpenFiles",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esCacheInfo": {
+    "name": "esCacheInfo",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "esMaxCacheVolume": {
+    "name": "esMaxCacheVolume",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esCurrentCacheVolume": {
+    "name": "esCurrentCacheVolume",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esMaxCacheResources": {
+    "name": "esMaxCacheResources",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esCurrentCacheResources": {
+    "name": "esCurrentCacheResources",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esResourceEvictedNum": {
+    "name": "esResourceEvictedNum",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esLastEvictedTime": {
+    "name": "esLastEvictedTime",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esVolHiWatermark": {
+    "name": "esVolHiWatermark",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esVolLoWatermark": {
+    "name": "esVolLoWatermark",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esAmntHiWatermark": {
+    "name": "esAmntHiWatermark",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esAmntLoWatermark": {
+    "name": "esAmntLoWatermark",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esEvictedAge": {
+    "name": "esEvictedAge",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esEvictedLastAccess": {
+    "name": "esEvictedLastAccess",
+    "oid": "1.3.6.1.4.1.17471.1.4.2.4.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "esLogsTrap": {
+    "name": "esLogsTrap",
+    "oid": "1.3.6.1.4.1.17471.1.4.3",
+    "class": "notificationtype",
+    "status": "deprecated"
+  },
+  "cifsAO": {
+    "name": "cifsAO",
+    "oid": "1.3.6.1.4.1.17471.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfGeneral": {
+    "name": "cfGeneral",
+    "oid": "1.3.6.1.4.1.17471.1.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfIsConfigured": {
+    "name": "cfIsConfigured",
+    "oid": "1.3.6.1.4.1.17471.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfIsAlive": {
+    "name": "cfIsAlive",
+    "oid": "1.3.6.1.4.1.17471.1.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 0,
+          "yes": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfUpTime": {
+    "name": "cfUpTime",
+    "oid": "1.3.6.1.4.1.17471.1.6.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfState": {
+    "name": "cfState",
+    "oid": "1.3.6.1.4.1.17471.1.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfCIFSInfo": {
+    "name": "cfCIFSInfo",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfTotalBytesRead": {
+    "name": "cfTotalBytesRead",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfTotalWrittenBytes": {
+    "name": "cfTotalWrittenBytes",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfRemoteRequestCount": {
+    "name": "cfRemoteRequestCount",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfLocalRequestCount": {
+    "name": "cfLocalRequestCount",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfTotalRemoteTime": {
+    "name": "cfTotalRemoteTime",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfTotalLocalTime": {
+    "name": "cfTotalLocalTime",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfConnectedSessionCount": {
+    "name": "cfConnectedSessionCount",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfCifsOpenFiles": {
+    "name": "cfCifsOpenFiles",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfCacheInfo": {
+    "name": "cfCacheInfo",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "cfMaxCacheVolume": {
+    "name": "cfMaxCacheVolume",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfCurrentCacheVolume": {
+    "name": "cfCurrentCacheVolume",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "KB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfMaxCacheResources": {
+    "name": "cfMaxCacheResources",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfCurrentCacheResources": {
+    "name": "cfCurrentCacheResources",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfResourceEvictedNum": {
+    "name": "cfResourceEvictedNum",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfLastEvictedTime": {
+    "name": "cfLastEvictedTime",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfVolHiWatermark": {
+    "name": "cfVolHiWatermark",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfVolLoWatermark": {
+    "name": "cfVolLoWatermark",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfAmntHiWatermark": {
+    "name": "cfAmntHiWatermark",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfAmntLoWatermark": {
+    "name": "cfAmntLoWatermark",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "%",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfEvictedAge": {
+    "name": "cfEvictedAge",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cfEvictedLastAccess": {
+    "name": "cfEvictedLastAccess",
+    "oid": "1.3.6.1.4.1.17471.1.6.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "notificationsInfo": {
+    "name": "notificationsInfo",
+    "oid": "1.3.6.1.4.1.17471.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "acLogSeverity": {
+    "name": "acLogSeverity",
+    "oid": "1.3.6.1.4.1.17471.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "fatal": 1,
+          "error": 2,
+          "warning": 3,
+          "info": 4,
+          "debug": 5
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acLogMsgText": {
+    "name": "acLogMsgText",
+    "oid": "1.3.6.1.4.1.17471.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "acCsLogsTrap": {
+    "name": "acCsLogsTrap",
+    "oid": "1.3.6.1.4.1.17471.0.0",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acLogSeverity"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acLogMsgText"
+      }
+    ],
+    "status": "current"
+  },
+  "acMgrLogsTrap": {
+    "name": "acMgrLogsTrap",
+    "oid": "1.3.6.1.4.1.17471.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acLogSeverity"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acLogMsgText"
+      }
+    ],
+    "status": "current"
+  },
+  "acEsLogsTrap": {
+    "name": "acEsLogsTrap",
+    "oid": "1.3.6.1.4.1.17471.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acLogSeverity"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acLogMsgText"
+      }
+    ],
+    "status": "current"
+  },
+  "actastorGroups": {
+    "name": "actastorGroups",
+    "oid": "1.3.6.1.4.1.17471.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "generalGroup": {
+    "name": "generalGroup",
+    "oid": "1.3.6.1.4.1.17471.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "actastorVersion"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "buildString"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "email"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "isValid"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "daysLeft"
+      }
+    ],
+    "status": "current"
+  },
+  "managerGroup": {
+    "name": "managerGroup",
+    "oid": "1.3.6.1.4.1.17471.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "mgrCentralServerHost"
+      }
+    ],
+    "status": "current"
+  },
+  "coreServerGroup": {
+    "name": "coreServerGroup",
+    "oid": "1.3.6.1.4.1.17471.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csDeviceName"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csIsConfigured"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csIsAlive"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csUpTime"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csWINS"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csConTabClusterID"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csConTabClusterName"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csConTabIsConnected"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csConTabTotalSentMessages"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csConTabSentCompressionRatio"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csConTabTotalReceivedMessages"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csConTabReceivedCompressionRatio"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csConTabTotalSentKBytes"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csConTabTotalReceivedKBytes"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csCIFSServersTabServerName"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csNFSServersTabServerName"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csNFSServersTabUseTCP"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csNFSServersTabUseUDP"
+      }
+    ],
+    "status": "current"
+  },
+  "edgeServerGroup": {
+    "name": "edgeServerGroup",
+    "oid": "1.3.6.1.4.1.17471.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esIsConfigured"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esIsAlive"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esUpTime"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esTotalBytesRead"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esTotalWrittenBytes"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esRemoteRequestCount"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esLocalRequestCount"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConnectedSessionCount"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esCifsOpenFiles"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esMaxCacheVolume"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esCurrentCacheVolume"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esMaxCacheResources"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esCurrentCacheResources"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esTotalRemoteTime"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esTotalLocalTime"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConTabClusterID"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConTabClusterName"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConTabIsConnected"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConTabTotalSentMessages"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConTabSentCompressionRatio"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConTabTotalReceivedMessages"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConTabReceivedCompressionRatio"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConTabTotalSentKBytes"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esConTabTotalReceivedKBytes"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esResourceEvictedNum"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esLastEvictedTime"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esVolHiWatermark"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esVolLoWatermark"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esAmntHiWatermark"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esAmntLoWatermark"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esEvictedAge"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esEvictedLastAccess"
+      }
+    ],
+    "status": "current"
+  },
+  "logNotificationsGroup": {
+    "name": "logNotificationsGroup",
+    "oid": "1.3.6.1.4.1.17471.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "csLogsTrap"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "esLogsTrap"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "mgrLogsTrap"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "logNotificationsGroupRev1": {
+    "name": "logNotificationsGroupRev1",
+    "oid": "1.3.6.1.4.1.17471.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acCsLogsTrap"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acEsLogsTrap"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acMgrLogsTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "acNotificationInfoGroup": {
+    "name": "acNotificationInfoGroup",
+    "oid": "1.3.6.1.4.1.17471.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acLogSeverity"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "acLogMsgText"
+      }
+    ],
+    "status": "current"
+  },
+  "cifsAOGroup": {
+    "name": "cifsAOGroup",
+    "oid": "1.3.6.1.4.1.17471.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfIsConfigured"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfIsAlive"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfUpTime"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfTotalBytesRead"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfTotalWrittenBytes"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfRemoteRequestCount"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfLocalRequestCount"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfTotalRemoteTime"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfTotalLocalTime"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfConnectedSessionCount"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfCifsOpenFiles"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfMaxCacheVolume"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfCurrentCacheVolume"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfMaxCacheResources"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfCurrentCacheResources"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfResourceEvictedNum"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfLastEvictedTime"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfVolHiWatermark"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfVolLoWatermark"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfAmntHiWatermark"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfAmntLoWatermark"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfEvictedAge"
+      },
+      {
+        "module": "ACTONA-ACTASTOR-MIB",
+        "object": "cfEvictedLastAccess"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ACTONA-ACTASTOR-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:23 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ACTONA-ACTASTOR-MIB"
+  }
+}

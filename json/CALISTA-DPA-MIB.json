@@ -1,0 +1,533 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "enterprises",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "DisplayString": {
+    "name": "DisplayString",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type"
+    }
+  },
+  "calista": {
+    "name": "calista",
+    "oid": "1.3.6.1.4.1.7505",
+    "class": "objectidentity"
+  },
+  "products": {
+    "name": "products",
+    "oid": "1.3.6.1.4.1.7505.1",
+    "class": "objectidentity"
+  },
+  "dpa": {
+    "name": "dpa",
+    "oid": "1.3.6.1.4.1.7505.1.1",
+    "class": "objectidentity"
+  },
+  "serialNumber": {
+    "name": "serialNumber",
+    "oid": "1.3.6.1.4.1.7505.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "imageVersion": {
+    "name": "imageVersion",
+    "oid": "1.3.6.1.4.1.7505.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "loaderVersion": {
+    "name": "loaderVersion",
+    "oid": "1.3.6.1.4.1.7505.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "integrationMode": {
+    "name": "integrationMode",
+    "oid": "1.3.6.1.4.1.7505.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unconfigured": 1,
+          "simple": 2,
+          "hybrid": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pbxType": {
+    "name": "pbxType",
+    "oid": "1.3.6.1.4.1.7505.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "receivedCalls": {
+    "name": "receivedCalls",
+    "oid": "1.3.6.1.4.1.7505.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "outgoingCallsMade": {
+    "name": "outgoingCallsMade",
+    "oid": "1.3.6.1.4.1.7505.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mwiCommandsReceived": {
+    "name": "mwiCommandsReceived",
+    "oid": "1.3.6.1.4.1.7505.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pbxQueuedMWICommands": {
+    "name": "pbxQueuedMWICommands",
+    "oid": "1.3.6.1.4.1.7505.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pbxCompletedMWICommands": {
+    "name": "pbxCompletedMWICommands",
+    "oid": "1.3.6.1.4.1.7505.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pbxMWIErrors": {
+    "name": "pbxMWIErrors",
+    "oid": "1.3.6.1.4.1.7505.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "callManagerQueuedMWICommands": {
+    "name": "callManagerQueuedMWICommands",
+    "oid": "1.3.6.1.4.1.7505.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "callManagerCompletedMWICommands": {
+    "name": "callManagerCompletedMWICommands",
+    "oid": "1.3.6.1.4.1.7505.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "callManagerMWIErrors": {
+    "name": "callManagerMWIErrors",
+    "oid": "1.3.6.1.4.1.7505.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portTable": {
+    "name": "portTable",
+    "oid": "1.3.6.1.4.1.7505.1.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "portEntry": {
+    "name": "portEntry",
+    "oid": "1.3.6.1.4.1.7505.1.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CALISTA-DPA-MIB",
+        "object": "portIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "portIndex": {
+    "name": "portIndex",
+    "oid": "1.3.6.1.4.1.7505.1.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portType": {
+    "name": "portType",
+    "oid": "1.3.6.1.4.1.7505.1.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInUse": 1,
+          "octel": 2,
+          "pbx": 3,
+          "virtual": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portTelephonyLinkState": {
+    "name": "portTelephonyLinkState",
+    "oid": "1.3.6.1.4.1.7505.1.1.15.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "down": 2,
+          "registering": 3,
+          "up": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portCallManagerLinkState": {
+    "name": "portCallManagerLinkState",
+    "oid": "1.3.6.1.4.1.7505.1.1.15.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "down": 2,
+          "registering": 3,
+          "up": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portCallState": {
+    "name": "portCallState",
+    "oid": "1.3.6.1.4.1.7505.1.1.15.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "notApplicable": 2,
+          "onHook": 3,
+          "callIn": 4,
+          "callOut": 5,
+          "onCall": 6,
+          "offHook": 7,
+          "transfer": 8,
+          "outCall": 9,
+          "hangingUp": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portDeviceName": {
+    "name": "portDeviceName",
+    "oid": "1.3.6.1.4.1.7505.1.1.15.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portCodecInUse": {
+    "name": "portCodecInUse",
+    "oid": "1.3.6.1.4.1.7505.1.1.15.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "g711ALaw": 2,
+          "g711MuLaw": 3,
+          "g723dot1": 4,
+          "g729a": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "portErrors": {
+    "name": "portErrors",
+    "oid": "1.3.6.1.4.1.7505.1.1.15.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "portDacLevel": {
+    "name": "portDacLevel",
+    "oid": "1.3.6.1.4.1.7505.1.1.15.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "callManagerConnectionTable": {
+    "name": "callManagerConnectionTable",
+    "oid": "1.3.6.1.4.1.7505.1.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "callManagerConnectionEntry": {
+    "name": "callManagerConnectionEntry",
+    "oid": "1.3.6.1.4.1.7505.1.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CALISTA-DPA-MIB",
+        "object": "portIndex",
+        "implied": 0
+      },
+      {
+        "module": "CALISTA-DPA-MIB",
+        "object": "cmConnectionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "cmConnectionPortIndex": {
+    "name": "cmConnectionPortIndex",
+    "oid": "1.3.6.1.4.1.7505.1.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmConnectionIndex": {
+    "name": "cmConnectionIndex",
+    "oid": "1.3.6.1.4.1.7505.1.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmConnectionCallManagerName": {
+    "name": "cmConnectionCallManagerName",
+    "oid": "1.3.6.1.4.1.7505.1.1.16.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmConnectionIpAddress": {
+    "name": "cmConnectionIpAddress",
+    "oid": "1.3.6.1.4.1.7505.1.1.16.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmConnectionIpPort": {
+    "name": "cmConnectionIpPort",
+    "oid": "1.3.6.1.4.1.7505.1.1.16.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "cmConnectionState": {
+    "name": "cmConnectionState",
+    "oid": "1.3.6.1.4.1.7505.1.1.16.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "idle": 1,
+          "connecting": 2,
+          "retryBackOff": 3,
+          "connectPending": 4,
+          "active": 5,
+          "standby": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CALISTA-DPA-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CALISTA-DPA-MIB"
+  }
+}

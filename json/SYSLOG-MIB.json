@@ -1,0 +1,1156 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetPortNumber",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TimeStamp",
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "SYSLOG-TC-MIB": [
+      "SyslogSeverity",
+      "SyslogFacility"
+    ]
+  },
+  "syslogMIB": {
+    "name": "syslogMIB",
+    "oid": "1.3.6.1.2.1.200",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-03-04 00:00",
+        "description": "The initial version, published as RFC XXXX."
+      }
+    ]
+  },
+  "SyslogRoles": {
+    "name": "SyslogRoles",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "sender": 0,
+        "receiver": 1,
+        "relay": 2
+      }
+    },
+    "status": "current"
+  },
+  "SyslogEncapsulation": {
+    "name": "SyslogEncapsulation",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "none": 2,
+          "tls": 3,
+          "beep": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "syslogNotifications": {
+    "name": "syslogNotifications",
+    "oid": "1.3.6.1.2.1.200.0",
+    "class": "objectidentity"
+  },
+  "syslogObjects": {
+    "name": "syslogObjects",
+    "oid": "1.3.6.1.2.1.200.1",
+    "class": "objectidentity"
+  },
+  "syslogConformance": {
+    "name": "syslogConformance",
+    "oid": "1.3.6.1.2.1.200.3",
+    "class": "objectidentity"
+  },
+  "syslogControlTable": {
+    "name": "syslogControlTable",
+    "oid": "1.3.6.1.2.1.200.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogControlEntry": {
+    "name": "syslogControlEntry",
+    "oid": "1.3.6.1.2.1.200.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "syslogControlIndex": {
+    "name": "syslogControlIndex",
+    "oid": "1.3.6.1.2.1.200.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogControlDescr": {
+    "name": "syslogControlDescr",
+    "oid": "1.3.6.1.2.1.200.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogControlRoles": {
+    "name": "syslogControlRoles",
+    "oid": "1.3.6.1.2.1.200.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogRoles",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogControlBindAddrType": {
+    "name": "syslogControlBindAddrType",
+    "oid": "1.3.6.1.2.1.200.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogControlBindAddr": {
+    "name": "syslogControlBindAddr",
+    "oid": "1.3.6.1.2.1.200.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogControlBindPort": {
+    "name": "syslogControlBindPort",
+    "oid": "1.3.6.1.2.1.200.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogControlEncapsulation": {
+    "name": "syslogControlEncapsulation",
+    "oid": "1.3.6.1.2.1.200.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogEncapsulation",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogControlMaxMessageSize": {
+    "name": "syslogControlMaxMessageSize",
+    "oid": "1.3.6.1.2.1.200.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogControlConfFileName": {
+    "name": "syslogControlConfFileName",
+    "oid": "1.3.6.1.2.1.200.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "/etc/syslog.conf",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogControlStorageType": {
+    "name": "syslogControlStorageType",
+    "oid": "1.3.6.1.2.1.200.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogControlRowStatus": {
+    "name": "syslogControlRowStatus",
+    "oid": "1.3.6.1.2.1.200.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogOperationsTable": {
+    "name": "syslogOperationsTable",
+    "oid": "1.3.6.1.2.1.200.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogOperationsEntry": {
+    "name": "syslogOperationsEntry",
+    "oid": "1.3.6.1.2.1.200.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "syslogOperationsEntry",
+      "module": "SYSLOG-MIB",
+      "object": "syslogControlEntry"
+    },
+    "status": "current"
+  },
+  "syslogOperationsMsgsReceived": {
+    "name": "syslogOperationsMsgsReceived",
+    "oid": "1.3.6.1.2.1.200.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsMsgsTransmitted": {
+    "name": "syslogOperationsMsgsTransmitted",
+    "oid": "1.3.6.1.2.1.200.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsMsgsRelayed": {
+    "name": "syslogOperationsMsgsRelayed",
+    "oid": "1.3.6.1.2.1.200.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsMsgsDropped": {
+    "name": "syslogOperationsMsgsDropped",
+    "oid": "1.3.6.1.2.1.200.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsMsgsMalFormed": {
+    "name": "syslogOperationsMsgsMalFormed",
+    "oid": "1.3.6.1.2.1.200.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsMsgsDiscarded": {
+    "name": "syslogOperationsMsgsDiscarded",
+    "oid": "1.3.6.1.2.1.200.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsLastMsgRecdTime": {
+    "name": "syslogOperationsLastMsgRecdTime",
+    "oid": "1.3.6.1.2.1.200.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsLastMsgTransmittedTime": {
+    "name": "syslogOperationsLastMsgTransmittedTime",
+    "oid": "1.3.6.1.2.1.200.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsStartTime": {
+    "name": "syslogOperationsStartTime",
+    "oid": "1.3.6.1.2.1.200.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsLastError": {
+    "name": "syslogOperationsLastError",
+    "oid": "1.3.6.1.2.1.200.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsLastErrorTime": {
+    "name": "syslogOperationsLastErrorTime",
+    "oid": "1.3.6.1.2.1.200.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsRunIndex": {
+    "name": "syslogOperationsRunIndex",
+    "oid": "1.3.6.1.2.1.200.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsCounterDiscontinuityTime": {
+    "name": "syslogOperationsCounterDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.200.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogOperationsStatus": {
+    "name": "syslogOperationsStatus",
+    "oid": "1.3.6.1.2.1.200.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "started": 2,
+          "suspended": 3,
+          "stopped": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogPriorityTable": {
+    "name": "syslogPriorityTable",
+    "oid": "1.3.6.1.2.1.200.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogPriorityEntry": {
+    "name": "syslogPriorityEntry",
+    "oid": "1.3.6.1.2.1.200.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogPriorityFacility",
+        "implied": 0
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogPrioritySeverity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "syslogPriorityFacility": {
+    "name": "syslogPriorityFacility",
+    "oid": "1.3.6.1.2.1.200.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogFacility",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogPrioritySeverity": {
+    "name": "syslogPrioritySeverity",
+    "oid": "1.3.6.1.2.1.200.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogSeverity",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogPriorityDescr": {
+    "name": "syslogPriorityDescr",
+    "oid": "1.3.6.1.2.1.200.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogPriorityDestinationIndex": {
+    "name": "syslogPriorityDestinationIndex",
+    "oid": "1.3.6.1.2.1.200.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogPriorityStorageType": {
+    "name": "syslogPriorityStorageType",
+    "oid": "1.3.6.1.2.1.200.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogPriorityRowStatus": {
+    "name": "syslogPriorityRowStatus",
+    "oid": "1.3.6.1.2.1.200.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogRelayTable": {
+    "name": "syslogRelayTable",
+    "oid": "1.3.6.1.2.1.200.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogRelayEntry": {
+    "name": "syslogRelayEntry",
+    "oid": "1.3.6.1.2.1.200.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogRelayIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "syslogRelayIndex": {
+    "name": "syslogRelayIndex",
+    "oid": "1.3.6.1.2.1.200.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "syslogRelayDescr": {
+    "name": "syslogRelayDescr",
+    "oid": "1.3.6.1.2.1.200.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogRelayAddrType": {
+    "name": "syslogRelayAddrType",
+    "oid": "1.3.6.1.2.1.200.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogRelayAddr": {
+    "name": "syslogRelayAddr",
+    "oid": "1.3.6.1.2.1.200.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogRelayPort": {
+    "name": "syslogRelayPort",
+    "oid": "1.3.6.1.2.1.200.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogRelayEncapsulation": {
+    "name": "syslogRelayEncapsulation",
+    "oid": "1.3.6.1.2.1.200.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SyslogEncapsulation",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogRelayMsgsRelayed": {
+    "name": "syslogRelayMsgsRelayed",
+    "oid": "1.3.6.1.2.1.200.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogRelayCounterDiscontinuityTime": {
+    "name": "syslogRelayCounterDiscontinuityTime",
+    "oid": "1.3.6.1.2.1.200.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "syslogRelayStorageType": {
+    "name": "syslogRelayStorageType",
+    "oid": "1.3.6.1.2.1.200.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogRelayRowStatus": {
+    "name": "syslogRelayRowStatus",
+    "oid": "1.3.6.1.2.1.200.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "syslogStatusChanged": {
+    "name": "syslogStatusChanged",
+    "oid": "1.3.6.1.2.1.200.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlDescr"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlRoles"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlBindAddrType"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlBindAddr"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlBindPort"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlEncapsulation"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlConfFileName"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogGroups": {
+    "name": "syslogGroups",
+    "oid": "1.3.6.1.2.1.200.3.1",
+    "class": "objectidentity"
+  },
+  "syslogCompliances": {
+    "name": "syslogCompliances",
+    "oid": "1.3.6.1.2.1.200.3.2",
+    "class": "objectidentity"
+  },
+  "syslogOperationsGroup": {
+    "name": "syslogOperationsGroup",
+    "oid": "1.3.6.1.2.1.200.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsMsgsReceived"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsMsgsTransmitted"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsMsgsRelayed"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsMsgsDropped"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsMsgsMalFormed"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsMsgsDiscarded"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsLastMsgRecdTime"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsLastMsgTransmittedTime"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsStartTime"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsLastError"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsLastErrorTime"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsRunIndex"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsCounterDiscontinuityTime"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogOperationsStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogControlGroup": {
+    "name": "syslogControlGroup",
+    "oid": "1.3.6.1.2.1.200.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlDescr"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlRoles"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlBindAddrType"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlBindAddr"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlEncapsulation"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlBindPort"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlMaxMessageSize"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlConfFileName"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlStorageType"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogControlRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogPriorityGroup": {
+    "name": "syslogPriorityGroup",
+    "oid": "1.3.6.1.2.1.200.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogPriorityDescr"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogPriorityDestinationIndex"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogPriorityStorageType"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogPriorityRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogRelayGroup": {
+    "name": "syslogRelayGroup",
+    "oid": "1.3.6.1.2.1.200.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogRelayDescr"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogRelayAddrType"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogRelayAddr"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogRelayPort"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogRelayEncapsulation"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogRelayMsgsRelayed"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogRelayCounterDiscontinuityTime"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogRelayStorageType"
+      },
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogRelayRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogNotificationGroup": {
+    "name": "syslogNotificationGroup",
+    "oid": "1.3.6.1.2.1.200.3.1.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SYSLOG-MIB",
+        "object": "syslogStatusChanged"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogFullCompliance1": {
+    "name": "syslogFullCompliance1",
+    "oid": "1.3.6.1.2.1.200.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "syslogNotificationGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogOperationsGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogControlGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogPriorityGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogRelayGroup",
+        "module": "SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogFullCompliance2": {
+    "name": "syslogFullCompliance2",
+    "oid": "1.3.6.1.2.1.200.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "syslogOperationsGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogControlGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogPriorityGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogRelayGroup",
+        "module": "SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogFullCompliance3": {
+    "name": "syslogFullCompliance3",
+    "oid": "1.3.6.1.2.1.200.3.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "syslogOperationsGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogControlGroup",
+        "module": "SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogReadOnlyCompliance1": {
+    "name": "syslogReadOnlyCompliance1",
+    "oid": "1.3.6.1.2.1.200.3.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "syslogNotificationGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogOperationsGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogControlGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogPriorityGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogRelayGroup",
+        "module": "SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogReadOnlyCompliance2": {
+    "name": "syslogReadOnlyCompliance2",
+    "oid": "1.3.6.1.2.1.200.3.2.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "syslogOperationsGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogControlGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogPriorityGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogRelayGroup",
+        "module": "SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogReadOnlyCompliance3": {
+    "name": "syslogReadOnlyCompliance3",
+    "oid": "1.3.6.1.2.1.200.3.2.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "syslogOperationsGroup",
+        "module": "SYSLOG-MIB"
+      },
+      {
+        "object": "syslogControlGroup",
+        "module": "SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "syslogNotificationCompliance": {
+    "name": "syslogNotificationCompliance",
+    "oid": "1.3.6.1.2.1.200.3.2.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "syslogNotificationGroup",
+        "module": "SYSLOG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SYSLOG-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SYSLOG-MIB"
+  }
+}

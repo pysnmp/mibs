@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module PRVT-OEM1-PARAMS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-OEM1-PARAMS-MIB
-# Produced by pysmi-1.1.8 at Thu Jan  6 20:31:41 2022
-# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan  7 00:41:29 2022
+# On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 switch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "switch")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-iso, ObjectIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Gauge32, ModuleIdentity, IpAddress, Bits, Unsigned32, TimeTicks, NotificationType, MibIdentifier, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ObjectIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Gauge32", "ModuleIdentity", "IpAddress", "Bits", "Unsigned32", "TimeTicks", "NotificationType", "MibIdentifier", "Counter32")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, TimeTicks, Unsigned32, Bits, Integer32, ObjectIdentity, iso, NotificationType, ModuleIdentity, Gauge32, MibIdentifier, IpAddress, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "TimeTicks", "Unsigned32", "Bits", "Integer32", "ObjectIdentity", "iso", "NotificationType", "ModuleIdentity", "Gauge32", "MibIdentifier", "IpAddress", "Counter32")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 prvtOem1ParamsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 5, 2110))
 prvtOem1ParamsMIB.setRevisions(('2006-12-27 00:00',))
@@ -72,4 +72,4 @@ if mibBuilder.loadTexts: prvtModelNumber.setDescription('Model number')
 prvtPluginUID = MibScalar((1, 3, 6, 1, 4, 1, 738, 1, 5, 2110, 1, 16), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: prvtPluginUID.setStatus('current')
 if mibBuilder.loadTexts: prvtPluginUID.setDescription('Plugin UID')
-mibBuilder.exportSymbols("PRVT-OEM1-PARAMS-MIB", prvtSerialNumber=prvtSerialNumber, prvtCabinetColumn=prvtCabinetColumn, prvtOem1ParamsConformance=prvtOem1ParamsConformance, prvtChassisHorizontalDeviatioin=prvtChassisHorizontalDeviatioin, prvtHardwareAddress=prvtHardwareAddress, prvtCabinetHMSNumber=prvtCabinetHMSNumber, prvtPluginUID=prvtPluginUID, prvtOem1ParamsObjects=prvtOem1ParamsObjects, prvtHardwareRevision=prvtHardwareRevision, prvtAssemblyNumber=prvtAssemblyNumber, prvtChassisVerticalDeviation=prvtChassisVerticalDeviation, prvtCabinetRow=prvtCabinetRow, prvtSwitchEdition=prvtSwitchEdition, prvtOem1ParamsNotifications=prvtOem1ParamsNotifications, prvtOem1ParamsMIB=prvtOem1ParamsMIB, prvtSubrackHMSNumber=prvtSubrackHMSNumber, PYSNMP_MODULE_ID=prvtOem1ParamsMIB, prvtSwitchVersion=prvtSwitchVersion, prvtModelNumber=prvtModelNumber, prvtSwitchRevision=prvtSwitchRevision, prvtSwitchRepair=prvtSwitchRepair)
+mibBuilder.exportSymbols("PRVT-OEM1-PARAMS-MIB", prvtCabinetColumn=prvtCabinetColumn, prvtHardwareRevision=prvtHardwareRevision, prvtAssemblyNumber=prvtAssemblyNumber, prvtSubrackHMSNumber=prvtSubrackHMSNumber, prvtOem1ParamsNotifications=prvtOem1ParamsNotifications, prvtHardwareAddress=prvtHardwareAddress, prvtModelNumber=prvtModelNumber, prvtSwitchRepair=prvtSwitchRepair, prvtCabinetRow=prvtCabinetRow, prvtOem1ParamsMIB=prvtOem1ParamsMIB, prvtPluginUID=prvtPluginUID, prvtChassisVerticalDeviation=prvtChassisVerticalDeviation, PYSNMP_MODULE_ID=prvtOem1ParamsMIB, prvtChassisHorizontalDeviatioin=prvtChassisHorizontalDeviatioin, prvtSwitchVersion=prvtSwitchVersion, prvtSwitchEdition=prvtSwitchEdition, prvtOem1ParamsObjects=prvtOem1ParamsObjects, prvtSerialNumber=prvtSerialNumber, prvtSwitchRevision=prvtSwitchRevision, prvtCabinetHMSNumber=prvtCabinetHMSNumber, prvtOem1ParamsConformance=prvtOem1ParamsConformance)

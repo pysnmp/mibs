@@ -1,0 +1,846 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "transmission",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "DisplayString",
+      "TimeStamp"
+    ]
+  },
+  "dot5": {
+    "name": "dot5",
+    "oid": "1.3.6.1.2.1.10.9",
+    "class": "moduleidentity"
+  },
+  "dot5Table": {
+    "name": "dot5Table",
+    "oid": "1.3.6.1.2.1.10.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot5Entry": {
+    "name": "dot5Entry",
+    "oid": "1.3.6.1.2.1.10.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5IfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot5IfIndex": {
+    "name": "dot5IfIndex",
+    "oid": "1.3.6.1.2.1.10.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5Commands": {
+    "name": "dot5Commands",
+    "oid": "1.3.6.1.2.1.10.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noop": 1,
+          "open": 2,
+          "reset": 3,
+          "close": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot5RingStatus": {
+    "name": "dot5RingStatus",
+    "oid": "1.3.6.1.2.1.10.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 262143
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5RingState": {
+    "name": "dot5RingState",
+    "oid": "1.3.6.1.2.1.10.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "opened": 1,
+          "closed": 2,
+          "opening": 3,
+          "closing": 4,
+          "openFailure": 5,
+          "ringFailure": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5RingOpenStatus": {
+    "name": "dot5RingOpenStatus",
+    "oid": "1.3.6.1.2.1.10.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noOpen": 1,
+          "badParam": 2,
+          "lobeFailed": 3,
+          "signalLoss": 4,
+          "insertionTimeout": 5,
+          "ringFailed": 6,
+          "beaconing": 7,
+          "duplicateMAC": 8,
+          "requestFailed": 9,
+          "removeReceived": 10,
+          "open": 11
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5RingSpeed": {
+    "name": "dot5RingSpeed",
+    "oid": "1.3.6.1.2.1.10.9.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "oneMegabit": 2,
+          "fourMegabit": 3,
+          "sixteenMegabit": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot5UpStream": {
+    "name": "dot5UpStream",
+    "oid": "1.3.6.1.2.1.10.9.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5ActMonParticipate": {
+    "name": "dot5ActMonParticipate",
+    "oid": "1.3.6.1.2.1.10.9.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "true": 1,
+          "false": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot5Functional": {
+    "name": "dot5Functional",
+    "oid": "1.3.6.1.2.1.10.9.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot5LastBeaconSent": {
+    "name": "dot5LastBeaconSent",
+    "oid": "1.3.6.1.2.1.10.9.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsTable": {
+    "name": "dot5StatsTable",
+    "oid": "1.3.6.1.2.1.10.9.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot5StatsEntry": {
+    "name": "dot5StatsEntry",
+    "oid": "1.3.6.1.2.1.10.9.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot5StatsIfIndex": {
+    "name": "dot5StatsIfIndex",
+    "oid": "1.3.6.1.2.1.10.9.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsLineErrors": {
+    "name": "dot5StatsLineErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsBurstErrors": {
+    "name": "dot5StatsBurstErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsACErrors": {
+    "name": "dot5StatsACErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsAbortTransErrors": {
+    "name": "dot5StatsAbortTransErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsInternalErrors": {
+    "name": "dot5StatsInternalErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsLostFrameErrors": {
+    "name": "dot5StatsLostFrameErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsReceiveCongestions": {
+    "name": "dot5StatsReceiveCongestions",
+    "oid": "1.3.6.1.2.1.10.9.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsFrameCopiedErrors": {
+    "name": "dot5StatsFrameCopiedErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsTokenErrors": {
+    "name": "dot5StatsTokenErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsSoftErrors": {
+    "name": "dot5StatsSoftErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsHardErrors": {
+    "name": "dot5StatsHardErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsSignalLoss": {
+    "name": "dot5StatsSignalLoss",
+    "oid": "1.3.6.1.2.1.10.9.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsTransmitBeacons": {
+    "name": "dot5StatsTransmitBeacons",
+    "oid": "1.3.6.1.2.1.10.9.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsRecoverys": {
+    "name": "dot5StatsRecoverys",
+    "oid": "1.3.6.1.2.1.10.9.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsLobeWires": {
+    "name": "dot5StatsLobeWires",
+    "oid": "1.3.6.1.2.1.10.9.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsRemoves": {
+    "name": "dot5StatsRemoves",
+    "oid": "1.3.6.1.2.1.10.9.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsSingles": {
+    "name": "dot5StatsSingles",
+    "oid": "1.3.6.1.2.1.10.9.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5StatsFreqErrors": {
+    "name": "dot5StatsFreqErrors",
+    "oid": "1.3.6.1.2.1.10.9.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot5TimerTable": {
+    "name": "dot5TimerTable",
+    "oid": "1.3.6.1.2.1.10.9.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "dot5TimerEntry": {
+    "name": "dot5TimerEntry",
+    "oid": "1.3.6.1.2.1.10.9.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5TimerIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "dot5TimerIfIndex": {
+    "name": "dot5TimerIfIndex",
+    "oid": "1.3.6.1.2.1.10.9.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5TimerReturnRepeat": {
+    "name": "dot5TimerReturnRepeat",
+    "oid": "1.3.6.1.2.1.10.9.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5TimerHolding": {
+    "name": "dot5TimerHolding",
+    "oid": "1.3.6.1.2.1.10.9.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5TimerQueuePDU": {
+    "name": "dot5TimerQueuePDU",
+    "oid": "1.3.6.1.2.1.10.9.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5TimerValidTransmit": {
+    "name": "dot5TimerValidTransmit",
+    "oid": "1.3.6.1.2.1.10.9.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5TimerNoToken": {
+    "name": "dot5TimerNoToken",
+    "oid": "1.3.6.1.2.1.10.9.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5TimerActiveMon": {
+    "name": "dot5TimerActiveMon",
+    "oid": "1.3.6.1.2.1.10.9.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5TimerStandbyMon": {
+    "name": "dot5TimerStandbyMon",
+    "oid": "1.3.6.1.2.1.10.9.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5TimerErrorReport": {
+    "name": "dot5TimerErrorReport",
+    "oid": "1.3.6.1.2.1.10.9.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5TimerBeaconTransmit": {
+    "name": "dot5TimerBeaconTransmit",
+    "oid": "1.3.6.1.2.1.10.9.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5TimerBeaconReceive": {
+    "name": "dot5TimerBeaconReceive",
+    "oid": "1.3.6.1.2.1.10.9.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "dot5Tests": {
+    "name": "dot5Tests",
+    "oid": "1.3.6.1.2.1.10.9.3",
+    "class": "objectidentity"
+  },
+  "dot5TestInsertFunc": {
+    "name": "dot5TestInsertFunc",
+    "oid": "1.3.6.1.2.1.10.9.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot5TestFullDuplexLoopBack": {
+    "name": "dot5TestFullDuplexLoopBack",
+    "oid": "1.3.6.1.2.1.10.9.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot5ChipSets": {
+    "name": "dot5ChipSets",
+    "oid": "1.3.6.1.2.1.10.9.4",
+    "class": "objectidentity"
+  },
+  "dot5ChipSetIBM16": {
+    "name": "dot5ChipSetIBM16",
+    "oid": "1.3.6.1.2.1.10.9.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot5ChipSetTItms380": {
+    "name": "dot5ChipSetTItms380",
+    "oid": "1.3.6.1.2.1.10.9.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot5ChipSetTItms380c16": {
+    "name": "dot5ChipSetTItms380c16",
+    "oid": "1.3.6.1.2.1.10.9.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot5Conformance": {
+    "name": "dot5Conformance",
+    "oid": "1.3.6.1.2.1.10.9.6",
+    "class": "objectidentity"
+  },
+  "dot5Groups": {
+    "name": "dot5Groups",
+    "oid": "1.3.6.1.2.1.10.9.6.1",
+    "class": "objectidentity"
+  },
+  "dot5Compliances": {
+    "name": "dot5Compliances",
+    "oid": "1.3.6.1.2.1.10.9.6.2",
+    "class": "objectidentity"
+  },
+  "dot5Compliance": {
+    "name": "dot5Compliance",
+    "oid": "1.3.6.1.2.1.10.9.6.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dot5StateGroup",
+        "module": "TOKENRING-MIB"
+      },
+      {
+        "object": "dot5StatsGroup",
+        "module": "TOKENRING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dot5StateGroup": {
+    "name": "dot5StateGroup",
+    "oid": "1.3.6.1.2.1.10.9.6.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5Commands"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5RingStatus"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5RingState"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5RingOpenStatus"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5RingSpeed"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5UpStream"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5ActMonParticipate"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5Functional"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5LastBeaconSent"
+      }
+    ],
+    "status": "current"
+  },
+  "dot5StatsGroup": {
+    "name": "dot5StatsGroup",
+    "oid": "1.3.6.1.2.1.10.9.6.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsLineErrors"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsBurstErrors"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsACErrors"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsAbortTransErrors"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsInternalErrors"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsLostFrameErrors"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsReceiveCongestions"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsFrameCopiedErrors"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsTokenErrors"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsSoftErrors"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsHardErrors"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsSignalLoss"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsTransmitBeacons"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsRecoverys"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsLobeWires"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsRemoves"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsSingles"
+      },
+      {
+        "module": "TOKENRING-MIB",
+        "object": "dot5StatsFreqErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/TOKENRING-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "TOKENRING-MIB"
+  }
+}

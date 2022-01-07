@@ -1,3 +1,5 @@
+
+
 Printer-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -18,8 +20,9 @@ IMPORTS
     IANACharset FROM IANA-CHARSET-MIB;
 
 printmib MODULE-IDENTITY
-    LAST-UPDATED "0406020000Z"
+    LAST-UPDATED "200406020000Z"
     ORGANIZATION "PWG IEEE/ISTO Printer Working Group"
+
     CONTACT-INFO
         "Harry Lewis
         IBM
@@ -68,6 +71,7 @@ printmib MODULE-IDENTITY
            prtAuxiliarySheetStartupPage, prtAuxiliarySheetBannerPage,
            prtGeneralPrinterName, prtGeneralSerialNumber,
            prtAlertCriticalEvents, prtAlertAllEvents,
+
            prtInputMediaLoadTimeout, prtInputNextIndex,
            prtChannelInformation.
         SYNTAX range changed from (0..65535) to (1..65535) for the
@@ -109,7 +113,7 @@ printmib MODULE-IDENTITY
            the NOTIFICATION_GROUP, all in GROUP (not MANDATORY-GROUP)
            clauses.  The nine new objects are optional, i.e., this
            document is backward compatible with RFC 1759."
-    REVISION     "9411250000Z"
+    REVISION     "199411250000Z"
     DESCRIPTION
         "The original version of this MIB, published as RFC1759."
     ::= { mib-2 43 }
@@ -162,6 +166,7 @@ CapacityUnit ::= TEXTUAL-CONVENTION
     STATUS    deprecated
     DESCRIPTION
         "Units of measure for media capacity."
+
     SYNTAX    INTEGER {
                   tenThousandthsOfInches(3),  -- .0001
                   micrometers(4),
@@ -210,6 +215,7 @@ PrtSubUnitStatusTC ::= TEXTUAL-CONVENTION
         Critical
 
             No Critical Alerts                  0       0000'b
+
             Critical Alerts                    16     1 0000'b
 
         On-Line
@@ -258,6 +264,7 @@ SubUnitStatus ::= TEXTUAL-CONVENTION
             State is Off-Line                  32    10 0000'b
 
         Transitioning
+
             At intended state                   0       0000'b
             Transitioning to intended state    64   100 0000'b"
 
@@ -306,6 +313,7 @@ CodedCharSet ::= TEXTUAL-CONVENTION
 }
 
 --
+
 -- Channel Group TEXTUAL-CONVENTIONs
 --
 
@@ -354,6 +362,7 @@ PrtOutputPageDeliveryOrientationTC ::= TEXTUAL-CONVENTION
         user."
     SYNTAX    INTEGER {
                   faceUp(3),
+
                   faceDown(4)
                   }
 
@@ -402,6 +411,7 @@ PrtMarkerSuppliesSupplyUnitTC ::= TEXTUAL-CONVENTION
                   thousandthsOfOunces(12),
                   tenthsOfGrams(13),
                   hundrethsOfFluidOunces(14),
+
                   tenthsOfMilliliters(15),
                   feet(16),                   -- New, not in RFC 1759
                   meters(17),                 -- New, not in RFC 1759
@@ -450,6 +460,7 @@ PrtMarkerAddressabilityUnitTC ::= TEXTUAL-CONVENTION
 --
 
 PrtMediaPathMaxSpeedPrintUnitTC ::= TEXTUAL-CONVENTION
+
     -- This TC was extracted from prtMediaPathMaxSpeedPrintUnit
     -- in RFC 1759.
     STATUS    current
@@ -498,6 +509,7 @@ PrtAlertSeverityLevelTC ::= TEXTUAL-CONVENTION
         most common warning is unary. The binary warning was added later
         and given a more distinguished name."
     SYNTAX    INTEGER {
+
                   other(1),
                   critical(3),
                   warning(4),
@@ -546,6 +558,7 @@ PrtGeneralEntry ::= SEQUENCE {
     -- "Output", etc. after each entry in the following sequence.
     --
     prtGeneralConfigChanges         Counter32, -- General
+
     prtGeneralCurrentLocalization   Integer32, -- General
     prtGeneralReset                 PrtGeneralResetTC,
                                                -- General
@@ -594,6 +607,7 @@ prtGeneralConfigChanges OBJECT-TYPE
         information for this device is to be considered 'stale'. At
         this point, the management application should flush any
         configuration information cached about this device and fetch
+
         new configuration information.
 
         The following are examples of actions that would cause the
@@ -642,6 +656,7 @@ prtGeneralReset OBJECT-TYPE
         "Setting this value to 'powerCycleReset', 'resetToNVRAM', or
         'resetToFactoryDefaults' will result in the resetting of the
         printer.  When read, this object will always have the value
+
         'notResetting(3)', and a SET of the value 'notResetting' shall
         have no effect on the printer.  Some of the defined values are
         optional.  However, every implementation must support at least
@@ -690,6 +705,7 @@ prtGeneralServicePerson OBJECT-TYPE
         by the URL schemes 'tel:', 'fax:' and 'mailto:',
         respectively.  If either the phone, fax, or email
         information is not available, then a line should not
+
         be included for this information.
 
         NOTE: For interoperability purposes, it is advisable to use
@@ -786,6 +802,7 @@ prtConsoleNumberOfDisplayChars OBJECT-TYPE
     STATUS     current
     DESCRIPTION
         "The number of characters per line displayed on the physical
+
         display.  This value is 0 if there are no lines on the physical
         display or if there is no physical display"
     ::= { prtGeneralEntry 12 }
@@ -880,6 +897,7 @@ prtAlertAllEvents OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
     STATUS     current
+
     DESCRIPTION
         "A running counter of the total number of alert event entries
         (critical and non-critical) that have been recorded in the
@@ -928,6 +946,7 @@ prtCoverIndex OBJECT-TYPE
     STATUS     current
     DESCRIPTION
         "A unique value used by the printer to identify this Cover sub
+
         unit.  Although these values may change due to a major
         reconfiguration of the device (e.g., the addition of new cover
         sub-units to the printer), values SHOULD remain stable across
@@ -976,6 +995,7 @@ prtCoverStatus  OBJECT-TYPE
 prtLocalization  OBJECT IDENTIFIER ::= { printmib 7 }
 
 prtLocalizationTable OBJECT-TYPE
+
     SYNTAX     SEQUENCE OF PrtLocalizationEntry
     MAX-ACCESS not-accessible
     STATUS     current
@@ -1024,6 +1044,7 @@ prtLocalizationLanguage OBJECT-TYPE
     SYNTAX     OCTET STRING (SIZE(2))
     MAX-ACCESS read-only
     STATUS     current
+
     DESCRIPTION
         "A two character language code from ISO 639.  Examples en,
         es, fr, de.  NOTE: These examples were shown as upper case in
@@ -1072,6 +1093,7 @@ prtStorageRefEntry OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
+
         "This table will have an entry for each entry in the Host
         Resources MIB storage table that represents storage associated
         with a printer managed by this agent.
@@ -1120,6 +1142,7 @@ prtDeviceRefTable OBJECT-TYPE
         serviced by one agent, is associated with which devices.
 
         NOTE: The above description has been modified from RFC 1759
+
         for clarification."
     ::= { prtGeneral 3 }
 
@@ -1215,6 +1238,7 @@ PrtInputEntry ::= SEQUENCE {
     prtInputCurrentLevel              Integer32,
     prtInputStatus                    PrtSubUnitStatusTC,
     prtInputMediaName                 OCTET STRING,
+
     prtInputName                      OCTET STRING,
     prtInputVendorName                OCTET STRING,
     prtInputModel                     OCTET STRING,
@@ -1263,6 +1287,7 @@ prtInputDimUnit OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
+
         "The unit of measurement for use calculating and relaying
          dimensional values for this input sub-unit."
     ::= { prtInputEntry 3 }
@@ -1311,6 +1336,7 @@ prtInputMediaDimFeedDirChosen OBJECT-TYPE
     -- NOTE: In RFC 1759, the range was not defined.
     SYNTAX     Integer32 (-2..2147483647)
     MAX-ACCESS read-only
+
     STATUS     current
     DESCRIPTION
         "The printer will act as if media of the chosen dimension (in
@@ -1408,6 +1434,7 @@ prtInputMediaName OBJECT-TYPE
     SYNTAX     OCTET STRING (SIZE(0..63))
     MAX-ACCESS read-write
     STATUS     current
+
     DESCRIPTION
         "A description of the media contained in this input sub-unit;
         This description is to be used by a client to format and
@@ -1504,6 +1531,7 @@ prtInputSecurity OBJECT-TYPE
 --
 -- The Input Media Group supports identification of media
 -- installed or available for use on a printing device.
+
 -- Medium resources are identified by name, and include a
 -- collection of characteristic attributes that may further be
 -- used for selection and management of them.
@@ -1552,6 +1580,7 @@ prtInputMediaColor OBJECT-TYPE
         NOTE: The above description has been modified from RFC 1759."
     -- The following reference was not included in RFC 1759.
     REFERENCE
+
         "The PWG Standardized Media Names specification [PWGMEDIA],
         section 4 Media Color Names, contains the recommended values
         for this object.  Implementers may add additional string values.
@@ -1648,6 +1677,7 @@ prtOutputEntry OBJECT-TYPE
         "Attributes of a device capable of receiving media delivered
         from the printing process.  Entries may exist in the table for
         each device index with a device type of 'printer'.
+
         NOTE: The above description has been modified from RFC 1759
         for clarification."
    INDEX  { hrDeviceIndex, prtOutputIndex }
@@ -1745,6 +1775,7 @@ prtOutputRemainingCapacity OBJECT-TYPE
         (PrtCapacityUnitTC)of this output sub-unit.  If this output sub-
         unit can reliably sense this value, the value is sensed by the
         printer and may not be modified by management requests;
+
         otherwise, the value may be written (by a Remote Control Panel
         or a Management Application).  The value (-1) means other and
         specifically indicates that the sub-unit places no restrictions
@@ -1888,6 +1919,7 @@ prtOutputMaxDimXFeedDir OBJECT-TYPE
         The value (-1) means other and specifically indicates that the
         sub-unit places no restrictions on this parameter.  The value
         (-2) means unknown.
+
         NOTE: The above description has been modified from RFC 1759
         for clarification and to explain the purpose of (-1) and (-2)."
     ::= { prtOutputEntry 16 }
@@ -1982,6 +2014,7 @@ prtOutputBursting OBJECT-TYPE
 prtOutputDecollating OBJECT-TYPE
     SYNTAX     PresentOnOff
     MAX-ACCESS read-write
+
     STATUS     current
     DESCRIPTION
         "This object indicates that the output supports decollating,
@@ -2079,6 +2112,7 @@ PrtMarkerEntry ::= SEQUENCE {
     prtMarkerWestMargin             Integer32,
     prtMarkerEastMargin             Integer32,
     prtMarkerStatus                 PrtSubUnitStatusTC
+
     }
 
 prtMarkerIndex OBJECT-TYPE
@@ -2127,6 +2161,7 @@ prtMarkerLifeCount OBJECT-TYPE
     STATUS     current
     DESCRIPTION
         "The count of the number of units of measure counted during the
+
         life of printer using units of measure as specified by
         prtMarkerCounterUnit.
 
@@ -2175,6 +2210,7 @@ prtMarkerAddressabilityUnit OBJECT-TYPE
     --  NOTE: In RFC 1759, the enumeration values were implicitly
     --  defined by this object.
     SYNTAX     PrtMarkerAddressabilityUnitTC
+
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
@@ -2223,6 +2259,7 @@ prtMarkerNorthMargin OBJECT-TYPE
     DESCRIPTION
         "The margin, in units identified by prtMarkerAddressabilityUnit,
         from the leading edge of the medium as the medium flows through
+
         the marking engine with the side to be imaged facing the
         observer.  The leading edge is the North edge and the other
         edges are defined by the normal compass layout of  directions
@@ -2271,6 +2308,7 @@ prtMarkerStatus OBJECT-TYPE
     SYNTAX     PrtSubUnitStatusTC
     MAX-ACCESS read-only
     STATUS     current
+
     DESCRIPTION
         "The current status of this marker sub-unit."
     ::= { prtMarkerEntry 15 }
@@ -2318,6 +2356,8 @@ prtMarkerSuppliesIndex OBJECT-TYPE
     DESCRIPTION
         "A unique value used by the printer to identify this marker
         supply.  Although these values may change due to a major
+        reconfiguration of the device (e.g., the addition of new marker
+
         supplies to the printer), values SHOULD remain stable across
         successive printer power cycles.
 
@@ -2366,6 +2406,7 @@ prtMarkerSuppliesType OBJECT-TYPE
     --  defined by this object.
     SYNTAX     PrtMarkerSuppliesTypeTC
     MAX-ACCESS read-only
+
     STATUS     current
     DESCRIPTION
         "The type of this supply."
@@ -2414,6 +2455,7 @@ prtMarkerSuppliesMaxCapacity OBJECT-TYPE
 prtMarkerSuppliesLevel OBJECT-TYPE
     -- NOTE: In RFC 1759, the range was not defined.
     SYNTAX     Integer32 (-3..2147483647)
+
     MAX-ACCESS read-write
     STATUS     current
     DESCRIPTION
@@ -2511,6 +2553,7 @@ prtMarkerColorantValue OBJECT-TYPE
             red
             green
             blue
+
             cyan
             magenta
             yellow
@@ -2559,6 +2602,7 @@ prtMediaPathEntry OBJECT-TYPE
     SYNTAX     PrtMediaPathEntry
     MAX-ACCESS not-accessible
     STATUS     current
+
     DESCRIPTION
         "Entries may exist in the table for each device index with a
         device type of 'printer'  Each entry defines the physical
@@ -2607,6 +2651,7 @@ prtMediaPathMaxSpeedPrintUnit OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
+
         "The unit of measure used in specifying the speed of all media
         paths in the printer."
     ::= { prtMediaPathEntry 2 }
@@ -2655,6 +2700,7 @@ prtMediaPathMaxMediaXFeedDir OBJECT-TYPE
         "The maximum physical media size across the feed direction of
         this media path expressed in units of measure specified by
         prtMediaPathMediaSizeUnit.  A value of (-2) implies 'unknown'.
+
         NOTE: The above description has been modified from RFC 1759
         for clarification."
     ::= { prtMediaPathEntry 6 }
@@ -2703,6 +2749,7 @@ prtMediaPathDescription OBJECT-TYPE
     SYNTAX     PrtLocalizedDescriptionStringTC
     MAX-ACCESS read-only
     STATUS     current
+
     DESCRIPTION
         "The manufacturer-provided description of this media path in
         the localization specified by prtGeneralCurrentLocalization."
@@ -2751,6 +2798,7 @@ prtMediaPathStatus OBJECT-TYPE
 -- Channel example                   Implementation
 --
 -- serial port channel            bi-directional data channel
+
 -- parallel port channel          often uni-directional channel
 -- IEEE 1284 port channel         bi-directional channel
 -- SCSI port channel              bi-directional
@@ -2842,6 +2890,7 @@ PrtChannelEntry ::= SEQUENCE {
 prtChannelIndex OBJECT-TYPE
     -- NOTE: In RFC 1759, the range was not defined.
     SYNTAX     Integer32 (1..65535)
+
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
@@ -2890,6 +2939,7 @@ prtChannelCurrentJobCntlLangIndex OBJECT-TYPE
         (e.g., PJL, PostScript, NPAP).  A value of zero indicates that
         there is no current Job Control Language Interpreter for this
         channel.
+
         NOTE: The above description has been modified from RFC 1759
         for clarification."
     ::= { prtChannelEntry 4 }
@@ -2938,6 +2988,7 @@ prtChannelIfIndex OBJECT-TYPE
         interface is associated with this channel.
 
         NOTE: The above description has been modified from RFC 1759
+
         for clarification."
     ::= { prtChannelEntry 7 }
 
@@ -2985,6 +3036,8 @@ prtChannelInformation OBJECT-TYPE
         1. The prtChannelInformation is not affected by localization.
 
         2. The prtChannelInformation is a list of entries representing
+        the attribute values.  Each entry consists of the following
+
         items, in order:
 
         a. A keyword, composed of alphabetic characters (A-Z, a-z)
@@ -3033,6 +3086,7 @@ prtChannelInformation OBJECT-TYPE
 
         b. The value may contain textual information in a character set
         other than NVT ASCII graphics characters.  (For instance, an
+
         identifier might consist of ISO 10646 text encoded using the
         UTF-8 encoding scheme.)  Such a character set and its encoding
         must be specified in the definition of the value.
@@ -3129,6 +3183,7 @@ PrtInterpreterEntry ::= SEQUENCE {
 
 prtInterpreterIndex OBJECT-TYPE
     -- NOTE: In RFC 1759, the range was not defined.
+
     SYNTAX     Integer32 (1..65535)
     MAX-ACCESS not-accessible
     STATUS     current
@@ -3177,6 +3232,7 @@ prtInterpreterLangVersion OBJECT-TYPE
     SYNTAX     OCTET STRING (SIZE(0..31))
     MAX-ACCESS read-only
     STATUS     current
+
     DESCRIPTION
         "The date code or version of the language which this
         interpreter is interpreting or emulating."
@@ -3225,6 +3281,7 @@ prtInterpreterFeedAddressability OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
+
         "The maximum interpreter addressability in the feed
         direction in 10000 prtMarkerAddressabilityUnits (as specified
         by prtMarkerDefaultIndex) for this interpreter.  The
@@ -3273,6 +3330,7 @@ prtInterpreterDefaultCharSetOut OBJECT-TYPE
         "The default character set for data coming from this
         interpreter through the printer's output channel (i.e. the
         'backchannel')."
+
     ::= { prtInterpreterEntry 11 }
 
 prtInterpreterTwoWay OBJECT-TYPE
@@ -3319,6 +3377,9 @@ prtConsoleDisplayBufferEntry OBJECT-TYPE
         the display.  Lines cannot be added or deleted.  Entries may
         exist in the table for each device index with a device type of
         'printer'.
+
+        NOTE: The above description has been modified from RFC 1759
+
         for clarification."
     INDEX  { hrDeviceIndex, prtConsoleDisplayBufferIndex }
     ::= { prtConsoleDisplayBufferTable 1 }
@@ -3511,6 +3572,7 @@ prtAlertTable OBJECT-TYPE
 prtAlertEntry OBJECT-TYPE
     SYNTAX     PrtAlertEntry
     MAX-ACCESS not-accessible
+
     STATUS     current
     DESCRIPTION
         "Entries may exist in the table for each device
@@ -3559,6 +3621,7 @@ prtAlertIndex OBJECT-TYPE
         highest index value.  The management application will then
         update its copy of the alert table.  When the printer discovers
         that an alert is no longer active, the printer shall remove the
+
         row for that alert from the table and shall reduce the number
         of rows in the table.  The printer may add or delete any number
         of rows from the table at any time.  The management station can
@@ -3607,6 +3670,7 @@ prtAlertGroup OBJECT-TYPE
     DESCRIPTION
         "The type of sub-unit within the printer model that this alert
         is related.  Input, output, and markers are examples of printer
+
         model groups, i.e., examples of types of sub-units.  Wherever
         possible, these enumerations match the sub-identifier that
         identifies the relevant table in the printmib."
@@ -3655,6 +3719,7 @@ prtAlertCode OBJECT-TYPE
     --  defined by this object.
     SYNTAX     PrtAlertCodeTC
     MAX-ACCESS read-only
+
     STATUS     current
     DESCRIPTION
         "See associated TEXTUAL-CONVENTION PrtAlertCodeTC.
@@ -3703,6 +3768,7 @@ printerV2Alert NOTIFICATION-TYPE
     STATUS  current
     DESCRIPTION
         "This trap is sent whenever a critical event is added to the
+
         prtAlertTable.
 
         NOTE: The prtAlertIndex object was redundantly included in the
@@ -3751,6 +3817,7 @@ prtMIBCompliance MODULE-COMPLIANCE
                   }
     DESCRIPTION
         "It is conformant to implement just these two states in this
+
         object.  Any additional states are optional."
 
     OBJECT    prtConsoleOnTime
@@ -3847,6 +3914,7 @@ prtMIB2Compliance MODULE-COMPLIANCE
     OBJECT    prtInputName
     MIN-ACCESS  read-only
     DESCRIPTION
+
         "It is conformant to implement this object as read-only"
 
     OBJECT    prtInputSecurity
@@ -3895,6 +3963,7 @@ prtMIB2Compliance MODULE-COMPLIANCE
         "It is conformant to implement this object as read-only"
 
     OBJECT    prtOutputSecurity
+
     MIN-ACCESS  read-only
     DESCRIPTION
         "It is conformant to implement this object as read-only"
@@ -3992,6 +4061,7 @@ prtMIB2Compliance MODULE-COMPLIANCE
     OBJECT    prtInterpreterDefaultOrientation
     MIN-ACCESS  read-only
     DESCRIPTION
+
         "It is conformant to implement this object as read-only"
 
     OBJECT    prtInterpreterDefaultCharSetIn
@@ -4040,6 +4110,7 @@ prtMIB2Compliance MODULE-COMPLIANCE
         "This group is unconditionally optional."
 
     GROUP    prtExtendedInputGroup
+
     DESCRIPTION
         "This group is unconditionally optional."
 
@@ -4137,6 +4208,7 @@ prtGeneralGroup OBJECT-GROUP
               prtDeviceRefIndex }
     STATUS  current
     DESCRIPTION
+
         "The general printer group."
     ::= { prtMIBGroups 1 }
 
@@ -4185,6 +4257,7 @@ prtOutputGroup OBJECT-GROUP
     STATUS  current
     DESCRIPTION
         "The output group."
+
     ::= { prtMIBGroups 6 }
 
 prtExtendedOutputGroup OBJECT-GROUP
@@ -4233,6 +4306,7 @@ prtMarkerSuppliesGroup OBJECT-GROUP
     OBJECTS { prtMarkerSuppliesMarkerIndex,
               prtMarkerSuppliesColorantIndex, prtMarkerSuppliesClass,
               prtMarkerSuppliesType, prtMarkerSuppliesDescription,
+
               prtMarkerSuppliesSupplyUnit,
               prtMarkerSuppliesMaxCapacity, prtMarkerSuppliesLevel }
     STATUS  current
@@ -4281,6 +4355,7 @@ prtInterpreterGroup OBJECT-GROUP
               prtInterpreterDefaultCharSetIn,
               prtInterpreterDefaultCharSetOut, prtInterpreterTwoWay }
     STATUS  current
+
     DESCRIPTION
         "The interpreter group."
     ::= { prtMIBGroups 15 }
@@ -4329,6 +4404,7 @@ prtInputSwitchingGroup OBJECT-GROUP
     STATUS  current
     DESCRIPTION
         "The input switching group."
+
     ::= { prtMIBGroups 20 }
 
 prtGeneralV2Group OBJECT-GROUP
@@ -4363,4 +4439,5 @@ prtAlertTrapGroup NOTIFICATION-GROUP
     ::= { prtMIBGroups 24 }
 
 END
+
 

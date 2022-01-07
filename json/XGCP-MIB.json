@@ -1,0 +1,765 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "experimental",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp"
+    ]
+  },
+  "xgcpMIB": {
+    "name": "xgcpMIB",
+    "oid": "1.3.6.1.3.90",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1999-02-17 00:00",
+        "description": "This is initial version of XGCP MIB."
+      }
+    ]
+  },
+  "xgcpObjects": {
+    "name": "xgcpObjects",
+    "oid": "1.3.6.1.3.90.1",
+    "class": "objectidentity"
+  },
+  "xgcpCoreObjects": {
+    "name": "xgcpCoreObjects",
+    "oid": "1.3.6.1.3.90.1.1",
+    "class": "objectidentity"
+  },
+  "xgcpExtensionObjects": {
+    "name": "xgcpExtensionObjects",
+    "oid": "1.3.6.1.3.90.1.2",
+    "class": "objectidentity"
+  },
+  "xgcpPackageObjects": {
+    "name": "xgcpPackageObjects",
+    "oid": "1.3.6.1.3.90.1.3",
+    "class": "objectidentity"
+  },
+  "xgcpVoiceQualityObjects": {
+    "name": "xgcpVoiceQualityObjects",
+    "oid": "1.3.6.1.3.90.1.4",
+    "class": "objectidentity"
+  },
+  "xgcpDefaultMGCObjects": {
+    "name": "xgcpDefaultMGCObjects",
+    "oid": "1.3.6.1.3.90.1.5",
+    "class": "objectidentity"
+  },
+  "xgcpInBadVersions": {
+    "name": "xgcpInBadVersions",
+    "oid": "1.3.6.1.3.90.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "messages",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xgcpRequestTimeOut": {
+    "name": "xgcpRequestTimeOut",
+    "oid": "1.3.6.1.3.90.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpRequestRetries": {
+    "name": "xgcpRequestRetries",
+    "oid": "1.3.6.1.3.90.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpAdminStatus": {
+    "name": "xgcpAdminStatus",
+    "oid": "1.3.6.1.3.90.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "gracefulDown": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpOperStatus": {
+    "name": "xgcpOperStatus",
+    "oid": "1.3.6.1.3.90.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "shutDownInProgress": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xgcpUnRecognizedPackets": {
+    "name": "xgcpUnRecognizedPackets",
+    "oid": "1.3.6.1.3.90.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xgcpMsgStatTable": {
+    "name": "xgcpMsgStatTable",
+    "oid": "1.3.6.1.3.90.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xgcpMsgStatEntry": {
+    "name": "xgcpMsgStatEntry",
+    "oid": "1.3.6.1.3.90.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpIPAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "xgcpIPAddress": {
+    "name": "xgcpIPAddress",
+    "oid": "1.3.6.1.3.90.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xgcpSuccessMessages": {
+    "name": "xgcpSuccessMessages",
+    "oid": "1.3.6.1.3.90.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xgcpFailMessages": {
+    "name": "xgcpFailMessages",
+    "oid": "1.3.6.1.3.90.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xgcpRestartInProgressMWD": {
+    "name": "xgcpRestartInProgressMWD",
+    "oid": "1.3.6.1.3.90.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600000
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpRestartDelay": {
+    "name": "xgcpRestartDelay",
+    "oid": "1.3.6.1.3.90.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 600
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpMGCCfgAddress": {
+    "name": "xgcpMGCCfgAddress",
+    "oid": "1.3.6.1.3.90.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpMGCCfgUDPPort": {
+    "name": "xgcpMGCCfgUDPPort",
+    "oid": "1.3.6.1.3.90.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1025,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpMGCCfgConnStatus": {
+    "name": "xgcpMGCCfgConnStatus",
+    "oid": "1.3.6.1.3.90.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "connected": 2,
+          "connecting": 3,
+          "unknownName": 4,
+          "noResponse": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xgcpMGCCfgTimeStamp": {
+    "name": "xgcpMGCCfgTimeStamp",
+    "oid": "1.3.6.1.3.90.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "xgcpCapabilityPackageTable": {
+    "name": "xgcpCapabilityPackageTable",
+    "oid": "1.3.6.1.3.90.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xgcpCapabilityPackageEntry": {
+    "name": "xgcpCapabilityPackageEntry",
+    "oid": "1.3.6.1.3.90.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpCapabilityPackageName",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "xgcpCapabilityPackageName": {
+    "name": "xgcpCapabilityPackageName",
+    "oid": "1.3.6.1.3.90.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "xgcpCapabilityPackageEnable": {
+    "name": "xgcpCapabilityPackageEnable",
+    "oid": "1.3.6.1.3.90.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpDefaultPackage": {
+    "name": "xgcpDefaultPackage",
+    "oid": "1.3.6.1.3.90.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpLowerBoundForPacketLoss": {
+    "name": "xgcpLowerBoundForPacketLoss",
+    "oid": "1.3.6.1.3.90.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 3000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpHigherBoundForPacketLoss": {
+    "name": "xgcpHigherBoundForPacketLoss",
+    "oid": "1.3.6.1.3.90.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5000,
+            "max": 25000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpLowerBoundForJitter": {
+    "name": "xgcpLowerBoundForJitter",
+    "oid": "1.3.6.1.3.90.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpHigherBoundForJitter": {
+    "name": "xgcpHigherBoundForJitter",
+    "oid": "1.3.6.1.3.90.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 100,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpLowerBoundForLatency": {
+    "name": "xgcpLowerBoundForLatency",
+    "oid": "1.3.6.1.3.90.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 125,
+            "max": 200
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpHigherBoundForLatency": {
+    "name": "xgcpHigherBoundForLatency",
+    "oid": "1.3.6.1.3.90.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 250,
+            "max": 400
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "xgcpNotificationPrefix": {
+    "name": "xgcpNotificationPrefix",
+    "oid": "1.3.6.1.3.90.2",
+    "class": "objectidentity"
+  },
+  "xgcpNotifications": {
+    "name": "xgcpNotifications",
+    "oid": "1.3.6.1.3.90.2.0",
+    "class": "objectidentity"
+  },
+  "xgcpUpDownNotification": {
+    "name": "xgcpUpDownNotification",
+    "oid": "1.3.6.1.3.90.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "xgcpMIBConformance": {
+    "name": "xgcpMIBConformance",
+    "oid": "1.3.6.1.3.90.3",
+    "class": "objectidentity"
+  },
+  "xgcpMIBCompliances": {
+    "name": "xgcpMIBCompliances",
+    "oid": "1.3.6.1.3.90.3.1",
+    "class": "objectidentity"
+  },
+  "xgcpMIBGroups": {
+    "name": "xgcpMIBGroups",
+    "oid": "1.3.6.1.3.90.3.2",
+    "class": "objectidentity"
+  },
+  "xgcpMIBCompliance": {
+    "name": "xgcpMIBCompliance",
+    "oid": "1.3.6.1.3.90.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "xgcpCoreGroup",
+        "module": "XGCP-MIB"
+      },
+      {
+        "object": "xgcpExtensionGroup",
+        "module": "XGCP-MIB"
+      },
+      {
+        "object": "xgcpPackageGroup",
+        "module": "XGCP-MIB"
+      },
+      {
+        "object": "xgcpVoiceQualityGroup",
+        "module": "XGCP-MIB"
+      },
+      {
+        "object": "xgcpDefaultMGCGroup",
+        "module": "XGCP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "xgcpCoreGroup": {
+    "name": "xgcpCoreGroup",
+    "oid": "1.3.6.1.3.90.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpInBadVersions"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpRequestTimeOut"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpRequestRetries"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpAdminStatus"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpOperStatus"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpUnRecognizedPackets"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpSuccessMessages"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpFailMessages"
+      }
+    ],
+    "status": "current"
+  },
+  "xgcpExtensionGroup": {
+    "name": "xgcpExtensionGroup",
+    "oid": "1.3.6.1.3.90.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpRestartInProgressMWD"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpRestartDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "xgcpPackageGroup": {
+    "name": "xgcpPackageGroup",
+    "oid": "1.3.6.1.3.90.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpCapabilityPackageEnable"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpDefaultPackage"
+      }
+    ],
+    "status": "current"
+  },
+  "xgcpVoiceQualityGroup": {
+    "name": "xgcpVoiceQualityGroup",
+    "oid": "1.3.6.1.3.90.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpLowerBoundForPacketLoss"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpHigherBoundForPacketLoss"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpLowerBoundForJitter"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpHigherBoundForJitter"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpLowerBoundForLatency"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpHigherBoundForLatency"
+      }
+    ],
+    "status": "current"
+  },
+  "xgcpDefaultMGCGroup": {
+    "name": "xgcpDefaultMGCGroup",
+    "oid": "1.3.6.1.3.90.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpMGCCfgAddress"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpMGCCfgUDPPort"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpMGCCfgConnStatus"
+      },
+      {
+        "module": "XGCP-MIB",
+        "object": "xgcpMGCCfgTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/XGCP-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "XGCP-MIB"
+  }
+}

@@ -5,45 +5,45 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "transmission",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Counter32",
+      "Integer32",
+      "Bits",
       "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "IpAddress",
-      "Counter64",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
       "iso",
-      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "transmission",
+      "Unsigned32",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "SONET-MIB": [
-      "sonetSectionStuff2",
-      "sonetSESthresholdSet",
-      "sonetFarEndLineStuff2",
-      "sonetPathStuff2",
       "sonetFarEndPathStuff2",
-      "sonetMediumLineType",
-      "sonetLineStuff2",
-      "sonetMediumCircuitIdentifier",
-      "sonetMediumStuff2",
-      "sonetMediumType",
-      "sonetMediumLineCoding",
       "sonetMediumLoopbackConfig",
-      "sonetPathCurrentWidth"
+      "sonetMediumCircuitIdentifier",
+      "sonetSESthresholdSet",
+      "sonetSectionStuff2",
+      "sonetLineStuff2",
+      "sonetMediumLineCoding",
+      "sonetPathStuff2",
+      "sonetFarEndLineStuff2",
+      "sonetMediumLineType",
+      "sonetMediumStuff2",
+      "sonetPathCurrentWidth",
+      "sonetMediumType"
     ]
   },
   "etherWisMIB": {
@@ -53,7 +53,7 @@
     "revisions": [
       {
         "revision": "2003-09-19 00:00",
-        "description": "Initial version, published as RFC 3637 </rfcs/rfc3637.html>."
+        "description": "Initial version, published as RFC 3637."
       }
     ]
   },
@@ -493,9 +493,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/ETHER-WIS",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:21:12 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ETHER-WIS",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ETHER-WIS"

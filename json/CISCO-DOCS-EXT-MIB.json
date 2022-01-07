@@ -1,0 +1,5385 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoMgmt"
+    ],
+    "DOCS-IF-MIB": [
+      "docsIfCmtsServiceEntry",
+      "TenthdBmV",
+      "docsIfCmtsMacEntry",
+      "docsIfCmtsCmStatusDownChannelIfIndex",
+      "docsIfCmtsCmStatusEntry",
+      "docsIfUpstreamChannelEntry",
+      "docsIfCmtsCmStatusIndex",
+      "docsIfCmtsCmStatusMacAddress",
+      "docsIfCmtsCmStatusUpChannelIfIndex",
+      "docsIfCmtsCmStatusIpAddress"
+    ],
+    "DOCS-IF3-MIB": [
+      "ChSetId"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex",
+      "ifDescr"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressPrefixLength",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "MacAddress",
+      "TruthValue",
+      "DateAndTime",
+      "TimeStamp",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ciscoDocsExtMIB": {
+    "name": "ciscoDocsExtMIB",
+    "oid": "1.3.6.1.4.1.9.9.116",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-03-27 00:00",
+        "description": "Added following tables: cdxCpeIpPrefixTable cdxCmtsMtcCmTable cdxCmtsUscbSflowTable Added following OBJECT-GROUPs: cdxCpeIpPrefixGroup cdxCmtsMtcCmGroup cdxCmtsUscbSflowGroup"
+      },
+      {
+        "revision": "2012-11-21 00:00",
+        "description": "Add the following mib groups: cdxWBResilGroup, cdxNotifGroupExt, cdxQosCtrlGroupExt, cdxDownstreamGroup"
+      },
+      {
+        "revision": "2010-06-09 00:00",
+        "description": "Add new object cdxCmCpeDeleteNow to cdxCmCpeTable to delete the cable modems."
+      },
+      {
+        "revision": "2006-03-06 00:00",
+        "description": "Following tables are added. cdxCmToCpeTable cdxCpeToCmTable These are used for the direct correlation between Cable Modem and Customer Premises Equipment."
+      },
+      {
+        "revision": "2005-07-01 00:00",
+        "description": "Modified the description of cdxCmtsServiceExtEntry. Modified the value of lockingMode from 2 to 3."
+      },
+      {
+        "revision": "2005-04-25 00:00",
+        "description": "Modified dxCmtsCmDefaultMaxCpes' lower range from 0 to -1."
+      },
+      {
+        "revision": "2003-07-30 00:00",
+        "description": "Added new objects for supporting DMIC. The objects are cdxCmtsCmDMICMode, cdxCmtsCmDMICLockQos and a new table cdxCmtsCmStatusDMICTable. Also, one more trap, cdxCmtsCmDMICLockNotification is added. Two more states were added to cdxCmtsCmStatusValue."
+      },
+      {
+        "revision": "2003-02-20 00:00",
+        "description": "Added new object cdxCmtsCmQosProfile to cdxCmtsCmTable to associate a cable modem with a qos profile."
+      },
+      {
+        "revision": "2001-10-07 00:00",
+        "description": "Added new objects cdxIfCmtsCmStatusOnlineTimesNum and cdxIfCmtsCmStatusLastResetTime to cdxCmtsCmStatusExtTable."
+      },
+      {
+        "revision": "2001-08-06 00:00",
+        "description": "DOCSIS 1.1 Changes: Added new objects cdxIfUpChannelAvgUtil, cdxIfUpChannelAvgContSlots, cdxIfUpChannelRangeSlots in cdxIfUpstreamChannelExtTable. NON-DOCSIS 1.1 Changes: Added following objects in cdxIfUpstreamChannelExtTable for providing per upstream UGS statistics information: cdxIfUpChannelNumActiveUGS, cdxIfUpChannelMaxUGSLastOneHour, cdxIfUpChannelMinUGSLastOneHour, cdxIfUpChannelAvgUGSLastOneHour, cdxIfUpChannelMaxUGSLastFiveMins, cdxIfUpChannelMinUGSLastFiveMins, cdxIfUpChannelAvgUGSLastFiveMins."
+      },
+      {
+        "revision": "2001-04-01 00:00",
+        "description": "DOCSIS 1.1 Changes: 1. Added cdxUpInfoElemStatsTable to display the per Information Element (IE) statistics. 2. Added the new queue types in cdxBWQueueNameCode to support the new priority queues of the MAC-Scheduler. 3. Added the new CM states in cdxCmtsCmStatusValue. Non-DOCSIS 1.1 changes: 4. Added new status information for CM if the connection is noisy or if the maximum power has been reached. 5. Changed the Description for cdxIfUpChannelWidth to cater for non-awacs card. 6. Added new object cdxIfUpChannelInputPowerLevel for Upstream Input Power Level."
+      },
+      {
+        "revision": "2000-07-19 00:00",
+        "description": "1. Added cdxCmtsCmTotal,cdxCmtsCmActive, cdxCmtsCmRegistered to the cdxCmtsMacExtTable to report the number of active,registered,total cable modems on a cable mac interface since boot. 2. Added cdxIfUpChannelCmTotal, cdxIfUpChannelCmActive, cdxIfUpChannelCmRegistered to the cdxIfUpstreamChannelExtTable to report the number of active,registered,total cable modems connected on an upstream."
+      },
+      {
+        "revision": "2000-05-17 00:00",
+        "description": "1. Added cdxCmCpeResetNow to reset CM or CPE. 2. Added cdxCmtsCmCurrCpeNumber to report the current number of CPE connecting to the CM."
+      },
+      {
+        "revision": "1999-12-28 00:00",
+        "description": "1. Added new objects cdxSpecMgmtObjects. 2. Added new object cdxIfCmtsCmStatusDynSidCount. 3. Enhanced cdxQosIfRateLimitTable for a new rate limit algorithm. 4. Added more status for cdxCmtsCmStatusValue."
+      },
+      {
+        "revision": "1999-01-21 00:00",
+        "description": "Initial version of this MIB module."
+      }
+    ]
+  },
+  "CdxResettableCounter32": {
+    "name": "CdxResettableCounter32",
+    "class": "textualconvention",
+    "type": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "CdxUpstreamBondGrpList": {
+    "name": "CdxUpstreamBondGrpList",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 320
+          }
+        ]
+      }
+    },
+    "displayhint": "320a",
+    "status": "current"
+  },
+  "ciscoDocsExtMIBObjects": {
+    "name": "ciscoDocsExtMIBObjects",
+    "oid": "1.3.6.1.4.1.9.9.116.1",
+    "class": "objectidentity"
+  },
+  "cdxQosCtrlObjects": {
+    "name": "cdxQosCtrlObjects",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1",
+    "class": "objectidentity"
+  },
+  "cdxQosQueueObjects": {
+    "name": "cdxQosQueueObjects",
+    "oid": "1.3.6.1.4.1.9.9.116.1.2",
+    "class": "objectidentity"
+  },
+  "cdxCmtsCmCpeObjects": {
+    "name": "cdxCmtsCmCpeObjects",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3",
+    "class": "objectidentity"
+  },
+  "cdxSpecMgmtObjects": {
+    "name": "cdxSpecMgmtObjects",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4",
+    "class": "objectidentity"
+  },
+  "cdxWBResilObjects": {
+    "name": "cdxWBResilObjects",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5",
+    "class": "objectidentity"
+  },
+  "cdxDownstreamObjects": {
+    "name": "cdxDownstreamObjects",
+    "oid": "1.3.6.1.4.1.9.9.116.1.6",
+    "class": "objectidentity"
+  },
+  "cdxCmtsMtcCmSfObjects": {
+    "name": "cdxCmtsMtcCmSfObjects",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7",
+    "class": "objectidentity"
+  },
+  "cdxQosCtrlUpTable": {
+    "name": "cdxQosCtrlUpTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxQosCtrlUpEntry": {
+    "name": "cdxQosCtrlUpEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxQosCtrlUpAdmissionCtrl": {
+    "name": "cdxQosCtrlUpAdmissionCtrl",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxQosCtrlUpMaxRsvdBWPercent": {
+    "name": "cdxQosCtrlUpMaxRsvdBWPercent",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 10,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxQosCtrlUpAdmissionRejects": {
+    "name": "cdxQosCtrlUpAdmissionRejects",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxQosCtrlUpReservedBW": {
+    "name": "cdxQosCtrlUpReservedBW",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 102400000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxQosCtrlUpMaxVirtualBW": {
+    "name": "cdxQosCtrlUpMaxVirtualBW",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 102400000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxQosIfRateLimitTable": {
+    "name": "cdxQosIfRateLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxQosIfRateLimitEntry": {
+    "name": "cdxQosIfRateLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxQosIfRateLimitAlgm": {
+    "name": "cdxQosIfRateLimitAlgm",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noRateLimit": 1,
+          "oneSecBurst": 2,
+          "carLike": 3,
+          "wtExPacketDiscard": 4,
+          "shaping": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxQosIfRateLimitExpWt": {
+    "name": "cdxQosIfRateLimitExpWt",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxQosIfRateLimitShpMaxDelay": {
+    "name": "cdxQosIfRateLimitShpMaxDelay",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 1,
+          "msec128": 2,
+          "msec256": 3,
+          "msec512": 4,
+          "msec1024": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxQosIfRateLimitShpGranularity": {
+    "name": "cdxQosIfRateLimitShpGranularity",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "na": 1,
+          "msec1": 2,
+          "msec2": 3,
+          "msec4": 4,
+          "msec8": 5,
+          "msec16": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmtsServiceExtTable": {
+    "name": "cdxCmtsServiceExtTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsServiceExtEntry": {
+    "name": "cdxCmtsServiceExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdxCmtsServiceExtEntry",
+      "module": "CISCO-DOCS-EXT-MIB",
+      "object": "docsIfCmtsServiceEntry"
+    },
+    "status": "current"
+  },
+  "cdxIfCmtsServiceOutOctets": {
+    "name": "cdxIfCmtsServiceOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsServiceOutPackets": {
+    "name": "cdxIfCmtsServiceOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxQosMaxUpBWExcessRequests": {
+    "name": "cdxQosMaxUpBWExcessRequests",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxQosMaxDownBWExcessPackets": {
+    "name": "cdxQosMaxDownBWExcessPackets",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsServiceHCInOctets": {
+    "name": "cdxIfCmtsServiceHCInOctets",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsServiceHCInPackets": {
+    "name": "cdxIfCmtsServiceHCInPackets",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsServiceHCOutOctets": {
+    "name": "cdxIfCmtsServiceHCOutOctets",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsServiceHCOutPackets": {
+    "name": "cdxIfCmtsServiceHCOutPackets",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxUpInfoElemStatsTable": {
+    "name": "cdxUpInfoElemStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxUpInfoElemStatsEntry": {
+    "name": "cdxUpInfoElemStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxUpInfoElemStatsNameCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxUpInfoElemStatsNameCode": {
+    "name": "cdxUpInfoElemStatsNameCode",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reqIE": 1,
+          "reqOrDataIE": 2,
+          "initMtnIE": 3,
+          "stnMtnIE": 4,
+          "shortGrantIE": 5,
+          "longGrantIE": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxUpInfoElemStatsIEType": {
+    "name": "cdxUpInfoElemStatsIEType",
+    "oid": "1.3.6.1.4.1.9.9.116.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxBWQueueTable": {
+    "name": "cdxBWQueueTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxBWQueueEntry": {
+    "name": "cdxBWQueueEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxBWQueueNameCode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxBWQueueNameCode": {
+    "name": "cdxBWQueueNameCode",
+    "oid": "1.3.6.1.4.1.9.9.116.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cirQ": 1,
+          "tbeQ": 2,
+          "p0BEGrantQ": 3,
+          "p1BEGrantQ": 4,
+          "p2BEGrantQ": 5,
+          "p3BEGrantQ": 6,
+          "p4BEGrantQ": 7,
+          "p5BEGrantQ": 8,
+          "p6BEGrantQ": 9,
+          "p7BEGrantQ": 10,
+          "rngPollQ": 11
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxBWQueueOrder": {
+    "name": "cdxBWQueueOrder",
+    "oid": "1.3.6.1.4.1.9.9.116.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxBWQueueNumServedBeforeYield": {
+    "name": "cdxBWQueueNumServedBeforeYield",
+    "oid": "1.3.6.1.4.1.9.9.116.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxBWQueueType": {
+    "name": "cdxBWQueueType",
+    "oid": "1.3.6.1.4.1.9.9.116.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "fifo": 3,
+          "priority": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxBWQueueMaxDepth": {
+    "name": "cdxBWQueueMaxDepth",
+    "oid": "1.3.6.1.4.1.9.9.116.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxBWQueueDepth": {
+    "name": "cdxBWQueueDepth",
+    "oid": "1.3.6.1.4.1.9.9.116.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxBWQueueDiscards": {
+    "name": "cdxBWQueueDiscards",
+    "oid": "1.3.6.1.4.1.9.9.116.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmCpeTable": {
+    "name": "cdxCmCpeTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmCpeEntry": {
+    "name": "cdxCmCpeEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmCpeMacAddress": {
+    "name": "cdxCmCpeMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmCpeType": {
+    "name": "cdxCmCpeType",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cm": 1,
+          "cpe": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmCpeIpAddress": {
+    "name": "cdxCmCpeIpAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmCpeIfIndex": {
+    "name": "cdxCmCpeIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmCpeCmtsServiceId": {
+    "name": "cdxCmCpeCmtsServiceId",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmCpeCmStatusIndex": {
+    "name": "cdxCmCpeCmStatusIndex",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmCpeAccessGroup": {
+    "name": "cdxCmCpeAccessGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmCpeResetNow": {
+    "name": "cdxCmCpeResetNow",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmCpeDeleteNow": {
+    "name": "cdxCmCpeDeleteNow",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmtsCmStatusExtTable": {
+    "name": "cdxCmtsCmStatusExtTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsCmStatusExtEntry": {
+    "name": "cdxCmtsCmStatusExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdxCmtsCmStatusExtEntry",
+      "module": "CISCO-DOCS-EXT-MIB",
+      "object": "docsIfCmtsCmStatusEntry"
+    },
+    "status": "current"
+  },
+  "cdxCmtsCmStatusValue": {
+    "name": "cdxCmtsCmStatusValue",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "offline": 1,
+          "others": 2,
+          "initRangingRcvd": 3,
+          "initDhcpReqRcvd": 4,
+          "onlineNetAccessDisabled": 5,
+          "onlineKekAssigned": 6,
+          "onlineTekAssigned": 7,
+          "rejectBadMic": 8,
+          "rejectBadCos": 9,
+          "kekRejected": 10,
+          "tekRejected": 11,
+          "online": 12,
+          "initTftpPacketRcvd": 13,
+          "initTodRequestRcvd": 14,
+          "reset": 15,
+          "rangingInProgress": 16,
+          "rangingCompleted": 17,
+          "dhcpGotIpAddr": 18,
+          "rejStaleConfig": 19,
+          "rejIpSpoof": 20,
+          "rejClassFail": 21,
+          "rejRegNack": 22,
+          "bpiKekExpired": 23,
+          "bpiTekExpired": 24,
+          "shutdown": 25,
+          "channelChgInitRangingRcvd": 26,
+          "channelChgRangingInProgress": 27
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusOnlineTimes": {
+    "name": "cdxIfCmtsCmStatusOnlineTimes",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusPercentOnline": {
+    "name": "cdxIfCmtsCmStatusPercentOnline",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusMinOnlineTime": {
+    "name": "cdxIfCmtsCmStatusMinOnlineTime",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusAvgOnlineTime": {
+    "name": "cdxIfCmtsCmStatusAvgOnlineTime",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusMaxOnlineTime": {
+    "name": "cdxIfCmtsCmStatusMaxOnlineTime",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusMinOfflineTime": {
+    "name": "cdxIfCmtsCmStatusMinOfflineTime",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusAvgOfflineTime": {
+    "name": "cdxIfCmtsCmStatusAvgOfflineTime",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusMaxOfflineTime": {
+    "name": "cdxIfCmtsCmStatusMaxOfflineTime",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusDynSidCount": {
+    "name": "cdxIfCmtsCmStatusDynSidCount",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusAddlInfo": {
+    "name": "cdxIfCmtsCmStatusAddlInfo",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "noisyPlant": 0,
+        "modemPowerMaxOut": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusOnlineTimesNum": {
+    "name": "cdxIfCmtsCmStatusOnlineTimesNum",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdxResettableCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfCmtsCmStatusLastResetTime": {
+    "name": "cdxIfCmtsCmStatusLastResetTime",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsMacExtTable": {
+    "name": "cdxCmtsMacExtTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsMacExtEntry": {
+    "name": "cdxCmtsMacExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdxCmtsMacExtEntry",
+      "module": "CISCO-DOCS-EXT-MIB",
+      "object": "docsIfCmtsMacEntry"
+    },
+    "status": "current"
+  },
+  "cdxCmtsCmOnOffTrapEnable": {
+    "name": "cdxCmtsCmOnOffTrapEnable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmtsCmOnOffTrapInterval": {
+    "name": "cdxCmtsCmOnOffTrapInterval",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmtsCmDefaultMaxCpes": {
+    "name": "cdxCmtsCmDefaultMaxCpes",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmtsCmTotal": {
+    "name": "cdxCmtsCmTotal",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsCmActive": {
+    "name": "cdxCmtsCmActive",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsCmRegistered": {
+    "name": "cdxCmtsCmRegistered",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsCmDMICMode": {
+    "name": "cdxCmtsCmDMICMode",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notConfigured": 1,
+          "mark": 2,
+          "lock": 3,
+          "reject": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mark",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmtsCmDMICLockQos": {
+    "name": "cdxCmtsCmDMICLockQos",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmtsCmChOverTimeExpiration": {
+    "name": "cdxCmtsCmChOverTimeExpiration",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmtsCmChOverTable": {
+    "name": "cdxCmtsCmChOverTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsCmChOverEntry": {
+    "name": "cdxCmtsCmChOverEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverSerialNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsCmChOverSerialNumber": {
+    "name": "cdxCmtsCmChOverSerialNumber",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsCmChOverMacAddress": {
+    "name": "cdxCmtsCmChOverMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdxCmtsCmChOverDownFrequency": {
+    "name": "cdxCmtsCmChOverDownFrequency",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "units": "hertz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdxCmtsCmChOverUpChannelId": {
+    "name": "cdxCmtsCmChOverUpChannelId",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdxCmtsCmChOverTrapOnCompletion": {
+    "name": "cdxCmtsCmChOverTrapOnCompletion",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdxCmtsCmChOverOpInitiatedTime": {
+    "name": "cdxCmtsCmChOverOpInitiatedTime",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsCmChOverState": {
+    "name": "cdxCmtsCmChOverState",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "messageSent": 1,
+          "commandNotActive": 2,
+          "noOpNeeded": 3,
+          "modemNotFound": 4,
+          "waitToSendMessage": 5,
+          "timeOut": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsCmChOverRowStatus": {
+    "name": "cdxCmtsCmChOverRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cdxCmtsCmTable": {
+    "name": "cdxCmtsCmTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsCmEntry": {
+    "name": "cdxCmtsCmEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsCmMaxCpeNumber": {
+    "name": "cdxCmtsCmMaxCpeNumber",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmtsCmCurrCpeNumber": {
+    "name": "cdxCmtsCmCurrCpeNumber",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsCmQosProfile": {
+    "name": "cdxCmtsCmQosProfile",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmtsCmStatusDMICTable": {
+    "name": "cdxCmtsCmStatusDMICTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsCmStatusDMICEntry": {
+    "name": "cdxCmtsCmStatusDMICEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsCmStatusDMICMode": {
+    "name": "cdxCmtsCmStatusDMICMode",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mark": 1,
+          "lock": 2,
+          "reject": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsCmStatusDMICUnLock": {
+    "name": "cdxCmtsCmStatusDMICUnLock",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxCmToCpeTable": {
+    "name": "cdxCmToCpeTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmToCpeEntry": {
+    "name": "cdxCmToCpeEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmToCpeCmMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmToCpeInetAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmToCpeInetAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmToCpeCmMacAddress": {
+    "name": "cdxCmToCpeCmMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmToCpeInetAddressType": {
+    "name": "cdxCmToCpeInetAddressType",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmToCpeInetAddress": {
+    "name": "cdxCmToCpeInetAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCpeToCmTable": {
+    "name": "cdxCpeToCmTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCpeToCmEntry": {
+    "name": "cdxCpeToCmEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeToCmCpeMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCpeToCmCpeMacAddress": {
+    "name": "cdxCpeToCmCpeMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCpeToCmMacAddress": {
+    "name": "cdxCpeToCmMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCpeToCmInetAddressType": {
+    "name": "cdxCpeToCmInetAddressType",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCpeToCmInetAddress": {
+    "name": "cdxCpeToCmInetAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCpeToCmStatusIndex": {
+    "name": "cdxCpeToCmStatusIndex",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCpeIpPrefixTable": {
+    "name": "cdxCpeIpPrefixTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCpeIpPrefixEntry": {
+    "name": "cdxCpeIpPrefixEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeIpPrefixCmMacAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeIpPrefixType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeIpPrefixAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeIpPrefixLen",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCpeIpPrefixCmMacAddress": {
+    "name": "cdxCpeIpPrefixCmMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCpeIpPrefixType": {
+    "name": "cdxCpeIpPrefixType",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCpeIpPrefixAddress": {
+    "name": "cdxCpeIpPrefixAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCpeIpPrefixLen": {
+    "name": "cdxCpeIpPrefixLen",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressPrefixLength",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCpeIpPrefixCpeMacAddress": {
+    "name": "cdxCpeIpPrefixCpeMacAddress",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCpeIpPrefixCpeType": {
+    "name": "cdxCpeIpPrefixCpeType",
+    "oid": "1.3.6.1.4.1.9.9.116.1.3.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpstreamChannelExtTable": {
+    "name": "cdxIfUpstreamChannelExtTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxIfUpstreamChannelExtEntry": {
+    "name": "cdxIfUpstreamChannelExtEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "cdxIfUpstreamChannelExtEntry",
+      "module": "CISCO-DOCS-EXT-MIB",
+      "object": "docsIfUpstreamChannelEntry"
+    },
+    "status": "current"
+  },
+  "cdxIfUpChannelWidth": {
+    "name": "cdxIfUpChannelWidth",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16000000
+          }
+        ]
+      }
+    },
+    "units": "hertz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxIfUpChannelModulationProfile": {
+    "name": "cdxIfUpChannelModulationProfile",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxIfUpChannelCmTotal": {
+    "name": "cdxIfUpChannelCmTotal",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelCmActive": {
+    "name": "cdxIfUpChannelCmActive",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelCmRegistered": {
+    "name": "cdxIfUpChannelCmRegistered",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelInputPowerLevel": {
+    "name": "cdxIfUpChannelInputPowerLevel",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TenthdBmV",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -100,
+            "max": 250
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxIfUpChannelAvgUtil": {
+    "name": "cdxIfUpChannelAvgUtil",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelAvgContSlots": {
+    "name": "cdxIfUpChannelAvgContSlots",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelRangeSlots": {
+    "name": "cdxIfUpChannelRangeSlots",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelNumActiveUGS": {
+    "name": "cdxIfUpChannelNumActiveUGS",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelMaxUGSLastOneHour": {
+    "name": "cdxIfUpChannelMaxUGSLastOneHour",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelMinUGSLastOneHour": {
+    "name": "cdxIfUpChannelMinUGSLastOneHour",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelAvgUGSLastOneHour": {
+    "name": "cdxIfUpChannelAvgUGSLastOneHour",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelMaxUGSLastFiveMins": {
+    "name": "cdxIfUpChannelMaxUGSLastFiveMins",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelMinUGSLastFiveMins": {
+    "name": "cdxIfUpChannelMinUGSLastFiveMins",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxIfUpChannelAvgUGSLastFiveMins": {
+    "name": "cdxIfUpChannelAvgUGSLastFiveMins",
+    "oid": "1.3.6.1.4.1.9.9.116.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxWBResilRFChangeDampenTime": {
+    "name": "cdxWBResilRFChangeDampenTime",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "units": "Second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxWBResilRFChangeTriggerPercentage": {
+    "name": "cdxWBResilRFChangeTriggerPercentage",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "Percentage",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxWBResilRFChangeTriggerCount": {
+    "name": "cdxWBResilRFChangeTriggerCount",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxWBResilRFChangeTriggerMoveSecondary": {
+    "name": "cdxWBResilRFChangeTriggerMoveSecondary",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxWBResilNotificationEnable": {
+    "name": "cdxWBResilNotificationEnable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "event": 0,
+        "cm-recover": 1,
+        "cm-pmode": 2,
+        "rf-up": 3,
+        "rf-down": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxWBResilNotificationsInterval": {
+    "name": "cdxWBResilNotificationsInterval",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "Second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cdxWBResilEventLevel": {
+    "name": "cdxWBResilEventLevel",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "info": 1,
+          "warning": 2,
+          "error": 3
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cdxWBResilEventType": {
+    "name": "cdxWBResilEventType",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cmEventMddTimeout": 1,
+          "cmEventQamFecFailure": 2,
+          "cmEventMddRecovery": 3,
+          "cmEventQamFecRecovery": 4
+        }
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cdxWBResilUpdateTime": {
+    "name": "cdxWBResilUpdateTime",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cdxWBResilEventTotalCount": {
+    "name": "cdxWBResilEventTotalCount",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cdxWBResilEventTotalDupCount": {
+    "name": "cdxWBResilEventTotalDupCount",
+    "oid": "1.3.6.1.4.1.9.9.116.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "cdxRFtoPrimaryChannelMappingTable": {
+    "name": "cdxRFtoPrimaryChannelMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxRFtoPrimaryChannelMappingEntry": {
+    "name": "cdxRFtoPrimaryChannelMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxPrimaryChannelIfIndex": {
+    "name": "cdxPrimaryChannelIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.116.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxPrimaryChanneltoRFMappingTable": {
+    "name": "cdxPrimaryChanneltoRFMappingTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxPrimaryChanneltoRFMappingEntry": {
+    "name": "cdxPrimaryChanneltoRFMappingEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxPhysicalRFIfIndex": {
+    "name": "cdxPhysicalRFIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.116.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsMtcCmTable": {
+    "name": "cdxCmtsMtcCmTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsMtcCmEntry": {
+    "name": "cdxCmtsMtcCmEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsMtcTcsId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsMtcTcsId": {
+    "name": "cdxCmtsMtcTcsId",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChSetId",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsMtcCmTotal": {
+    "name": "cdxCmtsMtcCmTotal",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCMtsMtcCmOperational": {
+    "name": "cdxCMtsMtcCmOperational",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsMtcCmRegistered": {
+    "name": "cdxCmtsMtcCmRegistered",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsMtcCmUnregistered": {
+    "name": "cdxCmtsMtcCmUnregistered",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsMtcCmOffline": {
+    "name": "cdxCmtsMtcCmOffline",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsMtcCmWideband": {
+    "name": "cdxCmtsMtcCmWideband",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsMtcUpstreamBondGrp": {
+    "name": "cdxCmtsMtcUpstreamBondGrp",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CdxUpstreamBondGrpList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbSflowTable": {
+    "name": "cdxCmtsUscbSflowTable",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsUscbSflowEntry": {
+    "name": "cdxCmtsUscbSflowEntry",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUsBondingGrpId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsUsBondingGrpId": {
+    "name": "cdxCmtsUsBondingGrpId",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cdxCmtsUscbSfTotal": {
+    "name": "cdxCmtsUscbSfTotal",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbSfPri": {
+    "name": "cdxCmtsUscbSfPri",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbStaticSfBe": {
+    "name": "cdxCmtsUscbStaticSfBe",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbStaticSfUgs": {
+    "name": "cdxCmtsUscbStaticSfUgs",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbStaticSfUgsad": {
+    "name": "cdxCmtsUscbStaticSfUgsad",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbStaticSfRtps": {
+    "name": "cdxCmtsUscbStaticSfRtps",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbStaticSfNrtps": {
+    "name": "cdxCmtsUscbStaticSfNrtps",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbDynSfBe": {
+    "name": "cdxCmtsUscbDynSfBe",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbDynSfUgs": {
+    "name": "cdxCmtsUscbDynSfUgs",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbDynSfUgsad": {
+    "name": "cdxCmtsUscbDynSfUgsad",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbDynSfRtps": {
+    "name": "cdxCmtsUscbDynSfRtps",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbDynSfNrtps": {
+    "name": "cdxCmtsUscbDynSfNrtps",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cdxCmtsUscbDescr": {
+    "name": "cdxCmtsUscbDescr",
+    "oid": "1.3.6.1.4.1.9.9.116.1.7.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ciscoDocsExtNotificationsPrefix": {
+    "name": "ciscoDocsExtNotificationsPrefix",
+    "oid": "1.3.6.1.4.1.9.9.116.2",
+    "class": "objectidentity"
+  },
+  "ciscoDocsExtNotifications": {
+    "name": "ciscoDocsExtNotifications",
+    "oid": "1.3.6.1.4.1.9.9.116.2.0",
+    "class": "objectidentity"
+  },
+  "cdxCmtsCmOnOffNotification": {
+    "name": "cdxCmtsCmOnOffNotification",
+    "oid": "1.3.6.1.4.1.9.9.116.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusMacAddress"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusIpAddress"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusDownChannelIfIndex"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusUpChannelIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmtsServiceId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsCmChOverNotification": {
+    "name": "cdxCmtsCmChOverNotification",
+    "oid": "1.3.6.1.4.1.9.9.116.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverDownFrequency"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverUpChannelId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverOpInitiatedTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverState"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsCmDMICLockNotification": {
+    "name": "cdxCmtsCmDMICLockNotification",
+    "oid": "1.3.6.1.4.1.9.9.116.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusMacAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxWBResilRFDown": {
+    "name": "cdxWBResilRFDown",
+    "oid": "1.3.6.1.4.1.9.9.116.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxWBResilRFUp": {
+    "name": "cdxWBResilRFUp",
+    "oid": "1.3.6.1.4.1.9.9.116.2.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifDescr"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxWBResilCMPartialServiceNotif": {
+    "name": "cdxWBResilCMPartialServiceNotif",
+    "oid": "1.3.6.1.4.1.9.9.116.2.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusMacAddress"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusDownChannelIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxWBResilCMFullServiceNotif": {
+    "name": "cdxWBResilCMFullServiceNotif",
+    "oid": "1.3.6.1.4.1.9.9.116.2.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusMacAddress"
+      },
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusDownChannelIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxWBResilEvent": {
+    "name": "cdxWBResilEvent",
+    "oid": "1.3.6.1.4.1.9.9.116.2.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilUpdateTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventTotalCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventTotalDupCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDocsExtConformance": {
+    "name": "ciscoDocsExtConformance",
+    "oid": "1.3.6.1.4.1.9.9.116.3",
+    "class": "objectidentity"
+  },
+  "cdxDocsExtCompliances": {
+    "name": "cdxDocsExtCompliances",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1",
+    "class": "objectidentity"
+  },
+  "cdxDocsExtGroups": {
+    "name": "cdxDocsExtGroups",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2",
+    "class": "objectidentity"
+  },
+  "cdxDocsExtCompliance": {
+    "name": "cdxDocsExtCompliance",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev1": {
+    "name": "cdxDocsExtComplianceRev1",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev1",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev1",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev2": {
+    "name": "cdxDocsExtComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev1",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev3": {
+    "name": "cdxDocsExtComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev1",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev3",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroupRev1",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev4": {
+    "name": "cdxDocsExtComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev4",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroupRev1",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev5": {
+    "name": "cdxDocsExtComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev4",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxNotifGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev6": {
+    "name": "cdxDocsExtComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev4",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroupRev3",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxNotifGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev7": {
+    "name": "cdxDocsExtComplianceRev7",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev5",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroupRev3",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxNotifGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev8": {
+    "name": "cdxDocsExtComplianceRev8",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev6",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroupRev3",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxNotifGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev9": {
+    "name": "cdxDocsExtComplianceRev9",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev7",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroupRev3",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxNotifGroupRev1",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev10": {
+    "name": "cdxDocsExtComplianceRev10",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroupRev3",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev8",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxNotifGroupRev1",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeDeleteGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxDocsExtComplianceRev11": {
+    "name": "cdxDocsExtComplianceRev11",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosCtrlGroupExt",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxNotifGroupRev1",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev8",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroupRev3",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxDownstreamGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxNotifGroupExt",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxWBResilGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cdxDocsExtComplianceRev12": {
+    "name": "cdxDocsExtComplianceRev12",
+    "oid": "1.3.6.1.4.1.9.9.116.3.1.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cdxQosCtrlGroupRev2",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosCtrlGroupExt",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxNotifGroupRev1",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxQosQueueGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsCmCpeGroupRev8",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxSpecMgmtGroupRev3",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxDownstreamGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxNotifGroupExt",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxWBResilGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCpeIpPrefixGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsMtcCmGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      },
+      {
+        "object": "cdxCmtsUscbSflowGroup",
+        "module": "CISCO-DOCS-EXT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxQosCtrlGroup": {
+    "name": "cdxQosCtrlGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpAdmissionCtrl"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpMaxRsvdBWPercent"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpAdmissionRejects"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpReservedBW"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpMaxVirtualBW"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosIfRateLimitAlgm"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosIfRateLimitExpWt"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsServiceOutOctets"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsServiceOutPackets"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosMaxUpBWExcessRequests"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosMaxDownBWExcessPackets"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxQosQueueGroup": {
+    "name": "cdxQosQueueGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxBWQueueOrder"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxBWQueueNumServedBeforeYield"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxBWQueueType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxBWQueueMaxDepth"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxBWQueueDepth"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxBWQueueDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsCmCpeGroup": {
+    "name": "cdxCmtsCmCpeGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIpAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmtsServiceId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmStatusIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeAccessGroup"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusValue"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusPercentOnline"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapEnable"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapInterval"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDefaultMaxCpes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTimeExpiration"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverDownFrequency"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverUpChannelId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTrapOnCompletion"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverOpInitiatedTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverState"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverRowStatus"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmMaxCpeNumber"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxQosCtrlGroupRev1": {
+    "name": "cdxQosCtrlGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpAdmissionCtrl"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpMaxRsvdBWPercent"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpAdmissionRejects"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpReservedBW"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpMaxVirtualBW"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosIfRateLimitAlgm"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosIfRateLimitExpWt"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosIfRateLimitShpGranularity"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosIfRateLimitShpMaxDelay"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsServiceOutOctets"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsServiceOutPackets"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosMaxUpBWExcessRequests"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosMaxDownBWExcessPackets"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxCmtsCmCpeGroupRev1": {
+    "name": "cdxCmtsCmCpeGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIpAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmtsServiceId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmStatusIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeAccessGroup"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusValue"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusPercentOnline"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusDynSidCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapEnable"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapInterval"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDefaultMaxCpes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTimeExpiration"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverDownFrequency"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverUpChannelId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTrapOnCompletion"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverOpInitiatedTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverState"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverRowStatus"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmMaxCpeNumber"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxSpecMgmtGroup": {
+    "name": "cdxSpecMgmtGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelWidth"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelModulationProfile"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxCmtsCmCpeGroupRev2": {
+    "name": "cdxCmtsCmCpeGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIpAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmtsServiceId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmStatusIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeAccessGroup"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeResetNow"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusValue"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusPercentOnline"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusDynSidCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapEnable"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapInterval"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDefaultMaxCpes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTimeExpiration"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverDownFrequency"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverUpChannelId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTrapOnCompletion"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverOpInitiatedTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverState"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverRowStatus"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmMaxCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmCurrCpeNumber"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxSpecMgmtGroupRev1": {
+    "name": "cdxSpecMgmtGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelWidth"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelModulationProfile"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelCmTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelCmActive"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelCmRegistered"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxCmtsCmCpeGroupRev3": {
+    "name": "cdxCmtsCmCpeGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIpAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmtsServiceId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmStatusIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeAccessGroup"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeResetNow"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusValue"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusPercentOnline"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusDynSidCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapEnable"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapInterval"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDefaultMaxCpes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmActive"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmRegistered"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTimeExpiration"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverDownFrequency"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverUpChannelId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTrapOnCompletion"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverOpInitiatedTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverState"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverRowStatus"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmMaxCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmCurrCpeNumber"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxQosCtrlGroupRev2": {
+    "name": "cdxQosCtrlGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpAdmissionCtrl"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpMaxRsvdBWPercent"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpAdmissionRejects"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpReservedBW"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosCtrlUpMaxVirtualBW"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosIfRateLimitAlgm"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosIfRateLimitExpWt"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosIfRateLimitShpGranularity"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosIfRateLimitShpMaxDelay"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsServiceOutOctets"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsServiceOutPackets"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosMaxUpBWExcessRequests"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxQosMaxDownBWExcessPackets"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxUpInfoElemStatsIEType"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsCmCpeGroupRev4": {
+    "name": "cdxCmtsCmCpeGroupRev4",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIpAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmtsServiceId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmStatusIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeAccessGroup"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeResetNow"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusValue"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusPercentOnline"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusDynSidCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAddlInfo"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapEnable"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapInterval"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDefaultMaxCpes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmActive"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmRegistered"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTimeExpiration"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverDownFrequency"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverUpChannelId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTrapOnCompletion"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverOpInitiatedTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverState"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverRowStatus"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmMaxCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmCurrCpeNumber"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxSpecMgmtGroupRev2": {
+    "name": "cdxSpecMgmtGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelWidth"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelModulationProfile"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelCmTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelCmActive"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelCmRegistered"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelInputPowerLevel"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxNotifGroup": {
+    "name": "cdxNotifGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffNotification"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverNotification"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxSpecMgmtGroupRev3": {
+    "name": "cdxSpecMgmtGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelWidth"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelModulationProfile"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelCmTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelCmActive"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelCmRegistered"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelInputPowerLevel"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelAvgUtil"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelAvgContSlots"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelRangeSlots"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelNumActiveUGS"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelMaxUGSLastOneHour"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelMinUGSLastOneHour"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelAvgUGSLastOneHour"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelMaxUGSLastFiveMins"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelMinUGSLastFiveMins"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfUpChannelAvgUGSLastFiveMins"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsCmCpeGroupRev5": {
+    "name": "cdxCmtsCmCpeGroupRev5",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmtsServiceId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmStatusIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeAccessGroup"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeResetNow"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusValue"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusPercentOnline"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusDynSidCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAddlInfo"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapEnable"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapInterval"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDefaultMaxCpes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmActive"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmRegistered"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTimeExpiration"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverDownFrequency"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverUpChannelId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTrapOnCompletion"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverOpInitiatedTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverState"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverRowStatus"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmMaxCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmCurrCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimesNum"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusLastResetTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxCmtsCmCpeGroupRev6": {
+    "name": "cdxCmtsCmCpeGroupRev6",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmtsServiceId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmStatusIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeAccessGroup"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeResetNow"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusValue"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusPercentOnline"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusDynSidCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAddlInfo"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapEnable"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapInterval"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDefaultMaxCpes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmActive"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmRegistered"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTimeExpiration"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverDownFrequency"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverUpChannelId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTrapOnCompletion"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverOpInitiatedTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverState"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverRowStatus"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmMaxCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmCurrCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmQosProfile"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimesNum"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusLastResetTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxCmtsCmCpeGroupRev7": {
+    "name": "cdxCmtsCmCpeGroupRev7",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIpAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmtsServiceId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmStatusIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeAccessGroup"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeResetNow"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusValue"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusPercentOnline"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusDynSidCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAddlInfo"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapEnable"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapInterval"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDefaultMaxCpes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmActive"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmRegistered"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDMICMode"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDMICLockQos"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTimeExpiration"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverDownFrequency"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverUpChannelId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTrapOnCompletion"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverOpInitiatedTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverState"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverRowStatus"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmMaxCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmCurrCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmQosProfile"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusDMICMode"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusDMICUnLock"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimesNum"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusLastResetTime"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "cdxCmtsCmCpeGroupRev8": {
+    "name": "cdxCmtsCmCpeGroupRev8",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIpAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmtsServiceId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeCmStatusIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeAccessGroup"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeResetNow"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusValue"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusPercentOnline"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOnlineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMinOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAvgOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusMaxOfflineTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusDynSidCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusAddlInfo"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapEnable"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffTrapInterval"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDefaultMaxCpes"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmActive"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmRegistered"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDMICMode"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDMICLockQos"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTimeExpiration"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverDownFrequency"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverUpChannelId"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverTrapOnCompletion"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverOpInitiatedTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverState"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverRowStatus"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmMaxCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmCurrCpeNumber"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmQosProfile"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusDMICMode"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmStatusDMICUnLock"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusOnlineTimesNum"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsCmStatusLastResetTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmToCpeInetAddressType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmToCpeInetAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeToCmMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeToCmInetAddressType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeToCmInetAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeToCmStatusIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxNotifGroupRev1": {
+    "name": "cdxNotifGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.19",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmOnOffNotification"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmChOverNotification"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsCmDMICLockNotification"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsCmCpeDeleteGroup": {
+    "name": "cdxCmtsCmCpeDeleteGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmCpeDeleteNow"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxWBResilGroup": {
+    "name": "cdxWBResilGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilRFChangeDampenTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilRFChangeTriggerPercentage"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilRFChangeTriggerCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilRFChangeTriggerMoveSecondary"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilNotificationEnable"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilNotificationsInterval"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventLevel"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventType"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilUpdateTime"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventTotalCount"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEventTotalDupCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxNotifGroupExt": {
+    "name": "cdxNotifGroupExt",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.22",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilRFDown"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilRFUp"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilCMPartialServiceNotif"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilCMFullServiceNotif"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxWBResilEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxQosCtrlGroupExt": {
+    "name": "cdxQosCtrlGroupExt",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsServiceHCInOctets"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsServiceHCInPackets"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsServiceHCOutOctets"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxIfCmtsServiceHCOutPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxDownstreamGroup": {
+    "name": "cdxDownstreamGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxPrimaryChannelIfIndex"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxPhysicalRFIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCpeIpPrefixGroup": {
+    "name": "cdxCpeIpPrefixGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeIpPrefixCpeMacAddress"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCpeIpPrefixCpeType"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsMtcCmGroup": {
+    "name": "cdxCmtsMtcCmGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsMtcCmTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCMtsMtcCmOperational"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsMtcCmRegistered"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsMtcCmUnregistered"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsMtcCmOffline"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsMtcCmWideband"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsMtcUpstreamBondGrp"
+      }
+    ],
+    "status": "current"
+  },
+  "cdxCmtsUscbSflowGroup": {
+    "name": "cdxCmtsUscbSflowGroup",
+    "oid": "1.3.6.1.4.1.9.9.116.3.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbSfTotal"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbSfPri"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbStaticSfBe"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbStaticSfUgs"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbStaticSfUgsad"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbStaticSfRtps"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbStaticSfNrtps"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbDynSfBe"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbDynSfUgs"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbDynSfUgsad"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbDynSfRtps"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbDynSfNrtps"
+      },
+      {
+        "module": "CISCO-DOCS-EXT-MIB",
+        "object": "cdxCmtsUscbDescr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOCS-EXT-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:20 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "CISCO-DOCS-EXT-MIB"
+  }
+}

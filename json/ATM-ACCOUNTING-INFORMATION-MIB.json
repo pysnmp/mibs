@@ -1,0 +1,659 @@
+{
+  "imports": {
+    "class": "imports",
+    "CISCO-SMI": [
+      "ciscoExperiment"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "DateAndTime"
+    ]
+  },
+  "atmAccountingInformationMIB": {
+    "name": "atmAccountingInformationMIB",
+    "oid": "1.3.6.1.4.1.9.10.18",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1997-11-05 00:00",
+        "description": "Added objects atmAcctngTransmittedPeakCells and atmAcctngReceivedPeakCells."
+      }
+    ]
+  },
+  "atmAcctngMIBObjects": {
+    "name": "atmAcctngMIBObjects",
+    "oid": "1.3.6.1.4.1.9.10.18.1",
+    "class": "objectidentity"
+  },
+  "AtmAddr": {
+    "name": "AtmAddr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "atmAcctngDataObjects": {
+    "name": "atmAcctngDataObjects",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "atmAcctngConnectionType": {
+    "name": "atmAcctngConnectionType",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 1,
+          "pvp": 2,
+          "svcIncoming": 3,
+          "svcOutgoing": 4,
+          "svpIncoming": 5,
+          "svpOutgoing": 6,
+          "spvcInitiator": 7,
+          "spvcTarget": 8,
+          "spvpInitiator": 9,
+          "spvpTarget": 10
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngCastType": {
+    "name": "atmAcctngCastType",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "p2p": 1,
+          "p2mp": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngIfName": {
+    "name": "atmAcctngIfName",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngIfAlias": {
+    "name": "atmAcctngIfAlias",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngVpi": {
+    "name": "atmAcctngVpi",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngVci": {
+    "name": "atmAcctngVci",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngCallingParty": {
+    "name": "atmAcctngCallingParty",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngCalledParty": {
+    "name": "atmAcctngCalledParty",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngCallReference": {
+    "name": "atmAcctngCallReference",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngStartTime": {
+    "name": "atmAcctngStartTime",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngCollectionTime": {
+    "name": "atmAcctngCollectionTime",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngCollectMode": {
+    "name": "atmAcctngCollectMode",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "onRelease": 1,
+          "periodically": 2,
+          "onCommand": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngReleaseCause": {
+    "name": "atmAcctngReleaseCause",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngServiceCategory": {
+    "name": "atmAcctngServiceCategory",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "cbr": 2,
+          "vbrRt": 3,
+          "vbrNrt": 4,
+          "abr": 5,
+          "ubr": 6,
+          "unknown": 7
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngTransmittedCells": {
+    "name": "atmAcctngTransmittedCells",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngTransmittedClp0Cells": {
+    "name": "atmAcctngTransmittedClp0Cells",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngReceivedCells": {
+    "name": "atmAcctngReceivedCells",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngReceivedClp0Cells": {
+    "name": "atmAcctngReceivedClp0Cells",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngTransmitTrafficDescriptorType": {
+    "name": "atmAcctngTransmitTrafficDescriptorType",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngTransmitTrafficDescriptorParam1": {
+    "name": "atmAcctngTransmitTrafficDescriptorParam1",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngTransmitTrafficDescriptorParam2": {
+    "name": "atmAcctngTransmitTrafficDescriptorParam2",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngTransmitTrafficDescriptorParam3": {
+    "name": "atmAcctngTransmitTrafficDescriptorParam3",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngTransmitTrafficDescriptorParam4": {
+    "name": "atmAcctngTransmitTrafficDescriptorParam4",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngTransmitTrafficDescriptorParam5": {
+    "name": "atmAcctngTransmitTrafficDescriptorParam5",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngReceiveTrafficDescriptorType": {
+    "name": "atmAcctngReceiveTrafficDescriptorType",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngReceiveTrafficDescriptorParam1": {
+    "name": "atmAcctngReceiveTrafficDescriptorParam1",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngReceiveTrafficDescriptorParam2": {
+    "name": "atmAcctngReceiveTrafficDescriptorParam2",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngReceiveTrafficDescriptorParam3": {
+    "name": "atmAcctngReceiveTrafficDescriptorParam3",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngReceiveTrafficDescriptorParam4": {
+    "name": "atmAcctngReceiveTrafficDescriptorParam4",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngReceiveTrafficDescriptorParam5": {
+    "name": "atmAcctngReceiveTrafficDescriptorParam5",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngCallingPartySubAddress": {
+    "name": "atmAcctngCallingPartySubAddress",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngCalledPartySubAddress": {
+    "name": "atmAcctngCalledPartySubAddress",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngRecordCrc16": {
+    "name": "atmAcctngRecordCrc16",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngTransmittedPeakCells": {
+    "name": "atmAcctngTransmittedPeakCells",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "atmAcctngReceivedPeakCells": {
+    "name": "atmAcctngReceivedPeakCells",
+    "oid": "1.3.6.1.4.1.9.10.18.1.1.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ATM-ACCOUNTING-INFORMATION-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ATM-ACCOUNTING-INFORMATION-MIB"
+  }
+}

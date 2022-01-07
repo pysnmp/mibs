@@ -1,0 +1,3793 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTIGA-GLOBAL-REG": [
+      "alSessionMibModule"
+    ],
+    "ALTIGA-MIB": [
+      "alStatsSession",
+      "alSessionGroup"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "MacAddress",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "altigaSessionStatsMibModule": {
+    "name": "altigaSessionStatsMibModule",
+    "oid": "1.3.6.1.4.1.3076.1.1.22.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2005-01-26 00:00",
+        "description": "Added NAC objects alActiveNacAcceptedSessions, alTotalNacAcceptedSessions. alActiveNacRejectedSessions, alTotalNacRejectedSessions. alActiveNacExemptedSessions, alTotalNacExemptedSessions. alActiveNacNonresponsiveSessions, alTotalNacNonresponsiveSessions. alActiveNacHoldoffSessions, alTotalNacHoldoffSessions. alActiveNacDisabledSessions, alTotalNacDisabledSessions. alActiveSessionNacResult, alActiveSessionSubEntryNacRevalTimer. alActiveSessionSubEntryNacTimetoReval, alActiveSessionSubEntryNacSqTimer. alActiveSessionSubEntryNacSessionAge, alActiveSessionSubEntryNacHoldTimer, alActiveSessionSubEntryNacPosture. alActiveSessionSubEntryNacRedirectUrl."
+      },
+      {
+        "revision": "2003-09-09 00:00",
+        "description": "Added new enum value to SessionProtocol and EncryptionAlgorithm. Added alActiveSessionMaxWebVpnUsers and alWeightedSessionCount objects"
+      },
+      {
+        "revision": "2003-03-17 00:00",
+        "description": "Added alActiveSessionFilterId object"
+      },
+      {
+        "revision": "2002-09-05 13:00",
+        "description": "Added module compliance."
+      },
+      {
+        "revision": "2002-07-10 00:00",
+        "description": "Updated with new header"
+      }
+    ]
+  },
+  "alStatsSessionGlobal": {
+    "name": "alStatsSessionGlobal",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1",
+    "class": "objectidentity"
+  },
+  "SessionProtocol": {
+    "name": "SessionProtocol",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pptp": 1,
+          "l2tp": 2,
+          "ipsec": 3,
+          "http": 4,
+          "ftp": 5,
+          "telnet": 6,
+          "snmp": 7,
+          "tftp": 8,
+          "console": 9,
+          "debugTelnet": 10,
+          "debugConsole": 11,
+          "other": 12,
+          "ike": 13,
+          "l2tpOverIpSec": 14,
+          "ipsecLanToLan": 15,
+          "ipsecOverUdp": 16,
+          "ssh": 17,
+          "vcaLanToLan": 18,
+          "ipsecOverTcp": 19,
+          "pppoe": 20,
+          "ipsecOverNatT": 21,
+          "ipsecLan2LanOverNatT": 22,
+          "l2tpOverIpsecOverNatT": 23,
+          "userHttps": 24,
+          "pop3s": 25,
+          "imap4s": 26,
+          "smtps": 27,
+          "httpsTunnel": 28
+        }
+      }
+    },
+    "status": "current"
+  },
+  "EncryptionAlgorithm": {
+    "name": "EncryptionAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "des56": 2,
+          "des40": 3,
+          "des168": 4,
+          "rc4Stateless40": 5,
+          "rc4Statefull40": 6,
+          "rc4Stateless128": 7,
+          "rc4Statefull128": 8,
+          "aes128": 9,
+          "aes192": 10,
+          "aes256": 11,
+          "sslv3": 64,
+          "sslv3des56": 66,
+          "sslv3des168": 68,
+          "sslv3rc4Statefull128": 72,
+          "tlsv1": 128,
+          "tlsv1des56": 130,
+          "tlsv1des168": 132,
+          "tlsv1rc4Statefull128": 136
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CompressionAlgorithm": {
+    "name": "CompressionAlgorithm",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "lzs": 1,
+          "deflate": 2,
+          "lz": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "NacResult": {
+    "name": "NacResult",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 0,
+          "accepted": 1,
+          "rejected": 2,
+          "exempted": 3,
+          "nonResponsive": 4,
+          "notApplicable": 5,
+          "holdoff": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "alActiveSessionCount": {
+    "name": "alActiveSessionCount",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alTotalSessionCount": {
+    "name": "alTotalSessionCount",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionLastUpdate": {
+    "name": "alActiveSessionLastUpdate",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionMaxUsers": {
+    "name": "alActiveSessionMaxUsers",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionGroupIdLock": {
+    "name": "alActiveSessionGroupIdLock",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMaxSessionCount": {
+    "name": "alMaxSessionCount",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveLanToLanSessionCount": {
+    "name": "alActiveLanToLanSessionCount",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveManagementSessionCount": {
+    "name": "alActiveManagementSessionCount",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveRemoteAccessSessionCount": {
+    "name": "alActiveRemoteAccessSessionCount",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionMaxWebVpnUsers": {
+    "name": "alActiveSessionMaxWebVpnUsers",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alWeightedSessionCount": {
+    "name": "alWeightedSessionCount",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveNacAcceptedSessions": {
+    "name": "alActiveNacAcceptedSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alTotalNacAcceptedSessions": {
+    "name": "alTotalNacAcceptedSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveNacRejectedSessions": {
+    "name": "alActiveNacRejectedSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alTotalNacRejectedSessions": {
+    "name": "alTotalNacRejectedSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveNacExemptedSessions": {
+    "name": "alActiveNacExemptedSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alTotalNacExemptedSessions": {
+    "name": "alTotalNacExemptedSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveNacNonresponsiveSessions": {
+    "name": "alActiveNacNonresponsiveSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alTotalNacNonresponsiveSessions": {
+    "name": "alTotalNacNonresponsiveSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveNacDisabledSessions": {
+    "name": "alActiveNacDisabledSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alTotalNacDisabledSessions": {
+    "name": "alTotalNacDisabledSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveNacHoldoffSessions": {
+    "name": "alActiveNacHoldoffSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alTotalNacHoldoffSessions": {
+    "name": "alTotalNacHoldoffSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.1.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionTable": {
+    "name": "alActiveSessionTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alActiveSessionEntry": {
+    "name": "alActiveSessionEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alActiveSessionRowStatus": {
+    "name": "alActiveSessionRowStatus",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alActiveSessionIndex": {
+    "name": "alActiveSessionIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionUserName": {
+    "name": "alActiveSessionUserName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionIpAddress": {
+    "name": "alActiveSessionIpAddress",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionProtocol": {
+    "name": "alActiveSessionProtocol",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionEncrType": {
+    "name": "alActiveSessionEncrType",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionStartTime": {
+    "name": "alActiveSessionStartTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionConnectTime": {
+    "name": "alActiveSessionConnectTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionOctetsSent": {
+    "name": "alActiveSessionOctetsSent",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionOctetsRcvd": {
+    "name": "alActiveSessionOctetsRcvd",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSepId": {
+    "name": "alActiveSessionSepId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionGroupName": {
+    "name": "alActiveSessionGroupName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionGroupId": {
+    "name": "alActiveSessionGroupId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionPublicIpAddress": {
+    "name": "alActiveSessionPublicIpAddress",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionTopTenData": {
+    "name": "alActiveSessionTopTenData",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionLoginTime": {
+    "name": "alActiveSessionLoginTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionOS": {
+    "name": "alActiveSessionOS",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionVersion": {
+    "name": "alActiveSessionVersion",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionFilterId": {
+    "name": "alActiveSessionFilterId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionNacResult": {
+    "name": "alActiveSessionNacResult",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NacResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputTable": {
+    "name": "alActiveSessionThroughputTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alActiveSessionThroughputEntry": {
+    "name": "alActiveSessionThroughputEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alActiveSessionThroughputRowStatus": {
+    "name": "alActiveSessionThroughputRowStatus",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputIndex": {
+    "name": "alActiveSessionThroughputIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputUserName": {
+    "name": "alActiveSessionThroughputUserName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputIpAddress": {
+    "name": "alActiveSessionThroughputIpAddress",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputProtocol": {
+    "name": "alActiveSessionThroughputProtocol",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputEncrType": {
+    "name": "alActiveSessionThroughputEncrType",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputStartTime": {
+    "name": "alActiveSessionThroughputStartTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputConnectTime": {
+    "name": "alActiveSessionThroughputConnectTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputOctetsSent": {
+    "name": "alActiveSessionThroughputOctetsSent",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputOctetsRcvd": {
+    "name": "alActiveSessionThroughputOctetsRcvd",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputSepId": {
+    "name": "alActiveSessionThroughputSepId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputGroupName": {
+    "name": "alActiveSessionThroughputGroupName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputGroupId": {
+    "name": "alActiveSessionThroughputGroupId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputPublicIpAddress": {
+    "name": "alActiveSessionThroughputPublicIpAddress",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputTopTenData": {
+    "name": "alActiveSessionThroughputTopTenData",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionThroughputLoginTime": {
+    "name": "alActiveSessionThroughputLoginTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataTable": {
+    "name": "alActiveSessionDataTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alActiveSessionDataEntry": {
+    "name": "alActiveSessionDataEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alActiveSessionDataRowStatus": {
+    "name": "alActiveSessionDataRowStatus",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataIndex": {
+    "name": "alActiveSessionDataIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataUserName": {
+    "name": "alActiveSessionDataUserName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataIpAddress": {
+    "name": "alActiveSessionDataIpAddress",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataProtocol": {
+    "name": "alActiveSessionDataProtocol",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataEncrType": {
+    "name": "alActiveSessionDataEncrType",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataStartTime": {
+    "name": "alActiveSessionDataStartTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataConnectTime": {
+    "name": "alActiveSessionDataConnectTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataOctetsSent": {
+    "name": "alActiveSessionDataOctetsSent",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataOctetsRcvd": {
+    "name": "alActiveSessionDataOctetsRcvd",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataSepId": {
+    "name": "alActiveSessionDataSepId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataGroupName": {
+    "name": "alActiveSessionDataGroupName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataGroupId": {
+    "name": "alActiveSessionDataGroupId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataPublicIpAddress": {
+    "name": "alActiveSessionDataPublicIpAddress",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataTopTenData": {
+    "name": "alActiveSessionDataTopTenData",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDataLoginTime": {
+    "name": "alActiveSessionDataLoginTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationTable": {
+    "name": "alActiveSessionDurationTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alActiveSessionDurationEntry": {
+    "name": "alActiveSessionDurationEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alActiveSessionDurationRowStatus": {
+    "name": "alActiveSessionDurationRowStatus",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationIndex": {
+    "name": "alActiveSessionDurationIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationUserName": {
+    "name": "alActiveSessionDurationUserName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationIpAddress": {
+    "name": "alActiveSessionDurationIpAddress",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationProtocol": {
+    "name": "alActiveSessionDurationProtocol",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationEncrType": {
+    "name": "alActiveSessionDurationEncrType",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationStartTime": {
+    "name": "alActiveSessionDurationStartTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationConnectTime": {
+    "name": "alActiveSessionDurationConnectTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationOctetsSent": {
+    "name": "alActiveSessionDurationOctetsSent",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationOctetsRcvd": {
+    "name": "alActiveSessionDurationOctetsRcvd",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationSepId": {
+    "name": "alActiveSessionDurationSepId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationGroupName": {
+    "name": "alActiveSessionDurationGroupName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationGroupId": {
+    "name": "alActiveSessionDurationGroupId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationPublicIpAddress": {
+    "name": "alActiveSessionDurationPublicIpAddress",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationTopTenData": {
+    "name": "alActiveSessionDurationTopTenData",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionDurationLoginTime": {
+    "name": "alActiveSessionDurationLoginTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubTable": {
+    "name": "alActiveSessionSubTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alActiveSessionSubEntry": {
+    "name": "alActiveSessionSubEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alActiveSessionSubEntryRowStatus": {
+    "name": "alActiveSessionSubEntryRowStatus",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryIndex": {
+    "name": "alActiveSessionSubEntryIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryInstance": {
+    "name": "alActiveSessionSubEntryInstance",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryProtocol": {
+    "name": "alActiveSessionSubEntryProtocol",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SessionProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryEncrAlg": {
+    "name": "alActiveSessionSubEntryEncrAlg",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryHashAlg": {
+    "name": "alActiveSessionSubEntryHashAlg",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "md5": 1,
+          "sha1": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryDiffHelmanGrp": {
+    "name": "alActiveSessionSubEntryDiffHelmanGrp",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "group1": 1,
+          "group2": 2,
+          "group3": 3,
+          "group4": 4,
+          "group5": 5,
+          "group7": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryAuthMode": {
+    "name": "alActiveSessionSubEntryAuthMode",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "preSharedKeys": 1,
+          "rsaCert": 2,
+          "dsaCert": 3,
+          "pap": 4,
+          "chap": 5,
+          "eapMd5": 6,
+          "eapGtc": 7,
+          "msChapV1": 8,
+          "msChapV2": 9,
+          "preSharedKeysXauth": 10,
+          "rsaCertXauth": 11,
+          "dsaCertXauth": 12,
+          "eap": 13,
+          "usernamePassword": 14,
+          "rsaCertHybrid": 15,
+          "dsaCertHybrid": 16,
+          "crack": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryEncapMode": {
+    "name": "alActiveSessionSubEntryEncapMode",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "transport": 1,
+          "tunnel": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryRekeyTime": {
+    "name": "alActiveSessionSubEntryRekeyTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryRekeyKBytes": {
+    "name": "alActiveSessionSubEntryRekeyKBytes",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryRemAddrType": {
+    "name": "alActiveSessionSubEntryRemAddrType",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "addrWithSubNet": 1,
+          "range": 2,
+          "hostAddress": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryRemAddr1": {
+    "name": "alActiveSessionSubEntryRemAddr1",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryRemAddr2": {
+    "name": "alActiveSessionSubEntryRemAddr2",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryLocAddrType": {
+    "name": "alActiveSessionSubEntryLocAddrType",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "addrWithSubNet": 1,
+          "range": 2,
+          "hostAddress": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryLocAddr1": {
+    "name": "alActiveSessionSubEntryLocAddr1",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryLocAddr2": {
+    "name": "alActiveSessionSubEntryLocAddr2",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryRcvdOctets": {
+    "name": "alActiveSessionSubEntryRcvdOctets",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntrySentOctets": {
+    "name": "alActiveSessionSubEntrySentOctets",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntrySep": {
+    "name": "alActiveSessionSubEntrySep",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryUserName": {
+    "name": "alActiveSessionSubEntryUserName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryClientIpAddr": {
+    "name": "alActiveSessionSubEntryClientIpAddr",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryUdpPort": {
+    "name": "alActiveSessionSubEntryUdpPort",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryTotalIdleTime": {
+    "name": "alActiveSessionSubEntryTotalIdleTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryIkeNegMode": {
+    "name": "alActiveSessionSubEntryIkeNegMode",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "main": 1,
+          "aggressive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryCompression": {
+    "name": "alActiveSessionSubEntryCompression",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CompressionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryInstId": {
+    "name": "alActiveSessionSubEntryInstId",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryPfsGroup": {
+    "name": "alActiveSessionSubEntryPfsGroup",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "group1": 1,
+          "group2": 2,
+          "group3": 3,
+          "group4": 4,
+          "group7": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryTcpSrcPort": {
+    "name": "alActiveSessionSubEntryTcpSrcPort",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryTcpDstPort": {
+    "name": "alActiveSessionSubEntryTcpDstPort",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryUdpSrcPort": {
+    "name": "alActiveSessionSubEntryUdpSrcPort",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryIkeUdpSrcPort": {
+    "name": "alActiveSessionSubEntryIkeUdpSrcPort",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryIkeUdpDstPort": {
+    "name": "alActiveSessionSubEntryIkeUdpDstPort",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryNacRevalTimer": {
+    "name": "alActiveSessionSubEntryNacRevalTimer",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryNacTimetoReval": {
+    "name": "alActiveSessionSubEntryNacTimetoReval",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryNacSqTimer": {
+    "name": "alActiveSessionSubEntryNacSqTimer",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1800
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryNacSessionAge": {
+    "name": "alActiveSessionSubEntryNacSessionAge",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryNacPosture": {
+    "name": "alActiveSessionSubEntryNacPosture",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryNacRedirectUrl": {
+    "name": "alActiveSessionSubEntryNacRedirectUrl",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveSessionSubEntryNacHoldTimer": {
+    "name": "alActiveSessionSubEntryNacHoldTimer",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.6.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveHWClientUserTable": {
+    "name": "alActiveHWClientUserTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alActiveHWClientUserEntry": {
+    "name": "alActiveHWClientUserEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserSessionIndex",
+        "implied": 0
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserIpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alActiveHWClientUserRowStatus": {
+    "name": "alActiveHWClientUserRowStatus",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "alActiveHWClientUserSessionIndex": {
+    "name": "alActiveHWClientUserSessionIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveHWClientUserIpAddr": {
+    "name": "alActiveHWClientUserIpAddr",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveHWClientUserName": {
+    "name": "alActiveHWClientUserName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveHWClientUserMacAddr": {
+    "name": "alActiveHWClientUserMacAddr",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveHWClientUserLoginTime": {
+    "name": "alActiveHWClientUserLoginTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alActiveHWClientUserUpTime": {
+    "name": "alActiveHWClientUserUpTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.17.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altigaSessionStatsMibConformance": {
+    "name": "altigaSessionStatsMibConformance",
+    "oid": "1.3.6.1.4.1.3076.1.1.22.2.1",
+    "class": "objectidentity"
+  },
+  "altigaSessionStatsMibCompliances": {
+    "name": "altigaSessionStatsMibCompliances",
+    "oid": "1.3.6.1.4.1.3076.1.1.22.2.1.1",
+    "class": "objectidentity"
+  },
+  "altigaSessionStatsMibCompliance": {
+    "name": "altigaSessionStatsMibCompliance",
+    "oid": "1.3.6.1.4.1.3076.1.1.22.2.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaSessionStatsGroup",
+        "module": "ALTIGA-SESSION-STATS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "altigaSessionStatsMibComplianceRev1": {
+    "name": "altigaSessionStatsMibComplianceRev1",
+    "oid": "1.3.6.1.4.1.3076.1.1.22.2.1.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaSessionStatsGroupRev1",
+        "module": "ALTIGA-SESSION-STATS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "altigaSessionStatsMibComplianceRev2": {
+    "name": "altigaSessionStatsMibComplianceRev2",
+    "oid": "1.3.6.1.4.1.3076.1.1.22.2.1.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaSessionStatsGroupRev2",
+        "module": "ALTIGA-SESSION-STATS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "altigaSessionStatsMibComplianceRev3": {
+    "name": "altigaSessionStatsMibComplianceRev3",
+    "oid": "1.3.6.1.4.1.3076.1.1.22.2.1.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaSessionStatsGroupRev2",
+        "module": "ALTIGA-SESSION-STATS-MIB"
+      },
+      {
+        "object": "altigaSessionStatsGroupRev2Sup1",
+        "module": "ALTIGA-SESSION-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "altigaSessionStatsGroup": {
+    "name": "altigaSessionStatsGroup",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.17.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alTotalSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionLastUpdate"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionMaxUsers"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionGroupIdLock"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alMaxSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveLanToLanSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveManagementSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveRemoteAccessSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionOS"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionVersion"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryInstance"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryEncrAlg"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryHashAlg"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryDiffHelmanGrp"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryAuthMode"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryEncapMode"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRekeyTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRekeyKBytes"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRemAddrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRemAddr1"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRemAddr2"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryLocAddrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryLocAddr1"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryLocAddr2"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRcvdOctets"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntrySentOctets"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntrySep"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryClientIpAddr"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryUdpPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryTotalIdleTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIkeNegMode"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryCompression"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryInstId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryPfsGroup"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryTcpSrcPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryTcpDstPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryUdpSrcPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIkeUdpSrcPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIkeUdpDstPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserSessionIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserIpAddr"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserMacAddr"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserUpTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "altigaSessionStatsGroupRev1": {
+    "name": "altigaSessionStatsGroupRev1",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.17.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alTotalSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionLastUpdate"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionMaxUsers"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionGroupIdLock"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alMaxSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveLanToLanSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveManagementSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveRemoteAccessSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionOS"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionVersion"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionFilterId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryInstance"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryEncrAlg"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryHashAlg"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryDiffHelmanGrp"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryAuthMode"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryEncapMode"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRekeyTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRekeyKBytes"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRemAddrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRemAddr1"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRemAddr2"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryLocAddrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryLocAddr1"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryLocAddr2"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRcvdOctets"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntrySentOctets"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntrySep"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryClientIpAddr"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryUdpPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryTotalIdleTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIkeNegMode"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryCompression"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryInstId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryPfsGroup"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryTcpSrcPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryTcpDstPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryUdpSrcPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIkeUdpSrcPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIkeUdpDstPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserSessionIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserIpAddr"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserMacAddr"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserUpTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "altigaSessionStatsGroupRev2": {
+    "name": "altigaSessionStatsGroupRev2",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.17.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alTotalSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionLastUpdate"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionMaxUsers"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionGroupIdLock"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alMaxSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveLanToLanSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveManagementSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveRemoteAccessSessionCount"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionOS"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionVersion"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionFilterId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionThroughputLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDataLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationEncrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationStartTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationConnectTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationOctetsSent"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationSepId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationGroupName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationGroupId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationPublicIpAddress"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationTopTenData"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionDurationLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryInstance"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryProtocol"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryEncrAlg"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryHashAlg"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryDiffHelmanGrp"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryAuthMode"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryEncapMode"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRekeyTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRekeyKBytes"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRemAddrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRemAddr1"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRemAddr2"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryLocAddrType"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryLocAddr1"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryLocAddr2"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryRcvdOctets"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntrySentOctets"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntrySep"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryClientIpAddr"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryUdpPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryTotalIdleTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIkeNegMode"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryCompression"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryInstId"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryPfsGroup"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryTcpSrcPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryTcpDstPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryUdpSrcPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIkeUdpSrcPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryIkeUdpDstPort"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserRowStatus"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserSessionIndex"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserName"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserIpAddr"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserMacAddr"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserLoginTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveHWClientUserUpTime"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionMaxWebVpnUsers"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alWeightedSessionCount"
+      }
+    ],
+    "status": "current"
+  },
+  "altigaSessionStatsGroupRev2Sup1": {
+    "name": "altigaSessionStatsGroupRev2Sup1",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.17.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionNacResult"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryNacRevalTimer"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryNacTimetoReval"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryNacSqTimer"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryNacSessionAge"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryNacPosture"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryNacRedirectUrl"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveSessionSubEntryNacHoldTimer"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveNacAcceptedSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alTotalNacAcceptedSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveNacRejectedSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alTotalNacRejectedSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveNacExemptedSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alTotalNacExemptedSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveNacNonresponsiveSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alTotalNacNonresponsiveSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveNacDisabledSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alTotalNacDisabledSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alActiveNacHoldoffSessions"
+      },
+      {
+        "module": "ALTIGA-SESSION-STATS-MIB",
+        "object": "alTotalNacHoldoffSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ALTIGA-SESSION-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:24 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALTIGA-SESSION-STATS-MIB"
+  }
+}

@@ -1,0 +1,490 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTIGA-GLOBAL-REG": [
+      "alHttpMibModule"
+    ],
+    "ALTIGA-MIB": [
+      "alStatsHttp",
+      "alHttpGroup"
+    ],
+    "ALTIGA-SESSION-STATS-MIB": [
+      "EncryptionAlgorithm"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "altigaHttpStatsMibModule": {
+    "name": "altigaHttpStatsMibModule",
+    "oid": "1.3.6.1.4.1.3076.1.1.12.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-05 13:00",
+        "description": "Added module compliance."
+      },
+      {
+        "revision": "2002-07-10 00:00",
+        "description": "Updated with new header"
+      }
+    ]
+  },
+  "alStatsHttpGlobal": {
+    "name": "alStatsHttpGlobal",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1",
+    "class": "objectidentity"
+  },
+  "alHttpStatsOctetsSent": {
+    "name": "alHttpStatsOctetsSent",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsOctetsRcvd": {
+    "name": "alHttpStatsOctetsRcvd",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsPacketsSent": {
+    "name": "alHttpStatsPacketsSent",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsPacketsRcvd": {
+    "name": "alHttpStatsPacketsRcvd",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsActiveConnections": {
+    "name": "alHttpStatsActiveConnections",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsMaxConnections": {
+    "name": "alHttpStatsMaxConnections",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsActiveSessions": {
+    "name": "alHttpStatsActiveSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsMaxSessions": {
+    "name": "alHttpStatsMaxSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsTotalConnections": {
+    "name": "alHttpStatsTotalConnections",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsTotalSessions": {
+    "name": "alHttpStatsTotalSessions",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.1.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionTable": {
+    "name": "alHttpStatsSessionTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alHttpStatsSessionEntry": {
+    "name": "alHttpStatsSessionEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alHttpStatsSessionIndex": {
+    "name": "alHttpStatsSessionIndex",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionName": {
+    "name": "alHttpStatsSessionName",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionIpAddr": {
+    "name": "alHttpStatsSessionIpAddr",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionStartTime": {
+    "name": "alHttpStatsSessionStartTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionLoginTime": {
+    "name": "alHttpStatsSessionLoginTime",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionEncr": {
+    "name": "alHttpStatsSessionEncr",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "EncryptionAlgorithm",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionOctetsSent": {
+    "name": "alHttpStatsSessionOctetsSent",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionOctetsRcvd": {
+    "name": "alHttpStatsSessionOctetsRcvd",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionPacketsSent": {
+    "name": "alHttpStatsSessionPacketsSent",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionPacketsRcvd": {
+    "name": "alHttpStatsSessionPacketsRcvd",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionActiveConnections": {
+    "name": "alHttpStatsSessionActiveConnections",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionMaxConnections": {
+    "name": "alHttpStatsSessionMaxConnections",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHttpStatsSessionTotalConnections": {
+    "name": "alHttpStatsSessionTotalConnections",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.7.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altigaHttpStatsMibConformance": {
+    "name": "altigaHttpStatsMibConformance",
+    "oid": "1.3.6.1.4.1.3076.1.1.12.2.1",
+    "class": "objectidentity"
+  },
+  "altigaHttpStatsMibCompliances": {
+    "name": "altigaHttpStatsMibCompliances",
+    "oid": "1.3.6.1.4.1.3076.1.1.12.2.1.1",
+    "class": "objectidentity"
+  },
+  "altigaHttpStatsMibCompliance": {
+    "name": "altigaHttpStatsMibCompliance",
+    "oid": "1.3.6.1.4.1.3076.1.1.12.2.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaHttpStatsGroup",
+        "module": "ALTIGA-HTTP-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "altigaHttpStatsGroup": {
+    "name": "altigaHttpStatsGroup",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.7.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsOctetsSent"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsPacketsSent"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsPacketsRcvd"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsActiveConnections"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsMaxConnections"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsActiveSessions"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsMaxSessions"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsTotalConnections"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsTotalSessions"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionIndex"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionName"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionIpAddr"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionStartTime"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionLoginTime"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionEncr"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionOctetsSent"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionOctetsRcvd"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionPacketsSent"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionPacketsRcvd"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionActiveConnections"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionMaxConnections"
+      },
+      {
+        "module": "ALTIGA-HTTP-STATS-MIB",
+        "object": "alHttpStatsSessionTotalConnections"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ALTIGA-HTTP-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:21 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALTIGA-HTTP-STATS-MIB"
+  }
+}

@@ -1,6 +1,9 @@
 {
   "imports": {
     "class": "imports",
+    "CISCO-QOS-PIB-MIB": [
+      "Percent"
+    ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
@@ -11,38 +14,38 @@
       "CounterBasedGauge64"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
       "Unsigned32",
+      "Counter32",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Counter64",
       "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "InstancePointer",
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "RowStatus",
       "TruthValue",
       "DateAndTime",
-      "DisplayString",
-      "RowStatus"
+      "InstancePointer",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoFlashMIB": {
@@ -50,6 +53,10 @@
     "oid": "1.3.6.1.4.1.9.9.10",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2013-08-06 00:00",
+        "description": "Added new notification ciscoFlashPartitionLowSpaceNotif. Added new notification ciscoFlashPartitionLowSpaceRecoveryNotif. Added new object ciscoFlashPartitionLowSpaceNotifEnable. Added new object ciscoFlashPartitionLowSpaceNotifThreshold. Added new object group ciscoFlashPartitionInfoGroupRev1. Added new notification group ciscoFlashNotifGroupRev3. Added new compliance group ciscoFlashMIBComplianceRev11 which deprecates ciscoFlashMIBComplianceRev10."
+      },
       {
         "revision": "2011-03-16 00:00",
         "description": "Added ciscoFlashDeviceMinPartitionSizeExtended to support flash devices of sizes greater than 4 GB. Added new object group ciscoFlashDeviceInfoExtGroupSupRev1. Added new compliance group ciscoFlashMIBComplianceRev10 which deprecates ciscoFlashMIBComplianceRev9."
@@ -918,6 +925,18 @@
     },
     "units": "bytes",
     "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ciscoFlashPartitionLowSpaceNotifThreshold": {
+    "name": "ciscoFlashPartitionLowSpaceNotifThreshold",
+    "oid": "1.3.6.1.4.1.9.9.10.1.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "ciscoFlashFiles": {
@@ -1914,6 +1933,18 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "ciscoFlashPartitionLowSpaceNotifEnable": {
+    "name": "ciscoFlashPartitionLowSpaceNotifEnable",
+    "oid": "1.3.6.1.4.1.9.9.10.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "ciscoFlashMIBTraps": {
     "name": "ciscoFlashMIBTraps",
     "oid": "1.3.6.1.4.1.9.9.10.1.3.0",
@@ -2023,6 +2054,46 @@
       {
         "module": "CISCO-FLASH-MIB",
         "object": "ciscoFlashDeviceNameExtended"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashPartitionLowSpaceNotif": {
+    "name": "ciscoFlashPartitionLowSpaceNotif",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionFreeSpaceExtended"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionLowSpaceNotifThreshold"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashPartitionLowSpaceRecoveryNotif": {
+    "name": "ciscoFlashPartitionLowSpaceRecoveryNotif",
+    "oid": "1.3.6.1.4.1.9.9.10.1.3.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionFreeSpaceExtended"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionLowSpaceNotifThreshold"
       }
     ],
     "status": "current"
@@ -2580,6 +2651,74 @@
         "module": "CISCO-FLASH-MIB"
       }
     ],
+    "status": "deprecated"
+  },
+  "ciscoFlashMIBComplianceRev11": {
+    "name": "ciscoFlashMIBComplianceRev11",
+    "oid": "1.3.6.1.4.1.9.9.10.2.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoFlashPartitionInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileInfoGroupSupp1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashChipInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashCopyOpGroupRev3",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceOptionalInfoGroupRev1",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitioningOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashMiscOpGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashNotifGroupRev3",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashFileTypeInfoGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceInfoGroupRev2",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceInfoExtGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashPartitionInfoExtGroup",
+        "module": "CISCO-FLASH-MIB"
+      },
+      {
+        "object": "ciscoFlashDeviceInfoExtGroupSupRev1",
+        "module": "CISCO-FLASH-MIB"
+      }
+    ],
     "status": "current"
   },
   "ciscoFlashDeviceInfoGroup": {
@@ -2732,7 +2871,7 @@
         "object": "ciscoFlashPartitionFileNameLength"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "ciscoFlashFileInfoGroup": {
     "name": "ciscoFlashFileInfoGroup",
@@ -3216,7 +3355,7 @@
         "object": "ciscoFlashDeviceRemovedNotifRev1"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "ciscoFlashCopyOpGroupRev3": {
     "name": "ciscoFlashCopyOpGroupRev3",
@@ -3310,11 +3449,107 @@
     ],
     "status": "current"
   },
+  "ciscoFlashPartitionInfoGroupRev1": {
+    "name": "ciscoFlashPartitionInfoGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionStartChip"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionEndChip"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionSize"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionFreeSpace"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionFileCount"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionChecksumAlgorithm"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionStatus"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionUpgradeMethod"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionName"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionNeedErasure"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionFileNameLength"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionLowSpaceNotifThreshold"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionLowSpaceNotifEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoFlashNotifGroupRev3": {
+    "name": "ciscoFlashNotifGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.10.2.2.25",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashCopyCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitioningCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashMiscOpCompletionTrap"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceInsertedNotifRev1"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashDeviceRemovedNotifRev1"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionLowSpaceNotif"
+      },
+      {
+        "module": "CISCO-FLASH-MIB",
+        "object": "ciscoFlashPartitionLowSpaceRecoveryNotif"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FLASH-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:12 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:22 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-FLASH-MIB"

@@ -17,8 +17,26 @@ IMPORTS
 
 hcAlarmMIB MODULE-IDENTITY
     LAST-UPDATED    "200212160000Z"
-    ORGANIZATION "Netgear Inc"
-    CONTACT-INFO ""
+    ORGANIZATION    "IETF RMONMIB Working Group"
+    CONTACT-INFO
+            "        Andy Bierman
+                     Cisco Systems, Inc.
+                Tel: +1 408 527-3711
+
+             E-mail: abierman@cisco.com
+             Postal: 170 West Tasman Drive
+                     San Jose, CA USA 95134
+
+                     Keith McCloghrie
+                     Cisco Systems, Inc.
+                Tel: +1 408 526-5260
+             E-mail: kzm@cisco.com
+             Postal: 170 West Tasman Drive
+                     San Jose, CA USA 95134
+
+             Send comments to <rmonmib@ietf.org>
+             Mailing list subscription info:
+                 http://www.ietf.org/mailman/listinfo/rmonmib "
     DESCRIPTION
             "This module defines Remote Monitoring MIB extensions for
              High Capacity Alarms.
@@ -292,6 +310,7 @@ hcAlarmRisingThreshAbsValueLo OBJECT-TYPE
             hcAlarmFallingThreshAbsValueLo,
             hcAlarmFallingThreshAbsValueHi, and
             hcAlarmFallingThresholdValStatus objects.
+
             This object may not be modified if the associated
             hcAlarmStatus object is equal to active(1)."
 
@@ -533,6 +552,7 @@ hcAlarmStatus OBJECT-TYPE
             may be modified if the associated instance of this object is
             equal to notInService(2) or notReady(3)."
     ::= { hcAlarmEntry 19 }
+
 --
 -- Capabilities
 --
@@ -629,6 +649,7 @@ hcAlarmCompliance MODULE-COMPLIANCE
         MANDATORY-GROUPS { rmonEventGroup }
 
     ::= { hcAlarmCompliances 1 }
+
 -- Object Groups
 
 hcAlarmControlGroup OBJECT-GROUP

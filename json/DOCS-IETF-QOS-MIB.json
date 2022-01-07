@@ -1,0 +1,3137 @@
+{
+  "imports": {
+    "class": "imports",
+    "DIFFSERV-DSCP-TC": [
+      "DscpOrAny"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetPortNumber",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TimeStamp",
+      "RowStatus",
+      "StorageType",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "docsIetfQosMIB": {
+    "name": "docsIetfQosMIB",
+    "oid": "1.3.6.1.2.1.127",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-01-23 00:00",
+        "description": "Initial version, published as RFC 4323."
+      }
+    ]
+  },
+  "docsIetfQosNotifications": {
+    "name": "docsIetfQosNotifications",
+    "oid": "1.3.6.1.2.1.127.0",
+    "class": "objectidentity"
+  },
+  "docsIetfQosMIBObjects": {
+    "name": "docsIetfQosMIBObjects",
+    "oid": "1.3.6.1.2.1.127.1",
+    "class": "objectidentity"
+  },
+  "DocsIetfQosRfMacIfDirection": {
+    "name": "DocsIetfQosRfMacIfDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downstream": 1,
+          "upstream": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DocsIetfQosBitRate": {
+    "name": "DocsIetfQosBitRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "DocsIetfQosSchedulingType": {
+    "name": "DocsIetfQosSchedulingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "bestEffort": 2,
+          "nonRealTimePollingService": 3,
+          "realTimePollingService": 4,
+          "unsolictedGrantServiceWithAD": 5,
+          "unsolictedGrantService": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "docsIetfQosPktClassTable": {
+    "name": "docsIetfQosPktClassTable",
+    "oid": "1.3.6.1.2.1.127.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosPktClassEntry": {
+    "name": "docsIetfQosPktClassEntry",
+    "oid": "1.3.6.1.2.1.127.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosPktClassId": {
+    "name": "docsIetfQosPktClassId",
+    "oid": "1.3.6.1.2.1.127.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosPktClassDirection": {
+    "name": "docsIetfQosPktClassDirection",
+    "oid": "1.3.6.1.2.1.127.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosRfMacIfDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassPriority": {
+    "name": "docsIetfQosPktClassPriority",
+    "oid": "1.3.6.1.2.1.127.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassIpTosLow": {
+    "name": "docsIetfQosPktClassIpTosLow",
+    "oid": "1.3.6.1.2.1.127.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassIpTosHigh": {
+    "name": "docsIetfQosPktClassIpTosHigh",
+    "oid": "1.3.6.1.2.1.127.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassIpTosMask": {
+    "name": "docsIetfQosPktClassIpTosMask",
+    "oid": "1.3.6.1.2.1.127.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassIpProtocol": {
+    "name": "docsIetfQosPktClassIpProtocol",
+    "oid": "1.3.6.1.2.1.127.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 258
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassInetAddressType": {
+    "name": "docsIetfQosPktClassInetAddressType",
+    "oid": "1.3.6.1.2.1.127.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassInetSourceAddr": {
+    "name": "docsIetfQosPktClassInetSourceAddr",
+    "oid": "1.3.6.1.2.1.127.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassInetSourceMask": {
+    "name": "docsIetfQosPktClassInetSourceMask",
+    "oid": "1.3.6.1.2.1.127.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassInetDestAddr": {
+    "name": "docsIetfQosPktClassInetDestAddr",
+    "oid": "1.3.6.1.2.1.127.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassInetDestMask": {
+    "name": "docsIetfQosPktClassInetDestMask",
+    "oid": "1.3.6.1.2.1.127.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassSourcePortStart": {
+    "name": "docsIetfQosPktClassSourcePortStart",
+    "oid": "1.3.6.1.2.1.127.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassSourcePortEnd": {
+    "name": "docsIetfQosPktClassSourcePortEnd",
+    "oid": "1.3.6.1.2.1.127.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassDestPortStart": {
+    "name": "docsIetfQosPktClassDestPortStart",
+    "oid": "1.3.6.1.2.1.127.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassDestPortEnd": {
+    "name": "docsIetfQosPktClassDestPortEnd",
+    "oid": "1.3.6.1.2.1.127.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassDestMacAddr": {
+    "name": "docsIetfQosPktClassDestMacAddr",
+    "oid": "1.3.6.1.2.1.127.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassDestMacMask": {
+    "name": "docsIetfQosPktClassDestMacMask",
+    "oid": "1.3.6.1.2.1.127.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassSourceMacAddr": {
+    "name": "docsIetfQosPktClassSourceMacAddr",
+    "oid": "1.3.6.1.2.1.127.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassEnetProtocolType": {
+    "name": "docsIetfQosPktClassEnetProtocolType",
+    "oid": "1.3.6.1.2.1.127.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ethertype": 1,
+          "dsap": 2,
+          "mac": 3,
+          "all": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassEnetProtocol": {
+    "name": "docsIetfQosPktClassEnetProtocol",
+    "oid": "1.3.6.1.2.1.127.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassUserPriLow": {
+    "name": "docsIetfQosPktClassUserPriLow",
+    "oid": "1.3.6.1.2.1.127.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassUserPriHigh": {
+    "name": "docsIetfQosPktClassUserPriHigh",
+    "oid": "1.3.6.1.2.1.127.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassVlanId": {
+    "name": "docsIetfQosPktClassVlanId",
+    "oid": "1.3.6.1.2.1.127.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassStateActive": {
+    "name": "docsIetfQosPktClassStateActive",
+    "oid": "1.3.6.1.2.1.127.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassPkts": {
+    "name": "docsIetfQosPktClassPkts",
+    "oid": "1.3.6.1.2.1.127.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPktClassBitMap": {
+    "name": "docsIetfQosPktClassBitMap",
+    "oid": "1.3.6.1.2.1.127.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rulePriority": 0,
+        "activationState": 1,
+        "ipTos": 2,
+        "ipProtocol": 3,
+        "ipSourceAddr": 4,
+        "ipSourceMask": 5,
+        "ipDestAddr": 6,
+        "ipDestMask": 7,
+        "sourcePortStart": 8,
+        "sourcePortEnd": 9,
+        "destPortStart": 10,
+        "destPortEnd": 11,
+        "destMac": 12,
+        "sourceMac": 13,
+        "ethertype": 14,
+        "userPri": 15,
+        "vlanId": 16
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetTable": {
+    "name": "docsIetfQosParamSetTable",
+    "oid": "1.3.6.1.2.1.127.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosParamSetEntry": {
+    "name": "docsIetfQosParamSetEntry",
+    "oid": "1.3.6.1.2.1.127.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosParamSetServiceClassName": {
+    "name": "docsIetfQosParamSetServiceClassName",
+    "oid": "1.3.6.1.2.1.127.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetPriority": {
+    "name": "docsIetfQosParamSetPriority",
+    "oid": "1.3.6.1.2.1.127.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetMaxTrafficRate": {
+    "name": "docsIetfQosParamSetMaxTrafficRate",
+    "oid": "1.3.6.1.2.1.127.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetMaxTrafficBurst": {
+    "name": "docsIetfQosParamSetMaxTrafficBurst",
+    "oid": "1.3.6.1.2.1.127.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetMinReservedRate": {
+    "name": "docsIetfQosParamSetMinReservedRate",
+    "oid": "1.3.6.1.2.1.127.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetMinReservedPkt": {
+    "name": "docsIetfQosParamSetMinReservedPkt",
+    "oid": "1.3.6.1.2.1.127.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetActiveTimeout": {
+    "name": "docsIetfQosParamSetActiveTimeout",
+    "oid": "1.3.6.1.2.1.127.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetAdmittedTimeout": {
+    "name": "docsIetfQosParamSetAdmittedTimeout",
+    "oid": "1.3.6.1.2.1.127.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetMaxConcatBurst": {
+    "name": "docsIetfQosParamSetMaxConcatBurst",
+    "oid": "1.3.6.1.2.1.127.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetSchedulingType": {
+    "name": "docsIetfQosParamSetSchedulingType",
+    "oid": "1.3.6.1.2.1.127.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosSchedulingType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetNomPollInterval": {
+    "name": "docsIetfQosParamSetNomPollInterval",
+    "oid": "1.3.6.1.2.1.127.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetTolPollJitter": {
+    "name": "docsIetfQosParamSetTolPollJitter",
+    "oid": "1.3.6.1.2.1.127.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetUnsolicitGrantSize": {
+    "name": "docsIetfQosParamSetUnsolicitGrantSize",
+    "oid": "1.3.6.1.2.1.127.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetNomGrantInterval": {
+    "name": "docsIetfQosParamSetNomGrantInterval",
+    "oid": "1.3.6.1.2.1.127.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetTolGrantJitter": {
+    "name": "docsIetfQosParamSetTolGrantJitter",
+    "oid": "1.3.6.1.2.1.127.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetGrantsPerInterval": {
+    "name": "docsIetfQosParamSetGrantsPerInterval",
+    "oid": "1.3.6.1.2.1.127.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetTosAndMask": {
+    "name": "docsIetfQosParamSetTosAndMask",
+    "oid": "1.3.6.1.2.1.127.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetTosOrMask": {
+    "name": "docsIetfQosParamSetTosOrMask",
+    "oid": "1.3.6.1.2.1.127.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetMaxLatency": {
+    "name": "docsIetfQosParamSetMaxLatency",
+    "oid": "1.3.6.1.2.1.127.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetType": {
+    "name": "docsIetfQosParamSetType",
+    "oid": "1.3.6.1.2.1.127.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "admitted": 2,
+          "provisioned": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosParamSetRequestPolicyOct": {
+    "name": "docsIetfQosParamSetRequestPolicyOct",
+    "oid": "1.3.6.1.2.1.127.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosParamSetBitMap": {
+    "name": "docsIetfQosParamSetBitMap",
+    "oid": "1.3.6.1.2.1.127.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "trafficPriority": 0,
+        "maxTrafficRate": 1,
+        "maxTrafficBurst": 2,
+        "minReservedRate": 3,
+        "minReservedPkt": 4,
+        "activeTimeout": 5,
+        "admittedTimeout": 6,
+        "maxConcatBurst": 7,
+        "schedulingType": 8,
+        "requestPolicy": 9,
+        "nomPollInterval": 10,
+        "tolPollJitter": 11,
+        "unsolicitGrantSize": 12,
+        "nomGrantInterval": 13,
+        "tolGrantJitter": 14,
+        "grantsPerInterval": 15,
+        "tosOverwrite": 16,
+        "maxLatency": 17
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowTable": {
+    "name": "docsIetfQosServiceFlowTable",
+    "oid": "1.3.6.1.2.1.127.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowEntry": {
+    "name": "docsIetfQosServiceFlowEntry",
+    "oid": "1.3.6.1.2.1.127.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowId": {
+    "name": "docsIetfQosServiceFlowId",
+    "oid": "1.3.6.1.2.1.127.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowSID": {
+    "name": "docsIetfQosServiceFlowSID",
+    "oid": "1.3.6.1.2.1.127.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowDirection": {
+    "name": "docsIetfQosServiceFlowDirection",
+    "oid": "1.3.6.1.2.1.127.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosRfMacIfDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowPrimary": {
+    "name": "docsIetfQosServiceFlowPrimary",
+    "oid": "1.3.6.1.2.1.127.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowStatsTable": {
+    "name": "docsIetfQosServiceFlowStatsTable",
+    "oid": "1.3.6.1.2.1.127.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowStatsEntry": {
+    "name": "docsIetfQosServiceFlowStatsEntry",
+    "oid": "1.3.6.1.2.1.127.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowPkts": {
+    "name": "docsIetfQosServiceFlowPkts",
+    "oid": "1.3.6.1.2.1.127.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowOctets": {
+    "name": "docsIetfQosServiceFlowOctets",
+    "oid": "1.3.6.1.2.1.127.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowTimeCreated": {
+    "name": "docsIetfQosServiceFlowTimeCreated",
+    "oid": "1.3.6.1.2.1.127.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowTimeActive": {
+    "name": "docsIetfQosServiceFlowTimeActive",
+    "oid": "1.3.6.1.2.1.127.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowPHSUnknowns": {
+    "name": "docsIetfQosServiceFlowPHSUnknowns",
+    "oid": "1.3.6.1.2.1.127.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowPolicedDropPkts": {
+    "name": "docsIetfQosServiceFlowPolicedDropPkts",
+    "oid": "1.3.6.1.2.1.127.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowPolicedDelayPkts": {
+    "name": "docsIetfQosServiceFlowPolicedDelayPkts",
+    "oid": "1.3.6.1.2.1.127.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosUpstreamStatsTable": {
+    "name": "docsIetfQosUpstreamStatsTable",
+    "oid": "1.3.6.1.2.1.127.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosUpstreamStatsEntry": {
+    "name": "docsIetfQosUpstreamStatsEntry",
+    "oid": "1.3.6.1.2.1.127.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosSID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosSID": {
+    "name": "docsIetfQosSID",
+    "oid": "1.3.6.1.2.1.127.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosUpstreamFragments": {
+    "name": "docsIetfQosUpstreamFragments",
+    "oid": "1.3.6.1.2.1.127.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosUpstreamFragDiscards": {
+    "name": "docsIetfQosUpstreamFragDiscards",
+    "oid": "1.3.6.1.2.1.127.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosUpstreamConcatBursts": {
+    "name": "docsIetfQosUpstreamConcatBursts",
+    "oid": "1.3.6.1.2.1.127.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDynamicServiceStatsTable": {
+    "name": "docsIetfQosDynamicServiceStatsTable",
+    "oid": "1.3.6.1.2.1.127.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosDynamicServiceStatsEntry": {
+    "name": "docsIetfQosDynamicServiceStatsEntry",
+    "oid": "1.3.6.1.2.1.127.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosIfDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosIfDirection": {
+    "name": "docsIetfQosIfDirection",
+    "oid": "1.3.6.1.2.1.127.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosRfMacIfDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosDSAReqs": {
+    "name": "docsIetfQosDSAReqs",
+    "oid": "1.3.6.1.2.1.127.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDSARsps": {
+    "name": "docsIetfQosDSARsps",
+    "oid": "1.3.6.1.2.1.127.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDSAAcks": {
+    "name": "docsIetfQosDSAAcks",
+    "oid": "1.3.6.1.2.1.127.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDSCReqs": {
+    "name": "docsIetfQosDSCReqs",
+    "oid": "1.3.6.1.2.1.127.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDSCRsps": {
+    "name": "docsIetfQosDSCRsps",
+    "oid": "1.3.6.1.2.1.127.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDSCAcks": {
+    "name": "docsIetfQosDSCAcks",
+    "oid": "1.3.6.1.2.1.127.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDSDReqs": {
+    "name": "docsIetfQosDSDReqs",
+    "oid": "1.3.6.1.2.1.127.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDSDRsps": {
+    "name": "docsIetfQosDSDRsps",
+    "oid": "1.3.6.1.2.1.127.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDynamicAdds": {
+    "name": "docsIetfQosDynamicAdds",
+    "oid": "1.3.6.1.2.1.127.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDynamicAddFails": {
+    "name": "docsIetfQosDynamicAddFails",
+    "oid": "1.3.6.1.2.1.127.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDynamicChanges": {
+    "name": "docsIetfQosDynamicChanges",
+    "oid": "1.3.6.1.2.1.127.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDynamicChangeFails": {
+    "name": "docsIetfQosDynamicChangeFails",
+    "oid": "1.3.6.1.2.1.127.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDynamicDeletes": {
+    "name": "docsIetfQosDynamicDeletes",
+    "oid": "1.3.6.1.2.1.127.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDynamicDeleteFails": {
+    "name": "docsIetfQosDynamicDeleteFails",
+    "oid": "1.3.6.1.2.1.127.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDCCReqs": {
+    "name": "docsIetfQosDCCReqs",
+    "oid": "1.3.6.1.2.1.127.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDCCRsps": {
+    "name": "docsIetfQosDCCRsps",
+    "oid": "1.3.6.1.2.1.127.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDCCAcks": {
+    "name": "docsIetfQosDCCAcks",
+    "oid": "1.3.6.1.2.1.127.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDCCs": {
+    "name": "docsIetfQosDCCs",
+    "oid": "1.3.6.1.2.1.127.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosDCCFails": {
+    "name": "docsIetfQosDCCFails",
+    "oid": "1.3.6.1.2.1.127.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogTable": {
+    "name": "docsIetfQosServiceFlowLogTable",
+    "oid": "1.3.6.1.2.1.127.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogEntry": {
+    "name": "docsIetfQosServiceFlowLogEntry",
+    "oid": "1.3.6.1.2.1.127.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogIndex": {
+    "name": "docsIetfQosServiceFlowLogIndex",
+    "oid": "1.3.6.1.2.1.127.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogIfIndex": {
+    "name": "docsIetfQosServiceFlowLogIfIndex",
+    "oid": "1.3.6.1.2.1.127.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogSFID": {
+    "name": "docsIetfQosServiceFlowLogSFID",
+    "oid": "1.3.6.1.2.1.127.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogCmMac": {
+    "name": "docsIetfQosServiceFlowLogCmMac",
+    "oid": "1.3.6.1.2.1.127.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogPkts": {
+    "name": "docsIetfQosServiceFlowLogPkts",
+    "oid": "1.3.6.1.2.1.127.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogOctets": {
+    "name": "docsIetfQosServiceFlowLogOctets",
+    "oid": "1.3.6.1.2.1.127.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogTimeDeleted": {
+    "name": "docsIetfQosServiceFlowLogTimeDeleted",
+    "oid": "1.3.6.1.2.1.127.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogTimeCreated": {
+    "name": "docsIetfQosServiceFlowLogTimeCreated",
+    "oid": "1.3.6.1.2.1.127.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogTimeActive": {
+    "name": "docsIetfQosServiceFlowLogTimeActive",
+    "oid": "1.3.6.1.2.1.127.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogDirection": {
+    "name": "docsIetfQosServiceFlowLogDirection",
+    "oid": "1.3.6.1.2.1.127.1.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosRfMacIfDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogPrimary": {
+    "name": "docsIetfQosServiceFlowLogPrimary",
+    "oid": "1.3.6.1.2.1.127.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogServiceClassName": {
+    "name": "docsIetfQosServiceFlowLogServiceClassName",
+    "oid": "1.3.6.1.2.1.127.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogPolicedDropPkts": {
+    "name": "docsIetfQosServiceFlowLogPolicedDropPkts",
+    "oid": "1.3.6.1.2.1.127.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogPolicedDelayPkts": {
+    "name": "docsIetfQosServiceFlowLogPolicedDelayPkts",
+    "oid": "1.3.6.1.2.1.127.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceFlowLogControl": {
+    "name": "docsIetfQosServiceFlowLogControl",
+    "oid": "1.3.6.1.2.1.127.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassTable": {
+    "name": "docsIetfQosServiceClassTable",
+    "oid": "1.3.6.1.2.1.127.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassEntry": {
+    "name": "docsIetfQosServiceClassEntry",
+    "oid": "1.3.6.1.2.1.127.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosServiceClassName": {
+    "name": "docsIetfQosServiceClassName",
+    "oid": "1.3.6.1.2.1.127.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassStatus": {
+    "name": "docsIetfQosServiceClassStatus",
+    "oid": "1.3.6.1.2.1.127.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassPriority": {
+    "name": "docsIetfQosServiceClassPriority",
+    "oid": "1.3.6.1.2.1.127.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassMaxTrafficRate": {
+    "name": "docsIetfQosServiceClassMaxTrafficRate",
+    "oid": "1.3.6.1.2.1.127.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassMaxTrafficBurst": {
+    "name": "docsIetfQosServiceClassMaxTrafficBurst",
+    "oid": "1.3.6.1.2.1.127.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3044,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassMinReservedRate": {
+    "name": "docsIetfQosServiceClassMinReservedRate",
+    "oid": "1.3.6.1.2.1.127.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosBitRate",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassMinReservedPkt": {
+    "name": "docsIetfQosServiceClassMinReservedPkt",
+    "oid": "1.3.6.1.2.1.127.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassMaxConcatBurst": {
+    "name": "docsIetfQosServiceClassMaxConcatBurst",
+    "oid": "1.3.6.1.2.1.127.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1522,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassNomPollInterval": {
+    "name": "docsIetfQosServiceClassNomPollInterval",
+    "oid": "1.3.6.1.2.1.127.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassTolPollJitter": {
+    "name": "docsIetfQosServiceClassTolPollJitter",
+    "oid": "1.3.6.1.2.1.127.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassUnsolicitGrantSize": {
+    "name": "docsIetfQosServiceClassUnsolicitGrantSize",
+    "oid": "1.3.6.1.2.1.127.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassNomGrantInterval": {
+    "name": "docsIetfQosServiceClassNomGrantInterval",
+    "oid": "1.3.6.1.2.1.127.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassTolGrantJitter": {
+    "name": "docsIetfQosServiceClassTolGrantJitter",
+    "oid": "1.3.6.1.2.1.127.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassGrantsPerInterval": {
+    "name": "docsIetfQosServiceClassGrantsPerInterval",
+    "oid": "1.3.6.1.2.1.127.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassMaxLatency": {
+    "name": "docsIetfQosServiceClassMaxLatency",
+    "oid": "1.3.6.1.2.1.127.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassActiveTimeout": {
+    "name": "docsIetfQosServiceClassActiveTimeout",
+    "oid": "1.3.6.1.2.1.127.1.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassAdmittedTimeout": {
+    "name": "docsIetfQosServiceClassAdmittedTimeout",
+    "oid": "1.3.6.1.2.1.127.1.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassSchedulingType": {
+    "name": "docsIetfQosServiceClassSchedulingType",
+    "oid": "1.3.6.1.2.1.127.1.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosSchedulingType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "bestEffort",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassRequestPolicy": {
+    "name": "docsIetfQosServiceClassRequestPolicy",
+    "oid": "1.3.6.1.2.1.127.1.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassTosAndMask": {
+    "name": "docsIetfQosServiceClassTosAndMask",
+    "oid": "1.3.6.1.2.1.127.1.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassTosOrMask": {
+    "name": "docsIetfQosServiceClassTosOrMask",
+    "oid": "1.3.6.1.2.1.127.1.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassDirection": {
+    "name": "docsIetfQosServiceClassDirection",
+    "oid": "1.3.6.1.2.1.127.1.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsIetfQosRfMacIfDirection",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "upstream",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassStorageType": {
+    "name": "docsIetfQosServiceClassStorageType",
+    "oid": "1.3.6.1.2.1.127.1.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassDSCPOverwrite": {
+    "name": "docsIetfQosServiceClassDSCPOverwrite",
+    "oid": "1.3.6.1.2.1.127.1.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DscpOrAny",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassPolicyTable": {
+    "name": "docsIetfQosServiceClassPolicyTable",
+    "oid": "1.3.6.1.2.1.127.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassPolicyEntry": {
+    "name": "docsIetfQosServiceClassPolicyEntry",
+    "oid": "1.3.6.1.2.1.127.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassPolicyIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosServiceClassPolicyIndex": {
+    "name": "docsIetfQosServiceClassPolicyIndex",
+    "oid": "1.3.6.1.2.1.127.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassPolicyName": {
+    "name": "docsIetfQosServiceClassPolicyName",
+    "oid": "1.3.6.1.2.1.127.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassPolicyRulePriority": {
+    "name": "docsIetfQosServiceClassPolicyRulePriority",
+    "oid": "1.3.6.1.2.1.127.1.9.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassPolicyStatus": {
+    "name": "docsIetfQosServiceClassPolicyStatus",
+    "oid": "1.3.6.1.2.1.127.1.9.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosServiceClassPolicyStorageType": {
+    "name": "docsIetfQosServiceClassPolicyStorageType",
+    "oid": "1.3.6.1.2.1.127.1.9.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsIetfQosPHSTable": {
+    "name": "docsIetfQosPHSTable",
+    "oid": "1.3.6.1.2.1.127.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosPHSEntry": {
+    "name": "docsIetfQosPHSEntry",
+    "oid": "1.3.6.1.2.1.127.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosPHSField": {
+    "name": "docsIetfQosPHSField",
+    "oid": "1.3.6.1.2.1.127.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPHSMask": {
+    "name": "docsIetfQosPHSMask",
+    "oid": "1.3.6.1.2.1.127.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPHSSize": {
+    "name": "docsIetfQosPHSSize",
+    "oid": "1.3.6.1.2.1.127.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPHSVerify": {
+    "name": "docsIetfQosPHSVerify",
+    "oid": "1.3.6.1.2.1.127.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosPHSIndex": {
+    "name": "docsIetfQosPHSIndex",
+    "oid": "1.3.6.1.2.1.127.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosCmtsMacToSrvFlowTable": {
+    "name": "docsIetfQosCmtsMacToSrvFlowTable",
+    "oid": "1.3.6.1.2.1.127.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosCmtsMacToSrvFlowEntry": {
+    "name": "docsIetfQosCmtsMacToSrvFlowEntry",
+    "oid": "1.3.6.1.2.1.127.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosCmtsCmMac",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosCmtsServiceFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosCmtsCmMac": {
+    "name": "docsIetfQosCmtsCmMac",
+    "oid": "1.3.6.1.2.1.127.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosCmtsServiceFlowId": {
+    "name": "docsIetfQosCmtsServiceFlowId",
+    "oid": "1.3.6.1.2.1.127.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsIetfQosCmtsIfIndex": {
+    "name": "docsIetfQosCmtsIfIndex",
+    "oid": "1.3.6.1.2.1.127.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsIetfQosConformance": {
+    "name": "docsIetfQosConformance",
+    "oid": "1.3.6.1.2.1.127.2",
+    "class": "objectidentity"
+  },
+  "docsIetfQosGroups": {
+    "name": "docsIetfQosGroups",
+    "oid": "1.3.6.1.2.1.127.2.1",
+    "class": "objectidentity"
+  },
+  "docsIetfQosCompliances": {
+    "name": "docsIetfQosCompliances",
+    "oid": "1.3.6.1.2.1.127.2.2",
+    "class": "objectidentity"
+  },
+  "docsIetfQosCompliance": {
+    "name": "docsIetfQosCompliance",
+    "oid": "1.3.6.1.2.1.127.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "docsIetfQosBaseGroup",
+        "module": "DOCS-IETF-QOS-MIB"
+      },
+      {
+        "object": "docsIetfQosCmtsGroup",
+        "module": "DOCS-IETF-QOS-MIB"
+      },
+      {
+        "object": "docsIetfQosParamSetGroup",
+        "module": "DOCS-IETF-QOS-MIB"
+      },
+      {
+        "object": "docsIetfQosSrvClassPolicyGroup",
+        "module": "DOCS-IETF-QOS-MIB"
+      },
+      {
+        "object": "docsIetfQosServiceClassGroup",
+        "module": "DOCS-IETF-QOS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosBaseGroup": {
+    "name": "docsIetfQosBaseGroup",
+    "oid": "1.3.6.1.2.1.127.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassDirection"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassPriority"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassIpTosLow"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassIpTosHigh"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassIpTosMask"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassIpProtocol"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassSourcePortStart"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassSourcePortEnd"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassDestPortStart"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassDestPortEnd"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassDestMacAddr"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassDestMacMask"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassSourceMacAddr"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassEnetProtocolType"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassEnetProtocol"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassUserPriLow"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassUserPriHigh"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassVlanId"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassStateActive"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassPkts"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassBitMap"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassInetAddressType"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassInetSourceAddr"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassInetSourceMask"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassInetDestAddr"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPktClassInetDestMask"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowSID"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowDirection"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowPrimary"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowPkts"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowOctets"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowTimeCreated"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowTimeActive"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowPHSUnknowns"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowPolicedDropPkts"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowPolicedDelayPkts"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDSAReqs"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDSARsps"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDSAAcks"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDSCReqs"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDSCRsps"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDSCAcks"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDSDReqs"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDSDRsps"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDynamicAdds"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDynamicAddFails"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDynamicChanges"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDynamicChangeFails"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDynamicDeletes"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDynamicDeleteFails"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDCCReqs"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDCCRsps"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDCCAcks"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDCCs"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosDCCFails"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPHSField"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPHSMask"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPHSSize"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPHSVerify"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosPHSIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosParamSetGroup": {
+    "name": "docsIetfQosParamSetGroup",
+    "oid": "1.3.6.1.2.1.127.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetServiceClassName"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetPriority"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetMaxTrafficRate"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetMaxTrafficBurst"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetMinReservedRate"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetMinReservedPkt"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetActiveTimeout"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetAdmittedTimeout"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetMaxConcatBurst"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetSchedulingType"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetNomPollInterval"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetTolPollJitter"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetUnsolicitGrantSize"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetNomGrantInterval"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetTolGrantJitter"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetGrantsPerInterval"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetTosAndMask"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetTosOrMask"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetMaxLatency"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetRequestPolicyOct"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosParamSetBitMap"
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosCmtsGroup": {
+    "name": "docsIetfQosCmtsGroup",
+    "oid": "1.3.6.1.2.1.127.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosUpstreamFragments"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosUpstreamFragDiscards"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosUpstreamConcatBursts"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogIfIndex"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogSFID"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogCmMac"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogPkts"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogOctets"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogTimeDeleted"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogTimeCreated"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogTimeActive"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogDirection"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogPrimary"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogServiceClassName"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogPolicedDropPkts"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogPolicedDelayPkts"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceFlowLogControl"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosCmtsIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosSrvClassPolicyGroup": {
+    "name": "docsIetfQosSrvClassPolicyGroup",
+    "oid": "1.3.6.1.2.1.127.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassPolicyName"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassPolicyRulePriority"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassPolicyStatus"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassPolicyStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "docsIetfQosServiceClassGroup": {
+    "name": "docsIetfQosServiceClassGroup",
+    "oid": "1.3.6.1.2.1.127.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassStatus"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassPriority"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassMaxTrafficRate"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassMaxTrafficBurst"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassMinReservedRate"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassMinReservedPkt"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassMaxConcatBurst"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassNomPollInterval"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassTolPollJitter"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassUnsolicitGrantSize"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassNomGrantInterval"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassTolGrantJitter"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassGrantsPerInterval"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassMaxLatency"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassActiveTimeout"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassAdmittedTimeout"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassSchedulingType"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassRequestPolicy"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassTosAndMask"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassTosOrMask"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassDirection"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassStorageType"
+      },
+      {
+        "module": "DOCS-IETF-QOS-MIB",
+        "object": "docsIetfQosServiceClassDSCPOverwrite"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-IETF-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:26 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DOCS-IETF-QOS-MIB"
+  }
+}

@@ -1,0 +1,2914 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetPortNumber",
+      "InetAddressType",
+      "InetAddress"
+    ],
+    "SCTE-HMS-HEADENDIDENT-TC-MIB": [
+      "ProgDataType",
+      "HePIDValue"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "enterprises",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "DateAndTime",
+      "AutonomousType",
+      "RowPointer",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "heMpegCommonMIB": {
+    "name": "heMpegCommonMIB",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2008-10-03 17:00",
+        "description": "Resolved compile errors: 1. LAST-UPDATED date matches last REVISION date. 2. Removed illegal characters such as line feed (ascii 0xa0). 3. Added mpegInputTSActiveConnection to at least one conformance group. 4. Removed extra mpegSessionsGroup in compliance statement."
+      },
+      {
+        "revision": "2008-10-03 06:49",
+        "description": "1. Added mpegInputTSActiveConnection entry. 2. Added mpegInputTSOutputSessionCreateTime. 3. Added mpegInputUdpOriginationInputTSIndex. 4. Added mpegOutputUdpDestinationOutputTSIndex."
+      },
+      {
+        "revision": "2008-10-03 01:35",
+        "description": "Fixed spelling mistakes."
+      },
+      {
+        "revision": "2008-10-03 00:00",
+        "description": "Changes included in the SCTE F2F meetings July 9-10 and Sept 24-25 1. mpegInputTSEntry, mpegOutputTSEntry, mpegProgESEntry are no longer indexed by ifIndex. 2. mpegInputTSTransportType and mpegInputTSPacketsDetected removed from mpegInputTSEntry to accomodate the Input extensibility such as udpOrigination. 3. Added to mpegInputTSEntry mpegInputTSConnectionType and mpegInputTSConnection. 4. mpegInputTSPatVersion and mpegInputTSCatVersion value -1 added to indicate unknown or not supported. 5. MpegProgESEntry sequence elements names updates to align with mpegProgES* prefix. 6. mpegStatsStreamTable renamed to mpegInputStatsTable. 7. mpegInputStatsPcrJitter and mpegInputStatsMaxPacketJitter support value -1 to indicate not supported measurement. 8. Added mpegInputUdpOriginationTable and mpegOutputUdpOriginationTable to generalize the input/output TS construct. 9. Updated parent OID of mpegInsertPacketTable to reflect the output nature of the construct. 10. Renamed mpegInsertPacketDeviceIndex as mpegInsertPacketDeviceIfIndex. 11. mpegOutputStatsTotalPackets set to 64 bits counter. 12.mpegOutputStatsChannelUtilization units set to 1 tenth of percent. 13. Added to mpegOutputTSEntry mpegOutputTSConnectionType and mpegOutputTSConnection. 14. mpegOutputProgNo changed ACCESS to read-only. 15. mpegOutputProgESPid renamed to mpegOutputProgElemStatsPid to preserve the construct prefix MpegOutputProgElemStats*. 16. Added mpegOutputUdpDestinationTable. 17. Deleted mpegProgramMappingDeviceChannelId and mpegProgramMappingInputIfIndex from MpegProgramMappingEntry. 18. MpegVideoSessionEntry Added: mpegVideoSessionPIDRemap, mpegVideoSessionMode, mpegVideoSessionEncryptionType, mpegVideoSessionEncryptionInfo, mpegVideoSessionBitRate, mpegVideoSessionSelectedInput. 19. MpegVideoSessionEntry Deleted: mpegVideoSessionUdpPort, mpegVideoSessionDestAddrType, mpegVideoSessionDestAddr, mpegVideoSessionSrcAddrType, mpegVideoSessionSrcAddr. 20. Added mpegVideoSessionPtrTable. 21. Updated mpegInputProgESGroup and mpegOutputProgElemStatsGroup description. 22. Updated OBJECT-GROUP mpegInputGroup, mpegInputProgESGroup, mpegOutputGroup, mpegMappingsGroup, mpegSessionsGroup. 23. Added mpegInputStatsPcrIntervalExceeds to the MPEG input statistics. 24. Added the table mpegInputUdpOriginationSessionTable."
+      },
+      {
+        "revision": "2008-02-04 17:00",
+        "description": " Changes due to voting comments 1. Changed description of mpegInputTSPsiDetected. 2. Changed mpegInputTSRate, mpegInputTXMaxRate, mpegInsertPacketIndex, and mpegInsertPacketListId be Unsigned32 instead of Integer32. 3. Unit clause added to mpegOutputStatsAvailableBandwidth specifying bps. 4. Modified all references to QAM and used the word Device instead. 5. mpegOutputTSPmtInsertRate description changed, mpegOutputTSPmtInsertRate value changed to tables/ms. 6. mpegProgramMappingInputProgIndex in description changed rfDeviceInputProgIndex to mpegInputProgIndex. 7. mpegProgramMappingInputTSIndex in description changed rfDeviceInputTSIndex to mpgetInputTSIndex."
+      },
+      {
+        "revision": "2007-12-17 17:00",
+        "description": " Changes due to voting comments 1. Removed TEXTUAL-CONVENTION import 2. Reworded the last sentence of the Module definition. 3. Reordered MIB tree to fit under the heDigital branch."
+      },
+      {
+        "revision": "2007-10-03 17:00",
+        "description": " Added SCTE-HMS-HEADENDIDENT-TC name for HePidValue, remove name from this file. Created TC ProgDataType so it can be used everywhere. Removed 0 from enumerated types just for convention."
+      }
+    ]
+  },
+  "mpegMIBObjects": {
+    "name": "mpegMIBObjects",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mpegDigitalInputs": {
+    "name": "mpegDigitalInputs",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mpegOutputs": {
+    "name": "mpegOutputs",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mpegMIBConformance": {
+    "name": "mpegMIBConformance",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mpegMIBCompliances": {
+    "name": "mpegMIBCompliances",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mpegMIBGroups": {
+    "name": "mpegMIBGroups",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mpegLossOfSignalTimeout": {
+    "name": "mpegLossOfSignalTimeout",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mpegInputTSTable": {
+    "name": "mpegInputTSTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInputTSEntry": {
+    "name": "mpegInputTSEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegInputTSIndex": {
+    "name": "mpegInputTSIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInputTSType": {
+    "name": "mpegInputTSType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "spts": 1,
+          "mpts": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSConnectionType": {
+    "name": "mpegInputTSConnectionType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "udp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSConnection": {
+    "name": "mpegInputTSConnection",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSActiveConnection": {
+    "name": "mpegInputTSActiveConnection",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSPsiDetected": {
+    "name": "mpegInputTSPsiDetected",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSStartTime": {
+    "name": "mpegInputTSStartTime",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSResourceAllocated": {
+    "name": "mpegInputTSResourceAllocated",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSNumPrograms": {
+    "name": "mpegInputTSNumPrograms",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSRate": {
+    "name": "mpegInputTSRate",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSMaxRate": {
+    "name": "mpegInputTSMaxRate",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSPatVersion": {
+    "name": "mpegInputTSPatVersion",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSCatVersion": {
+    "name": "mpegInputTSCatVersion",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSNitPid": {
+    "name": "mpegInputTSNitPid",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HePIDValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSNumEmms": {
+    "name": "mpegInputTSNumEmms",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 9999,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSTSID": {
+    "name": "mpegInputTSTSID",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSLock": {
+    "name": "mpegInputTSLock",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "locked": 1,
+          "notLocked": 2,
+          "intermittent": 3,
+          "notMonitored": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputProgTable": {
+    "name": "mpegInputProgTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInputProgEntry": {
+    "name": "mpegInputProgEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegInputProgIndex": {
+    "name": "mpegInputProgIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInputProgNo": {
+    "name": "mpegInputProgNo",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputProgPmtVersion": {
+    "name": "mpegInputProgPmtVersion",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputProgPmtPid": {
+    "name": "mpegInputProgPmtPid",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HePIDValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputProgPcrPid": {
+    "name": "mpegInputProgPcrPid",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HePIDValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputProgEcmPid": {
+    "name": "mpegInputProgEcmPid",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HePIDValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputProgNumElems": {
+    "name": "mpegInputProgNumElems",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputProgNumEcms": {
+    "name": "mpegInputProgNumEcms",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 9999,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputProgCaDescr": {
+    "name": "mpegInputProgCaDescr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputProgScte35Descr": {
+    "name": "mpegInputProgScte35Descr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputProgScte18Descr": {
+    "name": "mpegInputProgScte18Descr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegProgESTable": {
+    "name": "mpegProgESTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegProgESEntry": {
+    "name": "mpegProgESEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgESIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegProgESIndex": {
+    "name": "mpegProgESIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegProgESPID": {
+    "name": "mpegProgESPID",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegProgESType": {
+    "name": "mpegProgESType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProgDataType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegProgESCaDescr": {
+    "name": "mpegProgESCaDescr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegProgESScte35Descr": {
+    "name": "mpegProgESScte35Descr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegProgESScte18Descr": {
+    "name": "mpegProgESScte18Descr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputStatsTable": {
+    "name": "mpegInputStatsTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInputStatsEntry": {
+    "name": "mpegInputStatsEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegInputStatsPcrJitter": {
+    "name": "mpegInputStatsPcrJitter",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "nanoseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputStatsMaxPacketJitter": {
+    "name": "mpegInputStatsMaxPacketJitter",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputStatsPcrPackets": {
+    "name": "mpegInputStatsPcrPackets",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputStatsNonPcrPackets": {
+    "name": "mpegInputStatsNonPcrPackets",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputStatsUnexpectedPackets": {
+    "name": "mpegInputStatsUnexpectedPackets",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputStatsContinuityErrors": {
+    "name": "mpegInputStatsContinuityErrors",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputStatsSyncLossPackets": {
+    "name": "mpegInputStatsSyncLossPackets",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputStatsPcrIntervalExceeds": {
+    "name": "mpegInputStatsPcrIntervalExceeds",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationTable": {
+    "name": "mpegInputUdpOriginationTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationEntry": {
+    "name": "mpegInputUdpOriginationEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegInputUdpOriginationIndex": {
+    "name": "mpegInputUdpOriginationIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationId": {
+    "name": "mpegInputUdpOriginationId",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationIfIndex": {
+    "name": "mpegInputUdpOriginationIfIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationInetAddrType": {
+    "name": "mpegInputUdpOriginationInetAddrType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationSrcInetAddr": {
+    "name": "mpegInputUdpOriginationSrcInetAddr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationDestInetAddr": {
+    "name": "mpegInputUdpOriginationDestInetAddr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationDestPort": {
+    "name": "mpegInputUdpOriginationDestPort",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationActive": {
+    "name": "mpegInputUdpOriginationActive",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationPacketsDetected": {
+    "name": "mpegInputUdpOriginationPacketsDetected",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationRank": {
+    "name": "mpegInputUdpOriginationRank",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputUdpOriginationInputTSIndex": {
+    "name": "mpegInputUdpOriginationInputTSIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInsertPacketTable": {
+    "name": "mpegInsertPacketTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInsertPacketEntry": {
+    "name": "mpegInsertPacketEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInsertPacketIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegInsertPacketIndex": {
+    "name": "mpegInsertPacketIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65536
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInsertPacketListId": {
+    "name": "mpegInsertPacketListId",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInsertPacketImmediateExecution": {
+    "name": "mpegInsertPacketImmediateExecution",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInsertPacketStartTime": {
+    "name": "mpegInsertPacketStartTime",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInsertPacketRepeat": {
+    "name": "mpegInsertPacketRepeat",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "repeat": 1,
+          "oneTime": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInsertPacketContinuousFlag": {
+    "name": "mpegInsertPacketContinuousFlag",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInsertPacketRate": {
+    "name": "mpegInsertPacketRate",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInsertPacketDeviceIfIndex": {
+    "name": "mpegInsertPacketDeviceIfIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputStatsTable": {
+    "name": "mpegOutputStatsTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputStatsEntry": {
+    "name": "mpegOutputStatsEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegOutputStatsDroppedPackets": {
+    "name": "mpegOutputStatsDroppedPackets",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputStatsFifoOverflow": {
+    "name": "mpegOutputStatsFifoOverflow",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputStatsFifoUnderflow": {
+    "name": "mpegOutputStatsFifoUnderflow",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputStatsDataRate": {
+    "name": "mpegOutputStatsDataRate",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputStatsAvailableBandwidth": {
+    "name": "mpegOutputStatsAvailableBandwidth",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputStatsChannelUtilization": {
+    "name": "mpegOutputStatsChannelUtilization",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "units": "0.1 Percent",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputStatsTotalPackets": {
+    "name": "mpegOutputStatsTotalPackets",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSTable": {
+    "name": "mpegOutputTSTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputTSEntry": {
+    "name": "mpegOutputTSEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegOutputTSIndex": {
+    "name": "mpegOutputTSIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputTSType": {
+    "name": "mpegOutputTSType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "spts": 1,
+          "mpts": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSConnectionType": {
+    "name": "mpegOutputTSConnectionType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "qam": 2,
+          "udp": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSConnection": {
+    "name": "mpegOutputTSConnection",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSNumPrograms": {
+    "name": "mpegOutputTSNumPrograms",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSTSID": {
+    "name": "mpegOutputTSTSID",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSNitPid": {
+    "name": "mpegOutputTSNitPid",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HePIDValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSCaPid": {
+    "name": "mpegOutputTSCaPid",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HePIDValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSCatInsertRate": {
+    "name": "mpegOutputTSCatInsertRate",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "tables/ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSPatInsertRate": {
+    "name": "mpegOutputTSPatInsertRate",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "tables/ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSPmtInsertRate": {
+    "name": "mpegOutputTSPmtInsertRate",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "tables/ms",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputTSStartTime": {
+    "name": "mpegOutputTSStartTime",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgTable": {
+    "name": "mpegOutputProgTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputProgEntry": {
+    "name": "mpegOutputProgEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegOutputProgIndex": {
+    "name": "mpegOutputProgIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputProgNo": {
+    "name": "mpegOutputProgNo",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgPmtVersion": {
+    "name": "mpegOutputProgPmtVersion",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgPmtPid": {
+    "name": "mpegOutputProgPmtPid",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HePIDValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgPcrPid": {
+    "name": "mpegOutputProgPcrPid",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HePIDValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgEcmPid": {
+    "name": "mpegOutputProgEcmPid",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HePIDValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgNumElems": {
+    "name": "mpegOutputProgNumElems",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgNumEcms": {
+    "name": "mpegOutputProgNumEcms",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 9999,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgCaDescr": {
+    "name": "mpegOutputProgCaDescr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgScte35Descr": {
+    "name": "mpegOutputProgScte35Descr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgScte18Descr": {
+    "name": "mpegOutputProgScte18Descr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgElemStatsTable": {
+    "name": "mpegOutputProgElemStatsTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputProgElemStatsEntry": {
+    "name": "mpegOutputProgElemStatsEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgElemStatsIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegOutputProgElemStatsIndex": {
+    "name": "mpegOutputProgElemStatsIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputProgElemStatsPid": {
+    "name": "mpegOutputProgElemStatsPid",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HePIDValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputProgElemStatsElemType": {
+    "name": "mpegOutputProgElemStatsElemType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "video": 1,
+          "audio": 2,
+          "data": 3,
+          "scte18": 4,
+          "scte35": 5,
+          "unknown": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputProgElemStatsDataRate": {
+    "name": "mpegOutputProgElemStatsDataRate",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputUdpDestinationTable": {
+    "name": "mpegOutputUdpDestinationTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputUdpDestinationEntry": {
+    "name": "mpegOutputUdpDestinationEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputUdpDestinationIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputUdpDestinationId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegOutputUdpDestinationIndex": {
+    "name": "mpegOutputUdpDestinationIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputUdpDestinationId": {
+    "name": "mpegOutputUdpDestinationId",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegOutputUdpDestinationIfIndex": {
+    "name": "mpegOutputUdpDestinationIfIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputUdpDestinationInetAddrType": {
+    "name": "mpegOutputUdpDestinationInetAddrType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputUdpDestinationSrcInetAddr": {
+    "name": "mpegOutputUdpDestinationSrcInetAddr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputUdpDestinationDestInetAddr": {
+    "name": "mpegOutputUdpDestinationDestInetAddr",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputUdpDestinationDestPort": {
+    "name": "mpegOutputUdpDestinationDestPort",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegOutputUdpDestinationOutputTSIndex": {
+    "name": "mpegOutputUdpDestinationOutputTSIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegProgramMappingTable": {
+    "name": "mpegProgramMappingTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegProgramMappingEntry": {
+    "name": "mpegProgramMappingEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgramMappingIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegProgramMappingIndex": {
+    "name": "mpegProgramMappingIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegProgramMappingOutputProgIndex": {
+    "name": "mpegProgramMappingOutputProgIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegProgramMappingOutputTSIndex": {
+    "name": "mpegProgramMappingOutputTSIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegProgramMappingInputProgIndex": {
+    "name": "mpegProgramMappingInputProgIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegProgramMappingInputTSIndex": {
+    "name": "mpegProgramMappingInputTSIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionTable": {
+    "name": "mpegVideoSessionTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionEntry": {
+    "name": "mpegVideoSessionEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegVideoSessionIndex": {
+    "name": "mpegVideoSessionIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionPhyMappingIndex": {
+    "name": "mpegVideoSessionPhyMappingIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionPIDRemap": {
+    "name": "mpegVideoSessionPIDRemap",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionMode": {
+    "name": "mpegVideoSessionMode",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "passThrough": 2,
+          "multiplexing": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionState": {
+    "name": "mpegVideoSessionState",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "provisioned": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionProvMethod": {
+    "name": "mpegVideoSessionProvMethod",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tableBased": 1,
+          "sessionBased": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionEncryptionType": {
+    "name": "mpegVideoSessionEncryptionType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "other": 2,
+          "preencrypted": 3,
+          "des": 4,
+          "des3": 5,
+          "aes": 6,
+          "dvbCsa": 7,
+          "pkey": 8,
+          "mediac": 9,
+          "dvs042": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionEncryptionInfo": {
+    "name": "mpegVideoSessionEncryptionInfo",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionBitRate": {
+    "name": "mpegVideoSessionBitRate",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionID": {
+    "name": "mpegVideoSessionID",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionSelectedInput": {
+    "name": "mpegVideoSessionSelectedInput",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionSelectedOutput": {
+    "name": "mpegVideoSessionSelectedOutput",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegVideoSessionPtrTable": {
+    "name": "mpegVideoSessionPtrTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionPtrEntry": {
+    "name": "mpegVideoSessionPtrEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPtrInputProgIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPtrInputTSIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPtrInputTSConnType",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPtrInputTSConnection",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPtrOutputProgIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPtrOutputTSIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPtrOutputTSConnType",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPtrOutputTSConnection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegVideoSessionPtrInputProgIndex": {
+    "name": "mpegVideoSessionPtrInputProgIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionPtrInputTSIndex": {
+    "name": "mpegVideoSessionPtrInputTSIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionPtrInputTSConnType": {
+    "name": "mpegVideoSessionPtrInputTSConnType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionPtrInputTSConnection": {
+    "name": "mpegVideoSessionPtrInputTSConnection",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionPtrOutputProgIndex": {
+    "name": "mpegVideoSessionPtrOutputProgIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionPtrOutputTSIndex": {
+    "name": "mpegVideoSessionPtrOutputTSIndex",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionPtrOutputTSConnType": {
+    "name": "mpegVideoSessionPtrOutputTSConnType",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionPtrOutputTSConnection": {
+    "name": "mpegVideoSessionPtrOutputTSConnection",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegVideoSessionPtrStatus": {
+    "name": "mpegVideoSessionPtrStatus",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "closed": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegInputTSOutputSessionTable": {
+    "name": "mpegInputTSOutputSessionTable",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mpegInputTSOutputSessionEntry": {
+    "name": "mpegInputTSOutputSessionEntry",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSIndex",
+        "implied": 0
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mpegInputTSOutputSessionCreateTime": {
+    "name": "mpegInputTSOutputSessionCreateTime",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mpegSupport": {
+    "name": "mpegSupport",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mpegInputGroup",
+        "module": "SCTE-HMS-MPEG-MIB"
+      },
+      {
+        "object": "mpegOutputGroup",
+        "module": "SCTE-HMS-MPEG-MIB"
+      },
+      {
+        "object": "mpegMappingsGroup",
+        "module": "SCTE-HMS-MPEG-MIB"
+      },
+      {
+        "object": "mpegSessionsGroup",
+        "module": "SCTE-HMS-MPEG-MIB"
+      },
+      {
+        "object": "mpegInputProgESGroup",
+        "module": "SCTE-HMS-MPEG-MIB"
+      },
+      {
+        "object": "mpegOutputProgElemStatsGroup",
+        "module": "SCTE-HMS-MPEG-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mpegInputGroup": {
+    "name": "mpegInputGroup",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSType"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSConnectionType"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSConnection"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSActiveConnection"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegLossOfSignalTimeout"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSPsiDetected"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSStartTime"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSResourceAllocated"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSNumPrograms"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSRate"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSMaxRate"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSPatVersion"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSCatVersion"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSNitPid"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSNumEmms"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSTSID"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSLock"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationIfIndex"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationInetAddrType"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationSrcInetAddr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationDestInetAddr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationDestPort"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationActive"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationPacketsDetected"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationRank"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputUdpOriginationInputTSIndex"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgPmtVersion"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgNo"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgPmtVersion"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgPmtPid"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgPcrPid"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgEcmPid"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgNumElems"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgNumEcms"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgCaDescr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgScte35Descr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputProgScte18Descr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputStatsPcrPackets"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputStatsNonPcrPackets"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputStatsUnexpectedPackets"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputStatsContinuityErrors"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputStatsSyncLossPackets"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputStatsPcrIntervalExceeds"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputStatsPcrJitter"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputStatsMaxPacketJitter"
+      }
+    ],
+    "status": "current"
+  },
+  "mpegInputProgESGroup": {
+    "name": "mpegInputProgESGroup",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgESScte18Descr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgESScte35Descr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgESCaDescr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgESPID"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgESType"
+      }
+    ],
+    "status": "current"
+  },
+  "mpegOutputGroup": {
+    "name": "mpegOutputGroup",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInsertPacketListId"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInsertPacketImmediateExecution"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInsertPacketStartTime"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInsertPacketRepeat"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInsertPacketContinuousFlag"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInsertPacketRate"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInsertPacketDeviceIfIndex"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputStatsDroppedPackets"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputStatsFifoOverflow"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputStatsFifoUnderflow"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputStatsDataRate"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputStatsAvailableBandwidth"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgNo"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgPmtVersion"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgPmtPid"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgPcrPid"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgEcmPid"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgNumElems"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgNumEcms"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgCaDescr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgScte35Descr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSType"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSConnectionType"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSConnection"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSNumPrograms"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSTSID"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSNitPid"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSCaPid"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSCatInsertRate"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSPatInsertRate"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgScte18Descr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSPmtInsertRate"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputTSStartTime"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputUdpDestinationIfIndex"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputUdpDestinationInetAddrType"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputUdpDestinationSrcInetAddr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputUdpDestinationDestInetAddr"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputUdpDestinationDestPort"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputUdpDestinationOutputTSIndex"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputStatsChannelUtilization"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputStatsTotalPackets"
+      }
+    ],
+    "status": "current"
+  },
+  "mpegOutputProgElemStatsGroup": {
+    "name": "mpegOutputProgElemStatsGroup",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgElemStatsDataRate"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegOutputProgElemStatsElemType"
+      }
+    ],
+    "status": "current"
+  },
+  "mpegMappingsGroup": {
+    "name": "mpegMappingsGroup",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgramMappingOutputProgIndex"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgramMappingOutputTSIndex"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgramMappingInputProgIndex"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegProgramMappingInputTSIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "mpegSessionsGroup": {
+    "name": "mpegSessionsGroup",
+    "oid": "1.3.6.1.4.1.5591.1.11.5.4.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPhyMappingIndex"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPIDRemap"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionMode"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionState"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionProvMethod"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionEncryptionType"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionEncryptionInfo"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionBitRate"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionID"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionSelectedInput"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionSelectedOutput"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegVideoSessionPtrStatus"
+      },
+      {
+        "module": "SCTE-HMS-MPEG-MIB",
+        "object": "mpegInputTSOutputSessionCreateTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SCTE-HMS-MPEG-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "SCTE-HMS-MPEG-MIB"
+  }
+}

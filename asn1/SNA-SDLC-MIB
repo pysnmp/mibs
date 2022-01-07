@@ -1,3 +1,14 @@
+-- *****************************************************************
+-- SNA-SDLC-MIB.my:  SNA-SDLC-MIB file
+--
+-- November 1994, Barry Chan 
+--
+-- Copyright (c) 1998 by cisco Systems, Inc.
+-- All rights reserved.
+-- 
+-- *****************************************************************
+
+
 SNA-SDLC-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -8,9 +19,7 @@ IMPORTS
         FROM SNMPv2-TC
     MODULE-COMPLIANCE, OBJECT-GROUP
         FROM SNMPv2-CONF
-    ifIndex,ifAdminStatus, ifOperStatus
-        FROM IF-MIB
-    mib-2
+    mib-2, ifIndex, ifAdminStatus, ifOperStatus
         FROM RFC1213-MIB;
 
 
@@ -37,18 +46,19 @@ snaDLC MODULE-IDENTITY
 ::= { mib-2 41 }
 
 --
---  The following data link controls are modelled in this MIB module:
+--  The following data link controls are modeled in this MIB module:
 --
 --     1. SDLC
 --
 
 sdlc        OBJECT IDENTIFIER ::= { snaDLC 1 }
 
+
 --
 --  THE SDLC GROUP
 --  ==============
 --
---  The following resources are modelled in the SDLC group of this
+--  The following resources are modeled in the SDLC group of this
 --  MIB module:
 --
 --     1. PORTS
@@ -61,7 +71,7 @@ sdlcLSGroup   OBJECT IDENTIFIER ::= { sdlc 2 } -- Logical Link Stations
 --  THE SDLC PORT GROUP
 --  ===================
 --
---  The following classes of information is modelled for each SDLC port:
+--  The following classes of information is modeled for each SDLC port:
 --
 --     1.  ADMINISTRATIVE ( read/write)
 --     2.  OPERATIONAL    ( read-only)
@@ -138,6 +148,10 @@ SdlcPortAdminEntry  ::= SEQUENCE
         sdlcPortAdminACTIVTO        TimeInterval,
         sdlcPortAdminPAUSE          TimeInterval,
         sdlcPortAdminSERVLIM        Integer32,
+
+
+
+
         sdlcPortAdminSlowPollTimer  TimeInterval
 }
 
@@ -346,7 +360,7 @@ sdlcPortOperTable   OBJECT-TYPE
                     DESCRIPTION
                         "This table contains current SDLC port
                         parameters.  Many of these objects have
-                        corresponding objects inthe sdlcPortAdminTable."
+                        corresponding objects in the sdlcPortAdminTable."
                     ::= { sdlcPortGroup 2 }
 
 sdlcPortOperEntry   OBJECT-TYPE
@@ -599,6 +613,7 @@ sdlcPortOperLastFailCause    OBJECT-TYPE
                         value of undefined(1)."
                     DEFVAL { undefined }
                     ::= { sdlcPortOperEntry 13 }
+
 
 --  *************************************************************
 --  *                                                           *
@@ -874,12 +889,13 @@ sdlcPortStatsRetransmitsOut OBJECT-TYPE
                          initialized to zero when the port is created."
                     ::= { sdlcPortStatsEntry 19 }
 
+
 --
 --  THE SDLC LINK STATION GROUP
 --  ===========================
 --
 
---  The following classes of information is modelled for each SDLC link
+--  The following classes of information is modeled for each SDLC link
 --  station:
 --
 --     1.  ADMINISTRATIVE ( read-write)
@@ -1096,7 +1112,7 @@ sdlcLSAdminMAXOUT   OBJECT-TYPE
                         (sdlcLSAdminMODULO - 1).
 
                         For link stations on switched SDLC lines,
-                        certain implementions may choose to override
+                        certain implementations may choose to override
                         this administered value with the value
                         received in the XID exchange.
 
@@ -1452,6 +1468,7 @@ sdlcLSOperMAXDATASend   OBJECT-TYPE
                         is received, then this value is implementation
                         dependent (for instance, it could be the value
                         of sdlcLSAdminMAXDATASend).
+
                         This value includes the Transmission Header
                         (TH) and the Request Header (RH)."
                     ::= { sdlcLSOperEntry 4 }
@@ -1499,6 +1516,7 @@ sdlcLSOperMAXOUT    OBJECT-TYPE
                         SDLC link station shall send without an
                         acknowledgement.  This shall range from 1 to
                         (sdlcLSAdminMODULO - 1).
+
                         This value may controlled by the administered
                         MAXOUT, sdlcLSAdminMAXOUT, or by the MAXIN value
                         received during the XID exchange."
@@ -2154,7 +2172,7 @@ sdlcLSStatsDISCOut  OBJECT-TYPE
                     STATUS      current
                     DESCRIPTION
                         "This object reflects the total number of
-                         disconnect (DISC) requests transmited to an
+                         disconnect (DISC) requests transmitted to an
                          adjacent SDLC link station since link station
                          startup.  At link station startup time, this
                          object must be initialized to zero."
@@ -2180,7 +2198,7 @@ sdlcLSStatsUAOut    OBJECT-TYPE
                     DESCRIPTION
                         "This object reflects the total number of
                          unnumbered acknowledgements (UA) requests
-                         transmited to an adjacent SDLC link station
+                         transmitted to an adjacent SDLC link station
                          since link station startup.  At link station
                          startup time, this object must be initialized
                          to zero."
@@ -2204,7 +2222,7 @@ sdlcLSStatsDMOut    OBJECT-TYPE
                     STATUS      current
                     DESCRIPTION
                         "This object reflects the total number of
-                         disconnect mode (DM) requests transmited to an
+                         disconnect mode (DM) requests transmitted to an
                          adjacent SDLC link station since link station
                          startup.  At link station startup time, this
                          object must be initialized to zero."
@@ -2230,7 +2248,7 @@ sdlcLSStatsSNRMOut  OBJECT-TYPE
                     DESCRIPTION
                         "This object reflects the total number of
                          set normal response mode (SNRM/SNRME) requests
-                         transmited to an adjacent SDLC link station
+                         transmitted to an adjacent SDLC link station
                          since link station startup.  At link station
                          startup time, this object must be initialized
                          to zero."
@@ -2372,13 +2390,29 @@ sdlcLSStatusChange   NOTIFICATION-TYPE
                                   sdlcLSOperLastFailCtrlOut,
                                   sdlcLSOperLastFailREPLYTOs
                                 }
-                     STATUS  current
+                     STATUS  obsolete
                      DESCRIPTION
                          "This trap indicates that the state of an SDLC
                          link station has transitioned to contacted or
                          discontacted."
                      ::= { sdlcTraps 2 }
 
+sdlcLSStatusChange1  NOTIFICATION-TYPE
+                     OBJECTS    { sdlcLSOperState,
+                                  sdlcLSAdminState,
+                                  sdlcLSOperLastFailTime,
+                                  sdlcLSOperLastFailCause,
+                                  sdlcLSOperLastFailFRMRInfo,
+                                  sdlcLSOperLastFailCtrlIn,
+                                  sdlcLSOperLastFailCtrlOut,
+                                  sdlcLSOperLastFailREPLYTOs
+                                }
+                     STATUS  current
+                     DESCRIPTION
+                         "This trap indicates that the state of an SDLC
+                         link station has transitioned to contacted or
+                         discontacted."
+                     ::= { sdlcTraps 3 }
 
 --
 -- Conformance Information
@@ -2394,7 +2428,8 @@ sdlcGroups        OBJECT IDENTIFIER ::= { sdlcConformance 2 }
 --
 
 sdlcCoreCompliance MODULE-COMPLIANCE
-                     STATUS current
+                     STATUS obsolete -- superseded by 
+                                     --   sdlcCoreComplianceV11R01
                      DESCRIPTION
                          "The core compliance statement for all SDLC
                          nodes."
@@ -2413,6 +2448,7 @@ sdlcCoreCompliance MODULE-COMPLIANCE
                      MIN-ACCESS  read-only
                      DESCRIPTION
                          "Write access is not required."
+
                      OBJECT      sdlcPortAdminRole
                      MIN-ACCESS  read-only
                      DESCRIPTION
@@ -2520,6 +2556,134 @@ sdlcCoreCompliance MODULE-COMPLIANCE
 
                      ::= { sdlcCompliances 1 }
 
+sdlcCoreComplianceV11R01 MODULE-COMPLIANCE
+                     STATUS current
+                     DESCRIPTION
+                         "The core compliance statement for all SDLC
+                         nodes."
+                     MODULE
+                         MANDATORY-GROUPS
+                         {
+                             sdlcCorePortAdminGroupV11R01,
+                             sdlcCorePortOperGroupV11R01,
+                             sdlcCorePortStatsGroupV11R01,
+                             sdlcCoreLSAdminGroupV11R01,
+                             sdlcCoreLSOperGroupV11R01,
+                             sdlcCoreLSStatsGroupV11R01
+                         }
+
+                     OBJECT      sdlcPortAdminName
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcPortAdminRole
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcPortAdminType
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcPortAdminTopology
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcPortAdminISTATUS
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAddress
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminName
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminState
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminISTATUS
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminMAXDATASend
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminMAXDATARcv
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminMAXIN
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminMAXOUT
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminMODULO
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminRETRIESm
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminRETRIESt
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminRETRIESn
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminRNRLIMIT
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminDATMODE
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminGPoll
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminSimRim
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     OBJECT      sdlcLSAdminRowStatus
+                     MIN-ACCESS  read-only
+                     DESCRIPTION
+                         "Write access is not required."
+
+                     ::= { sdlcCompliances 4 }
+
 sdlcPrimaryCompliance  MODULE-COMPLIANCE
                      STATUS current
                      DESCRIPTION
@@ -2576,12 +2740,29 @@ sdlcCorePortAdminGroup OBJECT-GROUP
                          sdlcPortAdminType,      sdlcPortAdminTopology,
                          sdlcPortAdminISTATUS
                      }
-                     STATUS current
+                     STATUS obsolete -- superseded by 
+                                     --   sdlcCorePortAdminGroupV11R01
                      DESCRIPTION
                          "The sdlcCorePortAdminGroup defines objects
                          which are common to the PortAdmin group of all
                          compliant link stations."
                      ::= { sdlcCoreGroups 1 }
+
+sdlcCorePortAdminGroupV11R01 OBJECT-GROUP
+                     OBJECTS
+                     {
+                         sdlcPortAdminName,      sdlcPortAdminRole,
+                         sdlcPortAdminType,      sdlcPortAdminTopology,
+                         sdlcPortAdminISTATUS,   sdlcPortAdminACTIVTO,
+                         sdlcPortAdminPAUSE,     sdlcPortAdminSERVLIM
+                     }
+                     STATUS current
+                     DESCRIPTION
+                         "The sdlcCorePortAdminGroup defines objects
+                         which are common to the PortAdmin group of all
+                         compliant link stations."
+                     ::= { sdlcCoreGroups 7 }
+
 
 sdlcCorePortOperGroup OBJECT-GROUP
                      OBJECTS
@@ -2595,12 +2776,37 @@ sdlcCorePortOperGroup OBJECT-GROUP
                          sdlcPortOperLastFailTime,
                          sdlcPortOperLastFailCause
                      }
-                     STATUS current
+                     STATUS obsolete  -- superseded by 
+                                      --   sdlcCorePortOperGroupV11R01
                      DESCRIPTION
                          "The sdlcCorePortOperGroup defines objects
                          which are common to the PortOper group of all
                          compliant link stations."
                      ::= { sdlcCoreGroups 2 }
+
+sdlcCorePortOperGroupV11R01 OBJECT-GROUP
+                     OBJECTS
+                     {
+                         sdlcPortOperName,
+                         sdlcPortOperRole,
+                         sdlcPortOperType,
+                         sdlcPortOperTopology,
+                         sdlcPortOperISTATUS,
+                         sdlcPortOperACTIVTO,
+                         sdlcPortOperPAUSE,
+                         sdlcPortOperSlowPollMethod,
+                         sdlcPortOperSERVLIM,
+                         sdlcPortOperSlowPollTimer,
+                         sdlcPortOperLastModifyTime,
+                         sdlcPortOperLastFailTime,
+                         sdlcPortOperLastFailCause
+                     }
+                     STATUS current
+                     DESCRIPTION
+                         "The sdlcCorePortOperGroup defines objects
+                         which are common to the PortOper group of all
+                         compliant link stations."
+                     ::= { sdlcCoreGroups 8 }
 
 
 sdlcCorePortStatsGroup OBJECT-GROUP
@@ -2610,12 +2816,43 @@ sdlcCorePortStatsGroup OBJECT-GROUP
                          sdlcPortStatsInvalidAddresses,
                          sdlcPortStatsDwarfFrames
                      }
-                     STATUS current
+                     STATUS obsolete  -- superseded by
+                                      --   sdlcCorePortStatsGroupV11R01
                      DESCRIPTION
                          "The sdlcCorePortStatsGroup defines objects
                          which are common to the PortStats group of all
                          compliant link stations."
                      ::= { sdlcCoreGroups 3 }
+
+sdlcCorePortStatsGroupV11R01 OBJECT-GROUP
+                     OBJECTS
+                     {
+                         sdlcPortStatsPhysicalFailures,
+                         sdlcPortStatsInvalidAddresses,
+                         sdlcPortStatsDwarfFrames,
+                         sdlcPortStatsPollsIn,
+                         sdlcPortStatsPollsOut,
+                         sdlcPortStatsPollRspsIn,
+                         sdlcPortStatsPollRspsOut,
+                         sdlcPortStatsLocalBusies,
+                         sdlcPortStatsRemoteBusies,
+                         sdlcPortStatsIFramesIn,
+                         sdlcPortStatsIFramesOut,
+                         sdlcPortStatsOctetsIn,
+                         sdlcPortStatsOctetsOut,
+                         sdlcPortStatsProtocolErrs,
+                         sdlcPortStatsActivityTOs,
+                         sdlcPortStatsRNRLIMITs,
+                         sdlcPortStatsRetriesExps,
+                         sdlcPortStatsRetransmitsIn,
+                         sdlcPortStatsRetransmitsOut
+                     }
+                     STATUS current
+                     DESCRIPTION
+                         "The sdlcCorePortStatsGroup defines objects
+                         which are common to the PortStats group of all
+                         compliant link stations."
+                     ::= { sdlcCoreGroups 9 }
 
 
 sdlcCoreLSAdminGroup OBJECT-GROUP
@@ -2639,12 +2876,43 @@ sdlcCoreLSAdminGroup OBJECT-GROUP
                          sdlcLSAdminSimRim,
                          sdlcLSAdminRowStatus
                      }
-                     STATUS current
+                     STATUS obsolete  -- superseded by
+                                      --   sdlcCoreLSAdminGroupV11R01
                      DESCRIPTION
                          "The sdlcCorePortAdminGroup defines objects
                          which are common to the PortAdmin group of all
                          compliant link stations."
                      ::= { sdlcCoreGroups 4 }
+
+sdlcCoreLSAdminGroupV11R01 OBJECT-GROUP
+                     OBJECTS
+                     {
+                         sdlcLSAddress,
+                         sdlcLSAdminName,
+                         sdlcLSAdminState,
+                         sdlcLSAdminISTATUS,
+                         sdlcLSAdminMAXDATASend,
+                         sdlcLSAdminMAXDATARcv,
+                         sdlcLSAdminMAXIN,
+                         sdlcLSAdminMAXOUT,
+                         sdlcLSAdminMODULO,
+                         sdlcLSAdminRETRIESm,
+                         sdlcLSAdminRETRIESt,
+                         sdlcLSAdminRETRIESn,
+                         sdlcLSAdminRNRLIMIT,
+                         sdlcLSAdminDATMODE,
+                         sdlcLSAdminGPoll,
+                         sdlcLSAdminSimRim,
+                         sdlcLSAdminXmitRcvCap,
+                         sdlcLSAdminRowStatus
+                     }
+                     STATUS current
+                     DESCRIPTION
+                         "The sdlcCorePortAdminGroup defines objects
+                         which are common to the PortAdmin group of all
+                         compliant link stations."
+                     ::= { sdlcCoreGroups 10 }
+
 
 sdlcCoreLSOperGroup  OBJECT-GROUP
                      OBJECTS
@@ -2669,12 +2937,47 @@ sdlcCoreLSOperGroup  OBJECT-GROUP
                          sdlcLSOperEcho,
                          sdlcLSOperGPoll
                      }
-                     STATUS current
+                     STATUS obsolete  -- superseded by
+                                      --   sdlcCoreLSOperGroupV11R01
                      DESCRIPTION
                          "The sdlcCorePortOperGroup defines objects
                          which are common to the PortOper group of all
                          compliant link stations."
                      ::= { sdlcCoreGroups 5 }
+
+sdlcCoreLSOperGroupV11R01  OBJECT-GROUP
+                     OBJECTS
+                     {
+                         sdlcLSOperName,
+                         sdlcLSOperRole,
+                         sdlcLSOperState,
+                         sdlcLSOperMAXDATASend,
+                         sdlcLSOperMAXIN,
+                         sdlcLSOperMAXOUT,
+                         sdlcLSOperMODULO,
+                         sdlcLSOperRETRIESm,
+                         sdlcLSOperRETRIESt,
+                         sdlcLSOperRETRIESn,
+                         sdlcLSOperRNRLIMIT,
+                         sdlcLSOperDATMODE,
+                         sdlcLSOperLastModifyTime,
+                         sdlcLSOperLastFailTime,
+                         sdlcLSOperLastFailCause,
+                         sdlcLSOperLastFailCtrlIn,
+                         sdlcLSOperLastFailCtrlOut,
+                         sdlcLSOperLastFailFRMRInfo,
+                         sdlcLSOperLastFailREPLYTOs,
+                         sdlcLSOperEcho,
+                         sdlcLSOperGPoll,
+                         sdlcLSOperSimRim,
+                         sdlcLSOperXmitRcvCap
+                     }
+                     STATUS current
+                     DESCRIPTION
+                         "The sdlcCorePortOperGroup defines objects
+                         which are common to the PortOper group of all
+                         compliant link stations."
+                     ::= { sdlcCoreGroups 11 }
 
 
 sdlcCoreLSStatsGroup OBJECT-GROUP
@@ -2712,12 +3015,65 @@ sdlcCoreLSStatsGroup OBJECT-GROUP
                          sdlcLSStatsRNRLIMITs,
                          sdlcLSStatsRetriesExps
                      }
-                     STATUS current
+                     STATUS obsolete  -- superseded by
+                                      --   sdlcCoreLSStatsGroupV11R01
                      DESCRIPTION
                          "The sdlcCorePortStatsGroup defines objects
                          which are common to the PortStats group of all
                          compliant link stations."
                      ::= { sdlcCoreGroups 6 }
+
+
+sdlcCoreLSStatsGroupV11R01 OBJECT-GROUP
+                     OBJECTS
+                     {
+                         sdlcLSStatsBLUsIn,
+                         sdlcLSStatsBLUsOut,
+                         sdlcLSStatsOctetsIn,
+                         sdlcLSStatsOctetsOut,
+                         sdlcLSStatsPollsIn,
+                         sdlcLSStatsPollsOut,
+                         sdlcLSStatsPollRspsIn,
+                         sdlcLSStatsPollRspsOut,
+                         sdlcLSStatsLocalBusies,
+                         sdlcLSStatsRemoteBusies,
+                         sdlcLSStatsIFramesIn,
+                         sdlcLSStatsIFramesOut,
+                         sdlcLSStatsRetransmitsIn,
+                         sdlcLSStatsRetransmitsOut,
+                         sdlcLSStatsUIFramesIn,
+                         sdlcLSStatsUIFramesOut,
+                         sdlcLSStatsXIDsIn,
+                         sdlcLSStatsXIDsOut,
+                         sdlcLSStatsTESTsIn,
+                         sdlcLSStatsTESTsOut,
+                         sdlcLSStatsREJsIn,
+                         sdlcLSStatsREJsOut,
+                         sdlcLSStatsFRMRsIn,
+                         sdlcLSStatsFRMRsOut,
+                         sdlcLSStatsSIMsIn,
+                         sdlcLSStatsSIMsOut,
+                         sdlcLSStatsRIMsIn,
+                         sdlcLSStatsRIMsOut,
+                         sdlcLSStatsDISCIn,
+                         sdlcLSStatsDISCOut,
+                         sdlcLSStatsUAIn,
+                         sdlcLSStatsUAOut,
+                         sdlcLSStatsDMIn,
+                         sdlcLSStatsDMOut,
+                         sdlcLSStatsSNRMIn,
+                         sdlcLSStatsSNRMOut,
+                         sdlcLSStatsProtocolErrs,
+                         sdlcLSStatsActivityTOs,
+                         sdlcLSStatsRNRLIMITs,
+                         sdlcLSStatsRetriesExps
+                     }
+                     STATUS current
+                     DESCRIPTION
+                         "The sdlcCorePortStatsGroup defines objects
+                         which are common to the PortStats group of all
+                         compliant link stations."
+                     ::= { sdlcCoreGroups 12 }
 
 
 --

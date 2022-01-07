@@ -5,36 +5,40 @@
       "docsIfMib"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "iso",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "MacAddress",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -44,8 +48,8 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "1900-10-18 00:00",
-        "description": "Published as draft-ietf-ipcdn-qos-mib-04.txt. Changes from qos-mib-03 include: - Moved six objects from docsQosServiceFlowTable back to docsQosParamSetTable. - Added five counters to docsQosDynamicServiceStatsTable for DCC counts. - Removed notApplicable(256) from docsQosParamSetSchedulingType - Clarified reported values of docsQosParamSetTable objects. The CMTS reports any CMTS-specific default value it is using, and unknown or not applicable params are reported as zero. - Add docsQosPktClassBitMap - Add docsQosParamSetBitMap - Restore docsQosParamSetServiceClassName - Add 5 objects to docsQosServiceFlowLogTable - Add docsQosServiceClassDirection "
+        "revision": "2001-11-09 00:00",
+        "description": "Published as draft-ietf-ipcdn-qos-mib-06.txt. Changes from qos-mib-05 include: -Deprecated objects that were of type IpAddress and added new objects that were of type InetAddressType and InetAddress, to support both IPv4 and IPv6 in the docsQosPktClassTable. -Clarified the default value of the docsQosPktClassIpDestMask and docsQosPktClassIpSourceMask. -Corrected the description of the individual bits that make up the docsQosParamsSetRequestPolicyOct. -Corrected the spelling of docsCableMaclayer in the description of the docsQosServiceFlowLogIfIndex. -Clarified that some of counters from the docsQosDynamicServiceStatsTable, include retries. -Changed references to the latest Data-Over-Cable Service Interface Specifications: Radio Frequency Interface Specification. -Added objects that were removed from earlier revisions of the mib, as obsolete. -Clarified the Cable Modem's implementation of the docsQosParamSetTosAndMask. -Change the description of objects within the docsQosServiceClassTable, so that they were no longer templates for obsolete objects. "
       }
     ]
   },
@@ -273,7 +277,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsQosPktClassIpSourceMask": {
     "name": "docsQosPktClassIpSourceMask",
@@ -285,7 +289,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsQosPktClassIpDestAddr": {
     "name": "docsQosPktClassIpDestAddr",
@@ -297,7 +301,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsQosPktClassIpDestMask": {
     "name": "docsQosPktClassIpDestMask",
@@ -309,7 +313,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsQosPktClassSourcePortStart": {
     "name": "docsQosPktClassSourcePortStart",
@@ -468,6 +472,18 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "docsQosPktClassUserPriApplies": {
+    "name": "docsQosPktClassUserPriApplies",
+    "oid": "1.3.6.1.2.1.10.127.7.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
   "docsQosPktClassUserPriLow": {
     "name": "docsQosPktClassUserPriLow",
     "oid": "1.3.6.1.2.1.10.127.7.1.1.1.22",
@@ -589,6 +605,102 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "docsQosPktClassInetSourceAddrType": {
+    "name": "docsQosPktClassInetSourceAddrType",
+    "oid": "1.3.6.1.2.1.10.127.7.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQosPktClassInetSourceAddr": {
+    "name": "docsQosPktClassInetSourceAddr",
+    "oid": "1.3.6.1.2.1.10.127.7.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQosPktClassInetSourceMaskType": {
+    "name": "docsQosPktClassInetSourceMaskType",
+    "oid": "1.3.6.1.2.1.10.127.7.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQosPktClassInetSourceMask": {
+    "name": "docsQosPktClassInetSourceMask",
+    "oid": "1.3.6.1.2.1.10.127.7.1.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQosPktClassInetDestAddrType": {
+    "name": "docsQosPktClassInetDestAddrType",
+    "oid": "1.3.6.1.2.1.10.127.7.1.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQosPktClassInetDestAddr": {
+    "name": "docsQosPktClassInetDestAddr",
+    "oid": "1.3.6.1.2.1.10.127.7.1.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQosPktClassInetDestMaskType": {
+    "name": "docsQosPktClassInetDestMaskType",
+    "oid": "1.3.6.1.2.1.10.127.7.1.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQosPktClassInetDestMask": {
+    "name": "docsQosPktClassInetDestMask",
+    "oid": "1.3.6.1.2.1.10.127.7.1.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "docsQosParamSetTable": {
     "name": "docsQosParamSetTable",
     "oid": "1.3.6.1.2.1.10.127.7.1.2",
@@ -599,7 +711,7 @@
   },
   "docsQosParamSetEntry": {
     "name": "docsQosParamSetEntry",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1",
     "nodetype": "row",
     "class": "objecttype",
     "maxaccess": "not-accessible",
@@ -624,7 +736,7 @@
   },
   "docsQosParamSetServiceClassName": {
     "name": "docsQosParamSetServiceClassName",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.4",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -636,7 +748,7 @@
   },
   "docsQosParamSetPriority": {
     "name": "docsQosParamSetPriority",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.5",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.5",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -656,7 +768,7 @@
   },
   "docsQosParamSetMaxTrafficRate": {
     "name": "docsQosParamSetMaxTrafficRate",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.6",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -668,7 +780,7 @@
   },
   "docsQosParamSetMaxTrafficBurst": {
     "name": "docsQosParamSetMaxTrafficBurst",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.7",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -680,7 +792,7 @@
   },
   "docsQosParamSetMinReservedRate": {
     "name": "docsQosParamSetMinReservedRate",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.8",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -692,7 +804,7 @@
   },
   "docsQosParamSetMinReservedPkt": {
     "name": "docsQosParamSetMinReservedPkt",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.9",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -712,7 +824,7 @@
   },
   "docsQosParamSetActiveTimeout": {
     "name": "docsQosParamSetActiveTimeout",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.10",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -733,7 +845,7 @@
   },
   "docsQosParamSetAdmittedTimeout": {
     "name": "docsQosParamSetAdmittedTimeout",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.11",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -760,7 +872,7 @@
   },
   "docsQosParamSetMaxConcatBurst": {
     "name": "docsQosParamSetMaxConcatBurst",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.12",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -780,7 +892,7 @@
   },
   "docsQosParamSetSchedulingType": {
     "name": "docsQosParamSetSchedulingType",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.13",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.13",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -792,7 +904,7 @@
   },
   "docsQosParamSetNomPollInterval": {
     "name": "docsQosParamSetNomPollInterval",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.15",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.15",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -805,7 +917,7 @@
   },
   "docsQosParamSetTolPollJitter": {
     "name": "docsQosParamSetTolPollJitter",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.16",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.16",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -818,7 +930,7 @@
   },
   "docsQosParamSetUnsolicitGrantSize": {
     "name": "docsQosParamSetUnsolicitGrantSize",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.17",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.17",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -838,7 +950,7 @@
   },
   "docsQosParamSetNomGrantInterval": {
     "name": "docsQosParamSetNomGrantInterval",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.18",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -851,7 +963,7 @@
   },
   "docsQosParamSetTolGrantJitter": {
     "name": "docsQosParamSetTolGrantJitter",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.19",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.19",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -864,7 +976,7 @@
   },
   "docsQosParamSetGrantsPerInterval": {
     "name": "docsQosParamSetGrantsPerInterval",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.20",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.20",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -884,7 +996,7 @@
   },
   "docsQosParamSetTosAndMask": {
     "name": "docsQosParamSetTosAndMask",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.21",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.21",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -904,7 +1016,7 @@
   },
   "docsQosParamSetTosOrMask": {
     "name": "docsQosParamSetTosOrMask",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.22",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.22",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -924,7 +1036,7 @@
   },
   "docsQosParamSetMaxLatency": {
     "name": "docsQosParamSetMaxLatency",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.23",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.23",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -937,7 +1049,7 @@
   },
   "docsQosParamSetType": {
     "name": "docsQosParamSetType",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.24",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.24",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -956,7 +1068,7 @@
   },
   "docsQosParamSetRequestPolicyOct": {
     "name": "docsQosParamSetRequestPolicyOct",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.25",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.25",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -976,7 +1088,7 @@
   },
   "docsQosParamSetBitMap": {
     "name": "docsQosParamSetBitMap",
-    "oid": "1.3.6.1.2.1.10.127.7.1.2.2.26",
+    "oid": "1.3.6.1.2.1.10.127.7.1.2.1.26",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1054,6 +1166,66 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
+  "docsQosServiceFlowProvisionedParamSetIndex": {
+    "name": "docsQosServiceFlowProvisionedParamSetIndex",
+    "oid": "1.3.6.1.2.1.10.127.7.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "docsQosServiceFlowAdmittedParamSetIndex": {
+    "name": "docsQosServiceFlowAdmittedParamSetIndex",
+    "oid": "1.3.6.1.2.1.10.127.7.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "docsQosServiceFlowActiveParamSetIndex": {
+    "name": "docsQosServiceFlowActiveParamSetIndex",
+    "oid": "1.3.6.1.2.1.10.127.7.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
   "docsQosServiceFlowSID": {
     "name": "docsQosServiceFlowSID",
     "oid": "1.3.6.1.2.1.10.127.7.1.3.1.6",
@@ -1097,6 +1269,120 @@
     },
     "maxaccess": "read-only",
     "status": "current"
+  },
+  "docsQosServiceFlowActiveTimeout": {
+    "name": "docsQosServiceFlowActiveTimeout",
+    "oid": "1.3.6.1.2.1.10.127.7.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "docsQosServiceFlowAdmittedTimeout": {
+    "name": "docsQosServiceFlowAdmittedTimeout",
+    "oid": "1.3.6.1.2.1.10.127.7.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "docsQosServiceFlowSchedulingType": {
+    "name": "docsQosServiceFlowSchedulingType",
+    "oid": "1.3.6.1.2.1.10.127.7.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulingType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "docsQosServiceFlowRequestPolicy": {
+    "name": "docsQosServiceFlowRequestPolicy",
+    "oid": "1.3.6.1.2.1.10.127.7.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "docsQosServiceFlowTosAndMask": {
+    "name": "docsQosServiceFlowTosAndMask",
+    "oid": "1.3.6.1.2.1.10.127.7.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "docsQosServiceFlowTosOrMask": {
+    "name": "docsQosServiceFlowTosOrMask",
+    "oid": "1.3.6.1.2.1.10.127.7.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
   },
   "docsQosServiceFlowStatsTable": {
     "name": "docsQosServiceFlowStatsTable",
@@ -1563,6 +1849,30 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "docsQosDCCRspDeparts": {
+    "name": "docsQosDCCRspDeparts",
+    "oid": "1.3.6.1.2.1.10.127.7.1.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQosDCCRspArrives": {
+    "name": "docsQosDCCRspArrives",
+    "oid": "1.3.6.1.2.1.10.127.7.1.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "docsQosServiceFlowLogTable": {
     "name": "docsQosServiceFlowLogTable",
     "oid": "1.3.6.1.2.1.10.127.7.1.7",
@@ -1823,6 +2133,26 @@
     },
     "maxaccess": "not-accessible",
     "status": "current"
+  },
+  "docsQosServiceClassParamSetIndex": {
+    "name": "docsQosServiceClassParamSetIndex",
+    "oid": "1.3.6.1.2.1.10.127.7.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "obsolete"
   },
   "docsQosServiceClassStatus": {
     "name": "docsQosServiceClassStatus",
@@ -2397,6 +2727,26 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "docsQosPHSClassifierIndex": {
+    "name": "docsQosPHSClassifierIndex",
+    "oid": "1.3.6.1.2.1.10.127.7.1.10.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
   "docsQosPHSIndex": {
     "name": "docsQosPHSIndex",
     "oid": "1.3.6.1.2.1.10.127.7.1.10.1.7",
@@ -2568,22 +2918,6 @@
       },
       {
         "module": "DOCS-QOS-MIB",
-        "object": "docsQosPktClassIpSourceAddr"
-      },
-      {
-        "module": "DOCS-QOS-MIB",
-        "object": "docsQosPktClassIpSourceMask"
-      },
-      {
-        "module": "DOCS-QOS-MIB",
-        "object": "docsQosPktClassIpDestAddr"
-      },
-      {
-        "module": "DOCS-QOS-MIB",
-        "object": "docsQosPktClassIpDestMask"
-      },
-      {
-        "module": "DOCS-QOS-MIB",
         "object": "docsQosPktClassSourcePortStart"
       },
       {
@@ -2641,6 +2975,38 @@
       {
         "module": "DOCS-QOS-MIB",
         "object": "docsQosPktClassBitMap"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassInetSourceAddrType"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassInetSourceAddr"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassInetSourceMaskType"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassInetSourceMask"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassInetDestAddrType"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassInetDestAddr"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassInetDestMaskType"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassInetDestMask"
       },
       {
         "module": "DOCS-QOS-MIB",
@@ -3065,11 +3431,91 @@
     ],
     "status": "current"
   },
+  "docsQosDeprecatedGroup": {
+    "name": "docsQosDeprecatedGroup",
+    "oid": "1.3.6.1.2.1.10.127.7.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassIpSourceAddr"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassIpSourceMask"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassIpDestAddr"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassIpDestMask"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "docsQosObsoleteGroup": {
+    "name": "docsQosObsoleteGroup",
+    "oid": "1.3.6.1.2.1.10.127.7.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPktClassUserPriApplies"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosServiceFlowProvisionedParamSetIndex"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosServiceFlowAdmittedParamSetIndex"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosServiceFlowActiveParamSetIndex"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosServiceFlowActiveTimeout"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosServiceFlowAdmittedTimeout"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosServiceFlowSchedulingType"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosServiceFlowRequestPolicy"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosServiceFlowTosAndMask"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosServiceFlowTosOrMask"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosServiceClassParamSetIndex"
+      },
+      {
+        "module": "DOCS-QOS-MIB",
+        "object": "docsQosPHSClassifierIndex"
+      }
+    ],
+    "status": "obsolete"
+  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/DOCS-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:02:21 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-QOS-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "DOCS-QOS-MIB"

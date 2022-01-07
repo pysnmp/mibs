@@ -1,42 +1,75 @@
 {
   "imports": {
     "class": "imports",
+    "DIFFSERV-MIB": [
+      "diffServMIBMultiFieldClfrGroup",
+      "diffServMIBActionGroup",
+      "diffServMultiFieldClfrStorage",
+      "diffServMIBClfrGroup",
+      "diffServActionStorage",
+      "diffServClfrElementStorage",
+      "diffServAlgDropType",
+      "diffServClfrStorage",
+      "diffServAlgDropStorage",
+      "diffServClfrElementStatus",
+      "diffServMIBCounterGroup",
+      "diffServMIBClfrElementGroup",
+      "diffServDataPathStorage",
+      "diffServMultiFieldClfrDstAddr",
+      "diffServMIBAlgDropGroup",
+      "diffServMultiFieldClfrAddrType",
+      "diffServCountActStorage",
+      "diffServMultiFieldClfrSrcAddr",
+      "diffServAlgDropStatus",
+      "diffServMIBDataPathGroup",
+      "diffServDataPathStatus",
+      "diffServClfrStatus",
+      "diffServMIBDscpMarkActGroup"
+    ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "RMON2-MIB": [
+      "ZeroBasedCounter32"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "zeroDotZero",
-      "TimeTicks",
-      "Counter32",
-      "Gauge32",
-      "Bits",
-      "Integer32",
-      "Unsigned32",
-      "mib-2",
-      "iso",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "Unsigned32",
+      "zeroDotZero",
+      "Gauge32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "DateAndTime",
       "RowPointer",
       "RowStatus",
-      "DisplayString",
-      "DateAndTime"
+      "StorageType",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "docsDev": {
@@ -45,8 +78,12 @@
     "class": "moduleidentity",
     "revisions": [
       {
+        "revision": "2006-12-20 00:00",
+        "description": "Second version, published as RFC 4639. Modifications to this MIB module since RFC 2669 include: - Deprecation of the docsDevFilter group in favor of the DiffServ MIB groups, to enable support for IPv6 filtering and DiffServ Code Point (DSCP) marking. - Deprecation of the docsDevCpeGroup in favor of the docsDevCpeInetGroup, to enable support of IPv6. - Addition of various InetAddress objects to enable support of IPv6. - Deprecation of docsDevNmAccessTable in favor of SNMP Coexistence and SNMPv3 -- yet adding docsDevNmAccessTrapVersion and clarifying docsDevNmAccessIp for current use of this table, - Addition of docsDevIgmpModeControl for management and control of the IGMP mode of operation, - Addition of docsDevMaxCpe for management of the maxmium number of CPEs permitted access through a cable modem, - Addition of docsDevSwServerTransportProtocol, and modifications to docsDevSoftware object DESCRIPTIONS, to enable software downloads via either TFTP or HTTP, - Replacement of docsDevEvThrottleInhibited with docsDevEvThrottleThresholdExceeded to simplify event threshold management, - Modification of docsDevEvReporting to enable local logging to the internal volatile log, and not to the internal non-volatile log, - Modification of the compliance statement to make the docsDevCpe objects optional - Created placeholders for two OIDs in the docsDevFilterPolicyTable that were never used - Modified the DESCRIPTION of docsDevSwServerTransportProtocol and docsDevSwServerAddressType to address the dependence between each object - Added a reference to docsDevServerConfigTftpAddress - Clarified the scope of notifications that are covered by docsDevEvThrottleThreshold - Clarified an error condition that could occur when doing a SET to docsDevEvReporting - Defined each of the enumerated types for both docsDevEvLevel and docsDevEvPriority - Added UNITS clause to docsDevFilterLLCMatches, docsDevFilterIpMatches, docsDevMaxCpe, docsDevEvThrottleThreshold and docsDevEvCounts. - Added REFERENCE clause to docsDevFilterIpProtocol - Modified DESCRIPTION of docsDevCpeInetAddr to be more protocol-neutral - Removed the enumerated value (1) from both docsDevCpeInetSource and docsDevCpeSource - Covered additional read-write and read-create objects in the Security Considerations section - Modified the default value of docsDevNmAccessIpMask to be consistent with OSSI specification - Modified the SYNTAX of docsDevNmAccessCommunity and docsDevNmAccessInterfaces in the Conformance Statement section - Added SYNTAX clause to docsDevEvReporting in the Conformance Statement section - Modified SYNTAX clause of docsDevEvReporting to move new enumerated type to byte boundary - Added references to DOCSIS 2.0 specifications to multiple objects - Clarified non-persistency across reboots for all tables - Clarified functionality of docsDevSw objects as they relate to docsDevSwOperStatus - Clarified enumerated types (9) and (10) for docsDevServerBootState - Defined the state of unknown(0) for the following objects: docsDevServerDhcpAddressType, docsDevServerTimeAddressType, docsDevServerConfigTftpAddressType and docsDevServerConfigTftpAddressType - Modified the value in docsDevFilterIpDaddr to be consistent with the SYNTAX - Specified which rows could be modified in an active row for docsDevFilterPolicyStatus - Defined the term 'manually' in docsDevCpeEnroll - Clarified the description for docsDevFilterTosOrMask - Covered the case of a non-existent row for docsDevFilterPolicyPtr - Added DEFVAL clauses for multiple objects - Replaced docsDevNotification OBJECT IDENTIFIER with docsDevNotifications to address possible compatibility issues - Added support for the usage of RFC 3413 and RFC 3014 as event notification mechanisms - Removed docsDevFilterPolicyObsoleteGroup - Added stdInterface(9) type to docsDevEvReporting to support the usage of RFC3413 and RFC3014 - Modified DESCRIPTION for docsDevMaxCpe"
+      },
+      {
         "revision": "1999-08-19 00:00",
-        "description": "Initial Version, published as RFC 2669. Modified by Mike StJohns to add/revise filtering, TOS support, software version information objects."
+        "description": "Initial version, published as RFC 2669."
       }
     ]
   },
@@ -131,7 +168,58 @@
         }
       }
     },
+    "default": {
+      "default": {
+        "value": "noStFilterBpdu",
+        "format": "enum"
+      }
+    },
     "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsDevIgmpModeControl": {
+    "name": "docsDevIgmpModeControl",
+    "oid": "1.3.6.1.2.1.69.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "passive": 1,
+          "active": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "passive",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsDevMaxCpe": {
+    "name": "docsDevMaxCpe",
+    "oid": "1.3.6.1.2.1.69.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "CPEs",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "docsDevNmAccessTable": {
@@ -140,7 +228,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevNmAccessEntry": {
     "name": "docsDevNmAccessEntry",
@@ -155,7 +243,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevNmAccessIndex": {
     "name": "docsDevNmAccessIndex",
@@ -175,7 +263,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevNmAccessIp": {
     "name": "docsDevNmAccessIp",
@@ -188,12 +276,12 @@
     },
     "default": {
       "default": {
-        "value": "ffffffff",
+        "value": "00000000",
         "format": "hex"
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevNmAccessIpMask": {
     "name": "docsDevNmAccessIpMask",
@@ -206,12 +294,12 @@
     },
     "default": {
       "default": {
-        "value": "ffffffff",
+        "value": "00000000",
         "format": "hex"
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevNmAccessCommunity": {
     "name": "docsDevNmAccessCommunity",
@@ -220,7 +308,15 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
     },
     "default": {
       "default": {
@@ -229,7 +325,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevNmAccessControl": {
     "name": "docsDevNmAccessControl",
@@ -257,7 +353,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevNmAccessInterfaces": {
     "name": "docsDevNmAccessInterfaces",
@@ -266,10 +362,18 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevNmAccessStatus": {
     "name": "docsDevNmAccessStatus",
@@ -281,7 +385,31 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
+  },
+  "docsDevNmAccessTrapVersion": {
+    "name": "docsDevNmAccessTrapVersion",
+    "oid": "1.3.6.1.2.1.69.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disableSNMPv2trap": 1,
+          "enableSNMPv2trap": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disableSNMPv2trap",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
   },
   "docsDevSoftware": {
     "name": "docsDevSoftware",
@@ -298,7 +426,7 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevSwFilename": {
     "name": "docsDevSwFilename",
@@ -336,6 +464,12 @@
         }
       }
     },
+    "default": {
+      "default": {
+        "value": "allowProvisioningUpgrade",
+        "format": "enum"
+      }
+    },
     "maxaccess": "read-write",
     "status": "current"
   },
@@ -370,6 +504,54 @@
       "class": "type"
     },
     "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsDevSwServerAddressType": {
+    "name": "docsDevSwServerAddressType",
+    "oid": "1.3.6.1.2.1.69.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsDevSwServerAddress": {
+    "name": "docsDevSwServerAddress",
+    "oid": "1.3.6.1.2.1.69.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsDevSwServerTransportProtocol": {
+    "name": "docsDevSwServerTransportProtocol",
+    "oid": "1.3.6.1.2.1.69.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tftp": 1,
+          "http": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "tftp",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "docsDevServer": {
@@ -413,7 +595,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevServerTime": {
     "name": "docsDevServerTime",
@@ -425,7 +607,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevServerTftp": {
     "name": "docsDevServerTftp",
@@ -437,7 +619,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevServerConfigFile": {
     "name": "docsDevServerConfigFile",
@@ -446,6 +628,78 @@
     "class": "objecttype",
     "syntax": {
       "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsDevServerDhcpAddressType": {
+    "name": "docsDevServerDhcpAddressType",
+    "oid": "1.3.6.1.2.1.69.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsDevServerDhcpAddress": {
+    "name": "docsDevServerDhcpAddress",
+    "oid": "1.3.6.1.2.1.69.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsDevServerTimeAddressType": {
+    "name": "docsDevServerTimeAddressType",
+    "oid": "1.3.6.1.2.1.69.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsDevServerTimeAddress": {
+    "name": "docsDevServerTimeAddress",
+    "oid": "1.3.6.1.2.1.69.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsDevServerConfigTftpAddressType": {
+    "name": "docsDevServerConfigTftpAddressType",
+    "oid": "1.3.6.1.2.1.69.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsDevServerConfigTftpAddress": {
+    "name": "docsDevServerConfigTftpAddress",
+    "oid": "1.3.6.1.2.1.69.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -484,7 +738,7 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevEvThrottleAdminStatus": {
     "name": "docsDevEvThrottleAdminStatus",
@@ -503,6 +757,12 @@
         }
       }
     },
+    "default": {
+      "default": {
+        "value": "unconstrained",
+        "format": "enum"
+      }
+    },
     "maxaccess": "read-write",
     "status": "current"
   },
@@ -516,7 +776,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevEvThrottleThreshold": {
     "name": "docsDevEvThrottleThreshold",
@@ -527,6 +787,7 @@
       "type": "Unsigned32",
       "class": "type"
     },
+    "units": "events",
     "maxaccess": "read-write",
     "status": "current"
   },
@@ -545,6 +806,12 @@
             "max": 2147483647
           }
         ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
       }
     },
     "units": "seconds",
@@ -610,7 +877,13 @@
         "local": 0,
         "traps": 1,
         "syslog": 2,
-        "local-vol": 3
+        "ignore3": 3,
+        "ignore4": 4,
+        "ignore5": 5,
+        "ignore6": 6,
+        "ignore7": 7,
+        "localVolatile": 8,
+        "stdInterface": 9
       }
     },
     "maxaccess": "read-write",
@@ -692,6 +965,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "events",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -743,6 +1017,48 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "docsDevEvSyslogAddressType": {
+    "name": "docsDevEvSyslogAddressType",
+    "oid": "1.3.6.1.2.1.69.1.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "unknown",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsDevEvSyslogAddress": {
+    "name": "docsDevEvSyslogAddress",
+    "oid": "1.3.6.1.2.1.69.1.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsDevEvThrottleThresholdExceeded": {
+    "name": "docsDevEvThrottleThresholdExceeded",
+    "oid": "1.3.6.1.2.1.69.1.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "docsDevFilter": {
     "name": "docsDevFilter",
     "oid": "1.3.6.1.2.1.69.1.6",
@@ -761,6 +1077,12 @@
           "discard": 1,
           "accept": 2
         }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "accept",
+        "format": "enum"
       }
     },
     "maxaccess": "read-write",
@@ -886,6 +1208,7 @@
       "type": "Counter32",
       "class": "type"
     },
+    "units": "matches",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -904,8 +1227,14 @@
         }
       }
     },
+    "default": {
+      "default": {
+        "value": "accept",
+        "format": "enum"
+      }
+    },
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpTable": {
     "name": "docsDevFilterIpTable",
@@ -913,7 +1242,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpEntry": {
     "name": "docsDevFilterIpEntry",
@@ -928,7 +1257,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpIndex": {
     "name": "docsDevFilterIpIndex",
@@ -948,7 +1277,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpStatus": {
     "name": "docsDevFilterIpStatus",
@@ -960,7 +1289,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpControl": {
     "name": "docsDevFilterIpControl",
@@ -985,7 +1314,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpIfIndex": {
     "name": "docsDevFilterIpIfIndex",
@@ -997,7 +1326,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpDirection": {
     "name": "docsDevFilterIpDirection",
@@ -1022,7 +1351,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpBroadcast": {
     "name": "docsDevFilterIpBroadcast",
@@ -1040,7 +1369,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpSaddr": {
     "name": "docsDevFilterIpSaddr",
@@ -1058,7 +1387,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpSmask": {
     "name": "docsDevFilterIpSmask",
@@ -1076,7 +1405,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpDaddr": {
     "name": "docsDevFilterIpDaddr",
@@ -1094,7 +1423,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpDmask": {
     "name": "docsDevFilterIpDmask",
@@ -1112,7 +1441,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpProtocol": {
     "name": "docsDevFilterIpProtocol",
@@ -1138,7 +1467,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpSourcePortLow": {
     "name": "docsDevFilterIpSourcePortLow",
@@ -1158,7 +1487,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpSourcePortHigh": {
     "name": "docsDevFilterIpSourcePortHigh",
@@ -1184,7 +1513,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpDestPortLow": {
     "name": "docsDevFilterIpDestPortLow",
@@ -1204,7 +1533,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpDestPortHigh": {
     "name": "docsDevFilterIpDestPortHigh",
@@ -1230,7 +1559,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpMatches": {
     "name": "docsDevFilterIpMatches",
@@ -1238,11 +1567,12 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter32",
+      "type": "ZeroBasedCounter32",
       "class": "type"
     },
+    "units": "matches",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpTos": {
     "name": "docsDevFilterIpTos",
@@ -1268,7 +1598,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpTosMask": {
     "name": "docsDevFilterIpTosMask",
@@ -1294,7 +1624,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpContinue": {
     "name": "docsDevFilterIpContinue",
@@ -1312,7 +1642,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterIpPolicyId": {
     "name": "docsDevFilterIpPolicyId",
@@ -1332,7 +1662,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterPolicyTable": {
     "name": "docsDevFilterPolicyTable",
@@ -1340,7 +1670,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterPolicyEntry": {
     "name": "docsDevFilterPolicyEntry",
@@ -1355,7 +1685,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterPolicyIndex": {
     "name": "docsDevFilterPolicyIndex",
@@ -1375,7 +1705,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterPolicyId": {
     "name": "docsDevFilterPolicyId",
@@ -1395,7 +1725,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterPolicyStatus": {
     "name": "docsDevFilterPolicyStatus",
@@ -1407,7 +1737,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterPolicyPtr": {
     "name": "docsDevFilterPolicyPtr",
@@ -1425,7 +1755,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterTosTable": {
     "name": "docsDevFilterTosTable",
@@ -1433,7 +1763,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterTosEntry": {
     "name": "docsDevFilterTosEntry",
@@ -1448,7 +1778,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterTosIndex": {
     "name": "docsDevFilterTosIndex",
@@ -1468,7 +1798,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterTosStatus": {
     "name": "docsDevFilterTosStatus",
@@ -1480,7 +1810,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterTosAndMask": {
     "name": "docsDevFilterTosAndMask",
@@ -1501,12 +1831,12 @@
     },
     "default": {
       "default": {
-        "value": "ff",
+        "value": "FF",
         "format": "hex"
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterTosOrMask": {
     "name": "docsDevFilterTosOrMask",
@@ -1532,7 +1862,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevCpe": {
     "name": "docsDevCpe",
@@ -1552,6 +1882,12 @@
           "none": 1,
           "any": 2
         }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "enum"
       }
     },
     "maxaccess": "read-write",
@@ -1574,6 +1910,12 @@
         ]
       }
     },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
     "maxaccess": "read-write",
     "status": "current"
   },
@@ -1583,7 +1925,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevCpeEntry": {
     "name": "docsDevCpeEntry",
@@ -1598,7 +1940,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevCpeIp": {
     "name": "docsDevCpeIp",
@@ -1610,7 +1952,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevCpeSource": {
     "name": "docsDevCpeSource",
@@ -1629,11 +1971,93 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevCpeStatus": {
     "name": "docsDevCpeStatus",
     "oid": "1.3.6.1.2.1.69.1.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "docsDevCpeInetTable": {
+    "name": "docsDevCpeInetTable",
+    "oid": "1.3.6.1.2.1.69.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsDevCpeInetEntry": {
+    "name": "docsDevCpeInetEntry",
+    "oid": "1.3.6.1.2.1.69.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevCpeInetType",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevCpeInetAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsDevCpeInetType": {
+    "name": "docsDevCpeInetType",
+    "oid": "1.3.6.1.2.1.69.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsDevCpeInetAddr": {
+    "name": "docsDevCpeInetAddr",
+    "oid": "1.3.6.1.2.1.69.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsDevCpeInetSource": {
+    "name": "docsDevCpeInetSource",
+    "oid": "1.3.6.1.2.1.69.1.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "manual": 2,
+          "learned": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsDevCpeInetRowStatus": {
+    "name": "docsDevCpeInetRowStatus",
+    "oid": "1.3.6.1.2.1.69.1.7.4.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -1646,6 +2070,11 @@
   "docsDevNotification": {
     "name": "docsDevNotification",
     "oid": "1.3.6.1.2.1.69.2",
+    "class": "objectidentity"
+  },
+  "docsDevNotifications": {
+    "name": "docsDevNotifications",
+    "oid": "1.3.6.1.2.1.69.0",
     "class": "objectidentity"
   },
   "docsDevConformance": {
@@ -1697,7 +2126,7 @@
         "module": "DOCS-CABLE-DEVICE-MIB"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevBaseGroup": {
     "name": "docsDevBaseGroup",
@@ -1757,7 +2186,7 @@
         "object": "docsDevNmAccessStatus"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevSoftwareGroup": {
     "name": "docsDevSoftwareGroup",
@@ -1785,7 +2214,7 @@
         "object": "docsDevSwCurrentVers"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevServerGroup": {
     "name": "docsDevServerGroup",
@@ -1813,7 +2242,7 @@
         "object": "docsDevServerConfigFile"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevEventGroup": {
     "name": "docsDevEventGroup",
@@ -1873,7 +2302,7 @@
         "object": "docsDevEvText"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevFilterGroup": {
     "name": "docsDevFilterGroup",
@@ -2009,7 +2438,7 @@
         "object": "docsDevFilterTosOrMask"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "docsDevCpeGroup": {
     "name": "docsDevCpeGroup",
@@ -2033,13 +2462,367 @@
         "object": "docsDevCpeStatus"
       }
     ],
+    "status": "deprecated"
+  },
+  "docsDevGroupsV2": {
+    "name": "docsDevGroupsV2",
+    "oid": "1.3.6.1.2.1.69.3.3",
+    "class": "objectidentity"
+  },
+  "docsDevCompliancesV2": {
+    "name": "docsDevCompliancesV2",
+    "oid": "1.3.6.1.2.1.69.3.4",
+    "class": "objectidentity"
+  },
+  "docsDevCmCompliance": {
+    "name": "docsDevCmCompliance",
+    "oid": "1.3.6.1.2.1.69.3.4.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "diffServMIBDataPathGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBClfrGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBClfrElementGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBMultiFieldClfrGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBActionGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBDscpMarkActGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBCounterGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "diffServMIBAlgDropGroup",
+        "module": "DIFFSERV-MIB"
+      },
+      {
+        "object": "docsDevBaseGroup",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevBaseIgmpGroup",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevBaseMaxCpeGroup",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevSoftwareGroupV2",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevServerGroupV2",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevEventGroupV2",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevFilterLLCGroup",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevInetCpeGroup",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "docsDevCmtsCompliance": {
+    "name": "docsDevCmtsCompliance",
+    "oid": "1.3.6.1.2.1.69.3.4.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "docsDevBaseGroup",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevBaseIgmpGroup",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevBaseMaxCpeGroup",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevSoftwareGroupV2",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevServerGroupV2",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevEventGroupV2",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevFilterLLCGroup",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      },
+      {
+        "object": "docsDevInetCpeGroup",
+        "module": "DOCS-CABLE-DEVICE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "docsDevBaseIgmpGroup": {
+    "name": "docsDevBaseIgmpGroup",
+    "oid": "1.3.6.1.2.1.69.3.3.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevIgmpModeControl"
+      }
+    ],
+    "status": "current"
+  },
+  "docsDevBaseMaxCpeGroup": {
+    "name": "docsDevBaseMaxCpeGroup",
+    "oid": "1.3.6.1.2.1.69.3.3.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevMaxCpe"
+      }
+    ],
+    "status": "current"
+  },
+  "docsDevNmAccessExtGroup": {
+    "name": "docsDevNmAccessExtGroup",
+    "oid": "1.3.6.1.2.1.69.3.3.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevNmAccessTrapVersion"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "docsDevSoftwareGroupV2": {
+    "name": "docsDevSoftwareGroupV2",
+    "oid": "1.3.6.1.2.1.69.3.3.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevSwFilename"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevSwAdminStatus"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevSwOperStatus"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevSwCurrentVers"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevSwServerAddressType"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevSwServerAddress"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevSwServerTransportProtocol"
+      }
+    ],
+    "status": "current"
+  },
+  "docsDevServerGroupV2": {
+    "name": "docsDevServerGroupV2",
+    "oid": "1.3.6.1.2.1.69.3.3.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevServerBootState"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevServerDhcpAddressType"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevServerDhcpAddress"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevServerTimeAddressType"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevServerTimeAddress"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevServerConfigTftpAddressType"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevServerConfigTftpAddress"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevServerConfigFile"
+      }
+    ],
+    "status": "current"
+  },
+  "docsDevEventGroupV2": {
+    "name": "docsDevEventGroupV2",
+    "oid": "1.3.6.1.2.1.69.3.3.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvControl"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvThrottleAdminStatus"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvThrottleThreshold"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvThrottleInterval"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvReporting"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvFirstTime"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLastTime"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvCounts"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvLevel"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvId"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvText"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvSyslogAddressType"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvSyslogAddress"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevEvThrottleThresholdExceeded"
+      }
+    ],
+    "status": "current"
+  },
+  "docsDevFilterLLCGroup": {
+    "name": "docsDevFilterLLCGroup",
+    "oid": "1.3.6.1.2.1.69.3.3.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevFilterLLCUnmatchedAction"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevFilterLLCStatus"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevFilterLLCIfIndex"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevFilterLLCProtocolType"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevFilterLLCProtocol"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevFilterLLCMatches"
+      }
+    ],
+    "status": "current"
+  },
+  "docsDevInetCpeGroup": {
+    "name": "docsDevInetCpeGroup",
+    "oid": "1.3.6.1.2.1.69.3.3.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevCpeEnroll"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevCpeIpMax"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevCpeInetSource"
+      },
+      {
+        "module": "DOCS-CABLE-DEVICE-MIB",
+        "object": "docsDevCpeInetRowStatus"
+      }
+    ],
     "status": "current"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-CABLE-DEVICE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:00:06 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:26 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "DOCS-CABLE-DEVICE-MIB"

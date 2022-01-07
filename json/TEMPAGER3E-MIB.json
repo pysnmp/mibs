@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "iso",
-      "IpAddress",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "enterprises",
-      "OBJECT-TYPE",
+      "TRAP-TYPE",
+      "Counter64",
       "MODULE-IDENTITY",
-      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
       "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32",
       "Bits",
-      "TRAP-TYPE"
+      "enterprises",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -304,8 +304,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/TEMPAGER3E-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:03:13 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:08:44 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "TEMPAGER3E-MIB"

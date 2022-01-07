@@ -1,0 +1,1330 @@
+{
+  "imports": {
+    "class": "imports",
+    "CLAB-DEF-MIB": [
+      "clabProjDocsis"
+    ],
+    "DOCS-IF-MIB": [
+      "docsIfCmtsCmStatusEntry",
+      "docsIfCmtsCmStatusIndex"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "zeroDotZero",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TimeStamp",
+      "RowPointer",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "docsLoadBalanceMib": {
+    "name": "docsLoadBalanceMib",
+    "oid": "1.3.6.1.4.1.4491.2.1.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-03-10 17:00",
+        "description": "Initial version of this mib module."
+      }
+    ]
+  },
+  "ChannelChgInitTechMap": {
+    "name": "ChannelChgInitTechMap",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "reinitializeMac": 0,
+        "broadcastInitRanging": 1,
+        "unicastInitRanging": 2,
+        "initRanging": 3,
+        "direct": 4
+      }
+    },
+    "status": "current"
+  },
+  "docsLoadBalNotifications": {
+    "name": "docsLoadBalNotifications",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.0",
+    "class": "objectidentity"
+  },
+  "docsLoadBalMibObjects": {
+    "name": "docsLoadBalMibObjects",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1",
+    "class": "objectidentity"
+  },
+  "docsLoadBalSystem": {
+    "name": "docsLoadBalSystem",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.1",
+    "class": "objectidentity"
+  },
+  "docsLoadBalChgOverObjects": {
+    "name": "docsLoadBalChgOverObjects",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2",
+    "class": "objectidentity"
+  },
+  "docsLoadBalGrpObjects": {
+    "name": "docsLoadBalGrpObjects",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3",
+    "class": "objectidentity"
+  },
+  "docsLoadBalPolicyObjects": {
+    "name": "docsLoadBalPolicyObjects",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4",
+    "class": "objectidentity"
+  },
+  "docsLoadBalChgOverGroup": {
+    "name": "docsLoadBalChgOverGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.1",
+    "class": "objectidentity"
+  },
+  "docsLoadBalEnable": {
+    "name": "docsLoadBalEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadBalChgOverMacAddress": {
+    "name": "docsLoadBalChgOverMacAddress",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadBalChgOverDownFrequency": {
+    "name": "docsLoadBalChgOverDownFrequency",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "units": "hertz",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadBalChgOverUpChannelId": {
+    "name": "docsLoadBalChgOverUpChannelId",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadBalChgOverInitTech": {
+    "name": "docsLoadBalChgOverInitTech",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelChgInitTechMap",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadBalChgOverCmd": {
+    "name": "docsLoadBalChgOverCmd",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 1,
+          "dcc": 2,
+          "ucc": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadBalChgOverCommit": {
+    "name": "docsLoadBalChgOverCommit",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadBalChgOverLastCommit": {
+    "name": "docsLoadBalChgOverLastCommit",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalChgOverStatusTable": {
+    "name": "docsLoadBalChgOverStatusTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalChgOverStatusEntry": {
+    "name": "docsLoadBalChgOverStatusEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-IF-MIB",
+        "object": "docsIfCmtsCmStatusIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalChgOverStatusMacAddr": {
+    "name": "docsLoadBalChgOverStatusMacAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalChgOverStatusDownFreq": {
+    "name": "docsLoadBalChgOverStatusDownFreq",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000000000
+          }
+        ]
+      }
+    },
+    "units": "hertz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalChgOverStatusUpChnId": {
+    "name": "docsLoadBalChgOverStatusUpChnId",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalChgOverStatusInitTech": {
+    "name": "docsLoadBalChgOverStatusInitTech",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelChgInitTechMap",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalChgOverStatusCmd": {
+    "name": "docsLoadBalChgOverStatusCmd",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "any": 1,
+          "dcc": 2,
+          "ucc": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "any",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalChgOverStatusValue": {
+    "name": "docsLoadBalChgOverStatusValue",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "messageSent": 1,
+          "noOpNeeded": 2,
+          "modemDeparting": 3,
+          "waitToSendMessage": 4,
+          "cmOperationRejected": 5,
+          "cmtsOperationRejected": 6,
+          "timeOutT13": 7,
+          "timeOutT15": 8,
+          "rejectinit": 9,
+          "success": 10
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "waitToSendMessage",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalChgOverStatusUpdate": {
+    "name": "docsLoadBalChgOverStatusUpdate",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalGrpTable": {
+    "name": "docsLoadBalGrpTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalGrpEntry": {
+    "name": "docsLoadBalGrpEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalGrpId": {
+    "name": "docsLoadBalGrpId",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalGrpIsRestricted": {
+    "name": "docsLoadBalGrpIsRestricted",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalGrpInitTech": {
+    "name": "docsLoadBalGrpInitTech",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelChgInitTechMap",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalGrpDefaultPolicy": {
+    "name": "docsLoadBalGrpDefaultPolicy",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalGrpEnable": {
+    "name": "docsLoadBalGrpEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "true",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalGrpChgOverSuccess": {
+    "name": "docsLoadBalGrpChgOverSuccess",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalGrpChgOverFails": {
+    "name": "docsLoadBalGrpChgOverFails",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalGrpStatus": {
+    "name": "docsLoadBalGrpStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalChannelTable": {
+    "name": "docsLoadBalChannelTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalChannelEntry": {
+    "name": "docsLoadBalChannelEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChannelIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalChannelIfIndex": {
+    "name": "docsLoadBalChannelIfIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalChannelStatus": {
+    "name": "docsLoadBalChannelStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalChnPairsTable": {
+    "name": "docsLoadBalChnPairsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalChnPairsEntry": {
+    "name": "docsLoadBalChnPairsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChnPairsIfIndexDepart",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChnPairsIfIndexArrive",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalChnPairsIfIndexDepart": {
+    "name": "docsLoadBalChnPairsIfIndexDepart",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalChnPairsIfIndexArrive": {
+    "name": "docsLoadBalChnPairsIfIndexArrive",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalChnPairsOperStatus": {
+    "name": "docsLoadBalChnPairsOperStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "operational": 1,
+          "notOperational": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsLoadBalChnPairsInitTech": {
+    "name": "docsLoadBalChnPairsInitTech",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelChgInitTechMap",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalChnPairsRowStatus": {
+    "name": "docsLoadBalChnPairsRowStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalRestrictCmTable": {
+    "name": "docsLoadBalRestrictCmTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalRestrictCmEntry": {
+    "name": "docsLoadBalRestrictCmEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalRestrictCmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalRestrictCmIndex": {
+    "name": "docsLoadBalRestrictCmIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalRestrictCmMACAddr": {
+    "name": "docsLoadBalRestrictCmMACAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalRestrictCmMacAddrMask": {
+    "name": "docsLoadBalRestrictCmMacAddrMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalRestrictCmStatus": {
+    "name": "docsLoadBalRestrictCmStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalPolicyTable": {
+    "name": "docsLoadBalPolicyTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalPolicyEntry": {
+    "name": "docsLoadBalPolicyEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalPolicyId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalPolicyRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalPolicyId": {
+    "name": "docsLoadBalPolicyId",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalPolicyRuleId": {
+    "name": "docsLoadBalPolicyRuleId",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalPolicyRulePtr": {
+    "name": "docsLoadBalPolicyRulePtr",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalPolicyRowStatus": {
+    "name": "docsLoadBalPolicyRowStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalBasicRuleTable": {
+    "name": "docsLoadBalBasicRuleTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalBasicRuleEntry": {
+    "name": "docsLoadBalBasicRuleEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalBasicRuleId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalBasicRuleId": {
+    "name": "docsLoadBalBasicRuleId",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalBasicRuleEnable": {
+    "name": "docsLoadBalBasicRuleEnable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "disabledPeriod": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalBasicRuleDisStart": {
+    "name": "docsLoadBalBasicRuleDisStart",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalBasicRuleDisPeriod": {
+    "name": "docsLoadBalBasicRuleDisPeriod",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalBasicRuleRowStatus": {
+    "name": "docsLoadBalBasicRuleRowStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsLoadBalCmtsCmStatusTable": {
+    "name": "docsLoadBalCmtsCmStatusTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsLoadBalCmtsCmStatusEntry": {
+    "name": "docsLoadBalCmtsCmStatusEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "docsLoadBalCmtsCmStatusEntry",
+      "module": "DOCS-LOADBALANCING-MIB",
+      "object": "docsIfCmtsCmStatusEntry"
+    },
+    "status": "current"
+  },
+  "docsLoadBalCmtsCmStatusGroupId": {
+    "name": "docsLoadBalCmtsCmStatusGroupId",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadBalCmtsCmStatusPolicyId": {
+    "name": "docsLoadBalCmtsCmStatusPolicyId",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadBalCmtsCmStatusPriority": {
+    "name": "docsLoadBalCmtsCmStatusPriority",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsLoadBalConformance": {
+    "name": "docsLoadBalConformance",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.2",
+    "class": "objectidentity"
+  },
+  "docsLoadBalCompliances": {
+    "name": "docsLoadBalCompliances",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.2.1",
+    "class": "objectidentity"
+  },
+  "docsLoadBalGroups": {
+    "name": "docsLoadBalGroups",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.2.2",
+    "class": "objectidentity"
+  },
+  "docsLoadBalBasicCompliance": {
+    "name": "docsLoadBalBasicCompliance",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "docsLoadBalSystemGroup",
+        "module": "DOCS-LOADBALANCING-MIB"
+      },
+      {
+        "object": "docsLoadBalParametersGroup",
+        "module": "DOCS-LOADBALANCING-MIB"
+      },
+      {
+        "object": "docsLoadBalPoliciesGroup",
+        "module": "DOCS-LOADBALANCING-MIB"
+      },
+      {
+        "object": "docsLoadBalBasicRuleGroup",
+        "module": "DOCS-LOADBALANCING-MIB"
+      },
+      {
+        "object": "docsLoadBalCmtsCmStatusGroup",
+        "module": "DOCS-LOADBALANCING-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalSystemGroup": {
+    "name": "docsLoadBalSystemGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalEnable"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverMacAddress"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverDownFrequency"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverUpChannelId"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverInitTech"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverCmd"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverCommit"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverLastCommit"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverStatusMacAddr"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverStatusDownFreq"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverStatusUpChnId"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverStatusInitTech"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverStatusCmd"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverStatusValue"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChgOverStatusUpdate"
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalParametersGroup": {
+    "name": "docsLoadBalParametersGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpIsRestricted"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpInitTech"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpDefaultPolicy"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpEnable"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpChgOverSuccess"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpChgOverFails"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalGrpStatus"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChannelStatus"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChnPairsOperStatus"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChnPairsInitTech"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalChnPairsRowStatus"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalRestrictCmMACAddr"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalRestrictCmMacAddrMask"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalRestrictCmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalPoliciesGroup": {
+    "name": "docsLoadBalPoliciesGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalPolicyRulePtr"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalPolicyRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalBasicRuleGroup": {
+    "name": "docsLoadBalBasicRuleGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalBasicRuleEnable"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalBasicRuleDisStart"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalBasicRuleDisPeriod"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalBasicRuleRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "docsLoadBalCmtsCmStatusGroup": {
+    "name": "docsLoadBalCmtsCmStatusGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.2.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalCmtsCmStatusGroupId"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalCmtsCmStatusPolicyId"
+      },
+      {
+        "module": "DOCS-LOADBALANCING-MIB",
+        "object": "docsLoadBalCmtsCmStatusPriority"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-LOADBALANCING-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:26 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DOCS-LOADBALANCING-MIB"
+  }
+}

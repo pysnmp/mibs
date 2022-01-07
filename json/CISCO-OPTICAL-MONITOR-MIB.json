@@ -9,29 +9,29 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
       "Unsigned32",
-      "IpAddress",
+      "Counter32",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
+      "Counter64",
       "Bits",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TimeStamp",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoOpticalMonitorMIB": {
@@ -39,6 +39,10 @@
     "oid": "1.3.6.1.4.1.9.9.264",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2007-01-02 00:00",
+        "description": "Add cOpticalMonIfTimeGroup, cOpticalMIBEnableConfigGroup, cOpticalMIBIntervalConfigGroup, cOpticalMonThreshSourceGroup."
+      },
       {
         "revision": "2002-05-10 00:00",
         "description": "The initial revision of this MIB."
@@ -467,6 +471,24 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cOpticalParamThreshSource": {
+    "name": "cOpticalParamThreshSource",
+    "oid": "1.3.6.1.4.1.9.9.264.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "highAlarmDefThresh": 0,
+        "highWarnDefThresh": 1,
+        "lowAlarmDefThresh": 2,
+        "lowWarnDefThresh": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "cOpticalNotifyEnable": {
     "name": "cOpticalNotifyEnable",
     "oid": "1.3.6.1.4.1.9.9.264.1.1.2",
@@ -477,6 +499,70 @@
       "class": "type"
     },
     "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cOpticalMonEnable": {
+    "name": "cOpticalMonEnable",
+    "oid": "1.3.6.1.4.1.9.9.264.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "all": 0
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cOpticalMonPollInterval": {
+    "name": "cOpticalMonPollInterval",
+    "oid": "1.3.6.1.4.1.9.9.264.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cOpticalMonIfTable": {
+    "name": "cOpticalMonIfTable",
+    "oid": "1.3.6.1.4.1.9.9.264.1.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cOpticalMonIfEntry": {
+    "name": "cOpticalMonIfEntry",
+    "oid": "1.3.6.1.4.1.9.9.264.1.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cOpticalMonIfTimeInSlot": {
+    "name": "cOpticalMonIfTimeInSlot",
+    "oid": "1.3.6.1.4.1.9.9.264.1.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "cOpticalPMCurrentTable": {
@@ -881,6 +967,54 @@
         "module": "CISCO-OPTICAL-MONITOR-MIB"
       }
     ],
+    "status": "deprecated"
+  },
+  "cOpticalMonitorMIBComplianceRev": {
+    "name": "cOpticalMonitorMIBComplianceRev",
+    "oid": "1.3.6.1.4.1.9.9.264.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cOpticalMIBMonGroup",
+        "module": "CISCO-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "cOpticalMIBThresholdGroup",
+        "module": "CISCO-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "cOpticalMIBSeverityGroup",
+        "module": "CISCO-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "cOpticalMIBPMGroup",
+        "module": "CISCO-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "cOpticalMonIfTimeGroup",
+        "module": "CISCO-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "cOpticalMIBNotifyEnableGroup",
+        "module": "CISCO-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "cOpticalMIBNotifGroup",
+        "module": "CISCO-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "cOpticalMIBEnableConfigGroup",
+        "module": "CISCO-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "cOpticalMIBIntervalConfigGroup",
+        "module": "CISCO-OPTICAL-MONITOR-MIB"
+      },
+      {
+        "object": "cOpticalMonThreshSourceGroup",
+        "module": "CISCO-OPTICAL-MONITOR-MIB"
+      }
+    ],
     "status": "current"
   },
   "cOpticalMIBMonGroup": {
@@ -1031,11 +1165,59 @@
     ],
     "status": "current"
   },
+  "cOpticalMonIfTimeGroup": {
+    "name": "cOpticalMonIfTimeGroup",
+    "oid": "1.3.6.1.4.1.9.9.264.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MONITOR-MIB",
+        "object": "cOpticalMonIfTimeInSlot"
+      }
+    ],
+    "status": "current"
+  },
+  "cOpticalMIBEnableConfigGroup": {
+    "name": "cOpticalMIBEnableConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.264.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MONITOR-MIB",
+        "object": "cOpticalMonEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "cOpticalMIBIntervalConfigGroup": {
+    "name": "cOpticalMIBIntervalConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.264.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MONITOR-MIB",
+        "object": "cOpticalMonPollInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cOpticalMonThreshSourceGroup": {
+    "name": "cOpticalMonThreshSourceGroup",
+    "oid": "1.3.6.1.4.1.9.9.264.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-OPTICAL-MONITOR-MIB",
+        "object": "cOpticalParamThreshSource"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-OPTICAL-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:14 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:24 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-OPTICAL-MONITOR-MIB"

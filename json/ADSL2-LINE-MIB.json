@@ -1,0 +1,6528 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADSL2-LINE-TC-MIB": [
+      "Adsl2ConfPmsForce",
+      "Adsl2SymbolProtection",
+      "Adsl2InitResult",
+      "Adsl2LConfProfPmMode",
+      "Adsl2RfiDs",
+      "Adsl2RaMode",
+      "Adsl2PsdMaskUs",
+      "Adsl2OperationModes",
+      "Adsl2LineLdsf",
+      "Adsl2Tssi",
+      "Adsl2ChPtmStatus",
+      "Adsl2LastTransmittedState",
+      "Adsl2LineStatus",
+      "Adsl2MaxBer",
+      "Adsl2ScMaskDs",
+      "Adsl2Unit",
+      "Adsl2PsdMaskDs",
+      "Adsl2Direction",
+      "Adsl2PowerMngState",
+      "Adsl2ScMaskUs",
+      "Adsl2TransmissionModeType",
+      "Adsl2LdsfResult",
+      "Adsl2ChAtmStatus"
+    ],
+    "HC-PerfHist-TC-MIB": [
+      "HCPerfTimeElapsed",
+      "HCPerfIntervalThreshold"
+    ],
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "transmission",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString",
+      "TruthValue"
+    ]
+  },
+  "adsl2MIB": {
+    "name": "adsl2MIB",
+    "oid": "1.3.6.1.2.1.10.238",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2006-10-04 00:00",
+        "description": "Initial version, published as RFC 4706."
+      }
+    ]
+  },
+  "adsl2": {
+    "name": "adsl2",
+    "oid": "1.3.6.1.2.1.10.238.1",
+    "class": "objectidentity"
+  },
+  "adsl2Line": {
+    "name": "adsl2Line",
+    "oid": "1.3.6.1.2.1.10.238.1.1",
+    "class": "objectidentity"
+  },
+  "adsl2Status": {
+    "name": "adsl2Status",
+    "oid": "1.3.6.1.2.1.10.238.1.2",
+    "class": "objectidentity"
+  },
+  "adsl2Inventory": {
+    "name": "adsl2Inventory",
+    "oid": "1.3.6.1.2.1.10.238.1.3",
+    "class": "objectidentity"
+  },
+  "adsl2PM": {
+    "name": "adsl2PM",
+    "oid": "1.3.6.1.2.1.10.238.1.4",
+    "class": "objectidentity"
+  },
+  "adsl2Profile": {
+    "name": "adsl2Profile",
+    "oid": "1.3.6.1.2.1.10.238.1.5",
+    "class": "objectidentity"
+  },
+  "adsl2Scalar": {
+    "name": "adsl2Scalar",
+    "oid": "1.3.6.1.2.1.10.238.1.6",
+    "class": "objectidentity"
+  },
+  "adsl2Notifications": {
+    "name": "adsl2Notifications",
+    "oid": "1.3.6.1.2.1.10.238.1.0",
+    "class": "objectidentity"
+  },
+  "adsl2Conformance": {
+    "name": "adsl2Conformance",
+    "oid": "1.3.6.1.2.1.10.238.1.7",
+    "class": "objectidentity"
+  },
+  "adsl2PMLine": {
+    "name": "adsl2PMLine",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1",
+    "class": "objectidentity"
+  },
+  "adsl2PMChannel": {
+    "name": "adsl2PMChannel",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2",
+    "class": "objectidentity"
+  },
+  "adsl2ProfileLine": {
+    "name": "adsl2ProfileLine",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1",
+    "class": "objectidentity"
+  },
+  "adsl2ProfileChannel": {
+    "name": "adsl2ProfileChannel",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2",
+    "class": "objectidentity"
+  },
+  "adsl2ProfileAlarmConf": {
+    "name": "adsl2ProfileAlarmConf",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3",
+    "class": "objectidentity"
+  },
+  "adsl2ScalarSC": {
+    "name": "adsl2ScalarSC",
+    "oid": "1.3.6.1.2.1.10.238.1.6.1",
+    "class": "objectidentity"
+  },
+  "adsl2LineTable": {
+    "name": "adsl2LineTable",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LineEntry": {
+    "name": "adsl2LineEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineCnfgTemplate": {
+    "name": "adsl2LineCnfgTemplate",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "DEFVAL",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adsl2LineAlarmCnfgTemplate": {
+    "name": "adsl2LineAlarmCnfgTemplate",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "DEFVAL",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adsl2LineCmndConfPmsf": {
+    "name": "adsl2LineCmndConfPmsf",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2ConfPmsForce",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "l3toL0",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adsl2LineCmndConfLdsf": {
+    "name": "adsl2LineCmndConfLdsf",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2LineLdsf",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "inhibit",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adsl2LineCmndConfLdsfFailReason": {
+    "name": "adsl2LineCmndConfLdsfFailReason",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2LdsfResult",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineCmndAutomodeColdStart": {
+    "name": "adsl2LineCmndAutomodeColdStart",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "adsl2LineStatusAtuTransSys": {
+    "name": "adsl2LineStatusAtuTransSys",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2TransmissionModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusPwrMngState": {
+    "name": "adsl2LineStatusPwrMngState",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2PowerMngState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusInitResult": {
+    "name": "adsl2LineStatusInitResult",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2InitResult",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusLastStateDs": {
+    "name": "adsl2LineStatusLastStateDs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2LastTransmittedState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusLastStateUs": {
+    "name": "adsl2LineStatusLastStateUs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2LastTransmittedState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusAtur": {
+    "name": "adsl2LineStatusAtur",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2LineStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusAtuc": {
+    "name": "adsl2LineStatusAtuc",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2LineStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusLnAttenDs": {
+    "name": "adsl2LineStatusLnAttenDs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1270
+          },
+          {
+            "min": 2147483646,
+            "max": 2147483646
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusLnAttenUs": {
+    "name": "adsl2LineStatusLnAttenUs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1270
+          },
+          {
+            "min": 2147483646,
+            "max": 2147483646
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusSigAttenDs": {
+    "name": "adsl2LineStatusSigAttenDs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1270
+          },
+          {
+            "min": 2147483646,
+            "max": 2147483646
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusSigAttenUs": {
+    "name": "adsl2LineStatusSigAttenUs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1270
+          },
+          {
+            "min": 2147483646,
+            "max": 2147483646
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusSnrMarginDs": {
+    "name": "adsl2LineStatusSnrMarginDs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -640,
+            "max": 630
+          },
+          {
+            "min": 2147483646,
+            "max": 2147483646
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusSnrMarginUs": {
+    "name": "adsl2LineStatusSnrMarginUs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -640,
+            "max": 630
+          },
+          {
+            "min": 2147483646,
+            "max": 2147483646
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusAttainableRateDs": {
+    "name": "adsl2LineStatusAttainableRateDs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusAttainableRateUs": {
+    "name": "adsl2LineStatusAttainableRateUs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusActPsdDs": {
+    "name": "adsl2LineStatusActPsdDs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -900,
+            "max": 0
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusActPsdUs": {
+    "name": "adsl2LineStatusActPsdUs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -900,
+            "max": 0
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusActAtpDs": {
+    "name": "adsl2LineStatusActAtpDs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -310,
+            "max": 310
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineStatusActAtpUs": {
+    "name": "adsl2LineStatusActAtpUs",
+    "oid": "1.3.6.1.2.1.10.238.1.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -310,
+            "max": 310
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2ChannelStatusTable": {
+    "name": "adsl2ChannelStatusTable",
+    "oid": "1.3.6.1.2.1.10.238.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2ChannelStatusEntry": {
+    "name": "adsl2ChannelStatusEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChStatusUnit",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ChStatusUnit": {
+    "name": "adsl2ChStatusUnit",
+    "oid": "1.3.6.1.2.1.10.238.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2Unit",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2ChStatusChannelNum": {
+    "name": "adsl2ChStatusChannelNum",
+    "oid": "1.3.6.1.2.1.10.238.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2ChStatusActDataRate": {
+    "name": "adsl2ChStatusActDataRate",
+    "oid": "1.3.6.1.2.1.10.238.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2ChStatusPrevDataRate": {
+    "name": "adsl2ChStatusPrevDataRate",
+    "oid": "1.3.6.1.2.1.10.238.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2ChStatusActDelay": {
+    "name": "adsl2ChStatusActDelay",
+    "oid": "1.3.6.1.2.1.10.238.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 8176
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2ChStatusAtmStatus": {
+    "name": "adsl2ChStatusAtmStatus",
+    "oid": "1.3.6.1.2.1.10.238.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2ChAtmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2ChStatusPtmStatus": {
+    "name": "adsl2ChStatusPtmStatus",
+    "oid": "1.3.6.1.2.1.10.238.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2ChPtmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2ScalarSCMaxInterfaces": {
+    "name": "adsl2ScalarSCMaxInterfaces",
+    "oid": "1.3.6.1.2.1.10.238.1.6.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2ScalarSCAvailInterfaces": {
+    "name": "adsl2ScalarSCAvailInterfaces",
+    "oid": "1.3.6.1.2.1.10.238.1.6.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusTable": {
+    "name": "adsl2SCStatusTable",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2SCStatusEntry": {
+    "name": "adsl2SCStatusEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2SCStatusDirection": {
+    "name": "adsl2SCStatusDirection",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2Direction",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2SCStatusMtime": {
+    "name": "adsl2SCStatusMtime",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "symbols",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusSnr": {
+    "name": "adsl2SCStatusSnr",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusBitsAlloc": {
+    "name": "adsl2SCStatusBitsAlloc",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "units": "bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusGainAlloc": {
+    "name": "adsl2SCStatusGainAlloc",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusTssi": {
+    "name": "adsl2SCStatusTssi",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2Tssi",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusLinScale": {
+    "name": "adsl2SCStatusLinScale",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusLinReal": {
+    "name": "adsl2SCStatusLinReal",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusLinImg": {
+    "name": "adsl2SCStatusLinImg",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusLogMt": {
+    "name": "adsl2SCStatusLogMt",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusLog": {
+    "name": "adsl2SCStatusLog",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusQlnMt": {
+    "name": "adsl2SCStatusQlnMt",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusQln": {
+    "name": "adsl2SCStatusQln",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 512
+          }
+        ]
+      }
+    },
+    "units": "dBm/Hz",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusLnAtten": {
+    "name": "adsl2SCStatusLnAtten",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1270
+          },
+          {
+            "min": 2147483646,
+            "max": 2147483646
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusSigAtten": {
+    "name": "adsl2SCStatusSigAtten",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1270
+          },
+          {
+            "min": 2147483646,
+            "max": 2147483646
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusSnrMargin": {
+    "name": "adsl2SCStatusSnrMargin",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -640,
+            "max": 630
+          },
+          {
+            "min": 2147483646,
+            "max": 2147483646
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusAttainableRate": {
+    "name": "adsl2SCStatusAttainableRate",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusActAtp": {
+    "name": "adsl2SCStatusActAtp",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2SCStatusRowStatus": {
+    "name": "adsl2SCStatusRowStatus",
+    "oid": "1.3.6.1.2.1.10.238.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineInventoryTable": {
+    "name": "adsl2LineInventoryTable",
+    "oid": "1.3.6.1.2.1.10.238.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LineInventoryEntry": {
+    "name": "adsl2LineInventoryEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LInvUnit",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LInvUnit": {
+    "name": "adsl2LInvUnit",
+    "oid": "1.3.6.1.2.1.10.238.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2Unit",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LInvG994VendorId": {
+    "name": "adsl2LInvG994VendorId",
+    "oid": "1.3.6.1.2.1.10.238.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LInvSystemVendorId": {
+    "name": "adsl2LInvSystemVendorId",
+    "oid": "1.3.6.1.2.1.10.238.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LInvVersionNumber": {
+    "name": "adsl2LInvVersionNumber",
+    "oid": "1.3.6.1.2.1.10.238.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LInvSerialNumber": {
+    "name": "adsl2LInvSerialNumber",
+    "oid": "1.3.6.1.2.1.10.238.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LInvSelfTestResult": {
+    "name": "adsl2LInvSelfTestResult",
+    "oid": "1.3.6.1.2.1.10.238.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LInvTransmissionCapabilities": {
+    "name": "adsl2LInvTransmissionCapabilities",
+    "oid": "1.3.6.1.2.1.10.238.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2TransmissionModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LineConfTemplateTable": {
+    "name": "adsl2LineConfTemplateTable",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LineConfTemplateEntry": {
+    "name": "adsl2LineConfTemplateEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempTemplateName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LConfTempTemplateName": {
+    "name": "adsl2LConfTempTemplateName",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LConfTempLineProfile": {
+    "name": "adsl2LConfTempLineProfile",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "DEFVAL",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan1ConfProfile": {
+    "name": "adsl2LConfTempChan1ConfProfile",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "DEFVAL",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan1RaRatioDs": {
+    "name": "adsl2LConfTempChan1RaRatioDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan1RaRatioUs": {
+    "name": "adsl2LConfTempChan1RaRatioUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 100,
+        "format": "decimal"
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan2ConfProfile": {
+    "name": "adsl2LConfTempChan2ConfProfile",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan2RaRatioDs": {
+    "name": "adsl2LConfTempChan2RaRatioDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan2RaRatioUs": {
+    "name": "adsl2LConfTempChan2RaRatioUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan3ConfProfile": {
+    "name": "adsl2LConfTempChan3ConfProfile",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan3RaRatioDs": {
+    "name": "adsl2LConfTempChan3RaRatioDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan3RaRatioUs": {
+    "name": "adsl2LConfTempChan3RaRatioUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan4ConfProfile": {
+    "name": "adsl2LConfTempChan4ConfProfile",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan4RaRatioDs": {
+    "name": "adsl2LConfTempChan4RaRatioDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempChan4RaRatioUs": {
+    "name": "adsl2LConfTempChan4RaRatioUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "units": "percent",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfTempRowStatus": {
+    "name": "adsl2LConfTempRowStatus",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineConfProfTable": {
+    "name": "adsl2LineConfProfTable",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LineConfProfEntry": {
+    "name": "adsl2LineConfProfEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LConfProfProfileName": {
+    "name": "adsl2LConfProfProfileName",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LConfProfScMaskDs": {
+    "name": "adsl2LConfProfScMaskDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2ScMaskDs",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfScMaskUs": {
+    "name": "adsl2LConfProfScMaskUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2ScMaskUs",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRfiBandsDs": {
+    "name": "adsl2LConfProfRfiBandsDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2RfiDs",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRaModeDs": {
+    "name": "adsl2LConfProfRaModeDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2RaMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "manual",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRaModeUs": {
+    "name": "adsl2LConfProfRaModeUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2RaMode",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "manual",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRaUsNrmDs": {
+    "name": "adsl2LConfProfRaUsNrmDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRaUsNrmUs": {
+    "name": "adsl2LConfProfRaUsNrmUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRaUsTimeDs": {
+    "name": "adsl2LConfProfRaUsTimeDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRaUsTimeUs": {
+    "name": "adsl2LConfProfRaUsTimeUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRaDsNrmsDs": {
+    "name": "adsl2LConfProfRaDsNrmsDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRaDsNrmsUs": {
+    "name": "adsl2LConfProfRaDsNrmsUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRaDsTimeDs": {
+    "name": "adsl2LConfProfRaDsTimeDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRaDsTimeUs": {
+    "name": "adsl2LConfProfRaDsTimeUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3600,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfTargetSnrmDs": {
+    "name": "adsl2LConfProfTargetSnrmDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfTargetSnrmUs": {
+    "name": "adsl2LConfProfTargetSnrmUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfMaxSnrmDs": {
+    "name": "adsl2LConfProfMaxSnrmDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 310,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfMaxSnrmUs": {
+    "name": "adsl2LConfProfMaxSnrmUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 310,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfMinSnrmDs": {
+    "name": "adsl2LConfProfMinSnrmDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfMinSnrmUs": {
+    "name": "adsl2LConfProfMinSnrmUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 310
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfMsgMinUs": {
+    "name": "adsl2LConfProfMsgMinUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4000,
+            "max": 63000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4000,
+        "format": "decimal"
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfMsgMinDs": {
+    "name": "adsl2LConfProfMsgMinDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4000,
+            "max": 63000
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4000,
+        "format": "decimal"
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfAtuTransSysEna": {
+    "name": "adsl2LConfProfAtuTransSysEna",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2TransmissionModeType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfPmMode": {
+    "name": "adsl2LConfProfPmMode",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2LConfProfPmMode",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfL0Time": {
+    "name": "adsl2LConfProfL0Time",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfL2Time": {
+    "name": "adsl2LConfProfL2Time",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfL2Atpr": {
+    "name": "adsl2LConfProfL2Atpr",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfL2Atprt": {
+    "name": "adsl2LConfProfL2Atprt",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 31,
+        "format": "decimal"
+      }
+    },
+    "units": "dB",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfRowStatus": {
+    "name": "adsl2LConfProfRowStatus",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineConfProfModeSpecTable": {
+    "name": "adsl2LineConfProfModeSpecTable",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LineConfProfModeSpecEntry": {
+    "name": "adsl2LineConfProfModeSpecEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfProfileName",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfAdslMode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LConfProfAdslMode": {
+    "name": "adsl2LConfProfAdslMode",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2OperationModes",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LConfProfMaxNomPsdDs": {
+    "name": "adsl2LConfProfMaxNomPsdDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -600,
+            "max": -300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -300,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dBm/Hz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfMaxNomPsdUs": {
+    "name": "adsl2LConfProfMaxNomPsdUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -600,
+            "max": -300
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": -300,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dBm/Hz",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfMaxNomAtpDs": {
+    "name": "adsl2LConfProfMaxNomAtpDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfMaxNomAtpUs": {
+    "name": "adsl2LConfProfMaxNomAtpUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfMaxAggRxPwrUs": {
+    "name": "adsl2LConfProfMaxAggRxPwrUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -255,
+            "max": 255
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 255,
+        "format": "decimal"
+      }
+    },
+    "units": "0.1 dBm",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfPsdMaskDs": {
+    "name": "adsl2LConfProfPsdMaskDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2PsdMaskDs",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfPsdMaskUs": {
+    "name": "adsl2LConfProfPsdMaskUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2PsdMaskUs",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfPsdMaskSelectUs": {
+    "name": "adsl2LConfProfPsdMaskSelectUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 9
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LConfProfModeSpecRowStatus": {
+    "name": "adsl2LConfProfModeSpecRowStatus",
+    "oid": "1.3.6.1.2.1.10.238.1.5.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfileTable": {
+    "name": "adsl2ChConfProfileTable",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2ChConfProfileEntry": {
+    "name": "adsl2ChConfProfileEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ChConfProfProfileName": {
+    "name": "adsl2ChConfProfProfileName",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2ChConfProfMinDataRateDs": {
+    "name": "adsl2ChConfProfMinDataRateDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMinDataRateUs": {
+    "name": "adsl2ChConfProfMinDataRateUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMinResDataRateDs": {
+    "name": "adsl2ChConfProfMinResDataRateDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMinResDataRateUs": {
+    "name": "adsl2ChConfProfMinResDataRateUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMaxDataRateDs": {
+    "name": "adsl2ChConfProfMaxDataRateDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMaxDataRateUs": {
+    "name": "adsl2ChConfProfMaxDataRateUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMinDataRateLowPwrDs": {
+    "name": "adsl2ChConfProfMinDataRateLowPwrDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMaxDelayDs": {
+    "name": "adsl2ChConfProfMaxDelayDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMaxDelayUs": {
+    "name": "adsl2ChConfProfMaxDelayUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMinProtectionDs": {
+    "name": "adsl2ChConfProfMinProtectionDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2SymbolProtection",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noProtection",
+        "format": "enum"
+      }
+    },
+    "units": "symbols",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMinProtectionUs": {
+    "name": "adsl2ChConfProfMinProtectionUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2SymbolProtection",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "noProtection",
+        "format": "enum"
+      }
+    },
+    "units": "symbols",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMaxBerDs": {
+    "name": "adsl2ChConfProfMaxBerDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2MaxBer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "eminus5",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfMaxBerUs": {
+    "name": "adsl2ChConfProfMaxBerUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2MaxBer",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "eminus5",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfUsDataRateDs": {
+    "name": "adsl2ChConfProfUsDataRateDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfDsDataRateDs": {
+    "name": "adsl2ChConfProfDsDataRateDs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfUsDataRateUs": {
+    "name": "adsl2ChConfProfUsDataRateUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfDsDataRateUs": {
+    "name": "adsl2ChConfProfDsDataRateUs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 200000000
+          }
+        ]
+      }
+    },
+    "units": "bits/second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfImaEnabled": {
+    "name": "adsl2ChConfProfImaEnabled",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChConfProfRowStatus": {
+    "name": "adsl2ChConfProfRowStatus",
+    "oid": "1.3.6.1.2.1.10.238.1.5.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfTemplateTable": {
+    "name": "adsl2LineAlarmConfTemplateTable",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfTemplateEntry": {
+    "name": "adsl2LineAlarmConfTemplateEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LAlarmConfTempTemplateName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LAlarmConfTempTemplateName": {
+    "name": "adsl2LAlarmConfTempTemplateName",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LAlarmConfTempLineProfile": {
+    "name": "adsl2LAlarmConfTempLineProfile",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "DEFVAL",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LAlarmConfTempChan1ConfProfile": {
+    "name": "adsl2LAlarmConfTempChan1ConfProfile",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "DEFVAL",
+        "format": "string"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LAlarmConfTempChan2ConfProfile": {
+    "name": "adsl2LAlarmConfTempChan2ConfProfile",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LAlarmConfTempChan3ConfProfile": {
+    "name": "adsl2LAlarmConfTempChan3ConfProfile",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LAlarmConfTempChan4ConfProfile": {
+    "name": "adsl2LAlarmConfTempChan4ConfProfile",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LAlarmConfTempRowStatus": {
+    "name": "adsl2LAlarmConfTempRowStatus",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileTable": {
+    "name": "adsl2LineAlarmConfProfileTable",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileEntry": {
+    "name": "adsl2LineAlarmConfProfileEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileName": {
+    "name": "adsl2LineAlarmConfProfileName",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileAtucThresh15MinFecs": {
+    "name": "adsl2LineAlarmConfProfileAtucThresh15MinFecs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileAtucThresh15MinEs": {
+    "name": "adsl2LineAlarmConfProfileAtucThresh15MinEs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileAtucThresh15MinSes": {
+    "name": "adsl2LineAlarmConfProfileAtucThresh15MinSes",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileAtucThresh15MinLoss": {
+    "name": "adsl2LineAlarmConfProfileAtucThresh15MinLoss",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileAtucThresh15MinUas": {
+    "name": "adsl2LineAlarmConfProfileAtucThresh15MinUas",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileAturThresh15MinFecs": {
+    "name": "adsl2LineAlarmConfProfileAturThresh15MinFecs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileAturThresh15MinEs": {
+    "name": "adsl2LineAlarmConfProfileAturThresh15MinEs",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileAturThresh15MinSes": {
+    "name": "adsl2LineAlarmConfProfileAturThresh15MinSes",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileAturThresh15MinLoss": {
+    "name": "adsl2LineAlarmConfProfileAturThresh15MinLoss",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileAturThresh15MinUas": {
+    "name": "adsl2LineAlarmConfProfileAturThresh15MinUas",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfIntervalThreshold",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileThresh15MinFailedFullInt": {
+    "name": "adsl2LineAlarmConfProfileThresh15MinFailedFullInt",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileThresh15MinFailedShrtInt": {
+    "name": "adsl2LineAlarmConfProfileThresh15MinFailedShrtInt",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileRowStatus": {
+    "name": "adsl2LineAlarmConfProfileRowStatus",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChAlarmConfProfileTable": {
+    "name": "adsl2ChAlarmConfProfileTable",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2ChAlarmConfProfileEntry": {
+    "name": "adsl2ChAlarmConfProfileEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChAlarmConfProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ChAlarmConfProfileName": {
+    "name": "adsl2ChAlarmConfProfileName",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2ChAlarmConfProfileAtucThresh15MinCodingViolations": {
+    "name": "adsl2ChAlarmConfProfileAtucThresh15MinCodingViolations",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChAlarmConfProfileAtucThresh15MinCorrected": {
+    "name": "adsl2ChAlarmConfProfileAtucThresh15MinCorrected",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChAlarmConfProfileAturThresh15MinCodingViolations": {
+    "name": "adsl2ChAlarmConfProfileAturThresh15MinCodingViolations",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChAlarmConfProfileAturThresh15MinCorrected": {
+    "name": "adsl2ChAlarmConfProfileAturThresh15MinCorrected",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2ChAlarmConfProfileRowStatus": {
+    "name": "adsl2ChAlarmConfProfileRowStatus",
+    "oid": "1.3.6.1.2.1.10.238.1.5.3.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "adsl2PMLineCurrTable": {
+    "name": "adsl2PMLineCurrTable",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLineCurrEntry": {
+    "name": "adsl2PMLineCurrEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrUnit",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLCurrUnit": {
+    "name": "adsl2PMLCurrUnit",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2Unit",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLCurrValidIntervals": {
+    "name": "adsl2PMLCurrValidIntervals",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurrInvalidIntervals": {
+    "name": "adsl2PMLCurrInvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr15MTimeElapsed": {
+    "name": "adsl2PMLCurr15MTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr15MFecs": {
+    "name": "adsl2PMLCurr15MFecs",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr15MEs": {
+    "name": "adsl2PMLCurr15MEs",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr15MSes": {
+    "name": "adsl2PMLCurr15MSes",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr15MLoss": {
+    "name": "adsl2PMLCurr15MLoss",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr15MUas": {
+    "name": "adsl2PMLCurr15MUas",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr1DayValidIntervals": {
+    "name": "adsl2PMLCurr1DayValidIntervals",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr1DayInvalidIntervals": {
+    "name": "adsl2PMLCurr1DayInvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr1DayTimeElapsed": {
+    "name": "adsl2PMLCurr1DayTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr1DayFecs": {
+    "name": "adsl2PMLCurr1DayFecs",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr1DayEs": {
+    "name": "adsl2PMLCurr1DayEs",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr1DaySes": {
+    "name": "adsl2PMLCurr1DaySes",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr1DayLoss": {
+    "name": "adsl2PMLCurr1DayLoss",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurr1DayUas": {
+    "name": "adsl2PMLCurr1DayUas",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLineCurrInitTable": {
+    "name": "adsl2PMLineCurrInitTable",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLineCurrInitEntry": {
+    "name": "adsl2PMLineCurrInitEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLCurrInit15MTimeElapsed": {
+    "name": "adsl2PMLCurrInit15MTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurrInit15MFullInits": {
+    "name": "adsl2PMLCurrInit15MFullInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurrInit15MFailedFullInits": {
+    "name": "adsl2PMLCurrInit15MFailedFullInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurrInit15MShortInits": {
+    "name": "adsl2PMLCurrInit15MShortInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurrInit15MFailedShortInits": {
+    "name": "adsl2PMLCurrInit15MFailedShortInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurrInit1DayTimeElapsed": {
+    "name": "adsl2PMLCurrInit1DayTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurrInit1DayFullInits": {
+    "name": "adsl2PMLCurrInit1DayFullInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurrInit1DayFailedFullInits": {
+    "name": "adsl2PMLCurrInit1DayFailedFullInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurrInit1DayShortInits": {
+    "name": "adsl2PMLCurrInit1DayShortInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLCurrInit1DayFailedShortInits": {
+    "name": "adsl2PMLCurrInit1DayFailedShortInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLineHist15MinTable": {
+    "name": "adsl2PMLineHist15MinTable",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLineHist15MinEntry": {
+    "name": "adsl2PMLineHist15MinEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist15MUnit",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist15MInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLHist15MUnit": {
+    "name": "adsl2PMLHist15MUnit",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2Unit",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLHist15MInterval": {
+    "name": "adsl2PMLHist15MInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLHist15MMonitoredTime": {
+    "name": "adsl2PMLHist15MMonitoredTime",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist15MFecs": {
+    "name": "adsl2PMLHist15MFecs",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist15MEs": {
+    "name": "adsl2PMLHist15MEs",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist15MSes": {
+    "name": "adsl2PMLHist15MSes",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist15MLoss": {
+    "name": "adsl2PMLHist15MLoss",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist15MUas": {
+    "name": "adsl2PMLHist15MUas",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist15MValidInterval": {
+    "name": "adsl2PMLHist15MValidInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLineHist1DayTable": {
+    "name": "adsl2PMLineHist1DayTable",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLineHist1DayEntry": {
+    "name": "adsl2PMLineHist1DayEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist1DUnit",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist1DInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLHist1DUnit": {
+    "name": "adsl2PMLHist1DUnit",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2Unit",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLHist1DInterval": {
+    "name": "adsl2PMLHist1DInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLHist1DMonitoredTime": {
+    "name": "adsl2PMLHist1DMonitoredTime",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist1DFecs": {
+    "name": "adsl2PMLHist1DFecs",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist1DEs": {
+    "name": "adsl2PMLHist1DEs",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist1DSes": {
+    "name": "adsl2PMLHist1DSes",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist1DLoss": {
+    "name": "adsl2PMLHist1DLoss",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist1DUas": {
+    "name": "adsl2PMLHist1DUas",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHist1DValidInterval": {
+    "name": "adsl2PMLHist1DValidInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLineInitHist15MinTable": {
+    "name": "adsl2PMLineInitHist15MinTable",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLineInitHist15MinEntry": {
+    "name": "adsl2PMLineInitHist15MinEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistInit15MInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLHistInit15MInterval": {
+    "name": "adsl2PMLHistInit15MInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLHistInit15MMonitoredTime": {
+    "name": "adsl2PMLHistInit15MMonitoredTime",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHistInit15MFullInits": {
+    "name": "adsl2PMLHistInit15MFullInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHistInit15MFailedFullInits": {
+    "name": "adsl2PMLHistInit15MFailedFullInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHistInit15MShortInits": {
+    "name": "adsl2PMLHistInit15MShortInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHistInit15MFailedShortInits": {
+    "name": "adsl2PMLHistInit15MFailedShortInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHistInit15MValidInterval": {
+    "name": "adsl2PMLHistInit15MValidInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLineInitHist1DayTable": {
+    "name": "adsl2PMLineInitHist1DayTable",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLineInitHist1DayEntry": {
+    "name": "adsl2PMLineInitHist1DayEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistinit1DInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLHistinit1DInterval": {
+    "name": "adsl2PMLHistinit1DInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMLHistinit1DMonitoredTime": {
+    "name": "adsl2PMLHistinit1DMonitoredTime",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHistinit1DFullInits": {
+    "name": "adsl2PMLHistinit1DFullInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHistinit1DFailedFullInits": {
+    "name": "adsl2PMLHistinit1DFailedFullInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHistinit1DShortInits": {
+    "name": "adsl2PMLHistinit1DShortInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHistinit1DFailedShortInits": {
+    "name": "adsl2PMLHistinit1DFailedShortInits",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMLHistinit1DValidInterval": {
+    "name": "adsl2PMLHistinit1DValidInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChCurrTable": {
+    "name": "adsl2PMChCurrTable",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMChCurrEntry": {
+    "name": "adsl2PMChCurrEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurrUnit",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMChCurrUnit": {
+    "name": "adsl2PMChCurrUnit",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2Unit",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMChCurrValidIntervals": {
+    "name": "adsl2PMChCurrValidIntervals",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChCurrInvalidIntervals": {
+    "name": "adsl2PMChCurrInvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChCurr15MTimeElapsed": {
+    "name": "adsl2PMChCurr15MTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChCurr15MCodingViolations": {
+    "name": "adsl2PMChCurr15MCodingViolations",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChCurr15MCorrectedBlocks": {
+    "name": "adsl2PMChCurr15MCorrectedBlocks",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChCurr1DayValidIntervals": {
+    "name": "adsl2PMChCurr1DayValidIntervals",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChCurr1DayInvalidIntervals": {
+    "name": "adsl2PMChCurr1DayInvalidIntervals",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChCurr1DayTimeElapsed": {
+    "name": "adsl2PMChCurr1DayTimeElapsed",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HCPerfTimeElapsed",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChCurr1DayCodingViolations": {
+    "name": "adsl2PMChCurr1DayCodingViolations",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChCurr1DayCorrectedBlocks": {
+    "name": "adsl2PMChCurr1DayCorrectedBlocks",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChHist15MinTable": {
+    "name": "adsl2PMChHist15MinTable",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMChHist15MinEntry": {
+    "name": "adsl2PMChHist15MinEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist15MUnit",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist15MInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMChHist15MUnit": {
+    "name": "adsl2PMChHist15MUnit",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2Unit",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMChHist15MInterval": {
+    "name": "adsl2PMChHist15MInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 96
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMChHist15MMonitoredTime": {
+    "name": "adsl2PMChHist15MMonitoredTime",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChHist15MCodingViolations": {
+    "name": "adsl2PMChHist15MCodingViolations",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChHist15MCorrectedBlocks": {
+    "name": "adsl2PMChHist15MCorrectedBlocks",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChHist15MValidInterval": {
+    "name": "adsl2PMChHist15MValidInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChHist1DTable": {
+    "name": "adsl2PMChHist1DTable",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMChHist1DEntry": {
+    "name": "adsl2PMChHist1DEntry",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist1DUnit",
+        "implied": 0
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist1DInterval",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMChHist1DUnit": {
+    "name": "adsl2PMChHist1DUnit",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Adsl2Unit",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMChHist1DInterval": {
+    "name": "adsl2PMChHist1DInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "adsl2PMChHist1DMonitoredTime": {
+    "name": "adsl2PMChHist1DMonitoredTime",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChHist1DCodingViolations": {
+    "name": "adsl2PMChHist1DCodingViolations",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChHist1DCorrectedBlocks": {
+    "name": "adsl2PMChHist1DCorrectedBlocks",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2PMChHist1DValidInterval": {
+    "name": "adsl2PMChHist1DValidInterval",
+    "oid": "1.3.6.1.2.1.10.238.1.4.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "adsl2LinePerfFECSThreshAtuc": {
+    "name": "adsl2LinePerfFECSThreshAtuc",
+    "oid": "1.3.6.1.2.1.10.238.1.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MFecs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAtucThresh15MinFecs"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfFECSThreshAtur": {
+    "name": "adsl2LinePerfFECSThreshAtur",
+    "oid": "1.3.6.1.2.1.10.238.1.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MFecs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAturThresh15MinFecs"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfESThreshAtuc": {
+    "name": "adsl2LinePerfESThreshAtuc",
+    "oid": "1.3.6.1.2.1.10.238.1.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MEs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAtucThresh15MinEs"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfESThreshAtur": {
+    "name": "adsl2LinePerfESThreshAtur",
+    "oid": "1.3.6.1.2.1.10.238.1.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MEs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAturThresh15MinEs"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfSESThreshAtuc": {
+    "name": "adsl2LinePerfSESThreshAtuc",
+    "oid": "1.3.6.1.2.1.10.238.1.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MSes"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAtucThresh15MinSes"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfSESThreshAtur": {
+    "name": "adsl2LinePerfSESThreshAtur",
+    "oid": "1.3.6.1.2.1.10.238.1.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MSes"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAturThresh15MinSes"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfLOSSThreshAtuc": {
+    "name": "adsl2LinePerfLOSSThreshAtuc",
+    "oid": "1.3.6.1.2.1.10.238.1.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MLoss"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAtucThresh15MinLoss"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfLOSSThreshAtur": {
+    "name": "adsl2LinePerfLOSSThreshAtur",
+    "oid": "1.3.6.1.2.1.10.238.1.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MLoss"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAturThresh15MinLoss"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfUASThreshAtuc": {
+    "name": "adsl2LinePerfUASThreshAtuc",
+    "oid": "1.3.6.1.2.1.10.238.1.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MUas"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAtucThresh15MinUas"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfUASThreshAtur": {
+    "name": "adsl2LinePerfUASThreshAtur",
+    "oid": "1.3.6.1.2.1.10.238.1.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MUas"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAturThresh15MinUas"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfCodingViolationsThreshAtuc": {
+    "name": "adsl2LinePerfCodingViolationsThreshAtuc",
+    "oid": "1.3.6.1.2.1.10.238.1.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr15MCodingViolations"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChAlarmConfProfileAtucThresh15MinCodingViolations"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfCodingViolationsThreshAtur": {
+    "name": "adsl2LinePerfCodingViolationsThreshAtur",
+    "oid": "1.3.6.1.2.1.10.238.1.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr15MCodingViolations"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChAlarmConfProfileAturThresh15MinCodingViolations"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfCorrectedThreshAtuc": {
+    "name": "adsl2LinePerfCorrectedThreshAtuc",
+    "oid": "1.3.6.1.2.1.10.238.1.0.13",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr15MCorrectedBlocks"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChAlarmConfProfileAtucThresh15MinCorrected"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfCorrectedThreshAtur": {
+    "name": "adsl2LinePerfCorrectedThreshAtur",
+    "oid": "1.3.6.1.2.1.10.238.1.0.14",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr15MCorrectedBlocks"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChAlarmConfProfileAturThresh15MinCorrected"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfFailedFullInitThresh": {
+    "name": "adsl2LinePerfFailedFullInitThresh",
+    "oid": "1.3.6.1.2.1.10.238.1.0.15",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit15MFailedFullInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileThresh15MinFailedFullInt"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LinePerfFailedShortInitThresh": {
+    "name": "adsl2LinePerfFailedShortInitThresh",
+    "oid": "1.3.6.1.2.1.10.238.1.0.16",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit15MFailedShortInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileThresh15MinFailedShrtInt"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineStatusChangeAtuc": {
+    "name": "adsl2LineStatusChangeAtuc",
+    "oid": "1.3.6.1.2.1.10.238.1.0.17",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusAtuc"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineStatusChangeAtur": {
+    "name": "adsl2LineStatusChangeAtur",
+    "oid": "1.3.6.1.2.1.10.238.1.0.18",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusAtur"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2Groups": {
+    "name": "adsl2Groups",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1",
+    "class": "objectidentity"
+  },
+  "adsl2Compliances": {
+    "name": "adsl2Compliances",
+    "oid": "1.3.6.1.2.1.10.238.1.7.2",
+    "class": "objectidentity"
+  },
+  "adsl2LineMibCompliance": {
+    "name": "adsl2LineMibCompliance",
+    "oid": "1.3.6.1.2.1.10.238.1.7.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "adsl2LineGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2ChannelStatusGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2SCStatusGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2LineInventoryGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2LineConfTemplateGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2LineConfProfGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2LineConfProfModeSpecGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2ChConfProfileGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2LineAlarmConfTemplateGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMLineCurrGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMLineCurrInitGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMLineHist15MinGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMLineHist1DayGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMLineInitHist15MinGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMLineInitHist1DayGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMChCurrGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMChHist15MinGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMChHist1DGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2ChannelStatusAtmGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2ChannelStatusPtmGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2LineConfProfRaGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2LineConfProfMsgMinGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2LineAlarmConfProfileGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2ChAlarmConfProfileGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2ChConfProfileAtmGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2ChConfProfileMinResGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMLineCurrInitShortGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMLineInitHist15MinShortGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2PMLineInitHist1DayShortGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2ScalarSCGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2ThreshNotificationGroup",
+        "module": "ADSL2-LINE-MIB"
+      },
+      {
+        "object": "adsl2StatusChangeNotificationGroup",
+        "module": "ADSL2-LINE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineGroup": {
+    "name": "adsl2LineGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineCnfgTemplate"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmCnfgTemplate"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineCmndConfPmsf"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineCmndConfLdsf"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineCmndConfLdsfFailReason"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineCmndAutomodeColdStart"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusAtuTransSys"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusPwrMngState"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusInitResult"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusLastStateDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusLastStateUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusAtur"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusAtuc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusLnAttenDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusLnAttenUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusSigAttenDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusSigAttenUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusSnrMarginDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusSnrMarginUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusAttainableRateDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusAttainableRateUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusActPsdDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusActPsdUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusActAtpDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusActAtpUs"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ChannelStatusGroup": {
+    "name": "adsl2ChannelStatusGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChStatusChannelNum"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChStatusActDataRate"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChStatusPrevDataRate"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChStatusActDelay"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ChannelStatusAtmGroup": {
+    "name": "adsl2ChannelStatusAtmGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChStatusAtmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ChannelStatusPtmGroup": {
+    "name": "adsl2ChannelStatusPtmGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChStatusPtmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2SCStatusGroup": {
+    "name": "adsl2SCStatusGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusMtime"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusSnr"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusBitsAlloc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusGainAlloc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusTssi"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusLinScale"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusLinReal"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusLinImg"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusLogMt"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusLog"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusQlnMt"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusQln"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusLnAtten"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusSigAtten"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusSnrMargin"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusAttainableRate"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusActAtp"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2SCStatusRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineInventoryGroup": {
+    "name": "adsl2LineInventoryGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LInvG994VendorId"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LInvSystemVendorId"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LInvVersionNumber"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LInvSerialNumber"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LInvSelfTestResult"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LInvTransmissionCapabilities"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineConfTemplateGroup": {
+    "name": "adsl2LineConfTemplateGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempLineProfile"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan1ConfProfile"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan1RaRatioDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan1RaRatioUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan2ConfProfile"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan2RaRatioDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan2RaRatioUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan3ConfProfile"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan3RaRatioDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan3RaRatioUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan4ConfProfile"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan4RaRatioDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempChan4RaRatioUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfTempRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineConfProfGroup": {
+    "name": "adsl2LineConfProfGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfScMaskDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfScMaskUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRfiBandsDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRaModeDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRaModeUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfTargetSnrmDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfTargetSnrmUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMaxSnrmDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMaxSnrmUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMinSnrmDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMinSnrmUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfAtuTransSysEna"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfPmMode"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfL0Time"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfL2Time"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfL2Atpr"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfL2Atprt"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineConfProfRaGroup": {
+    "name": "adsl2LineConfProfRaGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRaUsNrmDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRaUsNrmUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRaUsTimeDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRaUsTimeUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRaDsNrmsDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRaDsNrmsUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRaDsTimeDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfRaDsTimeUs"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineConfProfMsgMinGroup": {
+    "name": "adsl2LineConfProfMsgMinGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMsgMinUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMsgMinDs"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineConfProfModeSpecGroup": {
+    "name": "adsl2LineConfProfModeSpecGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMaxNomPsdDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMaxNomPsdUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMaxNomAtpDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMaxNomAtpUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfMaxAggRxPwrUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfPsdMaskDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfPsdMaskUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfPsdMaskSelectUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LConfProfModeSpecRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ChConfProfileGroup": {
+    "name": "adsl2ChConfProfileGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMinDataRateDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMinDataRateUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMaxDataRateDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMaxDataRateUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMinDataRateLowPwrDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMaxDelayDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMaxDelayUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMinProtectionDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMinProtectionUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMaxBerDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMaxBerUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfUsDataRateDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfDsDataRateDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfUsDataRateUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfDsDataRateUs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ChConfProfileAtmGroup": {
+    "name": "adsl2ChConfProfileAtmGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfImaEnabled"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChStatusAtmStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ChConfProfileMinResGroup": {
+    "name": "adsl2ChConfProfileMinResGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMinResDataRateDs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChConfProfMinResDataRateUs"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineAlarmConfTemplateGroup": {
+    "name": "adsl2LineAlarmConfTemplateGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LAlarmConfTempLineProfile"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LAlarmConfTempChan1ConfProfile"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LAlarmConfTempChan2ConfProfile"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LAlarmConfTempChan3ConfProfile"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LAlarmConfTempChan4ConfProfile"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LAlarmConfTempRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2LineAlarmConfProfileGroup": {
+    "name": "adsl2LineAlarmConfProfileGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAtucThresh15MinFecs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAtucThresh15MinEs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAtucThresh15MinSes"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAtucThresh15MinLoss"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAtucThresh15MinUas"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAturThresh15MinFecs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAturThresh15MinEs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAturThresh15MinSes"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAturThresh15MinLoss"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileAturThresh15MinUas"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileThresh15MinFailedFullInt"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileThresh15MinFailedShrtInt"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineAlarmConfProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ChAlarmConfProfileGroup": {
+    "name": "adsl2ChAlarmConfProfileGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.17",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChAlarmConfProfileAtucThresh15MinCodingViolations"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChAlarmConfProfileAtucThresh15MinCorrected"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChAlarmConfProfileAturThresh15MinCodingViolations"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChAlarmConfProfileAturThresh15MinCorrected"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ChAlarmConfProfileRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLineCurrGroup": {
+    "name": "adsl2PMLineCurrGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.18",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrValidIntervals"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInvalidIntervals"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MTimeElapsed"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MFecs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MEs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MSes"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MLoss"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr15MUas"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr1DayValidIntervals"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr1DayInvalidIntervals"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr1DayTimeElapsed"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr1DayFecs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr1DayEs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr1DaySes"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr1DayLoss"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurr1DayUas"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLineCurrInitGroup": {
+    "name": "adsl2PMLineCurrInitGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.19",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit15MTimeElapsed"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit15MFullInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit15MFailedFullInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit1DayTimeElapsed"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit1DayFullInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit1DayFailedFullInits"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLineCurrInitShortGroup": {
+    "name": "adsl2PMLineCurrInitShortGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit15MShortInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit15MFailedShortInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit1DayShortInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLCurrInit1DayFailedShortInits"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLineHist15MinGroup": {
+    "name": "adsl2PMLineHist15MinGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist15MMonitoredTime"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist15MFecs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist15MEs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist15MSes"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist15MLoss"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist15MUas"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist15MValidInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLineHist1DayGroup": {
+    "name": "adsl2PMLineHist1DayGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist1DMonitoredTime"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist1DFecs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist1DEs"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist1DSes"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist1DLoss"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist1DUas"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHist1DValidInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLineInitHist15MinGroup": {
+    "name": "adsl2PMLineInitHist15MinGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistInit15MMonitoredTime"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistInit15MFullInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistInit15MFailedFullInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistInit15MValidInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLineInitHist15MinShortGroup": {
+    "name": "adsl2PMLineInitHist15MinShortGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistInit15MShortInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistInit15MFailedShortInits"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLineInitHist1DayGroup": {
+    "name": "adsl2PMLineInitHist1DayGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistinit1DMonitoredTime"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistinit1DFullInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistinit1DFailedFullInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistinit1DValidInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMLineInitHist1DayShortGroup": {
+    "name": "adsl2PMLineInitHist1DayShortGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistinit1DShortInits"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMLHistinit1DFailedShortInits"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMChCurrGroup": {
+    "name": "adsl2PMChCurrGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurrValidIntervals"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurrInvalidIntervals"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr15MTimeElapsed"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr15MCodingViolations"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr15MCorrectedBlocks"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr1DayValidIntervals"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr1DayInvalidIntervals"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr1DayTimeElapsed"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr1DayCodingViolations"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChCurr1DayCorrectedBlocks"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMChHist15MinGroup": {
+    "name": "adsl2PMChHist15MinGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist15MMonitoredTime"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist15MCodingViolations"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist15MCorrectedBlocks"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist15MValidInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2PMChHist1DGroup": {
+    "name": "adsl2PMChHist1DGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist1DMonitoredTime"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist1DCodingViolations"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist1DCorrectedBlocks"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2PMChHist1DValidInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ScalarSCGroup": {
+    "name": "adsl2ScalarSCGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ScalarSCMaxInterfaces"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2ScalarSCAvailInterfaces"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2ThreshNotificationGroup": {
+    "name": "adsl2ThreshNotificationGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.31",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfFECSThreshAtuc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfFECSThreshAtur"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfESThreshAtuc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfESThreshAtur"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfSESThreshAtuc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfSESThreshAtur"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfLOSSThreshAtuc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfLOSSThreshAtur"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfUASThreshAtuc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfUASThreshAtur"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfCodingViolationsThreshAtuc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfCodingViolationsThreshAtur"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfCorrectedThreshAtuc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfCorrectedThreshAtur"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfFailedFullInitThresh"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LinePerfFailedShortInitThresh"
+      }
+    ],
+    "status": "current"
+  },
+  "adsl2StatusChangeNotificationGroup": {
+    "name": "adsl2StatusChangeNotificationGroup",
+    "oid": "1.3.6.1.2.1.10.238.1.7.1.32",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusChangeAtuc"
+      },
+      {
+        "module": "ADSL2-LINE-MIB",
+        "object": "adsl2LineStatusChangeAtur"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ADSL2-LINE-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ADSL2-LINE-MIB"
+  }
+}

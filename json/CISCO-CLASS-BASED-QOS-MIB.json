@@ -11,6 +11,9 @@
       "Unsigned64",
       "EntPhysicalIndexOrZero"
     ],
+    "HCNUM-TC": [
+      "CounterBasedGauge64"
+    ],
     "IF-MIB": [
       "ifIndex",
       "InterfaceIndex"
@@ -20,29 +23,31 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Unsigned32",
-      "IpAddress",
-      "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
       "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "dod",
+      "iso",
+      "Counter64",
       "Bits",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "DisplayString",
       "TruthValue",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "ciscoCBQosMIB": {
@@ -50,6 +55,54 @@
     "oid": "1.3.6.1.4.1.9.9.166",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2014-01-24 00:00",
+        "description": "Added new object cbQosParentPolicyIndex in cbQosServicePolicyTable"
+      },
+      {
+        "revision": "2013-10-10 00:00",
+        "description": "Added cbQosQueueingStatsGroupRev1 Added ciscocbQosMIBComplianceRev13"
+      },
+      {
+        "revision": "2013-06-20 00:00",
+        "description": "Added the following 64-bit Objects cbQosCMPrePolicyBitRate64 cbQosCMPostPolicyBitRate64 cbQosCMDropBitRate64 cbQosPoliceConformedBitRate64 cbQosPoliceExceededBitRate64 cbQosPoliceViolatedBitRate64"
+      },
+      {
+        "revision": "2013-02-15 00:00",
+        "description": "Added Percentage as a unit for cbQoSQueueUnitType"
+      },
+      {
+        "revision": "2012-07-24 00:00",
+        "description": "The following 2 objects are expanded to include perThousand and perMillion units. 1. QueueingBandwidthUnits 2. CbQosRateType"
+      },
+      {
+        "revision": "2012-03-22 00:00",
+        "description": "The following 4 changes have been made 1. Added the following 64 bit objects and deprecated the corresponding 32 bit objects ================================================= cbQosQueueingCfgBandwidth64, cbQosQueueingCfgIndividualQSize64, cbQosPoliceCfgBurstSize64, cbQosPoliceCfgExtBurstSize64, cbQosPoliceCfgPir64, cbQosTSCfgBurstSize64, cbQosTSCfgExtBurstSize64 2. Range expanded for ================== cbQosQueueingCfgBandwidth, cbQosQueueingCfgIndividualQSize, cbQosPoliceCfgBurstSize, cbQosPoliceCfgExtBurstSize, cbQosPoliceCfgPir, cbQosTSCfgBurstSize, cbQosTSCfgExtBurstSize, cbQosREDCfgMinThreshold, cbQosREDCfgMaxThreshold, cbQosPoliceCfgRate, cbQosPoliceCfgBurstCell, cbQosPoliceCfgExtBurstCell, cbQosPoliceCfgBurstTime, cbQosPoliceCfgExtBurstTime, cbQosPoliceCfgCdvt, cbQosTSCfgRate,cbQosTSCfgBurstTime, cbQosTSCfgExtBurstTime 3. New object added ================ cbQosPolicyDiscontinuityTime 4. Added new type (srp-priority) to ================================== PoliceAction"
+      },
+      {
+        "revision": "2009-11-25 00:00",
+        "description": "Added setDei(16), setDeiImposition(17) to the TC PoliceAction. Added dei(14), deiImposition(15) to the TC SetFeatureType. Added dei(9) to the TC REDMechanism. Added objects cbQosSetCfgIpPrecedenceTunnelValue, cbQosSetCfgIpDscpTunnelValue, cbQosSetCfgDei, cbQosSetCfgDeiImposition to CbQosSetCfgEntry Added objects cbQosPoliceCfmColorCfmRate, cbQosPoliceCfmColorExdRate, cbQosPoliceCfmColorVltRate, cbQosPoliceExdColorExdRate, cbQosPoliceExdColorVltRate, cbQosPoliceVltColorVltRate to cbQosPoliceColorStatsEntry. Added Objects cbQosIPHCCfgEnabled to cbQosIPHCCfgEntry Added Objects cbQosIPHCRtpFullHdrPktOverflow, cbQosIPHCRtpFullHdrPkt, cbQosIPHCRtpFullHdrPkt64, cbQosIPHCTcpFullHdrPktOverflow, cbQosIPHCTcpFullHdrPkt, cbQosIPHCTcpFullHdrPkt64 to cbQosIPHCStatsEntry Added ciscocbQosMIBComplianceRev10."
+      },
+      {
+        "revision": "2009-09-16 00:00",
+        "description": "Added unconfigured(15) value to PoliceAction TC. Added cbQosCMFragmentPktOverflow, cbQosCMFragmentPkt, cbQosCMFragmentPkt64, cbQosCMFragmentByteOverflow, cbQosCMFragmentByte, cbQosCMFragmentByte64 in CbQosCMStatsEntry. Added evc(7) enum value in InterfaceType TC. Added cbQosEVC in CbQosServicePolicyEntry Changed comments for cbQosPolicyIndex and cbQosObjectsIndex. Added ciscocbQosMIBComplianceRev9."
+      },
+      {
+        "revision": "2009-04-24 00:00",
+        "description": "- Added cbQosSetCfgFrDe to hold the Fr-De marking configuration value in cbQosSetCfgTable. - Updated the optional groups of ciscocbQosMIBComplianceRev7 with cbQosSetCfgFrDeGroup. - Added MODULE-COMPLIANCE ciscocbQosMIBComplianceRev8."
+      },
+      {
+        "revision": "2009-01-26 00:00",
+        "description": "Added account feature in QosObjectType."
+      },
+      {
+        "revision": "2008-11-20 00:00",
+        "description": "Added cbQosC3plAccountCfgGroup and cbQosC3plAccountStatsGroup."
+      },
+      {
+        "revision": "2008-06-17 00:00",
+        "description": "-Added ratioRemaining in QueueingBandwidthUnits -Added l2CosInner in SetFeatureType -Added cbQosQueueingCfgPriorityLevel in cbQosQueueingCfgTable -Added cbQosSetCfgL2CosInnerValue in cbQosSetCfgTable -Added in cbQosREDClassCfgTable cbQosREDClassCfgMaxThresholdUnit, cbQosREDClassCfgMinThresholdUnit -Added cbQosQueueingClassCfgTable - Added following OBJECT-GROUPs cbQosQueueingCfgGroupRev2 cbQosSetCfgL2Group cbQosQueueingClassCfgGroup cbQosPoliceCfgGroupRev3 - Added MODULE-COMPLIANCE cisco cbQosMIBComplianceRev6"
+      },
       {
         "revision": "2007-10-09 00:00",
         "description": "1. Added cbQosTSCfgRate64 to cbQosTSCfgTable to support shaping rates greater than that fit in the range defined for cbQosTSCfgRate. 2. Created cbQosTSCfgExtGroup. 3. Created new compliance module ciscocbQosMIBComplianceRev5 which deprecates ciscocbQosMIBComplianceRev4."
@@ -104,6 +157,25 @@
       }
     ]
   },
+  "QueueMechanism": {
+    "name": "QueueMechanism",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "precedence": 1,
+          "dscp": 2,
+          "discardClass": 3,
+          "qosGroup": 4,
+          "atmClp": 5,
+          "mplsExp": 6
+        }
+      }
+    },
+    "status": "current"
+  },
   "QosObjectType": {
     "name": "QosObjectType",
     "class": "textualconvention",
@@ -121,7 +193,8 @@
           "police": 7,
           "set": 8,
           "compression": 9,
-          "ipslaMeasure": 10
+          "ipslaMeasure": 10,
+          "account": 11
         }
       }
     },
@@ -186,7 +259,8 @@
           "frDLCI": 3,
           "atmPVC": 4,
           "controlPlane": 5,
-          "vlanPort": 6
+          "vlanPort": 6,
+          "evc": 7
         }
       }
     },
@@ -202,7 +276,10 @@
         "enumeration": {
           "kbps": 1,
           "percentage": 2,
-          "percentageRemaining": 3
+          "percentageRemaining": 3,
+          "ratioRemaining": 4,
+          "perThousand": 5,
+          "perMillion": 6
         }
       }
     },
@@ -244,7 +321,11 @@
           "setMplsExpTopMost": 11,
           "setIpDscpTunnel": 12,
           "setIpPrecedenceTunnel": 13,
-          "setL2CosInner": 14
+          "setL2CosInner": 14,
+          "unconfigured": 15,
+          "setDei": 16,
+          "setDeiImposition": 17,
+          "setSrpPriority": 18
         }
       }
     },
@@ -269,7 +350,10 @@
         "srpPriority": 9,
         "frFecnBecn": 10,
         "ipDscpTunnel": 11,
-        "ipPrecedenceTunnel": 12
+        "ipPrecedenceTunnel": 12,
+        "l2CosInner": 13,
+        "dei": 14,
+        "deiImposition": 15
       }
     },
     "status": "current"
@@ -289,7 +373,8 @@
           "atmClp": 5,
           "mplsExp": 6,
           "redDefault": 7,
-          "redUserDefault": 8
+          "redUserDefault": 8,
+          "dei": 9
         }
       }
     },
@@ -307,7 +392,8 @@
           "cells": 2,
           "bytes": 3,
           "ms": 4,
-          "us": 5
+          "us": 5,
+          "percentage": 6
         }
       }
     },
@@ -332,7 +418,9 @@
         "enumeration": {
           "bps": 1,
           "percentage": 2,
-          "cps": 3
+          "cps": 3,
+          "perThousand": 4,
+          "perMillion": 5
         }
       }
     },
@@ -395,6 +483,22 @@
     "type": {
       "type": "OCTET STRING",
       "class": "type"
+    },
+    "status": "current"
+  },
+  "SetC3plAccountFeatureType": {
+    "name": "SetC3plAccountFeatureType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "queueing": 0,
+          "wred": 1,
+          "police": 2
+        }
+      }
     },
     "status": "current"
   },
@@ -562,6 +666,130 @@
     "name": "cbQosMeasureIPSLACfg",
     "oid": "1.3.6.1.4.1.9.9.166.1.31",
     "class": "objectidentity"
+  },
+  "cbQosQueueingClassCfg": {
+    "name": "cbQosQueueingClassCfg",
+    "oid": "1.3.6.1.4.1.9.9.166.1.32",
+    "class": "objectidentity"
+  },
+  "cbQosC3plAccountCfg": {
+    "name": "cbQosC3plAccountCfg",
+    "oid": "1.3.6.1.4.1.9.9.166.1.33",
+    "class": "objectidentity"
+  },
+  "cbQosC3plAccountStats": {
+    "name": "cbQosC3plAccountStats",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34",
+    "class": "objectidentity"
+  },
+  "cbQosQueueingClassCfgTable": {
+    "name": "cbQosQueueingClassCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.166.1.32.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbQosQueueingClassCfgEntry": {
+    "name": "cbQosQueueingClassCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.166.1.32.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingClassConfigIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQlimitWeightValue",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosQueueingClassConfigIndex": {
+    "name": "cbQosQueueingClassConfigIndex",
+    "oid": "1.3.6.1.4.1.9.9.166.1.32.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbQosQlimitWeightValue": {
+    "name": "cbQosQlimitWeightValue",
+    "oid": "1.3.6.1.4.1.9.9.166.1.32.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbQosQueueingClassCfgThreshold": {
+    "name": "cbQosQueueingClassCfgThreshold",
+    "oid": "1.3.6.1.4.1.9.9.166.1.32.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbQosQueueDepth",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosQueueingClassCfgThresholdUnit": {
+    "name": "cbQosQueueingClassCfgThresholdUnit",
+    "oid": "1.3.6.1.4.1.9.9.166.1.32.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbQosQueueUnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosQueueingClassCfgQLimitWeight": {
+    "name": "cbQosQueueingClassCfgQLimitWeight",
+    "oid": "1.3.6.1.4.1.9.9.166.1.32.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "QueueMechanism",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
   },
   "cbQosMeasureIPSLACfgTable": {
     "name": "cbQosMeasureIPSLACfgTable",
@@ -765,6 +993,42 @@
     "class": "objecttype",
     "syntax": {
       "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosEVC": {
+    "name": "cbQosEVC",
+    "oid": "1.3.6.1.4.1.9.9.166.1.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPolicyDiscontinuityTime": {
+    "name": "cbQosPolicyDiscontinuityTime",
+    "oid": "1.3.6.1.4.1.9.9.166.1.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosParentPolicyIndex": {
+    "name": "cbQosParentPolicyIndex",
+    "oid": "1.3.6.1.4.1.9.9.166.1.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1215,7 +1479,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosQueueingCfgBandwidthUnits": {
     "name": "cbQosQueueingCfgBandwidthUnits",
@@ -1293,7 +1557,7 @@
     },
     "units": "Packets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosQueueingCfgDynamicQNumber": {
     "name": "cbQosQueueingCfgDynamicQNumber",
@@ -1370,6 +1634,42 @@
       "class": "type"
     },
     "units": "milli-seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosQueueingCfgPriorityLevel": {
+    "name": "cbQosQueueingCfgPriorityLevel",
+    "oid": "1.3.6.1.4.1.9.9.166.1.9.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosQueueingCfgBandwidth64": {
+    "name": "cbQosQueueingCfgBandwidth64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.9.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosQueueingCfgIndividualQSize64": {
+    "name": "cbQosQueueingCfgIndividualQSize64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.9.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -1581,7 +1881,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosREDClassCfgMinThreshold": {
     "name": "cbQosREDClassCfgMinThreshold",
@@ -1633,6 +1933,30 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cbQosREDClassCfgMaxThresholdUnit": {
+    "name": "cbQosREDClassCfgMaxThresholdUnit",
+    "oid": "1.3.6.1.4.1.9.9.166.1.11.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbQosQueueUnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosREDClassCfgMinThresholdUnit": {
+    "name": "cbQosREDClassCfgMinThresholdUnit",
+    "oid": "1.3.6.1.4.1.9.9.166.1.11.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CbQosQueueUnitType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "cbQosPoliceCfgTable": {
     "name": "cbQosPoliceCfgTable",
     "oid": "1.3.6.1.4.1.9.9.166.1.12.1",
@@ -1667,8 +1991,8 @@
       "constraints": {
         "range": [
           {
-            "min": 8000,
-            "max": 2000000000
+            "min": 0,
+            "max": 4294967295
           }
         ]
       }
@@ -1696,7 +2020,7 @@
     },
     "units": "Octets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosPoliceCfgExtBurstSize": {
     "name": "cbQosPoliceCfgExtBurstSize",
@@ -1717,7 +2041,7 @@
     },
     "units": "Octets",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosPoliceCfgConformAction": {
     "name": "cbQosPoliceCfgConformAction",
@@ -1834,7 +2158,7 @@
     },
     "units": "bits/second",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosPoliceCfgRate64": {
     "name": "cbQosPoliceCfgRate64",
@@ -1941,7 +2265,7 @@
         "range": [
           {
             "min": 0,
-            "max": 9660377
+            "max": 4294967295
           }
         ]
       }
@@ -1962,7 +2286,7 @@
         "range": [
           {
             "min": 0,
-            "max": 9660377
+            "max": 4294967295
           }
         ]
       }
@@ -1983,7 +2307,7 @@
         "range": [
           {
             "min": 0,
-            "max": 2000
+            "max": 4294967295
           }
         ]
       }
@@ -2004,7 +2328,7 @@
         "range": [
           {
             "min": 0,
-            "max": 2000
+            "max": 4294967295
           }
         ]
       }
@@ -2025,7 +2349,7 @@
         "range": [
           {
             "min": 0,
-            "max": 1000000
+            "max": 4294967295
           }
         ]
       }
@@ -2055,6 +2379,57 @@
       "type": "DisplayString",
       "class": "type"
     },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceCfgConditional": {
+    "name": "cbQosPoliceCfgConditional",
+    "oid": "1.3.6.1.4.1.9.9.166.1.12.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceCfgBurstSize64": {
+    "name": "cbQosPoliceCfgBurstSize64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.12.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceCfgExtBurstSize64": {
+    "name": "cbQosPoliceCfgExtBurstSize64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.12.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceCfgPir64": {
+    "name": "cbQosPoliceCfgPir64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.12.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2228,8 +2603,8 @@
       "constraints": {
         "range": [
           {
-            "min": 8000,
-            "max": 154400000
+            "min": 0,
+            "max": 2147483647
           }
         ]
       }
@@ -2257,7 +2632,7 @@
     },
     "units": "bits",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosTSCfgExtBurstSize": {
     "name": "cbQosTSCfgExtBurstSize",
@@ -2278,7 +2653,7 @@
     },
     "units": "bits",
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosTSCfgAdaptiveEnabled": {
     "name": "cbQosTSCfgAdaptiveEnabled",
@@ -2370,7 +2745,7 @@
         "range": [
           {
             "min": 0,
-            "max": 2000
+            "max": 4294967295
           }
         ]
       }
@@ -2391,7 +2766,7 @@
         "range": [
           {
             "min": 0,
-            "max": 2000
+            "max": 4294967295
           }
         ]
       }
@@ -2410,6 +2785,32 @@
       "class": "type"
     },
     "units": "bits/second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosTSCfgBurstSize64": {
+    "name": "cbQosTSCfgBurstSize64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.13.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "bits",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosTSCfgExtBurstSize64": {
+    "name": "cbQosTSCfgExtBurstSize64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.13.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64",
+      "class": "type"
+    },
+    "units": "bits",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -2624,6 +3025,108 @@
           }
         ]
       }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosSetCfgL2CosInnerValue": {
+    "name": "cbQosSetCfgL2CosInnerValue",
+    "oid": "1.3.6.1.4.1.9.9.166.1.14.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosSetCfgFrDe": {
+    "name": "cbQosSetCfgFrDe",
+    "oid": "1.3.6.1.4.1.9.9.166.1.14.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosSetCfgIpPrecedenceTunnelValue": {
+    "name": "cbQosSetCfgIpPrecedenceTunnelValue",
+    "oid": "1.3.6.1.4.1.9.9.166.1.14.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosSetCfgIpDSCPTunnelValue": {
+    "name": "cbQosSetCfgIpDSCPTunnelValue",
+    "oid": "1.3.6.1.4.1.9.9.166.1.14.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosSetCfgDei": {
+    "name": "cbQosSetCfgDei",
+    "oid": "1.3.6.1.4.1.9.9.166.1.14.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosSetCfgDeiImposition": {
+    "name": "cbQosSetCfgDeiImposition",
+    "oid": "1.3.6.1.4.1.9.9.166.1.14.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2908,6 +3411,117 @@
       "type": "Counter64",
       "class": "type"
     },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosCMFragmentPktOverflow": {
+    "name": "cbQosCMFragmentPktOverflow",
+    "oid": "1.3.6.1.4.1.9.9.166.1.15.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosCMFragmentPkt": {
+    "name": "cbQosCMFragmentPkt",
+    "oid": "1.3.6.1.4.1.9.9.166.1.15.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosCMFragmentPkt64": {
+    "name": "cbQosCMFragmentPkt64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.15.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosCMFragmentByteOverflow": {
+    "name": "cbQosCMFragmentByteOverflow",
+    "oid": "1.3.6.1.4.1.9.9.166.1.15.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosCMFragmentByte": {
+    "name": "cbQosCMFragmentByte",
+    "oid": "1.3.6.1.4.1.9.9.166.1.15.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosCMFragmentByte64": {
+    "name": "cbQosCMFragmentByte64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.15.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosCMPrePolicyBitRate64": {
+    "name": "cbQosCMPrePolicyBitRate64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.15.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosCMPostPolicyBitRate64": {
+    "name": "cbQosCMPostPolicyBitRate64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.15.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosCMDropBitRate64": {
+    "name": "cbQosCMDropBitRate64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.15.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -3325,6 +3939,45 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cbQosPoliceConformedBitRate64": {
+    "name": "cbQosPoliceConformedBitRate64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.17.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceExceededBitRate64": {
+    "name": "cbQosPoliceExceededBitRate64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.17.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceViolatedBitRate64": {
+    "name": "cbQosPoliceViolatedBitRate64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.17.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "cbQosQueueingStatsTable": {
     "name": "cbQosQueueingStatsTable",
     "oid": "1.3.6.1.4.1.9.9.166.1.18.1",
@@ -3447,6 +4100,58 @@
   "cbQosQueueingDiscardPkt64": {
     "name": "cbQosQueueingDiscardPkt64",
     "oid": "1.3.6.1.4.1.9.9.166.1.18.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosQueueingCurrentQDepthPkt": {
+    "name": "cbQosQueueingCurrentQDepthPkt",
+    "oid": "1.3.6.1.4.1.9.9.166.1.18.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosQueueingMaxQDepthPkt": {
+    "name": "cbQosQueueingMaxQDepthPkt",
+    "oid": "1.3.6.1.4.1.9.9.166.1.18.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosQueueingTransmitByte64": {
+    "name": "cbQosQueueingTransmitByte64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.18.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosQueueingTransmitPkt64": {
+    "name": "cbQosQueueingTransmitPkt64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.18.1.1.12",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -4070,6 +4775,18 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cbQosIPHCCfgEnabled": {
+    "name": "cbQosIPHCCfgEnabled",
+    "oid": "1.3.6.1.4.1.9.9.166.1.22.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "cbQosIPHCStatsTable": {
     "name": "cbQosIPHCStatsTable",
     "oid": "1.3.6.1.4.1.9.9.166.1.23.1",
@@ -4433,6 +5150,84 @@
       "class": "type"
     },
     "units": "Octets per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosIPHCRtpFullHdrSentPktOverflow": {
+    "name": "cbQosIPHCRtpFullHdrSentPktOverflow",
+    "oid": "1.3.6.1.4.1.9.9.166.1.23.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosIPHCRtpFullHdrSentPkt": {
+    "name": "cbQosIPHCRtpFullHdrSentPkt",
+    "oid": "1.3.6.1.4.1.9.9.166.1.23.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosIPHCRtpFullHdrSentPkt64": {
+    "name": "cbQosIPHCRtpFullHdrSentPkt64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.23.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosIPHCTcpFullHdrSentPktOverflow": {
+    "name": "cbQosIPHCTcpFullHdrSentPktOverflow",
+    "oid": "1.3.6.1.4.1.9.9.166.1.23.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosIPHCTcpFullHdrSentPkt": {
+    "name": "cbQosIPHCTcpFullHdrSentPkt",
+    "oid": "1.3.6.1.4.1.9.9.166.1.23.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosIPHCTcpFullHdrSentPkt64": {
+    "name": "cbQosIPHCTcpFullHdrSentPkt64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.23.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -4814,6 +5609,84 @@
       "class": "type"
     },
     "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceCfmColorCfmBitRate": {
+    "name": "cbQosPoliceCfmColorCfmBitRate",
+    "oid": "1.3.6.1.4.1.9.9.166.1.25.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceCfmColorExdBitRate": {
+    "name": "cbQosPoliceCfmColorExdBitRate",
+    "oid": "1.3.6.1.4.1.9.9.166.1.25.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceCfmColorVltBitRate": {
+    "name": "cbQosPoliceCfmColorVltBitRate",
+    "oid": "1.3.6.1.4.1.9.9.166.1.25.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceExdColorExdBitRate": {
+    "name": "cbQosPoliceExdColorExdBitRate",
+    "oid": "1.3.6.1.4.1.9.9.166.1.25.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceExdColorVltBitRate": {
+    "name": "cbQosPoliceExdColorVltBitRate",
+    "oid": "1.3.6.1.4.1.9.9.166.1.25.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosPoliceVltColorVltBitRate": {
+    "name": "cbQosPoliceVltColorVltBitRate",
+    "oid": "1.3.6.1.4.1.9.9.166.1.25.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CounterBasedGauge64",
+      "class": "type"
+    },
+    "units": "bits per second",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -5282,6 +6155,230 @@
       "type": "CbQosEBCtd",
       "class": "type"
     },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountCfgTable": {
+    "name": "cbQosC3plAccountCfgTable",
+    "oid": "1.3.6.1.4.1.9.9.166.1.33.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbQosC3plAccountCfgEntry": {
+    "name": "cbQosC3plAccountCfgEntry",
+    "oid": "1.3.6.1.4.1.9.9.166.1.33.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosConfigIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosC3plAccountFeatureType": {
+    "name": "cbQosC3plAccountFeatureType",
+    "oid": "1.3.6.1.4.1.9.9.166.1.33.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SetC3plAccountFeatureType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountStatsTable": {
+    "name": "cbQosC3plAccountStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cbQosC3plAccountStatsEntry": {
+    "name": "cbQosC3plAccountStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPolicyIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosObjectsIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountFeatureType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosC3plAccountDropPktOverflow": {
+    "name": "cbQosC3plAccountDropPktOverflow",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountDropPkt": {
+    "name": "cbQosC3plAccountDropPkt",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountDropPkt64": {
+    "name": "cbQosC3plAccountDropPkt64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountDropByteOverflow": {
+    "name": "cbQosC3plAccountDropByteOverflow",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountDropByte": {
+    "name": "cbQosC3plAccountDropByte",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountDropByte64": {
+    "name": "cbQosC3plAccountDropByte64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountTailDropPktOverflow": {
+    "name": "cbQosC3plAccountTailDropPktOverflow",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountTailDropPkt": {
+    "name": "cbQosC3plAccountTailDropPkt",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountTailDropPkt64": {
+    "name": "cbQosC3plAccountTailDropPkt64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountTailDropByteOverflow": {
+    "name": "cbQosC3plAccountTailDropByteOverflow",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountTailDropByte": {
+    "name": "cbQosC3plAccountTailDropByte",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cbQosC3plAccountTailDropByte64": {
+    "name": "cbQosC3plAccountTailDropByte64",
+    "oid": "1.3.6.1.4.1.9.9.166.1.34.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -5881,7 +6978,7 @@
         "module": "CISCO-CLASS-BASED-QOS-MIB"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "ciscocbQosMIBComplianceRev4": {
     "name": "ciscocbQosMIBComplianceRev4",
@@ -6342,6 +7439,2114 @@
       }
     ],
     "status": "deprecated"
+  },
+  "ciscocbQosMIBComplianceRev6": {
+    "name": "ciscocbQosMIBComplianceRev6",
+    "oid": "1.3.6.1.4.1.9.9.166.2.1.7",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cbQosServicePolicyGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosObjectsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPolicyMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDDscpCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgGroupRev3",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingClassCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosInterfacePolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFrameRelayVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosATMPVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosNoBufferDropGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingDynamicQNumberGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassXmitCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDECNCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassECNMarkCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPirGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceActionCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceViolateCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTrafficShapingDelayCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMplsImpositionGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgDiscardClassGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMPLSTopMostGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgQLimitTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgThresholdTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCellGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCdvtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgColorGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgSrpPriorityGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgFrFecnBecnGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTableMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMeasureIPSLACfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgL2Group",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosServicePolicyExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscocbQosMIBComplianceRev7": {
+    "name": "ciscocbQosMIBComplianceRev7",
+    "oid": "1.3.6.1.4.1.9.9.166.2.1.8",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cbQosServicePolicyGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosObjectsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPolicyMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDDscpCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgGroupRev3",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingClassCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosInterfacePolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFrameRelayVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosATMPVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosNoBufferDropGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingDynamicQNumberGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassXmitCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDECNCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassECNMarkCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPirGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceActionCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceViolateCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTrafficShapingDelayCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMplsImpositionGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgDiscardClassGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMPLSTopMostGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgQLimitTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgThresholdTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCellGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCdvtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgColorGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgSrpPriorityGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgFrFecnBecnGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTableMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMeasureIPSLACfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgL2Group",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosServicePolicyExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscocbQosMIBComplianceRev8": {
+    "name": "ciscocbQosMIBComplianceRev8",
+    "oid": "1.3.6.1.4.1.9.9.166.2.1.9",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cbQosServicePolicyGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosObjectsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPolicyMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDDscpCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgGroupRev3",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingClassCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosInterfacePolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFrameRelayVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosATMPVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosNoBufferDropGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingDynamicQNumberGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassXmitCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDECNCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassECNMarkCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPirGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceActionCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceViolateCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTrafficShapingDelayCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMplsImpositionGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgDiscardClassGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMPLSTopMostGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgQLimitTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgThresholdTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCellGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCdvtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgColorGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgSrpPriorityGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgFrFecnBecnGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTableMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMeasureIPSLACfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgL2Group",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosServicePolicyExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgFrDeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscocbQosMIBComplianceRev9": {
+    "name": "ciscocbQosMIBComplianceRev9",
+    "oid": "1.3.6.1.4.1.9.9.166.2.1.10",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cbQosServicePolicyGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosObjectsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPolicyMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDDscpCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgGroupRev3",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingClassCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosInterfacePolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFrameRelayVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosATMPVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosNoBufferDropGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingDynamicQNumberGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassXmitCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDECNCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassECNMarkCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPirGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceActionCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceViolateCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTrafficShapingDelayCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMplsImpositionGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgDiscardClassGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMPLSTopMostGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgQLimitTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgThresholdTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCellGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCdvtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgColorGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgSrpPriorityGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgFrFecnBecnGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTableMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMeasureIPSLACfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgL2Group",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosServicePolicyExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEVCGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFragmentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscocbQosMIBComplianceRev10": {
+    "name": "ciscocbQosMIBComplianceRev10",
+    "oid": "1.3.6.1.4.1.9.9.166.2.1.11",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cbQosServicePolicyGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosObjectsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPolicyMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDDscpCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgGroupRev3",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingClassCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosInterfacePolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFrameRelayVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosATMPVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosNoBufferDropGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingDynamicQNumberGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassXmitCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDECNCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassECNMarkCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPirGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceActionCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceViolateCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTrafficShapingDelayCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMplsImpositionGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgDiscardClassGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMPLSTopMostGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgQLimitTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgThresholdTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCellGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCdvtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgColorGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgSrpPriorityGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgFrFecnBecnGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTableMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMeasureIPSLACfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgL2Group",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosServicePolicyExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEVCGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFragmentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscocbQosMIBComplianceRev11": {
+    "name": "ciscocbQosMIBComplianceRev11",
+    "oid": "1.3.6.1.4.1.9.9.166.2.1.12",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cbQosServicePolicyGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosObjectsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPolicyMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDDscpCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgGroupRev3",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingClassCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQos421XRCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosInterfacePolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFrameRelayVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosATMPVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosNoBufferDropGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingDynamicQNumberGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassXmitCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDECNCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassECNMarkCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPirGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceActionCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceViolateCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTrafficShapingDelayCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMplsImpositionGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgDiscardClassGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMPLSTopMostGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgQLimitTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgThresholdTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCellGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCdvtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgColorGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgSrpPriorityGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgFrFecnBecnGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTableMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMeasureIPSLACfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgL2Group",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosServicePolicyExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEVCGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFragmentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscocbQosMIBComplianceRev12": {
+    "name": "ciscocbQosMIBComplianceRev12",
+    "oid": "1.3.6.1.4.1.9.9.166.2.1.13",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cbQosServicePolicyGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosObjectsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPolicyMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDDscpCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgGroupRev3",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingClassCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQos421XRCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosBitRateExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosInterfacePolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFrameRelayVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosATMPVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosNoBufferDropGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingDynamicQNumberGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassXmitCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDECNCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassECNMarkCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPirGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceActionCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceViolateCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTrafficShapingDelayCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMplsImpositionGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgDiscardClassGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMPLSTopMostGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgQLimitTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgThresholdTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCellGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCdvtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgColorGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgSrpPriorityGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgFrFecnBecnGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTableMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMeasureIPSLACfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgL2Group",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosServicePolicyExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEVCGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFragmentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscocbQosMIBComplianceRev13": {
+    "name": "ciscocbQosMIBComplianceRev13",
+    "oid": "1.3.6.1.4.1.9.9.166.2.1.14",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cbQosServicePolicyGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosObjectsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPolicyMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDDscpCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassCfgGroupRev2",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgGroupRev3",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosClassMapStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMatchStmtStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingClassCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQos421XRCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosBitRateExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosInterfacePolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFrameRelayVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosATMPVCPolicyGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosNoBufferDropGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingDynamicQNumberGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassXmitCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDECNCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDClassECNMarkCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPirGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceActionCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosAFPoliceViolateCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTrafficShapingDelayCountersGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgPercentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMplsImpositionGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgDiscardClassGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgMPLSTopMostGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingCfgQLimitTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosREDCfgThresholdTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCellGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgCdvtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceCfgColorGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgTimeGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgSrpPriorityGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgFrFecnBecnGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTableMapCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEBStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosMeasureIPSLACfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosTSCfgExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgL2Group",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosServicePolicyExtGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountCfgGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosC3plAccountStatsGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosEVCGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosFragmentGroup",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosSetCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosPoliceColorStatsExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCCfgExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosIPHCStatsExt",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      },
+      {
+        "object": "cbQosQueueingStatsGroupRev1",
+        "module": "CISCO-CLASS-BASED-QOS-MIB"
+      }
+    ],
+    "status": "current"
   },
   "cbQosServicePolicyGroup": {
     "name": "cbQosServicePolicyGroup",
@@ -7157,7 +10362,7 @@
         "object": "cbQosSetCfgL2CosValue"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosQueueingCfgGroupRev1": {
     "name": "cbQosQueueingCfgGroupRev1",
@@ -7197,7 +10402,7 @@
         "object": "cbQosQueueingCfgAggregateQLimit"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosREDCfgGroupRev1": {
     "name": "cbQosREDCfgGroupRev1",
@@ -7233,7 +10438,7 @@
         "object": "cbQosREDClassCfgMaxThreshold"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "cbQosPoliceCfgGroupRev1": {
     "name": "cbQosPoliceCfgGroupRev1",
@@ -8051,11 +11256,483 @@
     ],
     "status": "current"
   },
+  "cbQosQueueingCfgGroupRev2": {
+    "name": "cbQosQueueingCfgGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.66",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgBandwidth"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgBandwidthUnits"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgFlowEnabled"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgPriorityEnabled"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgIndividualQSize"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgPrioBurstSize"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgQLimitUnits"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgAggregateQLimit"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgPriorityLevel"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosSetCfgL2Group": {
+    "name": "cbQosSetCfgL2Group",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.67",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosSetCfgL2CosValue"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosSetCfgL2CosInnerValue"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosREDClassCfgGroupRev2": {
+    "name": "cbQosREDClassCfgGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.68",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosREDCfgPktDropProb"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosREDClassCfgMinThreshold"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosREDClassCfgMaxThreshold"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosREDClassCfgMinThresholdTime"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosREDClassCfgMaxThresholdTime"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosREDClassCfgMaxThresholdUnit"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosREDClassCfgMinThresholdUnit"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosQueueingClassCfgGroup": {
+    "name": "cbQosQueueingClassCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.69",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingClassCfgThreshold"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingClassCfgThresholdUnit"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingClassCfgQLimitWeight"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosPoliceCfgGroupRev3": {
+    "name": "cbQosPoliceCfgGroupRev3",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.70",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceCfgRate"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceCfgBurstSize"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceCfgExtBurstSize"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceCfgConditional"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosC3plAccountCfgGroup": {
+    "name": "cbQosC3plAccountCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.71",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountFeatureType"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosC3plAccountStatsGroup": {
+    "name": "cbQosC3plAccountStatsGroup",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.72",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountDropPktOverflow"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountDropPkt"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountDropPkt64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountDropByteOverflow"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountDropByte"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountDropByte64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountTailDropPktOverflow"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountTailDropPkt"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountTailDropPkt64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountTailDropByteOverflow"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountTailDropByte"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosC3plAccountTailDropByte64"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosSetCfgFrDeGroup": {
+    "name": "cbQosSetCfgFrDeGroup",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.73",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosSetCfgFrDe"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosEVCGroup": {
+    "name": "cbQosEVCGroup",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.74",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosEVC"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosFragmentGroup": {
+    "name": "cbQosFragmentGroup",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.75",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosCMFragmentPktOverflow"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosCMFragmentPkt"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosCMFragmentPkt64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosCMFragmentByteOverflow"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosCMFragmentByte"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosCMFragmentByte64"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosSetCfgExt": {
+    "name": "cbQosSetCfgExt",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.76",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosSetCfgIpPrecedenceTunnelValue"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosSetCfgIpDSCPTunnelValue"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosSetCfgDei"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosSetCfgDeiImposition"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosPoliceColorStatsExt": {
+    "name": "cbQosPoliceColorStatsExt",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.77",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceExdColorExdBitRate"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceCfmColorCfmBitRate"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceCfmColorExdBitRate"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceCfmColorVltBitRate"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceExdColorVltBitRate"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceVltColorVltBitRate"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosIPHCCfgExt": {
+    "name": "cbQosIPHCCfgExt",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.78",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosIPHCCfgEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosIPHCStatsExt": {
+    "name": "cbQosIPHCStatsExt",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.79",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosIPHCRtpFullHdrSentPktOverflow"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosIPHCRtpFullHdrSentPkt"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosIPHCRtpFullHdrSentPkt64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosIPHCTcpFullHdrSentPktOverflow"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosIPHCTcpFullHdrSentPkt"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosIPHCTcpFullHdrSentPkt64"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQos421XRCfgExt": {
+    "name": "cbQos421XRCfgExt",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.80",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPolicyDiscontinuityTime"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgBandwidth64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCfgIndividualQSize64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceCfgBurstSize64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceCfgExtBurstSize64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceCfgPir64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosTSCfgBurstSize64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosTSCfgExtBurstSize64"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosBitRateExt": {
+    "name": "cbQosBitRateExt",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.81",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosCMPrePolicyBitRate64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosCMPostPolicyBitRate64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosCMDropBitRate64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceConformedBitRate64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceExceededBitRate64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosPoliceViolatedBitRate64"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosQueueingStatsGroupRev1": {
+    "name": "cbQosQueueingStatsGroupRev1",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.82",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingCurrentQDepthPkt"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingMaxQDepthPkt"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingTransmitByte64"
+      },
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosQueueingTransmitPkt64"
+      }
+    ],
+    "status": "current"
+  },
+  "cbQosServicePolicyExtGroupRev2": {
+    "name": "cbQosServicePolicyExtGroupRev2",
+    "oid": "1.3.6.1.4.1.9.9.166.2.2.83",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-CLASS-BASED-QOS-MIB",
+        "object": "cbQosParentPolicyIndex"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CLASS-BASED-QOS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:11 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:20 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-CLASS-BASED-QOS-MIB"

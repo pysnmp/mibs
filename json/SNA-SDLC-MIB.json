@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
       "ifAdminStatus",
+      "ifIndex",
       "ifOperStatus"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
-      "Counter32",
-      "Bits",
-      "Integer32",
-      "Unsigned32",
-      "mib-2",
-      "iso",
       "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "mib-2",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Counter64",
-      "MibIdentifier"
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus"
     ]
@@ -2205,6 +2205,46 @@
         "object": "sdlcLSOperLastFailREPLYTOs"
       }
     ],
+    "status": "obsolete"
+  },
+  "sdlcLSStatusChange1": {
+    "name": "sdlcLSStatusChange1",
+    "oid": "1.3.6.1.2.1.41.1.3.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperState"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminState"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailTime"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailCause"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailFRMRInfo"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailCtrlIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailCtrlOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailREPLYTOs"
+      }
+    ],
     "status": "current"
   },
   "sdlcConformance": {
@@ -2249,6 +2289,38 @@
       },
       {
         "object": "sdlcCoreLSStatsGroup",
+        "module": "SNA-SDLC-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "sdlcCoreComplianceV11R01": {
+    "name": "sdlcCoreComplianceV11R01",
+    "oid": "1.3.6.1.2.1.41.1.4.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "sdlcCorePortAdminGroupV11R01",
+        "module": "SNA-SDLC-MIB"
+      },
+      {
+        "object": "sdlcCorePortOperGroupV11R01",
+        "module": "SNA-SDLC-MIB"
+      },
+      {
+        "object": "sdlcCorePortStatsGroupV11R01",
+        "module": "SNA-SDLC-MIB"
+      },
+      {
+        "object": "sdlcCoreLSAdminGroupV11R01",
+        "module": "SNA-SDLC-MIB"
+      },
+      {
+        "object": "sdlcCoreLSOperGroupV11R01",
+        "module": "SNA-SDLC-MIB"
+      },
+      {
+        "object": "sdlcCoreLSStatsGroupV11R01",
         "module": "SNA-SDLC-MIB"
       }
     ],
@@ -2309,6 +2381,46 @@
         "object": "sdlcPortAdminISTATUS"
       }
     ],
+    "status": "obsolete"
+  },
+  "sdlcCorePortAdminGroupV11R01": {
+    "name": "sdlcCorePortAdminGroupV11R01",
+    "oid": "1.3.6.1.2.1.41.1.4.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortAdminName"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortAdminRole"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortAdminType"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortAdminTopology"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortAdminISTATUS"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortAdminACTIVTO"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortAdminPAUSE"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortAdminSERVLIM"
+      }
+    ],
     "status": "current"
   },
   "sdlcCorePortOperGroup": {
@@ -2349,6 +2461,66 @@
         "object": "sdlcPortOperLastFailCause"
       }
     ],
+    "status": "obsolete"
+  },
+  "sdlcCorePortOperGroupV11R01": {
+    "name": "sdlcCorePortOperGroupV11R01",
+    "oid": "1.3.6.1.2.1.41.1.4.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperName"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperRole"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperType"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperTopology"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperISTATUS"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperACTIVTO"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperPAUSE"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperSlowPollMethod"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperSERVLIM"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperSlowPollTimer"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperLastModifyTime"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperLastFailTime"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortOperLastFailCause"
+      }
+    ],
     "status": "current"
   },
   "sdlcCorePortStatsGroup": {
@@ -2367,6 +2539,90 @@
       {
         "module": "SNA-SDLC-MIB",
         "object": "sdlcPortStatsDwarfFrames"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "sdlcCorePortStatsGroupV11R01": {
+    "name": "sdlcCorePortStatsGroupV11R01",
+    "oid": "1.3.6.1.2.1.41.1.4.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsPhysicalFailures"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsInvalidAddresses"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsDwarfFrames"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsPollsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsPollsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsPollRspsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsPollRspsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsLocalBusies"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsRemoteBusies"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsIFramesIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsIFramesOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsOctetsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsOctetsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsProtocolErrs"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsActivityTOs"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsRNRLIMITs"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsRetriesExps"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsRetransmitsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcPortStatsRetransmitsOut"
       }
     ],
     "status": "current"
@@ -2439,6 +2695,86 @@
       {
         "module": "SNA-SDLC-MIB",
         "object": "sdlcLSAdminSimRim"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminRowStatus"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "sdlcCoreLSAdminGroupV11R01": {
+    "name": "sdlcCoreLSAdminGroupV11R01",
+    "oid": "1.3.6.1.2.1.41.1.4.2.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAddress"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminName"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminState"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminISTATUS"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminMAXDATASend"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminMAXDATARcv"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminMAXIN"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminMAXOUT"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminMODULO"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminRETRIESm"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminRETRIESt"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminRETRIESn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminRNRLIMIT"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminDATMODE"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminGPoll"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminSimRim"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSAdminXmitRcvCap"
       },
       {
         "module": "SNA-SDLC-MIB",
@@ -2527,6 +2863,106 @@
       {
         "module": "SNA-SDLC-MIB",
         "object": "sdlcLSOperGPoll"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "sdlcCoreLSOperGroupV11R01": {
+    "name": "sdlcCoreLSOperGroupV11R01",
+    "oid": "1.3.6.1.2.1.41.1.4.2.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperName"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperRole"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperState"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperMAXDATASend"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperMAXIN"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperMAXOUT"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperMODULO"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperRETRIESm"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperRETRIESt"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperRETRIESn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperRNRLIMIT"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperDATMODE"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastModifyTime"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailTime"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailCause"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailCtrlIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailCtrlOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailFRMRInfo"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperLastFailREPLYTOs"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperEcho"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperGPoll"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperSimRim"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSOperXmitRcvCap"
       }
     ],
     "status": "current"
@@ -2661,6 +3097,174 @@
         "object": "sdlcLSStatsRetriesExps"
       }
     ],
+    "status": "obsolete"
+  },
+  "sdlcCoreLSStatsGroupV11R01": {
+    "name": "sdlcCoreLSStatsGroupV11R01",
+    "oid": "1.3.6.1.2.1.41.1.4.2.1.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsBLUsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsBLUsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsOctetsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsOctetsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsPollsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsPollsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsPollRspsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsPollRspsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsLocalBusies"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsRemoteBusies"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsIFramesIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsIFramesOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsRetransmitsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsRetransmitsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsUIFramesIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsUIFramesOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsXIDsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsXIDsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsTESTsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsTESTsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsREJsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsREJsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsFRMRsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsFRMRsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsSIMsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsSIMsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsRIMsIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsRIMsOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsDISCIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsDISCOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsUAIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsUAOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsDMIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsDMOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsSNRMIn"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsSNRMOut"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsProtocolErrs"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsActivityTOs"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsRNRLIMITs"
+      },
+      {
+        "module": "SNA-SDLC-MIB",
+        "object": "sdlcLSStatsRetriesExps"
+      }
+    ],
     "status": "current"
   },
   "sdlcPrimaryGroups": {
@@ -2723,8 +3327,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNA-SDLC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:00:06 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:25 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "SNA-SDLC-MIB"

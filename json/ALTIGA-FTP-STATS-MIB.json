@@ -1,0 +1,309 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTIGA-GLOBAL-REG": [
+      "alFtpMibModule"
+    ],
+    "ALTIGA-MIB": [
+      "alStatsFtp",
+      "alFtpGroup"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "altigaFtpStatsMibModule": {
+    "name": "altigaFtpStatsMibModule",
+    "oid": "1.3.6.1.4.1.3076.1.1.17.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-05 13:00",
+        "description": "Added module compliance."
+      },
+      {
+        "revision": "2002-07-10 00:00",
+        "description": "Updated with new header"
+      }
+    ]
+  },
+  "alStatsFtpServerGlobal": {
+    "name": "alStatsFtpServerGlobal",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.1",
+    "class": "objectidentity"
+  },
+  "alStatsFtpClientGlobal": {
+    "name": "alStatsFtpClientGlobal",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2",
+    "class": "objectidentity"
+  },
+  "alFtpClientStatsMaxSess": {
+    "name": "alFtpClientStatsMaxSess",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsTotalSess": {
+    "name": "alFtpClientStatsTotalSess",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsGoodConns": {
+    "name": "alFtpClientStatsGoodConns",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsBadConns": {
+    "name": "alFtpClientStatsBadConns",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsGoodDataConns": {
+    "name": "alFtpClientStatsGoodDataConns",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsBadDataConns": {
+    "name": "alFtpClientStatsBadDataConns",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsGoodFileXfers": {
+    "name": "alFtpClientStatsGoodFileXfers",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsBadFileXfers": {
+    "name": "alFtpClientStatsBadFileXfers",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsAsciiXfers": {
+    "name": "alFtpClientStatsAsciiXfers",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsBinaryXfers": {
+    "name": "alFtpClientStatsBinaryXfers",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsOctetsXmit": {
+    "name": "alFtpClientStatsOctetsXmit",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsOctetsRecv": {
+    "name": "alFtpClientStatsOctetsRecv",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alFtpClientStatsTimeouts": {
+    "name": "alFtpClientStatsTimeouts",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.12.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altigaFtpStatsMibConformance": {
+    "name": "altigaFtpStatsMibConformance",
+    "oid": "1.3.6.1.4.1.3076.1.1.17.2.1",
+    "class": "objectidentity"
+  },
+  "altigaFtpStatsMibCompliances": {
+    "name": "altigaFtpStatsMibCompliances",
+    "oid": "1.3.6.1.4.1.3076.1.1.17.2.1.1",
+    "class": "objectidentity"
+  },
+  "altigaFtpStatsMibCompliance": {
+    "name": "altigaFtpStatsMibCompliance",
+    "oid": "1.3.6.1.4.1.3076.1.1.17.2.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaFtpStatsGroup",
+        "module": "ALTIGA-FTP-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "altigaFtpStatsGroup": {
+    "name": "altigaFtpStatsGroup",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.12.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsMaxSess"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsTotalSess"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsGoodConns"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsBadConns"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsGoodDataConns"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsBadDataConns"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsGoodFileXfers"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsBadFileXfers"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsAsciiXfers"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsBinaryXfers"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsOctetsXmit"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsOctetsRecv"
+      },
+      {
+        "module": "ALTIGA-FTP-STATS-MIB",
+        "object": "alFtpClientStatsTimeouts"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ALTIGA-FTP-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:24 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALTIGA-FTP-STATS-MIB"
+  }
+}

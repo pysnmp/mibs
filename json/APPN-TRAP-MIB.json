@@ -1,0 +1,378 @@
+{
+  "imports": {
+    "class": "imports",
+    "APPN-DLUR-MIB": [
+      "dlurDlusSessnStatus"
+    ],
+    "APPN-MIB": [
+      "appnCompliances",
+      "appnLocalTgOperational",
+      "appnLsOperState",
+      "appnIsInS2PNonFmdPius",
+      "appnMIB",
+      "appnIsInS2PFmdBytes",
+      "appnIsInS2PFmdPius",
+      "appnIsInP2SNonFmdBytes",
+      "appnGroups",
+      "appnIsInP2SNonFmdPius",
+      "appnIsInSessUpTime",
+      "appnLocalTgCpCpSession",
+      "appnPortOperState",
+      "appnIsInP2SFmdPius",
+      "appnIsInS2PNonFmdBytes",
+      "appnIsInP2SFmdBytes",
+      "appnObjects"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "appnTrapMIB": {
+    "name": "appnTrapMIB",
+    "oid": "1.3.6.1.2.1.34.4.0",
+    "class": "moduleidentity"
+  },
+  "appnIsrAccountingDataTrap": {
+    "name": "appnIsrAccountingDataTrap",
+    "oid": "1.3.6.1.2.1.34.4.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInP2SFmdPius"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInS2PFmdPius"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInP2SNonFmdPius"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInS2PNonFmdPius"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInP2SFmdBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInS2PFmdBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInP2SNonFmdBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInS2PNonFmdBytes"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnIsInSessUpTime"
+      }
+    ],
+    "status": "current"
+  },
+  "appnLocalTgOperStateChangeTrap": {
+    "name": "appnLocalTgOperStateChangeTrap",
+    "oid": "1.3.6.1.2.1.34.4.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnLocalTgTableChanges"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgOperational"
+      }
+    ],
+    "status": "current"
+  },
+  "appnLocalTgCpCpChangeTrap": {
+    "name": "appnLocalTgCpCpChangeTrap",
+    "oid": "1.3.6.1.2.1.34.4.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnLocalTgTableChanges"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLocalTgCpCpSession"
+      }
+    ],
+    "status": "current"
+  },
+  "appnPortOperStateChangeTrap": {
+    "name": "appnPortOperStateChangeTrap",
+    "oid": "1.3.6.1.2.1.34.4.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnPortTableChanges"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnPortOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "appnLsOperStateChangeTrap": {
+    "name": "appnLsOperStateChangeTrap",
+    "oid": "1.3.6.1.2.1.34.4.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnLsTableChanges"
+      },
+      {
+        "module": "APPN-MIB",
+        "object": "appnLsOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "dlurDlusStateChangeTrap": {
+    "name": "dlurDlusStateChangeTrap",
+    "oid": "1.3.6.1.2.1.34.4.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "dlurDlusTableChanges"
+      },
+      {
+        "module": "APPN-DLUR-MIB",
+        "object": "dlurDlusSessnStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "appnTrapObjects": {
+    "name": "appnTrapObjects",
+    "oid": "1.3.6.1.2.1.34.4.1.7",
+    "class": "objectidentity"
+  },
+  "appnTrapControl": {
+    "name": "appnTrapControl",
+    "oid": "1.3.6.1.2.1.34.4.1.7.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "appnLocalTgOperStateChangeTrap": 0,
+        "appnLocalTgCpCpChangeTrap": 1,
+        "appnPortOperStateChangeTrap": 2,
+        "appnLsOperStateChangeTrap": 3,
+        "dlurDlusStateChangeTrap": 4
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appnLocalTgTableChanges": {
+    "name": "appnLocalTgTableChanges",
+    "oid": "1.3.6.1.2.1.34.4.1.7.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnPortTableChanges": {
+    "name": "appnPortTableChanges",
+    "oid": "1.3.6.1.2.1.34.4.1.7.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnLsTableChanges": {
+    "name": "appnLsTableChanges",
+    "oid": "1.3.6.1.2.1.34.4.1.7.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dlurDlusTableChanges": {
+    "name": "dlurDlusTableChanges",
+    "oid": "1.3.6.1.2.1.34.4.1.7.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appnTrapMibCompliance": {
+    "name": "appnTrapMibCompliance",
+    "oid": "1.3.6.1.2.1.34.4.3.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "appnTrapMibIsrNotifGroup",
+        "module": "APPN-TRAP-MIB"
+      },
+      {
+        "object": "appnTrapMibTopoConfGroup",
+        "module": "APPN-TRAP-MIB"
+      },
+      {
+        "object": "appnTrapMibTopoNotifGroup",
+        "module": "APPN-TRAP-MIB"
+      },
+      {
+        "object": "appnTrapMibDlurConfGroup",
+        "module": "APPN-TRAP-MIB"
+      },
+      {
+        "object": "appnTrapMibDlurNotifGroup",
+        "module": "APPN-TRAP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "appnTrapMibIsrNotifGroup": {
+    "name": "appnTrapMibIsrNotifGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.21",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnIsrAccountingDataTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "appnTrapMibTopoConfGroup": {
+    "name": "appnTrapMibTopoConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnTrapControl"
+      },
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnLocalTgTableChanges"
+      },
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnPortTableChanges"
+      },
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnLsTableChanges"
+      }
+    ],
+    "status": "current"
+  },
+  "appnTrapMibTopoNotifGroup": {
+    "name": "appnTrapMibTopoNotifGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.23",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnLocalTgOperStateChangeTrap"
+      },
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnLocalTgCpCpChangeTrap"
+      },
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnPortOperStateChangeTrap"
+      },
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnLsOperStateChangeTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "appnTrapMibDlurConfGroup": {
+    "name": "appnTrapMibDlurConfGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "appnTrapControl"
+      },
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "dlurDlusTableChanges"
+      }
+    ],
+    "status": "current"
+  },
+  "appnTrapMibDlurNotifGroup": {
+    "name": "appnTrapMibDlurNotifGroup",
+    "oid": "1.3.6.1.2.1.34.4.3.2.25",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "APPN-TRAP-MIB",
+        "object": "dlurDlusStateChangeTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/APPN-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:22 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "APPN-TRAP-MIB"
+  }
+}

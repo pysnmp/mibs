@@ -26,9 +26,6 @@
                "This module defines management information specific to
                Fibre Channel-attached devices.
 
-
-
-
                Copyright (C) The Internet Society (2005).  This version
                of this MIB module is part of RFC 4044;  see the RFC
                itself for full legal notices."
@@ -72,14 +69,6 @@ FcDomainIdOrZero ::= TEXTUAL-CONVENTION
             Id has been assigned."
     SYNTAX  Integer32 (0..239)
 
-
-
-
-
-
-
-
-
 FcPortType ::= TEXTUAL-CONVENTION
     STATUS current
     DESCRIPTION
@@ -111,25 +100,11 @@ FcBbCreditModel ::= TEXTUAL-CONVENTION
             "The buffer-to-buffer credit model of an Fx_Port."
     SYNTAX    INTEGER { regular(1), alternate (2) }
 
-
 FcDataFieldSize ::= TEXTUAL-CONVENTION
     STATUS current
     DESCRIPTION
             "The Receive Data Field Size associated with an FC port."
     SYNTAX     Integer32 (128..2112)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 FcUnitFunctions ::= TEXTUAL-CONVENTION
     STATUS current
@@ -180,8 +155,6 @@ FcUnitFunctions ::= TEXTUAL-CONVENTION
                 hub(1),
                 switch(2),
 
-
-
                 bridge(3),
                 gateway(4),
                 host(5),
@@ -227,11 +200,6 @@ FcmInstanceEntry ::=
         fcmInstanceDescr             SnmpAdminString,
         fcmInstanceFabricId          FcNameIdOrZero
     }
-
-
-
-
-
 
 fcmInstanceIndex OBJECT-TYPE
     SYNTAX     Unsigned32 (1..4294967295)
@@ -282,8 +250,6 @@ fcmInstancePhysicalIndex OBJECT-TYPE
             the value of the entPhysicalIndex of that component (or of
             the component at the root of that hierarchy).  If there is
 
-
-
             no correspondence to a physical component (or no component
             that has an entPhysicalIndex value), then the value of this
             object is zero."
@@ -331,9 +297,6 @@ fcmInstanceTextName OBJECT-TYPE
             "A textual name for this management instance and the Fibre
             Channel entity/entities that it is managing."
     ::= { fcmInstanceEntry 7 }
-
-
-
 
 fcmInstanceDescr OBJECT-TYPE
     SYNTAX     SnmpAdminString
@@ -384,8 +347,6 @@ fcmSwitchEntry OBJECT-TYPE
     DESCRIPTION
             "Information about a particular Fibre Channel switch that is
 
-
-
             managed by the management instance given by
             fcmInstanceIndex."
     INDEX { fcmInstanceIndex, fcmSwitchIndex }
@@ -430,12 +391,6 @@ fcmSwitchPrincipal OBJECT-TYPE
             "An indication of whether this switch is the principal
             switch within its fabric."
     ::= { fcmSwitchEntry 3 }
-
-
-
-
-
-
 
 fcmSwitchWWN  OBJECT-TYPE
     SYNTAX     FcNameIdOrZero
@@ -486,8 +441,6 @@ FcmPortEntry ::=
         fcmPortCapProtocols     BITS,
         fcmPortOperProtocols    BITS
 
-
-
     }
 
 fcmPortInstanceIndex OBJECT-TYPE
@@ -534,10 +487,6 @@ fcmPortOperType OBJECT-TYPE
     DESCRIPTION
             "The current operational type of this port."
     ::= { fcmPortEntry 5 }
-
-
-
-
 
 fcmPortFcCapClass OBJECT-TYPE
     SYNTAX     FcClasses
@@ -588,8 +537,6 @@ fcmPortConnectorType OBJECT-TYPE
     }
     MAX-ACCESS read-only
 
-
-
     STATUS     current
     DESCRIPTION
             "The module type of the port connector.  This object refers
@@ -638,8 +585,6 @@ fcmPortAdminSpeed OBJECT-TYPE
                    twoGbs(6),      --   2Gbs
                    fourGbs(7),     --   4Gbs
                    tenGbs(8)       --  10Gbs
-
-
 
                }
     MAX-ACCESS read-write
@@ -690,8 +635,6 @@ fcmPortOperProtocols OBJECT-TYPE
     STATUS     current
     DESCRIPTION
 
-
-
             "A bit mask specifying the higher level protocols that are
             currently operational on this port.  For Fx_Ports, E_Ports,
             and B_Ports, this object will typically have the value
@@ -740,8 +683,6 @@ FcmPortStatsEntry ::=
         fcmPortClass2TxPbsyFrames  Counter64,
         fcmPortClass2TxFrjtFrames  Counter64,
         fcmPortClass2TxPrjtFrames  Counter64,
-
-
 
         fcmPortClass3RxFrames      Counter64,
         fcmPortClass3RxOctets      Counter64,
@@ -792,8 +733,6 @@ fcmPortClass2RxOctets OBJECT-TYPE
             "The number of octets contained in Class 2 frames received
             at this port."
 
-
-
     ::= { fcmPortStatsEntry 4 }
 
 fcmPortClass2TxFrames OBJECT-TYPE
@@ -843,8 +782,6 @@ fcmPortClass2RxPbsyFrames OBJECT-TYPE
             a result of a Class 2 frame that could not be delivered to
             the other end of the link.  This can occur when the
 
-
-
             destination port is temporarily busy."
     ::= { fcmPortStatsEntry 9 }
 
@@ -890,11 +827,6 @@ fcmPortClass2TxPbsyFrames OBJECT-TYPE
             because the destination port was temporarily busy.  Note
             that this counter will never increment for an F_Port."
     ::= { fcmPortStatsEntry 13 }
-
-
-
-
-
 
 fcmPortClass2TxFrjtFrames OBJECT-TYPE
     SYNTAX     Counter64
@@ -942,11 +874,6 @@ fcmPortClass3TxFrames OBJECT-TYPE
             "The number of Class 3 frames transmitted out of this port."
     ::= { fcmPortStatsEntry 18 }
 
-
-
-
-
-
 fcmPortClass3TxOctets OBJECT-TYPE
     SYNTAX     Counter64
     MAX-ACCESS read-only
@@ -989,14 +916,6 @@ fcmPortClassFTxFrames OBJECT-TYPE
     DESCRIPTION
             "The number of Class F frames transmitted out of this port."
     ::= { fcmPortStatsEntry 23 }
-
-
-
-
-
-
-
-
 
 fcmPortClassFTxOctets OBJECT-TYPE
     SYNTAX     Counter32
@@ -1045,10 +964,6 @@ fcmPortLcStatsEntry OBJECT-TYPE
     AUGMENTS   { fcmPortEntry }
     ::= { fcmPortLcStatsTable 1 }
 
-
-
-
-
 FcmPortLcStatsEntry ::=
     SEQUENCE {
         fcmPortLcBBCreditZeros       Counter32,
@@ -1094,12 +1009,6 @@ fcmPortLcFullInputBuffers OBJECT-TYPE
             side."
     ::= { fcmPortLcStatsEntry 2 }
 
-
-
-
-
-
-
 fcmPortLcClass2RxFrames OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
@@ -1143,14 +1052,6 @@ fcmPortLcClass2Discards OBJECT-TYPE
             reception at this port."
     ::= { fcmPortLcStatsEntry 7 }
 
-
-
-
-
-
-
-
-
 fcmPortLcClass2RxFbsyFrames OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
@@ -1193,14 +1094,6 @@ fcmPortLcClass2RxPrjtFrames OBJECT-TYPE
             a result of a Class 2 frame that was rejected at the
             destination N_Port."
     ::= { fcmPortLcStatsEntry 11 }
-
-
-
-
-
-
-
-
 
 fcmPortLcClass2TxFbsyFrames OBJECT-TYPE
     SYNTAX     Counter32
@@ -1246,13 +1139,6 @@ fcmPortLcClass2TxPrjtFrames OBJECT-TYPE
             increment for an F_Port."
     ::= { fcmPortLcStatsEntry 15 }
 
-
-
-
-
-
-
-
 fcmPortLcClass3RxFrames OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
@@ -1295,14 +1181,6 @@ fcmPortLcClass3Discards OBJECT-TYPE
             "The number of Class 3 frames that were discarded upon
             reception at this port."
     ::= { fcmPortLcStatsEntry 20 }
-
-
-
-
-
-
-
-
 
 --********************************
 -- Port Error Counters
@@ -1351,10 +1229,6 @@ FcmPortErrorsEntry ::=
         fcmPortOtherErrors              Counter32
     }
 
-
-
-
-
 fcmPortRxLinkResets OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
@@ -1402,10 +1276,6 @@ fcmPortTxOfflineSequences OBJECT-TYPE
             by this port."
     ::= { fcmPortErrorsEntry 5 }
 
-
-
-
-
 fcmPortLinkFailures OBJECT-TYPE
     SYNTAX     Counter32
     MAX-ACCESS read-only
@@ -1452,10 +1322,6 @@ fcmPortPrimSeqProtocolErrors OBJECT-TYPE
     REFERENCE
            "FC-PH, rev 4.3, 1 June 1994, section 29.8."
     ::= { fcmPortErrorsEntry 9 }
-
-
-
-
 
 fcmPortInvalidTxWords OBJECT-TYPE
     SYNTAX     Counter32
@@ -1506,8 +1372,6 @@ fcmPortTruncatedFrames OBJECT-TYPE
     DESCRIPTION
             "The number of frames received at this port for which the
 
-
-
             frame length was less than the minimum indicated by the
             frame header - normally 24 bytes, but it could be more if
             the DFCTL field indicates an optional header should have
@@ -1550,14 +1414,6 @@ fcmPortOtherErrors OBJECT-TYPE
             "The number of errors that were detected on this port but
             not counted by any other error counter in this row."
     ::= { fcmPortErrorsEntry 18 }
-
-
-
-
-
-
-
-
 
 --********************************
 -- The Fibre Channel Fx_Port Table
@@ -1608,8 +1464,6 @@ fcmFxPortRatov OBJECT-TYPE
             Fx_Port.  This is used as the timeout value for determining
             when to reuse an Nx_Port resource such as a
 
-
-
             Recovery_Qualifier.  It represents the Error_Detect_Timeout
             value (see fcmFxPortEdtov) plus twice the maximum time that
             a frame may be delayed within the Fabric and still be
@@ -1659,8 +1513,6 @@ fcmFxPortCapBbCreditMax OBJECT-TYPE
             "The maximum number of receive buffers that this port is
             capable of making available for holding frames from attached
 
-
-
             Nx_Port(s)."
     ::= { fcmFxPortEntry 5 }
 
@@ -1706,12 +1558,6 @@ fcmFxPortCapClass2SeqDeliv OBJECT-TYPE
             supporting Class 2 Sequential Delivery."
     ::= { fcmFxPortEntry 9 }
 
-
-
-
-
-
-
 fcmFxPortCapClass3SeqDeliv OBJECT-TYPE
     SYNTAX      TruthValue
     MAX-ACCESS  read-only
@@ -1756,13 +1602,6 @@ fcmISPortTable OBJECT-TYPE
             each fcmPortTable entry that represents such a port."
     ::= { fcmgmtObjects 8 }
 
-
-
-
-
-
-
-
 fcmISPortEntry OBJECT-TYPE
     SYNTAX     FcmISPortEntry
     MAX-ACCESS not-accessible
@@ -1800,19 +1639,6 @@ fcmISPortClassFDataFieldSize OBJECT-TYPE
             size specifies the largest Data Field Size for an FT_1
             frame."
     ::= { fcmISPortEntry 2 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 --********************************
 -- The Fabric Login table
@@ -1857,13 +1683,6 @@ FcmFLoginEntry ::=
         fcmFLoginClass3SeqDelivAgreed    TruthValue,
         fcmFLoginClass3DataFieldSize     FcDataFieldSize
     }
-
-
-
-
-
-
-
 
 fcmFLoginNxPortIndex OBJECT-TYPE
     SYNTAX      Unsigned32 (1..4294967295)
@@ -1914,8 +1733,6 @@ fcmFLoginBbCredit OBJECT-TYPE
     DESCRIPTION
             "The number of buffers available for holding frames to be
 
-
-
             transmitted to the attached Nx_Port.  These buffers are for
             buffer-to-buffer flow control in the direction from Fx_Port
             to Nx_Port."
@@ -1961,11 +1778,6 @@ fcmFLoginClass3SeqDelivAgreed OBJECT-TYPE
             Class 3 sequential delivery for this Nx_Port.  This is only
             meaningful if Class 3 service has been agreed upon."
     ::= { fcmFLoginEntry 9 }
-
-
-
-
-
 
 fcmFLoginClass3DataFieldSize OBJECT-TYPE
     SYNTAX      FcDataFieldSize
@@ -2016,8 +1828,6 @@ fcmLinkEntry OBJECT-TYPE
     INDEX { fcmInstanceIndex, fcmLinkIndex }
     ::= { fcmLinkTable 1 }
 
-
-
 FcmLinkEntry ::=
    SEQUENCE {
         fcmLinkIndex               Unsigned32,
@@ -2061,13 +1871,6 @@ fcmLinkEnd1PhysPortNumber OBJECT-TYPE
     REFERENCE
         "FC-GS-3, section 6.1.2.2.5"
     ::= { fcmLinkEntry 3 }
-
-
-
-
-
-
-
 
 fcmLinkEnd1PortWwn OBJECT-TYPE
     SYNTAX      FcNameIdOrZero
@@ -2118,8 +1921,6 @@ fcmLinkEnd2AgentAddress OBJECT-TYPE
             management agents.  If the address is unknown, the value of
             this object is the zero-length string."
 
-
-
     REFERENCE
         "FC-GS-3, section 6.1.2.1.7"
     ::= { fcmLinkEntry 8 }
@@ -2153,23 +1954,6 @@ fcmLinkEnd2FcAddressId OBJECT-TYPE
             "The Fibre Channel Address ID of end2, or the zero-length
             string if unknown."
     ::= { fcmLinkEntry 11 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 --********************************
 -- Conformance Section
@@ -2220,8 +2004,6 @@ fcmgmtCompliance MODULE-COMPLIANCE
         GROUP   fcmSwitchPortGroup
         DESCRIPTION
 
-
-
             "This group is mandatory only for Fibre Channel
             managed instances that manage Fibre Channel
             switches."
@@ -2271,8 +2053,6 @@ fcmgmtCompliance MODULE-COMPLIANCE
         DESCRIPTION
             "Write access is not required."
 
-
-
         OBJECT      fcmISPortClassFCredit
         MIN-ACCESS  read-only
         DESCRIPTION
@@ -2320,9 +2100,6 @@ fcmPortStatsGroup OBJECT-GROUP
             "Traffic statistics, which are not specific to any one class
             of service, for Fibre Channel ports."
     ::= { fcmgmtGroups 4 }
-
-
-
 
 fcmPortClass23StatsGroup OBJECT-GROUP
     OBJECTS { fcmPortClass2RxFrames, fcmPortClass2RxOctets,
@@ -2373,8 +2150,6 @@ fcmPortLcStatsGroup OBJECT-GROUP
     STATUS  current
     DESCRIPTION
 
-
-
             "Low-capacity (32-bit) statistics for Fibre Channel ports."
     ::= { fcmgmtGroups 7 }
 
@@ -2424,8 +2199,6 @@ fcmSwitchLoginGroup OBJECT-GROUP
             "Information known to a Fibre Channel switch about
             attached/logged-in Nx_Ports."
 
-
-
     ::= { fcmgmtGroups 10 }
 
 fcmLinkBasicGroup OBJECT-GROUP
@@ -2440,3 +2213,6 @@ fcmLinkBasicGroup OBJECT-GROUP
     ::= { fcmgmtGroups 11 }
 
 END
+
+
+

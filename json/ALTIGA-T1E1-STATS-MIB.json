@@ -1,0 +1,391 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALTIGA-GLOBAL-REG": [
+      "alT1E1MibModule"
+    ],
+    "ALTIGA-MIB": [
+      "alStatsT1E1",
+      "alT1E1Group"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "altigaT1E1StatsMibModule": {
+    "name": "altigaT1E1StatsMibModule",
+    "oid": "1.3.6.1.4.1.3076.1.1.38.2",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2002-09-05 13:00",
+        "description": "Added module compliance."
+      },
+      {
+        "revision": "2002-07-10 00:00",
+        "description": "Updated with new header"
+      }
+    ]
+  },
+  "alStatsT1E1Global": {
+    "name": "alStatsT1E1Global",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.1",
+    "class": "objectidentity"
+  },
+  "alT1E1StatsTable": {
+    "name": "alT1E1StatsTable",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alT1E1StatsEntry": {
+    "name": "alT1E1StatsEntry",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsSlot",
+        "implied": 0
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsConn",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alT1E1StatsRowStatus": {
+    "name": "alT1E1StatsRowStatus",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alT1E1StatsSlot": {
+    "name": "alT1E1StatsSlot",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsConn": {
+    "name": "alT1E1StatsConn",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsLineStatus": {
+    "name": "alT1E1StatsLineStatus",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "init": 1,
+          "up": 2,
+          "red": 3,
+          "blue": 4,
+          "yellow": 5,
+          "loopback": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsElapsedSecs": {
+    "name": "alT1E1StatsElapsedSecs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsBPVs": {
+    "name": "alT1E1StatsBPVs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsESs": {
+    "name": "alT1E1StatsESs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsSESs": {
+    "name": "alT1E1StatsSESs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsBESs": {
+    "name": "alT1E1StatsBESs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsSEFSs": {
+    "name": "alT1E1StatsSEFSs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsUASs": {
+    "name": "alT1E1StatsUASs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsLCVs": {
+    "name": "alT1E1StatsLCVs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsCSSs": {
+    "name": "alT1E1StatsCSSs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsDMs": {
+    "name": "alT1E1StatsDMs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsPCVs": {
+    "name": "alT1E1StatsPCVs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alT1E1StatsLESs": {
+    "name": "alT1E1StatsLESs",
+    "oid": "1.3.6.1.4.1.3076.2.1.2.33.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "altigaT1E1StatsMibConformance": {
+    "name": "altigaT1E1StatsMibConformance",
+    "oid": "1.3.6.1.4.1.3076.1.1.38.2.1",
+    "class": "objectidentity"
+  },
+  "altigaT1E1StatsMibCompliances": {
+    "name": "altigaT1E1StatsMibCompliances",
+    "oid": "1.3.6.1.4.1.3076.1.1.38.2.1.1",
+    "class": "objectidentity"
+  },
+  "altigaT1E1StatsMibCompliance": {
+    "name": "altigaT1E1StatsMibCompliance",
+    "oid": "1.3.6.1.4.1.3076.1.1.38.2.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "altigaT1E1StatsGroup",
+        "module": "ALTIGA-T1E1-STATS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "altigaT1E1StatsGroup": {
+    "name": "altigaT1E1StatsGroup",
+    "oid": "1.3.6.1.4.1.3076.2.1.1.1.33.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsRowStatus"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsSlot"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsConn"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsLineStatus"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsElapsedSecs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsBPVs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsESs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsSESs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsBESs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsSEFSs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsUASs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsLCVs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsCSSs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsDMs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsPCVs"
+      },
+      {
+        "module": "ALTIGA-T1E1-STATS-MIB",
+        "object": "alT1E1StatsLESs"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ALTIGA-T1E1-STATS-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:22 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "ALTIGA-T1E1-STATS-MIB"
+  }
+}

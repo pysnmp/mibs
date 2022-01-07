@@ -1,8 +1,18 @@
 {
   "imports": {
     "class": "imports",
+    "CISCO-PRIVATE-VLAN-MIB": [
+      "VlanIndexOrZero"
+    ],
+    "CISCO-QOS-PIB-MIB": [
+      "Percent"
+    ],
     "CISCO-SMI": [
       "ciscoMgmt"
+    ],
+    "CISCO-TC": [
+      "CiscoPortListRange",
+      "CiscoPortList"
     ],
     "CISCO-VTP-MIB": [
       "VlanIndex"
@@ -12,39 +22,40 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
-    "Q-BRIDGE-MIB": [
-      "PortList"
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Counter32",
       "Unsigned32",
-      "Integer32",
-      "IpAddress",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Counter64",
       "Bits",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "StorageType",
+      "TruthValue",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoIgmpSnoopingMIB": {
@@ -53,7 +64,19 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "1903-03-24 00:00",
+        "revision": "2010-06-08 00:00",
+        "description": "Added support for the following: - cisLeaveQueryConfigGroup - cisQuerierGlobalConfigGroup - cisIgmpQuerierConfigExtGroup - cisRobustnessConfigGroup - cisTimeToLiveConfigGroup - cisRouterAlertConfigGroup - cisVlanExplicitTrackingCfgGroup - cisIfLimitGroup - cisIfLimitTotalGroup - cisIfAccessGroupGroup - cisVlanFilterConfigGroup - cisFilterStatisticsGroup - cisMulticastGroupPortInfoGroup - cisMulticastGroupConfigGroup - cisQuerierGlobalTcnQueryCountGroup - cisQuerierTcnQueryPendingGroup Deprecated cisMcastRouterConfigGroup and replaced it with cisMulticastRouterConfigGroup. Deprecated cisMcastGroupInfoGroup and replaced it with cisMulticastGroupInfoGroup. Updated DESCRIPTION of cisL2EntryLimit, cisEntryTrackingLimit, cisSourceOnlyPercentageScanLimit and cisSourceOnlyLearningLimit to include the meaning of value zero. Revised the DESCRIPTION of cisVlanConfigEntry and cisIgmpQuerierEntry."
+      },
+      {
+        "revision": "2007-11-08 00:00",
+        "description": "Added value 'unknown(4)' to CisIgmpVersion. Added support for the following: - cisL2EntryLimitGroup - cisTrackingLimitGroup - cisSourceOnlyLimitGroup - cisRateLimitGroup2 - cisVlanConfigGroup2 - cisSourceOnlyAgeTimerInSecGroup. Deprecated cisRateLimitGroup, cisGlobalSourceOnlyLearnGroup."
+      },
+      {
+        "revision": "2004-04-02 00:00",
+        "description": "Replaced the import of PortList from Q-BRIDGE-MIB with CiscoPortList from CISCO-TC."
+      },
+      {
+        "revision": "2003-03-24 00:00",
         "description": "Add support for the following: - per VLAN IGMP Snooping configuration and group membership information - per port IGMP Snooping configuration - per VLAN IGMP Querier configuration - global rate-limit control objects - extend the cisSystemInfo to include more IGMP Snooping configuration related objects."
       },
       {
@@ -88,7 +111,8 @@
         "enumeration": {
           "version1": 1,
           "version2": 2,
-          "version3": 3
+          "version3": 3,
+          "unknown": 4
         }
       }
     },
@@ -137,6 +161,26 @@
   "cisMulticastGroupInfo": {
     "name": "cisMulticastGroupInfo",
     "oid": "1.3.6.1.4.1.9.9.263.1.7",
+    "class": "objectidentity"
+  },
+  "cisResourceLimitInfo": {
+    "name": "cisResourceLimitInfo",
+    "oid": "1.3.6.1.4.1.9.9.263.1.8",
+    "class": "objectidentity"
+  },
+  "cisQuerierConfigInfo": {
+    "name": "cisQuerierConfigInfo",
+    "oid": "1.3.6.1.4.1.9.9.263.1.9",
+    "class": "objectidentity"
+  },
+  "cisFilteringInfo": {
+    "name": "cisFilteringInfo",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10",
+    "class": "objectidentity"
+  },
+  "cisExplicitTrackingInfo": {
+    "name": "cisExplicitTrackingInfo",
+    "oid": "1.3.6.1.4.1.9.9.263.1.11",
     "class": "objectidentity"
   },
   "cisIgmpSnoopingEnabled": {
@@ -347,7 +391,7 @@
     },
     "units": "minutes",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisV3SnoopingSupport": {
     "name": "cisV3SnoopingSupport",
@@ -365,6 +409,104 @@
       }
     },
     "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisSourceOnlyEntryAgingTime": {
+    "name": "cisSourceOnlyEntryAgingTime",
+    "oid": "1.3.6.1.4.1.9.9.263.1.1.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisRobustnessVariable": {
+    "name": "cisRobustnessVariable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.1.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisLastMemberQueryInterval": {
+    "name": "cisLastMemberQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.263.1.1.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisLastMemberQueryCount": {
+    "name": "cisLastMemberQueryCount",
+    "oid": "1.3.6.1.4.1.9.9.263.1.1.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisTimeToLiveCheckEnabled": {
+    "name": "cisTimeToLiveCheckEnabled",
+    "oid": "1.3.6.1.4.1.9.9.263.1.1.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisRouterAlertCheckEnabled": {
+    "name": "cisRouterAlertCheckEnabled",
+    "oid": "1.3.6.1.4.1.9.9.263.1.1.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "cisInterfaceStatsTable": {
@@ -627,9 +769,9 @@
       "type": "Unsigned32",
       "class": "type"
     },
-    "units": "packet per 30 seconds",
+    "units": "packets per 30 seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisDvmrpRateLimit": {
     "name": "cisDvmrpRateLimit",
@@ -640,9 +782,9 @@
       "type": "Unsigned32",
       "class": "type"
     },
-    "units": "packet per 30 seconds",
+    "units": "packets per 30 seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMospf1RateLimit": {
     "name": "cisMospf1RateLimit",
@@ -653,9 +795,9 @@
       "type": "Unsigned32",
       "class": "type"
     },
-    "units": "packet per 30 seconds",
+    "units": "packets per 30 seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMospf2RateLimit": {
     "name": "cisMospf2RateLimit",
@@ -666,9 +808,9 @@
       "type": "Unsigned32",
       "class": "type"
     },
-    "units": "packet per 30 seconds",
+    "units": "packets per 30 seconds",
     "maxaccess": "read-write",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisPimV2RateLimit": {
     "name": "cisPimV2RateLimit",
@@ -679,7 +821,20 @@
       "type": "Unsigned32",
       "class": "type"
     },
-    "units": "packet per 30 seconds",
+    "units": "packets per 30 seconds",
+    "maxaccess": "read-write",
+    "status": "deprecated"
+  },
+  "cisRateLimit": {
+    "name": "cisRateLimit",
+    "oid": "1.3.6.1.4.1.9.9.263.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "packets per second",
     "maxaccess": "read-write",
     "status": "current"
   },
@@ -768,6 +923,115 @@
           "cgmp": 2
         }
       }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisVlanReportSuppressionEnabled": {
+    "name": "cisVlanReportSuppressionEnabled",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisVlanLeaveQueryInterval": {
+    "name": "cisVlanLeaveQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisVlanLastMemberQueryCount": {
+    "name": "cisVlanLastMemberQueryCount",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisVlanRobustnessVariable": {
+    "name": "cisVlanRobustnessVariable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisVlanTimeToLiveCheckEnabled": {
+    "name": "cisVlanTimeToLiveCheckEnabled",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisVlanRouterAlertCheckEnabled": {
+    "name": "cisVlanRouterAlertCheckEnabled",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -888,6 +1152,178 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "cisIgmpQuerierTcnQueryCount": {
+    "name": "cisIgmpQuerierTcnQueryCount",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisIgmpQuerierTcnQueryInterval": {
+    "name": "cisIgmpQuerierTcnQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisIgmpQuerierTimerExpiry": {
+    "name": "cisIgmpQuerierTimerExpiry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisIgmpQuerierMaxResponseTime": {
+    "name": "cisIgmpQuerierMaxResponseTime",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisIgmpQuerierQueryInterval": {
+    "name": "cisIgmpQuerierQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisIgmpQuerierAdminAddressType": {
+    "name": "cisIgmpQuerierAdminAddressType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisIgmpQuerierAdminAddress": {
+    "name": "cisIgmpQuerierAdminAddress",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisIgmpQuerierAdminVersion": {
+    "name": "cisIgmpQuerierAdminVersion",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CisIgmpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisIgmpQuerierTcnQueryPending": {
+    "name": "cisIgmpQuerierTcnQueryPending",
+    "oid": "1.3.6.1.4.1.9.9.263.1.4.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "cisIfConfigTable": {
     "name": "cisIfConfigTable",
     "oid": "1.3.6.1.4.1.9.9.263.1.5.1",
@@ -929,7 +1365,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastRouterCfgEntry": {
     "name": "cisMcastRouterCfgEntry",
@@ -949,7 +1385,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastRouterVlanIndex": {
     "name": "cisMcastRouterVlanIndex",
@@ -961,7 +1397,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastRouterType": {
     "name": "cisMcastRouterType",
@@ -979,11 +1415,99 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastRouterRowStatus": {
     "name": "cisMcastRouterRowStatus",
     "oid": "1.3.6.1.4.1.9.9.263.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "cisMcastRouterConfigTable": {
+    "name": "cisMcastRouterConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMcastRouterConfigEntry": {
+    "name": "cisMcastRouterConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMcastRouterConfigVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cisMcastRouterConfigVlanIndex": {
+    "name": "cisMcastRouterConfigVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.263.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMcastRouterConfigRouterType": {
+    "name": "cisMcastRouterConfigRouterType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisMcastRouterConfigStorageType": {
+    "name": "cisMcastRouterConfigStorageType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisMcastRouterConfigRowStatus": {
+    "name": "cisMcastRouterConfigRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.263.1.6.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -999,7 +1523,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastGroupEntry": {
     "name": "cisMcastGroupEntry",
@@ -1024,7 +1548,7 @@
         "implied": 0
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastGroupVlanIndex": {
     "name": "cisMcastGroupVlanIndex",
@@ -1036,7 +1560,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastGroupAddressType": {
     "name": "cisMcastGroupAddressType",
@@ -1048,7 +1572,7 @@
       "class": "type"
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastGroupAddress": {
     "name": "cisMcastGroupAddress",
@@ -1057,10 +1581,18 @@
     "class": "objecttype",
     "syntax": {
       "type": "InetAddress",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
     },
     "maxaccess": "not-accessible",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastGroupFilterMode": {
     "name": "cisMcastGroupFilterMode",
@@ -1078,7 +1610,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastGroupIgmpVersion": {
     "name": "cisMcastGroupIgmpVersion",
@@ -1090,7 +1622,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastGroupIncludeHostCount": {
     "name": "cisMcastGroupIncludeHostCount",
@@ -1102,7 +1634,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastGroupExcludeHostCount": {
     "name": "cisMcastGroupExcludeHostCount",
@@ -1114,7 +1646,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastGroupPortList": {
     "name": "cisMcastGroupPortList",
@@ -1122,10 +1654,1131 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PortList",
+      "type": "CiscoPortList",
       "class": "type"
     },
     "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cisMulticastGroupTable": {
+    "name": "cisMulticastGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupEntry": {
+    "name": "cisMulticastGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupCeVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupSourceAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cisMulticastGroupVlanIndex": {
+    "name": "cisMulticastGroupVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupCeVlanIndex": {
+    "name": "cisMulticastGroupCeVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupAddressType": {
+    "name": "cisMulticastGroupAddressType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupAddress": {
+    "name": "cisMulticastGroupAddress",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupSourceAddress": {
+    "name": "cisMulticastGroupSourceAddress",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupGroupType": {
+    "name": "cisMulticastGroupGroupType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "static": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisMulticastGroupIgmpVersion": {
+    "name": "cisMulticastGroupIgmpVersion",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "igmpV1": 0,
+        "igmpV2": 1,
+        "igmpV3": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisMulticastGroupSourceUpTime": {
+    "name": "cisMulticastGroupSourceUpTime",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisMulticastGroupSourceExpires": {
+    "name": "cisMulticastGroupSourceExpires",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisMulticastGroupInclHostCount": {
+    "name": "cisMulticastGroupInclHostCount",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisMulticastGroupExclHostCount": {
+    "name": "cisMulticastGroupExclHostCount",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisMulticastGroupPortListTable": {
+    "name": "cisMulticastGroupPortListTable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupPortListEntry": {
+    "name": "cisMulticastGroupPortListEntry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupCeVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupSourceAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupPortRangeIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cisMulticastGroupPortRangeIndex": {
+    "name": "cisMulticastGroupPortRangeIndex",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPortListRange",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupPortList": {
+    "name": "cisMulticastGroupPortList",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisMulticastGroupConfigTable": {
+    "name": "cisMulticastGroupConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupConfigEntry": {
+    "name": "cisMulticastGroupConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupConfVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupConfCeVlanIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupConfAddressType",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupConfAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupConfSourceAddress",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupConfPortRange",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cisMulticastGroupConfVlanIndex": {
+    "name": "cisMulticastGroupConfVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupConfCeVlanIndex": {
+    "name": "cisMulticastGroupConfCeVlanIndex",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupConfAddressType": {
+    "name": "cisMulticastGroupConfAddressType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupConfAddress": {
+    "name": "cisMulticastGroupConfAddress",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupConfSourceAddress": {
+    "name": "cisMulticastGroupConfSourceAddress",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 48
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupConfPortRange": {
+    "name": "cisMulticastGroupConfPortRange",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPortListRange",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisMulticastGroupConfPortList": {
+    "name": "cisMulticastGroupConfPortList",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CiscoPortList",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisMulticastGroupConfStorageType": {
+    "name": "cisMulticastGroupConfStorageType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisMulticastGroupConfRowStatus": {
+    "name": "cisMulticastGroupConfRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.263.1.7.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisL2EntryLimit": {
+    "name": "cisL2EntryLimit",
+    "oid": "1.3.6.1.4.1.9.9.263.1.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisEntryTrackingLimit": {
+    "name": "cisEntryTrackingLimit",
+    "oid": "1.3.6.1.4.1.9.9.263.1.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisSourceOnlyPercentageScanLimit": {
+    "name": "cisSourceOnlyPercentageScanLimit",
+    "oid": "1.3.6.1.4.1.9.9.263.1.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Percent",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisSourceOnlyLearningLimit": {
+    "name": "cisSourceOnlyLearningLimit",
+    "oid": "1.3.6.1.4.1.9.9.263.1.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisQuerierEnabled": {
+    "name": "cisQuerierEnabled",
+    "oid": "1.3.6.1.4.1.9.9.263.1.9.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisQuerierTcnQueryInterval": {
+    "name": "cisQuerierTcnQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.263.1.9.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisQuerierTimerExpiry": {
+    "name": "cisQuerierTimerExpiry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.9.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisQuerierMaxResponseTime": {
+    "name": "cisQuerierMaxResponseTime",
+    "oid": "1.3.6.1.4.1.9.9.263.1.9.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "one-tenth of second",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisQuerierQueryInterval": {
+    "name": "cisQuerierQueryInterval",
+    "oid": "1.3.6.1.4.1.9.9.263.1.9.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisQuerierAddressType": {
+    "name": "cisQuerierAddressType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.9.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisQuerierAddress": {
+    "name": "cisQuerierAddress",
+    "oid": "1.3.6.1.4.1.9.9.263.1.9.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisQuerierVersion": {
+    "name": "cisQuerierVersion",
+    "oid": "1.3.6.1.4.1.9.9.263.1.9.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CisIgmpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisQuerierTcnQueryCount": {
+    "name": "cisQuerierTcnQueryCount",
+    "oid": "1.3.6.1.4.1.9.9.263.1.9.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisIfLimitTable": {
+    "name": "cisIfLimitTable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisIfLimitEntry": {
+    "name": "cisIfLimitEntry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfLimitVlanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cisIfLimitVlanNumber": {
+    "name": "cisIfLimitVlanNumber",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisIfLimitMax": {
+    "name": "cisIfLimitMax",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisIfLimitExcludeAccessGrp": {
+    "name": "cisIfLimitExcludeAccessGrp",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisIfLimitStorageType": {
+    "name": "cisIfLimitStorageType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisIfLimitRowStatus": {
+    "name": "cisIfLimitRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisIfLimitTotalTable": {
+    "name": "cisIfLimitTotalTable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisIfLimitTotalEntry": {
+    "name": "cisIfLimitTotalEntry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cisIfLimitTotalLimitMax": {
+    "name": "cisIfLimitTotalLimitMax",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisIfLimitTotalExcludeAccessGrp": {
+    "name": "cisIfLimitTotalExcludeAccessGrp",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisIfLimitTotalStorageType": {
+    "name": "cisIfLimitTotalStorageType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisIfLimitTotalRowStatus": {
+    "name": "cisIfLimitTotalRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisIfAccessGroupTable": {
+    "name": "cisIfAccessGroupTable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisIfAccessGroupEntry": {
+    "name": "cisIfAccessGroupEntry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfAccessGroupVlan",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cisIfAccessGroupVlan": {
+    "name": "cisIfAccessGroupVlan",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisIfAccessGroupsChannelsAllowed": {
+    "name": "cisIfAccessGroupsChannelsAllowed",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisIfAccessGroupStorageType": {
+    "name": "cisIfAccessGroupStorageType",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "volatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisIfAccessGroupRowStatus": {
+    "name": "cisIfAccessGroupRowStatus",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "cisVlanFilterConfigTable": {
+    "name": "cisVlanFilterConfigTable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisVlanFilterConfigEntry": {
+    "name": "cisVlanFilterConfigEntry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cisVlanFilterAccessGroup": {
+    "name": "cisVlanFilterAccessGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisVlanFilterLimitMax": {
+    "name": "cisVlanFilterLimitMax",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisVlanFilterLimitExclAccessGrp": {
+    "name": "cisVlanFilterLimitExclAccessGrp",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisVlanFilterMinVersionAllowed": {
+    "name": "cisVlanFilterMinVersionAllowed",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CisIgmpVersion",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisFilterStatsTable": {
+    "name": "cisFilterStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisFilterStatsEntry": {
+    "name": "cisFilterStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisFilterStatsVlanNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cisFilterStatsVlanNumber": {
+    "name": "cisFilterStatsVlanNumber",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VlanIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisFilterAccessGroupDenied": {
+    "name": "cisFilterAccessGroupDenied",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisFilterLimitDenied": {
+    "name": "cisFilterLimitDenied",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisFilterTotalLimitDenied": {
+    "name": "cisFilterTotalLimitDenied",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisFilterMinVersionDenied": {
+    "name": "cisFilterMinVersionDenied",
+    "oid": "1.3.6.1.4.1.9.9.263.1.10.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cisVlanExplicitTrackingTable": {
+    "name": "cisVlanExplicitTrackingTable",
+    "oid": "1.3.6.1.4.1.9.9.263.1.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cisVlanExplicitTrackingEntry": {
+    "name": "cisVlanExplicitTrackingEntry",
+    "oid": "1.3.6.1.4.1.9.9.263.1.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cisVlanExplicitTrackingEnabled": {
+    "name": "cisVlanExplicitTrackingEnabled",
+    "oid": "1.3.6.1.4.1.9.9.263.1.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "cisVlanExplicitTrackingLimit": {
+    "name": "cisVlanExplicitTrackingLimit",
+    "oid": "1.3.6.1.4.1.9.9.263.1.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": -1
+          },
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 2147483647,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "cisMIBConformance": {
@@ -1258,6 +2911,246 @@
       },
       {
         "object": "cisIfConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cisIgmpSnoopingMIBCompliance2": {
+    "name": "cisIgmpSnoopingMIBCompliance2",
+    "oid": "1.3.6.1.4.1.9.9.263.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cisBaseConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisGlobalTcnGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisGlobalIgmpV3ConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisGlobalIgmpV3InfoGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisExtConfig1Group",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisExtConfig2Group",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisStatsGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisV3StatsGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisVlanConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisIgmpQuerierConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisIgmpQuerierInfoGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisMcastRouterConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisMcastGroupInfoGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisIfConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisL2EntryLimitGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisTrackingLimitGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisSourceOnlyLimitGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisRateLimitGroup2",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisVlanConfigGroup2",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisSourceOnlyAgeTimerInSecGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "cisIgmpSnoopingMIBCompliance3": {
+    "name": "cisIgmpSnoopingMIBCompliance3",
+    "oid": "1.3.6.1.4.1.9.9.263.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "cisBaseConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisGlobalTcnGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisGlobalIgmpV3ConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisGlobalIgmpV3InfoGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisExtConfig1Group",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisExtConfig2Group",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisStatsGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisV3StatsGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisVlanConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisIgmpQuerierConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisIgmpQuerierInfoGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisIfConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisL2EntryLimitGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisTrackingLimitGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisSourceOnlyLimitGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisRateLimitGroup2",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisVlanConfigGroup2",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisSourceOnlyAgeTimerInSecGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisMulticastGroupInfoGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisMulticastGroupPortInfoGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisMulticastGroupConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisMulticastRouterConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisLeaveQueryConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisQuerierGlobalConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisIgmpQuerierConfigExtGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisVlanExplicitTrackingCfgGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisRobustnessConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisTimeToLiveConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisRouterAlertConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisIfLimitGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisIfLimitTotalGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisIfAccessGroupGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisVlanFilterConfigGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisFilterStatisticsGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisQuerierGlobalTcnQueryCountGroup",
+        "module": "CISCO-IGMP-SNOOPING-MIB"
+      },
+      {
+        "object": "cisQuerierTcnQueryPendingGroup",
         "module": "CISCO-IGMP-SNOOPING-MIB"
       }
     ],
@@ -1517,7 +3410,7 @@
         "object": "cisSourceOnlyEntryAgeTime"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "cisRateLimitGroup": {
     "name": "cisRateLimitGroup",
@@ -1545,7 +3438,7 @@
         "object": "cisPimV2RateLimit"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "cisVlanConfigGroup": {
     "name": "cisVlanConfigGroup",
@@ -1625,7 +3518,7 @@
         "object": "cisMcastRouterRowStatus"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "cisMcastGroupInfoGroup": {
     "name": "cisMcastGroupInfoGroup",
@@ -1653,7 +3546,7 @@
         "object": "cisMcastGroupPortList"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "cisIfConfigGroup": {
     "name": "cisIfConfigGroup",
@@ -1667,11 +3560,483 @@
     ],
     "status": "current"
   },
+  "cisL2EntryLimitGroup": {
+    "name": "cisL2EntryLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.20",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisL2EntryLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "cisTrackingLimitGroup": {
+    "name": "cisTrackingLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.21",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisEntryTrackingLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "cisSourceOnlyLimitGroup": {
+    "name": "cisSourceOnlyLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.22",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisSourceOnlyPercentageScanLimit"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisSourceOnlyLearningLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "cisRateLimitGroup2": {
+    "name": "cisRateLimitGroup2",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.23",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisRateLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "cisVlanConfigGroup2": {
+    "name": "cisVlanConfigGroup2",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.24",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanReportSuppressionEnabled"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanLeaveQueryInterval"
+      }
+    ],
+    "status": "current"
+  },
+  "cisSourceOnlyAgeTimerInSecGroup": {
+    "name": "cisSourceOnlyAgeTimerInSecGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.25",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisSourceOnlyLearningEnabled"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisSourceOnlyEntryAgingTime"
+      }
+    ],
+    "status": "current"
+  },
+  "cisMulticastGroupInfoGroup": {
+    "name": "cisMulticastGroupInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.26",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupGroupType"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupIgmpVersion"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupSourceUpTime"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupSourceExpires"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupInclHostCount"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupExclHostCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cisMulticastGroupPortInfoGroup": {
+    "name": "cisMulticastGroupPortInfoGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.27",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupPortList"
+      }
+    ],
+    "status": "current"
+  },
+  "cisMulticastGroupConfigGroup": {
+    "name": "cisMulticastGroupConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.28",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupConfPortList"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupConfStorageType"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMulticastGroupConfRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cisMulticastRouterConfigGroup": {
+    "name": "cisMulticastRouterConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.29",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMcastRouterConfigRouterType"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMcastRouterConfigStorageType"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisMcastRouterConfigRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cisLeaveQueryConfigGroup": {
+    "name": "cisLeaveQueryConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.30",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisLastMemberQueryCount"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisLastMemberQueryInterval"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanLastMemberQueryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cisQuerierGlobalConfigGroup": {
+    "name": "cisQuerierGlobalConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.31",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisQuerierEnabled"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisQuerierTcnQueryInterval"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisQuerierTimerExpiry"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisQuerierMaxResponseTime"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisQuerierQueryInterval"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisQuerierAddressType"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisQuerierAddress"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisQuerierVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "cisIgmpQuerierConfigExtGroup": {
+    "name": "cisIgmpQuerierConfigExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.32",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIgmpQuerierTcnQueryCount"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIgmpQuerierTcnQueryInterval"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIgmpQuerierTimerExpiry"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIgmpQuerierMaxResponseTime"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIgmpQuerierQueryInterval"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIgmpQuerierAdminAddressType"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIgmpQuerierAdminAddress"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIgmpQuerierAdminVersion"
+      }
+    ],
+    "status": "current"
+  },
+  "cisRobustnessConfigGroup": {
+    "name": "cisRobustnessConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.33",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisRobustnessVariable"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanRobustnessVariable"
+      }
+    ],
+    "status": "current"
+  },
+  "cisTimeToLiveConfigGroup": {
+    "name": "cisTimeToLiveConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.34",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisTimeToLiveCheckEnabled"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanTimeToLiveCheckEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cisRouterAlertConfigGroup": {
+    "name": "cisRouterAlertConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.35",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisRouterAlertCheckEnabled"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanRouterAlertCheckEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "cisVlanExplicitTrackingCfgGroup": {
+    "name": "cisVlanExplicitTrackingCfgGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.36",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanExplicitTrackingEnabled"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanExplicitTrackingLimit"
+      }
+    ],
+    "status": "current"
+  },
+  "cisIfLimitGroup": {
+    "name": "cisIfLimitGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.37",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfLimitMax"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfLimitExcludeAccessGrp"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfLimitStorageType"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfLimitRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cisIfLimitTotalGroup": {
+    "name": "cisIfLimitTotalGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.38",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfLimitTotalLimitMax"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfLimitTotalExcludeAccessGrp"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfLimitTotalStorageType"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfLimitTotalRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cisIfAccessGroupGroup": {
+    "name": "cisIfAccessGroupGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.39",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfAccessGroupsChannelsAllowed"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfAccessGroupStorageType"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIfAccessGroupRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "cisVlanFilterConfigGroup": {
+    "name": "cisVlanFilterConfigGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.40",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanFilterAccessGroup"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanFilterLimitMax"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanFilterLimitExclAccessGrp"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisVlanFilterMinVersionAllowed"
+      }
+    ],
+    "status": "current"
+  },
+  "cisFilterStatisticsGroup": {
+    "name": "cisFilterStatisticsGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.41",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisFilterAccessGroupDenied"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisFilterLimitDenied"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisFilterTotalLimitDenied"
+      },
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisFilterMinVersionDenied"
+      }
+    ],
+    "status": "current"
+  },
+  "cisQuerierGlobalTcnQueryCountGroup": {
+    "name": "cisQuerierGlobalTcnQueryCountGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.42",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisQuerierTcnQueryCount"
+      }
+    ],
+    "status": "current"
+  },
+  "cisQuerierTcnQueryPendingGroup": {
+    "name": "cisQuerierTcnQueryPendingGroup",
+    "oid": "1.3.6.1.4.1.9.9.263.2.2.43",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-IGMP-SNOOPING-MIB",
+        "object": "cisIgmpQuerierTcnQueryPending"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IGMP-SNOOPING-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:10 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:20 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-IGMP-SNOOPING-MIB"

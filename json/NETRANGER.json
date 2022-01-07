@@ -1,0 +1,501 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "enterprises",
+      "iso",
+      "Counter64",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "wheelgroup": {
+    "name": "wheelgroup",
+    "oid": "1.3.6.1.4.1.2252",
+    "class": "objectidentity"
+  },
+  "securityMgmt": {
+    "name": "securityMgmt",
+    "oid": "1.3.6.1.4.1.2252.1",
+    "class": "objectidentity"
+  },
+  "networkMgmt": {
+    "name": "networkMgmt",
+    "oid": "1.3.6.1.4.1.2252.3",
+    "class": "objectidentity"
+  },
+  "system": {
+    "name": "system",
+    "oid": "1.3.6.1.4.1.2252.3.1",
+    "class": "objectidentity"
+  },
+  "ip": {
+    "name": "ip",
+    "oid": "1.3.6.1.4.1.2252.3.3",
+    "class": "objectidentity"
+  },
+  "snmp": {
+    "name": "snmp",
+    "oid": "1.3.6.1.4.1.2252.3.5",
+    "class": "objectidentity"
+  },
+  "netranger": {
+    "name": "netranger",
+    "oid": "1.3.6.1.4.1.2252.1.1",
+    "class": "objectidentity"
+  },
+  "autospa": {
+    "name": "autospa",
+    "oid": "1.3.6.1.4.1.2252.1.3",
+    "class": "objectidentity"
+  },
+  "nrTrapVars": {
+    "name": "nrTrapVars",
+    "oid": "1.3.6.1.4.1.2252.1.1.1",
+    "class": "objectidentity"
+  },
+  "services": {
+    "name": "services",
+    "oid": "1.3.6.1.4.1.2252.1.1.3",
+    "class": "objectidentity"
+  },
+  "general": {
+    "name": "general",
+    "oid": "1.3.6.1.4.1.2252.1.1.5",
+    "class": "objectidentity"
+  },
+  "postoffice": {
+    "name": "postoffice",
+    "oid": "1.3.6.1.4.1.2252.1.1.3.0",
+    "class": "objectidentity"
+  },
+  "sensor": {
+    "name": "sensor",
+    "oid": "1.3.6.1.4.1.2252.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "config": {
+    "name": "config",
+    "oid": "1.3.6.1.4.1.2252.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "manage": {
+    "name": "manage",
+    "oid": "1.3.6.1.4.1.2252.1.1.3.3",
+    "class": "objectidentity"
+  },
+  "event": {
+    "name": "event",
+    "oid": "1.3.6.1.4.1.2252.1.1.3.4",
+    "class": "objectidentity"
+  },
+  "logger": {
+    "name": "logger",
+    "oid": "1.3.6.1.4.1.2252.1.1.3.5",
+    "class": "objectidentity"
+  },
+  "smi": {
+    "name": "smi",
+    "oid": "1.3.6.1.4.1.2252.1.1.3.6",
+    "class": "objectidentity"
+  },
+  "sap": {
+    "name": "sap",
+    "oid": "1.3.6.1.4.1.2252.1.1.3.7",
+    "class": "objectidentity"
+  },
+  "packet": {
+    "name": "packet",
+    "oid": "1.3.6.1.4.1.2252.1.1.3.8",
+    "class": "objectidentity"
+  },
+  "commonServices": {
+    "name": "commonServices",
+    "oid": "1.3.6.1.4.1.2252.1.1.3.9",
+    "class": "objectidentity"
+  },
+  "commonVars": {
+    "name": "commonVars",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.0",
+    "class": "objectidentity"
+  },
+  "command": {
+    "name": "command",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "error": {
+    "name": "error",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "commandLog": {
+    "name": "commandLog",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.3",
+    "class": "objectidentity"
+  },
+  "alarm": {
+    "name": "alarm",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4",
+    "class": "objectidentity"
+  },
+  "ipLog": {
+    "name": "ipLog",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.5",
+    "class": "objectidentity"
+  },
+  "redirect": {
+    "name": "redirect",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.6",
+    "class": "objectidentity"
+  },
+  "addressing": {
+    "name": "addressing",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.1",
+    "class": "objectidentity"
+  },
+  "tcpip": {
+    "name": "tcpip",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.1.1",
+    "class": "objectidentity"
+  },
+  "messageType": {
+    "name": "messageType",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.0.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "recordId": {
+    "name": "recordId",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.0.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "globalTime": {
+    "name": "globalTime",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.0.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "localTime": {
+    "name": "localTime",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.0.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dateString": {
+    "name": "dateString",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.0.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "timeString": {
+    "name": "timeString",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.0.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "appId": {
+    "name": "appId",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.0.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "hostId": {
+    "name": "hostId",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.0.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "orgId": {
+    "name": "orgId",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.0.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "errorMessage": {
+    "name": "errorMessage",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceAppId": {
+    "name": "sourceAppId",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceHostId": {
+    "name": "sourceHostId",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sourceOrgId": {
+    "name": "sourceOrgId",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "commandMessage": {
+    "name": "commandMessage",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "srcDirection": {
+    "name": "srcDirection",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dstDirection": {
+    "name": "dstDirection",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventLevel": {
+    "name": "eventLevel",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "sigId": {
+    "name": "sigId",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "subSigId": {
+    "name": "subSigId",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "protocol": {
+    "name": "protocol",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "srcIpAddr": {
+    "name": "srcIpAddr",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dstIpAddr": {
+    "name": "dstIpAddr",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "srcIpPort": {
+    "name": "srcIpPort",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dstIpPort": {
+    "name": "dstIpPort",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "rtrIpAddr": {
+    "name": "rtrIpAddr",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.1.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "alarmMessage": {
+    "name": "alarmMessage",
+    "oid": "1.3.6.1.4.1.2252.1.1.1.4.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/NETRANGER",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:20 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NETRANGER"
+  }
+}

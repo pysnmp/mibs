@@ -1,50 +1,91 @@
 {
   "imports": {
     "class": "imports",
-    "HCNUM-TC": [
-      "ZeroBasedCounter64",
-      "CounterBasedGauge64"
-    ],
     "RMON-MIB": [
+      "matrixDSSourceAddress",
+      "hostTopNControlEntry",
+      "matrixDSDestAddress",
+      "etherHistorySampleIndex",
+      "hosts",
+      "captureBufferControlIndex",
+      "hostTimeCreationOrder",
+      "matrixDSIndex",
+      "capture",
+      "matrixSDIndex",
+      "OwnerString",
+      "rmon",
+      "matrixSDSourceAddress",
+      "etherHistoryIndex",
+      "history",
+      "captureBufferIndex",
+      "hostTopN",
+      "hostTimeIndex",
+      "etherStatsIndex",
+      "hostAddress",
+      "hostTopNIndex",
       "statistics",
       "matrix",
-      "hosts",
-      "history",
-      "etherStatsIndex",
-      "etherHistoryIndex",
-      "etherHistorySampleIndex",
-      "rmon",
-      "OwnerString",
-      "hostTopN"
+      "matrixSDDestAddress",
+      "hostTopNReport",
+      "hostIndex"
     ],
     "RMON2-MIB": [
-      "probeConfig",
+      "usrHistory",
+      "alMatrixTopNControlIndex",
+      "nlHostTimeMark",
+      "alMatrixDSTimeMark",
+      "nlMatrixSDSourceAddress",
+      "rmonConformance",
+      "alMatrixSDTimeMark",
+      "nlMatrixDSSourceAddress",
+      "alMatrixTopNControlEntry",
+      "hlMatrixControlIndex",
+      "nlMatrix",
+      "alMatrix",
+      "nlMatrixTopNControlIndex",
+      "nlMatrixTopNControlEntry",
+      "alHost",
+      "alHostTimeMark",
+      "usrHistorySampleIndex",
+      "protocolDirLocalIndex",
+      "protocolDist",
       "ZeroBasedCounter32",
-      "rmonConformance"
+      "usrHistoryObjectIndex",
+      "nlMatrixTopNIndex",
+      "nlMatrixSDDestAddress",
+      "nlMatrixDSTimeMark",
+      "nlMatrixSDTimeMark",
+      "alMatrixTopNIndex",
+      "nlHostAddress",
+      "nlHost",
+      "usrHistoryControlIndex",
+      "protocolDistControlIndex",
+      "probeConfig",
+      "nlMatrixDSDestAddress",
+      "hlHostControlIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
-      "Gauge32",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
       "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
       "TimeTicks",
       "IpAddress",
-      "Counter32",
-      "Bits",
-      "Integer32",
       "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier"
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus"
@@ -52,19 +93,31 @@
   },
   "hcRMON": {
     "name": "hcRMON",
-    "oid": "1.3.6.1.2.1.16.20.5",
-    "class": "moduleidentity",
-    "revisions": [
-      {
-        "revision": "2002-05-08 00:00",
-        "description": "The original version of this MIB, published as RFC3273."
-      }
-    ]
+    "oid": "1.3.6.1.2.1.16.20.8",
+    "class": "moduleidentity"
   },
   "mediaIndependentStats": {
     "name": "mediaIndependentStats",
     "oid": "1.3.6.1.2.1.16.21",
     "class": "objectidentity"
+  },
+  "ZeroBasedCounter64": {
+    "name": "ZeroBasedCounter64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "RmonGauge64": {
+    "name": "RmonGauge64",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
   },
   "mediaIndependentTable": {
     "name": "mediaIndependentTable",
@@ -95,7 +148,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
@@ -106,7 +159,7 @@
         ]
       }
     },
-    "maxaccess": "not-accessible",
+    "maxaccess": "read-only",
     "status": "current"
   },
   "mediaIndependentDataSource": {
@@ -130,7 +183,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Events",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -143,7 +195,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -156,7 +207,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -169,7 +219,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -182,7 +231,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -195,7 +243,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -208,7 +255,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -221,7 +267,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -234,7 +279,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -247,7 +291,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -260,7 +303,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -273,7 +315,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -286,7 +327,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -299,7 +339,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -312,7 +351,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -325,7 +363,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -338,7 +375,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -351,7 +387,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -364,7 +399,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -377,7 +411,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -390,7 +423,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -403,7 +435,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -416,7 +447,6 @@
       "type": "Gauge32",
       "class": "type"
     },
-    "units": "Kilobits per Second",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -429,56 +459,12 @@
       "type": "Gauge32",
       "class": "type"
     },
-    "units": "Kilobits per Second",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mediaIndependentDuplexMode": {
-    "name": "mediaIndependentDuplexMode",
-    "oid": "1.3.6.1.2.1.16.21.1.1.27",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "halfduplex": 1,
-          "fullduplex": 2
-        }
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mediaIndependentDuplexChanges": {
-    "name": "mediaIndependentDuplexChanges",
-    "oid": "1.3.6.1.2.1.16.21.1.1.28",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "units": "Events",
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "mediaIndependentDuplexLastChange": {
-    "name": "mediaIndependentDuplexLastChange",
-    "oid": "1.3.6.1.2.1.16.21.1.1.29",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TimeStamp",
-      "class": "type"
-    },
     "maxaccess": "read-only",
     "status": "current"
   },
   "mediaIndependentOwner": {
     "name": "mediaIndependentOwner",
-    "oid": "1.3.6.1.2.1.16.21.1.1.30",
+    "oid": "1.3.6.1.2.1.16.21.1.1.27",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -490,7 +476,7 @@
   },
   "mediaIndependentStatus": {
     "name": "mediaIndependentStatus",
-    "oid": "1.3.6.1.2.1.16.21.1.1.31",
+    "oid": "1.3.6.1.2.1.16.21.1.1.28",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -532,7 +518,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -545,7 +530,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -558,7 +542,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -571,7 +554,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -584,7 +566,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -597,7 +578,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -610,7 +590,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -623,7 +602,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -636,7 +614,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -649,7 +626,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -662,7 +638,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -675,7 +650,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -688,7 +662,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -701,7 +674,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -714,7 +686,6 @@
       "type": "Counter32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -727,7 +698,6 @@
       "type": "Counter64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -768,7 +738,6 @@
       "type": "Gauge32",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -778,10 +747,9 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "CounterBasedGauge64",
+      "type": "RmonGauge64",
       "class": "type"
     },
-    "units": "Packets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -794,7 +762,6 @@
       "type": "Gauge32",
       "class": "type"
     },
-    "units": "Octets",
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -804,18 +771,2558 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "CounterBasedGauge64",
+      "type": "RmonGauge64",
       "class": "type"
     },
-    "units": "Octets",
     "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostHighCapacityTable": {
+    "name": "hostHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.4.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hostHighCapacityEntry": {
+    "name": "hostHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.4.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON-MIB",
+        "object": "hostIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON-MIB",
+        "object": "hostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hostHighCapacityInOverflowPkts": {
+    "name": "hostHighCapacityInOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.4.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostHighCapacityInPkts": {
+    "name": "hostHighCapacityInPkts",
+    "oid": "1.3.6.1.2.1.16.4.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostHighCapacityOutOverflowPkts": {
+    "name": "hostHighCapacityOutOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.4.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostHighCapacityOutPkts": {
+    "name": "hostHighCapacityOutPkts",
+    "oid": "1.3.6.1.2.1.16.4.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostHighCapacityInOverflowOctets": {
+    "name": "hostHighCapacityInOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.4.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostHighCapacityInOctets": {
+    "name": "hostHighCapacityInOctets",
+    "oid": "1.3.6.1.2.1.16.4.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostHighCapacityOutOverflowOctets": {
+    "name": "hostHighCapacityOutOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.4.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostHighCapacityOutOctets": {
+    "name": "hostHighCapacityOutOctets",
+    "oid": "1.3.6.1.2.1.16.4.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTimeHighCapacityTable": {
+    "name": "hostTimeHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.4.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hostTimeHighCapacityEntry": {
+    "name": "hostTimeHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.4.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON-MIB",
+        "object": "hostTimeIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON-MIB",
+        "object": "hostTimeCreationOrder",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hostTimeHighCapacityInOverflowPkts": {
+    "name": "hostTimeHighCapacityInOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.4.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTimeHighCapacityInPkts": {
+    "name": "hostTimeHighCapacityInPkts",
+    "oid": "1.3.6.1.2.1.16.4.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTimeHighCapacityOutOverflowPkts": {
+    "name": "hostTimeHighCapacityOutOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.4.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTimeHighCapacityOutPkts": {
+    "name": "hostTimeHighCapacityOutPkts",
+    "oid": "1.3.6.1.2.1.16.4.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTimeHighCapacityInOverflowOctets": {
+    "name": "hostTimeHighCapacityInOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.4.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTimeHighCapacityInOctets": {
+    "name": "hostTimeHighCapacityInOctets",
+    "oid": "1.3.6.1.2.1.16.4.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTimeHighCapacityOutOverflowOctets": {
+    "name": "hostTimeHighCapacityOutOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.4.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTimeHighCapacityOutOctets": {
+    "name": "hostTimeHighCapacityOutOctets",
+    "oid": "1.3.6.1.2.1.16.4.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTopNRateBase": {
+    "name": "hostTopNRateBase",
+    "oid": "1.3.6.1.2.1.16.5.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hostTopNInPkts": 1,
+          "hostTopNOutPkts": 2,
+          "hostTopNInOctets": 3,
+          "hostTopNOutOctets": 4,
+          "hostTopNOutErrors": 5,
+          "hostTopNOutBroadcastPkts": 6,
+          "hostTopNOutMulticastPkts": 7,
+          "hostTopNHCInPkts": 8,
+          "hostTopNHCOutPkts": 9,
+          "hostTopNHCInOctets": 10,
+          "hostTopNHCOutOctets": 11
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "hostTopNHighCapacityTable": {
+    "name": "hostTopNHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.5.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hostTopNHighCapacityEntry": {
+    "name": "hostTopNHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.5.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON-MIB",
+        "object": "hostTopNReport",
+        "implied": 0
+      },
+      {
+        "module": "RMON-MIB",
+        "object": "hostTopNIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hostTopNHighCapacityBaseRate": {
+    "name": "hostTopNHighCapacityBaseRate",
+    "oid": "1.3.6.1.2.1.16.5.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTopNHighCapacityOverflowRate": {
+    "name": "hostTopNHighCapacityOverflowRate",
+    "oid": "1.3.6.1.2.1.16.5.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hostTopNHighCapacityRate": {
+    "name": "hostTopNHighCapacityRate",
+    "oid": "1.3.6.1.2.1.16.5.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RmonGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "matrixSDHighCapacityTable": {
+    "name": "matrixSDHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.6.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "matrixSDHighCapacityEntry": {
+    "name": "matrixSDHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.6.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON-MIB",
+        "object": "matrixSDIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON-MIB",
+        "object": "matrixSDSourceAddress",
+        "implied": 0
+      },
+      {
+        "module": "RMON-MIB",
+        "object": "matrixSDDestAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "matrixSDHighCapacityOverflowPkts": {
+    "name": "matrixSDHighCapacityOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.6.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "matrixSDHighCapacityPkts": {
+    "name": "matrixSDHighCapacityPkts",
+    "oid": "1.3.6.1.2.1.16.6.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "matrixSDHighCapacityOverflowOctets": {
+    "name": "matrixSDHighCapacityOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.6.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "matrixSDHighCapacityOctets": {
+    "name": "matrixSDHighCapacityOctets",
+    "oid": "1.3.6.1.2.1.16.6.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "matrixDSHighCapacityTable": {
+    "name": "matrixDSHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.6.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "matrixDSHighCapacityEntry": {
+    "name": "matrixDSHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.6.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON-MIB",
+        "object": "matrixDSIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON-MIB",
+        "object": "matrixDSDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "RMON-MIB",
+        "object": "matrixDSSourceAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "matrixDSHighCapacityOverflowPkts": {
+    "name": "matrixDSHighCapacityOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.6.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "matrixDSHighCapacityPkts": {
+    "name": "matrixDSHighCapacityPkts",
+    "oid": "1.3.6.1.2.1.16.6.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "matrixDSHighCapacityOverflowOctets": {
+    "name": "matrixDSHighCapacityOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.6.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "matrixDSHighCapacityOctets": {
+    "name": "matrixDSHighCapacityOctets",
+    "oid": "1.3.6.1.2.1.16.6.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "captureBufferHighCapacityTable": {
+    "name": "captureBufferHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.8.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "captureBufferHighCapacityEntry": {
+    "name": "captureBufferHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.8.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON-MIB",
+        "object": "captureBufferControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON-MIB",
+        "object": "captureBufferIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "captureBufferPacketHighCapacityTime": {
+    "name": "captureBufferPacketHighCapacityTime",
+    "oid": "1.3.6.1.2.1.16.8.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 999999
+          }
+        ]
+      }
+    },
+    "units": "nanoseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protocolDistStatsHighCapacityTable": {
+    "name": "protocolDistStatsHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.12.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "protocolDistStatsHighCapacityEntry": {
+    "name": "protocolDistStatsHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.12.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDistControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDirLocalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "protocolDistStatsHighCapacityOverflowPkts": {
+    "name": "protocolDistStatsHighCapacityOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.12.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protocolDistStatsHighCapacityPkts": {
+    "name": "protocolDistStatsHighCapacityPkts",
+    "oid": "1.3.6.1.2.1.16.12.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protocolDistStatsHighCapacityOverflowOctets": {
+    "name": "protocolDistStatsHighCapacityOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.12.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "protocolDistStatsHighCapacityOctets": {
+    "name": "protocolDistStatsHighCapacityOctets",
+    "oid": "1.3.6.1.2.1.16.12.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlHostHighCapacityTable": {
+    "name": "nlHostHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.14.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nlHostHighCapacityEntry": {
+    "name": "nlHostHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.14.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "hlHostControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlHostTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDirLocalIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlHostAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nlHostHighCapacityInOverflowPkts": {
+    "name": "nlHostHighCapacityInOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.14.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlHostHighCapacityInPkts": {
+    "name": "nlHostHighCapacityInPkts",
+    "oid": "1.3.6.1.2.1.16.14.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlHostHighCapacityOutOverflowPkts": {
+    "name": "nlHostHighCapacityOutOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.14.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlHostHighCapacityOutPkts": {
+    "name": "nlHostHighCapacityOutPkts",
+    "oid": "1.3.6.1.2.1.16.14.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlHostHighCapacityInOverflowOctets": {
+    "name": "nlHostHighCapacityInOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.14.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlHostHighCapacityInOctets": {
+    "name": "nlHostHighCapacityInOctets",
+    "oid": "1.3.6.1.2.1.16.14.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlHostHighCapacityOutOverflowOctets": {
+    "name": "nlHostHighCapacityOutOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.14.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlHostHighCapacityOutOctets": {
+    "name": "nlHostHighCapacityOutOctets",
+    "oid": "1.3.6.1.2.1.16.14.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixSDHighCapacityTable": {
+    "name": "nlMatrixSDHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.15.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nlMatrixSDHighCapacityEntry": {
+    "name": "nlMatrixSDHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.15.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "hlMatrixControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixSDTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDirLocalIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixSDSourceAddress",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixSDDestAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nlMatrixSDHighCapacityOverflowPkts": {
+    "name": "nlMatrixSDHighCapacityOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.15.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixSDHighCapacityPkts": {
+    "name": "nlMatrixSDHighCapacityPkts",
+    "oid": "1.3.6.1.2.1.16.15.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixSDHighCapacityOverflowOctets": {
+    "name": "nlMatrixSDHighCapacityOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.15.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixSDHighCapacityOctets": {
+    "name": "nlMatrixSDHighCapacityOctets",
+    "oid": "1.3.6.1.2.1.16.15.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixDSHighCapacityTable": {
+    "name": "nlMatrixDSHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.15.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nlMatrixDSHighCapacityEntry": {
+    "name": "nlMatrixDSHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.15.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "hlMatrixControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixDSTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDirLocalIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixDSDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixDSSourceAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nlMatrixDSHighCapacityOverflowPkts": {
+    "name": "nlMatrixDSHighCapacityOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.15.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixDSHighCapacityPkts": {
+    "name": "nlMatrixDSHighCapacityPkts",
+    "oid": "1.3.6.1.2.1.16.15.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixDSHighCapacityOverflowOctets": {
+    "name": "nlMatrixDSHighCapacityOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.15.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixDSHighCapacityOctets": {
+    "name": "nlMatrixDSHighCapacityOctets",
+    "oid": "1.3.6.1.2.1.16.15.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNControlRateBase": {
+    "name": "nlMatrixTopNControlRateBase",
+    "oid": "1.3.6.1.2.1.16.15.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "nlMatrixTopNPkts": 1,
+          "nlMatrixTopNOctets": 2,
+          "nlMatrixTopNHighCapacityPkts": 3,
+          "nlMatrixTopNHighCapacityOctets": 4
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityTable": {
+    "name": "nlMatrixTopNHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.15.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityEntry": {
+    "name": "nlMatrixTopNHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.15.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixTopNControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixTopNIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityBasePktRate": {
+    "name": "nlMatrixTopNHighCapacityBasePktRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityOverflowPktRate": {
+    "name": "nlMatrixTopNHighCapacityOverflowPktRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityPktRate": {
+    "name": "nlMatrixTopNHighCapacityPktRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RmonGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityReverseBasePktRate": {
+    "name": "nlMatrixTopNHighCapacityReverseBasePktRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityReverseOverflowPktRate": {
+    "name": "nlMatrixTopNHighCapacityReverseOverflowPktRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityReversePktRate": {
+    "name": "nlMatrixTopNHighCapacityReversePktRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RmonGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityBaseOctetRate": {
+    "name": "nlMatrixTopNHighCapacityBaseOctetRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityOverflowOctetRate": {
+    "name": "nlMatrixTopNHighCapacityOverflowOctetRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityOctetRate": {
+    "name": "nlMatrixTopNHighCapacityOctetRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RmonGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityReverseBaseOctetRate": {
+    "name": "nlMatrixTopNHighCapacityReverseBaseOctetRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityReverseOverflowOctetRate": {
+    "name": "nlMatrixTopNHighCapacityReverseOverflowOctetRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityReverseOctetRate": {
+    "name": "nlMatrixTopNHighCapacityReverseOctetRate",
+    "oid": "1.3.6.1.2.1.16.15.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RmonGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHostHighCapacityTable": {
+    "name": "alHostHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.16.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alHostHighCapacityEntry": {
+    "name": "alHostHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.16.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "hlHostControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "alHostTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDirLocalIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlHostAddress",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDirLocalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alHostHighCapacityInOverflowPkts": {
+    "name": "alHostHighCapacityInOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.16.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHostHighCapacityInPkts": {
+    "name": "alHostHighCapacityInPkts",
+    "oid": "1.3.6.1.2.1.16.16.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHostHighCapacityOutOverflowPkts": {
+    "name": "alHostHighCapacityOutOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.16.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHostHighCapacityOutPkts": {
+    "name": "alHostHighCapacityOutPkts",
+    "oid": "1.3.6.1.2.1.16.16.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHostHighCapacityInOverflowOctets": {
+    "name": "alHostHighCapacityInOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.16.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHostHighCapacityInOctets": {
+    "name": "alHostHighCapacityInOctets",
+    "oid": "1.3.6.1.2.1.16.16.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHostHighCapacityOutOverflowOctets": {
+    "name": "alHostHighCapacityOutOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.16.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alHostHighCapacityOutOctets": {
+    "name": "alHostHighCapacityOutOctets",
+    "oid": "1.3.6.1.2.1.16.16.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixSDHighCapacityTable": {
+    "name": "alMatrixSDHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.17.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alMatrixSDHighCapacityEntry": {
+    "name": "alMatrixSDHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.17.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "hlMatrixControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "alMatrixSDTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDirLocalIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixSDSourceAddress",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixSDDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDirLocalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alMatrixSDHighCapacityOverflowPkts": {
+    "name": "alMatrixSDHighCapacityOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.17.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixSDHighCapacityPkts": {
+    "name": "alMatrixSDHighCapacityPkts",
+    "oid": "1.3.6.1.2.1.16.17.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixSDHighCapacityOverflowOctets": {
+    "name": "alMatrixSDHighCapacityOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.17.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixSDHighCapacityOctets": {
+    "name": "alMatrixSDHighCapacityOctets",
+    "oid": "1.3.6.1.2.1.16.17.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixDSHighCapacityTable": {
+    "name": "alMatrixDSHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.17.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alMatrixDSHighCapacityEntry": {
+    "name": "alMatrixDSHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.17.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "hlMatrixControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "alMatrixDSTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDirLocalIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixDSDestAddress",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "nlMatrixDSSourceAddress",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "protocolDirLocalIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alMatrixDSHighCapacityOverflowPkts": {
+    "name": "alMatrixDSHighCapacityOverflowPkts",
+    "oid": "1.3.6.1.2.1.16.17.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixDSHighCapacityPkts": {
+    "name": "alMatrixDSHighCapacityPkts",
+    "oid": "1.3.6.1.2.1.16.17.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixDSHighCapacityOverflowOctets": {
+    "name": "alMatrixDSHighCapacityOverflowOctets",
+    "oid": "1.3.6.1.2.1.16.17.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixDSHighCapacityOctets": {
+    "name": "alMatrixDSHighCapacityOctets",
+    "oid": "1.3.6.1.2.1.16.17.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNControlRateBase": {
+    "name": "alMatrixTopNControlRateBase",
+    "oid": "1.3.6.1.2.1.16.17.3.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alMatrixTopNTerminalsPkts": 1,
+          "alMatrixTopNTerminalsOctets": 2,
+          "alMatrixTopNAllPkts": 3,
+          "alMatrixTopNAllOctets": 4,
+          "alMatrixTopNTerminalsHighCapacityPkts": 5,
+          "alMatrixTopNTerminalsHighCapacityOctets": 6,
+          "alMatrixTopNAllHighCapacityPkts": 7,
+          "alMatrixTopNAllHighCapacityOctets": 8
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityTable": {
+    "name": "alMatrixTopNHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.17.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityEntry": {
+    "name": "alMatrixTopNHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.17.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "alMatrixTopNControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "alMatrixTopNIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityBasePktRate": {
+    "name": "alMatrixTopNHighCapacityBasePktRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityOverflowPktRate": {
+    "name": "alMatrixTopNHighCapacityOverflowPktRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityPktRate": {
+    "name": "alMatrixTopNHighCapacityPktRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RmonGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityReverseBasePktRate": {
+    "name": "alMatrixTopNHighCapacityReverseBasePktRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityReverseOverflowPktRate": {
+    "name": "alMatrixTopNHighCapacityReverseOverflowPktRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityReversePktRate": {
+    "name": "alMatrixTopNHighCapacityReversePktRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RmonGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityBaseOctetRate": {
+    "name": "alMatrixTopNHighCapacityBaseOctetRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityOverflowOctetRate": {
+    "name": "alMatrixTopNHighCapacityOverflowOctetRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityOctetRate": {
+    "name": "alMatrixTopNHighCapacityOctetRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RmonGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityReverseBaseOctetRate": {
+    "name": "alMatrixTopNHighCapacityReverseBaseOctetRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityReverseOverflowOctetRate": {
+    "name": "alMatrixTopNHighCapacityReverseOverflowOctetRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityReverseOctetRate": {
+    "name": "alMatrixTopNHighCapacityReverseOctetRate",
+    "oid": "1.3.6.1.2.1.16.17.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RmonGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usrHistoryHighCapacityTable": {
+    "name": "usrHistoryHighCapacityTable",
+    "oid": "1.3.6.1.2.1.16.18.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "usrHistoryHighCapacityEntry": {
+    "name": "usrHistoryHighCapacityEntry",
+    "oid": "1.3.6.1.2.1.16.18.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RMON2-MIB",
+        "object": "usrHistoryControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "usrHistorySampleIndex",
+        "implied": 0
+      },
+      {
+        "module": "RMON2-MIB",
+        "object": "usrHistoryObjectIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "usrHistoryHighCapacityOverflowAbsValue": {
+    "name": "usrHistoryHighCapacityOverflowAbsValue",
+    "oid": "1.3.6.1.2.1.16.18.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usrHistoryHighCapacityAbsValue": {
+    "name": "usrHistoryHighCapacityAbsValue",
+    "oid": "1.3.6.1.2.1.16.18.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RmonGauge64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hcRMONCapabilities": {
+    "name": "hcRMONCapabilities",
+    "oid": "1.3.6.1.2.1.16.19.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mediaIndependentGroup": 0,
+        "etherStatsHighCapacityGroup": 1,
+        "etherHistoryHighCapacityGroup": 2,
+        "hostHighCapacityGroup": 3,
+        "hostTopNHighCapacityGroup": 4,
+        "matrixHighCapacityGroup": 5,
+        "captureBufferHighCapacityGroup": 6,
+        "protocolDistributionHighCapacityGroup": 7,
+        "nlHostHighCapacityGroup": 8,
+        "nlMatrixHighCapacityGroup": 9,
+        "nlMatrixTopNHighCapacityGroup": 10,
+        "alHostHighCapacityGroup": 11,
+        "alMatrixHighCapacityGroup": 12,
+        "alMatrixTopNHighCapacityGroup": 13,
+        "usrHistoryHighCapacityGroup": 14
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hcRmonMIBCompliances": {
+    "name": "hcRmonMIBCompliances",
+    "oid": "1.3.6.1.2.1.16.20.6",
+    "class": "objectidentity"
+  },
+  "hcRmonMIBGroups": {
+    "name": "hcRmonMIBGroups",
+    "oid": "1.3.6.1.2.1.16.20.7",
+    "class": "objectidentity"
+  },
+  "hcRmonMIBCompliance": {
+    "name": "hcRmonMIBCompliance",
+    "oid": "1.3.6.1.2.1.16.20.6.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mediaIndependentGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "hcRMONInformationGroup",
+        "module": "HC-RMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hcRmon2MIBCompliance": {
+    "name": "hcRmon2MIBCompliance",
+    "oid": "1.3.6.1.2.1.16.20.6.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mediaIndependentGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "protocolDistributionHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "nlHostHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "nlMatrixHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "nlMatrixTopNHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "usrHistoryHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "hcRMONInformationGroup",
+        "module": "HC-RMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "hcRmon2MIBApplicationLayerCompliance": {
+    "name": "hcRmon2MIBApplicationLayerCompliance",
+    "oid": "1.3.6.1.2.1.16.20.6.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mediaIndependentGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "protocolDistributionHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "nlHostHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "nlMatrixHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "nlMatrixTopNHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "alHostHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "alMatrixHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "alMatrixTopNHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "usrHistoryHighCapacityGroup",
+        "module": "HC-RMON-MIB"
+      },
+      {
+        "object": "hcRMONInformationGroup",
+        "module": "HC-RMON-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "mediaIndependentGroup": {
+    "name": "mediaIndependentGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentIndex"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentDataSource"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentDropEvents"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentDroppedFrames"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInHighCapacityOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutHighCapacityOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInNUCastPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInNUCastOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInNUCastHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutNUCastPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutNUCastOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutNUCastHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInErrors"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutErrors"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentInputSpeed"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOutputSpeed"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentOwner"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "mediaIndependentStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "etherStatsHighCapacityGroup": {
+    "name": "etherStatsHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityOverflowPkts64Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityPkts64Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityOverflowPkts65to127Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityPkts65to127Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityOverflowPkts128to255Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityPkts128to255Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityOverflowPkts256to511Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityPkts256to511Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityOverflowPkts512to1023Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityPkts512to1023Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityOverflowPkts1024to1518Octets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherStatsHighCapacityPkts1024to1518Octets"
+      }
+    ],
+    "status": "current"
+  },
+  "etherHistoryHighCapacityGroup": {
+    "name": "etherHistoryHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherHistoryHighCapacityOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherHistoryHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherHistoryHighCapacityOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "etherHistoryHighCapacityOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "hostHighCapacityGroup": {
+    "name": "hostHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostHighCapacityInOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostHighCapacityInPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostHighCapacityOutOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostHighCapacityOutPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostHighCapacityInOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostHighCapacityInOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostHighCapacityOutOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostHighCapacityOutOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTimeHighCapacityInOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTimeHighCapacityInPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTimeHighCapacityOutOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTimeHighCapacityOutPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTimeHighCapacityInOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTimeHighCapacityInOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTimeHighCapacityOutOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTimeHighCapacityOutOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "hostTopNHighCapacityGroup": {
+    "name": "hostTopNHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTopNHighCapacityBaseRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTopNHighCapacityOverflowRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hostTopNHighCapacityRate"
+      }
+    ],
+    "status": "current"
+  },
+  "matrixHighCapacityGroup": {
+    "name": "matrixHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "matrixSDHighCapacityOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "matrixSDHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "matrixSDHighCapacityOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "matrixSDHighCapacityOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "matrixDSHighCapacityOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "matrixDSHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "matrixDSHighCapacityOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "matrixDSHighCapacityOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "captureBufferHighCapacityGroup": {
+    "name": "captureBufferHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "captureBufferPacketHighCapacityTime"
+      }
+    ],
+    "status": "current"
+  },
+  "protocolDistributionHighCapacityGroup": {
+    "name": "protocolDistributionHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "protocolDistStatsHighCapacityOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "protocolDistStatsHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "protocolDistStatsHighCapacityOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "protocolDistStatsHighCapacityOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "nlHostHighCapacityGroup": {
+    "name": "nlHostHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlHostHighCapacityInOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlHostHighCapacityInPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlHostHighCapacityOutOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlHostHighCapacityOutPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlHostHighCapacityInOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlHostHighCapacityInOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlHostHighCapacityOutOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlHostHighCapacityOutOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "nlMatrixHighCapacityGroup": {
+    "name": "nlMatrixHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixSDHighCapacityOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixSDHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixSDHighCapacityOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixSDHighCapacityOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixDSHighCapacityOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixDSHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixDSHighCapacityOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixDSHighCapacityOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "nlMatrixTopNHighCapacityGroup": {
+    "name": "nlMatrixTopNHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityBasePktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityOverflowPktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityPktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityReverseBasePktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityReverseOverflowPktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityReversePktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityBaseOctetRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityOverflowOctetRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityOctetRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityReverseBaseOctetRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityReverseOverflowOctetRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "nlMatrixTopNHighCapacityReverseOctetRate"
+      }
+    ],
+    "status": "current"
+  },
+  "alHostHighCapacityGroup": {
+    "name": "alHostHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alHostHighCapacityInOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alHostHighCapacityInPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alHostHighCapacityOutOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alHostHighCapacityOutPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alHostHighCapacityInOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alHostHighCapacityInOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alHostHighCapacityOutOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alHostHighCapacityOutOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "alMatrixHighCapacityGroup": {
+    "name": "alMatrixHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.13",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixSDHighCapacityOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixSDHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixSDHighCapacityOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixSDHighCapacityOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixDSHighCapacityOverflowPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixDSHighCapacityPkts"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixDSHighCapacityOverflowOctets"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixDSHighCapacityOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "alMatrixTopNHighCapacityGroup": {
+    "name": "alMatrixTopNHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.14",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityBasePktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityOverflowPktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityPktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityReverseBasePktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityReverseOverflowPktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityReversePktRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityBaseOctetRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityOverflowOctetRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityOctetRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityReverseBaseOctetRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityReverseOverflowOctetRate"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "alMatrixTopNHighCapacityReverseOctetRate"
+      }
+    ],
+    "status": "current"
+  },
+  "usrHistoryHighCapacityGroup": {
+    "name": "usrHistoryHighCapacityGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.15",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "usrHistoryHighCapacityOverflowAbsValue"
+      },
+      {
+        "module": "HC-RMON-MIB",
+        "object": "usrHistoryHighCapacityAbsValue"
+      }
+    ],
+    "status": "current"
+  },
+  "hcRMONInformationGroup": {
+    "name": "hcRMONInformationGroup",
+    "oid": "1.3.6.1.2.1.16.20.7.16",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "HC-RMON-MIB",
+        "object": "hcRMONCapabilities"
+      }
+    ],
     "status": "current"
   },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/HC-RMON-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:00:07 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:26 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "HC-RMON-MIB"

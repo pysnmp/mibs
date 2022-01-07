@@ -1,0 +1,1224 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "iso",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ],
+    "SYSAPPL-MIB": [
+      "Utf8String"
+    ]
+  },
+  "ntpSnmpMIB": {
+    "name": "ntpSnmpMIB",
+    "oid": "1.3.6.1.2.1.197",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2010-05-17 00:00",
+        "description": "This revision of the MIB module is published as RFC 5907."
+      }
+    ]
+  },
+  "ntpSnmpMIBObjects": {
+    "name": "ntpSnmpMIBObjects",
+    "oid": "1.3.6.1.2.1.197.1",
+    "class": "objectidentity"
+  },
+  "ntpEntInfo": {
+    "name": "ntpEntInfo",
+    "oid": "1.3.6.1.2.1.197.1.1",
+    "class": "objectidentity"
+  },
+  "ntpEntStatus": {
+    "name": "ntpEntStatus",
+    "oid": "1.3.6.1.2.1.197.1.2",
+    "class": "objectidentity"
+  },
+  "ntpAssociation": {
+    "name": "ntpAssociation",
+    "oid": "1.3.6.1.2.1.197.1.3",
+    "class": "objectidentity"
+  },
+  "ntpEntControl": {
+    "name": "ntpEntControl",
+    "oid": "1.3.6.1.2.1.197.1.4",
+    "class": "objectidentity"
+  },
+  "ntpEntNotifObjects": {
+    "name": "ntpEntNotifObjects",
+    "oid": "1.3.6.1.2.1.197.1.5",
+    "class": "objectidentity"
+  },
+  "NtpStratum": {
+    "name": "NtpStratum",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "NtpDateTime": {
+    "name": "NtpDateTime",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "displayhint": "4d:4d:4d.4d",
+    "status": "current"
+  },
+  "ntpEntSoftwareName": {
+    "name": "ntpEntSoftwareName",
+    "oid": "1.3.6.1.2.1.197.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntSoftwareVersion": {
+    "name": "ntpEntSoftwareVersion",
+    "oid": "1.3.6.1.2.1.197.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntSoftwareVendor": {
+    "name": "ntpEntSoftwareVendor",
+    "oid": "1.3.6.1.2.1.197.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntSystemType": {
+    "name": "ntpEntSystemType",
+    "oid": "1.3.6.1.2.1.197.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntTimeResolution": {
+    "name": "ntpEntTimeResolution",
+    "oid": "1.3.6.1.2.1.197.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntTimePrecision": {
+    "name": "ntpEntTimePrecision",
+    "oid": "1.3.6.1.2.1.197.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntTimeDistance": {
+    "name": "ntpEntTimeDistance",
+    "oid": "1.3.6.1.2.1.197.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusCurrentMode": {
+    "name": "ntpEntStatusCurrentMode",
+    "oid": "1.3.6.1.2.1.197.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRunning": 1,
+          "notSynchronized": 2,
+          "noneConfigured": 3,
+          "syncToLocal": 4,
+          "syncToRefclock": 5,
+          "syncToRemoteServer": 6,
+          "unknown": 99
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusStratum": {
+    "name": "ntpEntStatusStratum",
+    "oid": "1.3.6.1.2.1.197.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NtpStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusActiveRefSourceId": {
+    "name": "ntpEntStatusActiveRefSourceId",
+    "oid": "1.3.6.1.2.1.197.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusActiveRefSourceName": {
+    "name": "ntpEntStatusActiveRefSourceName",
+    "oid": "1.3.6.1.2.1.197.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusActiveOffset": {
+    "name": "ntpEntStatusActiveOffset",
+    "oid": "1.3.6.1.2.1.197.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusNumberOfRefSources": {
+    "name": "ntpEntStatusNumberOfRefSources",
+    "oid": "1.3.6.1.2.1.197.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 99
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusDispersion": {
+    "name": "ntpEntStatusDispersion",
+    "oid": "1.3.6.1.2.1.197.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusEntityUptime": {
+    "name": "ntpEntStatusEntityUptime",
+    "oid": "1.3.6.1.2.1.197.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusDateTime": {
+    "name": "ntpEntStatusDateTime",
+    "oid": "1.3.6.1.2.1.197.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NtpDateTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusLeapSecond": {
+    "name": "ntpEntStatusLeapSecond",
+    "oid": "1.3.6.1.2.1.197.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NtpDateTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusLeapSecDirection": {
+    "name": "ntpEntStatusLeapSecDirection",
+    "oid": "1.3.6.1.2.1.197.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": -1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusInPkts": {
+    "name": "ntpEntStatusInPkts",
+    "oid": "1.3.6.1.2.1.197.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusOutPkts": {
+    "name": "ntpEntStatusOutPkts",
+    "oid": "1.3.6.1.2.1.197.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusBadVersion": {
+    "name": "ntpEntStatusBadVersion",
+    "oid": "1.3.6.1.2.1.197.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusProtocolError": {
+    "name": "ntpEntStatusProtocolError",
+    "oid": "1.3.6.1.2.1.197.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatusNotifications": {
+    "name": "ntpEntStatusNotifications",
+    "oid": "1.3.6.1.2.1.197.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "notifications",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatPktModeTable": {
+    "name": "ntpEntStatPktModeTable",
+    "oid": "1.3.6.1.2.1.197.1.2.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ntpEntStatPktModeEntry": {
+    "name": "ntpEntStatPktModeEntry",
+    "oid": "1.3.6.1.2.1.197.1.2.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatPktMode",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntStatPktMode": {
+    "name": "ntpEntStatPktMode",
+    "oid": "1.3.6.1.2.1.197.1.2.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "symetricactive": 1,
+          "symetricpassive": 2,
+          "client": 3,
+          "server": 4,
+          "broadcastserver": 5,
+          "broadcastclient": 6
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ntpEntStatPktSent": {
+    "name": "ntpEntStatPktSent",
+    "oid": "1.3.6.1.2.1.197.1.2.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntStatPktReceived": {
+    "name": "ntpEntStatPktReceived",
+    "oid": "1.3.6.1.2.1.197.1.2.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssociationTable": {
+    "name": "ntpAssociationTable",
+    "oid": "1.3.6.1.2.1.197.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ntpAssociationEntry": {
+    "name": "ntpAssociationEntry",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ntpAssocId": {
+    "name": "ntpAssocId",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 99999
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ntpAssocName": {
+    "name": "ntpAssocName",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssocRefId": {
+    "name": "ntpAssocRefId",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssocAddressType": {
+    "name": "ntpAssocAddressType",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssocAddress": {
+    "name": "ntpAssocAddress",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          },
+          {
+            "min": 20,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssocOffset": {
+    "name": "ntpAssocOffset",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssocStratum": {
+    "name": "ntpAssocStratum",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "NtpStratum",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssocStatusJitter": {
+    "name": "ntpAssocStatusJitter",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssocStatusDelay": {
+    "name": "ntpAssocStatusDelay",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssocStatusDispersion": {
+    "name": "ntpAssocStatusDispersion",
+    "oid": "1.3.6.1.2.1.197.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssociationStatisticsTable": {
+    "name": "ntpAssociationStatisticsTable",
+    "oid": "1.3.6.1.2.1.197.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ntpAssociationStatisticsEntry": {
+    "name": "ntpAssociationStatisticsEntry",
+    "oid": "1.3.6.1.2.1.197.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ntpAssocStatInPkts": {
+    "name": "ntpAssocStatInPkts",
+    "oid": "1.3.6.1.2.1.197.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssocStatOutPkts": {
+    "name": "ntpAssocStatOutPkts",
+    "oid": "1.3.6.1.2.1.197.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpAssocStatProtocolError": {
+    "name": "ntpAssocStatProtocolError",
+    "oid": "1.3.6.1.2.1.197.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ntpEntHeartbeatInterval": {
+    "name": "ntpEntHeartbeatInterval",
+    "oid": "1.3.6.1.2.1.197.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpEntNotifBits": {
+    "name": "ntpEntNotifBits",
+    "oid": "1.3.6.1.2.1.197.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "notUsed": 0,
+        "entNotifModeChange": 1,
+        "entNotifStratumChange": 2,
+        "entNotifSyspeerChanged": 3,
+        "entNotifAddAssociation": 4,
+        "entNotifRemoveAssociation": 5,
+        "entNotifConfigChanged": 6,
+        "entNotifLeapSecondAnnounced": 7,
+        "entNotifHeartbeat": 8
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ntpEntNotifMessage": {
+    "name": "ntpEntNotifMessage",
+    "oid": "1.3.6.1.2.1.197.1.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Utf8String",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "no event",
+        "format": "string"
+      }
+    },
+    "maxaccess": "accessible-for-notify",
+    "status": "current"
+  },
+  "ntpEntNotifications": {
+    "name": "ntpEntNotifications",
+    "oid": "1.3.6.1.2.1.197.0",
+    "class": "objectidentity"
+  },
+  "ntpEntNotifModeChange": {
+    "name": "ntpEntNotifModeChange",
+    "oid": "1.3.6.1.2.1.197.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusCurrentMode"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntNotifStratumChange": {
+    "name": "ntpEntNotifStratumChange",
+    "oid": "1.3.6.1.2.1.197.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusDateTime"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusStratum"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntNotifSyspeerChanged": {
+    "name": "ntpEntNotifSyspeerChanged",
+    "oid": "1.3.6.1.2.1.197.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusDateTime"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusActiveRefSourceId"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntNotifAddAssociation": {
+    "name": "ntpEntNotifAddAssociation",
+    "oid": "1.3.6.1.2.1.197.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusDateTime"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocName"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntNotifRemoveAssociation": {
+    "name": "ntpEntNotifRemoveAssociation",
+    "oid": "1.3.6.1.2.1.197.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusDateTime"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocName"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntNotifConfigChanged": {
+    "name": "ntpEntNotifConfigChanged",
+    "oid": "1.3.6.1.2.1.197.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusDateTime"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntNotifLeapSecondAnnounced": {
+    "name": "ntpEntNotifLeapSecondAnnounced",
+    "oid": "1.3.6.1.2.1.197.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusDateTime"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntNotifHeartbeat": {
+    "name": "ntpEntNotifHeartbeat",
+    "oid": "1.3.6.1.2.1.197.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusDateTime"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusCurrentMode"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntHeartbeatInterval"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntConformance": {
+    "name": "ntpEntConformance",
+    "oid": "1.3.6.1.2.1.197.2",
+    "class": "objectidentity"
+  },
+  "ntpEntCompliances": {
+    "name": "ntpEntCompliances",
+    "oid": "1.3.6.1.2.1.197.2.1",
+    "class": "objectidentity"
+  },
+  "ntpEntGroups": {
+    "name": "ntpEntGroups",
+    "oid": "1.3.6.1.2.1.197.2.2",
+    "class": "objectidentity"
+  },
+  "ntpEntNTPCompliance": {
+    "name": "ntpEntNTPCompliance",
+    "oid": "1.3.6.1.2.1.197.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ntpEntObjectsGroup1",
+        "module": "NTPv4-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntSNTPCompliance": {
+    "name": "ntpEntSNTPCompliance",
+    "oid": "1.3.6.1.2.1.197.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ntpEntObjectsGroup1",
+        "module": "NTPv4-MIB"
+      },
+      {
+        "object": "ntpEntObjectsGroup2",
+        "module": "NTPv4-MIB"
+      },
+      {
+        "object": "ntpEntNotifGroup",
+        "module": "NTPv4-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntObjectsGroup1": {
+    "name": "ntpEntObjectsGroup1",
+    "oid": "1.3.6.1.2.1.197.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntSoftwareName"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntSoftwareVersion"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntSoftwareVendor"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntSystemType"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusEntityUptime"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusDateTime"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocName"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocRefId"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocAddressType"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntObjectsGroup2": {
+    "name": "ntpEntObjectsGroup2",
+    "oid": "1.3.6.1.2.1.197.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntTimeResolution"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntTimePrecision"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntTimeDistance"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusCurrentMode"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusStratum"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusActiveRefSourceId"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusActiveRefSourceName"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusActiveOffset"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusNumberOfRefSources"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusDispersion"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusLeapSecond"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusLeapSecDirection"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusInPkts"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusOutPkts"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusBadVersion"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusProtocolError"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatusNotifications"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatPktSent"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntStatPktReceived"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocOffset"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocStratum"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocStatusJitter"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocStatusDelay"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocStatusDispersion"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocStatInPkts"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocStatOutPkts"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpAssocStatProtocolError"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntHeartbeatInterval"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifBits"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifMessage"
+      }
+    ],
+    "status": "current"
+  },
+  "ntpEntNotifGroup": {
+    "name": "ntpEntNotifGroup",
+    "oid": "1.3.6.1.2.1.197.2.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifModeChange"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifStratumChange"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifSyspeerChanged"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifAddAssociation"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifRemoveAssociation"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifConfigChanged"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifLeapSecondAnnounced"
+      },
+      {
+        "module": "NTPv4-MIB",
+        "object": "ntpEntNotifHeartbeat"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/NTPv4-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:26 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "NTPv4-MIB"
+  }
+}

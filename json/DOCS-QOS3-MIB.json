@@ -1,0 +1,5101 @@
+{
+  "imports": {
+    "class": "imports",
+    "CLAB-DEF-MIB": [
+      "clabProjDocsis"
+    ],
+    "DIFFSERV-DSCP-TC": [
+      "DscpOrAny"
+    ],
+    "DOCS-IF3-MIB": [
+      "Dsid",
+      "ChannelList",
+      "AttributeMask",
+      "ChId",
+      "AttrAggrRuleMask",
+      "ChSetId"
+    ],
+    "DOCS-L2VPN-MIB": [
+      "DocsL2vpnIfList"
+    ],
+    "IF-MIB": [
+      "ifIndex",
+      "InterfaceIndex"
+    ],
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetPortNumber",
+      "InetAddressType"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter32",
+      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32",
+      "Gauge32",
+      "Counter64"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TimeStamp",
+      "RowStatus",
+      "StorageType",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "docsQos3Mib": {
+    "name": "docsQos3Mib",
+    "oid": "1.3.6.1.4.1.4491.2.1.21",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2007-08-03 00:00",
+        "description": "Revised Version includes ECN OSSIv3.0-N-07.0480-3 and published as I04"
+      },
+      {
+        "revision": "2007-05-18 00:00",
+        "description": "Revised Version includes ECNs OSSIv3.0-N-07.0445-3 OSSIv3.0-N-07.0437-4 OSSIv3.0-N-07.0412-2 OSSIv3.0-N-07.0410-4 and published as I03"
+      },
+      {
+        "revision": "2006-12-07 17:00",
+        "description": "Initial version, published as part of the CableLabs OSSIv3.0 specification CM-SP-OSSIv3.0-I01-061207 Copyright 1999-2007 Cable Television Laboratories, Inc. All rights reserved."
+      }
+    ]
+  },
+  "IfDirection": {
+    "name": "IfDirection",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "downstream": 1,
+          "upstream": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "DOCSQOS3BitRate": {
+    "name": "DOCSQOS3BitRate",
+    "class": "textualconvention",
+    "type": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "displayhint": "d",
+    "status": "current"
+  },
+  "SchedulingType": {
+    "name": "SchedulingType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "undefined": 1,
+          "bestEffort": 2,
+          "nonRealTimePollingService": 3,
+          "realTimePollingService": 4,
+          "unsolictedGrantServiceWithAD": 5,
+          "unsolictedGrantService": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "docsQos3MibObjects": {
+    "name": "docsQos3MibObjects",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1",
+    "class": "objectidentity"
+  },
+  "docsQos3PktClassTable": {
+    "name": "docsQos3PktClassTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3PktClassEntry": {
+    "name": "docsQos3PktClassEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3PktClassId": {
+    "name": "docsQos3PktClassId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3PktClassDirection": {
+    "name": "docsQos3PktClassDirection",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassPriority": {
+    "name": "docsQos3PktClassPriority",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassIpTosLow": {
+    "name": "docsQos3PktClassIpTosLow",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassIpTosHigh": {
+    "name": "docsQos3PktClassIpTosHigh",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassIpTosMask": {
+    "name": "docsQos3PktClassIpTosMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassIpProtocol": {
+    "name": "docsQos3PktClassIpProtocol",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 258
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassIpSourceAddr": {
+    "name": "docsQos3PktClassIpSourceAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassIpSourceMask": {
+    "name": "docsQos3PktClassIpSourceMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassIpDestAddr": {
+    "name": "docsQos3PktClassIpDestAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassIpDestMask": {
+    "name": "docsQos3PktClassIpDestMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassSourcePortStart": {
+    "name": "docsQos3PktClassSourcePortStart",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassSourcePortEnd": {
+    "name": "docsQos3PktClassSourcePortEnd",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassDestPortStart": {
+    "name": "docsQos3PktClassDestPortStart",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassDestPortEnd": {
+    "name": "docsQos3PktClassDestPortEnd",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetPortNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassDestMacAddr": {
+    "name": "docsQos3PktClassDestMacAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassDestMacMask": {
+    "name": "docsQos3PktClassDestMacMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassSourceMacAddr": {
+    "name": "docsQos3PktClassSourceMacAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassEnetProtocolType": {
+    "name": "docsQos3PktClassEnetProtocolType",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 0,
+          "ethertype": 1,
+          "dsap": 2,
+          "mac": 3,
+          "all": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassEnetProtocol": {
+    "name": "docsQos3PktClassEnetProtocol",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassUserPriLow": {
+    "name": "docsQos3PktClassUserPriLow",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassUserPriHigh": {
+    "name": "docsQos3PktClassUserPriHigh",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassVlanId": {
+    "name": "docsQos3PktClassVlanId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 1,
+            "max": 4094
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassState": {
+    "name": "docsQos3PktClassState",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassPkts": {
+    "name": "docsQos3PktClassPkts",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassBitMap": {
+    "name": "docsQos3PktClassBitMap",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "rulePriority": 0,
+        "activationState": 1,
+        "ipTos": 2,
+        "ipProtocol": 3,
+        "ipSourceAddr": 4,
+        "ipSourceMask": 5,
+        "ipDestAddr": 6,
+        "ipDestMask": 7,
+        "sourcePortStart": 8,
+        "sourcePortEnd": 9,
+        "destPortStart": 10,
+        "destPortEnd": 11,
+        "destMac": 12,
+        "sourceMac": 13,
+        "ethertype": 14,
+        "userPri": 15,
+        "vlanId": 16,
+        "flowLabel": 17,
+        "cmInterfaceMask": 18
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassIpAddrType": {
+    "name": "docsQos3PktClassIpAddrType",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassFlowLabel": {
+    "name": "docsQos3PktClassFlowLabel",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1048575
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PktClassCmInterfaceMask": {
+    "name": "docsQos3PktClassCmInterfaceMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsL2vpnIfList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetTable": {
+    "name": "docsQos3ParamSetTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ParamSetEntry": {
+    "name": "docsQos3ParamSetEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetType",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetServiceFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3ParamSetServiceClassName": {
+    "name": "docsQos3ParamSetServiceClassName",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetPriority": {
+    "name": "docsQos3ParamSetPriority",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMaxTrafficRate": {
+    "name": "docsQos3ParamSetMaxTrafficRate",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DOCSQOS3BitRate",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMaxTrafficBurst": {
+    "name": "docsQos3ParamSetMaxTrafficBurst",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMinReservedRate": {
+    "name": "docsQos3ParamSetMinReservedRate",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DOCSQOS3BitRate",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMinReservedPkt": {
+    "name": "docsQos3ParamSetMinReservedPkt",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetActiveTimeout": {
+    "name": "docsQos3ParamSetActiveTimeout",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetAdmittedTimeout": {
+    "name": "docsQos3ParamSetAdmittedTimeout",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMaxConcatBurst": {
+    "name": "docsQos3ParamSetMaxConcatBurst",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetSchedulingType": {
+    "name": "docsQos3ParamSetSchedulingType",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulingType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetNomPollInterval": {
+    "name": "docsQos3ParamSetNomPollInterval",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetTolPollJitter": {
+    "name": "docsQos3ParamSetTolPollJitter",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetUnsolicitGrantSize": {
+    "name": "docsQos3ParamSetUnsolicitGrantSize",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetNomGrantInterval": {
+    "name": "docsQos3ParamSetNomGrantInterval",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetTolGrantJitter": {
+    "name": "docsQos3ParamSetTolGrantJitter",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetGrantsPerInterval": {
+    "name": "docsQos3ParamSetGrantsPerInterval",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "dataGrants",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetTosAndMask": {
+    "name": "docsQos3ParamSetTosAndMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetTosOrMask": {
+    "name": "docsQos3ParamSetTosOrMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMaxLatency": {
+    "name": "docsQos3ParamSetMaxLatency",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetType": {
+    "name": "docsQos3ParamSetType",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "admitted": 2,
+          "provisioned": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ParamSetRequestPolicyOct": {
+    "name": "docsQos3ParamSetRequestPolicyOct",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetBitMap": {
+    "name": "docsQos3ParamSetBitMap",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "trafficPriority": 0,
+        "maxTrafficRate": 1,
+        "maxTrafficBurst": 2,
+        "minReservedRate": 3,
+        "minReservedPkt": 4,
+        "activeTimeout": 5,
+        "admittedTimeout": 6,
+        "maxConcatBurst": 7,
+        "schedulingType": 8,
+        "requestPolicy": 9,
+        "nomPollInterval": 10,
+        "tolPollJitter": 11,
+        "unsolicitGrantSize": 12,
+        "nomGrantInterval": 13,
+        "tolGrantJitter": 14,
+        "grantsPerInterval": 15,
+        "tosOverwrite": 16,
+        "maxLatency": 17,
+        "requiredAttrMask": 18,
+        "forbiddenAttrMask": 19,
+        "attrAggrMask": 20,
+        "applicationId": 21,
+        "multipCntnReqWindow": 22,
+        "multipBytesReq": 23,
+        "maxReqPerSidCluster": 24,
+        "maxOutstandingBytesPerSidCluster": 25,
+        "maxTotalBytesReqPerSidCluster": 26,
+        "maximumTimeInSidCluster": 27,
+        "peakTrafficRate": 28,
+        "dsResequencing": 29
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetServiceFlowId": {
+    "name": "docsQos3ParamSetServiceFlowId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ParamSetRequiredAttrMask": {
+    "name": "docsQos3ParamSetRequiredAttrMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AttributeMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetForbiddenAttrMask": {
+    "name": "docsQos3ParamSetForbiddenAttrMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AttributeMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetAttrAggrRuleMask": {
+    "name": "docsQos3ParamSetAttrAggrRuleMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AttrAggrRuleMask",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetAppId": {
+    "name": "docsQos3ParamSetAppId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMultiplierContentionReqWindow": {
+    "name": "docsQos3ParamSetMultiplierContentionReqWindow",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "units": "eighths",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMultiplierBytesReq": {
+    "name": "docsQos3ParamSetMultiplierBytesReq",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "units": "requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMaxReqPerSidCluster": {
+    "name": "docsQos3ParamSetMaxReqPerSidCluster",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMaxOutstandingBytesPerSidCluster": {
+    "name": "docsQos3ParamSetMaxOutstandingBytesPerSidCluster",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMaxTotBytesReqPerSidCluster": {
+    "name": "docsQos3ParamSetMaxTotBytesReqPerSidCluster",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetMaxTimeInSidCluster": {
+    "name": "docsQos3ParamSetMaxTimeInSidCluster",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetPeakTrafficRate": {
+    "name": "docsQos3ParamSetPeakTrafficRate",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ParamSetDsResequencing": {
+    "name": "docsQos3ParamSetDsResequencing",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.2.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resequencingDsid": 0,
+          "noResequencingDsid": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowTable": {
+    "name": "docsQos3ServiceFlowTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowEntry": {
+    "name": "docsQos3ServiceFlowEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3ServiceFlowId": {
+    "name": "docsQos3ServiceFlowId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowSID": {
+    "name": "docsQos3ServiceFlowSID",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowDirection": {
+    "name": "docsQos3ServiceFlowDirection",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowPrimary": {
+    "name": "docsQos3ServiceFlowPrimary",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowParamSetTypeStatus": {
+    "name": "docsQos3ServiceFlowParamSetTypeStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "active": 0,
+        "admitted": 1,
+        "provisioned": 2
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowChSetId": {
+    "name": "docsQos3ServiceFlowChSetId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChSetId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowAttrAssignSuccess": {
+    "name": "docsQos3ServiceFlowAttrAssignSuccess",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowDsid": {
+    "name": "docsQos3ServiceFlowDsid",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dsid",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowStatsTable": {
+    "name": "docsQos3ServiceFlowStatsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowStatsEntry": {
+    "name": "docsQos3ServiceFlowStatsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3ServiceFlowPkts": {
+    "name": "docsQos3ServiceFlowPkts",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowOctets": {
+    "name": "docsQos3ServiceFlowOctets",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowTimeCreated": {
+    "name": "docsQos3ServiceFlowTimeCreated",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowTimeActive": {
+    "name": "docsQos3ServiceFlowTimeActive",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowPHSUnknowns": {
+    "name": "docsQos3ServiceFlowPHSUnknowns",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowPolicedDropPkts": {
+    "name": "docsQos3ServiceFlowPolicedDropPkts",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowPolicedDelayPkts": {
+    "name": "docsQos3ServiceFlowPolicedDelayPkts",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3UpstreamStatsTable": {
+    "name": "docsQos3UpstreamStatsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3UpstreamStatsEntry": {
+    "name": "docsQos3UpstreamStatsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3SID",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3SID": {
+    "name": "docsQos3SID",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3UpstreamFragments": {
+    "name": "docsQos3UpstreamFragments",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "fragments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3UpstreamFragDiscards": {
+    "name": "docsQos3UpstreamFragDiscards",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "fragments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3UpstreamConcatBursts": {
+    "name": "docsQos3UpstreamConcatBursts",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "headers",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DynamicServiceStatsTable": {
+    "name": "docsQos3DynamicServiceStatsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3DynamicServiceStatsEntry": {
+    "name": "docsQos3DynamicServiceStatsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3IfDirection",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3IfDirection": {
+    "name": "docsQos3IfDirection",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfDirection",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3DSAReqs": {
+    "name": "docsQos3DSAReqs",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DSARsps": {
+    "name": "docsQos3DSARsps",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DSAAcks": {
+    "name": "docsQos3DSAAcks",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DSCReqs": {
+    "name": "docsQos3DSCReqs",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DSCRsps": {
+    "name": "docsQos3DSCRsps",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DSCAcks": {
+    "name": "docsQos3DSCAcks",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DSDReqs": {
+    "name": "docsQos3DSDReqs",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DSDRsps": {
+    "name": "docsQos3DSDRsps",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DynamicAdds": {
+    "name": "docsQos3DynamicAdds",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DynamicAddFails": {
+    "name": "docsQos3DynamicAddFails",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DynamicChanges": {
+    "name": "docsQos3DynamicChanges",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DynamicChangeFails": {
+    "name": "docsQos3DynamicChangeFails",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DynamicDeletes": {
+    "name": "docsQos3DynamicDeletes",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DynamicDeleteFails": {
+    "name": "docsQos3DynamicDeleteFails",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DCCReqs": {
+    "name": "docsQos3DCCReqs",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DCCRsps": {
+    "name": "docsQos3DCCRsps",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DCCAcks": {
+    "name": "docsQos3DCCAcks",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DCCs": {
+    "name": "docsQos3DCCs",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DCCFails": {
+    "name": "docsQos3DCCFails",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DCCRspDeparts": {
+    "name": "docsQos3DCCRspDeparts",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DCCRspArrives": {
+    "name": "docsQos3DCCRspArrives",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DbcReqs": {
+    "name": "docsQos3DbcReqs",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DbcRsps": {
+    "name": "docsQos3DbcRsps",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DbcAcks": {
+    "name": "docsQos3DbcAcks",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DbcSuccesses": {
+    "name": "docsQos3DbcSuccesses",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DbcFails": {
+    "name": "docsQos3DbcFails",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3DbcPartial": {
+    "name": "docsQos3DbcPartial",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogTable": {
+    "name": "docsQos3ServiceFlowLogTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogEntry": {
+    "name": "docsQos3ServiceFlowLogEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogIndex": {
+    "name": "docsQos3ServiceFlowLogIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogIfIndex": {
+    "name": "docsQos3ServiceFlowLogIfIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogSFID": {
+    "name": "docsQos3ServiceFlowLogSFID",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogCmMac": {
+    "name": "docsQos3ServiceFlowLogCmMac",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogPkts": {
+    "name": "docsQos3ServiceFlowLogPkts",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogOctets": {
+    "name": "docsQos3ServiceFlowLogOctets",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogTimeDeleted": {
+    "name": "docsQos3ServiceFlowLogTimeDeleted",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogTimeCreated": {
+    "name": "docsQos3ServiceFlowLogTimeCreated",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogTimeActive": {
+    "name": "docsQos3ServiceFlowLogTimeActive",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogDirection": {
+    "name": "docsQos3ServiceFlowLogDirection",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfDirection",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogPrimary": {
+    "name": "docsQos3ServiceFlowLogPrimary",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogServiceClassName": {
+    "name": "docsQos3ServiceFlowLogServiceClassName",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogPolicedDropPkts": {
+    "name": "docsQos3ServiceFlowLogPolicedDropPkts",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogPolicedDelayPkts": {
+    "name": "docsQos3ServiceFlowLogPolicedDelayPkts",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowLogControl": {
+    "name": "docsQos3ServiceFlowLogControl",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.7.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "destroy": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "docsQos3ServiceClassTable": {
+    "name": "docsQos3ServiceClassTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceClassEntry": {
+    "name": "docsQos3ServiceClassEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3ServiceClassName": {
+    "name": "docsQos3ServiceClassName",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceClassStatus": {
+    "name": "docsQos3ServiceClassStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassPriority": {
+    "name": "docsQos3ServiceClassPriority",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMaxTrafficRate": {
+    "name": "docsQos3ServiceClassMaxTrafficRate",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DOCSQOS3BitRate",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMaxTrafficBurst": {
+    "name": "docsQos3ServiceClassMaxTrafficBurst",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 3044,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMinReservedRate": {
+    "name": "docsQos3ServiceClassMinReservedRate",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DOCSQOS3BitRate",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMinReservedPkt": {
+    "name": "docsQos3ServiceClassMinReservedPkt",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMaxConcatBurst": {
+    "name": "docsQos3ServiceClassMaxConcatBurst",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1522,
+        "format": "decimal"
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassNomPollInterval": {
+    "name": "docsQos3ServiceClassNomPollInterval",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassTolPollJitter": {
+    "name": "docsQos3ServiceClassTolPollJitter",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassUnsolicitGrantSize": {
+    "name": "docsQos3ServiceClassUnsolicitGrantSize",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassNomGrantInterval": {
+    "name": "docsQos3ServiceClassNomGrantInterval",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassTolGrantJitter": {
+    "name": "docsQos3ServiceClassTolGrantJitter",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassGrantsPerInterval": {
+    "name": "docsQos3ServiceClassGrantsPerInterval",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "units": "dataGrants",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMaxLatency": {
+    "name": "docsQos3ServiceClassMaxLatency",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassActiveTimeout": {
+    "name": "docsQos3ServiceClassActiveTimeout",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassAdmittedTimeout": {
+    "name": "docsQos3ServiceClassAdmittedTimeout",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassSchedulingType": {
+    "name": "docsQos3ServiceClassSchedulingType",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SchedulingType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "bestEffort",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassRequestPolicy": {
+    "name": "docsQos3ServiceClassRequestPolicy",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassTosAndMask": {
+    "name": "docsQos3ServiceClassTosAndMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassTosOrMask": {
+    "name": "docsQos3ServiceClassTosOrMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassDirection": {
+    "name": "docsQos3ServiceClassDirection",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfDirection",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "upstream",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassStorageType": {
+    "name": "docsQos3ServiceClassStorageType",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "nonVolatile",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassDSCPOverwrite": {
+    "name": "docsQos3ServiceClassDSCPOverwrite",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DscpOrAny",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": -1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassRequiredAttrMask": {
+    "name": "docsQos3ServiceClassRequiredAttrMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AttributeMask",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassForbiddenAttrMask": {
+    "name": "docsQos3ServiceClassForbiddenAttrMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AttributeMask",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassAttrAggrRuleMask": {
+    "name": "docsQos3ServiceClassAttrAggrRuleMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AttrAggrRuleMask",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassAppId": {
+    "name": "docsQos3ServiceClassAppId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMultiplierContentionReqWindow": {
+    "name": "docsQos3ServiceClassMultiplierContentionReqWindow",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 4,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "units": "eighths",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMultiplierBytesReq": {
+    "name": "docsQos3ServiceClassMultiplierBytesReq",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 8,
+            "max": 8
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMaxReqPerSidCluster": {
+    "name": "docsQos3ServiceClassMaxReqPerSidCluster",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "requests",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMaxOutstandingBytesPerSidCluster": {
+    "name": "docsQos3ServiceClassMaxOutstandingBytesPerSidCluster",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMaxTotBytesReqPerSidCluster": {
+    "name": "docsQos3ServiceClassMaxTotBytesReqPerSidCluster",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassMaxTimeInSidCluster": {
+    "name": "docsQos3ServiceClassMaxTimeInSidCluster",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassPeakTrafficRate": {
+    "name": "docsQos3ServiceClassPeakTrafficRate",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bps",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3ServiceClassDsResequencing": {
+    "name": "docsQos3ServiceClassDsResequencing",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.8.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "resequencingDsid": 0,
+          "noResequencingDsid": 1
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3PHSTable": {
+    "name": "docsQos3PHSTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3PHSEntry": {
+    "name": "docsQos3PHSEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3PHSField": {
+    "name": "docsQos3PHSField",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.10.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PHSMask": {
+    "name": "docsQos3PHSMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.10.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PHSSize": {
+    "name": "docsQos3PHSSize",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.10.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PHSVerify": {
+    "name": "docsQos3PHSVerify",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.10.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3PHSIndex": {
+    "name": "docsQos3PHSIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.10.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmtsMacToSrvFlowTable": {
+    "name": "docsQos3CmtsMacToSrvFlowTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmtsMacToSrvFlowEntry": {
+    "name": "docsQos3CmtsMacToSrvFlowEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsCmMac",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsServiceFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3CmtsCmMac": {
+    "name": "docsQos3CmtsCmMac",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmtsServiceFlowId": {
+    "name": "docsQos3CmtsServiceFlowId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmtsIfIndex": {
+    "name": "docsQos3CmtsIfIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowSidClusterTable": {
+    "name": "docsQos3ServiceFlowSidClusterTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowSidClusterEntry": {
+    "name": "docsQos3ServiceFlowSidClusterEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowSidClusterId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowSidClusterUcid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3ServiceFlowSidClusterId": {
+    "name": "docsQos3ServiceFlowSidClusterId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowSidClusterUcid": {
+    "name": "docsQos3ServiceFlowSidClusterUcid",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChId",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowSidClusterSid": {
+    "name": "docsQos3ServiceFlowSidClusterSid",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 16383
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3GrpServiceFlowTable": {
+    "name": "docsQos3GrpServiceFlowTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.13",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3GrpServiceFlowEntry": {
+    "name": "docsQos3GrpServiceFlowEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.13.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3GrpServiceFlowIsDef": {
+    "name": "docsQos3GrpServiceFlowIsDef",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.13.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3GrpServiceFlowQosConfigId": {
+    "name": "docsQos3GrpServiceFlowQosConfigId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.13.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3GrpServiceFlowNumSess": {
+    "name": "docsQos3GrpServiceFlowNumSess",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.13.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "sessions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3GrpPktClassTable": {
+    "name": "docsQos3GrpPktClassTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.14",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3GrpPktClassEntry": {
+    "name": "docsQos3GrpPktClassEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.14.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowId",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3GrpPktClassGrpConfigId": {
+    "name": "docsQos3GrpPktClassGrpConfigId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.14.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3UpChCounterExtTable": {
+    "name": "docsQos3UpChCounterExtTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.15",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3UpChCounterExtEntry": {
+    "name": "docsQos3UpChCounterExtEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.15.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3UpChCounterExtSgmtValids": {
+    "name": "docsQos3UpChCounterExtSgmtValids",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.15.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "segments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3UpChCounterExtSgmtDiscards": {
+    "name": "docsQos3UpChCounterExtSgmtDiscards",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.15.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "segments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowCcfStatsTable": {
+    "name": "docsQos3ServiceFlowCcfStatsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.16",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowCcfStatsEntry": {
+    "name": "docsQos3ServiceFlowCcfStatsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.16.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3ServiceFlowCcfStatsSgmtValids": {
+    "name": "docsQos3ServiceFlowCcfStatsSgmtValids",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.16.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "segments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3ServiceFlowCcfStatsSgmtLost": {
+    "name": "docsQos3ServiceFlowCcfStatsSgmtLost",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.16.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "segments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmServiceUsStatsTable": {
+    "name": "docsQos3CmServiceUsStatsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.17",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmServiceUsStatsEntry": {
+    "name": "docsQos3CmServiceUsStatsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.17.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3CmServiceUsStatsTxSlotsImmed": {
+    "name": "docsQos3CmServiceUsStatsTxSlotsImmed",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.17.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "mini-slots",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmServiceUsStatsTxSlotsDed": {
+    "name": "docsQos3CmServiceUsStatsTxSlotsDed",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.17.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "mini-slots",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmServiceUsStatsTxRetries": {
+    "name": "docsQos3CmServiceUsStatsTxRetries",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.17.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmServiceUsStatsTxExceededs": {
+    "name": "docsQos3CmServiceUsStatsTxExceededs",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.17.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmServiceUsStatsRqRetries": {
+    "name": "docsQos3CmServiceUsStatsRqRetries",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.17.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmServiceUsStatsRqExceededs": {
+    "name": "docsQos3CmServiceUsStatsRqExceededs",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.17.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "attempts",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmServiceUsStatsSgmts": {
+    "name": "docsQos3CmServiceUsStatsSgmts",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.17.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "segments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmtsDsidTable": {
+    "name": "docsQos3CmtsDsidTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.18",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmtsDsidEntry": {
+    "name": "docsQos3CmtsDsidEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.18.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDsidDsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3CmtsDsidDsid": {
+    "name": "docsQos3CmtsDsidDsid",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.18.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dsid",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmtsDsidUsage": {
+    "name": "docsQos3CmtsDsidUsage",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.18.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "resequencing": 0,
+        "multicastCapable": 1,
+        "multicastReplication": 2,
+        "bonding": 3
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmtsDsidDsChSet": {
+    "name": "docsQos3CmtsDsidDsChSet",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.18.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChSetId",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmtsDsidReseqWaitTime": {
+    "name": "docsQos3CmtsDsidReseqWaitTime",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.18.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "units": "hundredMicroseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmtsDsidReseqWarnThrshld": {
+    "name": "docsQos3CmtsDsidReseqWarnThrshld",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.18.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 179
+          }
+        ]
+      }
+    },
+    "units": "hundredMicroseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmtsDsidStatusHldoffTimerSeqOutOfRng": {
+    "name": "docsQos3CmtsDsidStatusHldoffTimerSeqOutOfRng",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.18.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "20milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmtsDsidCurrentSeqNum": {
+    "name": "docsQos3CmtsDsidCurrentSeqNum",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.18.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmtsDebugDsidTable": {
+    "name": "docsQos3CmtsDebugDsidTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.19",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmtsDebugDsidEntry": {
+    "name": "docsQos3CmtsDebugDsidEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.19.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDebugDsidDsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3CmtsDebugDsidDsid": {
+    "name": "docsQos3CmtsDebugDsidDsid",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.19.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dsid",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmtsDebugDsidRowStatus": {
+    "name": "docsQos3CmtsDebugDsidRowStatus",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.19.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "docsQos3CmtsDebugDsidStatsTable": {
+    "name": "docsQos3CmtsDebugDsidStatsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.20",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmtsDebugDsidStatsEntry": {
+    "name": "docsQos3CmtsDebugDsidStatsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.20.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDebugDsidDsid",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDebugDsidStatsDsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3CmtsDebugDsidStatsDsIfIndex": {
+    "name": "docsQos3CmtsDebugDsidStatsDsIfIndex",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.20.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmtsDebugDsidStatsDsidPackets": {
+    "name": "docsQos3CmtsDebugDsidStatsDsidPackets",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.20.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmtsDebugDsidStatsDsidOctets": {
+    "name": "docsQos3CmtsDebugDsidStatsDsidOctets",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.20.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidTable": {
+    "name": "docsQos3CmDsidTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmDsidEntry": {
+    "name": "docsQos3CmDsidEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidDsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3CmDsidDsid": {
+    "name": "docsQos3CmDsidDsid",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dsid",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmDsidUsage": {
+    "name": "docsQos3CmDsidUsage",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "resequencing": 0,
+        "multicastCapable": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidNumReseqChs": {
+    "name": "docsQos3CmDsidNumReseqChs",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidReseqChList": {
+    "name": "docsQos3CmDsidReseqChList",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ChannelList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidReseqWaitTime": {
+    "name": "docsQos3CmDsidReseqWaitTime",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 180
+          }
+        ]
+      }
+    },
+    "units": "hundredMicroseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidReseqWarnThrshld": {
+    "name": "docsQos3CmDsidReseqWarnThrshld",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 179
+          }
+        ]
+      }
+    },
+    "units": "hundredMicroseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidStatusHldoffTimerSeqOutOfRng": {
+    "name": "docsQos3CmDsidStatusHldoffTimerSeqOutOfRng",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "units": "20milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidOutOfRangeDiscards": {
+    "name": "docsQos3CmDsidOutOfRangeDiscards",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidNextExpectedSeqNum": {
+    "name": "docsQos3CmDsidNextExpectedSeqNum",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidCmInterfaceMask": {
+    "name": "docsQos3CmDsidCmInterfaceMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsL2vpnIfList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidFwdCmInterfaceMask": {
+    "name": "docsQos3CmDsidFwdCmInterfaceMask",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.21.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DocsL2vpnIfList",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidStatsTable": {
+    "name": "docsQos3CmDsidStatsTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmDsidStatsEntry": {
+    "name": "docsQos3CmDsidStatsEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidStatsDsid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3CmDsidStatsDsid": {
+    "name": "docsQos3CmDsidStatsDsid",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dsid",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmDsidStatsSeqNumMissing": {
+    "name": "docsQos3CmDsidStatsSeqNumMissing",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidStatsSkewThreshExceeds": {
+    "name": "docsQos3CmDsidStatsSkewThreshExceeds",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidStatsOutOfRangePackets": {
+    "name": "docsQos3CmDsidStatsOutOfRangePackets",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidStatsNumPackets": {
+    "name": "docsQos3CmDsidStatsNumPackets",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "packets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3CmDsidClientTable": {
+    "name": "docsQos3CmDsidClientTable",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.23",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmDsidClientEntry": {
+    "name": "docsQos3CmDsidClientEntry",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.23.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidClientDsid",
+        "implied": 0
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidClientClientMacId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3CmDsidClientDsid": {
+    "name": "docsQos3CmDsidClientDsid",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.23.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Dsid",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmDsidClientClientMacId": {
+    "name": "docsQos3CmDsidClientClientMacId",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.23.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "docsQos3CmDsidClientClientMacAddr": {
+    "name": "docsQos3CmDsidClientClientMacAddr",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.1.23.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "docsQos3MibConformance": {
+    "name": "docsQos3MibConformance",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.2",
+    "class": "objectidentity"
+  },
+  "docsQos3MibCompliances": {
+    "name": "docsQos3MibCompliances",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.2.1",
+    "class": "objectidentity"
+  },
+  "docsQos3MibGroups": {
+    "name": "docsQos3MibGroups",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.2.2",
+    "class": "objectidentity"
+  },
+  "docsQos3Compliance": {
+    "name": "docsQos3Compliance",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "docsQos3BaseGroup",
+        "module": "DOCS-QOS3-MIB"
+      },
+      {
+        "object": "docsQos3CmtsGroup",
+        "module": "DOCS-QOS3-MIB"
+      },
+      {
+        "object": "docsQos3CmGroup",
+        "module": "DOCS-QOS3-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3BaseGroup": {
+    "name": "docsQos3BaseGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassDirection"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassPriority"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassIpTosLow"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassIpTosHigh"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassIpTosMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassIpProtocol"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassIpSourceAddr"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassIpSourceMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassIpDestAddr"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassIpDestMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassSourcePortStart"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassSourcePortEnd"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassDestPortStart"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassDestPortEnd"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassDestMacAddr"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassDestMacMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassSourceMacAddr"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassEnetProtocolType"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassEnetProtocol"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassUserPriLow"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassUserPriHigh"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassVlanId"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassState"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassPkts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassBitMap"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassIpAddrType"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassFlowLabel"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3PktClassCmInterfaceMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetServiceClassName"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetPriority"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMaxTrafficRate"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMaxTrafficBurst"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMinReservedRate"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMinReservedPkt"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetActiveTimeout"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetAdmittedTimeout"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMaxConcatBurst"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetSchedulingType"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetNomPollInterval"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetTolPollJitter"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetUnsolicitGrantSize"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetNomGrantInterval"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetTolGrantJitter"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetGrantsPerInterval"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetTosAndMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetTosOrMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMaxLatency"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetRequestPolicyOct"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetRequiredAttrMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetForbiddenAttrMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetAttrAggrRuleMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetAppId"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMultiplierContentionReqWindow"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMultiplierBytesReq"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMaxReqPerSidCluster"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMaxOutstandingBytesPerSidCluster"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMaxTotBytesReqPerSidCluster"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetMaxTimeInSidCluster"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetPeakTrafficRate"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetDsResequencing"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ParamSetBitMap"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowSID"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowDirection"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowPrimary"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowParamSetTypeStatus"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowChSetId"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowAttrAssignSuccess"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowDsid"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowPkts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowOctets"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowTimeCreated"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowTimeActive"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowPHSUnknowns"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowPolicedDropPkts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowPolicedDelayPkts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DSAReqs"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DSARsps"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DSAAcks"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DSCReqs"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DSCRsps"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DSCAcks"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DSDReqs"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DSDRsps"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DynamicAdds"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DynamicAddFails"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DynamicChanges"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DynamicChangeFails"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DynamicDeletes"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DynamicDeleteFails"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DCCReqs"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DCCRsps"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DCCAcks"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DCCs"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DCCFails"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DCCRspDeparts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DCCRspArrives"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DCCRspDeparts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DCCRspArrives"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DbcReqs"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DbcRsps"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DbcAcks"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DbcSuccesses"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DbcFails"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3DbcPartial"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowSidClusterSid"
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3CmtsGroup": {
+    "name": "docsQos3CmtsGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3UpstreamFragments"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3UpstreamFragDiscards"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3UpstreamConcatBursts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogIfIndex"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogSFID"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogCmMac"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogPkts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogOctets"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogTimeDeleted"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogTimeCreated"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogTimeActive"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogDirection"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogPrimary"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogServiceClassName"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogPolicedDropPkts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogPolicedDelayPkts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowLogControl"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassStatus"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassPriority"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMaxTrafficRate"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMaxTrafficBurst"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMinReservedRate"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMinReservedPkt"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMaxConcatBurst"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassNomPollInterval"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassTolPollJitter"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassUnsolicitGrantSize"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassNomGrantInterval"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassTolGrantJitter"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassGrantsPerInterval"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMaxLatency"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassActiveTimeout"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassAdmittedTimeout"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassSchedulingType"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassRequestPolicy"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassTosAndMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassTosOrMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassDirection"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassStorageType"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassDSCPOverwrite"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassRequiredAttrMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassForbiddenAttrMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassAttrAggrRuleMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassAppId"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMultiplierContentionReqWindow"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMultiplierBytesReq"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMaxReqPerSidCluster"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMaxOutstandingBytesPerSidCluster"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMaxTotBytesReqPerSidCluster"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassMaxTimeInSidCluster"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassPeakTrafficRate"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceClassDsResequencing"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsIfIndex"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3GrpServiceFlowIsDef"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3GrpServiceFlowQosConfigId"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3GrpServiceFlowNumSess"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3GrpPktClassGrpConfigId"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3UpChCounterExtSgmtValids"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3UpChCounterExtSgmtDiscards"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowCcfStatsSgmtValids"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3ServiceFlowCcfStatsSgmtLost"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDsidUsage"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDsidDsChSet"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDsidReseqWaitTime"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDsidReseqWarnThrshld"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDsidStatusHldoffTimerSeqOutOfRng"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDsidCurrentSeqNum"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDebugDsidRowStatus"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDebugDsidStatsDsidPackets"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmtsDebugDsidStatsDsidOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "docsQos3CmGroup": {
+    "name": "docsQos3CmGroup",
+    "oid": "1.3.6.1.4.1.4491.2.1.21.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmServiceUsStatsTxSlotsImmed"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmServiceUsStatsTxSlotsDed"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmServiceUsStatsTxRetries"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmServiceUsStatsTxExceededs"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmServiceUsStatsRqRetries"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmServiceUsStatsRqExceededs"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmServiceUsStatsSgmts"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidUsage"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidNumReseqChs"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidReseqChList"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidReseqWaitTime"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidReseqWarnThrshld"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidStatusHldoffTimerSeqOutOfRng"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidOutOfRangeDiscards"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidNextExpectedSeqNum"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidCmInterfaceMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidFwdCmInterfaceMask"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidStatsSeqNumMissing"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidStatsSkewThreshExceeds"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidStatsOutOfRangePackets"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidStatsNumPackets"
+      },
+      {
+        "module": "DOCS-QOS3-MIB",
+        "object": "docsQos3CmDsidClientClientMacAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-QOS3-MIB",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:05:26 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+    ],
+    "module": "DOCS-QOS3-MIB"
+  }
+}

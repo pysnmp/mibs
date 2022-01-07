@@ -17,10 +17,7 @@ IMPORTS
       FROM SNMPv2-SMI
 
    AGENT-CAPABILITIES 
-      FROM SNMPv2-CONF
-		
-	ciscoAgentCapability
-		FROM CISCO-SMI;
+      FROM SNMPv2-CONF;
 
 
 ciscoIetfFrrCapability MODULE-IDENTITY

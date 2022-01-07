@@ -1,0 +1,53 @@
+#
+# PySNMP MIB module INT-SERV-GUARANTEED-MIB (http://snmplabs.com/pysmi)
+# ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/INT-SERV-GUARANTEED-MIB
+# Produced by pysmi-1.1.8 at Fri Jan  7 00:05:13 2022
+# On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner
+# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
+#
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
+SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
+ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
+intSrv, = mibBuilder.importSymbols("INT-SERV-MIB", "intSrv")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+MibIdentifier, Counter32, Integer32, Unsigned32, ObjectIdentity, Gauge32, ModuleIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Bits, TimeTicks, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Counter32", "Integer32", "Unsigned32", "ObjectIdentity", "Gauge32", "ModuleIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Bits", "TimeTicks", "iso", "IpAddress")
+TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
+intSrvGuaranteed = ModuleIdentity((1, 3, 6, 1, 2, 1, 52, 4))
+if mibBuilder.loadTexts: intSrvGuaranteed.setLastUpdated('9511030500Z')
+if mibBuilder.loadTexts: intSrvGuaranteed.setOrganization('IETF Integrated Services Working Group')
+if mibBuilder.loadTexts: intSrvGuaranteed.setContactInfo('       Fred Baker\n       Postal: Cisco Systems\n               519 Lado Drive\n               Santa Barbara, California 93111\n       Tel:    +1 805 681 0115\n       E-Mail: fred@cisco.com')
+if mibBuilder.loadTexts: intSrvGuaranteed.setDescription('The MIB module to describe the Guaranteed Service of\n       the Integrated Services Protocol')
+intSrvGuaranteedObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 4, 1))
+intSrvGuaranteedNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 4, 2))
+intSrvGuaranteedConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 4, 3))
+intSrvGuaranteedIfTable = MibTable((1, 3, 6, 1, 2, 1, 52, 4, 1, 1), )
+if mibBuilder.loadTexts: intSrvGuaranteedIfTable.setStatus('current')
+if mibBuilder.loadTexts: intSrvGuaranteedIfTable.setDescription("The attributes of the system's interfaces  ex-\n           ported by the Guaranteed Service.")
+intSrvGuaranteedIfEntry = MibTableRow((1, 3, 6, 1, 2, 1, 52, 4, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
+if mibBuilder.loadTexts: intSrvGuaranteedIfEntry.setStatus('current')
+if mibBuilder.loadTexts: intSrvGuaranteedIfEntry.setDescription('The reservable attributes of  a  given  inter-\n           face.')
+intSrvGuaranteedIfC = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 4, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 268435455))).setUnits('bytes').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: intSrvGuaranteedIfC.setStatus('current')
+if mibBuilder.loadTexts: intSrvGuaranteedIfC.setDescription('The parameter C is the data backlog  resulting\n           from the vagaries of how a specific implementa-\n           tion deviates from a strict bit-by-bit service.\n           So,  for instance, for packetized weighted fair\n           queueing, C is set to the Maximum Packet Size.\n\n           The error term C is measured in units of bytes.\n           An  individual  element can advertise a C value\n           between 1 and 2**28 (a little  over  250  mega-\n           bytes)  and  the  total added over all elements\n           can range as high as (2**32)-1.  Should the sum\n           of   the   different   elements   delay  exceed\n           (2**32)-1, the end-to-end error term should  be\n           (2**32)-1.')
+intSrvGuaranteedIfD = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 4, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 268435455))).setUnits('microseconds').setMaxAccess("readcreate")
+if mibBuilder.loadTexts: intSrvGuaranteedIfD.setStatus('current')
+if mibBuilder.loadTexts: intSrvGuaranteedIfD.setDescription('The parameter D at each service element should\n           be  set  to  the  maximum packet transfer delay\n           (independent of bucket size) through  the  ser-\n           vice   element.   For  instance,  in  a  simple\n           router, one might compute the worst case amount\n           of  time  it  make  take  for a datagram to get\n           through the input interface to  the  processor,\n           and how long it would take to get from the pro-\n           cessor to the outbound interface (assuming  the\n           queueing  schemes work correctly).  For an Eth-\n           ernet, it might represent the worst case  delay\n           if  the maximum number of collisions is experi-\n           enced.\n\n           The error term D is measured in  units  of  one\n           microsecond.   An individual element can adver-\n           tise a delay value between 1 and  2**28  (some-\n           what  over two minutes) and the total delay ad-\n           ded all elements can range as high as  (2**32)-\n           1.   Should  the  sum of the different elements\n           delay exceed (2**32)-1,  the  end-to-end  delay\n           should be (2**32)-1.')
+intSrvGuaranteedIfSlack = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 4, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 268435455))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: intSrvGuaranteedIfSlack.setStatus('current')
+if mibBuilder.loadTexts: intSrvGuaranteedIfSlack.setDescription('If a network element uses a certain amount  of\n           slack,  Si,  to  reduce the amount of resources\n           that it has reserved for a particular flow,  i,\n           the  value  Si  should be stored at the network\n           element.   Subsequently,  if  reservation   re-\n           freshes  are  received  for flow i, the network\n           element must use the same slack Si without  any\n           further computation. This guarantees consisten-\n           cy in the reservation process.\n\n           As an example for the use of  the  slack  term,\n           consider the case where the required end-to-end\n           delay, Dreq, is larger than the  maximum  delay\n           of  the  fluid  flow  system. The latter is ob-\n           tained by setting R=r in the fluid delay formu-\n           la, and is given by\n\n                        b/r + Ctot/r + Dtot.\n\n           In this case the slack term is\n\n                  S = Dreq - (b/r + Ctot/r + Dtot).\n\n           The slack term may be used by the network  ele-\n           ments  to  adjust  their local reservations, so\n           that they can admit flows that would  otherwise\n           have been rejected. A service element at an in-\n           termediate network element that can  internally\n           differentiate between delay and rate guarantees\n           can now take advantage of this  information  to\n           lower the amount of resources allocated to this\n           flow. For example, by taking an amount of slack\n           s  <= S, an RCSD scheduler [5] can increase the\n           local delay bound, d, assigned to the flow,  to\n           d+s. Given an RSpec, (Rin, Sin), it would do so\n           by setting Rout = Rin and Sout = Sin - s.\n\n           Similarly,  a  network  element  using  a   WFQ\n           scheduler  can  decrease  its local reservation\n           from Rin to Rout by using some of the slack  in\n\n\n\n           the  RSpec.  This  can be accomplished by using\n           the transformation rules given in the  previous\n           section,  that ensure that the reduced reserva-\n           tion level will not increase the  overall  end-\n           to-end delay.')
+intSrvGuaranteedIfStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 4, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: intSrvGuaranteedIfStatus.setStatus('current')
+if mibBuilder.loadTexts: intSrvGuaranteedIfStatus.setDescription("'valid' on interfaces that are configured  for\n           the Guaranteed Service.")
+intSrvGuaranteedGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 4, 3, 1))
+intSrvGuaranteedCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 4, 3, 2))
+intSrvGuaranteedCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 52, 4, 3, 2, 1)).setObjects(("INT-SERV-GUARANTEED-MIB", "intSrvGuaranteedIfAttribGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    intSrvGuaranteedCompliance = intSrvGuaranteedCompliance.setStatus('current')
+if mibBuilder.loadTexts: intSrvGuaranteedCompliance.setDescription('The compliance statement ')
+intSrvGuaranteedIfAttribGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 52, 4, 3, 1, 2)).setObjects(("INT-SERV-GUARANTEED-MIB", "intSrvGuaranteedIfC"), ("INT-SERV-GUARANTEED-MIB", "intSrvGuaranteedIfD"), ("INT-SERV-GUARANTEED-MIB", "intSrvGuaranteedIfSlack"), ("INT-SERV-GUARANTEED-MIB", "intSrvGuaranteedIfStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    intSrvGuaranteedIfAttribGroup = intSrvGuaranteedIfAttribGroup.setStatus('current')
+if mibBuilder.loadTexts: intSrvGuaranteedIfAttribGroup.setDescription('These objects are required  for  Systems  sup-\n           porting the Guaranteed Service of the Integrat-\n           ed Services Architecture.')
+mibBuilder.exportSymbols("INT-SERV-GUARANTEED-MIB", intSrvGuaranteedIfC=intSrvGuaranteedIfC, intSrvGuaranteedGroups=intSrvGuaranteedGroups, intSrvGuaranteedIfTable=intSrvGuaranteedIfTable, intSrvGuaranteedCompliance=intSrvGuaranteedCompliance, intSrvGuaranteedConformance=intSrvGuaranteedConformance, intSrvGuaranteedIfAttribGroup=intSrvGuaranteedIfAttribGroup, intSrvGuaranteedCompliances=intSrvGuaranteedCompliances, intSrvGuaranteedIfStatus=intSrvGuaranteedIfStatus, intSrvGuaranteedIfSlack=intSrvGuaranteedIfSlack, PYSNMP_MODULE_ID=intSrvGuaranteed, intSrvGuaranteedIfEntry=intSrvGuaranteedIfEntry, intSrvGuaranteedObjects=intSrvGuaranteedObjects, intSrvGuaranteed=intSrvGuaranteed, intSrvGuaranteedIfD=intSrvGuaranteedIfD, intSrvGuaranteedNotifications=intSrvGuaranteedNotifications)

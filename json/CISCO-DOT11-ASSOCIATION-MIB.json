@@ -2,47 +2,50 @@
   "imports": {
     "class": "imports",
     "CISCO-DOT11-IF-MIB": [
-      "cd11IfAuxSsid"
+      "cd11IfAuxSsid",
+      "CDot11IfVlanIdOrZero",
+      "CDot11IfCipherType"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
     ],
     "IF-MIB": [
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "Counter32",
       "Unsigned32",
-      "IpAddress",
+      "TimeTicks",
       "Gauge32",
       "iso",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "Counter64",
       "Bits",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "MacAddress",
       "TruthValue",
-      "MacAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoDot11AssociationMIB": {
@@ -51,12 +54,36 @@
     "class": "moduleidentity",
     "revisions": [
       {
+        "revision": "2007-01-05 00:00",
+        "description": "The changes made are as follows. - Added more explanations on the kind of entries populated for cDot11ClientConfigInfoTable, on infrastructure clients like repeaters, non-root bridges and workgroup bridges. - Added cDot11ClientNewKeyManagement object to the cDot11ClientConfigInfoTable. "
+      },
+      {
+        "revision": "2006-06-12 00:00",
+        "description": "The changes made are as follows. - Added the following enumerations to CDot11ClientRadioType. - 'cb21ag' - 'ccxClient' - 'unknown' - Added 'unknown' to CDot11ClientDevType. - Added cDot11ClientDevObjectID to cDot11ClientConfigInfoTable. "
+      },
+      {
+        "revision": "2005-03-08 00:00",
+        "description": "Updated CDot11ClientDevType to include a new device type. Updated CDot11ClientRadioType to include new radio types."
+      },
+      {
+        "revision": "2004-11-28 00:00",
+        "description": "Correct spelling of CDot11AuthenicationMethod to CDot11AuthenticationMethod."
+      },
+      {
+        "revision": "2004-10-18 00:00",
+        "description": "Added new client VLAN, sub-interface ifIndex, key management type, authentication type, and cipher type information."
+      },
+      {
+        "revision": "2004-02-19 00:00",
+        "description": "Added new cd11IfCipherStatsTable for radio interface AES, TKIP, and security tempering attempts statistics."
+      },
+      {
         "revision": "2003-07-27 00:00",
         "description": "Added new IEEE 802.11g radio type to CDot11ClientRadioType and new AP device type to CDot11ClientDevType."
       },
       {
         "revision": "2003-04-11 00:00",
-        "description": "Added new objects for client software version, IP address, name, and association or autentication state."
+        "description": "Added new objects for client software version, IP address, name, and association or authentication state."
       },
       {
         "revision": "2003-01-29 00:00",
@@ -124,6 +151,7 @@
       "class": "type",
       "constraints": {
         "enumeration": {
+          "unknown": 1,
           "ethernetAP": 76,
           "ethernetBridge": 77,
           "pc3000Client": 84,
@@ -145,7 +173,13 @@
           "c1410SeriesBridge": 130,
           "c1200SeriesAP": 132,
           "mp2xClient": 133,
-          "c350SeriesAP": 134
+          "c350SeriesAP": 134,
+          "cb21agClient": 135,
+          "radioKodiak": 136,
+          "c1130SeriesAP": 137,
+          "c1310SeriesBridge": 138,
+          "c7920phone": 139,
+          "c1240SeriesAP": 140
         }
       }
     },
@@ -159,6 +193,8 @@
       "class": "type",
       "constraints": {
         "enumeration": {
+          "unknown": 1,
+          "ccxClient": 2,
           "pc3500": 3,
           "pc3000": 4,
           "pc4500": 6,
@@ -168,8 +204,85 @@
           "series350": 34,
           "series370": 35,
           "bridge1410": 36,
-          "mp2xSeries": 37
+          "mp2xSeries": 37,
+          "rm2xSeries": 38,
+          "rm2gSeries": 39,
+          "mp2xMAR": 40,
+          "cb21ag": 46
         }
+      }
+    },
+    "status": "current"
+  },
+  "CDot11AuthenticationMethod": {
+    "name": "CDot11AuthenticationMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open": 1,
+          "sharedKey": 2,
+          "networkEap": 129
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CDot11AdditionalAuthenMethod": {
+    "name": "CDot11AdditionalAuthenMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "mac": 0,
+        "eap": 1
+      }
+    },
+    "status": "current"
+  },
+  "CDot11Dot1xAuthenMethod": {
+    "name": "CDot11Dot1xAuthenMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "md5": 0,
+        "leap": 1,
+        "peap": 2,
+        "eapTls": 3,
+        "eapSim": 4,
+        "eapFast": 5
+      }
+    },
+    "status": "current"
+  },
+  "CDot11KeyManagementMethod": {
+    "name": "CDot11KeyManagementMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "wpa": 0,
+        "cckm": 1
+      }
+    },
+    "status": "deprecated"
+  },
+  "CDot11NewKeyManagementMethod": {
+    "name": "CDot11NewKeyManagementMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "cckm": 0,
+        "wpa1": 1,
+        "wpa2": 2
       }
     },
     "status": "current"
@@ -370,6 +483,101 @@
       "class": "type"
     },
     "units": "client",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfCipherStatsTable": {
+    "name": "cd11IfCipherStatsTable",
+    "oid": "1.3.6.1.4.1.9.9.273.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "cd11IfCipherStatsEntry": {
+    "name": "cd11IfCipherStatsEntry",
+    "oid": "1.3.6.1.4.1.9.9.273.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "cd11IfCipherMicFailClientAddress": {
+    "name": "cd11IfCipherMicFailClientAddress",
+    "oid": "1.3.6.1.4.1.9.9.273.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfCipherTkipLocalMicFailures": {
+    "name": "cd11IfCipherTkipLocalMicFailures",
+    "oid": "1.3.6.1.4.1.9.9.273.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfCipherTkipRemotMicFailures": {
+    "name": "cd11IfCipherTkipRemotMicFailures",
+    "oid": "1.3.6.1.4.1.9.9.273.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfCipherTkipCounterMeasInvok": {
+    "name": "cd11IfCipherTkipCounterMeasInvok",
+    "oid": "1.3.6.1.4.1.9.9.273.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfCipherCcmpReplaysDiscarded": {
+    "name": "cd11IfCipherCcmpReplaysDiscarded",
+    "oid": "1.3.6.1.4.1.9.9.273.1.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cd11IfCipherTkipReplaysDetected": {
+    "name": "cd11IfCipherTkipReplaysDetected",
+    "oid": "1.3.6.1.4.1.9.9.273.1.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
     "maxaccess": "read-only",
     "status": "current"
   },
@@ -647,6 +855,126 @@
     "class": "objecttype",
     "syntax": {
       "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11ClientVlanId": {
+    "name": "cDot11ClientVlanId",
+    "oid": "1.3.6.1.4.1.9.9.273.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfVlanIdOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11ClientSubIfIndex": {
+    "name": "cDot11ClientSubIfIndex",
+    "oid": "1.3.6.1.4.1.9.9.273.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11ClientAuthenAlgorithm": {
+    "name": "cDot11ClientAuthenAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.273.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11AuthenticationMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11ClientAdditionalAuthen": {
+    "name": "cDot11ClientAdditionalAuthen",
+    "oid": "1.3.6.1.4.1.9.9.273.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11AdditionalAuthenMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11ClientDot1xAuthenAlgorithm": {
+    "name": "cDot11ClientDot1xAuthenAlgorithm",
+    "oid": "1.3.6.1.4.1.9.9.273.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11Dot1xAuthenMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11ClientKeyManagement": {
+    "name": "cDot11ClientKeyManagement",
+    "oid": "1.3.6.1.4.1.9.9.273.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11KeyManagementMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "cDot11ClientUnicastCipher": {
+    "name": "cDot11ClientUnicastCipher",
+    "oid": "1.3.6.1.4.1.9.9.273.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfCipherType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11ClientMulticastCipher": {
+    "name": "cDot11ClientMulticastCipher",
+    "oid": "1.3.6.1.4.1.9.9.273.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11IfCipherType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11ClientDevObjectID": {
+    "name": "cDot11ClientDevObjectID",
+    "oid": "1.3.6.1.4.1.9.9.273.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "cDot11ClientNewKeyManagement": {
+    "name": "cDot11ClientNewKeyManagement",
+    "oid": "1.3.6.1.4.1.9.9.273.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CDot11NewKeyManagementMethod",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -948,6 +1276,158 @@
         "module": "CISCO-DOT11-ASSOCIATION-MIB"
       }
     ],
+    "status": "deprecated"
+  },
+  "ciscoDot11AssocMIBComplianceRev2": {
+    "name": "ciscoDot11AssocMIBComplianceRev2",
+    "oid": "1.3.6.1.4.1.9.9.273.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDot11ClientConfigGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientInfoGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11IfAssocStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11IfCipherStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ApAssocGlobalGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDot11AssocMIBComplianceRev3": {
+    "name": "ciscoDot11AssocMIBComplianceRev3",
+    "oid": "1.3.6.1.4.1.9.9.273.2.1.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDot11ClientConfigGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientAuthenGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientInfoGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11IfAssocStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11IfCipherStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ApAssocGlobalGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDot11AssocMIBComplianceRev4": {
+    "name": "ciscoDot11AssocMIBComplianceRev4",
+    "oid": "1.3.6.1.4.1.9.9.273.2.1.5",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDot11ClientConfigGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientAuthenGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientInfoGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11IfAssocStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11IfCipherStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientConfigExtGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ApAssocGlobalGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11AssocMIBComplianceRev5": {
+    "name": "ciscoDot11AssocMIBComplianceRev5",
+    "oid": "1.3.6.1.4.1.9.9.273.2.1.6",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ciscoDot11ClientConfigGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientAuthenGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientInfoGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11IfAssocStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11IfCipherStatGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientConfigExtGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ClientNewAuthenGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      },
+      {
+        "object": "ciscoDot11ApAssocGlobalGroup",
+        "module": "CISCO-DOT11-ASSOCIATION-MIB"
+      }
+    ],
     "status": "current"
   },
   "ciscoDot11AssocGlobalGroup": {
@@ -996,7 +1476,7 @@
         "object": "cDot11AssStatsDisassociated"
       }
     ],
-    "status": "current"
+    "status": "deprecated"
   },
   "ciscoDot11ClientConfigGroup": {
     "name": "ciscoDot11ClientConfigGroup",
@@ -1142,11 +1622,163 @@
     ],
     "status": "current"
   },
+  "ciscoDot11ApAssocGlobalGroup": {
+    "name": "ciscoDot11ApAssocGlobalGroup",
+    "oid": "1.3.6.1.4.1.9.9.273.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ParentAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11IfAssocStatGroup": {
+    "name": "ciscoDot11IfAssocStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.273.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ActiveWirelessClients"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ActiveBridges"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ActiveRepeaters"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11AssStatsAssociated"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11AssStatsAuthenticated"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11AssStatsRoamedIn"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11AssStatsRoamedAway"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11AssStatsDeauthenticated"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11AssStatsDisassociated"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11IfCipherStatGroup": {
+    "name": "ciscoDot11IfCipherStatGroup",
+    "oid": "1.3.6.1.4.1.9.9.273.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cd11IfCipherMicFailClientAddress"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cd11IfCipherTkipLocalMicFailures"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cd11IfCipherTkipRemotMicFailures"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cd11IfCipherTkipCounterMeasInvok"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cd11IfCipherCcmpReplaysDiscarded"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cd11IfCipherTkipReplaysDetected"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11ClientAuthenGroup": {
+    "name": "ciscoDot11ClientAuthenGroup",
+    "oid": "1.3.6.1.4.1.9.9.273.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ClientVlanId"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ClientSubIfIndex"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ClientAuthenAlgorithm"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ClientAdditionalAuthen"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ClientDot1xAuthenAlgorithm"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ClientKeyManagement"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ClientUnicastCipher"
+      },
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ClientMulticastCipher"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "ciscoDot11ClientConfigExtGroup": {
+    "name": "ciscoDot11ClientConfigExtGroup",
+    "oid": "1.3.6.1.4.1.9.9.273.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ClientDevObjectID"
+      }
+    ],
+    "status": "current"
+  },
+  "ciscoDot11ClientNewAuthenGroup": {
+    "name": "ciscoDot11ClientNewAuthenGroup",
+    "oid": "1.3.6.1.4.1.9.9.273.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "CISCO-DOT11-ASSOCIATION-MIB",
+        "object": "cDot11ClientNewKeyManagement"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOT11-ASSOCIATION-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan  6 20:08:13 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 00:14:24 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-DOT11-ASSOCIATION-MIB"
