@@ -16,4 +16,4 @@ for filename in os.listdir(p):
 with open("output/index.csv", "w") as f:
     for i in index.items():
 
-        f.write(f"{i[0]},{i[1]}\n")
+        f.write(f"{i[1]},{i[0]}\n")
