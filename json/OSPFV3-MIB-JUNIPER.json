@@ -6,46 +6,46 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "JUNIPER-EXPERIMENT-MIB": [
       "jnxOspfv3Experiment"
     ],
     "OSPF-MIB": [
-      "DesignatedRouterPriority",
-      "Status",
-      "BigMetric",
+      "Metric",
       "HelloRange",
-      "Metric"
+      "Status",
+      "DesignatedRouterPriority",
+      "BigMetric"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "mib-2",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "Counter64",
-      "IpAddress",
-      "Gauge32",
-      "MibIdentifier",
-      "mib-2",
-      "OBJECT-TYPE",
+      "Counter32",
       "iso",
       "Bits",
-      "MODULE-IDENTITY",
-      "Unsigned32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter32"
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "jnxOspfv3MIB": {
@@ -3823,8 +3823,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/OSPFV3-MIB-JUNIPER",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:16:09 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:28:34 2022",
+      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "OSPFV3-MIB-JUNIPER"

@@ -6,29 +6,29 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "iso",
-      "Integer32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "TimeTicks",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Integer32",
       "Counter64",
-      "MODULE-IDENTITY",
-      "Gauge32",
+      "iso",
+      "IpAddress",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime"
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "commonVarbinds": {
@@ -145,8 +145,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/IRT-COMMONVARBINDS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:25:06 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:37:07 2022",
+      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "IRT-COMMONVARBINDS-MIB"

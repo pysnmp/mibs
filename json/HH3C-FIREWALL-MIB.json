@@ -5,28 +5,28 @@
       "hh3cCommon"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "Integer32",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
       "Counter32",
       "OBJECT-TYPE",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "IpAddress",
-      "Counter64",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Integer32",
       "OBJECT-IDENTITY",
-      "Bits"
+      "Gauge32",
+      "Bits",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cFireWall": {
@@ -88,8 +88,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-FIREWALL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:01:28 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:16:47 2022",
+      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "HH3C-FIREWALL-MIB"

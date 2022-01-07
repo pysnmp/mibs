@@ -3,9 +3,9 @@
     "class": "imports",
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddressPrefixLength",
+      "InetPortNumber",
       "InetAddress",
-      "InetPortNumber"
+      "InetAddressPrefixLength"
     ],
     "IPV6-TC": [
       "Ipv6Address",
@@ -23,30 +23,30 @@
       "jnxMbgGwName"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter64",
-      "IpAddress",
-      "Gauge32",
-      "MibIdentifier",
+      "Unsigned32",
       "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "iso",
       "Bits",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "Counter32"
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "jnxMbgPgwGtpMib": {
@@ -19578,8 +19578,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-MOBILE-GATEWAY-GTP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:16:10 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:28:35 2022",
+      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "JUNIPER-MOBILE-GATEWAY-GTP-MIB"

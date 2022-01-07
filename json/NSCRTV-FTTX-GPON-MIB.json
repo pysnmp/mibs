@@ -6,34 +6,34 @@
       "Timeout"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "enterprises",
-      "Bits",
-      "iso",
-      "Counter32",
-      "Counter64",
-      "Gauge32",
-      "Unsigned32",
       "TimeTicks",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
       "BITS",
-      "Integer32",
-      "MODULE-IDENTITY",
       "IpAddress",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "Integer32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "DateAndTime",
       "MacAddress",
-      "RowStatus",
-      "TruthValue",
-      "DisplayString",
       "TimeStamp",
+      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -5758,8 +5758,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/NSCRTV-FTTX-GPON-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:56:59 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:12:39 2022",
+      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "NSCRTV-FTTX-GPON-MIB"

@@ -6,13 +6,13 @@
       "dot1dTpFdbPort"
     ],
     "CISCO-FIREWALL-TC": [
-      "CFWUrlfVendorId",
+      "CFWUrlServerStatus",
+      "CFWApplicationProtocol",
       "CFWPolicyTargetType",
       "CFWNetworkProtocol",
-      "CFWApplicationProtocol",
       "CFWPolicyTarget",
       "CFWPolicy",
-      "CFWUrlServerStatus"
+      "CFWUrlfVendorId"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -28,25 +28,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "iso",
-      "Bits",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter32",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "Integer32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
       "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TimeStamp",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -2571,8 +2571,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-FIREWALL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:00:38 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:16:04 2022",
+      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-UNIFIED-FIREWALL-MIB"

@@ -8,26 +8,26 @@
       "ifEntry"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "enterprises",
       "OBJECT-TYPE",
-      "iso",
-      "Bits",
       "Counter64",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "Gauge32",
+      "iso",
       "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
       "TimeTicks",
-      "Gauge32"
+      "IpAddress",
+      "Bits",
+      "enterprises"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -128,8 +128,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-IF-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:53:58 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:10:05 2022",
+      "On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ARRIS-C3-IF-MIB"

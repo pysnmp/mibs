@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ADTRAN-AOSFILESYSTEM (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOSFILESYSTEM
-# Produced by pysmi-1.1.8 at Fri Jan  7 15:52:01 2022
-# On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan  7 16:08:26 2022
+# On host fv-az36-988 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 adGenAOSConformance, adGenAOSCommon = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSConformance", "adGenAOSCommon")
 adIdentity, = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentity")
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Integer32, TimeTicks, ModuleIdentity, Counter32, Gauge32, MibIdentifier, IpAddress, Bits, Counter64, NotificationType, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "TimeTicks", "ModuleIdentity", "Counter32", "Gauge32", "MibIdentifier", "IpAddress", "Bits", "Counter64", "NotificationType", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "iso")
-TextualConvention, TAddress, RowStatus, DisplayString, TDomain = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TAddress", "RowStatus", "DisplayString", "TDomain")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+TimeTicks, ObjectIdentity, iso, Integer32, Bits, ModuleIdentity, Counter32, NotificationType, IpAddress, Counter64, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ObjectIdentity", "iso", "Integer32", "Bits", "ModuleIdentity", "Counter32", "NotificationType", "IpAddress", "Counter64", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "MibIdentifier")
+DisplayString, TDomain, TextualConvention, TAddress, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TDomain", "TextualConvention", "TAddress", "RowStatus")
 adGenAOSFileSystemMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 53, 1, 6))
 adGenAOSFileSystemMib.setRevisions(('2005-05-18 00:00',))
 
@@ -85,4 +85,4 @@ adGenAOSFileSystemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 5, 3, 1
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     adGenAOSFileSystemGroup = adGenAOSFileSystemGroup.setStatus('current')
 if mibBuilder.loadTexts: adGenAOSFileSystemGroup.setDescription('The File System Group.')
-mibBuilder.exportSymbols("ADTRAN-AOSFILESYSTEM", adAOSFileSystemRecordSize=adAOSFileSystemRecordSize, PYSNMP_MODULE_ID=adGenAOSFileSystemMib, adAOSFileSystemCompliance=adAOSFileSystemCompliance, adAOSFileSystemRecordName=adAOSFileSystemRecordName, adAOSFileSystemRecordTable=adAOSFileSystemRecordTable, adGenAOSFileSystem=adGenAOSFileSystem, adGenAOSFileSystemRecordGroup=adGenAOSFileSystemRecordGroup, adAOSFileSystemEntry=adAOSFileSystemEntry, adAOSFileSystemType=adAOSFileSystemType, adAOSFileSystemID=adAOSFileSystemID, adAOSFileSystemCompliances=adAOSFileSystemCompliances, adAOSFileSystemRecordStatus=adAOSFileSystemRecordStatus, adAOSFileSystemRecordSystem=adAOSFileSystemRecordSystem, adAOSFileSystemRecordType=adAOSFileSystemRecordType, adAOSFileSystemTable=adAOSFileSystemTable, adAOSFileSystemRecordEntry=adAOSFileSystemRecordEntry, adGenAOSFileSystemMib=adGenAOSFileSystemMib, adGenAOSFileSystemConformance=adGenAOSFileSystemConformance, adAOSFileSystemGroups=adAOSFileSystemGroups, adGenAOSFileSystemGroup=adGenAOSFileSystemGroup, adAOSFileSystemTotalSize=adAOSFileSystemTotalSize, adAOSFileSystemRecordGroups=adAOSFileSystemRecordGroups, adAOSFileSystemFreeSize=adAOSFileSystemFreeSize, adAOSFileSystemRecordID=adAOSFileSystemRecordID, adAOSFileSystemRecordPath=adAOSFileSystemRecordPath)
+mibBuilder.exportSymbols("ADTRAN-AOSFILESYSTEM", adAOSFileSystemRecordName=adAOSFileSystemRecordName, adAOSFileSystemRecordPath=adAOSFileSystemRecordPath, adAOSFileSystemID=adAOSFileSystemID, adGenAOSFileSystem=adGenAOSFileSystem, adAOSFileSystemCompliance=adAOSFileSystemCompliance, adGenAOSFileSystemConformance=adGenAOSFileSystemConformance, adAOSFileSystemRecordStatus=adAOSFileSystemRecordStatus, adAOSFileSystemRecordGroups=adAOSFileSystemRecordGroups, adAOSFileSystemRecordSize=adAOSFileSystemRecordSize, adAOSFileSystemTotalSize=adAOSFileSystemTotalSize, adGenAOSFileSystemGroup=adGenAOSFileSystemGroup, adGenAOSFileSystemRecordGroup=adGenAOSFileSystemRecordGroup, adAOSFileSystemRecordTable=adAOSFileSystemRecordTable, adAOSFileSystemRecordSystem=adAOSFileSystemRecordSystem, adAOSFileSystemEntry=adAOSFileSystemEntry, adAOSFileSystemGroups=adAOSFileSystemGroups, PYSNMP_MODULE_ID=adGenAOSFileSystemMib, adGenAOSFileSystemMib=adGenAOSFileSystemMib, adAOSFileSystemType=adAOSFileSystemType, adAOSFileSystemRecordID=adAOSFileSystemRecordID, adAOSFileSystemRecordType=adAOSFileSystemRecordType, adAOSFileSystemTable=adAOSFileSystemTable, adAOSFileSystemFreeSize=adAOSFileSystemFreeSize, adAOSFileSystemCompliances=adAOSFileSystemCompliances, adAOSFileSystemRecordEntry=adAOSFileSystemRecordEntry)
