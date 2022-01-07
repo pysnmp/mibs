@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "HP-SN-MPLS-TC-MIB": [
-      "MplsBurstSize",
+      "MplsLsrIdentifier",
       "MplsLSPID",
       "MplsTunnelIndex",
+      "MplsBurstSize",
+      "MplsPathIndexOrZero",
+      "MplsTunnelAffinity",
+      "MplsPathIndex",
       "MplsTunnelInstanceIndex",
       "MplsBitRate",
-      "MplsTunnelAffinity",
-      "MplsLsrIdentifier",
-      "MplsPathIndexOrZero",
-      "MplsPathIndex",
       "mplsMIB"
     ],
     "HP-SN-ROOT-MIB": [
@@ -29,29 +29,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "TimeTicks",
-      "iso",
-      "Counter32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64",
       "Integer32",
+      "iso",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "MibIdentifier",
       "Unsigned32",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
+      "RowStatus",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TruthValue",
+      "DisplayString",
       "StorageType",
-      "DisplayString"
+      "RowPointer"
     ]
   },
   "mplsTeMIB": {
@@ -2394,8 +2394,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:07:20 2022",
-      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:11:46 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "HP-SN-MPLS-TE-MIB"

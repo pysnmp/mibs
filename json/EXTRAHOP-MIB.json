@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Unsigned32",
-      "IpAddress",
-      "MibIdentifier",
       "Counter64",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Bits",
       "NOTIFICATION-TYPE",
       "iso",
+      "enterprises",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "Integer32",
-      "OBJECT-TYPE"
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -836,8 +836,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extrahop/EXTRAHOP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:03:34 2022",
-      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:06:09 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "EXTRAHOP-MIB"

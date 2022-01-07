@@ -6,14 +6,14 @@
       "ieee8021BridgeBasePort"
     ],
     "IEEE8021-TC-MIB": [
-      "IEEE8021PriorityCodePoint",
-      "IEEE8021BridgePortNumber",
-      "IEEE8021PbbServiceIdentifierOrUnassigned",
-      "IEEE8021PbbIngressEgress",
-      "IEEE8021PbbServiceIdentifier",
+      "IEEE8021PbbComponentIdentifier",
       "IEEE8021PriorityValue",
-      "ieee802dot1mibs",
-      "IEEE8021PbbComponentIdentifier"
+      "IEEE8021PbbIngressEgress",
+      "IEEE8021PriorityCodePoint",
+      "IEEE8021PbbServiceIdentifierOrUnassigned",
+      "IEEE8021BridgePortNumber",
+      "IEEE8021PbbServiceIdentifier",
+      "ieee802dot1mibs"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
@@ -27,32 +27,32 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "Bits",
       "Gauge32",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
+      "iso",
       "MibIdentifier",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "Unsigned32",
+      "Counter32",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso"
+      "IpAddress",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
       "StorageType",
       "RowStatus",
-      "DisplayString",
-      "TruthValue",
-      "MacAddress"
+      "TruthValue"
     ]
   },
   "ieee8021PbbMib": {
@@ -1408,8 +1408,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-PBB-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:51:14 2022",
-      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:51:28 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-PBB-MIB"

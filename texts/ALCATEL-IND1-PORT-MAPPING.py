@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ALCATEL-IND1-PORT-MAPPING (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-PORT-MAPPING
-# Produced by pysmi-1.1.8 at Fri Jan  7 16:14:28 2022
-# On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan  7 16:20:35 2022
+# On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 softentIND1PortMapping, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1PortMapping")
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
+ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-IpAddress, Gauge32, Counter64, iso, Counter32, MibIdentifier, Bits, ObjectIdentity, NotificationType, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Integer32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Gauge32", "Counter64", "iso", "Counter32", "MibIdentifier", "Bits", "ObjectIdentity", "NotificationType", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Integer32", "Unsigned32")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, MibIdentifier, Gauge32, Counter32, TimeTicks, Unsigned32, Counter64, iso, IpAddress, Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibIdentifier", "Gauge32", "Counter32", "TimeTicks", "Unsigned32", "Counter64", "iso", "IpAddress", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Integer32")
 TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
 alcatelIND1PortMappingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 33, 1))
 alcatelIND1PortMappingMIB.setRevisions(('2007-04-03 00:00',))
@@ -81,4 +81,4 @@ pmapCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 33, 1, 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     pmapCompliance = pmapCompliance.setStatus('current')
 if mibBuilder.loadTexts: pmapCompliance.setDescription('The compliance statement for support of Port Mapping.')
-mibBuilder.exportSymbols("ALCATEL-IND1-PORT-MAPPING", PYSNMP_MODULE_ID=alcatelIND1PortMappingMIB, pmapEntry=pmapEntry, pmapPortIfIndex=pmapPortIfIndex, alcatelIND1PortMappingMIB=alcatelIND1PortMappingMIB, portMapping=portMapping, alcatelIND1PortMappingMIBObjects=alcatelIND1PortMappingMIBObjects, pmapSessionNumber=pmapSessionNumber, pmapConformance=pmapConformance, pmapSessionDirection=pmapSessionDirection, pmapTableGroup=pmapTableGroup, pmapGroups=pmapGroups, pmapSessionEntry=pmapSessionEntry, pmapSessionRowStatus=pmapSessionRowStatus, pmapCompliance=pmapCompliance, portMappingSessionTable=portMappingSessionTable, pmapCompliances=pmapCompliances, pmapSessionUnknownUnicastFloodStatus=pmapSessionUnknownUnicastFloodStatus, pmapSessionStatus=pmapSessionStatus, pmapPortType=pmapPortType, pmapSessionDynProxyARP=pmapSessionDynProxyARP, portMappingTable=portMappingTable, pmapRowStatus=pmapRowStatus, pmapSessionTableGroup=pmapSessionTableGroup)
+mibBuilder.exportSymbols("ALCATEL-IND1-PORT-MAPPING", pmapCompliances=pmapCompliances, pmapCompliance=pmapCompliance, pmapEntry=pmapEntry, pmapSessionEntry=pmapSessionEntry, pmapSessionUnknownUnicastFloodStatus=pmapSessionUnknownUnicastFloodStatus, alcatelIND1PortMappingMIB=alcatelIND1PortMappingMIB, pmapSessionNumber=pmapSessionNumber, pmapSessionStatus=pmapSessionStatus, pmapSessionRowStatus=pmapSessionRowStatus, PYSNMP_MODULE_ID=alcatelIND1PortMappingMIB, pmapSessionDynProxyARP=pmapSessionDynProxyARP, portMapping=portMapping, pmapPortIfIndex=pmapPortIfIndex, pmapTableGroup=pmapTableGroup, pmapRowStatus=pmapRowStatus, pmapSessionTableGroup=pmapSessionTableGroup, portMappingSessionTable=portMappingSessionTable, pmapSessionDirection=pmapSessionDirection, portMappingTable=portMappingTable, pmapConformance=pmapConformance, alcatelIND1PortMappingMIBObjects=alcatelIND1PortMappingMIBObjects, pmapPortType=pmapPortType, pmapGroups=pmapGroups)

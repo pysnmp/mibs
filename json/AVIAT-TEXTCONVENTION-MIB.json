@@ -6,19 +6,19 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "Counter32",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
       "Counter64",
-      "IpAddress",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
       "Bits",
+      "iso",
+      "MibIdentifier",
+      "IpAddress",
       "Unsigned32"
     ],
     "SNMPv2-TC": [
@@ -278,8 +278,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aviat-wtm/AVIAT-TEXTCONVENTION-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:54:01 2022",
-      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:54:50 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "AVIAT-TEXTCONVENTION-MIB"

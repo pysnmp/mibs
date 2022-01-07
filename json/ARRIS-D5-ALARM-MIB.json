@@ -5,55 +5,55 @@
       "d5QamExtServingGroup"
     ],
     "ARRIS-D5-VIDEO-MIB": [
-      "d5vStreamEsPidIndex",
-      "d5vIpUdpIndex",
       "d5vIpDestIndex",
+      "d5vStreamEsPidIndex",
       "d5vStreamProgIndex",
+      "d5vIpUdpIndex",
       "d5vIpSrcIndex"
     ],
     "ARRIS-MIB": [
       "arrisD5UEQam"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEventEntry",
-      "docsDevEvLevel",
+      "docsDevEvText",
       "docsDevEvId",
-      "docsDevEvText"
+      "docsDevEventEntry",
+      "docsDevEvLevel"
     ],
     "ENTITY-MIB": [
-      "entPhysicalContainedIn",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entPhysicalContainedIn"
     ],
     "ENTITY-SENSOR-MIB": [
       "entPhySensorValue"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "enterprises",
+      "Bits",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
       "Counter32",
+      "IpAddress",
+      "Integer32",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "enterprises",
       "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
       "iso",
+      "MibIdentifier",
       "Unsigned32",
-      "Bits"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "RowStatus",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "d5AlarmMIB": {
@@ -2429,8 +2429,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:53:27 2022",
-      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:54:12 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ARRIS-D5-ALARM-MIB"

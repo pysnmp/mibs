@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "CTIF-EXT-MIB": [
-      "ctIfPortPortNumber",
-      "ctIfPortIfNumber"
+      "ctIfPortIfNumber",
+      "ctIfPortPortNumber"
     ],
     "CTRON-MIB-NAMES": [
       "ctEthernetCtlParameters"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "MODULE-IDENTITY",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "Bits",
-      "Unsigned32",
       "OBJECT-TYPE",
       "MibIdentifier",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter64",
       "Counter32",
+      "Bits",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
       "TimeTicks",
-      "iso"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -495,8 +495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-ETHERNET-PARAMETERS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:03:10 2022",
-      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:05:43 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CTRON-ETHERNET-PARAMETERS-MIB"

@@ -11,23 +11,23 @@
       "PhysAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "iso",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "Bits",
-      "TimeTicks",
+      "MibIdentifier",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
+      "iso",
       "Counter32",
+      "Unsigned32",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
@@ -5714,8 +5714,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/brocade/FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:54:50 2022",
-      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:55:48 2022",
+      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB"
