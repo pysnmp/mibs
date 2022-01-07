@@ -7,21 +7,21 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
       "Unsigned32",
       "iso",
-      "TimeTicks",
-      "Counter32",
-      "Bits",
-      "IpAddress",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "MibIdentifier",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "enterprises"
+      "enterprises",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -332,8 +332,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/barco/BARCO-CLICKSHARE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:53:32 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 17:34:21 2022",
+      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "BARCO-CLICKSHARE-MIB"

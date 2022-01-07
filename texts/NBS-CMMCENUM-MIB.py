@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NBS-CMMCENUM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-CMMCENUM-MIB
-# Produced by pysmi-1.1.8 at Fri Jan  7 17:13:06 2022
-# On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan  7 17:57:37 2022
+# On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, TimeTicks, Bits, Unsigned32, NotificationType, iso, Gauge32, ObjectIdentity, MibIdentifier, Counter32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "TimeTicks", "Bits", "Unsigned32", "NotificationType", "iso", "Gauge32", "ObjectIdentity", "MibIdentifier", "Counter32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Integer32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits, Gauge32, Counter32, Counter64, ModuleIdentity, IpAddress, iso, Integer32, Unsigned32, MibIdentifier, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits", "Gauge32", "Counter32", "Counter64", "ModuleIdentity", "IpAddress", "iso", "Integer32", "Unsigned32", "MibIdentifier", "ObjectIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nbsCmmcEnumMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 225))
 if mibBuilder.loadTexts: nbsCmmcEnumMib.setLastUpdated('201705240000Z')
 if mibBuilder.loadTexts: nbsCmmcEnumMib.setOrganization('NBS')
@@ -47,4 +47,4 @@ class NbsCmmcChannelBand(TextualConvention, Integer32):
     subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
     namedValues = NamedValues(("notSupported", 0), ("cBand", 1), ("hBand", 2), ("lBand", 3), ("qBand", 4))
 
-mibBuilder.exportSymbols("NBS-CMMCENUM-MIB", NbsCmmcEnumSlotType=NbsCmmcEnumSlotType, NbsCmmcEnumPortConnector=NbsCmmcEnumPortConnector, NbsCmmcEnumChassisType=NbsCmmcEnumChassisType, nbsCmmcEnumMib=nbsCmmcEnumMib, PYSNMP_MODULE_ID=nbsCmmcEnumMib, NbsCmmcChannelBand=NbsCmmcChannelBand, NbsCmmcEnumSlotOperationType=NbsCmmcEnumSlotOperationType)
+mibBuilder.exportSymbols("NBS-CMMCENUM-MIB", NbsCmmcEnumChassisType=NbsCmmcEnumChassisType, nbsCmmcEnumMib=nbsCmmcEnumMib, NbsCmmcChannelBand=NbsCmmcChannelBand, NbsCmmcEnumSlotType=NbsCmmcEnumSlotType, PYSNMP_MODULE_ID=nbsCmmcEnumMib, NbsCmmcEnumPortConnector=NbsCmmcEnumPortConnector, NbsCmmcEnumSlotOperationType=NbsCmmcEnumSlotOperationType)

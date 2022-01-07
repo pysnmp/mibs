@@ -8,38 +8,38 @@
       "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SCTE-HMS-HEADENDIDENT-TC-MIB": [
-      "QAMChannelInterleaveMode",
-      "QAMChannelModulationFormat"
+      "QAMChannelModulationFormat",
+      "QAMChannelInterleaveMode"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "enterprises",
-      "OBJECT-TYPE",
-      "iso",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "IpAddress",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32",
+      "iso",
+      "Counter64",
       "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Gauge32",
-      "Integer32"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "enterprises"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "heDigitalQamMIB": {
@@ -625,8 +625,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SCTE-HMS-QAM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:50:19 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 17:30:46 2022",
+      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "SCTE-HMS-QAM-MIB"

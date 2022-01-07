@@ -8,24 +8,24 @@
       "jnxJsSPUMonitoringRoot"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "OBJECT-IDENTITY",
       "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
       "Integer32",
-      "IpAddress",
+      "Gauge32",
+      "MibIdentifier",
       "Counter64",
-      "Bits",
-      "Gauge32"
+      "Unsigned32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -538,8 +538,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-SRX5000-SPU-MONITORING-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 17:11:10 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 17:55:30 2022",
+      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "JUNIPER-SRX5000-SPU-MONITORING-MIB"

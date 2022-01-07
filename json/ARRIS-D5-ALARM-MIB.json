@@ -5,55 +5,55 @@
       "d5QamExtServingGroup"
     ],
     "ARRIS-D5-VIDEO-MIB": [
-      "d5vStreamProgIndex",
-      "d5vIpSrcIndex",
-      "d5vStreamEsPidIndex",
+      "d5vIpUdpIndex",
       "d5vIpDestIndex",
-      "d5vIpUdpIndex"
+      "d5vIpSrcIndex",
+      "d5vStreamProgIndex",
+      "d5vStreamEsPidIndex"
     ],
     "ARRIS-MIB": [
       "arrisD5UEQam"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
       "docsDevEvId",
+      "docsDevEvText",
       "docsDevEventEntry",
-      "docsDevEvLevel",
-      "docsDevEvText"
+      "docsDevEvLevel"
     ],
     "ENTITY-MIB": [
-      "entPhysicalContainedIn",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entPhysicalContainedIn"
     ],
     "ENTITY-SENSOR-MIB": [
       "entPhySensorValue"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "enterprises",
       "Unsigned32",
       "Gauge32",
-      "Counter32",
-      "MibIdentifier",
-      "Integer32",
       "IpAddress",
+      "TimeTicks",
       "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "enterprises",
+      "Bits",
       "OBJECT-TYPE",
       "iso",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks"
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "d5AlarmMIB": {
@@ -2429,8 +2429,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:52:41 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 17:33:29 2022",
+      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ARRIS-D5-ALARM-MIB"

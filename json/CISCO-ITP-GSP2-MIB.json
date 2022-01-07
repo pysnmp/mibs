@@ -5,12 +5,12 @@
       "cgspInstNetwork"
     ],
     "CISCO-ITP-TC-MIB": [
-      "CItpTcAclId",
       "CItpTcLinkSLC",
-      "CItpTcXuaName",
+      "CItpTcAclId",
       "CItpTcNetworkName",
+      "CItpTcLinksetId",
       "CItpTcPointCode",
-      "CItpTcLinksetId"
+      "CItpTcXuaName"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -25,30 +25,30 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
       "MibIdentifier",
-      "Integer32",
-      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Counter64",
+      "Bits",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Gauge32",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Counter32",
       "iso",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
-      "TimeTicks"
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "RowStatus"
     ]
   },
   "ciscoGsp2MIB": {
@@ -1508,8 +1508,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-ITP-GSP2-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 16:58:33 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 17:39:58 2022",
+      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-ITP-GSP2-MIB"

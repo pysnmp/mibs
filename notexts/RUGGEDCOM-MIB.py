@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module RUGGEDCOM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ros/RUGGEDCOM-MIB
-# Produced by pysmi-1.1.8 at Fri Jan  7 17:19:25 2022
-# On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan  7 18:05:10 2022
+# On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Gauge32, IpAddress, iso, MibIdentifier, ModuleIdentity, enterprises, ObjectIdentity, Integer32, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, TimeTicks, Unsigned32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Gauge32", "IpAddress", "iso", "MibIdentifier", "ModuleIdentity", "enterprises", "ObjectIdentity", "Integer32", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "TimeTicks", "Unsigned32", "Counter64")
+Gauge32, TimeTicks, Unsigned32, IpAddress, Bits, MibIdentifier, enterprises, NotificationType, iso, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, ObjectIdentity, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "TimeTicks", "Unsigned32", "IpAddress", "Bits", "MibIdentifier", "enterprises", "NotificationType", "iso", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "ObjectIdentity", "ModuleIdentity", "Integer32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ruggedcom = ModuleIdentity((1, 3, 6, 1, 4, 1, 15004))
 ruggedcom.setRevisions(('2015-04-02 09:00', '2012-06-01 17:00', '2010-05-27 10:30', '2010-03-12 10:30', '2008-12-17 13:00', '2006-09-09 09:00', '2003-02-18 14:00',))
@@ -47,4 +47,4 @@ ruggedcomAgentCapabilities = ObjectIdentity((1, 3, 6, 1, 4, 1, 15004, 6))
 if mibBuilder.loadTexts: ruggedcomAgentCapabilities.setStatus('current')
 ruggedcomAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 15004, 6, 30))
 if mibBuilder.loadTexts: ruggedcomAgentCapability.setStatus('current')
-mibBuilder.exportSymbols("RUGGEDCOM-MIB", ruggedcomRX1512=ruggedcomRX1512, ruggedmaxProducts=ruggedmaxProducts, ruggedcomRX15XX=ruggedcomRX15XX, ruggedcomMX5000=ruggedcomMX5000, ruggedcom=ruggedcom, ruggedcomExperiment=ruggedcomExperiment, ruggedcomAirModule=ruggedcomAirModule, ruggedcomAgentCapabilities=ruggedcomAgentCapabilities, ruggedcomRX1100rox2X=ruggedcomRX1100rox2X, ruggedcomProducts=ruggedcomProducts, ruggedcomMC=ruggedcomMC, ruggedcomRX1500=ruggedcomRX1500, ruggedcomRX5000=ruggedcomRX5000, ruggedcomRX1501=ruggedcomRX1501, ruggedcomMgmt=ruggedcomMgmt, ruggedcomRX1510=ruggedcomRX1510, ruggedcomRX1511=ruggedcomRX1511, ruggedcomRX1000=ruggedcomRX1000, ruggedcomRX5XXX=ruggedcomRX5XXX, ruggedcomRX1000rox2X=ruggedcomRX1000rox2X, ruggedcomTraps=ruggedcomTraps, ruggedcomAgentCapability=ruggedcomAgentCapability, ruggedcomOtherEnterprises=ruggedcomOtherEnterprises, ruggedcomRX1100=ruggedcomRX1100, ruggedcomRX1XXXrox2X=ruggedcomRX1XXXrox2X, ruggedcomRX1XXX=ruggedcomRX1XXX, PYSNMP_MODULE_ID=ruggedcom)
+mibBuilder.exportSymbols("RUGGEDCOM-MIB", ruggedcomMX5000=ruggedcomMX5000, ruggedcomExperiment=ruggedcomExperiment, ruggedcomRX1511=ruggedcomRX1511, ruggedcomAgentCapability=ruggedcomAgentCapability, ruggedcomAirModule=ruggedcomAirModule, ruggedcom=ruggedcom, ruggedcomRX1510=ruggedcomRX1510, ruggedcomOtherEnterprises=ruggedcomOtherEnterprises, ruggedcomMC=ruggedcomMC, ruggedcomRX1XXXrox2X=ruggedcomRX1XXXrox2X, ruggedcomRX1500=ruggedcomRX1500, ruggedmaxProducts=ruggedmaxProducts, ruggedcomRX1100=ruggedcomRX1100, ruggedcomTraps=ruggedcomTraps, ruggedcomMgmt=ruggedcomMgmt, ruggedcomProducts=ruggedcomProducts, ruggedcomAgentCapabilities=ruggedcomAgentCapabilities, ruggedcomRX5XXX=ruggedcomRX5XXX, ruggedcomRX15XX=ruggedcomRX15XX, ruggedcomRX1XXX=ruggedcomRX1XXX, ruggedcomRX1512=ruggedcomRX1512, ruggedcomRX1000=ruggedcomRX1000, ruggedcomRX5000=ruggedcomRX5000, ruggedcomRX1100rox2X=ruggedcomRX1100rox2X, ruggedcomRX1501=ruggedcomRX1501, PYSNMP_MODULE_ID=ruggedcom, ruggedcomRX1000rox2X=ruggedcomRX1000rox2X)

@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-BASE": [
-      "chassisTraps",
+      "hardentIND1Physical",
       "hardentIND1Chassis",
-      "hardentIND1Physical"
+      "chassisTraps"
     ],
     "ENTITY-MIB": [
       "entPhysicalIndex",
@@ -19,25 +19,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-TYPE",
       "Bits",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Counter64",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
+      "Counter32",
       "Gauge32",
-      "IpAddress",
       "MibIdentifier",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "iso",
+      "IpAddress",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "DisplayString"
     ]
   },
   "alcatelIND1ChassisMIB": {
@@ -2951,8 +2951,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 17:14:36 2022",
-      "On host fv-az135-792 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 17:59:30 2022",
+      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-CHASSIS-MIB"
