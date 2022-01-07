@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module CISCOWAN-SMI (http://snmplabs.com/pysmi)
 # ASN.1 source https://pysnmp.github.io:443/mibs/asn1/CISCOWAN-SMI
-# Produced by pysmi-1.1.8 at Fri Jan  7 15:09:17 2022
-# On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan  7 15:51:04 2022
+# On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, MibIdentifier, TimeTicks, ModuleIdentity, Counter32, Counter64, IpAddress, Gauge32, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ObjectIdentity, iso, NotificationType, enterprises = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibIdentifier", "TimeTicks", "ModuleIdentity", "Counter32", "Counter64", "IpAddress", "Gauge32", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ObjectIdentity", "iso", "NotificationType", "enterprises")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+Counter32, TimeTicks, MibIdentifier, enterprises, Bits, NotificationType, Gauge32, IpAddress, Unsigned32, Counter64, ObjectIdentity, iso, ModuleIdentity, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "MibIdentifier", "enterprises", "Bits", "NotificationType", "Gauge32", "IpAddress", "Unsigned32", "Counter64", "ObjectIdentity", "iso", "ModuleIdentity", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 stratacom = ModuleIdentity((1, 3, 6, 1, 4, 1, 351))
 stratacom.setRevisions(('2002-05-24 00:00', '2000-01-24 00:00',))
@@ -26,4 +26,4 @@ if mibBuilder.loadTexts: ciscoWan.setDescription("ciscoWan is the main subtree f
 ciscoWanAgentCapability = ObjectIdentity((1, 3, 6, 1, 4, 1, 351, 160))
 if mibBuilder.loadTexts: ciscoWanAgentCapability.setStatus('current')
 if mibBuilder.loadTexts: ciscoWanAgentCapability.setDescription('ciscoWanAgentCapability provides a root object identifier\n        from which AGENT-CAPABILITIES values may be assigned.')
-mibBuilder.exportSymbols("CISCOWAN-SMI", stratacom=stratacom, PYSNMP_MODULE_ID=stratacom, ciscoWanAgentCapability=ciscoWanAgentCapability, ciscoWan=ciscoWan)
+mibBuilder.exportSymbols("CISCOWAN-SMI", ciscoWan=ciscoWan, ciscoWanAgentCapability=ciscoWanAgentCapability, stratacom=stratacom, PYSNMP_MODULE_ID=stratacom)

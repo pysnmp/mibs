@@ -2,44 +2,44 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "HpnicfDot11ObjectIDType",
-      "HpnicfDot11SSIDStringType",
-      "hpnicfDot11",
+      "HpnicfDot11NotifyReasonType",
       "hpnicfDot11APElementIndex",
+      "HpnicfDot11SSIDStringType",
       "HpnicfDot11RadioElementIndex",
+      "HpnicfDot11MACModeType",
       "HpnicfDot11RadioScopeType",
       "HpnicfDot11ChannelScopeType",
       "HpnicfDot11TxPwrLevelScopeType",
-      "HpnicfDot11MACModeType",
+      "HpnicfDot11RFModeType",
       "HpnicfDot11ServicePolicyIDType",
-      "HpnicfDot11NotifyReasonType",
-      "HpnicfDot11RFModeType"
+      "hpnicfDot11",
+      "HpnicfDot11ObjectIDType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "MODULE-IDENTITY",
       "Bits",
+      "TimeTicks",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
       "Counter64",
+      "Integer32",
       "IpAddress",
-      "Counter32"
+      "Gauge32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "MacAddress"
     ]
   },
@@ -8424,8 +8424,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-APMT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:26:01 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:07:21 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "HPN-ICF-DOT11-APMT-MIB"

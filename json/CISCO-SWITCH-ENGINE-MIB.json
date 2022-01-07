@@ -5,8 +5,8 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoNetworkProtocol",
-      "CiscoPort"
+      "CiscoPort",
+      "CiscoNetworkProtocol"
     ],
     "CISCO-VTP-MIB": [
       "VlanIndex"
@@ -15,13 +15,13 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
+      "OwnerString",
       "ifIndex",
-      "OwnerString"
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "MPLS-VPN-MIB": [
       "MplsVpnId"
@@ -30,34 +30,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Counter32",
-      "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Unsigned32",
       "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "MibIdentifier",
+      "Integer32",
+      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "iso",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TimeInterval",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
-      "MacAddress"
+      "MacAddress",
+      "TimeInterval"
     ]
   },
   "ciscoSwitchEngineMIB": {
@@ -6377,8 +6377,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-SWITCH-ENGINE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:17:25 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:58:58 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-SWITCH-ENGINE-MIB"

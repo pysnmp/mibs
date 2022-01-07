@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "RFC1271-MIB": [
-      "rmon",
-      "history",
       "statistics",
-      "OwnerString"
+      "rmon",
+      "OwnerString",
+      "history"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
       "TimeTicks",
-      "MibIdentifier",
       "iso",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
       "MODULE-IDENTITY",
-      "Counter32"
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2392,8 +2392,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/TOKEN-RING-RMON-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:09:29 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:51:14 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "TOKEN-RING-RMON-MIB"

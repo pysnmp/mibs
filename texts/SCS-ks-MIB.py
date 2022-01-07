@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module SCS-ks-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/carel/SCS-ks-MIB
-# Produced by pysmi-1.1.8 at Fri Jan  7 15:13:53 2022
-# On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan  7 15:55:33 2022
+# On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-ifIndex, ifEntry = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifEntry")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-sysName, sysLocation, sysContact = mibBuilder.importSymbols("SNMPv2-MIB", "sysName", "sysLocation", "sysContact")
-MibIdentifier, enterprises, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, Gauge32, ObjectIdentity, Counter32, iso, ModuleIdentity, TimeTicks, Unsigned32, Counter64, IpAddress, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "Gauge32", "ObjectIdentity", "Counter32", "iso", "ModuleIdentity", "TimeTicks", "Unsigned32", "Counter64", "IpAddress", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint")
+ifEntry, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifEntry", "ifIndex")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+sysLocation, sysContact, sysName = mibBuilder.importSymbols("SNMPv2-MIB", "sysLocation", "sysContact", "sysName")
+Counter64, ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, iso, ObjectIdentity, enterprises, Unsigned32, NotificationType, IpAddress, Bits, Integer32, Counter32, TimeTicks = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "iso", "ObjectIdentity", "enterprises", "Unsigned32", "NotificationType", "IpAddress", "Bits", "Integer32", "Counter32", "TimeTicks")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 scs_ks = ModuleIdentity((1, 3, 6, 1, 4, 1, 9839, 1, 1)).setLabel("scs-ks")
 scs_ks.setRevisions(('2020-11-05 18:05',))
 
@@ -88,4 +88,4 @@ if mibBuilder.loadTexts: status_operational_status.setDescription('Operational s
 status_collective_fault = MibScalar((1, 3, 6, 1, 4, 1, 9839, 1, 2, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("status-collective-fault").setUnits('N/A').setMaxAccess("readonly")
 if mibBuilder.loadTexts: status_collective_fault.setStatus('current')
 if mibBuilder.loadTexts: status_collective_fault.setDescription('Collective fault alarm 0=Error;1=Ok')
-mibBuilder.exportSymbols("SCS-ks-MIB", status_evaporator_fan=status_evaporator_fan, exhaust_air_temperature=exhaust_air_temperature, status_max_exhaust_air_temperature=status_max_exhaust_air_temperature, room_temperature=room_temperature, status_collective_fault=status_collective_fault, carel=carel, status_condenser_fan=status_condenser_fan, status_compressor=status_compressor, status_room_temperature_sensor=status_room_temperature_sensor, outside_air_temperature=outside_air_temperature, status_water_sensor=status_water_sensor, systm=systm, scs=scs, status_min_supply_air_temperature=status_min_supply_air_temperature, status_exhaust_air_sensor=status_exhaust_air_sensor, status_heater_thermal_protection=status_heater_thermal_protection, status_operational_status=status_operational_status, status_min_exhaust_air_temperature=status_min_exhaust_air_temperature, PYSNMP_MODULE_ID=scs_ks, scs_ks=scs_ks, status_filter_monitoring=status_filter_monitoring, supply_air_temperature=supply_air_temperature, room_humidity=room_humidity, status_outside_sensor=status_outside_sensor, status_room_humidity_sensor=status_room_humidity_sensor, status_supply_air_sensor=status_supply_air_sensor)
+mibBuilder.exportSymbols("SCS-ks-MIB", status_outside_sensor=status_outside_sensor, status_heater_thermal_protection=status_heater_thermal_protection, PYSNMP_MODULE_ID=scs_ks, carel=carel, status_supply_air_sensor=status_supply_air_sensor, status_operational_status=status_operational_status, status_room_humidity_sensor=status_room_humidity_sensor, status_room_temperature_sensor=status_room_temperature_sensor, status_condenser_fan=status_condenser_fan, outside_air_temperature=outside_air_temperature, room_humidity=room_humidity, status_max_exhaust_air_temperature=status_max_exhaust_air_temperature, status_min_supply_air_temperature=status_min_supply_air_temperature, status_collective_fault=status_collective_fault, status_compressor=status_compressor, room_temperature=room_temperature, status_filter_monitoring=status_filter_monitoring, scs=scs, status_water_sensor=status_water_sensor, supply_air_temperature=supply_air_temperature, scs_ks=scs_ks, exhaust_air_temperature=exhaust_air_temperature, status_evaporator_fan=status_evaporator_fan, systm=systm, status_exhaust_air_sensor=status_exhaust_air_sensor, status_min_exhaust_air_temperature=status_min_exhaust_air_temperature)

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ALCATEL-IND1-RDP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-RDP-MIB
-# Produced by pysmi-1.1.8 at Fri Jan  7 15:33:31 2022
-# On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan  7 16:14:28 2022
+# On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 routingIND1RDP, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "routingIND1RDP")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-ObjectIdentity, MibIdentifier, iso, Counter32, Bits, NotificationType, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32, ModuleIdentity, TimeTicks, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "MibIdentifier", "iso", "Counter32", "Bits", "NotificationType", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32", "ModuleIdentity", "TimeTicks", "Integer32", "Gauge32")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+IpAddress, Gauge32, Counter64, iso, Counter32, MibIdentifier, Bits, ObjectIdentity, NotificationType, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Integer32, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Gauge32", "Counter64", "iso", "Counter32", "MibIdentifier", "Bits", "ObjectIdentity", "NotificationType", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Integer32", "Unsigned32")
+TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
 alcatelIND1RouterDiscoveryProtocolMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 11, 1))
 alcatelIND1RouterDiscoveryProtocolMIB.setRevisions(('2007-04-03 00:00',))
 
@@ -78,4 +78,4 @@ alaRDPConfigMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 11
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     alaRDPConfigMIBGroup = alaRDPConfigMIBGroup.setStatus('current')
 if mibBuilder.loadTexts: alaRDPConfigMIBGroup.setDescription('A collection of objects to support management of RDP.')
-mibBuilder.exportSymbols("ALCATEL-IND1-RDP-MIB", alaRDPIfTable=alaRDPIfTable, alaRDPIfMaxAdvtInterval=alaRDPIfMaxAdvtInterval, alcatelIND1RDPMIBGroups=alcatelIND1RDPMIBGroups, alaRDPIfMinAdvtInterval=alaRDPIfMinAdvtInterval, alcatelIND1RDPMIBObjects=alcatelIND1RDPMIBObjects, alaRDPIfAdvLifeTime=alaRDPIfAdvLifeTime, alaRDPIfAdvtAddress=alaRDPIfAdvtAddress, alcatelIND1RDPMIBCompliance=alcatelIND1RDPMIBCompliance, alaRDPIfName=alaRDPIfName, alaRDPIfAddr=alaRDPIfAddr, PYSNMP_MODULE_ID=alcatelIND1RouterDiscoveryProtocolMIB, alcatelIND1RDPMIBCompliances=alcatelIND1RDPMIBCompliances, alaRDPConfigMIBGroup=alaRDPConfigMIBGroup, alaRDPVrrpStatus=alaRDPVrrpStatus, alaRDPIfRowStatus=alaRDPIfRowStatus, alaRDPIfStatus=alaRDPIfStatus, alaRDPIfPrefLevel=alaRDPIfPrefLevel, alaRDPStatus=alaRDPStatus, alaRDPConfig=alaRDPConfig, alcatelIND1RouterDiscoveryProtocolMIB=alcatelIND1RouterDiscoveryProtocolMIB, alcatelIND1RDPMIBConformance=alcatelIND1RDPMIBConformance, alaRDPIPIfStatus=alaRDPIPIfStatus, alaRDPIfEntry=alaRDPIfEntry)
+mibBuilder.exportSymbols("ALCATEL-IND1-RDP-MIB", alaRDPIfAdvLifeTime=alaRDPIfAdvLifeTime, alaRDPIfName=alaRDPIfName, alaRDPIfMinAdvtInterval=alaRDPIfMinAdvtInterval, PYSNMP_MODULE_ID=alcatelIND1RouterDiscoveryProtocolMIB, alcatelIND1RouterDiscoveryProtocolMIB=alcatelIND1RouterDiscoveryProtocolMIB, alcatelIND1RDPMIBCompliances=alcatelIND1RDPMIBCompliances, alaRDPIfRowStatus=alaRDPIfRowStatus, alaRDPIfEntry=alaRDPIfEntry, alaRDPIfPrefLevel=alaRDPIfPrefLevel, alcatelIND1RDPMIBObjects=alcatelIND1RDPMIBObjects, alaRDPVrrpStatus=alaRDPVrrpStatus, alaRDPIPIfStatus=alaRDPIPIfStatus, alcatelIND1RDPMIBConformance=alcatelIND1RDPMIBConformance, alaRDPConfigMIBGroup=alaRDPConfigMIBGroup, alcatelIND1RDPMIBCompliance=alcatelIND1RDPMIBCompliance, alaRDPIfAdvtAddress=alaRDPIfAdvtAddress, alaRDPIfAddr=alaRDPIfAddr, alaRDPStatus=alaRDPStatus, alaRDPConfig=alaRDPConfig, alaRDPIfMaxAdvtInterval=alaRDPIfMaxAdvtInterval, alcatelIND1RDPMIBGroups=alcatelIND1RDPMIBGroups, alaRDPIfStatus=alaRDPIfStatus, alaRDPIfTable=alaRDPIfTable)

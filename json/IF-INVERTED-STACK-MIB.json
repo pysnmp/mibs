@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
+      "ifStackGroup2",
       "ifStackHigherLayer",
-      "ifStackLowerLayer",
-      "ifStackGroup2"
+      "ifStackLowerLayer"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "mib-2",
+      "OBJECT-IDENTITY",
       "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "iso",
       "Unsigned32",
+      "IpAddress",
+      "MibIdentifier",
       "TimeTicks",
       "Gauge32",
-      "MODULE-IDENTITY",
-      "IpAddress",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Integer32",
-      "mib-2"
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "ifInvertedStackMIB": {
@@ -136,8 +136,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/IF-INVERTED-STACK-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:29:53 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:11:02 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "IF-INVERTED-STACK-MIB"

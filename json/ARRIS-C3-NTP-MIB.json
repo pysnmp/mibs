@@ -5,29 +5,29 @@
       "cmtsC3"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "IpAddress",
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
       "OBJECT-IDENTITY",
       "Bits",
-      "MibIdentifier",
-      "Counter64",
-      "Counter32",
-      "TimeTicks",
-      "IpAddress",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Gauge32",
       "iso"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "RowStatus"
     ]
   },
   "cmtsC3NTPMIB": {
@@ -156,8 +156,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-NTP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:11:34 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:53:18 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ARRIS-C3-NTP-MIB"

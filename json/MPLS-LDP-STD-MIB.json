@@ -6,52 +6,52 @@
       "IndexInteger"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddress",
-      "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetPortNumber",
+      "InetAddressPrefixLength",
+      "InetAddressType"
     ],
     "MPLS-LSR-STD-MIB": [
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
-      "MplsLspType",
-      "MplsLsrIdentifier",
       "mplsStdMIB",
-      "MplsLabelDistributionMethod",
-      "MplsLdpLabelType",
+      "MplsLspType",
+      "MplsRetentionMode",
+      "MplsLsrIdentifier",
       "MplsLdpIdentifier",
-      "MplsRetentionMode"
+      "MplsLdpLabelType",
+      "MplsLabelDistributionMethod"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "Unsigned32",
       "Bits",
-      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
       "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "iso",
-      "Counter32"
+      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "StorageType",
       "RowStatus",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "TruthValue"
+      "DisplayString",
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "mplsLdpStdMIB": {
@@ -2173,8 +2173,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MPLS-LDP-STD-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:09:29 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:51:14 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "MPLS-LDP-STD-MIB"

@@ -5,23 +5,23 @@
       "dnsResConfigSbeltEntry"
     ],
     "DNS-SERVER-MIB": [
-      "DnsName",
-      "DnsQClass",
-      "dns",
-      "DnsType",
       "DnsNameAsIndex",
-      "DnsQType",
+      "dns",
       "DnsTime",
-      "DnsRespCode",
+      "DnsQType",
+      "DnsQClass",
+      "DnsType",
+      "DnsName",
       "DnsOpCode",
-      "DnsClass"
+      "DnsClass",
+      "DnsRespCode"
     ],
     "Dell-MIB": [
       "rnd"
     ],
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
@@ -32,26 +32,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "TimeTicks",
+      "Counter32",
       "Counter64",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
       "Bits",
-      "iso",
+      "Gauge32",
       "Integer32",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "rlDnsCl": {
@@ -1692,8 +1692,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-DNSCL-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 15:19:59 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 16:01:24 2022",
+      "On host fv-az77-763 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "Dell-DNSCL-MIB"
