@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "JUNIPER-MIB": [
-      "jnxContentsL3Index",
       "jnxContentsL1Index",
       "jnxContentsContainerIndex",
-      "jnxContentsL2Index"
+      "jnxContentsL2Index",
+      "jnxContentsL3Index"
     ],
     "JUNIPER-SMI": [
       "jnxPsuMIBRoot"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
       "Counter64",
-      "MibIdentifier"
+      "iso",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "jnxPsuMIB": {
@@ -620,8 +620,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-POWER-SUPPLY-UNIT-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 01:14:10 2022",
-      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:29:35 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "JUNIPER-POWER-SUPPLY-UNIT-MIB"

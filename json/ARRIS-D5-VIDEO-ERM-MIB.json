@@ -21,27 +21,27 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "Counter32",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "iso",
+      "Counter32",
       "Counter64",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Bits",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "Integer32",
+      "iso",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "Unsigned32"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DateAndTime"
+      "DisplayString",
+      "DateAndTime",
+      "RowStatus"
     ]
   },
   "arrisD5UEQamErmMib": {
@@ -510,8 +510,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-VIDEO-ERM-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 00:55:46 2022",
-      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:11:42 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ARRIS-D5-VIDEO-ERM-MIB"

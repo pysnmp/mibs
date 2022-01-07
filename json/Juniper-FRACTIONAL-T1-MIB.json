@@ -2,15 +2,15 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "Juniper-MIBs": [
       "juniMibs"
     ],
     "Juniper-TC": [
-      "JuniNextIfIndex",
-      "JuniTimeSlotMap"
+      "JuniTimeSlotMap",
+      "JuniNextIfIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -18,17 +18,17 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Counter64",
-      "IpAddress",
-      "TimeTicks",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
       "MODULE-IDENTITY",
-      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Bits",
       "Counter32",
       "Integer32"
@@ -332,8 +332,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/Juniper-FRACTIONAL-T1-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 01:14:28 2022",
-      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:29:53 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "Juniper-FRACTIONAL-T1-MIB"

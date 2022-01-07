@@ -5,13 +5,13 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAutonomousSystemNumber",
       "InetAddressType",
-      "InetAddress",
       "InetAddressPrefixLength"
     ],
     "IP-FORWARD-MIB": [
@@ -19,9 +19,9 @@
     ],
     "IP-MIB": [
       "ipNetToPhysicalEntry",
+      "ipv6RouterAdvertEntry",
       "ipAddressEntry",
-      "ipv6InterfaceEntry",
-      "ipv6RouterAdvertEntry"
+      "ipv6InterfaceEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -34,29 +34,29 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "Counter64",
       "Integer32",
-      "IpAddress",
-      "Counter32",
-      "Gauge32",
-      "mib-2",
-      "OBJECT-TYPE",
-      "zeroDotZero",
-      "Unsigned32",
-      "Bits",
-      "iso",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "mib-2",
+      "Counter32",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "zeroDotZero",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TimeInterval",
-      "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TimeInterval",
+      "TruthValue"
     ]
   },
   "rlIPv6": {
@@ -2151,8 +2151,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 01:15:31 2022",
-      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan  7 15:30:54 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-IPv6"
