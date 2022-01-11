@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module JUNIPER-WX-GLOBAL-REG (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-WX-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 21:32:21 2022
-# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Jan 11 21:31:39 2022
+# On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-TimeTicks, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, Unsigned32, iso, Counter32, enterprises, Integer32, Counter64, Bits, MibIdentifier, IpAddress, ObjectIdentity, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "Unsigned32", "iso", "Counter32", "enterprises", "Integer32", "Counter64", "Bits", "MibIdentifier", "IpAddress", "ObjectIdentity", "NotificationType")
+IpAddress, Unsigned32, Counter64, MibIdentifier, Counter32, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, iso, TimeTicks, Integer32, ObjectIdentity, NotificationType, enterprises, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Unsigned32", "Counter64", "MibIdentifier", "Counter32", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "iso", "TimeTicks", "Integer32", "ObjectIdentity", "NotificationType", "enterprises", "ModuleIdentity")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 jnxWxGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 1, 1))
 jnxWxGlobalRegModule.setRevisions(('2007-11-17 10:00', '2007-11-17 10:00', '2007-11-14 01:30', '2006-06-08 18:00', '2005-05-09 10:12', '2004-03-15 14:00', '2003-06-26 20:00', '2001-07-29 22:00',))
@@ -92,4 +92,4 @@ if mibBuilder.loadTexts: jnxWxProductWxc2600.setDescription('\n\t\t\t\tWAN Accel
 jnxWxProductWxc3400 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 14))
 if mibBuilder.loadTexts: jnxWxProductWxc3400.setStatus('current')
 if mibBuilder.loadTexts: jnxWxProductWxc3400.setDescription('\n\t\t\t\tWAN Acceleration Model 3400')
-mibBuilder.exportSymbols("JUNIPER-WX-GLOBAL-REG", jnxWxReg=jnxWxReg, jnxWxProductWxc250=jnxWxProductWxc250, jnxWxMibs=jnxWxMibs, jnxWxProductWxc1800=jnxWxProductWxc1800, jnxWxSpecificMib=jnxWxSpecificMib, jnxWxProductWxc3400=jnxWxProductWxc3400, jnxWxCommonMib=jnxWxCommonMib, PYSNMP_MODULE_ID=jnxWxGlobalRegModule, jnxWxProductWx80=jnxWxProductWx80, jnxWxModules=jnxWxModules, jnxWxProductWx20=jnxWxProductWx20, jnxWxProductIsm200Wxc=jnxWxProductIsm200Wxc, jnxWxProductWx100=jnxWxProductWx100, jnxWxProductWx60=jnxWxProductWx60, jnxWxProductWxc590=jnxWxProductWxc590, jnxWxCaps=jnxWxCaps, jnxWxProductWxc2600=jnxWxProductWxc2600, jnxWxExpr=jnxWxExpr, jnxWxProduct=jnxWxProduct, jnxWxProductWxc500=jnxWxProductWxc500, juniperWxRoot=juniperWxRoot, jnxWxProductWx15=jnxWxProductWx15, jnxWxGlobalRegModule=jnxWxGlobalRegModule, jnxWxProductWx55=jnxWxProductWx55, jnxWxReqs=jnxWxReqs, jnxWxProductWx50=jnxWxProductWx50)
+mibBuilder.exportSymbols("JUNIPER-WX-GLOBAL-REG", jnxWxReg=jnxWxReg, juniperWxRoot=juniperWxRoot, jnxWxProductWxc2600=jnxWxProductWxc2600, jnxWxMibs=jnxWxMibs, jnxWxReqs=jnxWxReqs, jnxWxProduct=jnxWxProduct, jnxWxProductWx20=jnxWxProductWx20, jnxWxProductIsm200Wxc=jnxWxProductIsm200Wxc, jnxWxSpecificMib=jnxWxSpecificMib, jnxWxProductWxc250=jnxWxProductWxc250, jnxWxModules=jnxWxModules, jnxWxProductWx15=jnxWxProductWx15, jnxWxProductWx55=jnxWxProductWx55, jnxWxProductWxc1800=jnxWxProductWxc1800, jnxWxProductWxc500=jnxWxProductWxc500, jnxWxProductWx100=jnxWxProductWx100, jnxWxProductWxc3400=jnxWxProductWxc3400, jnxWxCaps=jnxWxCaps, jnxWxProductWx50=jnxWxProductWx50, jnxWxProductWx80=jnxWxProductWx80, jnxWxProductWx60=jnxWxProductWx60, jnxWxCommonMib=jnxWxCommonMib, PYSNMP_MODULE_ID=jnxWxGlobalRegModule, jnxWxProductWxc590=jnxWxProductWxc590, jnxWxGlobalRegModule=jnxWxGlobalRegModule, jnxWxExpr=jnxWxExpr)

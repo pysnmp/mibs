@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module CTRON-SMARTTRUNK-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SMARTTRUNK-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 21:22:14 2022
-# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Jan 11 21:21:40 2022
+# On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 ctSmartTrunkBranch, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctSmartTrunkBranch")
-InterfaceIndex, ifIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex", "ifIndex")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Unsigned32, TimeTicks, Counter64, iso, MibIdentifier, NotificationType, ModuleIdentity, Gauge32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, Bits, Counter32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "TimeTicks", "Counter64", "iso", "MibIdentifier", "NotificationType", "ModuleIdentity", "Gauge32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "Bits", "Counter32", "Integer32")
-DisplayString, TruthValue, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention", "RowStatus")
+ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Bits, NotificationType, Gauge32, IpAddress, ObjectIdentity, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, Counter32, TimeTicks, Integer32, Counter64, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "Gauge32", "IpAddress", "ObjectIdentity", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "Counter32", "TimeTicks", "Integer32", "Counter64", "Unsigned32")
+TruthValue, DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention", "RowStatus")
 ctSmartTrunk = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 20, 1))
 if mibBuilder.loadTexts: ctSmartTrunk.setLastUpdated('199812160000Z')
 if mibBuilder.loadTexts: ctSmartTrunk.setOrganization('Cabletron Systems, Inc')
@@ -83,4 +83,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 ctTrunkFlowDiagnosticGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 20, 1, 3, 2, 2)).setObjects(("CTRON-SMARTTRUNK-MIB", "ctTrunkFlowDiagnosticInstalledFlows"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ctTrunkFlowDiagnosticGroup = ctTrunkFlowDiagnosticGroup.setStatus('current')
-mibBuilder.exportSymbols("CTRON-SMARTTRUNK-MIB", CTSmartTrunkProtocol=CTSmartTrunkProtocol, ctTrunkFlowDiagnosticTable=ctTrunkFlowDiagnosticTable, ctTrunkFlowDiagnosticGroup=ctTrunkFlowDiagnosticGroup, ctTrunkGlobalStatus=ctTrunkGlobalStatus, ctTrunkIfIndex=ctTrunkIfIndex, ctTrunkLLAPRequirement=ctTrunkLLAPRequirement, ctTrunkConnectionEntry=ctTrunkConnectionEntry, ctTrunkRowStatus=ctTrunkRowStatus, ctTrunkMaxTrunks=ctTrunkMaxTrunks, ctTrunkFlowDiagnosticInstalledFlows=ctTrunkFlowDiagnosticInstalledFlows, ctSmartTrunkDebug=ctSmartTrunkDebug, PYSNMP_MODULE_ID=ctSmartTrunk, ctTrunkCompliances=ctTrunkCompliances, CTSmartTrunkIndex=CTSmartTrunkIndex, ctTrunkConfigTable=ctTrunkConfigTable, CTSmartTrunkName=CTSmartTrunkName, ctTrunkConfigEntry=ctTrunkConfigEntry, ctTrunkConfigProtocol=ctTrunkConfigProtocol, ctTrunkConfigName=ctTrunkConfigName, ctTrunkGroups=ctTrunkGroups, ctSmartTrunk=ctSmartTrunk, ctSmartTrunkConfig=ctSmartTrunkConfig, ctTrunkPortRemoteIfIndex=ctTrunkPortRemoteIfIndex, ctTrunkFlowDiagnosticEntry=ctTrunkFlowDiagnosticEntry, ctTrunkConfigLoadBalance=ctTrunkConfigLoadBalance, ctTrunkConformance=ctTrunkConformance, ctTrunkConnectionTable=ctTrunkConnectionTable, ctTrunkIndex=ctTrunkIndex, CTSmartTrunkLoadBalanceType=CTSmartTrunkLoadBalanceType, ctTrunkComplianceV10=ctTrunkComplianceV10, ctTrunkConfGroupV10=ctTrunkConfGroupV10)
+mibBuilder.exportSymbols("CTRON-SMARTTRUNK-MIB", ctTrunkFlowDiagnosticEntry=ctTrunkFlowDiagnosticEntry, ctTrunkRowStatus=ctTrunkRowStatus, CTSmartTrunkIndex=CTSmartTrunkIndex, ctSmartTrunkDebug=ctSmartTrunkDebug, ctTrunkFlowDiagnosticGroup=ctTrunkFlowDiagnosticGroup, ctTrunkIndex=ctTrunkIndex, ctTrunkPortRemoteIfIndex=ctTrunkPortRemoteIfIndex, CTSmartTrunkName=CTSmartTrunkName, ctTrunkConformance=ctTrunkConformance, PYSNMP_MODULE_ID=ctSmartTrunk, ctTrunkGlobalStatus=ctTrunkGlobalStatus, ctTrunkCompliances=ctTrunkCompliances, ctTrunkConfigTable=ctTrunkConfigTable, ctTrunkConfigEntry=ctTrunkConfigEntry, CTSmartTrunkLoadBalanceType=CTSmartTrunkLoadBalanceType, ctTrunkConnectionTable=ctTrunkConnectionTable, ctTrunkFlowDiagnosticTable=ctTrunkFlowDiagnosticTable, ctTrunkConnectionEntry=ctTrunkConnectionEntry, ctTrunkConfigName=ctTrunkConfigName, ctTrunkConfigLoadBalance=ctTrunkConfigLoadBalance, ctSmartTrunkConfig=ctSmartTrunkConfig, ctTrunkComplianceV10=ctTrunkComplianceV10, ctTrunkConfigProtocol=ctTrunkConfigProtocol, ctTrunkConfGroupV10=ctTrunkConfGroupV10, ctTrunkMaxTrunks=ctTrunkMaxTrunks, ctSmartTrunk=ctSmartTrunk, ctTrunkIfIndex=ctTrunkIfIndex, ctTrunkGroups=ctTrunkGroups, CTSmartTrunkProtocol=CTSmartTrunkProtocol, ctTrunkFlowDiagnosticInstalledFlows=ctTrunkFlowDiagnosticInstalledFlows, ctTrunkLLAPRequirement=ctTrunkLLAPRequirement)

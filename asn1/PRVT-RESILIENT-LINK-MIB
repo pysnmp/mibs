@@ -3,17 +3,17 @@
 -- ** BATM Advanced Communications.
 -- **
 -- *********************************************************************
--- ** Filename:   PRVT-RESILIENT-LINK-MIB.mib
--- ** Project:    T - Ethernet and Fast Ethernet IP Switches.
--- ** Purpose:    Private MIB
+-- ** Filename: PRVT-RESILIENT-LINK-MIB.mib
+-- ** Project: T-Metro Switches.
+-- ** Purpose: Private MIB
 -- *********************************************************************
--- (c) Copyright, 2001, BATM Advanced Communications.  All rights reserved.
---                             WARNING:
+-- (c) Copyright, 2009, BATM Advanced Communications. All rights reserved.
+-- WARNING:
 --
 -- BY UTILIZING THIS FILE, YOU AGREE TO THE FOLLOWING:
 --
 -- This file is the property of BATM Advanced Communications and contains
--- proprietary and confidential information.  This file is made
+-- proprietary and confidential information. This file is made
 -- available to authorized BATM customers on the express
 -- condition that neither it, nor any of the information contained
 -- therein, shall be disclosed to third parties or be used for any
@@ -21,7 +21,7 @@
 -- software components of BATM manufactured equipment within the
 -- authorized customer's network, and that such transfer be
 -- completed in accordance with the instructions provided by
--- BATM.  Any other use is strictly prohibited.
+-- BATM. Any other use is strictly prohibited.
 --
 -- EXCEPT AS RESTRICTED BY LAW, OR AS PROVIDED IN BATM'S LIMITED
 -- WARRANTY, THE SOFTWARE PROGRAMS CONTAINED IN THIS FILE ARE
@@ -36,216 +36,138 @@
 -- TO USE, THE SOFTWARE CONTAINED IN THIS FILE.
 --
 -- ----------------------------------------------------------------------------
---
+
 PRVT-RESILIENT-LINK-MIB DEFINITIONS ::= BEGIN
-    IMPORTS
-        MODULE-IDENTITY, OBJECT-TYPE, 
-        NOTIFICATION-TYPE			      FROM SNMPv2-SMI
-        NOTIFICATION-GROUP                FROM SNMPv2-CONF
-        switch                            FROM PRVT-SWITCH-MIB;
-    -------------------------------------------------------------------------------
-    --     PRIVATE BRANCH  PRODUCTS
-    -------------------------------------------------------------------------------
 
+IMPORTS
+    InterfaceIndex, InterfaceIndexOrZero
+        FROM IF-MIB
+    switch
+        FROM PRVT-SWITCH-MIB
+    Integer32, MODULE-IDENTITY, NOTIFICATION-TYPE, OBJECT-TYPE, 
+    Unsigned32
+        FROM SNMPv2-SMI
+    RowStatus, TruthValue
+        FROM SNMPv2-TC;
 
-    prvtResilientLinkMib MODULE-IDENTITY
-        LAST-UPDATED "200502160000Z"
-        ORGANIZATION "BATM Advanced Communication"
-        CONTACT-INFO   
-
+prvtResilientLinkMIB MODULE-IDENTITY
+    LAST-UPDATED "201005170000Z"
+    ORGANIZATION 
+        "BATM Advanced Communication"
+    CONTACT-INFO 
         "BATM/Telco Systems Support team
-				Email: 
-				For North America: techsupport@telco.com
-				For North Europe: support@batm.de, info@batm.de
-				For the rest of the world: techsupport@telco.com"
-
-        DESCRIPTION
-        "The Resilient Link MIB module for managing switch or ipSwitch 
+         Email:
+         For North America: techsupport@telco.com
+         For North Europe: support@batm.de, info@batm.de
+         For the rest of the world: techsupport@telco.com"
+    DESCRIPTION 
+        "The Resilient Link MIB module for managing switch or ipSwitch
          resilient link"
-
-        -- revision history       
-         REVISION     "200502160000Z"
-     	 DESCRIPTION
-		"Fixed spelling errors and changed the contact info." 
-
-		REVISION     "200305060000Z"
-		DESCRIPTION
-						"Move to SMI-V2."
-
-        REVISION     "200201280000Z"
-        DESCRIPTION
-                "Initial version."
-        ::= { switch 102 }
+    REVISION    "201005170000Z"
+    DESCRIPTION 
+        "Initial version."
+    ::= { switch 4 }
 
 
-    -- -----------------------------------------------------------------------------
-    -- resilient link configuration parameters
-    -- -----------------------------------------------------------------------------
-    prvtResilientLinkNotifications  OBJECT IDENTIFIER ::= { prvtResilientLinkMib 0 }
-    resilientLinkConfig OBJECT IDENTIFIER ::= { prvtResilientLinkMib 1 }
-    resilientLinkStatus             OBJECT IDENTIFIER ::= { prvtResilientLinkMib 2 }
-    prvtResilientLinkConformance    OBJECT IDENTIFIER ::= { prvtResilientLinkMib 3 }
-    
-    resilientLinkConfigTable OBJECT-TYPE
-        SYNTAX  SEQUENCE OF ResilientLinkConfigEntry
-		MAX-ACCESS	not-accessible
-		STATUS	current
-		DESCRIPTION
-            "This table contains the resilient link configuration."
-		::= { resilientLinkConfig 1 }
+prvtResilientLinkNotifications OBJECT IDENTIFIER
+    ::= { prvtResilientLinkMIB 0 }
 
-    resilientLinkConfigEntry 	OBJECT-TYPE
-		SYNTAX	ResilientLinkConfigEntry
-		MAX-ACCESS	not-accessible
-		STATUS	current
-		DESCRIPTION
-		    "resilientLinkIndex"
-        INDEX { resilientLinkIndex }
-		::= { resilientLinkConfigTable 1 }
+prvtResilientLinkObjects OBJECT IDENTIFIER
+    ::= { prvtResilientLinkMIB 1 }
 
-    ResilientLinkConfigEntry ::= SEQUENCE {
-        resilientLinkIndex         INTEGER,
-        resilientLinkEnable        INTEGER,
-        resilientLinkPort1ifIndex  INTEGER,
-        resilientLinkPort2ifIndex  INTEGER,
-        resilientLinkPreferredPort INTEGER,
-        resilientLinkActivePort    INTEGER
-    }
+prvtResilientLinkTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF PrvtResilientLinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
+        "This table contains config and status information for resilient links."
+    ::= { prvtResilientLinkObjects 1 }
 
-    resilientLinkIndex OBJECT-TYPE
-        SYNTAX  INTEGER(0..256)
-		MAX-ACCESS	read-only
-		STATUS	current
-		DESCRIPTION            
-		    "This object identifies the resilient link" 
-		::= { resilientLinkConfigEntry 1 }
-    
-	resilientLinkEnable OBJECT-TYPE
-        SYNTAX  INTEGER	{
-                    enable(1),
-                    disable(2)
-                }
-		MAX-ACCESS	read-write
-		STATUS	current
-		DESCRIPTION
-            "This object enables or disables the resilient link"
-		::= { resilientLinkConfigEntry 2 }
-		
-	resilientLinkPort1ifIndex OBJECT-TYPE
-        SYNTAX  INTEGER
-        	MAX-ACCESS	read-write
-		STATUS	current
-		DESCRIPTION
-            "This object identifies the first port belonging to this
-             resilient link; zero means no port is selected"
-		::= { resilientLinkConfigEntry 3 }
-		
-	resilientLinkPort2ifIndex OBJECT-TYPE
-        SYNTAX  INTEGER
-        	MAX-ACCESS	read-write
-		STATUS	current
-		DESCRIPTION
-            "This object identifies the second port belonging to this
-             resilient link; zero means no port is selected"
-		::= { resilientLinkConfigEntry 4 }
+prvtResilientLinkEntry OBJECT-TYPE
+    SYNTAX      PrvtResilientLinkEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
+        "An entry in prvtResilientLinkTable."
+    INDEX       { prvtResilientLinkIndex }
+    ::= { prvtResilientLinkTable 1 }
 
-	resilientLinkPreferredPort OBJECT-TYPE
-        SYNTAX  INTEGER
-        	MAX-ACCESS	read-write
-		STATUS	current
-		DESCRIPTION
-            "This object identifies the preferred port (1 or 2) in this
-             resilient link; zero means no port is preferred"
-		::= { resilientLinkConfigEntry 5 }
-		
-	resilientLinkActivePort OBJECT-TYPE
-        SYNTAX  INTEGER
-        	MAX-ACCESS	read-write
-		STATUS	current
-		DESCRIPTION
-            "This object identifies the active port (1 or 2) in this
-             resilient link. Only ports with link up can be configured as active 
-             ports."
-		::= { resilientLinkConfigEntry 6 }
+PrvtResilientLinkEntry ::= SEQUENCE {
+    prvtResilientLinkIndex          Integer32,
+    prvtResilientLinkRowStatus      RowStatus,
+    prvtResilientLinkPrimaryPort    InterfaceIndex,
+    prvtResilientLinkBackupPort     InterfaceIndex,
+    prvtResilientLinkBackupMode     INTEGER,
+    prvtResilientLinkStatusActive   InterfaceIndexOrZero,
+    prvtResilientLinkStatusSwaps    Unsigned32
+}
 
-    -- -----------------------------------------------------------------------------
-    -- resilient link status
-    -- -----------------------------------------------------------------------------
+prvtResilientLinkIndex OBJECT-TYPE
+    SYNTAX      Integer32 (1..256)
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
+        "This object uniquely identifies the resilient link."
+    ::= { prvtResilientLinkEntry 1 }
 
-    resilientLinkStatusTable 	OBJECT-TYPE
-        SYNTAX  SEQUENCE OF ResilientLinkStatusEntry
-		MAX-ACCESS	not-accessible
-		STATUS	current
-		DESCRIPTION
-            "This table contains the resilient link status."
-		::= { resilientLinkStatus 2 }
+prvtResilientLinkRowStatus OBJECT-TYPE
+    SYNTAX      RowStatus
+    MAX-ACCESS  read-create
+    STATUS      current
+    DESCRIPTION 
+        "RowStatus for prvtResilientLinkTable."
+    ::= { prvtResilientLinkEntry 2 }
 
-    resilientLinkStatusEntry 	OBJECT-TYPE
-		SYNTAX	ResilientLinkStatusEntry
-		MAX-ACCESS	not-accessible
-		STATUS	current
-		DESCRIPTION
-		    "resilientLinkIndex"
-        INDEX { resilientLinkIndex }
-		::= { resilientLinkStatusTable 1 }
+prvtResilientLinkPrimaryPort OBJECT-TYPE
+    SYNTAX      InterfaceIndex
+    MAX-ACCESS  read-create
+    STATUS      current
+    DESCRIPTION 
+        "The primary port for the resilient link."
+    ::= { prvtResilientLinkEntry 3 }
 
-    ResilientLinkStatusEntry ::= SEQUENCE {
-        resilientLinkConnectedPort     INTEGER,
-        resilientLinkCurrentActivePort INTEGER
-    }
+prvtResilientLinkBackupPort OBJECT-TYPE
+    SYNTAX      InterfaceIndex
+    MAX-ACCESS  read-create
+    STATUS      current
+    DESCRIPTION 
+        "The back-up port for the resilient link."
+    ::= { prvtResilientLinkEntry 4 }
 
-	resilientLinkConnectedPort OBJECT-TYPE
-        SYNTAX  INTEGER	{
-                    notConnected(1),
-                    port1Connected(2),
-                    port2Connected(3),
-                    port1and2Connected(4)
-                }
-		MAX-ACCESS	read-only
-		STATUS	current
-		DESCRIPTION
-            "This object shows the connected ports in the resilient link"
-		::= { resilientLinkStatusEntry 1 }
+prvtResilientLinkBackupMode OBJECT-TYPE
+    SYNTAX      INTEGER { standby(1), shutdown(2) }
+    MAX-ACCESS  read-create
+    STATUS      current
+    DESCRIPTION 
+        "Configures the behavior of the back-up link."
+    ::= { prvtResilientLinkEntry 5 }
 
-	resilientLinkCurrentActivePort OBJECT-TYPE
-        SYNTAX  INTEGER {
-        		noActivePort (1),
-        		port1Active (2),
-        		port2Active (3)
-        	}
-        MAX-ACCESS read-only
-		STATUS	current
-		DESCRIPTION
-            "This object identifies the active port (1 or 2) in this
-             resilient link. Only ports with link up can be configured as active 
-             ports."
-		::= { resilientLinkStatusEntry 2 }
-     
-     -- Traps for use by prvtResilientLinkMib
+prvtResilientLinkStatusActive OBJECT-TYPE
+    SYNTAX      InterfaceIndexOrZero
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION 
+        "The currently selected active port.
+         A value of zero indicates that neither port has yet been selected as the active port."
+    ::= { prvtResilientLinkEntry 7 }
 
-     resilientLinkStatusChange NOTIFICATION-TYPE
-         OBJECTS { resilientLinkIndex, resilientLinkConnectedPort,
-                     resilientLinkCurrentActivePort}
-	 STATUS current
-         DESCRIPTION
-                 "The resilientLinkStatusChange trap indicates that 
-                 the sending agent monitor detected a change in the status of the
-                 resilient link, identified by resilientLinkIndex."
-         ::= {prvtResilientLinkNotifications 1}
+prvtResilientLinkStatusSwaps OBJECT-TYPE
+    SYNTAX      Unsigned32
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION 
+        "The number of times the resilient link's ports have swapped states.
+         (i.e. the number of times that prvtResilientLinkStatusActive has changed."
+    ::= { prvtResilientLinkEntry 8 }
 
--- *******************************************************************
---  Conformance Information
--- *******************************************************************
+prvtResilientLinkStatusChange NOTIFICATION-TYPE
+    OBJECTS     { prvtResilientLinkPrimaryPort, 
+                  prvtResilientLinkBackupPort }
+    STATUS      current
+    DESCRIPTION 
+        "The resilientLinkStatusChange trap indicates that 
+         the sending agent monitor detected a change in the status of the
+         resilient link, identified by resilientLinkIndex."
+    ::= { prvtResilientLinkNotifications 1 }
 
-    prvtResilientLinkMIBGroups       OBJECT IDENTIFIER ::= { prvtResilientLinkConformance 2 }
- 
-    resilientLinkNotificationGroup NOTIFICATION-GROUP
-    	NOTIFICATIONS {
-    		resilientLinkStatusChange
-    	}
-	STATUS current
-     	DESCRIPTION
-        	"Private Notification Group."
-     ::= { prvtResilientLinkMIBGroups 3 }
-
-END
+END -- end of module PRVT-RESILIENT-LINK-MIB.

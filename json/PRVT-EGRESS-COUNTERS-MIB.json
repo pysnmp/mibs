@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "PRVT-SWITCH-MIB": [
       "switch"
@@ -14,28 +14,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-TYPE",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
       "Integer32",
-      "Counter32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "IpAddress",
+      "Gauge32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "MibIdentifier",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "StorageType",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "TimeStamp",
       "RowStatus",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "prvtEgressCounterMib": {
@@ -608,8 +608,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-EGRESS-COUNTERS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:44:10 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:46:06 2022",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "PRVT-EGRESS-COUNTERS-MIB"

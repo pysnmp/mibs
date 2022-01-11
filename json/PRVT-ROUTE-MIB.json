@@ -8,30 +8,30 @@
       "routingProtocols"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Counter64",
-      "iso",
-      "TimeTicks",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Gauge32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "Counter64",
+      "Unsigned32",
+      "iso",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "prvtRouteMIB": {
@@ -513,7 +513,7 @@
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-ROUTE-MIB",
       "Produced by pysmi-1.1.8 at Tue Jan 11 21:46:34 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "PRVT-ROUTE-MIB"

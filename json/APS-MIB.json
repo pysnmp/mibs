@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -12,33 +12,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Counter32",
-      "Bits",
-      "Unsigned32",
       "OBJECT-TYPE",
+      "transmission",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "Unsigned32",
+      "Bits",
+      "IpAddress",
+      "Gauge32",
       "MODULE-IDENTITY",
       "iso",
-      "Gauge32",
       "OBJECT-IDENTITY",
-      "transmission",
-      "IpAddress",
-      "TimeTicks"
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
       "TimeStamp",
-      "RowStatus"
+      "RowStatus",
+      "StorageType",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "apsMIB": {
@@ -1323,8 +1323,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/APS-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:32:45 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:32:11 2022",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "APS-MIB"

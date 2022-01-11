@@ -5,8 +5,8 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -19,26 +19,26 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "Counter32",
-      "Bits",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "iso",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter32",
+      "Counter64",
       "Unsigned32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "Bits",
       "IpAddress",
-      "TimeTicks"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "StorageType",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "jnxVpnMIB": {
@@ -1397,8 +1397,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-VPN-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:32:45 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:32:12 2022",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "JUNIPER-VPN-MIB"

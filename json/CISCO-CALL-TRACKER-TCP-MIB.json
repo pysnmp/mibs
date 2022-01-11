@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "CISCO-CALL-TRACKER-MIB": [
-      "cctHistoryIndex",
-      "cctActiveCallId"
+      "cctActiveCallId",
+      "cctHistoryIndex"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -12,29 +12,29 @@
       "CiscoPort"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
-      "Counter64",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "Gauge32",
       "MibIdentifier",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64",
       "iso",
       "Counter32",
+      "IpAddress",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "ciscoCallTrackerTCPMIB": {
@@ -333,8 +333,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CALL-TRACKER-TCP-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:17:22 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:16:04 2022",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCO-CALL-TRACKER-TCP-MIB"

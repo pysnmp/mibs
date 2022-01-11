@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVcIdentifier",
-      "AtmVpIdentifier"
+      "AtmVpIdentifier",
+      "AtmVcIdentifier"
     ],
     "IEEE8021-CFM-MIB": [
       "Dot1agCfmMepIdOrZero"
@@ -13,9 +13,9 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddress",
       "InetPortNumber",
+      "InetAddressPrefixLength",
       "InetAddressType"
     ],
     "MPLS-LDP-MIB": [
@@ -28,83 +28,83 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "Gauge32",
-      "Unsigned32",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
-      "iso",
       "NOTIFICATION-TYPE",
+      "Gauge32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "iso",
+      "Counter64",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "Counter32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "StorageType",
       "TimeStamp",
       "DateAndTime",
       "TruthValue",
-      "DisplayString",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "StorageType",
-      "RowStatus"
+      "MacAddress"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "tmnxSRConfs",
-      "tmnxSRObjs",
       "tmnxSRNotifyPrefix",
-      "timetraSRMIBModules"
+      "tmnxSRConfs",
+      "timetraSRMIBModules",
+      "tmnxSRObjs"
     ],
     "TIMETRA-SERV-MIB": [
-      "SdpBindVcType",
-      "SdpId"
+      "SdpId",
+      "SdpBindVcType"
     ],
     "TIMETRA-TC-MG-MIB": [
       "TmnxMobGwId"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxVcId",
-      "TmnxVRtrIDOrZero",
-      "SdpBindId",
-      "TNamedItemOrEmpty",
-      "TmnxIgpInstance",
-      "IpAddressPrefixLength",
       "TProfile",
-      "TmnxStrSapId",
+      "TmnxPwGlobalIdOrZero",
+      "TmnxEncapVal",
+      "TmnxServId",
+      "TNamedItem",
+      "TDSCPNameOrEmpty",
+      "TPolicyStatementNameOrEmpty",
+      "TmnxMplsTpNodeID",
+      "TmnxMplsTpGlobalID",
+      "TmnxEnabledDisabled",
+      "TFCName",
+      "TmnxAdminState",
+      "TNamedItemOrEmpty",
+      "TmnxBgpRouteTarget",
+      "SdpBindId",
       "TLNamedItemOrEmpty",
+      "TmnxPortID",
+      "TmnxVcId",
+      "TmnxSpokeSdpIdOrZero",
+      "TmnxVRtrIDOrZero",
+      "TItemDescription",
+      "TmnxTunnelType",
       "TmnxVcIdOrNone",
       "TmnxBfdOnLspSessFecType",
-      "TItemDescription",
-      "TmnxPortID",
-      "TmnxServId",
-      "TmnxEncapVal",
-      "TmnxMplsTpNodeID",
-      "TmnxEnabledDisabledAdminState",
-      "TmnxHigh32",
-      "TmnxMplsTpGlobalID",
-      "TNamedItem",
-      "TmnxBgpRouteTarget",
       "TmnxVRtrID",
-      "TFCName",
-      "TDSCPNameOrEmpty",
-      "TmnxTunnelID",
-      "TmnxPwGlobalIdOrZero",
-      "TmnxEnabledDisabled",
-      "TPolicyStatementNameOrEmpty",
-      "TmnxAdminState",
-      "TmnxTunnelType",
-      "TmnxLow32",
+      "TmnxEnabledDisabledAdminState",
       "TmnxVPNRouteDistinguisher",
-      "TmnxSpokeSdpIdOrZero"
+      "IpAddressPrefixLength",
+      "TmnxTunnelID",
+      "TmnxIgpInstance",
+      "TmnxHigh32",
+      "TmnxStrSapId",
+      "TmnxLow32"
     ],
     "TIMETRA-VRTR-MIB": [
       "vRtrID"
@@ -27865,8 +27865,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-OAM-TEST-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:36:42 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:36:59 2022",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "TIMETRA-OAM-TEST-MIB"

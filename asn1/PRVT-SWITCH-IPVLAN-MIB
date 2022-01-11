@@ -1,353 +1,228 @@
 -- *********************************************************************
+-- **
+-- ** BATM Advanced Communications.
+-- **
 -- *********************************************************************
--- ** Filename: PRVT-SWITCH-IPVLAN-MIB
--- ** Project: T - Ethernet and Fast Ethernet IP Switches.
+-- ** Filename: PRVT-SWITCH-IPVLAN-MIB.mib
+-- ** Project: T-Metro Switches.
 -- ** Purpose: Private MIB
 -- *********************************************************************
--- (c) Copyright, 2001, BATM Advanced Communications. All rights reserved.
+-- (c) Copyright, 2009, BATM Advanced Communications. All rights reserved.
 -- WARNING:
 --
 -- BY UTILIZING THIS FILE, YOU AGREE TO THE FOLLOWING:
 --
--- This file is the property of BATM Advanced Communications.
--- BATM Advanced Communications retains all title and
--- ownership in the Specification, including any revisions.
-
--- BATM Advanced Communications grants all interested parties a non-exclusive
--- license to use and distribute an unmodified copy of this
--- Specification in connection with management of BATM Advanced Communications 
--- and Telco Systems products, and without fee, provided that the following
--- conditions are met:
--- 1. Redistributions of this specification must retain the above copyright
--- notice, this list of conditions and the following disclaimer.
--- 2. Redistributions in binary form must reproduce the above copyright
--- notice, this list of conditions and the following disclaimer in the
--- documentation and/or other materials provided with the distribution.
--- 3. The name of the BATM Advanced Communications MAY NOT be used to endorse
--- or promote products derived from this specification without specific prior written
--- permission.
+-- This file is the property of BATM Advanced Communications and contains
+-- proprietary and confidential information. This file is made
+-- available to authorized BATM customers on the express
+-- condition that neither it, nor any of the information contained
+-- therein, shall be disclosed to third parties or be used for any
+-- purpose other than to replace, modify or upgrade firmware and/or
+-- software components of BATM manufactured equipment within the
+-- authorized customer's network, and that such transfer be
+-- completed in accordance with the instructions provided by
+-- BATM. Any other use is strictly prohibited.
 --
 -- EXCEPT AS RESTRICTED BY LAW, OR AS PROVIDED IN BATM'S LIMITED
--- WARRANTY, THE SPECIFICATIONS CONTAINED IN THIS FILE ARE
+-- WARRANTY, THE SOFTWARE PROGRAMS CONTAINED IN THIS FILE ARE
 -- PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED
 -- OR IMPLIED, INCLUDING BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES
 -- OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+--
 -- IN NO EVENT SHALL BATM BE LIABLE FOR ANY DAMAGES WHATSOEVER
--- INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS
+-- INCLUDING WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS
 -- PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION OR
 -- OTHER CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE, OR INABILITY
--- TO USE, THE SPECIFICATION CONTAINED IN THIS FILE.
+-- TO USE, THE SOFTWARE CONTAINED IN THIS FILE.
+--
+-- ----------------------------------------------------------------------------
 
 PRVT-SWITCH-IPVLAN-MIB DEFINITIONS ::= BEGIN
+
 IMPORTS
-    --IpAddress
-    --    FROM RFC1155-SMI
-    MODULE-IDENTITY, OBJECT-TYPE,IpAddress
-        FROM SNMPv2-SMI
-    RowStatus, TruthValue, DisplayString, TEXTUAL-CONVENTION, MacAddress
-        FROM SNMPv2-TC
-    ifIndex 
-		FROM IF-MIB
+    ipSwitch
+        FROM PRVT-SWITCH-MIB
     dot1qVlanIndex
         FROM Q-BRIDGE-MIB
-    ipSwitch   
-	                                     FROM PRVT-SWITCH-MIB;  
+    Integer32, IpAddress, MODULE-IDENTITY, OBJECT-TYPE
+        FROM SNMPv2-SMI
+    RowStatus, TruthValue
+        FROM SNMPv2-TC;
 
-
-    prvtSwitchIpVLANMib MODULE-IDENTITY
-    LAST-UPDATED "200801010000Z"
-    ORGANIZATION "BATM Advanced Communication"
-    CONTACT-INFO
+prvtSwitchIpVlanMIB MODULE-IDENTITY
+    LAST-UPDATED "200910050000Z"
+    ORGANIZATION 
+        "BATM Advanced Communication"
+    CONTACT-INFO 
         "BATM/Telco Systems Support team
-				Email: 
-				For North America: techsupport@telco.com
-				For North Europe: support@batm.de, info@batm.de
-				For the rest of the world: techsupport@telco.com"
-
-    DESCRIPTION
-        "The IpVLAN MIB module that controls the assignment of IP subnets 
-        to VLANs in L3 switches."
-
-    -- revision history
-         REVISION     "200801010000Z"
-     	 DESCRIPTION
-		"Removed redefined OIDs in private vendor extension definitions." 
-     REVISION     "200611030959Z"
-    DESCRIPTION
-        "Fixed Some generic object declarations (ACCESS to MAX-ACCESS)
-Status set to current
-added table for loopback interfaces"
-     REVISION     "200502160959Z"
-    DESCRIPTION
-        "Fixed syntax errors and updated the contact info."
-    REVISION     "200011240959Z"
-    DESCRIPTION
+         Email:
+         For North America: techsupport@telco.com
+         For North Europe: support@batm.de, info@batm.de
+         For the rest of the world: techsupport@telco.com"
+    DESCRIPTION 
+        "The IpVlan MIB module that controls the assignment
+         of IP subnets to VLANs in L3 switches."
+    REVISION    "200910050000Z"
+    DESCRIPTION 
         "Initial version."
-
     ::= { ipSwitch 2 }
 
 
-    ipInterface OBJECT IDENTIFIER ::= { prvtSwitchIpVLANMib 1 }
-    ipVLAN     OBJECT IDENTIFIER ::= { prvtSwitchIpVLANMib 2 }
+ipInterface OBJECT IDENTIFIER
+    ::= { prvtSwitchIpVlanMIB 1 }
 
--- ****************
--- ipInterfaceTable
--- ****************
-
-    ipInterfaceTable OBJECT-TYPE
-    SYNTAX SEQUENCE OF IpInterfaceEntry
-	MAX-ACCESS not-accessible
-	STATUS current
-	DESCRIPTION
+ipInterfaceTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF IpInterfaceEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
         "This table controls the creation of IP interfaces (subnets)."
-	::= { ipInterface 1 }
+    ::= { ipInterface 1 }
 
-    ipInterfaceEntry OBJECT-TYPE
-	SYNTAX	IpInterfaceEntry
-	MAX-ACCESS	not-accessible
-	STATUS current
-	DESCRIPTION
-	    ""
-    INDEX { ipInterfaceName }
-	::= { ipInterfaceTable 1 }
+ipInterfaceEntry OBJECT-TYPE
+    SYNTAX      IpInterfaceEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
+        "An entry within the ipInterfaceTable."
+    INDEX       { ipInterfaceName }
+    ::= { ipInterfaceTable 1 }
 
-    IpInterfaceEntry ::= SEQUENCE {
-        ipInterfaceName            INTEGER,
-        ipInterfaceIndex           INTEGER,
-        ipInterfaceType            INTEGER,
-        ipInterfaceIpAddress       IpAddress,
-        ipInterfaceSubnetMask      IpAddress,
-        ipInterfaceRowStatus       RowStatus
-    }
+IpInterfaceEntry ::= SEQUENCE {
+    ipInterfaceName         OCTET STRING,
+    ipInterfaceIndex        Integer32,
+    ipInterfaceIpAddress    IpAddress,
+    ipInterfaceSubnetMask   IpAddress,
+    ipInterfaceRowStatus    RowStatus,
+    ipInterfaceIPv6Address  OCTET STRING
+}
 
-    ipInterfaceName OBJECT-TYPE
-    SYNTAX INTEGER(0..256)
-	MAX-ACCESS read-only
-	STATUS current
-	DESCRIPTION
-        "This object identifies the name of the IP interface, serves as an 
-        index to this table name, and can only be changed during row creation. 
-        The name is the integer part of the interface name; sw1 will be 1, sw5 
-        will be 5 etc.."
-	::= { ipInterfaceEntry 1 }
-	
-	ipInterfaceIndex OBJECT-TYPE
-    SYNTAX INTEGER
-	MAX-ACCESS read-only
-	STATUS current
-	DESCRIPTION
-        "This object identifies the index of the IP interface. 
-        This is the same index as ipAdEntIfIndex from MIB-II (ipAddrTable)."
-	::= { ipInterfaceEntry 2 }
+ipInterfaceName OBJECT-TYPE
+    SYNTAX      OCTET STRING (SIZE(1..32))
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
+        "This object identifies the name of the IP interface, serves as an
+         index to this table.
+         Valid names are system-dependent. Some common examples are swX, and
+         loX, where X represents an integer from 0 to 9."
+    ::= { ipInterfaceEntry 1 }
 
-    ipInterfaceType OBJECT-TYPE
-	SYNTAX INTEGER
-	{
-	  pseudoInterface (1),
-	  ipInterface     (2)
-	}
-	MAX-ACCESS read-create
-	STATUS current
-	DESCRIPTION
-        "This indicates a status of the IP interface. The value of this object 
-        is determined by the IP address. If the IP address field is 
-        empty (0.0.0.0) then this interface becomes a pseudo interface."
+ipInterfaceIndex OBJECT-TYPE
+    SYNTAX      Integer32 (1..2147483647)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION 
+        "This object identifies the index of the IP interface.
+         This is the same index as ifIndex from ifTable, which is also the
+         same as ipAdEntIfIndex from MIB-II (ipAddrTable)."
+    ::= { ipInterfaceEntry 2 }
+
+ipInterfaceIpAddress OBJECT-TYPE
+    SYNTAX      IpAddress
+    MAX-ACCESS  read-create
+    STATUS      current
+    DESCRIPTION 
+        "This object has the value of the switch IP address in this subnet."
     ::= { ipInterfaceEntry 3 }
 
-	ipInterfaceIpAddress OBJECT-TYPE
-	SYNTAX IpAddress
-	MAX-ACCESS read-create
-	STATUS current
-	DESCRIPTION
-	    "This object has the value of the switch IP address in this subnet. 
-	    A value of 0.0.0.0 will make this interface a pseudo interface."
+ipInterfaceSubnetMask OBJECT-TYPE
+    SYNTAX      IpAddress
+    MAX-ACCESS  read-create
+    STATUS      current
+    DESCRIPTION 
+        "This object together with ipInterfaceIpAddress forms the IP
+         subnet, assigned to this IP interface. In the case that ipInterfaceIpAddress
+         has the value of 0.0.0.0, this object will be ignored."
     ::= { ipInterfaceEntry 4 }
 
-	ipInterfaceSubnetMask OBJECT-TYPE
-	SYNTAX IpAddress
-	MAX-ACCESS read-create
-	STATUS current
-	DESCRIPTION
-	    "This object together with ipInterfaceIpAddress forms the IP 
-	    subnet, assigned to this IP interface. In case that ipInterfaceIpAddress 
-	    has the value of 0.0.0.0, this object will be ignored."
+ipInterfaceRowStatus OBJECT-TYPE
+    SYNTAX      RowStatus
+    MAX-ACCESS  read-create
+    STATUS      current
+    DESCRIPTION 
+        "This object indicates the row status, and enables the creation and
+         deletion of rows in this table. See SNMPv2-TC for more information."
     ::= { ipInterfaceEntry 5 }
 
-    ipInterfaceRowStatus OBJECT-TYPE
-	SYNTAX RowStatus
-	MAX-ACCESS read-create
-	STATUS current
-	DESCRIPTION
-	    "This object indicates that the row status, and enables the creation & 
-	    deletion of rows in this table. See SNMPv2-TC for more information."
+ipInterfaceIPv6Address OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-create
+    STATUS      current
+    DESCRIPTION 
+        "This object indicated the IPv6 address of the interface."
     ::= { ipInterfaceEntry 6 }
 
--- ****************
--- ipLoInterfaceTable
--- ****************
+ipVlan OBJECT IDENTIFIER
+    ::= { prvtSwitchIpVlanMIB 2 }
 
-    ipLoInterfaceTable OBJECT-TYPE
-    SYNTAX SEQUENCE OF IpLoInterfaceEntry
-	MAX-ACCESS not-accessible
-	STATUS current
-	DESCRIPTION
-        "This table controls the creation of IP LoopBack interfaces."
-	::= { ipInterface 2 }
+ipVlanTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF IpVlanEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
+        "This table extends the table dot1qVlanStaticTable from Q-BRIDGE-MIB.
+         It gives a connection between the IP Interface and the IP VLAN."
+    ::= { ipVlan 1 }
 
-    ipLoInterfaceEntry OBJECT-TYPE
-	SYNTAX	IpLoInterfaceEntry
-	MAX-ACCESS	not-accessible
-	STATUS	current
-	DESCRIPTION
-	    ""
-    INDEX { ipLoInterfaceName }
-	::= { ipLoInterfaceTable 1 }
+ipVlanEntry OBJECT-TYPE
+    SYNTAX      IpVlanEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
+        "An entry within the ipVlanTable."
+    INDEX       { dot1qVlanIndex, ipInterfaceName }
+    ::= { ipVlanTable 1 }
 
-    IpLoInterfaceEntry ::= SEQUENCE {
-        ipLoInterfaceName            INTEGER,
-        ipLoInterfaceIndex           INTEGER,
-        ipLoInterfaceType            INTEGER,
-        ipLoInterfaceIpAddress       IpAddress,
-        ipLoInterfaceSubnetMask      IpAddress,
-        ipLoInterfaceRowStatus       RowStatus
-    }
+IpVlanEntry ::= SEQUENCE {
+    ipVlanStatus    INTEGER
+}
 
-    ipLoInterfaceName OBJECT-TYPE
-    SYNTAX INTEGER(1..9)
-	MAX-ACCESS read-only
-	STATUS current
-	DESCRIPTION
-        "This object identifies the name of the IP interface, serves as an 
-        index to this table name, and can only be changed during row creation. 
-        The name is the integer part of the interface name; lo1 will be 1, lo5 
-        will be 5 etc.."
-	::= { ipLoInterfaceEntry 1 }
-	
-	ipLoInterfaceIndex OBJECT-TYPE
-    SYNTAX INTEGER
-	MAX-ACCESS read-only
-	STATUS current
-	DESCRIPTION
-        "This object identifies the index of the IP interface. 
-        This is the same index as ipAdEntIfIndex from MIB-II (ipAddrTable)."
-	::= { ipLoInterfaceEntry 2 }
+ipVlanStatus OBJECT-TYPE
+    SYNTAX      INTEGER { attached(1), detached(2) }
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION 
+        "This object shows the VLAN on which the interface in the index
+         of the entry is installed and vice versa."
+    ::= { ipVlanEntry 1 }
 
-    ipLoInterfaceType OBJECT-TYPE
-	SYNTAX INTEGER
-	{
-	  pseudoInterface (1),
-	  ipInterface     (2)
-	}
-	MAX-ACCESS read-create
-	STATUS current
-	DESCRIPTION
-        "This indicates a status of the IP interface. The value of this object 
-        is determined by the IP address. If the IP address field is 
-        empty (0.0.0.0) then this interface becomes a pseudo interface."
-    ::= { ipLoInterfaceEntry 3 }
+ipVlanManagementTable OBJECT-TYPE
+    SYNTAX      SEQUENCE OF IpVlanManagementEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
+        "This table extends the table dot1qVlanStaticTable from Q-BRIDGE-MIB."
+    ::= { ipVlan 2 }
 
-	ipLoInterfaceIpAddress OBJECT-TYPE
-	SYNTAX IpAddress
-	MAX-ACCESS read-create
-	STATUS current
-	DESCRIPTION
-	    "This object has the value of the switch IP address in this subnet. 
-	    A value of 0.0.0.0 will make this interface a pseudo interface."
-    ::= { ipLoInterfaceEntry 4 }
+ipVlanManagementEntry OBJECT-TYPE
+    SYNTAX      IpVlanManagementEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
+        "An entry within the ipVlanManagementTable."
+    INDEX       { ipVlanManagementVlanId }
+    ::= { ipVlanManagementTable 1 }
 
-	ipLoInterfaceSubnetMask OBJECT-TYPE
-	SYNTAX IpAddress
-	MAX-ACCESS read-create
-	STATUS current
-	DESCRIPTION
-	    "This object together with ipInterfaceIpAddress forms the IP 
-	    subnet, assigned to this IP interface. In case that ipInterfaceIpAddress 
-	    has the value of 0.0.0.0, this object will be ignored."
-    ::= { ipLoInterfaceEntry 5 }
+IpVlanManagementEntry ::= SEQUENCE {
+    ipVlanManagementVlanId  Integer32,
+    ipVlanManagementStatus  TruthValue
+}
 
-  ipLoInterfaceRowStatus OBJECT-TYPE
-	SYNTAX RowStatus
-	MAX-ACCESS read-create
-	STATUS current
-	DESCRIPTION
-	    "This object indicates that the row status, and enables the creation & 
-	    deletion of rows in this table. See SNMPv2-TC for more information."
-    ::= { ipLoInterfaceEntry 6 }
+ipVlanManagementVlanId OBJECT-TYPE
+    SYNTAX      Integer32 (1..4092)
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION 
+        "Vlan id"
+    ::= { ipVlanManagementEntry 1 }
 
+ipVlanManagementStatus OBJECT-TYPE
+    SYNTAX      TruthValue
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION 
+        "This object shows if Vlan manageble"
+    ::= { ipVlanManagementEntry 2 }
 
--- ***********
--- ipVLANTable
--- ***********
-
-    ipVLANTable OBJECT-TYPE
-    SYNTAX SEQUENCE OF IpVLANEntry
-	MAX-ACCESS not-accessible
-	STATUS current
-	DESCRIPTION
-        "This table extends the table dot1qVlanStaticTable from Q-BRIDGE-MIB. 
-        It gives a connection between the IP Interface & the IP VLAN."
-	::= { ipVLAN 1 }
-
-    ipVLANEntry OBJECT-TYPE
-	SYNTAX	IpVLANEntry
-	MAX-ACCESS	not-accessible
-	STATUS current
-	DESCRIPTION
-	    ""
-    INDEX { dot1qVlanIndex, ipInterfaceName}
-   	::= { ipVLANTable 1 }
-
-    IpVLANEntry ::= SEQUENCE {
-        ipVLANStatus      INTEGER
-    }
-
-    ipVLANStatus OBJECT-TYPE
-	SYNTAX INTEGER
-	{
-	  attached (1),
-	  detached (2)
-	}
-	MAX-ACCESS read-create
-	STATUS current
-	DESCRIPTION
-	    "This object shows the VLAN on which the interface in the index 
-	    of the entry is installed and vice versa. See SNMPv2-TC for 
-	    more information."
-    ::= { ipVLANEntry 1 }
-
-   ipPortMappingTable OBJECT-TYPE
-    SYNTAX SEQUENCE OF IpPortMappingEntry
-	MAX-ACCESS not-accessible
-	STATUS current
-	DESCRIPTION
-        "This table serves to map physical ports to SW interfaces in their 1:1 relationship. 
-        This means that we can map only one SW interface on a "
-	::= { ipVLAN 2 }
-  
-  ipPortMappingEntry OBJECT-TYPE
-	SYNTAX	IpPortMappingEntry
-	MAX-ACCESS	not-accessible
-	STATUS	current
-	DESCRIPTION
-	    ""
-    INDEX { ifIndex }
-   	::= { ipPortMappingTable 1 }
-
-    IpPortMappingEntry ::= SEQUENCE {
-        ipPortSwIface      INTEGER
-    }
-    
-  ipPortSwIface OBJECT-TYPE
-	SYNTAX INTEGER
-	MAX-ACCESS read-create
-	STATUS current
-	DESCRIPTION
-	    "This object shows the SW interfaces to which a particular port is mapped. If we
-	    want to detach the port and delete the mapping we need to set the value 256 which 
-	    is an invalid index for a SW interface."
-    ::= { ipPortMappingEntry 1 }  
-
-
-END
-
-
+END -- end of module PRVT-SWITCH-IPVLAN-MIB.

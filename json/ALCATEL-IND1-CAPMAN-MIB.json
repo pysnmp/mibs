@@ -11,32 +11,32 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "Bits",
       "Counter64",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "Unsigned32",
       "IpAddress",
       "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "Bits",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
+      "DisplayString",
       "RowStatus",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
     ]
   },
   "alcatelIND1CapManMIB": {
@@ -1455,8 +1455,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-CAPMAN-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:37:21 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:37:42 2022",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-CAPMAN-MIB"

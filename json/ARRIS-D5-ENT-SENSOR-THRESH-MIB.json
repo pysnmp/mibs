@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "ARRIS-MIB": [
-      "cmtsCommon",
-      "arrisGlobalAccessProductUas",
-      "arrisGlobalAccessMib",
-      "ttm",
-      "packetport",
-      "arrisD5UEQam",
-      "cmtsMSAS",
-      "mrcController",
-      "tcm",
       "cmtsC4",
-      "ttp",
-      "cmtsC3",
+      "mrcController",
       "cm110",
+      "arrisGlobalAccessProductUas",
+      "arrisD5UEQam",
+      "packetport",
+      "cmtsCommon",
+      "arrisGlobalAccessMib",
+      "cmtsC3",
+      "cmtsMSAS",
+      "tcm",
+      "ttm",
+      "ttp",
       "cmts1500"
     ],
     "ENTITY-MIB": [
@@ -22,42 +22,42 @@
       "entityPhysicalGroup"
     ],
     "ENTITY-SENSOR-MIB": [
-      "entPhySensorValue",
-      "entPhySensorScale",
       "entitySensorCompliance",
-      "entPhySensorType",
-      "entPhySensorOperStatus",
-      "entPhySensorValueTimeStamp",
       "entPhySensorValueUpdateRate",
-      "entitySensorValueGroup",
+      "entPhySensorEntry",
+      "entPhySensorValueTimeStamp",
+      "entPhySensorOperStatus",
       "entPhySensorUnitsDisplay",
+      "entPhySensorScale",
       "entPhySensorPrecision",
-      "entPhySensorEntry"
+      "entPhySensorValue",
+      "entPhySensorType",
+      "entitySensorValueGroup"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "TimeTicks",
       "Unsigned32",
+      "OBJECT-TYPE",
       "Counter64",
       "IpAddress",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "Bits",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "arrisEntSensorThreshMIB": {
@@ -193,8 +193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-ENT-SENSOR-THRESH-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:11:01 2022",
-      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:08:19 2022",
+      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ARRIS-D5-ENT-SENSOR-THRESH-MIB"

@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module NET-SNMP-EXTEND-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-EXTEND-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 21:35:17 2022
-# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Jan 11 21:35:23 2022
+# On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
 nsExtensions, = mibBuilder.importSymbols("NET-SNMP-AGENT-MIB", "nsExtensions")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-TimeTicks, ObjectIdentity, MibIdentifier, Bits, Integer32, IpAddress, Unsigned32, NotificationType, Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter32, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "ObjectIdentity", "MibIdentifier", "Bits", "Integer32", "IpAddress", "Unsigned32", "NotificationType", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter32", "Counter64")
-StorageType, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "RowStatus", "DisplayString", "TextualConvention")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter32, NotificationType, Counter64, MibIdentifier, IpAddress, TimeTicks, Integer32, Gauge32, iso, ModuleIdentity, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter32", "NotificationType", "Counter64", "MibIdentifier", "IpAddress", "TimeTicks", "Integer32", "Gauge32", "iso", "ModuleIdentity", "ObjectIdentity")
+TextualConvention, StorageType, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "StorageType", "DisplayString", "RowStatus")
 netSnmpExtendMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 8072, 1, 3, 1))
 netSnmpExtendMIB.setRevisions(('2010-03-17 00:00', '2004-05-08 00:00',))
 
@@ -99,4 +99,4 @@ nsExtendOutputGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 8072, 1, 3, 3, 2)).setObjec
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     nsExtendOutputGroup = nsExtendOutputGroup.setStatus('current')
 if mibBuilder.loadTexts: nsExtendOutputGroup.setDescription('Objects relating to the output of extension commands.')
-mibBuilder.exportSymbols("NET-SNMP-EXTEND-MIB", nsExtendOutput1Entry=nsExtendOutput1Entry, nsExtendGroups=nsExtendGroups, nsExtendOutput1Table=nsExtendOutput1Table, nsExtendConfigTable=nsExtendConfigTable, nsExtendOutput2Table=nsExtendOutput2Table, nsExtendOutNumLines=nsExtendOutNumLines, nsExtendToken=nsExtendToken, nsExtendCommand=nsExtendCommand, nsExtendExecType=nsExtendExecType, nsExtendStatus=nsExtendStatus, nsExtendConfigGroup=nsExtendConfigGroup, nsExtendConfigEntry=nsExtendConfigEntry, nsExtendResult=nsExtendResult, nsExtendCacheTime=nsExtendCacheTime, netSnmpExtendMIB=netSnmpExtendMIB, nsExtendOutputFull=nsExtendOutputFull, nsExtendOutputGroup=nsExtendOutputGroup, nsExtendStorage=nsExtendStorage, nsExtendRunType=nsExtendRunType, nsExtendArgs=nsExtendArgs, nsExtendLineIndex=nsExtendLineIndex, nsExtendOutput2Entry=nsExtendOutput2Entry, nsExtendOutput1Line=nsExtendOutput1Line, nsExtendObjects=nsExtendObjects, PYSNMP_MODULE_ID=netSnmpExtendMIB, nsExtendInput=nsExtendInput, nsExtendOutLine=nsExtendOutLine, nsExtendNumEntries=nsExtendNumEntries)
+mibBuilder.exportSymbols("NET-SNMP-EXTEND-MIB", PYSNMP_MODULE_ID=netSnmpExtendMIB, nsExtendConfigEntry=nsExtendConfigEntry, nsExtendGroups=nsExtendGroups, nsExtendConfigGroup=nsExtendConfigGroup, nsExtendCommand=nsExtendCommand, nsExtendStorage=nsExtendStorage, nsExtendOutput1Line=nsExtendOutput1Line, nsExtendStatus=nsExtendStatus, nsExtendOutLine=nsExtendOutLine, nsExtendArgs=nsExtendArgs, nsExtendInput=nsExtendInput, nsExtendOutput1Table=nsExtendOutput1Table, nsExtendResult=nsExtendResult, nsExtendConfigTable=nsExtendConfigTable, nsExtendRunType=nsExtendRunType, nsExtendNumEntries=nsExtendNumEntries, nsExtendOutput2Entry=nsExtendOutput2Entry, nsExtendCacheTime=nsExtendCacheTime, nsExtendOutput2Table=nsExtendOutput2Table, nsExtendToken=nsExtendToken, netSnmpExtendMIB=netSnmpExtendMIB, nsExtendOutputGroup=nsExtendOutputGroup, nsExtendExecType=nsExtendExecType, nsExtendOutNumLines=nsExtendOutNumLines, nsExtendObjects=nsExtendObjects, nsExtendLineIndex=nsExtendLineIndex, nsExtendOutputFull=nsExtendOutputFull, nsExtendOutput1Entry=nsExtendOutput1Entry)
