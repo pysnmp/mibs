@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "extremeAgent",
-      "ClientAuthType"
+      "ClientAuthType",
+      "extremeAgent"
     ],
     "EXTREME-VLAN-MIB": [
       "extremeVlanIfIndex"
@@ -12,30 +12,30 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "iso",
-      "MODULE-IDENTITY",
       "Unsigned32",
-      "TimeTicks",
-      "Gauge32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
-      "MibIdentifier",
-      "Counter32",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Counter64"
+      "MibIdentifier",
+      "Integer32",
+      "Counter64",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "RowStatus",
-      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "MacAddress"
     ]
   },
   "extremePort": {
@@ -903,8 +903,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 17:45:38 2022",
-      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 20:36:40 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "EXTREME-PORT-MIB"

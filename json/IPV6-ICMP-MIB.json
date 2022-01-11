@@ -5,30 +5,30 @@
       "ipv6IfEntry"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
       "iso",
-      "Counter64",
-      "Bits",
-      "OBJECT-TYPE",
       "TimeTicks",
-      "mib-2",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "OBJECT-TYPE",
       "Gauge32",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "Counter32",
-      "IpAddress"
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ipv6IcmpMIB": {
@@ -654,8 +654,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IPV6-ICMP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 17:30:45 2022",
-      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 20:23:53 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "IPV6-ICMP-MIB"

@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "CIENA-CES-PORT-MIB": [
-      "cienaCesPortPgIdMappingNotifPortNumber",
-      "cienaCesPortPgIdMappingNotifSlotIndex",
       "cienaCesPortPgIdMappingNotifShelfIndex",
+      "cienaCesPortPgIdMappingNotifSlotIndex",
+      "cienaCesPortPgIdMappingNotifPortNumber",
       "cienaCesPortPgIdMappingNotifChassisIndex",
       "cienaCesLogicalPortConfigPortName"
     ],
@@ -20,30 +20,30 @@
       "CienaGlobalState"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
       "Bits",
       "MibIdentifier",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Counter32",
-      "Counter64",
-      "Integer32",
-      "Unsigned32",
       "TimeTicks",
-      "IpAddress"
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress",
-      "TruthValue"
+      "TruthValue",
+      "MacAddress"
     ]
   },
   "cienaCesDataplaneMIB": {
@@ -5504,8 +5504,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-DATAPLANE-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 17:36:47 2022",
-      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 20:28:56 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CIENA-CES-DATAPLANE-MIB"

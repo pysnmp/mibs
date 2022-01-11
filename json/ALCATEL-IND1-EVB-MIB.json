@@ -11,11 +11,11 @@
     ],
     "IEEE8021-EVBB-MIB": [
       "ieee8021BridgeEvbVSIVlanId",
-      "ieee8021BridgeEvbVSIIDType",
       "ieee8021BridgeEvbVSIMvFormat",
       "ieee8021BridgeEvbSbpPortNumber",
-      "ieee8021BridgeEvbVSITypeVersion",
-      "ieee8021BridgeEvbVSIID"
+      "ieee8021BridgeEvbVSIID",
+      "ieee8021BridgeEvbVSIIDType",
+      "ieee8021BridgeEvbVSITypeVersion"
     ],
     "IEEE8021-TC-MIB": [
       "IEEE8021BridgePortNumber"
@@ -28,28 +28,28 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Counter32",
-      "IpAddress",
-      "Unsigned32",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "MODULE-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Gauge32"
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "MibIdentifier",
+      "Counter64",
+      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
       "RowStatus"
     ]
   },
@@ -544,8 +544,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-EVB-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 18:00:10 2022",
-      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 20:48:11 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-EVB-MIB"

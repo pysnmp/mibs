@@ -13,38 +13,38 @@
       "ieee8021XPaePortNumber"
     ],
     "Q-BRIDGE-MIB": [
+      "VlanIndex",
       "dot1qFdbId",
-      "PortList",
-      "VlanIndex"
+      "PortList"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
       "Counter64",
-      "Bits",
-      "IpAddress",
+      "Integer32",
       "OBJECT-TYPE",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
       "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
       "iso",
-      "Integer32",
-      "NOTIFICATION-TYPE"
+      "IpAddress",
+      "Unsigned32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "MacAddress",
       "TruthValue",
       "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "MacAddress",
       "RowStatus"
     ]
   },
@@ -1861,8 +1861,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-DOT1X-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 17:39:57 2022",
-      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 20:31:47 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CISCOSB-DOT1X-MIB"

@@ -8,13 +8,13 @@
       "ifIndex"
     ],
     "LLDP-MIB": [
-      "LldpManAddress",
-      "LldpManAddrIfSubtype",
-      "LldpPortIdSubtype",
-      "LldpSystemCapabilitiesMap",
-      "LldpChassisId",
       "LldpPortId",
-      "LldpChassisIdSubtype"
+      "LldpChassisIdSubtype",
+      "LldpSystemCapabilitiesMap",
+      "LldpManAddress",
+      "LldpPortIdSubtype",
+      "LldpManAddrIfSubtype",
+      "LldpChassisId"
     ],
     "RMON2-MIB": [
       "TimeFilter",
@@ -30,35 +30,35 @@
     ],
     "SNMPv2-SMI": [
       "Integer32",
-      "Counter64",
-      "OBJECT-TYPE",
       "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
+      "MibIdentifier",
+      "iso",
       "Counter32",
       "Gauge32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "iso",
+      "OBJECT-IDENTITY",
+      "Counter64",
       "IpAddress",
-      "OBJECT-IDENTITY"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "MacAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-GLOBAL-MIB": [
-      "tmnxSRNotifyPrefix",
-      "tmnxSRConfs",
       "timetraSRMIBModules",
-      "tmnxSRObjs"
+      "tmnxSRObjs",
+      "tmnxSRConfs",
+      "tmnxSRNotifyPrefix"
     ],
     "TIMETRA-TC-MIB": [
-      "TmnxEnabledDisabledAdminState",
-      "TmnxEnabledDisabled"
+      "TmnxEnabledDisabled",
+      "TmnxEnabledDisabledAdminState"
     ]
   },
   "tmnxLldpMIBModule": {
@@ -1599,8 +1599,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/TIMETRA-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 17:59:29 2022",
-      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 20:47:37 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "TIMETRA-LLDP-MIB"

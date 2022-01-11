@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "iso",
-      "Counter64",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "Integer32",
-      "Bits",
-      "Counter32",
       "NOTIFICATION-TYPE",
+      "Counter64",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "Gauge32"
+      "Bits",
+      "Gauge32",
+      "Counter32",
+      "iso",
+      "Unsigned32",
+      "MibIdentifier",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DateAndTime"
     ],
     "VMWARE-PRODUCTS-MIB": [
       "vmwESX"
     ],
     "VMWARE-ROOT-MIB": [
-      "vmwNotifications",
-      "vmwProductSpecific"
+      "vmwProductSpecific",
+      "vmwNotifications"
     ],
     "VMWARE-TC-MIB": [
-      "VmwSubsystemStatus",
-      "VmwCIMSeverity",
-      "VmwCimName",
       "VmwLongSnmpAdminString",
-      "VmwCIMAlertFormat",
+      "VmwSubsystemStatus",
       "VmwSubsystemTypes",
+      "VmwCimName",
+      "VmwCIMAlertFormat",
+      "VmwCIMSeverity",
       "VmwCIMAlertTypes"
     ]
   },
@@ -1629,8 +1629,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-ENV-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 18:04:33 2022",
-      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 20:56:09 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "VMWARE-ENV-MIB"

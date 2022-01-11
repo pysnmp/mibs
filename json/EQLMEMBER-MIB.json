@@ -3,8 +3,8 @@
     "class": "imports",
     "EQLGROUP-MIB": [
       "UTFString",
-      "eqlGroupId",
-      "eqlStorageGroupAdminAccountIndex"
+      "eqlStorageGroupAdminAccountIndex",
+      "eqlGroupId"
     ],
     "EQUALLOGIC-SMI": [
       "equalLogic"
@@ -14,25 +14,25 @@
       "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
-      "Counter64",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
       "OBJECT-TYPE",
       "TimeTicks",
       "Counter32",
-      "IpAddress",
-      "enterprises",
-      "MibIdentifier",
+      "iso",
+      "Integer32",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "enterprises",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
       "Bits",
-      "MODULE-IDENTITY",
-      "Integer32"
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -4926,8 +4926,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQLMEMBER-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan  7 17:45:11 2022",
-      "On host fv-az126-670 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 20:36:15 2022",
+      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "EQLMEMBER-MIB"
