@@ -6,40 +6,40 @@
     ],
     "PerfHist-TC-MIB": [
       "PerfCurrentCount",
-      "PerfTotalCount",
-      "PerfIntervalCount"
+      "PerfIntervalCount",
+      "PerfTotalCount"
     ],
     "SL-MAIN-MIB": [
       "slMain"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Counter64",
       "OBJECT-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "Counter32",
-      "Bits",
+      "Counter64",
       "IpAddress",
-      "iso",
-      "TimeTicks",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "MibIdentifier",
-      "NOTIFICATION-TYPE"
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Integer32",
+      "Bits",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "RowStatus",
+      "PhysAddress",
       "TimeStamp",
       "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "TruthValue",
-      "RowStatus",
-      "DisplayString"
+      "TruthValue"
     ]
   },
   "slL2Topology": {
@@ -236,8 +236,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-L2TOPOLOGY-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 20:49:19 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:38:53 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "SL-L2TOPOLOGY-MIB"

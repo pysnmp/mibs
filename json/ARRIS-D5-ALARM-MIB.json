@@ -5,20 +5,20 @@
       "d5QamExtServingGroup"
     ],
     "ARRIS-D5-VIDEO-MIB": [
-      "d5vIpSrcIndex",
-      "d5vStreamProgIndex",
-      "d5vStreamEsPidIndex",
       "d5vIpUdpIndex",
-      "d5vIpDestIndex"
+      "d5vStreamEsPidIndex",
+      "d5vIpDestIndex",
+      "d5vIpSrcIndex",
+      "d5vStreamProgIndex"
     ],
     "ARRIS-MIB": [
       "arrisD5UEQam"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvLevel",
-      "docsDevEventEntry",
+      "docsDevEvText",
       "docsDevEvId",
-      "docsDevEvText"
+      "docsDevEvLevel",
+      "docsDevEventEntry"
     ],
     "ENTITY-MIB": [
       "entPhysicalIndex",
@@ -28,32 +28,32 @@
       "entPhySensorValue"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "iso",
+      "enterprises",
       "Counter32",
+      "Gauge32",
       "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter64",
-      "TimeTicks",
+      "iso",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "Integer32",
-      "Unsigned32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "enterprises"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DisplayString"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "d5AlarmMIB": {
@@ -2429,8 +2429,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 20:26:07 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:11:01 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "ARRIS-D5-ALARM-MIB"

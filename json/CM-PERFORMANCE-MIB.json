@@ -5,9 +5,9 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "PerfCounter64",
+      "CmPmIntervalType",
       "CmPmBinAction",
-      "CmPmIntervalType"
+      "PerfCounter64"
     ],
     "CM-ENTITY-MIB": [
       "neIndex",
@@ -15,34 +15,34 @@
       "slotIndex"
     ],
     "CM-FACILITY-MIB": [
-      "e1t1Index",
-      "ocnStmIndex",
-      "cmEthernetTrafficPortIndex",
-      "cmQosFlowPolicerIndex",
-      "e3t3ParentIfIndex",
-      "cmQosShaperV2Index",
-      "e3t3Index",
-      "cmQosShaperIndex",
-      "cmQosShaperTypeIndex",
-      "cmQosPolicerV2Index",
-      "cmEthernetNetPortIndex",
-      "cmFlowEntry",
-      "stsVcPathIndex",
-      "cmOAMFlowPointIndex",
       "cmQosFlowPolicerTypeIndex",
-      "f3NetPortQosShaperIndex",
       "cmTrafficPortQosShaperIndex",
-      "vtVcPathIndex",
+      "f3NetPortQosShaperIndex",
+      "cmQosShaperIndex",
+      "stsVcPathIndex",
       "e1t1ParentIfIndex",
       "f3FpQosPolicerIndex",
-      "f3AclRuleIndex",
-      "vtVcPathParentIfIndex",
-      "cmAccPortQosShaperIndex",
-      "stsVcPathParentIfIndex",
-      "cmFlowIndex",
-      "cmFlowPointIndex",
+      "e3t3ParentIfIndex",
+      "ocnStmIndex",
       "cmEthernetAccPortIndex",
-      "f3FpQosShaperIndex"
+      "cmEthernetTrafficPortIndex",
+      "cmEthernetNetPortIndex",
+      "cmFlowIndex",
+      "cmQosShaperV2Index",
+      "vtVcPathParentIfIndex",
+      "e1t1Index",
+      "stsVcPathParentIfIndex",
+      "e3t3Index",
+      "cmAccPortQosShaperIndex",
+      "cmFlowEntry",
+      "cmFlowPointIndex",
+      "f3AclRuleIndex",
+      "cmQosShaperTypeIndex",
+      "cmOAMFlowPointIndex",
+      "f3FpQosShaperIndex",
+      "cmQosPolicerV2Index",
+      "cmQosFlowPolicerIndex",
+      "vtVcPathIndex"
     ],
     "F3-LAG-MIB": [
       "f3LagIndex"
@@ -57,32 +57,32 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
       "iso",
-      "Bits",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "Bits",
       "Counter64",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "TimeTicks",
       "Counter32"
     ],
     "SNMPv2-TC": [
       "VariablePointer",
-      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DateAndTime",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString",
+      "DateAndTime"
     ]
   },
   "cmPerformanceMIB": {
@@ -28118,8 +28118,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-PERFORMANCE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 20:24:45 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:09:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CM-PERFORMANCE-MIB"

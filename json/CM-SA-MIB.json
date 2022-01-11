@@ -5,21 +5,21 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "TrafficDirection",
-      "PerfCounter64",
-      "OperationalState",
-      "CmPmBinAction",
-      "ClassOfServiceType",
-      "SchedActivityStatus",
-      "IpVersion",
-      "PerfCounter32",
-      "MepDestinationType",
-      "IpPriorityMapMode",
       "VlanPriority",
       "SecondaryState",
+      "SchedActivityStatus",
+      "TrafficDirection",
       "VlanId",
       "ScheduleType",
-      "AdminState"
+      "AdminState",
+      "CmPmBinAction",
+      "PerfCounter64",
+      "MepDestinationType",
+      "PerfCounter32",
+      "ClassOfServiceType",
+      "IpVersion",
+      "OperationalState",
+      "IpPriorityMapMode"
     ],
     "CM-ENTITY-MIB": [
       "neIndex",
@@ -27,8 +27,8 @@
       "slotIndex"
     ],
     "CM-FACILITY-MIB": [
-      "BitErrRate",
-      "PolicerColorMode"
+      "PolicerColorMode",
+      "BitErrRate"
     ],
     "IEEE8021-CFM-MIB": [
       "Dot1agCfmMepIdOrZero"
@@ -37,35 +37,35 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
       "iso",
-      "IpAddress",
-      "Bits",
       "MODULE-IDENTITY",
+      "Bits",
       "Counter64",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "IpAddress",
+      "Gauge32",
+      "TimeTicks",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "VariablePointer",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DateAndTime",
+      "VariablePointer",
       "MacAddress",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "StorageType"
+      "DisplayString",
+      "StorageType",
+      "DateAndTime"
     ]
   },
   "cmServiceAssuranceMIB": {
@@ -11615,8 +11615,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SA-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 20:24:45 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:09:21 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "CM-SA-MIB"

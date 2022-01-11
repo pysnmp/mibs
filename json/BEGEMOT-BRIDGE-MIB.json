@@ -16,28 +16,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "Gauge32",
       "Integer32",
+      "Counter64",
       "Counter32",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "TimeTicks",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "IpAddress",
       "MibIdentifier",
-      "Counter64",
+      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "mib-2",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "iso"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "MacAddress",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "MacAddress"
+      "DisplayString"
     ]
   },
   "begemotBridge": {
@@ -1342,8 +1342,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 20:50:03 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:40:08 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "BEGEMOT-BRIDGE-MIB"

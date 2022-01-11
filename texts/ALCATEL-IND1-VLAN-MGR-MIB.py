@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module ALCATEL-IND1-VLAN-MGR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-VLAN-MGR-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 20:48:01 2022
-# On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Jan 11 21:37:12 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 softentIND1VlanMgt, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1VlanMgt")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
-TimeTicks, MibIdentifier, NotificationType, Counter32, IpAddress, ModuleIdentity, Unsigned32, ObjectIdentity, iso, Gauge32, Counter64, Bits, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "MibIdentifier", "NotificationType", "Counter32", "IpAddress", "ModuleIdentity", "Unsigned32", "ObjectIdentity", "iso", "Gauge32", "Counter64", "Bits", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
-DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Unsigned32, TimeTicks, Gauge32, ObjectIdentity, Counter32, Bits, Counter64, NotificationType, MibIdentifier, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, IpAddress, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "TimeTicks", "Gauge32", "ObjectIdentity", "Counter32", "Bits", "Counter64", "NotificationType", "MibIdentifier", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "IpAddress", "ModuleIdentity")
+TextualConvention, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString")
 alcatelIND1VLANMgrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 3, 1))
 alcatelIND1VLANMgrMIB.setRevisions(('2007-04-03 00:00',))
 
@@ -123,4 +123,4 @@ vlanMgrVlanSetGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 3, 1, 2
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vlanMgrVlanSetGroup = vlanMgrVlanSetGroup.setStatus('current')
 if mibBuilder.loadTexts: vlanMgrVlanSetGroup.setDescription('Collection of objects for Vlan Manager global properties.')
-mibBuilder.exportSymbols("ALCATEL-IND1-VLAN-MGR-MIB", vlanSrcLearningStatus=vlanSrcLearningStatus, vlanSetVstkVlanCount=vlanSetVstkVlanCount, vlanDescription=vlanDescription, vlanAfdCfg=vlanAfdCfg, alcatelIND1VLANMgrMIBGroups=alcatelIND1VLANMgrMIBGroups, vlanSetDynamicVlanCount=vlanSetDynamicVlanCount, vlanMgrVpaGroup=vlanMgrVpaGroup, vlanStatus=vlanStatus, vpaEntry=vpaEntry, vlanEntry=vlanEntry, vpaStatus=vpaStatus, vpaIfIndex=vpaIfIndex, alcatelIND1VLANMgrMIBConformance=alcatelIND1VLANMgrMIBConformance, vlanType=vlanType, alcatelIND1VLANMgrMIB=alcatelIND1VLANMgrMIB, vlanOperStatus=vlanOperStatus, vlanMgrVpa=vlanMgrVpa, alcatelIND1VLANMgrMIBObjects=alcatelIND1VLANMgrMIBObjects, alcatelIND1VLANMgrMIBCompliances=alcatelIND1VLANMgrMIBCompliances, vlanMgrVlan=vlanMgrVlan, vlanMgrVlanSetGroup=vlanMgrVlanSetGroup, vpaType=vpaType, vlanMgrVlanSet=vlanMgrVlanSet, vlanSetVlanCount=vlanSetVlanCount, vpaVlanNumber=vpaVlanNumber, vlanRouterStatus=vlanRouterStatus, PYSNMP_MODULE_ID=alcatelIND1VLANMgrMIB, vpaState=vpaState, alcatelIND1VLANMgrMIBCompliance=alcatelIND1VLANMgrMIBCompliance, vlanSetIpRouterCount=vlanSetIpRouterCount, vlanMtu=vlanMtu, vlanMgrVlanGroup=vlanMgrVlanGroup, vlanNumber=vlanNumber, vpaTable=vpaTable, vlanTable=vlanTable, vlanAdmStatus=vlanAdmStatus)
+mibBuilder.exportSymbols("ALCATEL-IND1-VLAN-MGR-MIB", vpaTable=vpaTable, alcatelIND1VLANMgrMIB=alcatelIND1VLANMgrMIB, vpaStatus=vpaStatus, vlanNumber=vlanNumber, vlanSetIpRouterCount=vlanSetIpRouterCount, vlanEntry=vlanEntry, vlanDescription=vlanDescription, vlanAdmStatus=vlanAdmStatus, vlanMgrVlan=vlanMgrVlan, vlanSetVstkVlanCount=vlanSetVstkVlanCount, vlanOperStatus=vlanOperStatus, vpaIfIndex=vpaIfIndex, vlanTable=vlanTable, vlanStatus=vlanStatus, vlanMtu=vlanMtu, vlanMgrVlanGroup=vlanMgrVlanGroup, vpaEntry=vpaEntry, vlanMgrVlanSetGroup=vlanMgrVlanSetGroup, vlanAfdCfg=vlanAfdCfg, vlanSetDynamicVlanCount=vlanSetDynamicVlanCount, vlanMgrVpaGroup=vlanMgrVpaGroup, PYSNMP_MODULE_ID=alcatelIND1VLANMgrMIB, alcatelIND1VLANMgrMIBCompliances=alcatelIND1VLANMgrMIBCompliances, vlanMgrVlanSet=vlanMgrVlanSet, vlanMgrVpa=vlanMgrVpa, vpaState=vpaState, vlanSetVlanCount=vlanSetVlanCount, vlanRouterStatus=vlanRouterStatus, alcatelIND1VLANMgrMIBGroups=alcatelIND1VLANMgrMIBGroups, alcatelIND1VLANMgrMIBConformance=alcatelIND1VLANMgrMIBConformance, alcatelIND1VLANMgrMIBCompliance=alcatelIND1VLANMgrMIBCompliance, vlanType=vlanType, vpaType=vpaType, alcatelIND1VLANMgrMIBObjects=alcatelIND1VLANMgrMIBObjects, vpaVlanNumber=vpaVlanNumber, vlanSrcLearningStatus=vlanSrcLearningStatus)

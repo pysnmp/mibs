@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ALCATEL-IND1-QCN-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-QCN-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 20:47:53 2022
-# On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner
+# Produced by pysmi-1.1.8 at Tue Jan 11 21:37:03 2022
+# On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner
 # Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
 #
 softentIND1QcnMib, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1QcnMib")
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-Bits, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, IpAddress, Gauge32, MibIdentifier, iso, TimeTicks, Integer32, Unsigned32, Counter64, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "IpAddress", "Gauge32", "MibIdentifier", "iso", "TimeTicks", "Integer32", "Unsigned32", "Counter64", "ObjectIdentity")
-TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
+SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, MibIdentifier, NotificationType, Counter32, IpAddress, ObjectIdentity, Bits, ModuleIdentity, Gauge32, Integer32, TimeTicks, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "MibIdentifier", "NotificationType", "Counter32", "IpAddress", "ObjectIdentity", "Bits", "ModuleIdentity", "Gauge32", "Integer32", "TimeTicks", "Counter64")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
 alcatelIND1QcnMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 71, 1))
 alcatelIND1QcnMIB.setRevisions(('2011-09-01 00:00',))
 if mibBuilder.loadTexts: alcatelIND1QcnMIB.setLastUpdated('201109010000Z')
@@ -60,4 +60,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 alaQcnPortInstanceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 71, 1, 2, 1, 2)).setObjects(("ALCATEL-IND1-QCN-MIB", "alaQcnPIPriorityReset"), ("ALCATEL-IND1-QCN-MIB", "alaQcnPICncpStatsClear"), ("ALCATEL-IND1-QCN-MIB", "alaQcnPICncpReset"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     alaQcnPortInstanceGroup = alaQcnPortInstanceGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-IND1-QCN-MIB", alaQcnPIPriorityReset=alaQcnPIPriorityReset, alaQcnPICncpStatsClear=alaQcnPICncpStatsClear, alcatelIND1QcnMIBCompliance=alcatelIND1QcnMIBCompliance, alaQcnPortInstanceTable=alaQcnPortInstanceTable, alaQcnPICncpReset=alaQcnPICncpReset, alcatelIND1QcnMIBConformance=alcatelIND1QcnMIBConformance, PYSNMP_MODULE_ID=alcatelIND1QcnMIB, alcatelIND1QcnMIBGroups=alcatelIND1QcnMIBGroups, alcatelIND1QcnMIBObjects=alcatelIND1QcnMIBObjects, alaQcnConfig=alaQcnConfig, alaQcnGlobalEntry=alaQcnGlobalEntry, alaQcnConformance=alaQcnConformance, alaQcnPIIfIndex=alaQcnPIIfIndex, alaQcnGlobalCNMVlanTag=alaQcnGlobalCNMVlanTag, alaQcnPortInstanceEntry=alaQcnPortInstanceEntry, alcatelIND1QcnMIBCompliances=alcatelIND1QcnMIBCompliances, alaQcnGlobalCID=alaQcnGlobalCID, alaQcnPIPriority=alaQcnPIPriority, alcatelIND1QcnMIB=alcatelIND1QcnMIB, alaQcnGlobalGroup=alaQcnGlobalGroup, alaQcnGlobalCompId=alaQcnGlobalCompId, alaQcnPortInstanceGroup=alaQcnPortInstanceGroup, alaQcnGlobalTable=alaQcnGlobalTable)
+mibBuilder.exportSymbols("ALCATEL-IND1-QCN-MIB", alcatelIND1QcnMIBCompliances=alcatelIND1QcnMIBCompliances, alcatelIND1QcnMIBCompliance=alcatelIND1QcnMIBCompliance, alaQcnGlobalCNMVlanTag=alaQcnGlobalCNMVlanTag, alaQcnPortInstanceEntry=alaQcnPortInstanceEntry, alaQcnGlobalCompId=alaQcnGlobalCompId, alaQcnPICncpReset=alaQcnPICncpReset, alcatelIND1QcnMIB=alcatelIND1QcnMIB, alaQcnGlobalTable=alaQcnGlobalTable, PYSNMP_MODULE_ID=alcatelIND1QcnMIB, alaQcnPICncpStatsClear=alaQcnPICncpStatsClear, alaQcnPIIfIndex=alaQcnPIIfIndex, alaQcnConformance=alaQcnConformance, alaQcnConfig=alaQcnConfig, alaQcnGlobalCID=alaQcnGlobalCID, alaQcnPortInstanceTable=alaQcnPortInstanceTable, alcatelIND1QcnMIBConformance=alcatelIND1QcnMIBConformance, alaQcnPIPriorityReset=alaQcnPIPriorityReset, alcatelIND1QcnMIBGroups=alcatelIND1QcnMIBGroups, alaQcnPIPriority=alaQcnPIPriority, alaQcnPortInstanceGroup=alaQcnPortInstanceGroup, alaQcnGlobalGroup=alaQcnGlobalGroup, alcatelIND1QcnMIBObjects=alcatelIND1QcnMIBObjects, alaQcnGlobalEntry=alaQcnGlobalEntry)

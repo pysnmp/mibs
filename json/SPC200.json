@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "interfaces",
-      "ifIndex"
+      "ifIndex",
+      "interfaces"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "AGENT-CAPABILITIES"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "Counter64",
       "OBJECT-IDENTITY",
-      "Integer32",
       "Gauge32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "Counter32",
       "iso",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Bits",
+      "IpAddress",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Bits"
+      "TimeTicks",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "MacAddress",
       "DisplayString"
     ],
@@ -3795,8 +3795,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/SPC200",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 20:28:29 2022",
-      "On host fv-az42-180 platform Linux version 5.11.0-1022-azure by user runner",
+      "Produced by pysmi-1.1.8 at Tue Jan 11 21:13:45 2022",
+      "On host fv-az121-779 platform Linux version 5.11.0-1022-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
     ],
     "module": "SPC200"
