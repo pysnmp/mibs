@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module BCN-DNS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/bluecatnetworks/BCN-DNS-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 21:09:56 2022
-# On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner
-# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan 13 22:45:01 2022
+# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
+ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 bcnServices, = mibBuilder.importSymbols("BCN-SMI-MIB", "bcnServices")
 BcnAlarmSeverity, = mibBuilder.importSymbols("BCN-TC-MIB", "BcnAlarmSeverity")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-ModuleIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, iso, NotificationType, Bits, IpAddress, MibIdentifier, Unsigned32, Counter64, ObjectIdentity, TimeTicks, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "iso", "NotificationType", "Bits", "IpAddress", "MibIdentifier", "Unsigned32", "Counter64", "ObjectIdentity", "TimeTicks", "Counter32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Counter64, IpAddress, iso, NotificationType, ObjectIdentity, TimeTicks, Counter32, Gauge32, MibIdentifier, Bits, Unsigned32, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "IpAddress", "iso", "NotificationType", "ObjectIdentity", "TimeTicks", "Counter32", "Gauge32", "MibIdentifier", "Bits", "Unsigned32", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 bcnDnsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13315, 3, 1, 2, 1))
 bcnDnsMIB.setRevisions(('2010-11-30 12:00',))
 if mibBuilder.loadTexts: bcnDnsMIB.setLastUpdated('201011301200Z')
@@ -79,4 +79,4 @@ bcnDnsStatusCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13315, 3, 1, 2, 4, 
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     bcnDnsStatusCompliance = bcnDnsStatusCompliance.setStatus('current')
-mibBuilder.exportSymbols("BCN-DNS-MIB", bcnDnsAlarmNotif=bcnDnsAlarmNotif, bcnDnsNotificationData=bcnDnsNotificationData, bcnDnsStatSrvQryFailure=bcnDnsStatSrvQryFailure, bcnDnsServiceCompliances=bcnDnsServiceCompliances, PYSNMP_MODULE_ID=bcnDnsMIB, bcnDnsNotificationEvents=bcnDnsNotificationEvents, bcnDnsServiceStatus=bcnDnsServiceStatus, bcnDnsSerTransfersDeferred=bcnDnsSerTransfersDeferred, bcnDnsStatSrvQryNXRRSet=bcnDnsStatSrvQryNXRRSet, bcnDnsSerTransfersRunning=bcnDnsSerTransfersRunning, bcnDnsConformance=bcnDnsConformance, bcnDnsServerStatisticsGroup=bcnDnsServerStatisticsGroup, bcnDnsServiceStatistics=bcnDnsServiceStatistics, bcnDnsNotificationDataGroup=bcnDnsNotificationDataGroup, bcnDnsSerSOAQueriesInProgress=bcnDnsSerSOAQueriesInProgress, bcnDnsStatSrvQrySuccess=bcnDnsStatSrvQrySuccess, bcnDnsAlarmSeverity=bcnDnsAlarmSeverity, bcnDnsSerNumberOfZones=bcnDnsSerNumberOfZones, bcnDnsStatSrvQryNXDomain=bcnDnsStatSrvQryNXDomain, bcnDnsServiceGroups=bcnDnsServiceGroups, bcnDnsNotificationEventGroup=bcnDnsNotificationEventGroup, bcnDnsSerOperState=bcnDnsSerOperState, bcnDnsObjects=bcnDnsObjects, bcnDnsSerQueryLogging=bcnDnsSerQueryLogging, bcnDnsStatSrvQryRecursion=bcnDnsStatSrvQryRecursion, bcnDnsMIB=bcnDnsMIB, bcnDnsStatusCompliance=bcnDnsStatusCompliance, bcnDnsSerDebugLevel=bcnDnsSerDebugLevel, bcnDns=bcnDns, bcnDnsStatServer=bcnDnsStatServer, bcnDnsStatSrvQryReferral=bcnDnsStatSrvQryReferral, bcnDnsAlarmInfo=bcnDnsAlarmInfo, bcnDnsNotification=bcnDnsNotification, bcnDnsServiceStatusGroup=bcnDnsServiceStatusGroup)
+mibBuilder.exportSymbols("BCN-DNS-MIB", bcnDnsStatSrvQryNXDomain=bcnDnsStatSrvQryNXDomain, bcnDnsStatSrvQryNXRRSet=bcnDnsStatSrvQryNXRRSet, bcnDnsSerSOAQueriesInProgress=bcnDnsSerSOAQueriesInProgress, bcnDnsSerQueryLogging=bcnDnsSerQueryLogging, bcnDnsObjects=bcnDnsObjects, bcnDnsServiceStatus=bcnDnsServiceStatus, bcnDnsSerNumberOfZones=bcnDnsSerNumberOfZones, bcnDnsSerOperState=bcnDnsSerOperState, bcnDnsStatSrvQryReferral=bcnDnsStatSrvQryReferral, bcnDnsStatServer=bcnDnsStatServer, bcnDnsMIB=bcnDnsMIB, bcnDnsNotificationData=bcnDnsNotificationData, bcnDnsAlarmInfo=bcnDnsAlarmInfo, bcnDns=bcnDns, bcnDnsNotification=bcnDnsNotification, bcnDnsStatSrvQryFailure=bcnDnsStatSrvQryFailure, bcnDnsAlarmSeverity=bcnDnsAlarmSeverity, bcnDnsSerTransfersRunning=bcnDnsSerTransfersRunning, bcnDnsSerDebugLevel=bcnDnsSerDebugLevel, bcnDnsAlarmNotif=bcnDnsAlarmNotif, bcnDnsServiceStatusGroup=bcnDnsServiceStatusGroup, bcnDnsServiceGroups=bcnDnsServiceGroups, PYSNMP_MODULE_ID=bcnDnsMIB, bcnDnsStatusCompliance=bcnDnsStatusCompliance, bcnDnsNotificationEventGroup=bcnDnsNotificationEventGroup, bcnDnsNotificationDataGroup=bcnDnsNotificationDataGroup, bcnDnsStatSrvQryRecursion=bcnDnsStatSrvQryRecursion, bcnDnsServerStatisticsGroup=bcnDnsServerStatisticsGroup, bcnDnsServiceCompliances=bcnDnsServiceCompliances, bcnDnsServiceStatistics=bcnDnsServiceStatistics, bcnDnsConformance=bcnDnsConformance, bcnDnsSerTransfersDeferred=bcnDnsSerTransfersDeferred, bcnDnsNotificationEvents=bcnDnsNotificationEvents, bcnDnsStatSrvQrySuccess=bcnDnsStatSrvQrySuccess)

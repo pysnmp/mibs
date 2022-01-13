@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "ALCATEL-IND1-TIMETRA-GLOBAL-MIB": [
-      "tmnxSRNotifyPrefix",
-      "tmnxSRConfs",
       "timetraSRMIBModules",
+      "tmnxSRConfs",
+      "tmnxSRNotifyPrefix",
       "tmnxSRObjs"
     ],
     "ALCATEL-IND1-TIMETRA-QOS-MIB": [
       "TProfile"
     ],
     "ALCATEL-IND1-TIMETRA-SERV-MIB": [
-      "SdpId",
-      "SdpBindVcType"
+      "SdpBindVcType",
+      "SdpId"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxEncapVal",
-      "TmnxServId",
-      "TPolicyStatementNameOrEmpty",
-      "TFCName",
-      "TmnxAdminState",
       "TNamedItemOrEmpty",
+      "TItemDescription",
+      "TmnxVRtrID",
       "TmnxBgpRouteTarget",
       "SdpBindId",
-      "TmnxPortID",
-      "TmnxVcId",
-      "TItemDescription",
-      "TmnxTunnelType",
       "TmnxVcIdOrNone",
-      "TmnxVRtrID",
+      "TFCName",
+      "TmnxServId",
       "TmnxVPNRouteDistinguisher",
-      "TmnxVcType",
-      "IpAddressPrefixLength",
+      "TmnxPortID",
       "TmnxTunnelID",
-      "TmnxStrSapId"
+      "TmnxStrSapId",
+      "TmnxVcId",
+      "TPolicyStatementNameOrEmpty",
+      "TmnxVcType",
+      "TmnxEncapVal",
+      "IpAddressPrefixLength",
+      "TmnxAdminState",
+      "TmnxTunnelType"
     ],
     "ALCATEL-IND1-TIMETRA-VRTR-MIB": [
       "vRtrID"
@@ -47,9 +47,9 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressPrefixLength",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "MPLS-LDP-MIB": [
       "MplsLabel"
@@ -61,34 +61,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "IpAddress",
-      "Bits",
-      "Integer32",
       "TimeTicks",
-      "OBJECT-IDENTITY",
-      "iso",
       "Unsigned32",
-      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Counter64",
+      "Integer32",
       "MODULE-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE"
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "TimeStamp",
       "DisplayString",
+      "DateAndTime",
       "RowStatus",
       "StorageType",
-      "TimeStamp",
-      "DateAndTime",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "MacAddress"
     ]
   },
@@ -14471,9 +14471,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-TIMETRA-OAM-TEST-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:36:58 2022",
-      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
-      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:11:33 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-TIMETRA-OAM-TEST-MIB"
   }

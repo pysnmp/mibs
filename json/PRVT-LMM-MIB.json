@@ -8,29 +8,29 @@
       "switch"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "iso",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "IpAddress",
-      "Gauge32",
       "Unsigned32",
-      "OBJECT-TYPE",
-      "Counter32",
+      "Integer32",
+      "iso",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
       "MibIdentifier",
-      "Counter64"
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter32",
+      "Counter64",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "prvtLmmMIB": {
@@ -620,9 +620,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binox/PRVT-LMM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:46:06 2022",
-      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
-      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:20:27 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PRVT-LMM-MIB"
   }

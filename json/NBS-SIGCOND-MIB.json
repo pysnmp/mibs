@@ -6,29 +6,29 @@
       "ifAlias"
     ],
     "NBS-MIB": [
-      "nbs",
+      "NbsTcMilliDb",
       "NbsTcMHz",
-      "NbsTcMilliDb"
+      "nbs"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
-      "iso",
-      "Unsigned32",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Bits",
+      "MibIdentifier",
       "Gauge32",
+      "Unsigned32",
       "IpAddress",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "TimeTicks",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1193,9 +1193,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-SIGCOND-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:34:49 2022",
-      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
-      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:09:25 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NBS-SIGCOND-MIB"
   }

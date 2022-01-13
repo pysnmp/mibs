@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "AC-FAULT-TC": [
+      "AcAlarmSeverity",
       "AcAlarmProbableCause",
-      "AcAlarmEventType",
-      "AcAlarmSeverity"
+      "AcAlarmEventType"
     ],
     "SNMP-FRAMEWORK-MIB": [
-      "SnmpAdminString",
-      "SnmpEngineID"
+      "SnmpEngineID",
+      "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Bits",
       "MibIdentifier",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "iso",
       "Gauge32",
-      "IpAddress",
       "enterprises",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "Bits",
+      "iso",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Integer32",
       "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
       "RowStatus",
-      "TimeStamp",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "DateAndTime",
+      "TimeStamp"
     ]
   },
   "audioCodes": {
@@ -569,9 +569,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AC-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:08:58 2022",
-      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
-      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Jan 13 22:44:01 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AcAlarm"
   }

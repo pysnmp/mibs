@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module PRVT-SWITCH-FIB-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-SWITCH-FIB-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 21:46:12 2022
-# On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner
-# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan 13 23:20:34 2022
+# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 ipNetToMediaNetAddress, ipNetToMediaPhysAddress, ipNetToMediaIfIndex = mibBuilder.importSymbols("IP-MIB", "ipNetToMediaNetAddress", "ipNetToMediaPhysAddress", "ipNetToMediaIfIndex")
 ipSwitch, = mibBuilder.importSymbols("PRVT-SWITCH-MIB", "ipSwitch")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, ObjectIdentity, MibIdentifier, TimeTicks, Counter64, IpAddress, iso, Counter32, Unsigned32, Integer32, Gauge32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "ObjectIdentity", "MibIdentifier", "TimeTicks", "Counter64", "IpAddress", "iso", "Counter32", "Unsigned32", "Integer32", "Gauge32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
-TruthValue, RowStatus, TextualConvention, DisplayString, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString", "MacAddress")
+MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Unsigned32, TimeTicks, NotificationType, Counter64, ObjectIdentity, Counter32, Gauge32, ModuleIdentity, Integer32, iso, Bits, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Unsigned32", "TimeTicks", "NotificationType", "Counter64", "ObjectIdentity", "Counter32", "Gauge32", "ModuleIdentity", "Integer32", "iso", "Bits", "IpAddress")
+DisplayString, RowStatus, TextualConvention, TruthValue, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention", "TruthValue", "MacAddress")
 prvtSwitchFIBMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 738, 1, 6, 3))
 prvtSwitchFIBMib.setRevisions(('2008-01-01 00:00', '2005-02-18 00:00', '2003-05-08 00:00', '2002-05-21 09:59', '2001-01-21 09:59',))
 if mibBuilder.loadTexts: prvtSwitchFIBMib.setLastUpdated('200801010000Z')
@@ -52,4 +52,4 @@ prvtSwitchFIBMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 738, 1, 6, 3, 3, 2))
 prvtSwitchFIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 738, 1, 6, 3, 3, 2, 3)).setObjects(("PRVT-SWITCH-FIB-MIB", "newIP"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     prvtSwitchFIBNotificationGroup = prvtSwitchFIBNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("PRVT-SWITCH-FIB-MIB", fib=fib, fibNextHopMac=fibNextHopMac, prvtSwitchFIBConformance=prvtSwitchFIBConformance, fibDiscardabilty=fibDiscardabilty, fibDSCP=fibDSCP, fibVID=fibVID, PYSNMP_MODULE_ID=prvtSwitchFIBMib, fibIP=fibIP, fibPriority=fibPriority, fibNextHop=fibNextHop, prvtSwitchFIBMIBGroups=prvtSwitchFIBMIBGroups, fibRowStatus=fibRowStatus, fibOutPort=fibOutPort, fibEntry=fibEntry, fibTable=fibTable, fibProtocol=fibProtocol, fibMask=fibMask, prvtSwitchFIBNotifications=prvtSwitchFIBNotifications, prvtSwitchFIBMib=prvtSwitchFIBMib, prvtSwitchFIBNotificationGroup=prvtSwitchFIBNotificationGroup, newIP=newIP)
+mibBuilder.exportSymbols("PRVT-SWITCH-FIB-MIB", fib=fib, fibDiscardabilty=fibDiscardabilty, fibDSCP=fibDSCP, fibTable=fibTable, fibPriority=fibPriority, prvtSwitchFIBMIBGroups=prvtSwitchFIBMIBGroups, fibEntry=fibEntry, prvtSwitchFIBMib=prvtSwitchFIBMib, fibOutPort=fibOutPort, fibIP=fibIP, newIP=newIP, fibMask=fibMask, fibVID=fibVID, prvtSwitchFIBNotificationGroup=prvtSwitchFIBNotificationGroup, fibNextHop=fibNextHop, fibRowStatus=fibRowStatus, fibProtocol=fibProtocol, prvtSwitchFIBConformance=prvtSwitchFIBConformance, prvtSwitchFIBNotifications=prvtSwitchFIBNotifications, PYSNMP_MODULE_ID=prvtSwitchFIBMib, fibNextHopMac=fibNextHopMac)

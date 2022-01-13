@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module SL-CHASSIS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-CHASSIS-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 21:39:06 2022
-# On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner
-# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan 13 23:13:39 2022
+# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
+PerfIntervalCount, PerfCurrentCount, PerfTotalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfIntervalCount", "PerfCurrentCount", "PerfTotalCount")
 slMain, = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-iso, TimeTicks, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, ObjectIdentity, NotificationType, MibIdentifier, Integer32, Counter64, Counter32, Gauge32, Unsigned32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "TimeTicks", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "ObjectIdentity", "NotificationType", "MibIdentifier", "Integer32", "Counter64", "Counter32", "Gauge32", "Unsigned32", "IpAddress")
-TimeStamp, TextualConvention, PhysAddress, DisplayString, RowStatus, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TimeStamp", "TextualConvention", "PhysAddress", "DisplayString", "RowStatus", "TruthValue")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+MibIdentifier, iso, Integer32, ObjectIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, TimeTicks, Counter64, Gauge32, ModuleIdentity, Bits, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "iso", "Integer32", "ObjectIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "TimeTicks", "Counter64", "Gauge32", "ModuleIdentity", "Bits", "Counter32")
+TextualConvention, TimeStamp, TruthValue, PhysAddress, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "TruthValue", "PhysAddress", "RowStatus", "DisplayString")
 slChassis = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 18))
 if mibBuilder.loadTexts: slChassis.setLastUpdated('201305050000Z')
 if mibBuilder.loadTexts: slChassis.setOrganization('PacketLight Networks Ltd.')
@@ -67,4 +67,4 @@ slChassisSlotSshPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 18, 2, 1, 1
 if mibBuilder.loadTexts: slChassisSlotSshPort.setStatus('current')
 slChassisSlotSTL1Port = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 18, 2, 1, 1, 17), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: slChassisSlotSTL1Port.setStatus('current')
-mibBuilder.exportSymbols("SL-CHASSIS-MIB", slChassisSlotProductType=slChassisSlotProductType, slChassisInfoTopology=slChassisInfoTopology, slChassisSlotEntry=slChassisSlotEntry, slChassisSlotFtpPort=slChassisSlotFtpPort, slChassisSlotSysName=slChassisSlotSysName, slChassisSlotSnmp162MinPort=slChassisSlotSnmp162MinPort, slChassisSlotSnmp161Port=slChassisSlotSnmp161Port, slChassisInfoVrrpEnable=slChassisInfoVrrpEnable, slChassisSlotId=slChassisSlotId, slChassisSlotSTL1Port=slChassisSlotSTL1Port, slChassisInfoNodeRole=slChassisInfoNodeRole, slChassisSlotTable=slChassisSlotTable, slChassisInfo=slChassisInfo, slChassisSlotSshPort=slChassisSlotSshPort, slChassisInfoLanVrrpIp=slChassisInfoLanVrrpIp, slChassis=slChassis, slChassisSlotHttpsPort=slChassisSlotHttpsPort, slChassisSlotInternalIp=slChassisSlotInternalIp, slChassisSlot=slChassisSlot, slChassisInfoOscVrrpIp=slChassisInfoOscVrrpIp, slChassisSlotPingIdentifier=slChassisSlotPingIdentifier, slChassisInfoNodeSlotId=slChassisInfoNodeSlotId, slChassisSlotHttpPort=slChassisSlotHttpPort, slChassisSlotTelnetPort=slChassisSlotTelnetPort, slChassisSlotSnmp162MaxPort=slChassisSlotSnmp162MaxPort, PYSNMP_MODULE_ID=slChassis, slChassisSlotRole=slChassisSlotRole, slChassisSlotTL1Port=slChassisSlotTL1Port)
+mibBuilder.exportSymbols("SL-CHASSIS-MIB", slChassisSlotId=slChassisSlotId, slChassisSlotSnmp161Port=slChassisSlotSnmp161Port, slChassisInfoOscVrrpIp=slChassisInfoOscVrrpIp, slChassisSlot=slChassisSlot, slChassisSlotTelnetPort=slChassisSlotTelnetPort, slChassisSlotEntry=slChassisSlotEntry, slChassisSlotSnmp162MaxPort=slChassisSlotSnmp162MaxPort, slChassisSlotInternalIp=slChassisSlotInternalIp, slChassisSlotSTL1Port=slChassisSlotSTL1Port, slChassisInfoLanVrrpIp=slChassisInfoLanVrrpIp, slChassisSlotProductType=slChassisSlotProductType, slChassisInfoVrrpEnable=slChassisInfoVrrpEnable, PYSNMP_MODULE_ID=slChassis, slChassisSlotSysName=slChassisSlotSysName, slChassisSlotHttpsPort=slChassisSlotHttpsPort, slChassisInfoNodeSlotId=slChassisInfoNodeSlotId, slChassisInfo=slChassisInfo, slChassisSlotTable=slChassisSlotTable, slChassisSlotPingIdentifier=slChassisSlotPingIdentifier, slChassisInfoTopology=slChassisInfoTopology, slChassisSlotSshPort=slChassisSlotSshPort, slChassisSlotRole=slChassisSlotRole, slChassis=slChassis, slChassisSlotTL1Port=slChassisSlotTL1Port, slChassisSlotHttpPort=slChassisSlotHttpPort, slChassisInfoNodeRole=slChassisInfoNodeRole, slChassisSlotFtpPort=slChassisSlotFtpPort, slChassisSlotSnmp162MinPort=slChassisSlotSnmp162MinPort)

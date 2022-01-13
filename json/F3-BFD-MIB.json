@@ -9,11 +9,11 @@
       "bfdSessEntry"
     ],
     "CM-COMMON-MIB": [
+      "VlanId",
+      "SecondaryState",
       "AdminState",
       "VlanPriority",
-      "SecondaryState",
-      "OperationalState",
-      "VlanId"
+      "OperationalState"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
@@ -21,8 +21,8 @@
     "F3-L3-MIB": [
       "f3L3TrafficIPInterfaceEntry",
       "f3VrfEntry",
-      "f3L3TrafficBgpPeerEntry",
-      "f3L3TrafficOspfInterfaceEntry"
+      "f3L3TrafficOspfInterfaceEntry",
+      "f3L3TrafficBgpPeerEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
       "IANAbfdSessStateTC"
@@ -31,33 +31,33 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Unsigned32",
       "TimeTicks",
+      "IpAddress",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
       "iso",
-      "OBJECT-IDENTITY",
+      "Counter64",
       "MibIdentifier",
       "Integer32",
       "Counter32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress",
       "OBJECT-TYPE",
-      "Gauge32",
-      "NOTIFICATION-TYPE"
+      "Unsigned32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "StorageType",
+      "VariablePointer",
       "TruthValue",
+      "StorageType",
       "DisplayString",
-      "VariablePointer"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3BfdMIB": {
@@ -808,9 +808,9 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.8 at Tue Jan 11 21:06:30 2022",
-      "On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner",
-      "Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]"
+      "Produced by pysmi-1.1.8 at Thu Jan 13 22:41:35 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-BFD-MIB"
   }

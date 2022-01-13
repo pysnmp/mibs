@@ -1,0 +1,393 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "PerfHist-TC-MIB": [
+      "PerfIntervalCount",
+      "PerfTotalCount",
+      "PerfCurrentCount"
+    ],
+    "SL-NE-MIB": [
+      "sitelight"
+    ],
+    "SNMPv2-CONF": [
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "TimeTicks",
+      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "Bits",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus"
+    ]
+  },
+  "slDryConMib": {
+    "name": "slDryConMib",
+    "oid": "1.3.6.1.4.1.4515.1.7",
+    "class": "moduleidentity"
+  },
+  "slDryConOut": {
+    "name": "slDryConOut",
+    "oid": "1.3.6.1.4.1.4515.1.7.1",
+    "class": "objectidentity"
+  },
+  "slDryConIn": {
+    "name": "slDryConIn",
+    "oid": "1.3.6.1.4.1.4515.1.7.2",
+    "class": "objectidentity"
+  },
+  "slDryConTraps": {
+    "name": "slDryConTraps",
+    "oid": "1.3.6.1.4.1.4515.1.7.3",
+    "class": "objectidentity"
+  },
+  "slDryConAlarmCutoff": {
+    "name": "slDryConAlarmCutoff",
+    "oid": "1.3.6.1.4.1.4515.1.7.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dummy": 1
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slDryConOutTable": {
+    "name": "slDryConOutTable",
+    "oid": "1.3.6.1.4.1.4515.1.7.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slDryConOutEntry": {
+    "name": "slDryConOutEntry",
+    "oid": "1.3.6.1.4.1.4515.1.7.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-DRY-CON-MIB",
+        "object": "slDryConOutIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slDryConOutIndex": {
+    "name": "slDryConOutIndex",
+    "oid": "1.3.6.1.4.1.4515.1.7.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slDryConOutCommand": {
+    "name": "slDryConOutCommand",
+    "oid": "1.3.6.1.4.1.4515.1.7.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activate": 1,
+          "deactivate": 2,
+          "clear": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slDryConOutActiveStatus": {
+    "name": "slDryConOutActiveStatus",
+    "oid": "1.3.6.1.4.1.4515.1.7.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slDryConLastChange": {
+    "name": "slDryConLastChange",
+    "oid": "1.3.6.1.4.1.4515.1.7.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dummy": 1
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slDryConInTable": {
+    "name": "slDryConInTable",
+    "oid": "1.3.6.1.4.1.4515.1.7.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slDryConInEntry": {
+    "name": "slDryConInEntry",
+    "oid": "1.3.6.1.4.1.4515.1.7.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SL-DRY-CON-MIB",
+        "object": "slDryConInIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slDryConInIndex": {
+    "name": "slDryConInIndex",
+    "oid": "1.3.6.1.4.1.4515.1.7.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slDryConInDescription": {
+    "name": "slDryConInDescription",
+    "oid": "1.3.6.1.4.1.4515.1.7.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slDryConInSeverity": {
+    "name": "slDryConInSeverity",
+    "oid": "1.3.6.1.4.1.4515.1.7.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 1,
+          "major": 2,
+          "minor": 3,
+          "cleared": 4,
+          "notification": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slDryConInEnable": {
+    "name": "slDryConInEnable",
+    "oid": "1.3.6.1.4.1.4515.1.7.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enable": 1,
+          "disable": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slDryConInPolarity": {
+    "name": "slDryConInPolarity",
+    "oid": "1.3.6.1.4.1.4515.1.7.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "activeClose": 1,
+          "activeOpen": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slDryConInStatus": {
+    "name": "slDryConInStatus",
+    "oid": "1.3.6.1.4.1.4515.1.7.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slDryConInAlmType": {
+    "name": "slDryConInAlmType",
+    "oid": "1.3.6.1.4.1.4515.1.7.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aircompr": 1,
+          "aircond": 2,
+          "airdryd": 3,
+          "batdschrg": 4,
+          "battery": 5,
+          "clfan": 6,
+          "cpmajor": 7,
+          "cpminor": 8,
+          "engine": 9,
+          "engoprg": 10,
+          "explgs": 11,
+          "firdetr": 12,
+          "fire": 13,
+          "flood": 14,
+          "fuse": 15,
+          "gen": 16,
+          "hiair": 17,
+          "hihum": 18,
+          "hitemp": 19,
+          "hiwtr": 20,
+          "intruder": 21,
+          "lwbatvg": 22,
+          "lwfuel": 23,
+          "lwhum": 24,
+          "lwpres": 25,
+          "lwtemp": 26,
+          "lwwtr": 27,
+          "misc": 28,
+          "opendr": 29,
+          "pump": 30,
+          "power": 31,
+          "pwrX": 32,
+          "rect": 33,
+          "recthi": 34,
+          "rectlo": 35,
+          "smoke": 36,
+          "toxicgas": 37,
+          "ventn": 38
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slDryConStatusChangeTrap": {
+    "name": "slDryConStatusChangeTrap",
+    "oid": "1.3.6.1.4.1.4515.1.7.3.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SL-DRY-CON-MIB",
+        "object": "slDryConInIndex"
+      },
+      {
+        "module": "SL-DRY-CON-MIB",
+        "object": "slDryConInStatus"
+      },
+      {
+        "module": "SL-DRY-CON-MIB",
+        "object": "slDryConInAlmType"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-EDFA-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:13:43 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "SL-DRY-CON-MIB"
+  }
+}

@@ -1,0 +1,780 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "Unsigned32",
+      "Bits",
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "Integer32",
+      "OBJECT-TYPE",
+      "iso",
+      "Gauge32",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
+    ]
+  },
+  "avamar": {
+    "name": "avamar",
+    "oid": "1.3.6.1.4.1.15597",
+    "class": "objectidentity"
+  },
+  "software": {
+    "name": "software",
+    "oid": "1.3.6.1.4.1.15597.1",
+    "class": "objectidentity"
+  },
+  "mcs": {
+    "name": "mcs",
+    "oid": "1.3.6.1.4.1.15597.1.1",
+    "class": "objectidentity"
+  },
+  "event": {
+    "name": "event",
+    "oid": "1.3.6.1.4.1.15597.1.1.1",
+    "class": "objectidentity"
+  },
+  "eventTraps": {
+    "name": "eventTraps",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.1",
+    "class": "objectidentity"
+  },
+  "eventData": {
+    "name": "eventData",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "burm": {
+    "name": "burm",
+    "oid": "1.3.6.1.4.1.15597.1.1.2",
+    "class": "objectidentity"
+  },
+  "burmTraps": {
+    "name": "burmTraps",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.1",
+    "class": "objectidentity"
+  },
+  "burmLastActivityData": {
+    "name": "burmLastActivityData",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2",
+    "class": "objectidentity"
+  },
+  "burmSchedulerData": {
+    "name": "burmSchedulerData",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.3",
+    "class": "objectidentity"
+  },
+  "dpn": {
+    "name": "dpn",
+    "oid": "1.3.6.1.4.1.15597.1.1.3",
+    "class": "objectidentity"
+  },
+  "dpnTraps": {
+    "name": "dpnTraps",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.1",
+    "class": "objectidentity"
+  },
+  "dpnData": {
+    "name": "dpnData",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2",
+    "class": "objectidentity"
+  },
+  "eventTrap": {
+    "name": "eventTrap",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "eventCode"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "eventTimestamp"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "eventCategory"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "eventType"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "eventSummary"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "eventHwSource"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "eventSwSource"
+      }
+    ]
+  },
+  "testEventTrap": {
+    "name": "testEventTrap",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.10.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "eventCode"
+      }
+    ]
+  },
+  "eventCode": {
+    "name": "eventCode",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventTimestamp": {
+    "name": "eventTimestamp",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventCategory": {
+    "name": "eventCategory",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventType": {
+    "name": "eventType",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventSummary": {
+    "name": "eventSummary",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventHwSource": {
+    "name": "eventHwSource",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "eventSwSource": {
+    "name": "eventSwSource",
+    "oid": "1.3.6.1.4.1.15597.1.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "burmActivityTrap": {
+    "name": "burmActivityTrap",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.10.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityClient"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityDomain"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityGroup"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityPlugInName"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityType"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityDataset"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivitySchedule"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityRetentionPolicy"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityBytesScanned"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityBytesModifiedSent"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityStatusCode"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityErrorCode"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityBackupLabel"
+      },
+      {
+        "module": "AVAMAR-MCS-MIB",
+        "object": "lastActivityBackupNumber"
+      }
+    ]
+  },
+  "lastActivityClient": {
+    "name": "lastActivityClient",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityDomain": {
+    "name": "lastActivityDomain",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityGroup": {
+    "name": "lastActivityGroup",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityPlugInName": {
+    "name": "lastActivityPlugInName",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityType": {
+    "name": "lastActivityType",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityDataset": {
+    "name": "lastActivityDataset",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivitySchedule": {
+    "name": "lastActivitySchedule",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityRetentionPolicy": {
+    "name": "lastActivityRetentionPolicy",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityBytesScanned": {
+    "name": "lastActivityBytesScanned",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityBytesModifiedSent": {
+    "name": "lastActivityBytesModifiedSent",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityStatusCode": {
+    "name": "lastActivityStatusCode",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityErrorCode": {
+    "name": "lastActivityErrorCode",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityBackupLabel": {
+    "name": "lastActivityBackupLabel",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastActivityBackupNumber": {
+    "name": "lastActivityBackupNumber",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "schedulerStatus": {
+    "name": "schedulerStatus",
+    "oid": "1.3.6.1.4.1.15597.1.1.2.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "suspended": 1,
+          "running": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "serverStatus": {
+    "name": "serverStatus",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unsupported": 1,
+          "inactive": 2,
+          "offline": 3,
+          "suspended": 4,
+          "adminreadonly": 5,
+          "adminonly": 6,
+          "readonly": 7,
+          "synchronizing": 8,
+          "admin": 9,
+          "fullaccess": 10,
+          "degraded": 11,
+          "ddrinactive": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "activeSessions": {
+    "name": "activeSessions",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "freeMegabytes": {
+    "name": "freeMegabytes",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "reservedMegabytes": {
+    "name": "reservedMegabytes",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "utilization": {
+    "name": "utilization",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "protectedMegabytes": {
+    "name": "protectedMegabytes",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastCheckpoint": {
+    "name": "lastCheckpoint",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "lastValidatedCheckpoint": {
+    "name": "lastValidatedCheckpoint",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "timeSinceLastCheckpoint": {
+    "name": "timeSinceLastCheckpoint",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "timeSinceLastValidatedCheckpoint": {
+    "name": "timeSinceLastValidatedCheckpoint",
+    "oid": "1.3.6.1.4.1.15597.1.1.3.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avamar/AVAMAR-MCS-MIB",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 22:44:05 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "AVAMAR-MCS-MIB"
+  }
+}

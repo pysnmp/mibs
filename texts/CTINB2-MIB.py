@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module CTINB2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTINB2-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 21:21:46 2022
-# On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner
-# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan 13 22:56:37 2022
+# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint")
 ctINBinfo2, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctINBinfo2")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-TimeTicks, Bits, Gauge32, Unsigned32, IpAddress, NotificationType, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Counter64, ObjectIdentity, Counter32, ModuleIdentity, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "Gauge32", "Unsigned32", "IpAddress", "NotificationType", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Counter64", "ObjectIdentity", "Counter32", "ModuleIdentity", "Integer32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Gauge32, ObjectIdentity, Integer32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Bits, iso, Unsigned32, Counter32, TimeTicks, ModuleIdentity, IpAddress, Counter64 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ObjectIdentity", "Integer32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Bits", "iso", "Unsigned32", "Counter32", "TimeTicks", "ModuleIdentity", "IpAddress", "Counter64")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ctInbUtil = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 12, 2, 1))
 ctInbUtilInterval = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 12, 2, 1, 1), Integer32().clone(1)).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: ctInbUtilInterval.setStatus('mandatory')
@@ -49,4 +49,4 @@ if mibBuilder.loadTexts: ctInbUtilAbsoluteB.setDescription('The percentage of ab
 ctInbUtilAbsoluteTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 1, 2, 12, 2, 1, 2, 1, 9), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ctInbUtilAbsoluteTotal.setStatus('mandatory')
 if mibBuilder.loadTexts: ctInbUtilAbsoluteTotal.setDescription('The percentage of absolute utilization of the total INB by data transferred\n            from the source module to the destination module during the last sampling\n            interval.  This percentage is calculated by dividing the sum of\n            ctInbUtilByteCountA and ctInbUtilByteCountB by the theoretical maximum number\n            of bytes that could have traversed both INB channels during the interval.\n            Note that in order to increase precision, the value of this object is the\n            actual percentage multiplied by 100 (that is, to determine the actual\n            percentage, divide the value of this object by 100).')
-mibBuilder.exportSymbols("CTINB2-MIB", ctInbUtil=ctInbUtil, ctInbUtilHiByteCountB=ctInbUtilHiByteCountB, ctInbUtilAbsoluteA=ctInbUtilAbsoluteA, ctInbUtilHiByteCountA=ctInbUtilHiByteCountA, ctInbUtilDestSlot=ctInbUtilDestSlot, ctInbUtilLoByteCountB=ctInbUtilLoByteCountB, ctInbUtilSrcSlot=ctInbUtilSrcSlot, ctInbUtilTable=ctInbUtilTable, ctInbUtilAbsoluteB=ctInbUtilAbsoluteB, ctInbUtilInterval=ctInbUtilInterval, ctInbUtilLoByteCountA=ctInbUtilLoByteCountA, ctInbUtilEntry=ctInbUtilEntry, ctInbUtilAbsoluteTotal=ctInbUtilAbsoluteTotal)
+mibBuilder.exportSymbols("CTINB2-MIB", ctInbUtilEntry=ctInbUtilEntry, ctInbUtil=ctInbUtil, ctInbUtilInterval=ctInbUtilInterval, ctInbUtilAbsoluteB=ctInbUtilAbsoluteB, ctInbUtilHiByteCountB=ctInbUtilHiByteCountB, ctInbUtilHiByteCountA=ctInbUtilHiByteCountA, ctInbUtilDestSlot=ctInbUtilDestSlot, ctInbUtilTable=ctInbUtilTable, ctInbUtilLoByteCountB=ctInbUtilLoByteCountB, ctInbUtilSrcSlot=ctInbUtilSrcSlot, ctInbUtilAbsoluteA=ctInbUtilAbsoluteA, ctInbUtilLoByteCountA=ctInbUtilLoByteCountA, ctInbUtilAbsoluteTotal=ctInbUtilAbsoluteTotal)

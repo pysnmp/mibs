@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module ALCATEL-IND1-VLAN-MGR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/aos7/ALCATEL-IND1-VLAN-MGR-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 21:37:29 2022
-# On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner
-# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan 13 23:12:02 2022
+# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 softentIND1VlanMgt, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1VlanMgt")
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-ObjectIdentity, Gauge32, NotificationType, MibIdentifier, ModuleIdentity, Unsigned32, Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Counter32, TimeTicks, Integer32, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Gauge32", "NotificationType", "MibIdentifier", "ModuleIdentity", "Unsigned32", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Counter32", "TimeTicks", "Integer32", "iso")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+Gauge32, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32, iso, Integer32, TimeTicks, NotificationType, MibIdentifier, IpAddress, Counter32, Bits, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32", "iso", "Integer32", "TimeTicks", "NotificationType", "MibIdentifier", "IpAddress", "Counter32", "Bits", "ObjectIdentity")
 RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
 alcatelIND1VLANMgrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 3, 1))
 alcatelIND1VLANMgrMIB.setRevisions(('2007-04-03 00:00',))
@@ -123,4 +123,4 @@ vlanMgrVlanSetGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 3, 1, 2
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vlanMgrVlanSetGroup = vlanMgrVlanSetGroup.setStatus('current')
 if mibBuilder.loadTexts: vlanMgrVlanSetGroup.setDescription('Collection of objects for Vlan Manager global properties.')
-mibBuilder.exportSymbols("ALCATEL-IND1-VLAN-MGR-MIB", vlanNumber=vlanNumber, vlanAfdCfg=vlanAfdCfg, vlanMgrVpaGroup=vlanMgrVpaGroup, vlanMgrVlanSetGroup=vlanMgrVlanSetGroup, alcatelIND1VLANMgrMIBObjects=alcatelIND1VLANMgrMIBObjects, alcatelIND1VLANMgrMIBCompliance=alcatelIND1VLANMgrMIBCompliance, vlanDescription=vlanDescription, vlanEntry=vlanEntry, vlanMgrVlan=vlanMgrVlan, vlanSetVstkVlanCount=vlanSetVstkVlanCount, vpaState=vpaState, alcatelIND1VLANMgrMIBGroups=alcatelIND1VLANMgrMIBGroups, vlanOperStatus=vlanOperStatus, vlanType=vlanType, vlanSetDynamicVlanCount=vlanSetDynamicVlanCount, vpaTable=vpaTable, vlanSrcLearningStatus=vlanSrcLearningStatus, vlanSetIpRouterCount=vlanSetIpRouterCount, alcatelIND1VLANMgrMIBCompliances=alcatelIND1VLANMgrMIBCompliances, vlanAdmStatus=vlanAdmStatus, vlanMgrVlanGroup=vlanMgrVlanGroup, alcatelIND1VLANMgrMIB=alcatelIND1VLANMgrMIB, vpaVlanNumber=vpaVlanNumber, vlanTable=vlanTable, vlanRouterStatus=vlanRouterStatus, vlanMtu=vlanMtu, vpaEntry=vpaEntry, PYSNMP_MODULE_ID=alcatelIND1VLANMgrMIB, vlanSetVlanCount=vlanSetVlanCount, vlanMgrVpa=vlanMgrVpa, vlanStatus=vlanStatus, alcatelIND1VLANMgrMIBConformance=alcatelIND1VLANMgrMIBConformance, vlanMgrVlanSet=vlanMgrVlanSet, vpaType=vpaType, vpaIfIndex=vpaIfIndex, vpaStatus=vpaStatus)
+mibBuilder.exportSymbols("ALCATEL-IND1-VLAN-MGR-MIB", vlanDescription=vlanDescription, vlanOperStatus=vlanOperStatus, vlanSetIpRouterCount=vlanSetIpRouterCount, vlanSetVlanCount=vlanSetVlanCount, vlanStatus=vlanStatus, vlanMgrVpa=vlanMgrVpa, vpaIfIndex=vpaIfIndex, vlanMgrVlan=vlanMgrVlan, alcatelIND1VLANMgrMIBConformance=alcatelIND1VLANMgrMIBConformance, alcatelIND1VLANMgrMIBCompliance=alcatelIND1VLANMgrMIBCompliance, vlanNumber=vlanNumber, vlanMtu=vlanMtu, alcatelIND1VLANMgrMIBCompliances=alcatelIND1VLANMgrMIBCompliances, PYSNMP_MODULE_ID=alcatelIND1VLANMgrMIB, vlanMgrVpaGroup=vlanMgrVpaGroup, vlanSrcLearningStatus=vlanSrcLearningStatus, vlanMgrVlanSet=vlanMgrVlanSet, alcatelIND1VLANMgrMIB=alcatelIND1VLANMgrMIB, vlanType=vlanType, vpaType=vpaType, vlanMgrVlanGroup=vlanMgrVlanGroup, vpaTable=vpaTable, vpaEntry=vpaEntry, vlanSetDynamicVlanCount=vlanSetDynamicVlanCount, alcatelIND1VLANMgrMIBGroups=alcatelIND1VLANMgrMIBGroups, vlanAfdCfg=vlanAfdCfg, vlanTable=vlanTable, vlanEntry=vlanEntry, vpaVlanNumber=vpaVlanNumber, vpaState=vpaState, vlanRouterStatus=vlanRouterStatus, vpaStatus=vpaStatus, alcatelIND1VLANMgrMIBObjects=alcatelIND1VLANMgrMIBObjects, vlanMgrVlanSetGroup=vlanMgrVlanSetGroup, vlanSetVstkVlanCount=vlanSetVstkVlanCount, vlanAdmStatus=vlanAdmStatus)

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module RTM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/RTM-MIB
-# Produced by pysmi-1.1.8 at Tue Jan 11 21:04:52 2022
-# On host fv-az74-997 platform Linux version 5.11.0-1022-azure by user runner
-# Using Python version 3.10.1 (main, Dec 14 2021, 13:12:05) [GCC 9.3.0]
+# Produced by pysmi-1.1.8 at Thu Jan 13 22:39:58 2022
+# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection")
+SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
 stratacom, = mibBuilder.importSymbols("CISCOWAN-SMI", "stratacom")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, ObjectIdentity, MibIdentifier, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, NotificationType, Gauge32, ModuleIdentity, Counter32, Bits, iso, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "ObjectIdentity", "MibIdentifier", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "NotificationType", "Gauge32", "ModuleIdentity", "Counter32", "Bits", "iso", "IpAddress")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, iso, NotificationType, MibIdentifier, Gauge32, Unsigned32, ModuleIdentity, TimeTicks, IpAddress, ObjectIdentity, Counter64, Counter32, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "iso", "NotificationType", "MibIdentifier", "Gauge32", "Unsigned32", "ModuleIdentity", "TimeTicks", "IpAddress", "ObjectIdentity", "Counter64", "Counter32", "Integer32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 rtm = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 120))
 trapsConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 120, 1))
@@ -52,4 +52,4 @@ recoverTrapSequenceNum = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 120, 1, 5, 1, 1)
 if mibBuilder.loadTexts: recoverTrapSequenceNum.setStatus('mandatory')
 recoverTrapPduString = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 120, 1, 5, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 512))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: recoverTrapPduString.setStatus('mandatory')
-mibBuilder.exportSymbols("RTM-MIB", recoverTrapSequenceNum=recoverTrapSequenceNum, readingTrapsFlag=readingTrapsFlag, recoverTrapTable=recoverTrapTable, nextTrapSeqNum=nextTrapSeqNum, managerPortNumber=managerPortNumber, trapsConfig=trapsConfig, managerRowStatus=managerRowStatus, trapManagerIPaddress=trapManagerIPaddress, trapPduString=trapPduString, trapSequenceNum=trapSequenceNum, managerNumOfValidEntries=managerNumOfValidEntries, trapConfigEntry=trapConfigEntry, recoverTrapPduString=recoverTrapPduString, managerIPaddress=managerIPaddress, endOfQueueFlag=endOfQueueFlag, trapConfigTable=trapConfigTable, trapUploadEntry=trapUploadEntry, trapUploadTable=trapUploadTable, lastSequenceNumber=lastSequenceNumber, recoverTrapEntry=recoverTrapEntry, rtm=rtm)
+mibBuilder.exportSymbols("RTM-MIB", trapManagerIPaddress=trapManagerIPaddress, trapPduString=trapPduString, managerPortNumber=managerPortNumber, recoverTrapSequenceNum=recoverTrapSequenceNum, lastSequenceNumber=lastSequenceNumber, readingTrapsFlag=readingTrapsFlag, trapSequenceNum=trapSequenceNum, endOfQueueFlag=endOfQueueFlag, trapConfigTable=trapConfigTable, managerRowStatus=managerRowStatus, rtm=rtm, trapUploadEntry=trapUploadEntry, nextTrapSeqNum=nextTrapSeqNum, recoverTrapTable=recoverTrapTable, trapConfigEntry=trapConfigEntry, trapsConfig=trapsConfig, recoverTrapEntry=recoverTrapEntry, recoverTrapPduString=recoverTrapPduString, managerIPaddress=managerIPaddress, managerNumOfValidEntries=managerNumOfValidEntries, trapUploadTable=trapUploadTable)
