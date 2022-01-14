@@ -5,44 +5,44 @@
       "softentIND1Dot3Oam"
     ],
     "DOT3-OAM-MIB": [
-      "dot3OamEventLogLocation",
-      "dot3OamEventLogValue",
-      "dot3OamEventLogEventTotal",
       "dot3OamLoopbackEntry",
       "dot3OamEventLogType",
+      "dot3OamEventLogEventTotal",
+      "dot3OamEntry",
+      "dot3OamEventLogRunningTotal",
       "dot3OamEventLogTimestamp",
       "dot3OamEventLogOui",
+      "dot3OamStatsEntry",
       "dot3OamEventLogWindowLo",
       "dot3OamEventLogThresholdHi",
       "dot3OamEventLogThresholdLo",
-      "dot3OamStatsEntry",
       "dot3OamEventLogWindowHi",
-      "dot3OamEntry",
-      "dot3OamEventLogRunningTotal"
+      "dot3OamEventLogValue",
+      "dot3OamEventLogLocation"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "iso",
-      "Bits",
-      "Counter64",
       "MODULE-IDENTITY",
-      "Integer32",
+      "TimeTicks",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "IpAddress",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Counter32"
+      "OBJECT-TYPE",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1082,8 +1082,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-DOT3-OAM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:11:30 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:55:37 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ALCATEL-IND1-DOT3-OAM-MIB"

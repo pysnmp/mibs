@@ -8,10 +8,10 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
-      "InetAddressPrefixLength",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -21,28 +21,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Unsigned32",
       "TimeTicks",
+      "Gauge32",
+      "Counter32",
+      "Integer32",
+      "OBJECT-TYPE",
       "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "iso",
-      "Gauge32",
-      "Bits",
-      "OBJECT-TYPE",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Integer32"
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "TruthValue",
+      "RowStatus",
+      "MacAddress",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3cLI": {
@@ -993,8 +993,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-LI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 22:51:58 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:41:12 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HH3C-LI-MIB"

@@ -5,25 +5,25 @@
       "Timeticks"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "enterprises",
       "Integer32",
-      "Unsigned32",
+      "TimeTicks",
       "MODULE-IDENTITY",
-      "Gauge32",
+      "Unsigned32",
       "Counter64",
-      "MibIdentifier",
+      "IpAddress",
+      "Counter32",
       "iso",
       "NOTIFICATION-TYPE",
-      "Counter32",
-      "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Bits"
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -379,8 +379,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-MPE-XL",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:02:12 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:48:55 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HP-MPE-XL"

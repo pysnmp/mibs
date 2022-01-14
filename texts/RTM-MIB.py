@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module RTM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/RTM-MIB
-# Produced by pysmi-1.1.8 at Thu Jan 13 22:40:13 2022
-# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan 13 23:32:41 2022
+# On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
 stratacom, = mibBuilder.importSymbols("CISCOWAN-SMI", "stratacom")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, Bits, Counter64, NotificationType, iso, Gauge32, ObjectIdentity, Unsigned32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, TimeTicks, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "Bits", "Counter64", "NotificationType", "iso", "Gauge32", "ObjectIdentity", "Unsigned32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "TimeTicks", "ModuleIdentity")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, ObjectIdentity, iso, IpAddress, Unsigned32, ModuleIdentity, Counter32, Counter64, Gauge32, TimeTicks, Bits, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "ObjectIdentity", "iso", "IpAddress", "Unsigned32", "ModuleIdentity", "Counter32", "Counter64", "Gauge32", "TimeTicks", "Bits", "MibIdentifier")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 rtm = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 120))
 trapsConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 120, 1))
 trapConfigTable = MibTable((1, 3, 6, 1, 4, 1, 351, 120, 1, 1), )
@@ -71,4 +71,4 @@ if mibBuilder.loadTexts: recoverTrapSequenceNum.setDescription("The sequence num
 recoverTrapPduString = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 120, 1, 5, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 512))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: recoverTrapPduString.setStatus('mandatory')
 if mibBuilder.loadTexts: recoverTrapPduString.setDescription('Trap description string. This contains the Trap PDU\n         that is stored in the system.')
-mibBuilder.exportSymbols("RTM-MIB", recoverTrapSequenceNum=recoverTrapSequenceNum, readingTrapsFlag=readingTrapsFlag, trapsConfig=trapsConfig, lastSequenceNumber=lastSequenceNumber, trapUploadEntry=trapUploadEntry, managerIPaddress=managerIPaddress, managerNumOfValidEntries=managerNumOfValidEntries, trapPduString=trapPduString, trapConfigEntry=trapConfigEntry, rtm=rtm, trapConfigTable=trapConfigTable, endOfQueueFlag=endOfQueueFlag, recoverTrapEntry=recoverTrapEntry, nextTrapSeqNum=nextTrapSeqNum, trapSequenceNum=trapSequenceNum, recoverTrapPduString=recoverTrapPduString, recoverTrapTable=recoverTrapTable, trapUploadTable=trapUploadTable, managerRowStatus=managerRowStatus, trapManagerIPaddress=trapManagerIPaddress, managerPortNumber=managerPortNumber)
+mibBuilder.exportSymbols("RTM-MIB", managerRowStatus=managerRowStatus, trapSequenceNum=trapSequenceNum, managerNumOfValidEntries=managerNumOfValidEntries, trapUploadTable=trapUploadTable, trapPduString=trapPduString, trapsConfig=trapsConfig, recoverTrapSequenceNum=recoverTrapSequenceNum, rtm=rtm, endOfQueueFlag=endOfQueueFlag, nextTrapSeqNum=nextTrapSeqNum, trapConfigTable=trapConfigTable, lastSequenceNumber=lastSequenceNumber, trapConfigEntry=trapConfigEntry, recoverTrapTable=recoverTrapTable, trapManagerIPaddress=trapManagerIPaddress, recoverTrapEntry=recoverTrapEntry, recoverTrapPduString=recoverTrapPduString, trapUploadEntry=trapUploadEntry, managerPortNumber=managerPortNumber, managerIPaddress=managerIPaddress, readingTrapsFlag=readingTrapsFlag)

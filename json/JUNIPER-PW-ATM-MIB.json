@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ATM-TC-MIB": [
-      "AtmVpIdentifier",
-      "AtmVcIdentifier"
+      "AtmVcIdentifier",
+      "AtmVpIdentifier"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -12,41 +12,41 @@
       "jnxMibs"
     ],
     "JUNIPER-VPN-MIB": [
-      "jnxVpnPwVpnName",
       "jnxVpnPwIndex",
+      "jnxVpnPwVpnName",
       "jnxVpnPwVpnType"
     ],
     "PerfHist-TC-MIB": [
-      "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfCurrentCount",
+      "PerfIntervalCount"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter32",
       "TimeTicks",
       "MibIdentifier",
-      "Counter32",
-      "mib-2",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
       "Bits",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "iso",
-      "IpAddress",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
       "TruthValue",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "RowPointer",
+      "RowStatus",
       "DisplayString"
     ]
   },
@@ -902,8 +902,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junos/JUNIPER-PW-ATM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:06:50 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:52:23 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "JUNIPER-PW-ATM-MIB"

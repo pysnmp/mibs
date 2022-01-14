@@ -12,33 +12,33 @@
       "PhysicalIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Gauge32",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MODULE-IDENTITY",
-      "iso",
-      "Counter64",
-      "MibIdentifier",
-      "Integer32",
-      "Counter32",
       "OBJECT-TYPE",
+      "Integer32",
+      "TimeTicks",
+      "Bits",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "RowStatus",
       "VariablePointer",
       "TruthValue",
-      "StorageType",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "StorageType"
     ]
   },
   "cmRedundancyMIB": {
@@ -480,8 +480,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 22:41:36 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:33:40 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CM-REDUNDANCY-MIB"

@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "PAN-GLOBAL-REG": [
-      "panModules",
-      "panProductsMibs"
+      "panProductsMibs",
+      "panModules"
     ],
     "PAN-PRODUCTS-MIB": [
       "panM-100"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "Unsigned32",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
+      "Counter32",
       "Counter64",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Bits",
+      "Gauge32",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "panLogCollectorMibsModule": {
@@ -270,8 +270,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/paloaltonetworks/PAN-LC-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:13:49 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:57:15 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PAN-LC-MIB"

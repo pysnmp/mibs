@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "Integer32",
-      "Gauge32",
-      "iso",
       "MODULE-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "enterprises",
+      "MibIdentifier",
+      "TimeTicks",
+      "Bits",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
       "Counter64",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "IpAddress",
-      "MibIdentifier",
-      "Unsigned32",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
@@ -17457,8 +17457,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/drac/IDRAC-MIB-SMIv2",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 22:54:52 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:43:17 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IDRAC-MIB-SMIv2"

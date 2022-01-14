@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "Gauge32",
+      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "enterprises",
       "Counter64",
-      "TimeTicks",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "iso",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "Bits",
+      "iso",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "freeNas": {
@@ -926,8 +926,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixsystems/FREENAS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:06:08 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:51:52 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "FREENAS-MIB"

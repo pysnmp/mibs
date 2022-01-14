@@ -2,53 +2,53 @@
   "imports": {
     "class": "imports",
     "FORTINET-CORE-MIB": [
-      "fnAdminEntry",
       "FnIndex",
       "fnSysSerial",
-      "FnBoolState",
-      "fortinet"
+      "fnAdminEntry",
+      "fortinet",
+      "FnBoolState"
     ],
     "HCNUM-TC": [
       "CounterBasedGauge64"
     ],
     "IF-MIB": [
-      "ifName",
-      "ifEntry"
+      "ifEntry",
+      "ifName"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
       "InetAddressPrefixLength",
+      "InetAddressType",
       "InetPortNumber",
       "InetAddress"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "IpAddress",
-      "Counter64",
-      "OBJECT-TYPE",
       "Unsigned32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Integer32",
-      "Bits",
+      "OBJECT-IDENTITY",
+      "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "Bits",
+      "Gauge32",
       "Counter32",
-      "iso"
+      "Counter64",
+      "MibIdentifier",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "AutonomousType",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "AutonomousType"
     ]
   },
   "fnFortiSandboxMib": {
@@ -1187,8 +1187,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/FORTINET-FORTISANDBOX-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 22:58:02 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:45:39 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "FORTINET-FORTISANDBOX-MIB"

@@ -2,42 +2,42 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
+      "HpnicfDot11RadioScopeType",
+      "HpnicfDot11RadioElementIndex",
+      "HpnicfDot11SSIDStringType",
       "HpnicfDot11ChannelScopeType",
       "hpnicfDot11",
-      "HpnicfDot11SSIDStringType",
-      "HpnicfDot11RadioScopeType",
-      "HpnicfDot11RadioType",
-      "HpnicfDot11RadioElementIndex",
       "HpnicfDot11ObjectIDType",
-      "hpnicfDot11APElementIndex"
+      "hpnicfDot11APElementIndex",
+      "HpnicfDot11RadioType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "Integer32",
-      "Unsigned32",
+      "TimeTicks",
       "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter64",
-      "Gauge32",
-      "MibIdentifier",
       "iso",
-      "NOTIFICATION-TYPE",
       "Counter32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Bits"
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DateAndTime",
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "DisplayString",
+      "TruthValue",
+      "RowStatus"
     ]
   },
   "hpnicfDot11RRM": {
@@ -1882,8 +1882,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-RRM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:02:11 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:48:54 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HPN-ICF-DOT11-RRM-MIB"

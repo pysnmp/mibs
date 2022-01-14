@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module UCD-IPFWACC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/UCD-IPFWACC-MIB
-# Produced by pysmi-1.1.8 at Thu Jan 13 23:09:59 2022
-# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan 13 23:54:32 2022
+# On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Integer32, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter32, Unsigned32, Counter64, ModuleIdentity, NotificationType, Bits, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter32", "Unsigned32", "Counter64", "ModuleIdentity", "NotificationType", "Bits", "ObjectIdentity", "IpAddress")
+ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, iso, ObjectIdentity, IpAddress, Bits, TimeTicks, Counter32, NotificationType, Counter64, Integer32, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "iso", "ObjectIdentity", "IpAddress", "Bits", "TimeTicks", "Counter32", "NotificationType", "Counter64", "Integer32", "Unsigned32", "MibIdentifier")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ucdExperimental, = mibBuilder.importSymbols("UCD-SNMP-MIB", "ucdExperimental")
 ucdIpFwAccMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2021, 13, 1))
@@ -105,4 +105,4 @@ if mibBuilder.loadTexts: ipFwAccPort9.setDescription('Port number 9.')
 ipFwAccPort10 = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 1, 1, 1, 26), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ipFwAccPort10.setStatus('current')
 if mibBuilder.loadTexts: ipFwAccPort10.setDescription('Port number 10.')
-mibBuilder.exportSymbols("UCD-IPFWACC-MIB", ipFwAccPackets=ipFwAccPackets, ipFwAccBytes=ipFwAccBytes, ipFwAccDstIsRange=ipFwAccDstIsRange, ipFwAccPort2=ipFwAccPort2, ipFwAccBidir=ipFwAccBidir, PYSNMP_MODULE_ID=ucdIpFwAccMIB, ucdIpFwAccMIB=ucdIpFwAccMIB, ipFwAccIndex=ipFwAccIndex, ipFwAccSrcAddr=ipFwAccSrcAddr, ipFwAccDstNetMask=ipFwAccDstNetMask, ipFwAccPort3=ipFwAccPort3, ipFwAccSrcNetMask=ipFwAccSrcNetMask, ipFwAccPort9=ipFwAccPort9, ipFwAccDstAddr=ipFwAccDstAddr, ipFwAccPort4=ipFwAccPort4, ipFwAccDir=ipFwAccDir, ipFwAccEntry=ipFwAccEntry, ipFwAccPort1=ipFwAccPort1, ipFwAccNrSrcPorts=ipFwAccNrSrcPorts, ipFwAccViaAddr=ipFwAccViaAddr, ipFwAccNrDstPorts=ipFwAccNrDstPorts, ipFwAccPort7=ipFwAccPort7, ipFwAccViaName=ipFwAccViaName, ipFwAccProto=ipFwAccProto, ipFwAccPort8=ipFwAccPort8, ipFwAccSrcIsRange=ipFwAccSrcIsRange, ipFwAccTable=ipFwAccTable, ipFwAccPort5=ipFwAccPort5, ipFwAccPort10=ipFwAccPort10, ipFwAccPort6=ipFwAccPort6)
+mibBuilder.exportSymbols("UCD-IPFWACC-MIB", ucdIpFwAccMIB=ucdIpFwAccMIB, ipFwAccPort4=ipFwAccPort4, ipFwAccSrcIsRange=ipFwAccSrcIsRange, ipFwAccSrcAddr=ipFwAccSrcAddr, PYSNMP_MODULE_ID=ucdIpFwAccMIB, ipFwAccPort3=ipFwAccPort3, ipFwAccViaAddr=ipFwAccViaAddr, ipFwAccDstIsRange=ipFwAccDstIsRange, ipFwAccDir=ipFwAccDir, ipFwAccIndex=ipFwAccIndex, ipFwAccPort1=ipFwAccPort1, ipFwAccPort7=ipFwAccPort7, ipFwAccDstAddr=ipFwAccDstAddr, ipFwAccDstNetMask=ipFwAccDstNetMask, ipFwAccNrDstPorts=ipFwAccNrDstPorts, ipFwAccBidir=ipFwAccBidir, ipFwAccBytes=ipFwAccBytes, ipFwAccSrcNetMask=ipFwAccSrcNetMask, ipFwAccEntry=ipFwAccEntry, ipFwAccPort5=ipFwAccPort5, ipFwAccPort2=ipFwAccPort2, ipFwAccPort6=ipFwAccPort6, ipFwAccViaName=ipFwAccViaName, ipFwAccTable=ipFwAccTable, ipFwAccProto=ipFwAccProto, ipFwAccPackets=ipFwAccPackets, ipFwAccPort8=ipFwAccPort8, ipFwAccPort9=ipFwAccPort9, ipFwAccPort10=ipFwAccPort10, ipFwAccNrSrcPorts=ipFwAccNrSrcPorts)

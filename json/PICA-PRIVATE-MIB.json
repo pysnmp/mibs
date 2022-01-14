@@ -5,41 +5,41 @@
       "IANAifType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
       "snmpTraps"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "snmpModules",
-      "iso",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
       "enterprises",
-      "Bits",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "Unsigned32",
       "OBJECT-TYPE",
+      "IpAddress",
+      "iso",
+      "Gauge32",
+      "snmpModules",
+      "MibIdentifier",
+      "mib-2",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "mib-2"
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
-      "AutonomousType",
-      "RowStatus",
       "TestAndIncr",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "AutonomousType",
+      "TimeStamp",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "picaPrivateMib": {
@@ -655,8 +655,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/picos/PICA-PRIVATE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:14:43 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:57:53 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PICA-PRIVATE-MIB"

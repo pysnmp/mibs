@@ -5,26 +5,26 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
+      "InetAddress",
       "InetAddressIPv4",
       "InetAddressPrefixLength",
-      "InetAddress",
       "InetAddressType"
     ],
     "MPLS-TC-PRIV-STDEXT-MIB": [
-      "MplsLSPID",
-      "MplsPathIndex",
-      "MplsOwner",
-      "MplsBitRate",
-      "MplsBurstSize",
-      "MplsTunnelAffinity",
-      "MplsExtendedTunnelId",
-      "TeHopAddressAS",
-      "TeHopAddress",
-      "MplsTunnelInstanceIndex",
-      "TeHopAddressType",
-      "TeHopAddressUnnum",
       "MplsPathIndexOrZero",
-      "MplsTunnelIndex"
+      "MplsTunnelAffinity",
+      "MplsPathIndex",
+      "TeHopAddressType",
+      "MplsBurstSize",
+      "MplsOwner",
+      "TeHopAddress",
+      "MplsLSPID",
+      "TeHopAddressUnnum",
+      "MplsTunnelIndex",
+      "MplsBitRate",
+      "TeHopAddressAS",
+      "MplsExtendedTunnelId",
+      "MplsTunnelInstanceIndex"
     ],
     "PRVT-CR-LDP-MIB": [
       "mpls"
@@ -38,31 +38,31 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "iso",
+      "Counter64",
       "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "transmission",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
       "zeroDotZero",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "transmission",
       "Counter32",
-      "Counter64",
-      "TimeTicks"
+      "Bits",
+      "Integer32",
+      "Unsigned32",
+      "Gauge32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TimeStamp",
-      "StorageType",
-      "TruthValue",
-      "DisplayString",
       "RowPointer",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "StorageType",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "mplsTeMIB": {
@@ -5294,8 +5294,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-MPLS-TE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:20:28 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 14 00:02:07 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PRVT-MPLS-TE-MIB"

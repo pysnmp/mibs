@@ -12,29 +12,29 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
       "Counter64",
       "OBJECT-TYPE",
-      "Gauge32",
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
-      "iso",
-      "Bits",
       "OBJECT-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter32",
-      "NOTIFICATION-TYPE"
+      "TimeTicks",
+      "Gauge32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ruckusDeviceMIB": {
@@ -507,8 +507,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-DEVICE-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:17:50 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:16 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RUCKUS-DEVICE-MIB"

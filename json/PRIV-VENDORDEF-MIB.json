@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Integer32",
-      "iso",
-      "IpAddress",
-      "Bits",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "enterprises",
+      "Counter64",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "MibIdentifier",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Integer32",
+      "Unsigned32",
       "Gauge32",
-      "Counter32",
-      "Counter64",
-      "TimeTicks"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "privateVendorOID": {
@@ -41,8 +41,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRIV-VENDORDEF-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:20:28 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 14 00:02:07 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PRIV-VENDORDEF-MIB"

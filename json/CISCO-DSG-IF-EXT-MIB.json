@@ -5,8 +5,8 @@
       "ciscoMgmt"
     ],
     "DSG-IF-MIB": [
-      "dsgIfDownstreamEntry",
-      "dsgIfClassifierEntry"
+      "dsgIfClassifierEntry",
+      "dsgIfDownstreamEntry"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressDNS"
@@ -17,25 +17,25 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "Bits",
-      "Integer32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Integer32",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "TruthValue"
+      "DisplayString"
     ]
   },
   "ciscoDsgIfExtMIB": {
@@ -205,8 +205,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DSG-IF-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 22:51:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:40:30 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-DSG-IF-EXT-MIB"

@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module NET-SNMP-EXAMPLES-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-EXAMPLES-MIB
-# Produced by pysmi-1.1.8 at Thu Jan 13 23:09:59 2022
-# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan 13 23:54:32 2022
+# On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint")
+SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "ValueSizeConstraint")
 InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
 netSnmp, = mibBuilder.importSymbols("NET-SNMP-MIB", "netSnmp")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, Integer32, MibIdentifier, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter32, Unsigned32, Counter64, ModuleIdentity, NotificationType, Bits, ObjectIdentity, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "Integer32", "MibIdentifier", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter32", "Unsigned32", "Counter64", "ModuleIdentity", "NotificationType", "Bits", "ObjectIdentity", "IpAddress")
-TextualConvention, StorageType, RowStatus, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "StorageType", "RowStatus", "DisplayString")
+ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, iso, ObjectIdentity, IpAddress, Bits, TimeTicks, Counter32, NotificationType, Counter64, Integer32, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "iso", "ObjectIdentity", "IpAddress", "Bits", "TimeTicks", "Counter32", "NotificationType", "Counter64", "Integer32", "Unsigned32", "MibIdentifier")
+RowStatus, TextualConvention, StorageType, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "StorageType", "DisplayString")
 netSnmpExamples = ModuleIdentity((1, 3, 6, 1, 4, 1, 8072, 2))
 netSnmpExamples.setRevisions(('2004-06-15 00:00', '2002-02-06 00:00',))
 
@@ -85,4 +85,4 @@ if mibBuilder.loadTexts: netSnmpExampleHeartbeatNotification.setDescription('An 
 netSnmpExampleNotification = MibScalar((1, 3, 6, 1, 4, 1, 8072, 2, 3, 1), SnmpAdminString()).setMaxAccess("accessiblefornotify")
 if mibBuilder.loadTexts: netSnmpExampleNotification.setStatus('obsolete')
 if mibBuilder.loadTexts: netSnmpExampleNotification.setDescription('This object was improperly defined for its original purpose,\n         and should no longer be used.')
-mibBuilder.exportSymbols("NET-SNMP-EXAMPLES-MIB", netSnmpIETFWGEntry=netSnmpIETFWGEntry, PYSNMP_MODULE_ID=netSnmpExamples, nsIETFWGChair2=nsIETFWGChair2, netSnmpExampleSleeper=netSnmpExampleSleeper, netSnmpHostRowStatus=netSnmpHostRowStatus, netSnmpExampleNotificationPrefix=netSnmpExampleNotificationPrefix, netSnmpHostName=netSnmpHostName, netSnmpHostAddress=netSnmpHostAddress, netSnmpHostsEntry=netSnmpHostsEntry, nsIETFWGName=nsIETFWGName, netSnmpExamples=netSnmpExamples, netSnmpExampleNotification=netSnmpExampleNotification, netSnmpExampleHeartbeatRate=netSnmpExampleHeartbeatRate, netSnmpExampleString=netSnmpExampleString, netSnmpExampleTables=netSnmpExampleTables, netSnmpHostsTable=netSnmpHostsTable, netSnmpExampleHeartbeatName=netSnmpExampleHeartbeatName, netSnmpExampleInteger=netSnmpExampleInteger, netSnmpIETFWGTable=netSnmpIETFWGTable, netSnmpExampleHeartbeatNotification=netSnmpExampleHeartbeatNotification, nsIETFWGChair1=nsIETFWGChair1, netSnmpExampleScalars=netSnmpExampleScalars, netSnmpExampleNotifications=netSnmpExampleNotifications, netSnmpHostStorage=netSnmpHostStorage, netSnmpHostAddressType=netSnmpHostAddressType, netSnmpExampleNotificationObjects=netSnmpExampleNotificationObjects)
+mibBuilder.exportSymbols("NET-SNMP-EXAMPLES-MIB", netSnmpExampleScalars=netSnmpExampleScalars, netSnmpIETFWGTable=netSnmpIETFWGTable, netSnmpExampleNotificationPrefix=netSnmpExampleNotificationPrefix, netSnmpIETFWGEntry=netSnmpIETFWGEntry, netSnmpExampleNotificationObjects=netSnmpExampleNotificationObjects, netSnmpHostAddressType=netSnmpHostAddressType, netSnmpExampleNotifications=netSnmpExampleNotifications, netSnmpExampleHeartbeatName=netSnmpExampleHeartbeatName, netSnmpExampleSleeper=netSnmpExampleSleeper, netSnmpHostAddress=netSnmpHostAddress, netSnmpExampleTables=netSnmpExampleTables, nsIETFWGChair2=nsIETFWGChair2, netSnmpHostStorage=netSnmpHostStorage, nsIETFWGName=nsIETFWGName, netSnmpHostsEntry=netSnmpHostsEntry, PYSNMP_MODULE_ID=netSnmpExamples, netSnmpExampleHeartbeatRate=netSnmpExampleHeartbeatRate, netSnmpHostRowStatus=netSnmpHostRowStatus, netSnmpExampleHeartbeatNotification=netSnmpExampleHeartbeatNotification, netSnmpExampleNotification=netSnmpExampleNotification, netSnmpExampleInteger=netSnmpExampleInteger, netSnmpExamples=netSnmpExamples, nsIETFWGChair1=nsIETFWGChair1, netSnmpHostName=netSnmpHostName, netSnmpExampleString=netSnmpExampleString, netSnmpHostsTable=netSnmpHostsTable)

@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Integer32",
       "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "Bits",
       "Unsigned32",
+      "TimeTicks",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
       "Counter64",
-      "MODULE-IDENTITY"
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -167,8 +167,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/LTNET-COMMONINFO-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 22:46:34 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:37:13 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LTNET-COMMONINFO-MIB"

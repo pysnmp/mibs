@@ -5,43 +5,43 @@
       "ciscoExperiment"
     ],
     "CISCO-ST-TC": [
-      "FcAddressId",
-      "FcNameIdOrZero"
+      "FcNameIdOrZero",
+      "FcAddressId"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits",
-      "Integer32",
       "TimeTicks",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Integer32",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
+      "DateAndTime",
       "DisplayString",
-      "DateAndTime"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoIetfIsnsMgmtMIB": {
@@ -4858,8 +4858,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-IETF-ISNS-MGMT-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 22:51:02 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:40:31 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-IETF-ISNS-MGMT-MIB"

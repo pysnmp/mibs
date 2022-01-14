@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module VMWARE-VA-AGENTCAP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-VA-AGENTCAP-MIB
-# Produced by pysmi-1.1.8 at Thu Jan 13 23:22:54 2022
-# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Fri Jan 14 00:03:56 2022
+# On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
-ModuleCompliance, AgentCapabilities, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "AgentCapabilities", "NotificationGroup")
-ObjectIdentity, NotificationType, TimeTicks, Counter64, Gauge32, MibIdentifier, IpAddress, Integer32, ModuleIdentity, Unsigned32, Bits, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "NotificationType", "TimeTicks", "Counter64", "Gauge32", "MibIdentifier", "IpAddress", "Integer32", "ModuleIdentity", "Unsigned32", "Bits", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32")
+ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ModuleCompliance, NotificationGroup, AgentCapabilities = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "AgentCapabilities")
+NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter64, IpAddress, Integer32, MibIdentifier, Unsigned32, Gauge32, TimeTicks, ModuleIdentity, Counter32, Bits, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter64", "IpAddress", "Integer32", "MibIdentifier", "Unsigned32", "Gauge32", "TimeTicks", "ModuleIdentity", "Counter32", "Bits", "iso")
 TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 vmwareAgentCapabilities, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwareAgentCapabilities")
 vmwVAAgentCapabilityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 70, 5))
@@ -37,4 +37,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwVA2015x = vmwVA2015x.setProductRelease('6.0.x')
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     vmwVA2015x = vmwVA2015x.setStatus('current')
-mibBuilder.exportSymbols("VMWARE-VA-AGENTCAP-MIB", vmwVCSA2020x=vmwVCSA2020x, vmwVAAgentCapabilityMIB=vmwVAAgentCapabilityMIB, vmwVCSA2017x=vmwVCSA2017x, vmwVACapability=vmwVACapability, PYSNMP_MODULE_ID=vmwVAAgentCapabilityMIB, vmwVCSA2016x=vmwVCSA2016x, vmwVA2015x=vmwVA2015x)
+mibBuilder.exportSymbols("VMWARE-VA-AGENTCAP-MIB", PYSNMP_MODULE_ID=vmwVAAgentCapabilityMIB, vmwVCSA2020x=vmwVCSA2020x, vmwVCSA2016x=vmwVCSA2016x, vmwVCSA2017x=vmwVCSA2017x, vmwVA2015x=vmwVA2015x, vmwVACapability=vmwVACapability, vmwVAAgentCapabilityMIB=vmwVAAgentCapabilityMIB)

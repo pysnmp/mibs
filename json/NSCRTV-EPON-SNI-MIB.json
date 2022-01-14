@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "NSCRTV-EPONEOC-EPON-MIB": [
+      "EponAlarmInstance",
+      "EponAlarmCode",
+      "EponPortIndex",
+      "EponStats24HourRecordType",
       "EponStatsThresholdType",
+      "AutoNegotiationTechAbility",
+      "TAddress",
+      "EponDeviceIndex",
+      "EponSeverityType",
       "sniObjects",
       "EponStats15MinRecordType",
-      "EponDeviceIndex",
-      "EponCardIndex",
-      "TAddress",
-      "EponAlarmCode",
-      "EponSeverityType",
-      "EponAlarmInstance",
-      "AutoNegotiationTechAbility",
-      "EponStats24HourRecordType",
-      "EponPortIndex"
+      "EponCardIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "iso",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "MibIdentifier",
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Integer32"
+      "Gauge32",
+      "Bits",
+      "MibIdentifier",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DateAndTime",
-      "RowStatus",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
+      "MacAddress",
       "TimeStamp",
-      "TruthValue"
+      "DateAndTime"
     ]
   },
   "sniAttributeTable": {
@@ -922,8 +922,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/NSCRTV-EPON-SNI-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 22:58:46 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:46:13 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NSCRTV-EPON-SNI-MIB"

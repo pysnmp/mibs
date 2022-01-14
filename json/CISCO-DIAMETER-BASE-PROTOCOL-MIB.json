@@ -5,8 +5,8 @@
       "ciscoExperiment"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -18,26 +18,26 @@
     ],
     "SNMPv2-SMI": [
       "Gauge32",
-      "Counter64",
-      "OBJECT-IDENTITY",
       "Unsigned32",
-      "Bits",
-      "TimeTicks",
-      "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Integer32",
+      "Counter64",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
-      "StorageType"
+      "TruthValue",
+      "StorageType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoDiameterBasePMIB": {
@@ -3143,8 +3143,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DIAMETER-BASE-PROTOCOL-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 22:51:00 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:40:29 2022",
+      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-DIAMETER-BASE-PROTOCOL-MIB"
