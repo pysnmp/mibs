@@ -5,26 +5,26 @@
       "DisplayString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
       "Counter32",
-      "TRAP-TYPE",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "iso",
-      "Gauge32",
-      "IpAddress",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "enterprises",
       "Integer32",
+      "enterprises",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "TRAP-TYPE",
+      "TimeTicks",
+      "Counter64",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY"
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1132,8 +1132,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cxr-networks/CXR-TS-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:41:26 2022",
-      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:44:03 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CXR-TS-MIB"

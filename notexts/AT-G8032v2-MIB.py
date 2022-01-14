@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module AT-G8032v2-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/awplus/AT-G8032v2-MIB
-# Produced by pysmi-1.1.8 at Thu Jan 13 23:35:39 2022
-# On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Thu Jan 13 23:36:42 2022
+# On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
-modules, DisplayStringUnsized = mibBuilder.importSymbols("AT-SMI-MIB", "modules", "DisplayStringUnsized")
+ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection", "SingleValueConstraint")
+DisplayStringUnsized, modules = mibBuilder.importSymbols("AT-SMI-MIB", "DisplayStringUnsized", "modules")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-NotificationType, Unsigned32, ModuleIdentity, ObjectIdentity, Counter32, MibIdentifier, iso, TimeTicks, Counter64, Gauge32, Bits, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Unsigned32", "ModuleIdentity", "ObjectIdentity", "Counter32", "MibIdentifier", "iso", "TimeTicks", "Counter64", "Gauge32", "Bits", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32")
+Counter32, Unsigned32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, Bits, Gauge32, TimeTicks, ModuleIdentity, NotificationType, ObjectIdentity, Counter64, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "Bits", "Gauge32", "TimeTicks", "ModuleIdentity", "NotificationType", "ObjectIdentity", "Counter64", "IpAddress", "Integer32")
 TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
 atG8032v2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604))
 atG8032v2.setRevisions(('2017-02-06 00:00', '2017-01-17 00:00',))
@@ -35,4 +35,4 @@ atG8032v2NotificationInstanceCurrentState = MibScalar((1, 3, 6, 1, 4, 1, 207, 8,
 if mibBuilder.loadTexts: atG8032v2NotificationInstanceCurrentState.setStatus('current')
 atG8032v2NotificationSystemAlarmState = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 604, 1, 4), TruthValue()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: atG8032v2NotificationSystemAlarmState.setStatus('current')
-mibBuilder.exportSymbols("AT-G8032v2-MIB", AtG8032v2InstanceState=AtG8032v2InstanceState, atG8032v2NotificationInstanceName=atG8032v2NotificationInstanceName, atG8032v2NotificationInstanceCurrentState=atG8032v2NotificationInstanceCurrentState, atG8032v2InstanceNotify=atG8032v2InstanceNotify, atG8032v2Notifications=atG8032v2Notifications, atG8032v2NotificationSystemAlarmState=atG8032v2NotificationSystemAlarmState, PYSNMP_MODULE_ID=atG8032v2, atG8032v2NotificationVariable=atG8032v2NotificationVariable, atG8032v2NotificationInstanceFromState=atG8032v2NotificationInstanceFromState, atG8032v2=atG8032v2, atG8032v2SystemAlarmNotify=atG8032v2SystemAlarmNotify)
+mibBuilder.exportSymbols("AT-G8032v2-MIB", atG8032v2NotificationInstanceFromState=atG8032v2NotificationInstanceFromState, atG8032v2Notifications=atG8032v2Notifications, atG8032v2SystemAlarmNotify=atG8032v2SystemAlarmNotify, PYSNMP_MODULE_ID=atG8032v2, atG8032v2NotificationVariable=atG8032v2NotificationVariable, atG8032v2InstanceNotify=atG8032v2InstanceNotify, atG8032v2=atG8032v2, atG8032v2NotificationInstanceCurrentState=atG8032v2NotificationInstanceCurrentState, AtG8032v2InstanceState=AtG8032v2InstanceState, atG8032v2NotificationInstanceName=atG8032v2NotificationInstanceName, atG8032v2NotificationSystemAlarmState=atG8032v2NotificationSystemAlarmState)

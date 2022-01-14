@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
+      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetZoneIndex",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetZoneIndex"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
@@ -13,28 +13,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "iso",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "mib-2",
       "Counter32",
-      "Integer32",
+      "Unsigned32",
       "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "mib-2",
+      "iso",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
       "Bits",
-      "NOTIFICATION-TYPE"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
       "DisplayString",
-      "StorageType",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "StorageType",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "pimBsrMIB": {
@@ -1023,8 +1023,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/PIM-BSR-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:55:37 2022",
-      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 14 00:00:58 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PIM-BSR-MIB"

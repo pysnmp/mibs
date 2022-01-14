@@ -3,41 +3,41 @@
     "class": "imports",
     "IF-MIB": [
       "ifAdminStatus",
-      "ifOperStatus",
-      "ifIndex"
+      "ifIndex",
+      "ifOperStatus"
     ],
     "PRVT-SWITCH-MIB": [
+      "configL2IfaceUnit",
       "configL2IfaceSlot",
       "configL2IfacePort",
-      "switch",
-      "configL2IfaceUnit"
+      "switch"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "MibIdentifier",
-      "TimeTicks",
       "MODULE-IDENTITY",
       "Bits",
-      "Integer32",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Unsigned32",
+      "MibIdentifier",
       "Gauge32",
-      "Counter32"
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "TruthValue",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -644,8 +644,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-PORTS-AGGREGATION-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:02:07 2022",
-      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 14 00:09:07 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PRVT-PORTS-AGGREGATION-MIB"

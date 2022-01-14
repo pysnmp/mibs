@@ -22,30 +22,30 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Unsigned32",
       "OBJECT-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "Gauge32",
+      "IpAddress",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Counter32",
       "Counter64",
-      "Gauge32",
-      "Integer32"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "d5QamPOSTMib": {
@@ -536,8 +536,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/d5/ARRIS-D5-QAM-POST-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:35:00 2022",
-      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:35:45 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ARRIS-D5-QAM-POST-MIB"

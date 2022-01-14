@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "DS1-MIB": [
-      "dsx1CurrentEntry",
-      "dsx1FarEndTotalEntry",
       "dsx1FarEndCurrentEntry",
-      "dsx1TotalEntry",
       "dsx1FarEndIntervalEntry",
+      "dsx1CurrentEntry",
+      "dsx1TotalEntry",
+      "dsx1FarEndTotalEntry",
       "dsx1IntervalEntry"
     ],
     "IF-MIB": [
@@ -16,49 +16,49 @@
       "switch"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
       "PerfIntervalCount",
-      "PerfTotalCount"
+      "PerfTotalCount",
+      "PerfCurrentCount"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "MibIdentifier",
-      "TimeTicks",
-      "Bits",
       "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
       "Unsigned32",
+      "MibIdentifier",
       "Gauge32",
+      "Counter32",
+      "Counter64",
+      "TimeTicks",
+      "Integer32",
+      "iso",
+      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SONET-MIB": [
-      "sonetPathIntervalEntry",
+      "sonetSectionIntervalEntry",
+      "sonetFarEndLineIntervalEntry",
+      "sonetPathCurrentEntry",
+      "sonetVTCurrentEntry",
+      "sonetFarEndPathCurrentEntry",
+      "sonetFarEndPathIntervalEntry",
+      "sonetVTIntervalEntry",
+      "sonetLineIntervalEntry",
       "sonetSectionCurrentEntry",
       "sonetLineCurrentEntry",
-      "sonetVTIntervalEntry",
-      "sonetPathCurrentEntry",
-      "sonetLineIntervalEntry",
-      "sonetFarEndLineCurrentEntry",
       "sonetFarEndVTIntervalEntry",
-      "sonetFarEndLineIntervalEntry",
-      "sonetFarEndPathIntervalEntry",
-      "sonetVTCurrentEntry",
+      "sonetPathIntervalEntry",
       "sonetFarEndVTCurrentEntry",
-      "sonetFarEndPathCurrentEntry",
-      "sonetSectionIntervalEntry"
+      "sonetFarEndLineCurrentEntry"
     ]
   },
   "prvtStatisticsCESMib": {
@@ -2418,8 +2418,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/telco-systems/binos/PRVT-STATISTICS-CES-MIB",
-      "Produced by pysmi-1.1.8 at Fri Jan 14 00:02:07 2022",
-      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Fri Jan 14 00:09:07 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PRVT-STATISTICS-CES-MIB"

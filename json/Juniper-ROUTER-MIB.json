@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "Juniper-IP-POLICY-MIB": [
-      "JuniIpPolicyExtendedCommunity",
-      "JuniIpPolicyName"
+      "JuniIpPolicyName",
+      "JuniIpPolicyExtendedCommunity"
     ],
     "Juniper-MIBs": [
       "juniMibs"
@@ -15,30 +15,30 @@
       "SnmpEngineID"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32",
+      "Bits",
       "Counter32",
       "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
+      "Gauge32",
       "iso",
-      "Bits"
+      "IpAddress",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -1311,8 +1311,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-ROUTER-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:52:01 2022",
-      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:56:08 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Juniper-ROUTER-MIB"

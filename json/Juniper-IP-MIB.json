@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "ifIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "IP-FORWARD-MIB": [
-      "ipCidrRouteEntry",
-      "ipCidrRouteNumber"
+      "ipCidrRouteNumber",
+      "ipCidrRouteEntry"
     ],
     "Juniper-MIBs": [
       "juniMibs"
     ],
     "Juniper-TC": [
-      "JuniIpAddrLessIf",
       "JuniEnable",
-      "JuniNextIfIndex"
+      "JuniNextIfIndex",
+      "JuniIpAddrLessIf"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "IpAddress",
+      "iso",
       "Counter64",
       "Unsigned32",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "Bits",
       "TimeTicks",
+      "Gauge32",
       "Counter32",
-      "OBJECT-TYPE"
+      "MibIdentifier",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "TEXTUAL-CONVENTION",
       "DisplayString"
     ]
   },
@@ -5771,8 +5771,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/junose/broken/Juniper-IP-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:52:39 2022",
-      "On host fv-az74-435 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Thu Jan 13 23:56:59 2022",
+      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Juniper-IP-MIB"
