@@ -2374,6 +2374,3 @@ ipMcastMIBScopeNameGroup OBJECT-GROUP
     ::= { ipMcastMIBGroups 12 }
 
 END
-
-
-
