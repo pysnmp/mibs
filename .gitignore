@@ -132,3 +132,4 @@ output
 list.tmp
 log/*
 .pycache/**
+.DS_Store
