@@ -4,7 +4,7 @@ F5-BIGIP-APM-MIB DEFINITIONS ::= BEGIN
 -- F5-BIGIP-APM-MIB 
 --     A private enterprise MIB for F5  traffic management 
 --     systems.
---     VERSION: 14.1.2.7
+--     VERSION: 16.1.0
 --================================================================
 
 IMPORTS
@@ -29,13 +29,13 @@ IMPORTS
 
 --================================================================
 bigipApm MODULE-IDENTITY
-    LAST-UPDATED "201610051918Z" -- Wed Oct  5 19:18:17 UTC 2016 
+    LAST-UPDATED "202004092221Z" -- Thu Apr  9 22:21:57 UTC 2020 
     ORGANIZATION "F5 Networks, Inc."
     CONTACT-INFO
          "postal: F5 Networks, Inc. 
-	 	  401 Elliott Ave. West 
-                  Seattle, WA 98119
-          phone:  (206) 272-5555
+	 	  801 Fifth Avenue
+                  Seattle, WA 98104
+          phone:  (206) 272-6500
           email:  support@f5.com"
 
     DESCRIPTION

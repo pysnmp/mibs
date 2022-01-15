@@ -4,7 +4,7 @@ F5-BIGIP-GLOBAL-MIB DEFINITIONS ::= BEGIN
 -- F5-BIGIP-GLOBAL-MIB 
 --     A private enterprise MIB for F5 global traffic management 
 --     systems.
---     VERSION: 14.1.2.7
+--     VERSION: 16.1.0
 --================================================================
 
 IMPORTS
@@ -29,13 +29,13 @@ IMPORTS
 
 --================================================================
 bigipGlobalTM MODULE-IDENTITY
-    LAST-UPDATED "201801292200Z" -- Mon Jan 29 22:00:01 UTC 2018 
+    LAST-UPDATED "202004092223Z" -- Thu Apr  9 22:23:43 UTC 2020 
     ORGANIZATION "F5 Networks, Inc."
     CONTACT-INFO
          "postal: F5 Networks, Inc. 
-	 	  401 Elliott Ave. West 
-                  Seattle, WA 98119
-          phone:  (206) 272-5555
+	 	  801 Fifth Avenue
+                  Seattle, WA 98104
+          phone:  (206) 272-6500
           email:  support@f5.com"
 
     DESCRIPTION
@@ -4983,7 +4983,8 @@ gtmServerType OBJECT-TYPE
 		windows2000(13),
 		windowsnt4(14),
 		solaris(15),
-		radware(16)
+		radware(16),
+		bigip(17)
 	}
 	MAX-ACCESS read-only
 	STATUS current

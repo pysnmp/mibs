@@ -4,7 +4,7 @@ F5-BIGIP-SYSTEM-MIB DEFINITIONS ::= BEGIN
 -- F5-BIGIP-SYSTEM-MIB 
 --     A private enterprise MIB for F5  traffic management 
 --     systems.
---     VERSION: 14.1.2.7
+--     VERSION: 16.1.0
 --================================================================
 
 IMPORTS
@@ -29,13 +29,13 @@ IMPORTS
 
 --================================================================
 bigipSystem MODULE-IDENTITY
-    LAST-UPDATED "202003311355Z" -- Tue Mar 31 13:55:01 UTC 2020 
+    LAST-UPDATED "202004092220Z" -- Thu Apr  9 22:20:52 UTC 2020 
     ORGANIZATION "F5 Networks, Inc."
     CONTACT-INFO
          "postal: F5 Networks, Inc. 
-	 	  401 Elliott Ave. West 
-                  Seattle, WA 98119
-          phone:  (206) 272-5555
+	 	  801 Fifth Avenue
+                  Seattle, WA 98104
+          phone:  (206) 272-6500
           email:  support@f5.com"
 
     DESCRIPTION
@@ -125,8 +125,12 @@ sysGlobalLsnPoolFailureStat    OBJECT IDENTIFIER ::= { sysGlobalStats 33 }
 sysGlobalIpsecalgStat   OBJECT IDENTIFIER ::= { sysGlobalStats 34 }
 sysGlobalDiametersessionStat   OBJECT IDENTIFIER ::= { sysGlobalStats 35 }
 sysGlobalDiameterrouterStat   OBJECT IDENTIFIER ::= { sysGlobalStats 36 }
+sysGlobalSipsessionStat   OBJECT IDENTIFIER ::= { sysGlobalStats 37 }
+sysGlobalSiprouterStat   OBJECT IDENTIFIER ::= { sysGlobalStats 38 }
 sysGlobalFwNatDynamicPoolStat           OBJECT IDENTIFIER ::= { sysGlobalStats 39 }
 sysGlobalFwNatDynamicPoolFailureStat    OBJECT IDENTIFIER ::= { sysGlobalStats 40 }
+sysGlobalFwNatStaticSourceTranslationPoolStat         OBJECT IDENTIFIER ::= { sysGlobalStats 41 }
+sysGlobalFwNatStaticDestinationTranslationPoolStat    OBJECT IDENTIFIER ::= { sysGlobalStats 42 }
 
 --sysAdmin
 sysAdminIp               OBJECT IDENTIFIER ::= { sysAdmin 1 }
@@ -219,6 +223,7 @@ sysVlanGroupMbr          OBJECT IDENTIFIER ::= { sysVlans 4 }
 sysProxyExclusion        OBJECT IDENTIFIER ::= { sysVlans 5 }
 sysVlanStat              OBJECT IDENTIFIER ::= { sysVlans 6 }
 sysVlanxStat             OBJECT IDENTIFIER ::= { sysVlans 7 }
+sysVlanIfcStat           OBJECT IDENTIFIER ::= { sysVlans 8 }
 
 --sysTunnels
 sysFecStat               OBJECT IDENTIFIER ::= { sysTunnels 1 }
@@ -425,6 +430,21 @@ bigipi7600-D                            OBJECT IDENTIFIER ::= { sysDeviceModelOI
 bigipi7800-D                            OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 130 }
 bigipi15600-N                           OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 131 }
 bigipi15800-N                           OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 132 }
+bigipi10610                             OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 133 }
+bigipi10810                             OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 134 }
+ykVprC2400                              OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 135 }
+ykVprB2250                              OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 136 }
+ykVprB2150                              OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 137 }
+yki2600                                 OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 138 }
+yki2800                                 OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 139 }
+yki4600                                 OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 140 }
+yki4800                                 OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 141 }
+yki5600                                 OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 142 }
+yki5800                                 OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 143 }
+yki7600                                 OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 144 }
+yki7800                                 OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 145 }
+yki10600                                OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 146 }
+yki10800                                OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 147 }
 
 unknown                                 OBJECT IDENTIFIER ::= { sysDeviceModelOIDs 1000 }
 
@@ -2556,6 +2576,38 @@ sysHttpStatRespBucket64k OBJECT-TYPE
 		"Deprecated! Please use the larger buckets."
 	::= { sysGlobalHttpStat 55 } 
 
+sysHttpStatV20Reqs OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The total number of version 20 requests."
+	::= { sysGlobalHttpStat 56 } 
+
+sysHttpStatV30Reqs OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The total number of version 30 requests."
+	::= { sysGlobalHttpStat 57 } 
+
+sysHttpStatV20Resp OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The total number of version 20 responses."
+	::= { sysGlobalHttpStat 58 } 
+
+sysHttpStatV30Resp OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The total number of version 30 responses."
+	::= { sysGlobalHttpStat 59 } 
+
 --==================================================================
 -- Icmp_stat
 --==================================================================
@@ -4102,6 +4154,246 @@ sysClientsslStatChacha20Poly1305Bulk OBJECT-TYPE
 		"ChaCha20-Poly1305."
 	::= { sysGlobalClientSslStat 105 } 
 
+sysClientsslStatAesBulkOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Advanced Encryption Standard (CBC) offload."
+	::= { sysGlobalClientSslStat 106 } 
+
+sysClientsslStatAesGcmBulkOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Advanced Encryption Standard Galois Counter Mode (AES-GCM) offload."
+	::= { sysGlobalClientSslStat 107 } 
+
+sysClientsslStatChacha20Poly1305BulkOffld OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ChaCha20-Poly1305 offload."
+	::= { sysGlobalClientSslStat 108 } 
+
+sysClientsslStatDesBulkOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Digital Encryption Standard (CBC) offload."
+	::= { sysGlobalClientSslStat 109 } 
+
+sysClientsslStatRc4BulkOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Rivest Cipher 4 (CBC) offload."
+	::= { sysGlobalClientSslStat 110 } 
+
+sysClientsslStatCamelliaBulkOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Camellia Cipher (CBC) offload."
+	::= { sysGlobalClientSslStat 111 } 
+
+sysClientsslStatMd5DigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Message Digest 5 Offload."
+	::= { sysGlobalClientSslStat 112 } 
+
+sysClientsslStatShaDigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm offload."
+	::= { sysGlobalClientSslStat 113 } 
+
+sysClientsslStatSha224Digest OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 224."
+	::= { sysGlobalClientSslStat 114 } 
+
+sysClientsslStatSha224DigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 224 offload."
+	::= { sysGlobalClientSslStat 115 } 
+
+sysClientsslStatSha256Digest OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 256."
+	::= { sysGlobalClientSslStat 116 } 
+
+sysClientsslStatSha256DigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 256 offload."
+	::= { sysGlobalClientSslStat 117 } 
+
+sysClientsslStatSha384Digest OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 384."
+	::= { sysGlobalClientSslStat 118 } 
+
+sysClientsslStatSha384DigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 384 offload."
+	::= { sysGlobalClientSslStat 119 } 
+
+sysClientsslStatSha512Digest OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 512."
+	::= { sysGlobalClientSslStat 120 } 
+
+sysClientsslStatSha512DigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 512 offload."
+	::= { sysGlobalClientSslStat 121 } 
+
+sysClientsslStatDhGroupP256 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group P256."
+	::= { sysGlobalClientSslStat 122 } 
+
+sysClientsslStatDhGroupP256Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group P256 offload."
+	::= { sysGlobalClientSslStat 123 } 
+
+sysClientsslStatDhGroupP384 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group P384."
+	::= { sysGlobalClientSslStat 124 } 
+
+sysClientsslStatDhGroupP384Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group P384 offload."
+	::= { sysGlobalClientSslStat 125 } 
+
+sysClientsslStatDhGroupX25519 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group X25519."
+	::= { sysGlobalClientSslStat 126 } 
+
+sysClientsslStatDhGroupX25519Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group X25519 offload."
+	::= { sysGlobalClientSslStat 127 } 
+
+sysClientsslStatRsaKeySize1024 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 1024."
+	::= { sysGlobalClientSslStat 128 } 
+
+sysClientsslStatRsaKeySize1024Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 1024 offload."
+	::= { sysGlobalClientSslStat 129 } 
+
+sysClientsslStatRsaKeySize2048 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 2048."
+	::= { sysGlobalClientSslStat 130 } 
+
+sysClientsslStatRsaKeySize2048Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 2048_offload."
+	::= { sysGlobalClientSslStat 131 } 
+
+sysClientsslStatRsaKeySize4096 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 4096."
+	::= { sysGlobalClientSslStat 132 } 
+
+sysClientsslStatRsaKeySize4096Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 4096 offload."
+	::= { sysGlobalClientSslStat 133 } 
+
+sysClientsslStatTotalHandshakesSoftware OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Handshake records processed in software."
+	::= { sysGlobalClientSslStat 134 } 
+
+sysClientsslStatTotalHandshakesOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Handshake records offloaded."
+	::= { sysGlobalClientSslStat 135 } 
+
 --==================================================================
 -- Global_serverssl_stat
 --==================================================================
@@ -4893,6 +5185,246 @@ sysServersslStatChacha20Poly1305Bulk OBJECT-TYPE
 	DESCRIPTION
 		"ChaCha20-Poly1305."
 	::= { sysGlobalServerSslStat 94 } 
+
+sysServersslStatAesBulkOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Advanced Encryption Standard (CBC) offload."
+	::= { sysGlobalServerSslStat 95 } 
+
+sysServersslStatAesGcmBulkOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Advanced Encryption Standard Galois Counter Mode (AES-GCM) offload."
+	::= { sysGlobalServerSslStat 96 } 
+
+sysServersslStatChacha20Poly1305BulkOffld OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"ChaCha20-Poly1305 offload."
+	::= { sysGlobalServerSslStat 97 } 
+
+sysServersslStatDesBulkOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Digital Encryption Standard (CBC) offload."
+	::= { sysGlobalServerSslStat 98 } 
+
+sysServersslStatRc4BulkOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Rivest Cipher 4 (CBC) offload."
+	::= { sysGlobalServerSslStat 99 } 
+
+sysServersslStatCamelliaBulkOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Camellia Cipher (CBC) offload."
+	::= { sysGlobalServerSslStat 100 } 
+
+sysServersslStatMd5DigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Message Digest 5 Offload."
+	::= { sysGlobalServerSslStat 101 } 
+
+sysServersslStatShaDigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm offload."
+	::= { sysGlobalServerSslStat 102 } 
+
+sysServersslStatSha224Digest OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 224."
+	::= { sysGlobalServerSslStat 103 } 
+
+sysServersslStatSha224DigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 224 offload."
+	::= { sysGlobalServerSslStat 104 } 
+
+sysServersslStatSha256Digest OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 256."
+	::= { sysGlobalServerSslStat 105 } 
+
+sysServersslStatSha256DigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 256 offload."
+	::= { sysGlobalServerSslStat 106 } 
+
+sysServersslStatSha384Digest OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 384."
+	::= { sysGlobalServerSslStat 107 } 
+
+sysServersslStatSha384DigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 384 offload."
+	::= { sysGlobalServerSslStat 108 } 
+
+sysServersslStatSha512Digest OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 512."
+	::= { sysGlobalServerSslStat 109 } 
+
+sysServersslStatSha512DigestOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Secure Hash Algorithm 512 offload."
+	::= { sysGlobalServerSslStat 110 } 
+
+sysServersslStatDhGroupP256 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group P256."
+	::= { sysGlobalServerSslStat 111 } 
+
+sysServersslStatDhGroupP256Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group P256 offload."
+	::= { sysGlobalServerSslStat 112 } 
+
+sysServersslStatDhGroupP384 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group P384."
+	::= { sysGlobalServerSslStat 113 } 
+
+sysServersslStatDhGroupP384Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group P384 offload."
+	::= { sysGlobalServerSslStat 114 } 
+
+sysServersslStatDhGroupX25519 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group X25519."
+	::= { sysGlobalServerSslStat 115 } 
+
+sysServersslStatDhGroupX25519Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"DH Group X25519 offload."
+	::= { sysGlobalServerSslStat 116 } 
+
+sysServersslStatRsaKeySize1024 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 1024."
+	::= { sysGlobalServerSslStat 117 } 
+
+sysServersslStatRsaKeySize1024Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 1024 offload."
+	::= { sysGlobalServerSslStat 118 } 
+
+sysServersslStatRsaKeySize2048 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 2048."
+	::= { sysGlobalServerSslStat 119 } 
+
+sysServersslStatRsaKeySize2048Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 2048_offload."
+	::= { sysGlobalServerSslStat 120 } 
+
+sysServersslStatRsaKeySize4096 OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 4096."
+	::= { sysGlobalServerSslStat 121 } 
+
+sysServersslStatRsaKeySize4096Offload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"RSA key size 4096 offload."
+	::= { sysGlobalServerSslStat 122 } 
+
+sysServersslStatTotalHandshakesSoftware OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Handshake records processed in software."
+	::= { sysGlobalServerSslStat 123 } 
+
+sysServersslStatTotalHandshakesOffload OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Handshake records offloaded."
+	::= { sysGlobalServerSslStat 124 } 
 
 --==================================================================
 -- Global_stream_stat
@@ -20179,6 +20711,191 @@ sysGlobalDiametersessionStatTotRetransmissionIrule OBJECT-TYPE
 		"Displays the total number of requests triggered for retransmission by iRule command."
 	::= { sysGlobalDiametersessionStat 24 } 
 
+sysGlobalDiametersessionStatTotRequestReceived OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of request messages received."
+	::= { sysGlobalDiametersessionStat 25 } 
+
+sysGlobalDiametersessionStatTotRequestSent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of request messages sent."
+	::= { sysGlobalDiametersessionStat 26 } 
+
+sysGlobalDiametersessionStatTotDiscardUnroutable OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of unroutable request messages dropped automatically."
+	::= { sysGlobalDiametersessionStat 27 } 
+
+sysGlobalDiametersessionStatTotRespondUnroutable OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of unroutable request messages converted to error
+	     answer messages automatically."
+	::= { sysGlobalDiametersessionStat 28 } 
+
+sysGlobalDiametersessionStatAveRequestLatency OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the average L7 processing latency for diameter request messages
+	     over the last second (in milliseconds)."
+	::= { sysGlobalDiametersessionStat 29 } 
+
+sysGlobalDiametersessionStatAveAnswerLatency OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the average L7 processing latency for diameter answer messages
+	     over the last second. (in milliseconds)."
+	::= { sysGlobalDiametersessionStat 30 } 
+
+sysGlobalDiametersessionStatAvePeerDelay OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the average time between forwarding a request message to a peer and
+	     receiving the answer message from that peer over the last second (in milliseconds)."
+	::= { sysGlobalDiametersessionStat 31 } 
+
+sysGlobalDiametersessionStatAveRoundTripTime OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the average time between receiving a request message and
+	     forwarding the answer message over the last second (in milliseconds)."
+	::= { sysGlobalDiametersessionStat 32 } 
+
+sysGlobalDiametersessionStatCurTrafficRate OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of requests and responses sent and received over the
+	     last second."
+	::= { sysGlobalDiametersessionStat 33 } 
+
+sysGlobalDiametersessionStatCurErrorAnswerRatio OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the percentage of answer messages received containing an
+	     error result code (3000-5999)."
+	::= { sysGlobalDiametersessionStat 34 } 
+
+sysGlobalDiametersessionStatCurTimeoutRatio OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the percentage of answer messages unanswered."
+	::= { sysGlobalDiametersessionStat 35 } 
+
+sysGlobalDiametersessionStatTotAnswerResultCodeReceived1xxx OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of answer messages received with
+	     a response code between 1000-1999."
+	::= { sysGlobalDiametersessionStat 36 } 
+
+sysGlobalDiametersessionStatTotAnswerResultCodeReceived2xxx OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of answer messages received with
+	     a response code between 2000-2999."
+	::= { sysGlobalDiametersessionStat 37 } 
+
+sysGlobalDiametersessionStatTotAnswerResultCodeReceived3xxx OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of answer messages received with
+	     a response code between 3000-3999."
+	::= { sysGlobalDiametersessionStat 38 } 
+
+sysGlobalDiametersessionStatTotAnswerResultCodeReceived4xxx OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of answer messages received with
+	     a response code between 4000-4999."
+	::= { sysGlobalDiametersessionStat 39 } 
+
+sysGlobalDiametersessionStatTotAnswerResultCodeReceived5xxx OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of answer messages received with
+	     a response code between 5000-5999."
+	::= { sysGlobalDiametersessionStat 40 } 
+
+sysGlobalDiametersessionStatTotAnswerResultCodeSent1xxx OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of answer messages sent with a response
+	     code between 1000-1999."
+	::= { sysGlobalDiametersessionStat 41 } 
+
+sysGlobalDiametersessionStatTotAnswerResultCodeSent2xxx OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of answer messages sent with a response
+	     code between 2000-2999."
+	::= { sysGlobalDiametersessionStat 42 } 
+
+sysGlobalDiametersessionStatTotAnswerResultCodeSent3xxx OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of answer messages sent with a response
+	     code between 3000-3999."
+	::= { sysGlobalDiametersessionStat 43 } 
+
+sysGlobalDiametersessionStatTotAnswerResultCodeSent4xxx OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of answer messages sent with a response
+	     code between 4000-4999."
+	::= { sysGlobalDiametersessionStat 44 } 
+
+sysGlobalDiametersessionStatTotAnswerResultCodeSent5xxx OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of answer messages sent with a response
+	     code between 5000-5999."
+	::= { sysGlobalDiametersessionStat 45 } 
+
 --==================================================================
 -- Global_diameterrouter_stat
 --==================================================================
@@ -20192,13 +20909,302 @@ sysGlobalDiameterrouterStatResetStats OBJECT-TYPE
 		 Note, some statistics data may not be reset including data that are incremental counters."
 	::= { sysGlobalDiameterrouterStat 1 } 
 
+sysGlobalDiameterrouterStatTotMessgesIn OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages received for forwarding."
+	::= { sysGlobalDiameterrouterStat 2 } 
+
+sysGlobalDiameterrouterStatTotMessagesInRetry OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of retry messages received for forwarding."
+	::= { sysGlobalDiameterrouterStat 3 } 
+
+sysGlobalDiameterrouterStatTotMessagesOut OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages forwarded or returned to the originator."
+	::= { sysGlobalDiameterrouterStat 4 } 
+
+sysGlobalDiameterrouterStatTotMessagesCannotReturn OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which routing failed and could not be returned to the originator."
+	::= { sysGlobalDiameterrouterStat 5 } 
+
+sysGlobalDiameterrouterStatTotMessagesRouted OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages where a route was successfully found."
+	::= { sysGlobalDiameterrouterStat 6 } 
+
+sysGlobalDiameterrouterStatTotMessagesUnroutable OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages where no route was found."
+	::= { sysGlobalDiameterrouterStat 7 } 
+
+sysGlobalDiameterrouterStatTotMessagesDropped OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages dropped via an iRule."
+	::= { sysGlobalDiameterrouterStat 8 } 
+
+sysGlobalDiameterrouterStatTotMessagesQueueFull OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which were routed but the outgoing
+	      queue for the destination was full."
+	::= { sysGlobalDiameterrouterStat 9 } 
+
+sysGlobalDiameterrouterStatTotMessagesNoConnection OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which were routed to a connection which was closed before the
+	      message could be delivered."
+	::= { sysGlobalDiameterrouterStat 10 } 
+
+sysGlobalDiameterrouterStatTotMessagesConnectionClosed OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which were pending delivery when the connection closed."
+	::= { sysGlobalDiameterrouterStat 11 } 
+
+sysGlobalDiameterrouterStatTotMessagesInternalError OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which were not routed due to an internal error ."
+	::= { sysGlobalDiameterrouterStat 12 } 
+
+sysGlobalDiameterrouterStatTotMessagesPersistInUse OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which after routing failed to add a persistence entry because it
+	      was already in use."
+	::= { sysGlobalDiameterrouterStat 13 } 
+
+sysGlobalDiameterrouterStatTotMessagesStandbyDropped OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which were dropped on the
+	      standby device."
+	::= { sysGlobalDiameterrouterStat 14 } 
+
+sysGlobalDiameterrouterStatTotMessagesMaxRetries OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages returned to the originator because the latest attempt to retry
+	      routing exceeded the configured max retry count."
+	::= { sysGlobalDiameterrouterStat 15 } 
+
+sysGlobalDiameterrouterStatTotMessagesInCloned OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of messages cloned per route."
+	::= { sysGlobalDiameterrouterStat 16 } 
+
+sysGlobalDiameterrouterStatTotMessagesReturned OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages returned."
+	::= { sysGlobalDiameterrouterStat 17 } 
+
+sysGlobalDiameterrouterStatTotPayloadBytesIn OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of bytes of payload received."
+	::= { sysGlobalDiameterrouterStat 18 } 
+
+sysGlobalDiameterrouterStatTotPayloadBytesOut OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of bytes of payload sent."
+	::= { sysGlobalDiameterrouterStat 19 } 
+
+sysGlobalDiameterrouterStatCurIncomingStreams OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active incoming streams."
+	::= { sysGlobalDiameterrouterStat 20 } 
+
+sysGlobalDiameterrouterStatCurOutgoingStreams OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active outgoing streams."
+	::= { sysGlobalDiameterrouterStat 21 } 
+
+sysGlobalDiameterrouterStatTotIncomingStreams OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of incoming streams since TMM restart or stats reset."
+	::= { sysGlobalDiameterrouterStat 22 } 
+
+sysGlobalDiameterrouterStatTotOutgoingStreams OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of outgoing streams since TMM restart or stats reset."
+	::= { sysGlobalDiameterrouterStat 23 } 
+
+sysGlobalDiameterrouterStatTotFailedOutgoingStreams OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of failed outgoing streams since TMM restart or stats reset."
+	::= { sysGlobalDiameterrouterStat 24 } 
+
+sysGlobalDiameterrouterStatCurIncomingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active incoming connections."
+	::= { sysGlobalDiameterrouterStat 25 } 
+
+sysGlobalDiameterrouterStatCurOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active outgoing connections (including outgoing connections created by
+	      auto-initialization)."
+	::= { sysGlobalDiameterrouterStat 26 } 
+
+sysGlobalDiameterrouterStatCurAutoInitOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active outgoing connections created by auto-initialization."
+	::= { sysGlobalDiameterrouterStat 27 } 
+
+sysGlobalDiameterrouterStatTotIncomingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of incoming connections created since TMM restart or stats reset."
+	::= { sysGlobalDiameterrouterStat 28 } 
+
+sysGlobalDiameterrouterStatTotOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of outgoing connections created since TMM restart or stats reset
+	      (including outgoing connections created by auto-initialization)."
+	::= { sysGlobalDiameterrouterStat 29 } 
+
+sysGlobalDiameterrouterStatTotAutoInitOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of outgoing connections created by auto-initialization since
+	      TMM restart or stats reset."
+	::= { sysGlobalDiameterrouterStat 30 } 
+
+sysGlobalDiameterrouterStatTotFailedOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of outgoing connections that failed to be established."
+	::= { sysGlobalDiameterrouterStat 31 } 
+
+sysGlobalDiameterrouterStatTotFailedAutoInitOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of outgoing connections that failed to be established by
+	      auto-initalization."
+	::= { sysGlobalDiameterrouterStat 32 } 
+
+sysGlobalDiameterrouterStatCurPassthruConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active pass through connections."
+	::= { sysGlobalDiameterrouterStat 33 } 
+
+sysGlobalDiameterrouterStatTotPassthruConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of pass through connections since TMM restart or stats reset."
+	::= { sysGlobalDiameterrouterStat 34 } 
+
+sysGlobalDiameterrouterStatTotFailedPassthruConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of failed pass through connections since TMM restart or stats reset."
+	::= { sysGlobalDiameterrouterStat 35 } 
+
+sysGlobalDiameterrouterStatTotPassthruBytes OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of pass through bytes."
+	::= { sysGlobalDiameterrouterStat 36 } 
+
 sysGlobalDiameterrouterStatCurPendingRequests OBJECT-TYPE 
 	SYNTAX Gauge
 	MAX-ACCESS read-only
 	STATUS current
 	DESCRIPTION
 		"Displays the current number of pending requests."
-	::= { sysGlobalDiameterrouterStat 2 } 
+	::= { sysGlobalDiameterrouterStat 37 } 
 
 sysGlobalDiameterrouterStatTotExpiredPendingRequests OBJECT-TYPE 
 	SYNTAX Gauge
@@ -20206,7 +21212,7 @@ sysGlobalDiameterrouterStatTotExpiredPendingRequests OBJECT-TYPE
 	STATUS current
 	DESCRIPTION
 		"Displays the total number of expired pending requests."
-	::= { sysGlobalDiameterrouterStat 3 } 
+	::= { sysGlobalDiameterrouterStat 38 } 
 
 sysGlobalDiameterrouterStatTotDroppedUnexpectedAnswers OBJECT-TYPE 
 	SYNTAX Gauge
@@ -20214,7 +21220,7 @@ sysGlobalDiameterrouterStatTotDroppedUnexpectedAnswers OBJECT-TYPE
 	STATUS current
 	DESCRIPTION
 		"Displays the total number of unexpected answers received and dropped."
-	::= { sysGlobalDiameterrouterStat 4 } 
+	::= { sysGlobalDiameterrouterStat 39 } 
 
 sysGlobalDiameterrouterStatTotDroppedLateAnswers OBJECT-TYPE 
 	SYNTAX Gauge
@@ -20222,7 +21228,886 @@ sysGlobalDiameterrouterStatTotDroppedLateAnswers OBJECT-TYPE
 	STATUS current
 	DESCRIPTION
 		"Displays the total number of late answers received and dropped."
-	::= { sysGlobalDiameterrouterStat 5 } 
+	::= { sysGlobalDiameterrouterStat 40 } 
+
+sysGlobalDiameterrouterStatTotMsgsDroppedForceOffline OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages dropped due to force offline."
+	::= { sysGlobalDiameterrouterStat 41 } 
+
+--==================================================================
+-- Global_sipsession_stat
+--==================================================================
+sysGlobalSipsessionStatResetStats OBJECT-TYPE 
+	SYNTAX INTEGER
+	MAX-ACCESS read-write
+	STATUS current
+	DESCRIPTION
+		"The action to reset resettable statistics data in sysGlobalSipsessionStat.
+		 Setting this value to 1 will reset statistics data.
+		 Note, some statistics data may not be reset including data that are incremental counters."
+	::= { sysGlobalSipsessionStat 1 } 
+
+sysGlobalSipsessionStatRequests OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 2 } 
+
+sysGlobalSipsessionStatResponses OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of SIP response messages the system handled."
+	::= { sysGlobalSipsessionStat 3 } 
+
+sysGlobalSipsessionStatBadmsgs OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of bad SIP messages the system handled."
+	::= { sysGlobalSipsessionStat 4 } 
+
+sysGlobalSipsessionStatBadmsgsReq OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of bad SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 5 } 
+
+sysGlobalSipsessionStatDrops OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of SIP messages the system dropped."
+	::= { sysGlobalSipsessionStat 6 } 
+
+sysGlobalSipsessionStatDropsReq OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of SIP request messages the system dropped."
+	::= { sysGlobalSipsessionStat 7 } 
+
+sysGlobalSipsessionStatInvite OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of INVITE SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 8 } 
+
+sysGlobalSipsessionStatAck OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of ACK SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 9 } 
+
+sysGlobalSipsessionStatBye OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of BYE SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 10 } 
+
+sysGlobalSipsessionStatCancel OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of CANCEL SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 11 } 
+
+sysGlobalSipsessionStatOptions OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of OPTIONS SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 12 } 
+
+sysGlobalSipsessionStatRegisterReq OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of REGISTER SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 13 } 
+
+sysGlobalSipsessionStatPrack OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of PRACK SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 14 } 
+
+sysGlobalSipsessionStatSubscribe OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of SUBSCRIBE SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 15 } 
+
+sysGlobalSipsessionStatNotify OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of NOTIFY SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 16 } 
+
+sysGlobalSipsessionStatPublish OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of PUBLISH SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 17 } 
+
+sysGlobalSipsessionStatInfo OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of INFO SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 18 } 
+
+sysGlobalSipsessionStatRefer OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of REFER SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 19 } 
+
+sysGlobalSipsessionStatMessage OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of MESSAGE SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 20 } 
+
+sysGlobalSipsessionStatUpdateReq OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of UPDATE SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 21 } 
+
+sysGlobalSipsessionStatService OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of SERVICE SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 22 } 
+
+sysGlobalSipsessionStatBenotify OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of BENOTIFY SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 23 } 
+
+sysGlobalSipsessionStatNegotiate OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of NEGOTIATE SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 24 } 
+
+sysGlobalSipsessionStatOther OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of OTHER SIP request messages the system handled."
+	::= { sysGlobalSipsessionStat 25 } 
+
+sysGlobalSipsessionStatProvisional OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Provisional SIP response messages the system handled."
+	::= { sysGlobalSipsessionStat 26 } 
+
+sysGlobalSipsessionStatSuccessful OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Successful SIP response messages the system handled."
+	::= { sysGlobalSipsessionStat 27 } 
+
+sysGlobalSipsessionStatRedirection OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Redirection SIP response messages the system handled."
+	::= { sysGlobalSipsessionStat 28 } 
+
+sysGlobalSipsessionStatClientFailures OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Client Failure SIP response messages the system handled."
+	::= { sysGlobalSipsessionStat 29 } 
+
+sysGlobalSipsessionStatServerFailures OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Server Failure SIP response messages the system handled."
+	::= { sysGlobalSipsessionStat 30 } 
+
+sysGlobalSipsessionStatGlobalFailures OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Global Failure SIP response messages the system handled."
+	::= { sysGlobalSipsessionStat 31 } 
+
+sysGlobalSipsessionStatBadRequest OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Bad-Request failure response messages generated when
+	      rejecting a SIP message due to a malformed syntax."
+	::= { sysGlobalSipsessionStat 32 } 
+
+sysGlobalSipsessionStatBadRequest400Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Bad-Request failure response messages sent when
+	      rejecting a SIP message due to a malformed syntax."
+	::= { sysGlobalSipsessionStat 33 } 
+
+sysGlobalSipsessionStatNotFound OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Bad-Request failure response messages generated when rejecting
+	      a SIP message when there is no matching user registration entry."
+	::= { sysGlobalSipsessionStat 34 } 
+
+sysGlobalSipsessionStatNotFound404Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Bad-Request failure response messages sent when
+	      rejecting a SIP message when there is no matching user registration entry."
+	::= { sysGlobalSipsessionStat 35 } 
+
+sysGlobalSipsessionStatRequestEntityTooLarge OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Request-Entity-Too-Large response
+	      messages generated when rejecting a SIP message due to some aspect of the message exceeding a
+	      configured size limit."
+	::= { sysGlobalSipsessionStat 36 } 
+
+sysGlobalSipsessionStatRequestEntityTooLarge413Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Request-Entity-Too-Large response
+	      messages sent when rejecting a SIP message due to some aspect of the message exceeding a
+	      configured size limit."
+	::= { sysGlobalSipsessionStat 37 } 
+
+sysGlobalSipsessionStatUnsupportedUriScheme OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Unsupported-URI-Scheme responses messages
+	      generated when rejecting a SIP message due to malformed URI."
+	::= { sysGlobalSipsessionStat 38 } 
+
+sysGlobalSipsessionStatUnsupportedUriScheme416Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Unsupported-URI-Scheme responses
+	      messages sent when rejecting a SIP message due to malformed URI."
+	::= { sysGlobalSipsessionStat 39 } 
+
+sysGlobalSipsessionStatTemporarilyUnavailable OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Temporary Unavailable failure response
+	      messages generated when rejecting a call when the user is not available at this time."
+	::= { sysGlobalSipsessionStat 40 } 
+
+sysGlobalSipsessionStatTemporarilyUnavailable480Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Temporary Unavailable failure
+	      response messages sent when rejecting a call when the user is not available at this time."
+	::= { sysGlobalSipsessionStat 41 } 
+
+sysGlobalSipsessionStatTransactionDoesNotExist OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of transaction does not exist response
+	      message generated when response or request message is not able to be matched to a SIP transaction."
+	::= { sysGlobalSipsessionStat 42 } 
+
+sysGlobalSipsessionStatTransactionDoesNotExist481Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of transaction does not exist response
+	      message sent when response or request message is not able to be matched to a SIP transaction."
+	::= { sysGlobalSipsessionStat 43 } 
+
+sysGlobalSipsessionStatLoopDetected OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Loop-Detected failure response messages generated
+	      when rejecting a SIP message due to loop detection."
+	::= { sysGlobalSipsessionStat 44 } 
+
+sysGlobalSipsessionStatLoopDetected482Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Loop-Detected failure response messages sent
+	      when rejecting a SIP message due to loop detection."
+	::= { sysGlobalSipsessionStat 45 } 
+
+sysGlobalSipsessionStatTooManyHops OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Too-Many-Hops failure response messages generated
+	      when rejecting a SIP message as Max-Forwards header has reached value '0'."
+	::= { sysGlobalSipsessionStat 46 } 
+
+sysGlobalSipsessionStatTooManyHops483Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Too-Many-Hops failure response messages sent
+	      when rejecting a SIP message as Max-Forwards header has reached value '0'."
+	::= { sysGlobalSipsessionStat 47 } 
+
+sysGlobalSipsessionStatAddressIncomplete OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Address-Incomplete failure response
+	      messages generated when rejecting a SIP message due to malformed or incomplete request URI."
+	::= { sysGlobalSipsessionStat 48 } 
+
+sysGlobalSipsessionStatAddressIncomplete484Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Address-Incomplete failure
+	      response messages sent when rejecting a SIP message due to malformed or incomplete request URI."
+	::= { sysGlobalSipsessionStat 49 } 
+
+sysGlobalSipsessionStatNotAcceptableHere OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Not-Acceptable failure response
+	      messages generated when rejecting a SIP message containing too many SDP media requests."
+	::= { sysGlobalSipsessionStat 50 } 
+
+sysGlobalSipsessionStatNotAcceptableHere488Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Not-Acceptable failure response
+	      messages sent when rejecting a SIP message containing too many SDP media requests."
+	::= { sysGlobalSipsessionStat 51 } 
+
+sysGlobalSipsessionStatServerInternalError OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Server-Internal-Error failure response
+	      messages generated when rejecting a SIP message due to some unexpected condition and cannot
+	      fulfill the request."
+	::= { sysGlobalSipsessionStat 52 } 
+
+sysGlobalSipsessionStatServerInternalError500Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Server-Internal-Error failure response
+	      messages sent when rejecting a SIP message due to some unexpected condition and cannot
+	      fulfill the request."
+	::= { sysGlobalSipsessionStat 53 } 
+
+sysGlobalSipsessionStatNotImplemented OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Not-Implemented failure response messages generated
+	      when rejecting a SIP message due to an invalid/unimplemented request method."
+	::= { sysGlobalSipsessionStat 54 } 
+
+sysGlobalSipsessionStatNotImplemented501Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Not-Implemented failure response messages
+	      sent when rejecting a SIP message due to an invalid/unimplemented request method."
+	::= { sysGlobalSipsessionStat 55 } 
+
+sysGlobalSipsessionStatServiceUnavailable OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Service-Unavailable failure response messages
+	      generated when rejecting a SIP message due to the server undergoing maintenance or temporary
+	      traffic overload."
+	::= { sysGlobalSipsessionStat 56 } 
+
+sysGlobalSipsessionStatServiceUnavailable503Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Service-Unavailable failure response
+	      messages sent when rejecting a SIP message due to the server undergoing maintenance or temporary
+	      traffic overload."
+	::= { sysGlobalSipsessionStat 57 } 
+
+sysGlobalSipsessionStatVersionNotSupported OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Version-Not-Supported failure response messages
+	      generated when rejecting a SIP message when the SIP protocol version in the request is not supported
+	      by the server."
+	::= { sysGlobalSipsessionStat 58 } 
+
+sysGlobalSipsessionStatVersionNotSupported505Sent OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of Version-Not-Supported failure response
+	      messages sent when rejecting a SIP message when the SIP protocol version in the request is not supported
+	      by the server."
+	::= { sysGlobalSipsessionStat 59 } 
+
+--==================================================================
+-- Global_siprouter_stat
+--==================================================================
+sysGlobalSiprouterStatResetStats OBJECT-TYPE 
+	SYNTAX INTEGER
+	MAX-ACCESS read-write
+	STATUS current
+	DESCRIPTION
+		"The action to reset resettable statistics data in sysGlobalSiprouterStat.
+		 Setting this value to 1 will reset statistics data.
+		 Note, some statistics data may not be reset including data that are incremental counters."
+	::= { sysGlobalSiprouterStat 1 } 
+
+sysGlobalSiprouterStatTotMessgesIn OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages received for forwarding."
+	::= { sysGlobalSiprouterStat 2 } 
+
+sysGlobalSiprouterStatTotMessagesInRetry OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of retry messages received for forwarding."
+	::= { sysGlobalSiprouterStat 3 } 
+
+sysGlobalSiprouterStatTotMessagesOut OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages forwarded or returned to the originator."
+	::= { sysGlobalSiprouterStat 4 } 
+
+sysGlobalSiprouterStatTotMessagesCannotReturn OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which routing failed and could not be returned to the originator."
+	::= { sysGlobalSiprouterStat 5 } 
+
+sysGlobalSiprouterStatTotMessagesRouted OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages where a route was successfully found."
+	::= { sysGlobalSiprouterStat 6 } 
+
+sysGlobalSiprouterStatTotMessagesUnroutable OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages where no route was found."
+	::= { sysGlobalSiprouterStat 7 } 
+
+sysGlobalSiprouterStatTotMessagesDropped OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages dropped via an iRule."
+	::= { sysGlobalSiprouterStat 8 } 
+
+sysGlobalSiprouterStatTotMessagesQueueFull OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which were routed but the outgoing
+	      queue for the destination was full."
+	::= { sysGlobalSiprouterStat 9 } 
+
+sysGlobalSiprouterStatTotMessagesNoConnection OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which were routed to a connection which was closed before the
+	      message could be delivered."
+	::= { sysGlobalSiprouterStat 10 } 
+
+sysGlobalSiprouterStatTotMessagesConnectionClosed OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which were pending delivery when the connection closed."
+	::= { sysGlobalSiprouterStat 11 } 
+
+sysGlobalSiprouterStatTotMessagesInternalError OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which were not routed due to an internal error ."
+	::= { sysGlobalSiprouterStat 12 } 
+
+sysGlobalSiprouterStatTotMessagesPersistInUse OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which after routing failed to add a persistence entry because it
+	      was already in use."
+	::= { sysGlobalSiprouterStat 13 } 
+
+sysGlobalSiprouterStatTotMessagesStandbyDropped OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages which were dropped on the
+	      standby device."
+	::= { sysGlobalSiprouterStat 14 } 
+
+sysGlobalSiprouterStatTotMessagesMaxRetries OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages returned to the originator because the latest attempt to retry
+	      routing exceeded the configured max retry count."
+	::= { sysGlobalSiprouterStat 15 } 
+
+sysGlobalSiprouterStatTotMessagesInCloned OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of messages cloned per route."
+	::= { sysGlobalSiprouterStat 16 } 
+
+sysGlobalSiprouterStatTotMessagesReturned OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of messages returned."
+	::= { sysGlobalSiprouterStat 17 } 
+
+sysGlobalSiprouterStatTotPayloadBytesIn OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of bytes of payload received."
+	::= { sysGlobalSiprouterStat 18 } 
+
+sysGlobalSiprouterStatTotPayloadBytesOut OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of bytes of payload sent."
+	::= { sysGlobalSiprouterStat 19 } 
+
+sysGlobalSiprouterStatCurIncomingStreams OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active incoming streams."
+	::= { sysGlobalSiprouterStat 20 } 
+
+sysGlobalSiprouterStatCurOutgoingStreams OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active outgoing streams."
+	::= { sysGlobalSiprouterStat 21 } 
+
+sysGlobalSiprouterStatTotIncomingStreams OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of incoming streams since TMM restart or stats reset."
+	::= { sysGlobalSiprouterStat 22 } 
+
+sysGlobalSiprouterStatTotOutgoingStreams OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of outgoing streams since TMM restart or stats reset."
+	::= { sysGlobalSiprouterStat 23 } 
+
+sysGlobalSiprouterStatTotFailedOutgoingStreams OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of failed outgoing streams since TMM restart or stats reset."
+	::= { sysGlobalSiprouterStat 24 } 
+
+sysGlobalSiprouterStatCurIncomingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active incoming connections."
+	::= { sysGlobalSiprouterStat 25 } 
+
+sysGlobalSiprouterStatCurOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active outgoing connections (including outgoing connections created by
+	      auto-initialization)."
+	::= { sysGlobalSiprouterStat 26 } 
+
+sysGlobalSiprouterStatCurAutoInitOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active outgoing connections created by auto-initialization."
+	::= { sysGlobalSiprouterStat 27 } 
+
+sysGlobalSiprouterStatTotIncomingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of incoming connections created since TMM restart or stats reset."
+	::= { sysGlobalSiprouterStat 28 } 
+
+sysGlobalSiprouterStatTotOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of outgoing connections created since TMM restart or stats reset
+	      (including outgoing connections created by auto-initialization)."
+	::= { sysGlobalSiprouterStat 29 } 
+
+sysGlobalSiprouterStatTotAutoInitOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of outgoing connections created by auto-initialization since
+	      TMM restart or stats reset."
+	::= { sysGlobalSiprouterStat 30 } 
+
+sysGlobalSiprouterStatTotFailedOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of outgoing connections that failed to be established."
+	::= { sysGlobalSiprouterStat 31 } 
+
+sysGlobalSiprouterStatTotFailedAutoInitOutgoingConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of outgoing connections that failed to be established by
+	      auto-initalization."
+	::= { sysGlobalSiprouterStat 32 } 
+
+sysGlobalSiprouterStatCurPassthruConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of active pass through connections."
+	::= { sysGlobalSiprouterStat 33 } 
+
+sysGlobalSiprouterStatTotPassthruConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of pass through connections since TMM restart or stats reset."
+	::= { sysGlobalSiprouterStat 34 } 
+
+sysGlobalSiprouterStatTotFailedPassthruConnections OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of failed pass through connections since TMM restart or stats reset."
+	::= { sysGlobalSiprouterStat 35 } 
+
+sysGlobalSiprouterStatTotPassthruBytes OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the number of pass through bytes."
+	::= { sysGlobalSiprouterStat 36 } 
+
+sysGlobalSiprouterStatCurrPendingCalls OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the current number of pending calls."
+	::= { sysGlobalSiprouterStat 37 } 
+
+sysGlobalSiprouterStatCurrActiveCalls OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the current number of active calls."
+	::= { sysGlobalSiprouterStat 38 } 
+
+sysGlobalSiprouterStatTotSuccessfulCalls OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of total successful calls."
+	::= { sysGlobalSiprouterStat 39 } 
+
+sysGlobalSiprouterStatTotRejectedCalls OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of rejected calls."
+	::= { sysGlobalSiprouterStat 40 } 
+
+sysGlobalSiprouterStatTotCancelledCalls OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of cancelled calls."
+	::= { sysGlobalSiprouterStat 41 } 
+
+sysGlobalSiprouterStatActiveRegistrations OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of active registrations."
+	::= { sysGlobalSiprouterStat 42 } 
+
+sysGlobalSiprouterStatRejectedRegistrations OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"Displays the total number of rejected registrations."
+	::= { sysGlobalSiprouterStat 43 } 
 
 --==================================================================
 -- Global_ipsecalg_stat
@@ -22406,8 +24291,8 @@ sysFwNatDynamicPoolFailureStatTable OBJECT-TYPE
 	STATUS current
 	DESCRIPTION
 		"The system's global Dynamic AFM NAT Translation Pool failure statistics information. 
-	   These are the roll-ups of all the individual Dynamic AFM NAT Translation Pool failures' 
-	   statistics."
+		These are the roll-ups of all the individual Dynamic AFM NAT Translation Pool failures' 
+		statistics."
 	::= { sysGlobalFwNatDynamicPoolFailureStat 3 } 
 
 sysFwNatDynamicPoolFailureStatEntry OBJECT-TYPE
@@ -22442,6 +24327,224 @@ sysFwNatDynamicPoolFailureStatFailureCount OBJECT-TYPE
 	DESCRIPTION
 		"Total failures due to the cause."
 	::= { sysFwNatDynamicPoolFailureStatEntry 2 } 
+
+--==================================================================
+-- Global_destination_translation_static_stat
+--==================================================================
+sysFwNatStaticDestinationTranslationPoolStatResetStats OBJECT-TYPE 
+	SYNTAX INTEGER
+	MAX-ACCESS read-write
+	STATUS current
+	DESCRIPTION
+		"The action to reset resettable statistics data in sysGlobalFwNatStaticDestinationTranslationPoolStat.
+		 Setting this value to 1 will reset statistics data.
+		 Note, some statistics data may not be reset including data that are incremental counters."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 1 } 
+
+sysFwNatStaticDestinationTranslationPoolStatTransReqs OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of translation requests."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 2 } 
+
+sysFwNatStaticDestinationTranslationPoolStatTransReqFails OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of translation request failures."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 3 } 
+
+sysFwNatStaticDestinationTranslationPoolStatBidirReqs OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of bidirectional requests."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 4 } 
+
+sysFwNatStaticDestinationTranslationPoolStatBidirReqFails OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of bidirectional request failures."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 5 } 
+
+sysFwNatStaticDestinationTranslationPoolStatErrAddrTrans OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of err address translation events."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 6 } 
+
+sysFwNatStaticDestinationTranslationPoolStatErrPortTrans OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of err port translation events."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 7 } 
+
+sysFwNatStaticDestinationTranslationPoolStatErrFlowCollis OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of err flow collision events."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 8 } 
+
+sysFwNatStaticDestinationTranslationPoolStatErrCfgMismtch OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of err config mismatch events."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 9 } 
+
+sysFwNatStaticDestinationTranslationPoolStatErrMemory OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of err memory events."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 10 } 
+
+sysFwNatStaticDestinationTranslationPoolStatSubscrIdLkps OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of subscriber id lookups."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 11 } 
+
+sysFwNatStaticDestinationTranslationPoolStatSubscrIdNotFd OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of subscriber id not found events."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 12 } 
+
+sysFwNatStaticDestinationTranslationPoolStatSubscrIdErrs OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of subscriber id errors."
+	::= { sysGlobalFwNatStaticDestinationTranslationPoolStat 13 } 
+
+--==================================================================
+-- Global_source_translation_static_stat
+--==================================================================
+sysFwNatStaticSourceTranslationPoolStatResetStats OBJECT-TYPE 
+	SYNTAX INTEGER
+	MAX-ACCESS read-write
+	STATUS current
+	DESCRIPTION
+		"The action to reset resettable statistics data in sysGlobalFwNatStaticSourceTranslationPoolStat.
+		 Setting this value to 1 will reset statistics data.
+		 Note, some statistics data may not be reset including data that are incremental counters."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 1 } 
+
+sysFwNatStaticSourceTranslationPoolStatTransReqs OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of translation requests."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 2 } 
+
+sysFwNatStaticSourceTranslationPoolStatTransReqFails OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of translation request failures."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 3 } 
+
+sysFwNatStaticSourceTranslationPoolStatBidirReqs OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of bidirectional requests."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 4 } 
+
+sysFwNatStaticSourceTranslationPoolStatBidirReqFails OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of bidirectional request failures."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 5 } 
+
+sysFwNatStaticSourceTranslationPoolStatErrAddrTrans OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of err address translation events."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 6 } 
+
+sysFwNatStaticSourceTranslationPoolStatErrPortTrans OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of err port translation events."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 7 } 
+
+sysFwNatStaticSourceTranslationPoolStatErrFlowCollis OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of err flow collision events."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 8 } 
+
+sysFwNatStaticSourceTranslationPoolStatErrCfgMismtch OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of err config mismatch events."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 9 } 
+
+sysFwNatStaticSourceTranslationPoolStatErrMemory OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of err memory events."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 10 } 
+
+sysFwNatStaticSourceTranslationPoolStatSubscrIdLkps OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of subscriber id lookups."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 11 } 
+
+sysFwNatStaticSourceTranslationPoolStatSubscrIdNotFd OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of subscriber id not found events."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 12 } 
+
+sysFwNatStaticSourceTranslationPoolStatSubscrIdErrs OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of subscriber id errors."
+	::= { sysGlobalFwNatStaticSourceTranslationPoolStat 13 } 
 
 --==================================================================
 -- Tmm_pages_stat
@@ -22523,6 +24626,202 @@ sysTmmPagesStatPagesAvail OBJECT-TYPE
 	DESCRIPTION
 		"The count of available memory pages allocated for the TMM."
 	::= { sysTmmPagesStatEntry 4 } 
+
+--==================================================================
+-- Vlan_ifc_stat
+--==================================================================
+sysVlanIfcStatNumber OBJECT-TYPE 
+	SYNTAX INTEGER
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of sysVlanIfcStat entries in the table."
+	::= { sysVlanIfcStat 1 } 
+
+sysVlanIfcStatTable OBJECT-TYPE
+	SYNTAX SEQUENCE OF SysVlanIfcStatEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"Vlan stats, retrieved from TMM ifc_stat."
+	::= { sysVlanIfcStat 2 } 
+
+sysVlanIfcStatEntry OBJECT-TYPE
+	SYNTAX  SysVlanIfcStatEntry
+	MAX-ACCESS not-accessible
+	STATUS current
+	DESCRIPTION
+		"Columns in the sysVlanIfcStat Table"
+	INDEX {
+		sysVlanIfcStatName
+	}
+	::= { sysVlanIfcStatTable 1 } 
+
+SysVlanIfcStatEntry ::= 
+	SEQUENCE {
+        	sysVlanIfcStatName                                        LongDisplayString,
+        	sysVlanIfcStatInDiscards                                  Gauge,
+        	sysVlanIfcStatInErrors                                    Gauge,
+        	sysVlanIfcStatInUnknownProtos                             Gauge,
+        	sysVlanIfcStatOutDiscards                                 Gauge,
+        	sysVlanIfcStatOutErrors                                   Gauge,
+        	sysVlanIfcStatHcInOctets                                  Counter64,
+        	sysVlanIfcStatHcInUcastPkts                               Counter64,
+        	sysVlanIfcStatHcInMulticastPkts                           Counter64,
+        	sysVlanIfcStatHcInBroadcastPkts                           Counter64,
+        	sysVlanIfcStatHcOutOctets                                 Counter64,
+        	sysVlanIfcStatHcOutUcastPkts                              Counter64,
+        	sysVlanIfcStatHcOutMulticastPkts                          Counter64,
+        	sysVlanIfcStatHcOutBroadcastPkts                          Counter64,
+        	sysVlanIfcStatPvaInPkts                                   Counter64,
+        	sysVlanIfcStatPvaInOctets                                 Counter64,
+        	sysVlanIfcStatPvaOutPkts                                  Counter64,
+        	sysVlanIfcStatPvaOutOctets                                Counter64
+	}
+
+sysVlanIfcStatName OBJECT-TYPE 
+	SYNTAX LongDisplayString
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The name of a VLAN."
+	::= { sysVlanIfcStatEntry 1 } 
+
+sysVlanIfcStatInDiscards OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of incoming packets discarded."
+	::= { sysVlanIfcStatEntry 2 } 
+
+sysVlanIfcStatInErrors OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of incoming error packets."
+	::= { sysVlanIfcStatEntry 3 } 
+
+sysVlanIfcStatInUnknownProtos OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of incoming unknown proto packets."
+	::= { sysVlanIfcStatEntry 4 } 
+
+sysVlanIfcStatOutDiscards OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of outgoing packets discarded."
+	::= { sysVlanIfcStatEntry 5 } 
+
+sysVlanIfcStatOutErrors OBJECT-TYPE 
+	SYNTAX Gauge
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of outgoing error packets."
+	::= { sysVlanIfcStatEntry 6 } 
+
+sysVlanIfcStatHcInOctets OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The total number of incoming octets."
+	::= { sysVlanIfcStatEntry 7 } 
+
+sysVlanIfcStatHcInUcastPkts OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of incoming unicast packets."
+	::= { sysVlanIfcStatEntry 8 } 
+
+sysVlanIfcStatHcInMulticastPkts OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of incoming multicast packets."
+	::= { sysVlanIfcStatEntry 9 } 
+
+sysVlanIfcStatHcInBroadcastPkts OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of incoming broadcast packets."
+	::= { sysVlanIfcStatEntry 10 } 
+
+sysVlanIfcStatHcOutOctets OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The total number of outgoing octets."
+	::= { sysVlanIfcStatEntry 11 } 
+
+sysVlanIfcStatHcOutUcastPkts OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of outgoing unicast packets."
+	::= { sysVlanIfcStatEntry 12 } 
+
+sysVlanIfcStatHcOutMulticastPkts OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of outgoing multicast packets."
+	::= { sysVlanIfcStatEntry 13 } 
+
+sysVlanIfcStatHcOutBroadcastPkts OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of outgoing broadcast packets."
+	::= { sysVlanIfcStatEntry 14 } 
+
+sysVlanIfcStatPvaInPkts OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of incoming PVA packets."
+	::= { sysVlanIfcStatEntry 15 } 
+
+sysVlanIfcStatPvaInOctets OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of incoming PVA octets."
+	::= { sysVlanIfcStatEntry 16 } 
+
+sysVlanIfcStatPvaOutPkts OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of outgoing PVA packets."
+	::= { sysVlanIfcStatEntry 17 } 
+
+sysVlanIfcStatPvaOutOctets OBJECT-TYPE 
+	SYNTAX Counter64
+	MAX-ACCESS read-only
+	STATUS current
+	DESCRIPTION
+		"The number of outgoing PVA octets."
+	::= { sysVlanIfcStatEntry 18 } 
 
 --================================================================
  -- Compliance and Group
@@ -22813,7 +25112,11 @@ sysHttpStatGroup OBJECT-GROUP
 		sysHttpStatRamcacheSize,
 		sysHttpStatRamcacheCount,
 		sysHttpStatRamcacheEvictions,
-		sysHttpStatRespBucket64k
+		sysHttpStatRespBucket64k,
+		sysHttpStatV20Reqs,
+		sysHttpStatV30Reqs,
+		sysHttpStatV20Resp,
+		sysHttpStatV30Resp
 	}
 	STATUS	 current
 	DESCRIPTION
@@ -23034,7 +25337,37 @@ sysClientsslStatGroup OBJECT-GROUP
 		sysClientsslStatOcspFwdpClientsslRevokedResp,
 		sysClientsslStatOcspFwdpClientsslUnknownResp,
 		sysClientsslStatC3dConns,
-		sysClientsslStatChacha20Poly1305Bulk
+		sysClientsslStatChacha20Poly1305Bulk,
+		sysClientsslStatAesBulkOffload,
+		sysClientsslStatAesGcmBulkOffload,
+		sysClientsslStatChacha20Poly1305BulkOffld,
+		sysClientsslStatDesBulkOffload,
+		sysClientsslStatRc4BulkOffload,
+		sysClientsslStatCamelliaBulkOffload,
+		sysClientsslStatMd5DigestOffload,
+		sysClientsslStatShaDigestOffload,
+		sysClientsslStatSha224Digest,
+		sysClientsslStatSha224DigestOffload,
+		sysClientsslStatSha256Digest,
+		sysClientsslStatSha256DigestOffload,
+		sysClientsslStatSha384Digest,
+		sysClientsslStatSha384DigestOffload,
+		sysClientsslStatSha512Digest,
+		sysClientsslStatSha512DigestOffload,
+		sysClientsslStatDhGroupP256,
+		sysClientsslStatDhGroupP256Offload,
+		sysClientsslStatDhGroupP384,
+		sysClientsslStatDhGroupP384Offload,
+		sysClientsslStatDhGroupX25519,
+		sysClientsslStatDhGroupX25519Offload,
+		sysClientsslStatRsaKeySize1024,
+		sysClientsslStatRsaKeySize1024Offload,
+		sysClientsslStatRsaKeySize2048,
+		sysClientsslStatRsaKeySize2048Offload,
+		sysClientsslStatRsaKeySize4096,
+		sysClientsslStatRsaKeySize4096Offload,
+		sysClientsslStatTotalHandshakesSoftware,
+		sysClientsslStatTotalHandshakesOffload
 	}
 	STATUS	 current
 	DESCRIPTION
@@ -23136,7 +25469,37 @@ sysServersslStatGroup OBJECT-GROUP
 		sysServersslStatOcspServersslCertStatusUnknown,
 		sysServersslStatOcspServersslCertStatusRevoked,
 		sysServersslStatC3dConns,
-		sysServersslStatChacha20Poly1305Bulk
+		sysServersslStatChacha20Poly1305Bulk,
+		sysServersslStatAesBulkOffload,
+		sysServersslStatAesGcmBulkOffload,
+		sysServersslStatChacha20Poly1305BulkOffld,
+		sysServersslStatDesBulkOffload,
+		sysServersslStatRc4BulkOffload,
+		sysServersslStatCamelliaBulkOffload,
+		sysServersslStatMd5DigestOffload,
+		sysServersslStatShaDigestOffload,
+		sysServersslStatSha224Digest,
+		sysServersslStatSha224DigestOffload,
+		sysServersslStatSha256Digest,
+		sysServersslStatSha256DigestOffload,
+		sysServersslStatSha384Digest,
+		sysServersslStatSha384DigestOffload,
+		sysServersslStatSha512Digest,
+		sysServersslStatSha512DigestOffload,
+		sysServersslStatDhGroupP256,
+		sysServersslStatDhGroupP256Offload,
+		sysServersslStatDhGroupP384,
+		sysServersslStatDhGroupP384Offload,
+		sysServersslStatDhGroupX25519,
+		sysServersslStatDhGroupX25519Offload,
+		sysServersslStatRsaKeySize1024,
+		sysServersslStatRsaKeySize1024Offload,
+		sysServersslStatRsaKeySize2048,
+		sysServersslStatRsaKeySize2048Offload,
+		sysServersslStatRsaKeySize4096,
+		sysServersslStatRsaKeySize4096Offload,
+		sysServersslStatTotalHandshakesSoftware,
+		sysServersslStatTotalHandshakesOffload
 	}
 	STATUS	 current
 	DESCRIPTION
@@ -25438,7 +27801,28 @@ sysGlobalDiametersessionStatGroup OBJECT-GROUP
 		sysGlobalDiametersessionStatTotRetransReqRetransmitted,
 		sysGlobalDiametersessionStatTotRetransmissionTimeout,
 		sysGlobalDiametersessionStatTotRetransmissionErrorCode,
-		sysGlobalDiametersessionStatTotRetransmissionIrule
+		sysGlobalDiametersessionStatTotRetransmissionIrule,
+		sysGlobalDiametersessionStatTotRequestReceived,
+		sysGlobalDiametersessionStatTotRequestSent,
+		sysGlobalDiametersessionStatTotDiscardUnroutable,
+		sysGlobalDiametersessionStatTotRespondUnroutable,
+		sysGlobalDiametersessionStatAveRequestLatency,
+		sysGlobalDiametersessionStatAveAnswerLatency,
+		sysGlobalDiametersessionStatAvePeerDelay,
+		sysGlobalDiametersessionStatAveRoundTripTime,
+		sysGlobalDiametersessionStatCurTrafficRate,
+		sysGlobalDiametersessionStatCurErrorAnswerRatio,
+		sysGlobalDiametersessionStatCurTimeoutRatio,
+		sysGlobalDiametersessionStatTotAnswerResultCodeReceived1xxx,
+		sysGlobalDiametersessionStatTotAnswerResultCodeReceived2xxx,
+		sysGlobalDiametersessionStatTotAnswerResultCodeReceived3xxx,
+		sysGlobalDiametersessionStatTotAnswerResultCodeReceived4xxx,
+		sysGlobalDiametersessionStatTotAnswerResultCodeReceived5xxx,
+		sysGlobalDiametersessionStatTotAnswerResultCodeSent1xxx,
+		sysGlobalDiametersessionStatTotAnswerResultCodeSent2xxx,
+		sysGlobalDiametersessionStatTotAnswerResultCodeSent3xxx,
+		sysGlobalDiametersessionStatTotAnswerResultCodeSent4xxx,
+		sysGlobalDiametersessionStatTotAnswerResultCodeSent5xxx
 	}
 	STATUS	 current
 	DESCRIPTION
@@ -25448,15 +27832,169 @@ sysGlobalDiametersessionStatGroup OBJECT-GROUP
 sysGlobalDiameterrouterStatGroup OBJECT-GROUP
 	 OBJECTS {
 		sysGlobalDiameterrouterStatResetStats,
+		sysGlobalDiameterrouterStatTotMessgesIn,
+		sysGlobalDiameterrouterStatTotMessagesInRetry,
+		sysGlobalDiameterrouterStatTotMessagesOut,
+		sysGlobalDiameterrouterStatTotMessagesCannotReturn,
+		sysGlobalDiameterrouterStatTotMessagesRouted,
+		sysGlobalDiameterrouterStatTotMessagesUnroutable,
+		sysGlobalDiameterrouterStatTotMessagesDropped,
+		sysGlobalDiameterrouterStatTotMessagesQueueFull,
+		sysGlobalDiameterrouterStatTotMessagesNoConnection,
+		sysGlobalDiameterrouterStatTotMessagesConnectionClosed,
+		sysGlobalDiameterrouterStatTotMessagesInternalError,
+		sysGlobalDiameterrouterStatTotMessagesPersistInUse,
+		sysGlobalDiameterrouterStatTotMessagesStandbyDropped,
+		sysGlobalDiameterrouterStatTotMessagesMaxRetries,
+		sysGlobalDiameterrouterStatTotMessagesInCloned,
+		sysGlobalDiameterrouterStatTotMessagesReturned,
+		sysGlobalDiameterrouterStatTotPayloadBytesIn,
+		sysGlobalDiameterrouterStatTotPayloadBytesOut,
+		sysGlobalDiameterrouterStatCurIncomingStreams,
+		sysGlobalDiameterrouterStatCurOutgoingStreams,
+		sysGlobalDiameterrouterStatTotIncomingStreams,
+		sysGlobalDiameterrouterStatTotOutgoingStreams,
+		sysGlobalDiameterrouterStatTotFailedOutgoingStreams,
+		sysGlobalDiameterrouterStatCurIncomingConnections,
+		sysGlobalDiameterrouterStatCurOutgoingConnections,
+		sysGlobalDiameterrouterStatCurAutoInitOutgoingConnections,
+		sysGlobalDiameterrouterStatTotIncomingConnections,
+		sysGlobalDiameterrouterStatTotOutgoingConnections,
+		sysGlobalDiameterrouterStatTotAutoInitOutgoingConnections,
+		sysGlobalDiameterrouterStatTotFailedOutgoingConnections,
+		sysGlobalDiameterrouterStatTotFailedAutoInitOutgoingConnections,
+		sysGlobalDiameterrouterStatCurPassthruConnections,
+		sysGlobalDiameterrouterStatTotPassthruConnections,
+		sysGlobalDiameterrouterStatTotFailedPassthruConnections,
+		sysGlobalDiameterrouterStatTotPassthruBytes,
 		sysGlobalDiameterrouterStatCurPendingRequests,
 		sysGlobalDiameterrouterStatTotExpiredPendingRequests,
 		sysGlobalDiameterrouterStatTotDroppedUnexpectedAnswers,
-		sysGlobalDiameterrouterStatTotDroppedLateAnswers
+		sysGlobalDiameterrouterStatTotDroppedLateAnswers,
+		sysGlobalDiameterrouterStatTotMsgsDroppedForceOffline
 	}
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysGlobalDiameterrouterStat MIB."
 	::= { bigipSystemGroups 131 }
+
+sysGlobalSipsessionStatGroup OBJECT-GROUP
+	 OBJECTS {
+		sysGlobalSipsessionStatResetStats,
+		sysGlobalSipsessionStatRequests,
+		sysGlobalSipsessionStatResponses,
+		sysGlobalSipsessionStatBadmsgs,
+		sysGlobalSipsessionStatBadmsgsReq,
+		sysGlobalSipsessionStatDrops,
+		sysGlobalSipsessionStatDropsReq,
+		sysGlobalSipsessionStatInvite,
+		sysGlobalSipsessionStatAck,
+		sysGlobalSipsessionStatBye,
+		sysGlobalSipsessionStatCancel,
+		sysGlobalSipsessionStatOptions,
+		sysGlobalSipsessionStatRegisterReq,
+		sysGlobalSipsessionStatPrack,
+		sysGlobalSipsessionStatSubscribe,
+		sysGlobalSipsessionStatNotify,
+		sysGlobalSipsessionStatPublish,
+		sysGlobalSipsessionStatInfo,
+		sysGlobalSipsessionStatRefer,
+		sysGlobalSipsessionStatMessage,
+		sysGlobalSipsessionStatUpdateReq,
+		sysGlobalSipsessionStatService,
+		sysGlobalSipsessionStatBenotify,
+		sysGlobalSipsessionStatNegotiate,
+		sysGlobalSipsessionStatOther,
+		sysGlobalSipsessionStatProvisional,
+		sysGlobalSipsessionStatSuccessful,
+		sysGlobalSipsessionStatRedirection,
+		sysGlobalSipsessionStatClientFailures,
+		sysGlobalSipsessionStatServerFailures,
+		sysGlobalSipsessionStatGlobalFailures,
+		sysGlobalSipsessionStatBadRequest,
+		sysGlobalSipsessionStatBadRequest400Sent,
+		sysGlobalSipsessionStatNotFound,
+		sysGlobalSipsessionStatNotFound404Sent,
+		sysGlobalSipsessionStatRequestEntityTooLarge,
+		sysGlobalSipsessionStatRequestEntityTooLarge413Sent,
+		sysGlobalSipsessionStatUnsupportedUriScheme,
+		sysGlobalSipsessionStatUnsupportedUriScheme416Sent,
+		sysGlobalSipsessionStatTemporarilyUnavailable,
+		sysGlobalSipsessionStatTemporarilyUnavailable480Sent,
+		sysGlobalSipsessionStatTransactionDoesNotExist,
+		sysGlobalSipsessionStatTransactionDoesNotExist481Sent,
+		sysGlobalSipsessionStatLoopDetected,
+		sysGlobalSipsessionStatLoopDetected482Sent,
+		sysGlobalSipsessionStatTooManyHops,
+		sysGlobalSipsessionStatTooManyHops483Sent,
+		sysGlobalSipsessionStatAddressIncomplete,
+		sysGlobalSipsessionStatAddressIncomplete484Sent,
+		sysGlobalSipsessionStatNotAcceptableHere,
+		sysGlobalSipsessionStatNotAcceptableHere488Sent,
+		sysGlobalSipsessionStatServerInternalError,
+		sysGlobalSipsessionStatServerInternalError500Sent,
+		sysGlobalSipsessionStatNotImplemented,
+		sysGlobalSipsessionStatNotImplemented501Sent,
+		sysGlobalSipsessionStatServiceUnavailable,
+		sysGlobalSipsessionStatServiceUnavailable503Sent,
+		sysGlobalSipsessionStatVersionNotSupported,
+		sysGlobalSipsessionStatVersionNotSupported505Sent
+	}
+	STATUS	 current
+	DESCRIPTION
+		"A collection of objects of sysGlobalSipsessionStat MIB."
+	::= { bigipSystemGroups 132 }
+
+sysGlobalSiprouterStatGroup OBJECT-GROUP
+	 OBJECTS {
+		sysGlobalSiprouterStatResetStats,
+		sysGlobalSiprouterStatTotMessgesIn,
+		sysGlobalSiprouterStatTotMessagesInRetry,
+		sysGlobalSiprouterStatTotMessagesOut,
+		sysGlobalSiprouterStatTotMessagesCannotReturn,
+		sysGlobalSiprouterStatTotMessagesRouted,
+		sysGlobalSiprouterStatTotMessagesUnroutable,
+		sysGlobalSiprouterStatTotMessagesDropped,
+		sysGlobalSiprouterStatTotMessagesQueueFull,
+		sysGlobalSiprouterStatTotMessagesNoConnection,
+		sysGlobalSiprouterStatTotMessagesConnectionClosed,
+		sysGlobalSiprouterStatTotMessagesInternalError,
+		sysGlobalSiprouterStatTotMessagesPersistInUse,
+		sysGlobalSiprouterStatTotMessagesStandbyDropped,
+		sysGlobalSiprouterStatTotMessagesMaxRetries,
+		sysGlobalSiprouterStatTotMessagesInCloned,
+		sysGlobalSiprouterStatTotMessagesReturned,
+		sysGlobalSiprouterStatTotPayloadBytesIn,
+		sysGlobalSiprouterStatTotPayloadBytesOut,
+		sysGlobalSiprouterStatCurIncomingStreams,
+		sysGlobalSiprouterStatCurOutgoingStreams,
+		sysGlobalSiprouterStatTotIncomingStreams,
+		sysGlobalSiprouterStatTotOutgoingStreams,
+		sysGlobalSiprouterStatTotFailedOutgoingStreams,
+		sysGlobalSiprouterStatCurIncomingConnections,
+		sysGlobalSiprouterStatCurOutgoingConnections,
+		sysGlobalSiprouterStatCurAutoInitOutgoingConnections,
+		sysGlobalSiprouterStatTotIncomingConnections,
+		sysGlobalSiprouterStatTotOutgoingConnections,
+		sysGlobalSiprouterStatTotAutoInitOutgoingConnections,
+		sysGlobalSiprouterStatTotFailedOutgoingConnections,
+		sysGlobalSiprouterStatTotFailedAutoInitOutgoingConnections,
+		sysGlobalSiprouterStatCurPassthruConnections,
+		sysGlobalSiprouterStatTotPassthruConnections,
+		sysGlobalSiprouterStatTotFailedPassthruConnections,
+		sysGlobalSiprouterStatTotPassthruBytes,
+		sysGlobalSiprouterStatCurrPendingCalls,
+		sysGlobalSiprouterStatCurrActiveCalls,
+		sysGlobalSiprouterStatTotSuccessfulCalls,
+		sysGlobalSiprouterStatTotRejectedCalls,
+		sysGlobalSiprouterStatTotCancelledCalls,
+		sysGlobalSiprouterStatActiveRegistrations,
+		sysGlobalSiprouterStatRejectedRegistrations
+	}
+	STATUS	 current
+	DESCRIPTION
+		"A collection of objects of sysGlobalSiprouterStat MIB."
+	::= { bigipSystemGroups 133 }
 
 sysGlobalIpsecalgStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25470,7 +28008,7 @@ sysGlobalIpsecalgStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysGlobalIpsecalgStat MIB."
-	::= { bigipSystemGroups 132 }
+	::= { bigipSystemGroups 134 }
 
 sysLsnPoolFailureStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25482,7 +28020,7 @@ sysLsnPoolFailureStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysGlobalLsnPoolFailureStat MIB."
-	::= { bigipSystemGroups 133 }
+	::= { bigipSystemGroups 135 }
 
 sysPlaneStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25497,7 +28035,7 @@ sysPlaneStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysPlaneStat MIB."
-	::= { bigipSystemGroups 134 }
+	::= { bigipSystemGroups 136 }
 
 sysSwitchDdmStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25547,7 +28085,7 @@ sysSwitchDdmStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysSwitchDdmStat MIB."
-	::= { bigipSystemGroups 135 }
+	::= { bigipSystemGroups 137 }
 
 sysTmmProcStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25560,7 +28098,7 @@ sysTmmProcStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysTmmProcStat MIB."
-	::= { bigipSystemGroups 136 }
+	::= { bigipSystemGroups 138 }
 
 sysCertificateFileObjectGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25574,7 +28112,7 @@ sysCertificateFileObjectGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysCertificateFileObject MIB."
-	::= { bigipSystemGroups 137 }
+	::= { bigipSystemGroups 139 }
 
 sysCertValidatorOcspGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25600,7 +28138,7 @@ sysCertValidatorOcspGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysCertValidatorOcsp MIB."
-	::= { bigipSystemGroups 138 }
+	::= { bigipSystemGroups 140 }
 
 sysJoinCertValidatorGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25611,7 +28149,7 @@ sysJoinCertValidatorGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysJoinCertValidator MIB."
-	::= { bigipSystemGroups 139 }
+	::= { bigipSystemGroups 141 }
 
 sysCertValidatorOcspStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25640,7 +28178,7 @@ sysCertValidatorOcspStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysCertValidatorOcspStat MIB."
-	::= { bigipSystemGroups 140 }
+	::= { bigipSystemGroups 142 }
 
 sysCertStatusObjectGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25652,7 +28190,7 @@ sysCertStatusObjectGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysCertStatusObject MIB."
-	::= { bigipSystemGroups 141 }
+	::= { bigipSystemGroups 143 }
 
 sysCertOrderManagerGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25673,7 +28211,7 @@ sysCertOrderManagerGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysCertOrderManager MIB."
-	::= { bigipSystemGroups 142 }
+	::= { bigipSystemGroups 144 }
 
 sysCertOrderManagerStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25696,7 +28234,7 @@ sysCertOrderManagerStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysCertOrderManagerStat MIB."
-	::= { bigipSystemGroups 143 }
+	::= { bigipSystemGroups 145 }
 
 sysJoinCertOrderManagerGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25712,7 +28250,7 @@ sysJoinCertOrderManagerGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysJoinCertOrderManager MIB."
-	::= { bigipSystemGroups 144 }
+	::= { bigipSystemGroups 146 }
 
 sysJoinCertOrderManagerStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25730,7 +28268,7 @@ sysJoinCertOrderManagerStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysJoinCertOrderManagerStat MIB."
-	::= { bigipSystemGroups 145 }
+	::= { bigipSystemGroups 147 }
 
 sysFwNatDynamicPoolStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25771,7 +28309,7 @@ sysFwNatDynamicPoolStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysGlobalFwNatDynamicPoolStat MIB."
-	::= { bigipSystemGroups 146 }
+	::= { bigipSystemGroups 148 }
 
 sysFwNatDynamicPoolFailureStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25783,7 +28321,49 @@ sysFwNatDynamicPoolFailureStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysGlobalFwNatDynamicPoolFailureStat MIB."
-	::= { bigipSystemGroups 147 }
+	::= { bigipSystemGroups 149 }
+
+sysFwNatStaticDestinationTranslationPoolStatGroup OBJECT-GROUP
+	 OBJECTS {
+		sysFwNatStaticDestinationTranslationPoolStatResetStats,
+		sysFwNatStaticDestinationTranslationPoolStatTransReqs,
+		sysFwNatStaticDestinationTranslationPoolStatTransReqFails,
+		sysFwNatStaticDestinationTranslationPoolStatBidirReqs,
+		sysFwNatStaticDestinationTranslationPoolStatBidirReqFails,
+		sysFwNatStaticDestinationTranslationPoolStatErrAddrTrans,
+		sysFwNatStaticDestinationTranslationPoolStatErrPortTrans,
+		sysFwNatStaticDestinationTranslationPoolStatErrFlowCollis,
+		sysFwNatStaticDestinationTranslationPoolStatErrCfgMismtch,
+		sysFwNatStaticDestinationTranslationPoolStatErrMemory,
+		sysFwNatStaticDestinationTranslationPoolStatSubscrIdLkps,
+		sysFwNatStaticDestinationTranslationPoolStatSubscrIdNotFd,
+		sysFwNatStaticDestinationTranslationPoolStatSubscrIdErrs
+	}
+	STATUS	 current
+	DESCRIPTION
+		"A collection of objects of sysGlobalFwNatStaticDestinationTranslationPoolStat MIB."
+	::= { bigipSystemGroups 150 }
+
+sysFwNatStaticSourceTranslationPoolStatGroup OBJECT-GROUP
+	 OBJECTS {
+		sysFwNatStaticSourceTranslationPoolStatResetStats,
+		sysFwNatStaticSourceTranslationPoolStatTransReqs,
+		sysFwNatStaticSourceTranslationPoolStatTransReqFails,
+		sysFwNatStaticSourceTranslationPoolStatBidirReqs,
+		sysFwNatStaticSourceTranslationPoolStatBidirReqFails,
+		sysFwNatStaticSourceTranslationPoolStatErrAddrTrans,
+		sysFwNatStaticSourceTranslationPoolStatErrPortTrans,
+		sysFwNatStaticSourceTranslationPoolStatErrFlowCollis,
+		sysFwNatStaticSourceTranslationPoolStatErrCfgMismtch,
+		sysFwNatStaticSourceTranslationPoolStatErrMemory,
+		sysFwNatStaticSourceTranslationPoolStatSubscrIdLkps,
+		sysFwNatStaticSourceTranslationPoolStatSubscrIdNotFd,
+		sysFwNatStaticSourceTranslationPoolStatSubscrIdErrs
+	}
+	STATUS	 current
+	DESCRIPTION
+		"A collection of objects of sysGlobalFwNatStaticSourceTranslationPoolStat MIB."
+	::= { bigipSystemGroups 151 }
 
 sysTmmPagesStatGroup OBJECT-GROUP
 	 OBJECTS {
@@ -25797,5 +28377,32 @@ sysTmmPagesStatGroup OBJECT-GROUP
 	STATUS	 current
 	DESCRIPTION
 		"A collection of objects of sysTmmPagesStat MIB."
-	::= { bigipSystemGroups 148 }
+	::= { bigipSystemGroups 152 }
+
+sysVlanIfcStatGroup OBJECT-GROUP
+	 OBJECTS {
+		sysVlanIfcStatNumber,
+		sysVlanIfcStatName,
+		sysVlanIfcStatInDiscards,
+		sysVlanIfcStatInErrors,
+		sysVlanIfcStatInUnknownProtos,
+		sysVlanIfcStatOutDiscards,
+		sysVlanIfcStatOutErrors,
+		sysVlanIfcStatHcInOctets,
+		sysVlanIfcStatHcInUcastPkts,
+		sysVlanIfcStatHcInMulticastPkts,
+		sysVlanIfcStatHcInBroadcastPkts,
+		sysVlanIfcStatHcOutOctets,
+		sysVlanIfcStatHcOutUcastPkts,
+		sysVlanIfcStatHcOutMulticastPkts,
+		sysVlanIfcStatHcOutBroadcastPkts,
+		sysVlanIfcStatPvaInPkts,
+		sysVlanIfcStatPvaInOctets,
+		sysVlanIfcStatPvaOutPkts,
+		sysVlanIfcStatPvaOutOctets
+	}
+	STATUS	 current
+	DESCRIPTION
+		"A collection of objects of sysVlanIfcStat MIB."
+	::= { bigipSystemGroups 153 }
 END

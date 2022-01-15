@@ -3,7 +3,7 @@ F5-BIGIP-COMMON-MIB DEFINITIONS ::= BEGIN
 --================================================================
 -- F5-MIB 
 --     A private enterprise MIB for F5 Networks.
---     VERSION: 14.1.2.7
+--     VERSION: 16.1.0
 --================================================================
 
 IMPORTS
@@ -19,13 +19,13 @@ IMPORTS
 
 --================================================================
 f5 MODULE-IDENTITY
-    LAST-UPDATED "201607271941Z" -- Wed Jul 27 19:41:42 UTC 2016
+    LAST-UPDATED "202004092222Z" -- Thu Apr  9 22:22:01 UTC 2020 
     ORGANIZATION "F5 Networks, Inc."
     CONTACT-INFO
          "postal: F5 Networks, Inc. 
-                  401 Elliott Ave. West
-                  Seattle,  WA 98119
-          phone:  (206) 272-5555
+	 	  801 Fifth Avenue
+                  Seattle, WA 98104
+          phone:  (206) 272-6500
           email:  support@f5.com"
 
     DESCRIPTION
@@ -72,6 +72,38 @@ bigipNotifyObjPort OBJECT-TYPE
         DESCRIPTION
                 "The port or service name."
         ::= { bigipNotifyObjects 3 }
+
+bigipNotifyObjHostName OBJECT-TYPE
+        SYNTAX DisplayString
+        MAX-ACCESS read-only
+        STATUS current
+        DESCRIPTION
+                "The host name."
+        ::= { bigipNotifyObjects 4 }
+
+bigipNotifyObjSeverity OBJECT-TYPE
+        SYNTAX DisplayString
+        MAX-ACCESS read-only
+        STATUS current
+        DESCRIPTION
+                "The severity level of the trap."
+        ::= { bigipNotifyObjects 5 }
+
+bigipNotifyObjEventId OBJECT-TYPE
+        SYNTAX DisplayString
+        MAX-ACCESS read-only
+        STATUS current
+        DESCRIPTION
+                "The message log ID."
+        ::= { bigipNotifyObjects 6 }
+
+bigipNotifyObjTimestamp OBJECT-TYPE
+        SYNTAX DisplayString
+        MAX-ACCESS read-only
+        STATUS current
+        DESCRIPTION
+                "The time of trap generation."
+        ::= { bigipNotifyObjects 7 }
 
 --================================================================
 -- bigipNotifications 
@@ -159,7 +191,7 @@ bigipServiceDown      NOTIFICATION-TYPE
 	}
 	STATUS      current
 	DESCRIPTION
-		"A service is detected DOWN."
+		"A pool member is detected DOWN."
 	::= { bigipNotifications 10 }
 
 bigipServiceUp      NOTIFICATION-TYPE
@@ -170,7 +202,7 @@ bigipServiceUp      NOTIFICATION-TYPE
 	}
 	STATUS      current
 	DESCRIPTION
-		"A service is detected UP."
+		"A pool member is detected UP."
 	::= { bigipNotifications 11 }
 
 bigipNodeDown      NOTIFICATION-TYPE
@@ -335,7 +367,7 @@ bigipConfigLoaded      NOTIFICATION-TYPE
 	}
 	STATUS      deprecated
 	DESCRIPTION
-		"Deprecated! The compoent which created this event has been
+		"Deprecated! The component which created this event has been
 deprecated.  The configuration was loaded."
 	::= { bigipNotifications 28 }
 
@@ -1949,7 +1981,267 @@ bigipIPsecTunnelDown  NOTIFICATION-TYPE
             "An IPSEC Tunnel has come down."
         ::= { bigipNotifications 201 }
 
--- Compliance & Groups  
+bigipMrfPeerDelayHealthChanged NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Peer health has changed due to peer delay."
+        ::= { bigipNotifications 202 }
+
+bigipMrfPeerOutgoingRateLimitChanged  NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "The peer outgoing ratelimit has changed"
+        ::= { bigipNotifications 203 }
+
+bigipMrfPeerIncomingRateLimitChanged  NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "The peer incoming ratelimit has changed."
+        ::= { bigipNotifications 204 }
+
+bigipCertExpiration NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg
+        }
+        STATUS      current
+        DESCRIPTION
+            "Certificate with lifecycle management options configured is going
+            to expire within a week."
+        ::= { bigipNotifications 205 }
+
+bigipMrfPeerErrorsHealthChanged NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Peer health has changed due to error responses."
+        ::= { bigipNotifications 206 }
+
+bigipMrfPeerTimeoutsHealthChanged NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Peer health has changed due to peer timeouts."
+        ::= { bigipNotifications 207 }
+
+bigipMrfPeerHealthChanged NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Peer health has changed."
+        ::= { bigipNotifications 208 }
+
+bigipMrfPeerConnectionStateChanged NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Peer connection state has changed: Disconnected."
+        ::= { bigipNotifications 209 }
+
+bigipSctpActivePathDown NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "SCTP active path is down."
+        ::= { bigipNotifications 210 }
+
+bigipSctpPathRestored NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "SCTP path is restored."
+        ::= { bigipNotifications 211 }
+
+bigipGeoredundancyOffline NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Georedundancy status is offline"
+        ::= { bigipNotifications 212 }
+
+bigipGeoredundancyConnected NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Georedundancy status is connected"
+        ::= { bigipNotifications 213 }
+
+bigipGeoredundancyReloadReceiving NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Georedundancy status is reloadReceiving"
+        ::= { bigipNotifications 214 }
+
+bigipGeoredundancyReloadSending NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Georedundancy status is reload sending"
+        ::= { bigipNotifications 215 }
+
+bigipGeoredundancyWatchdogAlive NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Georedundancy watchdog is alive"
+        ::= { bigipNotifications 216 }
+
+bigipGeoredundancyWatchdogExpired NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
+        }
+        STATUS      current
+        DESCRIPTION
+            "Georedundancy watchdog is expired"
+        ::= { bigipNotifications 217 }
+
+bigipExternalLinkDown  NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg
+        }
+        STATUS      current
+        DESCRIPTION
+                "An interface link status changed. This can be an
+                administrative disable.  For a fixed port, this is
+                when network cables are removed, for a pluggable port
+                (such as an SFP or XFP port), this is when the
+                pluggable unit is unplugged, or when a cable is removed
+                from a plugged port. The possible values are DOWN or DISABLED"
+        ::= { bigipNotifications 218 }
+
+bigipExternalLinkUp  NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg
+        }
+        STATUS      current
+        DESCRIPTION
+                "An interface link status changed. This can be an
+                administrative enable.  For a fixed port, this is
+                when network cables are inserted, for a pluggable port
+                (such as an SFP or XFP port), this is when the
+                pluggable unit is inserted, or when a cable is
+                inserted. The possible value is UP."
+        ::= { bigipNotifications 219 }
+
+bigipFipsDeviceHighTemperature  NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg
+        }
+        STATUS      current
+        DESCRIPTION
+                "The FIPS device has overheated and is currently above 80 degrees Celsius."
+        ::= { bigipNotifications 220 }
+
+bigipFipsDeviceCriticalTemperature  NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg
+        }
+        STATUS      current
+        DESCRIPTION
+                "The FIPS device temperature has exceeded 85 degrees Celsius."
+        ::= { bigipNotifications 221 }
+
+bigipFipsDeviceNormalTemperature  NOTIFICATION-TYPE
+        OBJECTS {
+                bigipNotifyObjMsg
+        }
+        STATUS      current
+        DESCRIPTION
+                "The FIPS device temperature has fallen back to below 80 degrees Celsius."
+        ::= { bigipNotifications 222 }
+
+-- Compliance & Groups
 --
 bigipNotificationCompliance   MODULE-COMPLIANCE
         STATUS current
@@ -1967,7 +2259,11 @@ bigipNotifyObjectsGroup OBJECT-GROUP
          OBJECTS {
                 bigipNotifyObjMsg,
                 bigipNotifyObjNode,
-		bigipNotifyObjPort
+		bigipNotifyObjPort,
+                bigipNotifyObjHostName,
+                bigipNotifyObjSeverity,
+                bigipNotifyObjEventId,
+                bigipNotifyObjTimestamp
         }
         STATUS   current
         DESCRIPTION
@@ -2185,7 +2481,28 @@ bigipSystemNotifyGroup NOTIFICATION-GROUP
                 bigipChassisInadequatePower,
                 bigipChassisPsUnidentified,
                 bigipIPsecTunnelUp,
-                bigipIPsecTunnelDown
+                bigipIPsecTunnelDown,
+                bigipMrfPeerDelayHealthChanged,
+                bigipMrfPeerOutgoingRateLimitChanged,
+                bigipMrfPeerIncomingRateLimitChanged,
+		bigipCertExpiration,
+                bigipMrfPeerErrorsHealthChanged,
+                bigipMrfPeerTimeoutsHealthChanged,
+                bigipMrfPeerHealthChanged,
+                bigipMrfPeerConnectionStateChanged,
+                bigipSctpActivePathDown,
+                bigipSctpPathRestored,
+                bigipGeoredundancyOffline,
+                bigipGeoredundancyConnected,
+                bigipGeoredundancyReloadReceiving,
+                bigipGeoredundancyReloadSending,
+                bigipGeoredundancyWatchdogAlive,
+                bigipGeoredundancyWatchdogExpired,
+                bigipExternalLinkDown,
+                bigipExternalLinkUp,
+                bigipFipsDeviceHighTemperature,
+                bigipFipsDeviceCriticalTemperature,
+                bigipFipsDeviceNormalTemperature
 	}
 	STATUS      current
 	DESCRIPTION
