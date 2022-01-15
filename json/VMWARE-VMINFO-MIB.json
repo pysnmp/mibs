@@ -7,32 +7,32 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
       "Gauge32",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "Integer32",
       "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "MibIdentifier",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Bits",
-      "Counter64",
+      "iso",
+      "Integer32",
+      "Counter32",
       "Unsigned32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter64",
+      "Bits",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
     ],
     "VMWARE-ENV-MIB": [
       "vmwESXNotifications"
     ],
     "VMWARE-ROOT-MIB": [
-      "vmwTraps",
-      "vmwVirtMachines"
+      "vmwVirtMachines",
+      "vmwTraps"
     ],
     "VMWARE-TC-MIB": [
       "VmwConnectedState"
@@ -999,8 +999,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/vmware/VMWARE-VMINFO-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:52:18 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:00:06 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "VMWARE-VMINFO-MIB"

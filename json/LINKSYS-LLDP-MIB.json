@@ -8,52 +8,52 @@
       "AddressFamilyNumbers"
     ],
     "LINKSYS-DEVICEPARAMS-MIB": [
-      "rndErrorSeverity",
-      "rndErrorDesc"
+      "rndErrorDesc",
+      "rndErrorSeverity"
     ],
     "LINKSYS-MIB": [
-      "rndNotifications",
-      "rnd"
+      "rnd",
+      "rndNotifications"
     ],
     "LLDP-EXT-MED-MIB": [
       "LldpXMedCapabilities"
     ],
     "LLDP-MIB": [
-      "LldpPortList",
       "lldpRemLocalPortNum",
-      "LldpPortNumber",
-      "lldpRemIndex",
+      "LldpPortList",
       "lldpRemTimeMark",
-      "LldpManAddress"
+      "lldpRemIndex",
+      "LldpManAddress",
+      "LldpPortNumber"
     ],
     "Q-BRIDGE-MIB": [
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
       "Integer32",
-      "iso",
       "Bits",
-      "Counter32",
-      "MibIdentifier",
-      "Unsigned32",
-      "Gauge32",
+      "Counter64",
       "OBJECT-TYPE",
-      "TimeTicks",
       "OBJECT-IDENTITY",
+      "iso",
+      "IpAddress",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Counter32",
+      "TimeTicks",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TruthValue",
       "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "DisplayString",
       "RowStatus"
     ]
   },
@@ -768,8 +768,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:44:20 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:49:20 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LINKSYS-LLDP-MIB"

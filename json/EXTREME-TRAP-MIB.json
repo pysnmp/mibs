@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "extremeV1Traps",
-      "extremenetworks"
+      "extremenetworks",
+      "extremeV1Traps"
     ],
     "EXTREME-EDP-MIB": [
       "extremeEdpNeighborVlanName",
-      "extremeEdpPortIfIndex",
-      "extremeEdpNeighborVlanIpAddress",
       "extremeEdpNeighborId",
-      "extremeEdpEntryAge"
+      "extremeEdpEntryAge",
+      "extremeEdpPortIfIndex",
+      "extremeEdpNeighborVlanIpAddress"
     ],
     "EXTREME-ESRP-MIB": [
-      "extremeEsrpNetAddress",
-      "extremeEsrpGroup",
-      "extremeEsrpActivePorts",
-      "extremeEsrpInternalActivePorts",
-      "extremeEsrpState",
       "extremeEsrpTrackedIpRoutes",
-      "extremeEsrpTrackedActivePorts"
+      "extremeEsrpState",
+      "extremeEsrpTrackedActivePorts",
+      "extremeEsrpInternalActivePorts",
+      "extremeEsrpActivePorts",
+      "extremeEsrpGroup",
+      "extremeEsrpNetAddress"
     ],
     "EXTREME-SYSTEM-MIB": [
-      "extremeCurrentTemperature",
-      "extremePowerSupplyNumber",
       "extremeFanNumber",
+      "extremeSlotNumber",
       "extremeSlotModuleInsertedType",
-      "extremeSlotModuleConfiguredType",
+      "extremeCurrentTemperature",
       "extremeSlotModuleState",
-      "extremeSlotNumber"
+      "extremePowerSupplyNumber",
+      "extremeSlotModuleConfiguredType"
     ],
     "EXTREME-VLAN-MIB": [
-      "extremeVlanIfIndex",
-      "extremeVlanIfDescr"
+      "extremeVlanIfDescr",
+      "extremeVlanIfIndex"
     ],
     "IF-MIB": [
-      "ifPhysAddress",
       "ifAlias",
+      "ifPhysAddress",
       "ifDescr"
     ],
     "SNMPv2-CONF": [
@@ -50,18 +50,18 @@
     "SNMPv2-SMI": [
       "Unsigned32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "Counter64",
-      "IpAddress",
-      "iso",
+      "OBJECT-TYPE",
       "Bits",
       "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Counter32",
+      "iso",
+      "TimeTicks",
       "Integer32",
-      "TimeTicks"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -395,8 +395,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:35:39 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:41:14 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EXTREME-TRAP-MIB"

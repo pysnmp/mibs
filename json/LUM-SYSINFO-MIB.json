@@ -6,8 +6,8 @@
       "lumModules"
     ],
     "LUM-TC": [
-      "Unsigned32WithNA",
       "Integer32WithNA",
+      "Unsigned32WithNA",
       "MgmtNameString"
     ],
     "SNMPv2-CONF": [
@@ -16,24 +16,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Counter64",
-      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
       "Integer32",
       "Counter32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
-      "iso",
+      "Counter64",
       "Gauge32",
-      "OBJECT-TYPE",
-      "TimeTicks"
+      "TimeTicks",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "lumSysinfoMIBModule": {
@@ -742,8 +742,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infinera/LUM-SYSINFO-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:41:58 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:46:55 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LUM-SYSINFO-MIB"

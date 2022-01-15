@@ -5,14 +5,14 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "OperationalState",
-      "CmPmIntervalType",
-      "RestartType",
-      "AdminState",
+      "TDMFrequencySourceType",
       "UsbOperationalMode",
+      "CmPmIntervalType",
       "SecondaryState",
       "VlanId",
-      "TDMFrequencySourceType"
+      "RestartType",
+      "OperationalState",
+      "AdminState"
     ],
     "CM-SYSTEM-MIB": [
       "CmAutoProvMode"
@@ -22,33 +22,33 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "MibIdentifier",
       "iso",
       "Bits",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "IpAddress",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
       "Counter64",
-      "Counter32"
+      "Unsigned32",
+      "Counter32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "DateAndTime",
+      "VariablePointer",
+      "TruthValue",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
-      "DateAndTime",
-      "TruthValue",
       "StorageType",
-      "VariablePointer"
+      "DisplayString"
     ]
   },
   "cmEntityMIB": {
@@ -21184,8 +21184,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-ENTITY-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:24:25 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:29:00 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CM-ENTITY-MIB"

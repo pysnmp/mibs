@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Integer32",
-      "enterprises",
-      "MibIdentifier",
-      "Bits",
-      "MODULE-IDENTITY",
-      "iso",
-      "Unsigned32",
       "IpAddress",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MibIdentifier",
+      "enterprises",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Counter64",
-      "TimeTicks"
+      "TimeTicks",
+      "Bits",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -80,8 +80,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/microsemi/DATUM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:44:37 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:49:38 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DATUM-MIB"

@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSConformance",
-      "adGenAOSWan"
+      "adGenAOSWan",
+      "adGenAOSConformance"
     ],
     "ADTRAN-MIB": [
       "adIdentity"
@@ -13,30 +13,30 @@
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "MibIdentifier",
+      "Bits",
+      "Counter64",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Integer32",
+      "Gauge32",
+      "Counter32",
       "iso",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "Bits",
-      "Gauge32"
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "IpAddress",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "adGenAOS3GMib": {
@@ -829,8 +829,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOS-3G",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:24:00 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:28:33 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ADTRAN-AOS-3G"

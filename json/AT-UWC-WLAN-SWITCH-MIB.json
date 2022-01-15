@@ -6,32 +6,32 @@
       "atUWC"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Bits",
       "IpAddress",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
+      "Gauge32",
       "OBJECT-TYPE",
       "TimeTicks",
+      "iso",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
       "Integer32",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "DisplayString",
       "RowStatus",
-      "MacAddress",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TruthValue"
     ]
   },
   "fastPathWLANSwitch": {
@@ -24886,8 +24886,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-UWC-WLAN-SWITCH-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:24:53 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:29:32 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AT-UWC-WLAN-SWITCH-MIB"

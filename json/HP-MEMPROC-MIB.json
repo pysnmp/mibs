@@ -5,31 +5,31 @@
       "hpProcurveCommon"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
       "Opaque",
-      "iso",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Gauge32",
       "NOTIFICATION-TYPE",
       "Bits",
-      "TimeTicks",
       "OBJECT-IDENTITY",
       "MibIdentifier",
+      "OBJECT-TYPE",
       "Counter64",
       "Unsigned32",
-      "Counter32",
-      "Gauge32"
+      "TimeTicks",
+      "iso",
+      "Integer32",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
       "DisplayString",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpMemprocMIB": {
@@ -353,8 +353,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-MEMPROC-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:39:18 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:44:24 2022",
+      "On host fv-az83-73 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HP-MEMPROC-MIB"
