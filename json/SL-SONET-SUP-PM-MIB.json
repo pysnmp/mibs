@@ -5,9 +5,9 @@
       "ifIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfTotalCount",
+      "PerfCurrentCount",
       "PerfIntervalCount",
-      "PerfCurrentCount"
+      "PerfTotalCount"
     ],
     "SL-SONET-MIB": [
       "slSonetMib"
@@ -18,44 +18,44 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "Integer32",
+      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "OBJECT-TYPE",
       "transmission",
       "iso",
-      "TimeTicks",
       "Counter64",
       "MibIdentifier",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
+      "Bits",
       "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DateAndTime"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ],
     "SONET-MIB": [
-      "sonetFarEndPathCurrentEntry",
-      "sonetMediumEntry",
-      "sonetFarEndVTIntervalEntry",
-      "sonetVTCurrentEntry",
-      "sonetPathIntervalEntry",
-      "sonetSectionCurrentEntry",
       "sonetLineCurrentEntry",
-      "sonetPathCurrentEntry",
-      "sonetFarEndPathIntervalEntry",
-      "sonetFarEndLineIntervalEntry",
-      "sonetFarEndLineCurrentEntry",
       "sonetFarEndVTCurrentEntry",
+      "sonetFarEndLineCurrentEntry",
+      "sonetFarEndLineIntervalEntry",
       "sonetLineIntervalEntry",
-      "sonetSectionIntervalEntry",
-      "sonetVTIntervalEntry"
+      "sonetFarEndPathCurrentEntry",
+      "sonetSectionCurrentEntry",
+      "sonetVTCurrentEntry",
+      "sonetFarEndVTIntervalEntry",
+      "sonetPathCurrentEntry",
+      "sonetMediumEntry",
+      "sonetPathIntervalEntry",
+      "sonetVTIntervalEntry",
+      "sonetFarEndPathIntervalEntry",
+      "sonetSectionIntervalEntry"
     ]
   },
   "sonetSupPmMIB": {
@@ -2608,8 +2608,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/packetlight/SL-SONET-SUP-PM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:25:33 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:26:55 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SL-SONET-SUP-PM-MIB"

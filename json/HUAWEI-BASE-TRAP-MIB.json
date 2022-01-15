@@ -8,9 +8,9 @@
       "entPhysicalClass"
     ],
     "HUAWEI-FLASH-MAN-MIB": [
-      "hwStorageSpaceFree",
+      "hwStorageName",
       "hwStorageSpace",
-      "hwStorageName"
+      "hwStorageSpaceFree"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
@@ -24,35 +24,35 @@
       "IANAItuEventType"
     ],
     "IF-MIB": [
-      "ifName",
-      "ifDescr",
       "ifAdminStatus",
-      "ifIndex",
-      "ifOperStatus"
+      "ifName",
+      "ifOperStatus",
+      "ifDescr",
+      "ifIndex"
     ],
     "ITU-ALARM-TC-MIB": [
       "ItuPerceivedSeverity"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "OBJECT-TYPE",
-      "TimeTicks",
-      "Counter64",
-      "iso",
-      "Integer32",
-      "Unsigned32",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -4120,8 +4120,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BASE-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:19:15 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:20:24 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-BASE-TRAP-MIB"

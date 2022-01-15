@@ -2,58 +2,58 @@
   "imports": {
     "class": "imports",
     "ARRIS-MIB": [
-      "arrisD5UEQam",
-      "packetport",
-      "cm110",
-      "cmtsC3",
-      "cmtsC4",
-      "mrcController",
-      "cmtsMSAS",
-      "ttm",
-      "cmts1500",
-      "ttp",
-      "tcm",
-      "arrisGlobalAccessMib",
       "arrisGlobalAccessProductUas",
-      "cmtsCommon"
+      "cm110",
+      "arrisD5UEQam",
+      "ttm",
+      "packetport",
+      "cmtsC4",
+      "ttp",
+      "cmtsCommon",
+      "cmts1500",
+      "cmtsMSAS",
+      "arrisGlobalAccessMib",
+      "mrcController",
+      "cmtsC3",
+      "tcm"
     ],
     "ENTITY-MIB": [
-      "entityPhysicalGroup",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entityPhysicalGroup"
     ],
     "ENTITY-SENSOR-MIB": [
-      "entitySensorCompliance",
-      "entPhySensorValueUpdateRate",
-      "entPhySensorOperStatus",
-      "entPhySensorValue",
-      "entPhySensorPrecision",
       "entPhySensorScale",
+      "entPhySensorOperStatus",
       "entPhySensorValueTimeStamp",
+      "entPhySensorValueUpdateRate",
+      "entPhySensorPrecision",
+      "entitySensorCompliance",
       "entPhySensorType",
-      "entPhySensorEntry",
       "entitySensorValueGroup",
-      "entPhySensorUnitsDisplay"
+      "entPhySensorValue",
+      "entPhySensorUnitsDisplay",
+      "entPhySensorEntry"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
+      "MibIdentifier",
       "Bits",
       "Counter32",
-      "iso",
-      "TimeTicks",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "Gauge32",
-      "IpAddress"
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "IpAddress",
+      "Counter64",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -193,8 +193,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-D5-ENT-SENSOR-THRESH-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:05:55 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:07:01 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ARRIS-D5-ENT-SENSOR-THRESH-MIB"

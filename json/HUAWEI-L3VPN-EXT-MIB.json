@@ -11,32 +11,32 @@
       "EnabledStatus"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Counter32",
-      "Bits",
-      "OBJECT-IDENTITY",
       "IpAddress",
-      "TimeTicks",
-      "Counter64",
-      "OBJECT-TYPE",
-      "iso",
-      "Integer32",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
       "NOTIFICATION-TYPE",
       "Gauge32",
-      "MODULE-IDENTITY"
+      "OBJECT-TYPE",
+      "Bits",
+      "TimeTicks",
+      "iso",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "Unsigned32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TimeStamp",
+      "DateAndTime",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TimeStamp",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwL3vpn": {
@@ -1215,8 +1215,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-L3VPN-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:19:13 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:20:22 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-L3VPN-EXT-MIB"

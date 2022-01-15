@@ -5,28 +5,28 @@
       "nbs"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Gauge32",
-      "Integer32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter32",
       "OBJECT-IDENTITY",
       "IpAddress",
-      "MibIdentifier",
-      "Counter64",
-      "Bits",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "Counter32",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Unsigned32"
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "Counter64",
+      "MibIdentifier",
+      "TimeTicks",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nbsCmmcEnumMib": {
@@ -1029,8 +1029,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-CMMCENUM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:23:04 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:24:18 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NBS-CMMCENUM-MIB"

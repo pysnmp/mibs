@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "DIFFSERV-MIB": [
-      "diffServMultiFieldClfrDstAddr",
-      "diffServActionStorage",
-      "diffServMultiFieldClfrAddrType",
-      "diffServDataPathStorage",
-      "diffServAlgDropStorage",
-      "diffServClfrStatus",
-      "diffServAlgDropType",
-      "diffServClfrElementStorage",
-      "diffServMIBMultiFieldClfrGroup",
-      "diffServClfrStorage",
-      "diffServMIBClfrElementGroup",
-      "diffServMIBAlgDropGroup",
-      "diffServMultiFieldClfrSrcAddr",
-      "diffServMIBDataPathGroup",
-      "diffServMIBCounterGroup",
-      "diffServMIBActionGroup",
-      "diffServMultiFieldClfrStorage",
-      "diffServMIBDscpMarkActGroup",
       "diffServCountActStorage",
-      "diffServAlgDropStatus",
+      "diffServClfrElementStatus",
+      "diffServMIBCounterGroup",
+      "diffServDataPathStorage",
       "diffServDataPathStatus",
-      "diffServMIBClfrGroup",
-      "diffServClfrElementStatus"
+      "diffServMultiFieldClfrDstAddr",
+      "diffServMIBActionGroup",
+      "diffServAlgDropType",
+      "diffServMultiFieldClfrStorage",
+      "diffServClfrStorage",
+      "diffServClfrElementStorage",
+      "diffServClfrStatus",
+      "diffServAlgDropStatus",
+      "diffServMIBAlgDropGroup",
+      "diffServMIBDscpMarkActGroup",
+      "diffServMultiFieldClfrAddrType",
+      "diffServActionStorage",
+      "diffServAlgDropStorage",
+      "diffServMIBDataPathGroup",
+      "diffServMIBClfrElementGroup",
+      "diffServMultiFieldClfrSrcAddr",
+      "diffServMIBMultiFieldClfrGroup",
+      "diffServMIBClfrGroup"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
@@ -40,36 +40,36 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "OBJECT-TYPE",
-      "Counter32",
-      "MODULE-IDENTITY",
-      "zeroDotZero",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "Integer32",
       "IpAddress",
       "Unsigned32",
-      "Counter64",
+      "TimeTicks",
+      "mib-2",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "MibIdentifier",
-      "Bits"
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "zeroDotZero",
+      "Bits",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DateAndTime",
       "RowPointer",
       "TruthValue",
+      "StorageType",
+      "DateAndTime",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "StorageType"
+      "RowStatus"
     ]
   },
   "docsDev": {
@@ -2821,8 +2821,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-CABLE-DEVICE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:04:11 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:05:05 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DOCS-CABLE-DEVICE-MIB"

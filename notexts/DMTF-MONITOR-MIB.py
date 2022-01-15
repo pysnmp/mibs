@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module DMTF-MONITOR-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DMTF-MONITOR-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 17:03:51 2022
-# On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 17:04:42 2022
+# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection")
-dmiEventDateTime, dmiCompId, DmiString, dmiEventSubSystem, dmiEventSeverity, dmiEventAssociatedGroup, dmiEventSystem, dmiEventStateKey = mibBuilder.importSymbols("DMTF-DMI-MIB", "dmiEventDateTime", "dmiCompId", "DmiString", "dmiEventSubSystem", "dmiEventSeverity", "dmiEventAssociatedGroup", "dmiEventSystem", "dmiEventStateKey")
+ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint")
+dmiEventAssociatedGroup, dmiEventStateKey, DmiString, dmiEventSystem, dmiEventSeverity, dmiEventSubSystem, dmiEventDateTime, dmiCompId = mibBuilder.importSymbols("DMTF-DMI-MIB", "dmiEventAssociatedGroup", "dmiEventStateKey", "DmiString", "dmiEventSystem", "dmiEventSeverity", "dmiEventSubSystem", "dmiEventDateTime", "dmiCompId")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, NotificationType, Counter32, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, enterprises, IpAddress, iso, ModuleIdentity, TimeTicks, Gauge32, Counter64, Unsigned32, Integer32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "NotificationType", "Counter32", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "enterprises", "IpAddress", "iso", "ModuleIdentity", "TimeTicks", "Gauge32", "Counter64", "Unsigned32", "Integer32", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Unsigned32, Counter32, IpAddress, Bits, enterprises, ObjectIdentity, Integer32, ModuleIdentity, TimeTicks, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, NotificationType, MibIdentifier, iso = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "Counter32", "IpAddress", "Bits", "enterprises", "ObjectIdentity", "Integer32", "ModuleIdentity", "TimeTicks", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "NotificationType", "MibIdentifier", "iso")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 class DmiCounter(Counter32):
     pass
 
@@ -71,4 +71,4 @@ minimumMonitorRefreshRate = MibTableColumn((1, 3, 6, 1, 4, 1, 412, 2, 6, 2, 1, 6
 if mibBuilder.loadTexts: minimumMonitorRefreshRate.setStatus('current')
 maximumMonitorRefreshRate = MibTableColumn((1, 3, 6, 1, 4, 1, 412, 2, 6, 2, 1, 7), DmiInteger()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: maximumMonitorRefreshRate.setStatus('current')
-mibBuilder.exportSymbols("DMTF-MONITOR-MIB", maximumMonitorRefreshRate=maximumMonitorRefreshRate, minimumMonitorRefreshRate=minimumMonitorRefreshRate, dmtfMonitorResolutionsTable=dmtfMonitorResolutionsTable, dmtfMonitorAdditionalInformationsTable=dmtfMonitorAdditionalInformationsTable, horizontalResolution=horizontalResolution, DmiCounter=DmiCounter, DmiOctetstring=DmiOctetstring, DmiCounter64=DmiCounter64, DmiInteger=DmiInteger, dmtfDynOids=dmtfDynOids, DmiGauge=DmiGauge, monitorResolutionIndex=monitorResolutionIndex, DmiGroupId=DmiGroupId, dmtfMonitorMIF=dmtfMonitorMIF, monitorLocation=monitorLocation, dmtfMonitorResolutionsState=dmtfMonitorResolutionsState, verticalResolution=verticalResolution, dmtfMonitorResolutionsEntry=dmtfMonitorResolutionsEntry, verticalScanMode=verticalScanMode, DmiCompId=DmiCompId, assetTag=assetTag, dmtfMonitorAdditionalInformationsEntry=dmtfMonitorAdditionalInformationsEntry, monitorPrimaryUserName=monitorPrimaryUserName, dmtfStdMifs=dmtfStdMifs, PYSNMP_MODULE_ID=dmtfMonitorMIF, dmtf=dmtf, refreshRate=refreshRate, monitorPrimaryUserPhone=monitorPrimaryUserPhone)
+mibBuilder.exportSymbols("DMTF-MONITOR-MIB", horizontalResolution=horizontalResolution, dmtfDynOids=dmtfDynOids, DmiInteger=DmiInteger, PYSNMP_MODULE_ID=dmtfMonitorMIF, monitorPrimaryUserPhone=monitorPrimaryUserPhone, assetTag=assetTag, maximumMonitorRefreshRate=maximumMonitorRefreshRate, dmtfMonitorResolutionsTable=dmtfMonitorResolutionsTable, monitorResolutionIndex=monitorResolutionIndex, refreshRate=refreshRate, dmtfMonitorMIF=dmtfMonitorMIF, dmtfMonitorResolutionsEntry=dmtfMonitorResolutionsEntry, DmiCounter=DmiCounter, verticalScanMode=verticalScanMode, dmtfMonitorResolutionsState=dmtfMonitorResolutionsState, monitorLocation=monitorLocation, dmtfMonitorAdditionalInformationsTable=dmtfMonitorAdditionalInformationsTable, DmiGroupId=DmiGroupId, DmiGauge=DmiGauge, dmtfStdMifs=dmtfStdMifs, verticalResolution=verticalResolution, DmiOctetstring=DmiOctetstring, dmtf=dmtf, DmiCounter64=DmiCounter64, monitorPrimaryUserName=monitorPrimaryUserName, dmtfMonitorAdditionalInformationsEntry=dmtfMonitorAdditionalInformationsEntry, DmiCompId=DmiCompId, minimumMonitorRefreshRate=minimumMonitorRefreshRate)

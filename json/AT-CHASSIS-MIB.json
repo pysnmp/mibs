@@ -5,28 +5,28 @@
       "sysinfo"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "iso",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "MibIdentifier",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Bits",
+      "NOTIFICATION-TYPE",
+      "Integer32",
       "Counter32",
+      "TimeTicks",
+      "Gauge32",
+      "iso",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
       "Counter64",
-      "NOTIFICATION-TYPE"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "chassis": {
@@ -380,8 +380,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/allied/AT-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:05:21 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:06:24 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AT-CHASSIS-MIB"

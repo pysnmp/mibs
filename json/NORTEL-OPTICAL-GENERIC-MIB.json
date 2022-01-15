@@ -9,19 +9,19 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Gauge32",
       "iso",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter64",
+      "Counter32",
+      "Bits",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "Integer32",
+      "NOTIFICATION-TYPE",
       "TimeTicks"
     ],
     "SNMPv2-TC": [
@@ -52,8 +52,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/NORTEL-OPTICAL-GENERIC-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:24:57 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:26:17 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NORTEL-OPTICAL-GENERIC-MIB"
