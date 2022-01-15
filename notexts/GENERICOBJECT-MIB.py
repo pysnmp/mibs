@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module GENERICOBJECT-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/GENERICOBJECT-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 05:10:38 2022
-# On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 05:10:45 2022
+# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint")
+ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 cardGeneric, = mibBuilder.importSymbols("BASIS-MIB", "cardGeneric")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-IpAddress, Bits, iso, ModuleIdentity, Integer32, Counter32, Gauge32, ObjectIdentity, TimeTicks, MibIdentifier, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter64, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "IpAddress", "Bits", "iso", "ModuleIdentity", "Integer32", "Counter32", "Gauge32", "ObjectIdentity", "TimeTicks", "MibIdentifier", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter64", "Unsigned32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
+iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, IpAddress, Integer32, NotificationType, ModuleIdentity, ObjectIdentity, Gauge32, TimeTicks, Counter64, Bits, Unsigned32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "IpAddress", "Integer32", "NotificationType", "ModuleIdentity", "ObjectIdentity", "Gauge32", "TimeTicks", "Counter64", "Bits", "Unsigned32", "MibIdentifier")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 genericObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 2, 8))
 genericLineNum = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 2, 8, 1), Integer32()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: genericLineNum.setStatus('mandatory')
@@ -19,4 +19,4 @@ genericLineType = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 2, 8, 2), Integer32().s
 if mibBuilder.loadTexts: genericLineType.setStatus('mandatory')
 genericTimeStamp = MibScalar((1, 3, 6, 1, 4, 1, 351, 110, 2, 8, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 30))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: genericTimeStamp.setStatus('mandatory')
-mibBuilder.exportSymbols("GENERICOBJECT-MIB", genericLineNum=genericLineNum, genericLineType=genericLineType, genericTimeStamp=genericTimeStamp, genericObjects=genericObjects)
+mibBuilder.exportSymbols("GENERICOBJECT-MIB", genericTimeStamp=genericTimeStamp, genericLineType=genericLineType, genericLineNum=genericLineNum, genericObjects=genericObjects)

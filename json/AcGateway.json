@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "AUDIOCODES-TYPES-MIB": [
-      "acProducts",
       "acBoardMibs",
-      "acGeneric",
       "acRegistrations",
-      "audioCodes"
+      "audioCodes",
+      "acGeneric",
+      "acProducts"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -21,28 +21,28 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
       "iso",
-      "Counter32",
-      "Gauge32",
+      "MibIdentifier",
       "Integer32",
-      "Unsigned32",
       "enterprises",
       "Bits",
+      "TimeTicks",
       "OBJECT-IDENTITY",
-      "TimeTicks"
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Gauge32",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "RowPointer",
       "TAddress",
       "DateAndTime",
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "RowPointer"
     ]
   },
   "acGateway": {
@@ -27236,8 +27236,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/audiocodes/AcGateway",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:13:27 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:14:07 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AcGateway"

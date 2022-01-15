@@ -2,50 +2,50 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
     ],
     "LLDP-MIB": [
-      "LldpPortIdSubtype",
-      "LldpChassisId",
       "LldpChassisIdSubtype",
-      "LldpPortId"
+      "LldpPortIdSubtype",
+      "LldpPortId",
+      "LldpChassisId"
     ],
     "Q-BRIDGE-MIB": [
-      "VlanId",
-      "VlanIdOrNone"
+      "VlanIdOrNone",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "Gauge32",
+      "Counter64",
+      "iso",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
       "MODULE-IDENTITY",
       "IpAddress",
-      "OBJECT-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Integer32",
       "TimeTicks",
-      "Unsigned32",
-      "Counter64",
-      "Gauge32",
       "Counter32",
-      "Bits",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "DisplayString",
+      "RowStatus",
       "TimeStamp",
-      "TruthValue",
-      "TAddress",
-      "TimeInterval",
       "TDomain",
+      "TAddress",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "MacAddress",
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval"
     ]
   },
   "ieee8021cfmMIB": {
@@ -3167,8 +3167,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-CFMD8-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:11:02 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:11:12 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-CFMD8-MIB"

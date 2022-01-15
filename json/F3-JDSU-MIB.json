@@ -5,11 +5,11 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "VlanId",
+      "SecondaryState",
       "VlanPriority",
-      "OperationalState",
       "AdminState",
-      "SecondaryState"
+      "OperationalState",
+      "VlanId"
     ],
     "CM-ENTITY-MIB": [
       "neIndex",
@@ -21,35 +21,35 @@
       "cmEthernetTrafficPortIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "IpAddress",
       "Counter64",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
       "Counter32",
       "iso",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Bits",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "Unsigned32",
-      "Bits"
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "StorageType",
+      "RowStatus",
       "TruthValue",
-      "VariablePointer"
+      "MacAddress",
+      "VariablePointer",
+      "DateAndTime"
     ]
   },
   "f3JdsuMIB": {
@@ -1374,8 +1374,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-JDSU-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:11:51 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:12:13 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-JDSU-MIB"

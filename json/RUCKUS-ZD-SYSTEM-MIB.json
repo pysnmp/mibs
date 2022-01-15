@@ -2,47 +2,47 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndex",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndex"
     ],
     "RUCKUS-ROOT-MIB": [
       "ruckusZDSystemModule"
     ],
     "RUCKUS-TC-MIB": [
-      "RuckusCountryCode",
       "RuckusdB",
-      "RuckusAdminStatus",
-      "RuckusRadioMode",
       "RuckusSSID",
-      "RuckusNameString"
+      "RuckusAdminStatus",
+      "RuckusCountryCode",
+      "RuckusNameString",
+      "RuckusRadioMode"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Bits",
-      "Counter64",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter32",
-      "Integer32",
       "MODULE-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
+      "Counter32",
       "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "Gauge32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "TruthValue",
+      "DisplayString",
       "MacAddress",
-      "DisplayString"
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
     ]
   },
   "ruckusZDSystemMIB": {
@@ -2748,8 +2748,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruckus/RUCKUS-ZD-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:37:38 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:43:11 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RUCKUS-ZD-SYSTEM-MIB"

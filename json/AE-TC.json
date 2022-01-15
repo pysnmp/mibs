@@ -7,19 +7,19 @@
     ],
     "SNMPv2-SMI": [
       "TimeTicks",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "Integer32",
       "Gauge32",
       "Bits",
-      "OBJECT-IDENTITY",
-      "Unsigned32",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "iso",
       "Counter32",
-      "IpAddress"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Unsigned32",
+      "Counter64",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1025,8 +1025,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/AE-TC",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:14:29 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:15:21 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "AE-TC"

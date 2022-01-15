@@ -5,39 +5,39 @@
       "switch001"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetVersion",
       "InetZoneIndex",
+      "InetAddress",
+      "InetVersion",
       "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "Bits",
-      "iso",
-      "Counter32",
-      "MibIdentifier",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Counter32",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "TruthValue",
       "DateAndTime",
+      "TimeStamp",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TimeStamp"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "rlIpStdAcl": {
@@ -525,8 +525,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-IPSTDACL-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:18:06 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:19:39 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCOSB-IPSTDACL-MIB"

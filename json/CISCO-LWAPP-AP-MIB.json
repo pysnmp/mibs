@@ -5,11 +5,11 @@
       "cldRegulatoryDomain"
     ],
     "CISCO-LWAPP-TC-MIB": [
-      "CLApIfType",
       "CLApDot11RadioSubband",
+      "CLApIfType",
       "CLApAssocFailureReason",
-      "CLApDot11RadioRole",
-      "CLDot11Channel"
+      "CLDot11Channel",
+      "CLApDot11RadioRole"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -19,8 +19,8 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetPortNumber",
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
@@ -31,29 +31,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "IpAddress",
-      "Bits",
-      "iso",
-      "Counter32",
-      "MibIdentifier",
       "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "Unsigned32",
-      "OBJECT-TYPE"
+      "Bits",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "IpAddress",
+      "iso",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
-      "RowStatus",
-      "TruthValue",
+      "TimeStamp",
       "DisplayString",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TimeStamp"
+      "TruthValue",
+      "TimeInterval"
     ]
   },
   "ciscoLwappApMIB": {
@@ -4509,8 +4509,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-LWAPP-AP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:18:03 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:19:36 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-LWAPP-AP-MIB"

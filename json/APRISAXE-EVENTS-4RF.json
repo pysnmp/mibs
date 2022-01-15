@@ -6,19 +6,19 @@
       "aprisaXEObjects"
     ],
     "APRISAXE-TC-4RF": [
-      "AprisaXEAlarmType",
       "AprisaXECardType",
-      "AprisaXEDataStatus",
+      "AprisaXEAlarmType",
       "AprisaXESlotNumber",
+      "AprisaXEDataStatus",
       "AprisaXEPortNumber"
     ],
     "COMMON-TC-4RF": [
+      "FourRFAlarmPresent",
+      "FourRFAlarmSeverity",
       "FourRFHardwareVersion",
       "FourRFAlarmStatus",
-      "FourRFAlarmEnabled",
       "FourRFImageVersion",
-      "FourRFAlarmPresent",
-      "FourRFAlarmSeverity"
+      "FourRFAlarmEnabled"
     ],
     "MIB-4RF": [
       "fourRFModules"
@@ -27,29 +27,29 @@
       "fourRFAprisaXE"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
       "Bits",
-      "Gauge32",
-      "Counter64",
-      "Counter32",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "Unsigned32",
       "iso",
-      "TimeTicks",
-      "Integer32",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "IpAddress",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
+      "TimeTicks",
+      "Gauge32",
       "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "aprisaXE4RFEventModule": {
@@ -1259,8 +1259,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/4rf/4RF-APRISAXE-EVENTS",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:11:16 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:11:29 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "APRISAXE-EVENTS-4RF"

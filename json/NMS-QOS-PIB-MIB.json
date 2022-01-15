@@ -13,26 +13,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Bits",
       "Counter32",
-      "Unsigned32",
-      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
       "Integer32",
-      "TimeTicks",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Gauge32",
       "IpAddress",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "Counter64",
+      "iso",
+      "TimeTicks",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TruthValue",
       "MacAddress",
-      "TruthValue"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "nmsQosPIBMIB": {
@@ -2489,8 +2489,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pbn/NMS-QOS-PIB-MIB.MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 05:35:02 2022",
-      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 05:40:05 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NMS-QOS-PIB-MIB"
