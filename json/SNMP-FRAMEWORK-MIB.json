@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "snmpModules",
-      "Integer32",
-      "iso",
-      "Counter32",
-      "Gauge32",
-      "Unsigned32",
       "TimeTicks",
-      "MODULE-IDENTITY",
       "MibIdentifier",
-      "OBJECT-TYPE",
+      "IpAddress",
       "OBJECT-IDENTITY",
       "Bits",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Gauge32",
+      "Unsigned32",
+      "snmpModules",
+      "Counter64",
+      "iso",
+      "Integer32",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "snmpFrameworkMIB": {
@@ -34,12 +34,8 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2002-10-14 00:00",
-        "description": "Changes in this revision: - Updated various administrative information. - Corrected some typos. - Corrected typo in description of SnmpEngineID that led to range overlap for 127. - Changed '255a' to '255t' in definition of SnmpAdminString to align with current SMI. - Reworded 'reserved' for value zero in DESCRIPTION of SnmpSecurityModel. - The algorithm for allocating security models should give 256 per enterprise block, rather than 255. - The example engine ID of 'abcd' is not legal. Replaced with '800002b804616263'H based on example enterprise 696, string 'abc'. - Added clarification that engineID should persist across re-initializations. This revision published as RFC 3411. "
-      },
-      {
         "revision": "1999-01-19 00:00",
-        "description": "Updated editors' addresses, fixed typos. Published as RFC 2571. "
+        "description": "Updated editors' addresses, fixed typos. Published as RFC2571. "
       },
       {
         "revision": "1997-11-20 00:00",
@@ -129,7 +125,7 @@
         ]
       }
     },
-    "displayhint": "255t",
+    "displayhint": "255a",
     "status": "current"
   },
   "snmpFrameworkAdmin": {
@@ -285,9 +281,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNMP-FRAMEWORK-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/SNMP-FRAMEWORK-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:52 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SNMP-FRAMEWORK-MIB"

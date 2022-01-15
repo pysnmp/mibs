@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevSwFilename",
-      "docsDevServerTime",
       "docsDevSwServer",
-      "docsDevEvText",
-      "docsDevEvId",
+      "docsDevServerTime",
       "docsDevServerDhcp",
-      "docsDevEvLevel"
+      "docsDevSwFilename",
+      "docsDevEvId",
+      "docsDevEvLevel",
+      "docsDevEvText"
     ],
     "DOCS-IF-MIB": [
       "docsIfCmtsCmStatusMacAddress",
       "docsIfDocsisBaseCapability",
-      "docsIfCmCmtsAddress",
-      "docsIfCmStatusModulationType",
-      "docsIfCmStatusDocsisOperMode",
       "docsIfCmtsCmStatusModulationType",
-      "docsIfCmtsCmStatusDocsisRegMode"
+      "docsIfCmCmtsAddress",
+      "docsIfCmtsCmStatusDocsisRegMode",
+      "docsIfCmStatusDocsisOperMode",
+      "docsIfCmStatusModulationType"
     ],
     "IF-MIB": [
       "ifPhysAddress"
@@ -28,21 +28,21 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
       "Integer32",
       "Counter32",
       "iso",
-      "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -1484,9 +1484,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DOCS-IETF-CABLE-DEVICE-NOTIFICATION-MIB"

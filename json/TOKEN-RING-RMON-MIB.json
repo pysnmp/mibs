@@ -3,52 +3,35 @@
     "class": "imports",
     "RFC1271-MIB": [
       "history",
-      "statistics",
       "OwnerString",
-      "rmon"
+      "EntryStatus",
+      "rmon",
+      "statistics"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Bits",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
-  },
-  "OwnerString": {
-    "name": "OwnerString",
-    "class": "textualconvention",
-    "type": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "displayhint": "255a",
-    "status": "current"
   },
   "MacAddress": {
     "name": "MacAddress",
@@ -78,22 +61,6 @@
     "name": "tokenRing",
     "oid": "1.3.6.1.2.1.16.10",
     "class": "objectidentity"
-  },
-  "EntryStatus": {
-    "name": "EntryStatus",
-    "class": "type",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "valid": 1,
-          "createRequest": 2,
-          "underCreation": 3,
-          "invalid": 4
-        }
-      }
-    }
   },
   "tokenRingMLStatsTable": {
     "name": "tokenRingMLStatsTable",
@@ -2391,9 +2358,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/TOKEN-RING-RMON-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/TOKEN-RING-RMON-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:20:18 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "TOKEN-RING-RMON-MIB"

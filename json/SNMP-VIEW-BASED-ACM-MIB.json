@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "SNMP-FRAMEWORK-MIB": [
+      "SnmpSecurityLevel",
       "SnmpSecurityModel",
-      "SnmpAdminString",
-      "SnmpSecurityLevel"
+      "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -12,28 +12,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "snmpModules",
-      "Integer32",
-      "iso",
-      "Counter32",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Bits",
+      "MibIdentifier",
+      "snmpModules",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TestAndIncr",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "StorageType",
+      "DisplayString"
     ]
   },
   "snmpVacmMIB": {
@@ -41,10 +41,6 @@
     "oid": "1.3.6.1.6.3.16",
     "class": "moduleidentity",
     "revisions": [
-      {
-        "revision": "2002-10-16 00:00",
-        "description": "Clarifications, published as RFC3415"
-      },
       {
         "revision": "1999-01-20 00:00",
         "description": "Clarifications, published as RFC2575"
@@ -689,9 +685,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNMP-VIEW-BASED-ACM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:11 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-VIEW-BASED-ACM-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:37 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SNMP-VIEW-BASED-ACM-MIB"

@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ARRIS-C3-POST-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arris/ARRIS-C3-POST-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 20:08:57 2022
-# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 23:20:32 2022
+# On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 cmtsC3, = mibBuilder.importSymbols("ARRIS-MIB", "cmtsC3")
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
+SingleValueConstraint, ConstraintsIntersection, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ConstraintsIntersection", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
 ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Unsigned32, NotificationType, iso, Counter32, ObjectIdentity, ModuleIdentity, IpAddress, Gauge32, TimeTicks, Bits, Counter64, Integer32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn = mibBuilder.importSymbols("SNMPv2-SMI", "Unsigned32", "NotificationType", "iso", "Counter32", "ObjectIdentity", "ModuleIdentity", "IpAddress", "Gauge32", "TimeTicks", "Bits", "Counter64", "Integer32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn")
+Counter32, TimeTicks, NotificationType, Gauge32, IpAddress, Unsigned32, Integer32, ObjectIdentity, Bits, MibIdentifier, iso, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "TimeTicks", "NotificationType", "Gauge32", "IpAddress", "Unsigned32", "Integer32", "ObjectIdentity", "Bits", "MibIdentifier", "iso", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 cmtsC3POSTMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13))
 if mibBuilder.loadTexts: cmtsC3POSTMIB.setLastUpdated('200403300000Z')
@@ -38,4 +38,4 @@ dcx3212POSTDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1,
 if mibBuilder.loadTexts: dcx3212POSTDescr.setStatus('current')
 dcx3212POSTResult = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("passed", 0), ("failed", 1), ("skipped", 2)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: dcx3212POSTResult.setStatus('current')
-mibBuilder.exportSymbols("ARRIS-C3-POST-MIB", PYSNMP_MODULE_ID=cmtsC3POSTMIB, dcxCPUWANPOSTDescr=dcxCPUWANPOSTDescr, dcxCPUWANPOSTResult=dcxCPUWANPOSTResult, dcx3212POSTDescr=dcx3212POSTDescr, dcx3212POSTEntry=dcx3212POSTEntry, dcxCPUWANPOSTTable=dcxCPUWANPOSTTable, dcx3212POSTType=dcx3212POSTType, dcxPOSTObjects=dcxPOSTObjects, dcx3212POSTResult=dcx3212POSTResult, cmtsC3POSTMIB=cmtsC3POSTMIB, dcxCPUWANPOSTEntry=dcxCPUWANPOSTEntry, dcx3212POSTGroup=dcx3212POSTGroup, dcx3212POSTTable=dcx3212POSTTable, dcxCPUWANPOSTGroup=dcxCPUWANPOSTGroup, dcxCPUWANPOSTType=dcxCPUWANPOSTType)
+mibBuilder.exportSymbols("ARRIS-C3-POST-MIB", dcxPOSTObjects=dcxPOSTObjects, dcxCPUWANPOSTTable=dcxCPUWANPOSTTable, dcx3212POSTTable=dcx3212POSTTable, dcxCPUWANPOSTResult=dcxCPUWANPOSTResult, dcxCPUWANPOSTEntry=dcxCPUWANPOSTEntry, dcxCPUWANPOSTGroup=dcxCPUWANPOSTGroup, PYSNMP_MODULE_ID=cmtsC3POSTMIB, dcx3212POSTGroup=dcx3212POSTGroup, dcx3212POSTResult=dcx3212POSTResult, dcx3212POSTDescr=dcx3212POSTDescr, cmtsC3POSTMIB=cmtsC3POSTMIB, dcxCPUWANPOSTDescr=dcxCPUWANPOSTDescr, dcx3212POSTType=dcx3212POSTType, dcxCPUWANPOSTType=dcxCPUWANPOSTType, dcx3212POSTEntry=dcx3212POSTEntry)

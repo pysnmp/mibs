@@ -1,0 +1,3740 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-TC-MIB": [
+      "AtmAddr"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "IP-MIB": [
+      "ipAdEntAddr"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "snmpModules",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "TruthValue"
+    ]
+  },
+  "marsMIB": {
+    "name": "marsMIB",
+    "oid": "1.3.6.1.6.3.17",
+    "class": "moduleidentity"
+  },
+  "marsClientObjects": {
+    "name": "marsClientObjects",
+    "oid": "1.3.6.1.6.3.17.1",
+    "class": "objectidentity"
+  },
+  "marsClientTable": {
+    "name": "marsClientTable",
+    "oid": "1.3.6.1.6.3.17.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientEntry": {
+    "name": "marsClientEntry",
+    "oid": "1.3.6.1.6.3.17.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsClientIndex": {
+    "name": "marsClientIndex",
+    "oid": "1.3.6.1.6.3.17.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientAddr": {
+    "name": "marsClientAddr",
+    "oid": "1.3.6.1.6.3.17.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientDefaultMarsAddr": {
+    "name": "marsClientDefaultMarsAddr",
+    "oid": "1.3.6.1.6.3.17.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientHsn": {
+    "name": "marsClientHsn",
+    "oid": "1.3.6.1.6.3.17.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientRegistration": {
+    "name": "marsClientRegistration",
+    "oid": "1.3.6.1.6.3.17.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRegistered": 1,
+          "registering": 2,
+          "registered": 3,
+          "reRegisteringFault": 4,
+          "reRegisteringRedirMap": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientCmi": {
+    "name": "marsClientCmi",
+    "oid": "1.3.6.1.6.3.17.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientDefaultMtu": {
+    "name": "marsClientDefaultMtu",
+    "oid": "1.3.6.1.6.3.17.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 9180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientFailureTimer": {
+    "name": "marsClientFailureTimer",
+    "oid": "1.3.6.1.6.3.17.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientRetranDelayTimer": {
+    "name": "marsClientRetranDelayTimer",
+    "oid": "1.3.6.1.6.3.17.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientRdmMulReqAddRetrTimer": {
+    "name": "marsClientRdmMulReqAddRetrTimer",
+    "oid": "1.3.6.1.6.3.17.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientRdmVcRevalidateTimer": {
+    "name": "marsClientRdmVcRevalidateTimer",
+    "oid": "1.3.6.1.6.3.17.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientJoinLeaveRetrInterval": {
+    "name": "marsClientJoinLeaveRetrInterval",
+    "oid": "1.3.6.1.6.3.17.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientJoinLeaveRetrLimit": {
+    "name": "marsClientJoinLeaveRetrLimit",
+    "oid": "1.3.6.1.6.3.17.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientRegWithMarsRdmTimer": {
+    "name": "marsClientRegWithMarsRdmTimer",
+    "oid": "1.3.6.1.6.3.17.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientForceWaitTimer": {
+    "name": "marsClientForceWaitTimer",
+    "oid": "1.3.6.1.6.3.17.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientLmtToMissRedirMapTimer": {
+    "name": "marsClientLmtToMissRedirMapTimer",
+    "oid": "1.3.6.1.6.3.17.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientIdleTimer": {
+    "name": "marsClientIdleTimer",
+    "oid": "1.3.6.1.6.3.17.1.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientRowStatus": {
+    "name": "marsClientRowStatus",
+    "oid": "1.3.6.1.6.3.17.1.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientMcGrpTable": {
+    "name": "marsClientMcGrpTable",
+    "oid": "1.3.6.1.6.3.17.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientMcGrpEntry": {
+    "name": "marsClientMcGrpEntry",
+    "oid": "1.3.6.1.6.3.17.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientMcMinGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientMcMaxGrpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsClientMcMinGrpAddr": {
+    "name": "marsClientMcMinGrpAddr",
+    "oid": "1.3.6.1.6.3.17.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientMcMaxGrpAddr": {
+    "name": "marsClientMcMaxGrpAddr",
+    "oid": "1.3.6.1.6.3.17.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientMcGrpRowStatus": {
+    "name": "marsClientMcGrpRowStatus",
+    "oid": "1.3.6.1.6.3.17.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientBackupMarsTable": {
+    "name": "marsClientBackupMarsTable",
+    "oid": "1.3.6.1.6.3.17.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientBackupMarsEntry": {
+    "name": "marsClientBackupMarsEntry",
+    "oid": "1.3.6.1.6.3.17.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientBackupMarsPriority",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientBackupMarsAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsClientBackupMarsPriority": {
+    "name": "marsClientBackupMarsPriority",
+    "oid": "1.3.6.1.6.3.17.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientBackupMarsAddr": {
+    "name": "marsClientBackupMarsAddr",
+    "oid": "1.3.6.1.6.3.17.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientBackupMarsRowStatus": {
+    "name": "marsClientBackupMarsRowStatus",
+    "oid": "1.3.6.1.6.3.17.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientVcTable": {
+    "name": "marsClientVcTable",
+    "oid": "1.3.6.1.6.3.17.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientVcEntry": {
+    "name": "marsClientVcEntry",
+    "oid": "1.3.6.1.6.3.17.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcVpi",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcVci",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcMinGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcMaxGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcPartyAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsClientVcVpi": {
+    "name": "marsClientVcVpi",
+    "oid": "1.3.6.1.6.3.17.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientVcVci": {
+    "name": "marsClientVcVci",
+    "oid": "1.3.6.1.6.3.17.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientVcMinGrpAddr": {
+    "name": "marsClientVcMinGrpAddr",
+    "oid": "1.3.6.1.6.3.17.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientVcMaxGrpAddr": {
+    "name": "marsClientVcMaxGrpAddr",
+    "oid": "1.3.6.1.6.3.17.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientVcPartyAddr": {
+    "name": "marsClientVcPartyAddr",
+    "oid": "1.3.6.1.6.3.17.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientVcPartyAddrType": {
+    "name": "marsClientVcPartyAddrType",
+    "oid": "1.3.6.1.6.3.17.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "called": 1,
+          "calling": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientVcType": {
+    "name": "marsClientVcType",
+    "oid": "1.3.6.1.6.3.17.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 1,
+          "svc": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientVcCtrlType": {
+    "name": "marsClientVcCtrlType",
+    "oid": "1.3.6.1.6.3.17.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPointVC": 1,
+          "clusterControlVC": 2,
+          "pointToMultiPointVC": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientVcIdleTimer": {
+    "name": "marsClientVcIdleTimer",
+    "oid": "1.3.6.1.6.3.17.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientVcRevalidate": {
+    "name": "marsClientVcRevalidate",
+    "oid": "1.3.6.1.6.3.17.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientVcEncapsType": {
+    "name": "marsClientVcEncapsType",
+    "oid": "1.3.6.1.6.3.17.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "llcSnap": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientVcNegotiatedMtu": {
+    "name": "marsClientVcNegotiatedMtu",
+    "oid": "1.3.6.1.6.3.17.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientVcRowStatus": {
+    "name": "marsClientVcRowStatus",
+    "oid": "1.3.6.1.6.3.17.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsClientStatTable": {
+    "name": "marsClientStatTable",
+    "oid": "1.3.6.1.6.3.17.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsClientStatEntry": {
+    "name": "marsClientStatEntry",
+    "oid": "1.3.6.1.6.3.17.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsClientStatTxReqMsgs": {
+    "name": "marsClientStatTxReqMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsClientStatTxJoinMsgs": {
+    "name": "marsClientStatTxJoinMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsClientStatTxLeaveMsgs": {
+    "name": "marsClientStatTxLeaveMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsClientStatTxGrpLstReqMsgs": {
+    "name": "marsClientStatTxGrpLstReqMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsClientStatRxJoinMsgs": {
+    "name": "marsClientStatRxJoinMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsClientStatRxLeaveMsgs": {
+    "name": "marsClientStatRxLeaveMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsClientStatRxMultiMsgs": {
+    "name": "marsClientStatRxMultiMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsClientStatRxNakMsgs": {
+    "name": "marsClientStatRxNakMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsClientStatRxMigrateMsgs": {
+    "name": "marsClientStatRxMigrateMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsClientStatRxGrpLstRplyMsgs": {
+    "name": "marsClientStatRxGrpLstRplyMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsClientStatFailMultiMsgs": {
+    "name": "marsClientStatFailMultiMsgs",
+    "oid": "1.3.6.1.6.3.17.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsObjects": {
+    "name": "marsObjects",
+    "oid": "1.3.6.1.6.3.17.2",
+    "class": "objectidentity"
+  },
+  "marsTable": {
+    "name": "marsTable",
+    "oid": "1.3.6.1.6.3.17.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsEntry": {
+    "name": "marsEntry",
+    "oid": "1.3.6.1.6.3.17.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsIndex": {
+    "name": "marsIndex",
+    "oid": "1.3.6.1.6.3.17.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsIfIndex": {
+    "name": "marsIfIndex",
+    "oid": "1.3.6.1.6.3.17.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsAddr": {
+    "name": "marsAddr",
+    "oid": "1.3.6.1.6.3.17.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsLocal": {
+    "name": "marsLocal",
+    "oid": "1.3.6.1.6.3.17.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsServStatus": {
+    "name": "marsServStatus",
+    "oid": "1.3.6.1.6.3.17.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "faulted": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsServType": {
+    "name": "marsServType",
+    "oid": "1.3.6.1.6.3.17.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "primary": 1,
+          "backup": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsServPriority": {
+    "name": "marsServPriority",
+    "oid": "1.3.6.1.6.3.17.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsRedirMapMsgTimer": {
+    "name": "marsRedirMapMsgTimer",
+    "oid": "1.3.6.1.6.3.17.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsCsn": {
+    "name": "marsCsn",
+    "oid": "1.3.6.1.6.3.17.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsSsn": {
+    "name": "marsSsn",
+    "oid": "1.3.6.1.6.3.17.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsRowStatus": {
+    "name": "marsRowStatus",
+    "oid": "1.3.6.1.6.3.17.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcGrpTable": {
+    "name": "marsMcGrpTable",
+    "oid": "1.3.6.1.6.3.17.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcGrpEntry": {
+    "name": "marsMcGrpEntry",
+    "oid": "1.3.6.1.6.3.17.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcMinGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcMaxGrpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsMcMinGrpAddr": {
+    "name": "marsMcMinGrpAddr",
+    "oid": "1.3.6.1.6.3.17.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcMaxGrpAddr": {
+    "name": "marsMcMaxGrpAddr",
+    "oid": "1.3.6.1.6.3.17.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcGrpAddrUsage": {
+    "name": "marsMcGrpAddrUsage",
+    "oid": "1.3.6.1.6.3.17.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "hostMap": 1,
+          "serverMap": 2,
+          "hostServerMap": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcGrpRxLayer3GrpSets": {
+    "name": "marsMcGrpRxLayer3GrpSets",
+    "oid": "1.3.6.1.6.3.17.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcGrpRxLayer3GrpResets": {
+    "name": "marsMcGrpRxLayer3GrpResets",
+    "oid": "1.3.6.1.6.3.17.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcGrpRowStatus": {
+    "name": "marsMcGrpRowStatus",
+    "oid": "1.3.6.1.6.3.17.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsHostMapTable": {
+    "name": "marsHostMapTable",
+    "oid": "1.3.6.1.6.3.17.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsHostMapEntry": {
+    "name": "marsHostMapEntry",
+    "oid": "1.3.6.1.6.3.17.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcMinGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcMaxGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsHostMapAtmAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsHostMapAtmAddr": {
+    "name": "marsHostMapAtmAddr",
+    "oid": "1.3.6.1.6.3.17.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsHostMapRowType": {
+    "name": "marsHostMapRowType",
+    "oid": "1.3.6.1.6.3.17.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsHostMapRowStatus": {
+    "name": "marsHostMapRowStatus",
+    "oid": "1.3.6.1.6.3.17.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsServerMapTable": {
+    "name": "marsServerMapTable",
+    "oid": "1.3.6.1.6.3.17.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsServerMapEntry": {
+    "name": "marsServerMapEntry",
+    "oid": "1.3.6.1.6.3.17.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcMinGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcMaxGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsServerMapAtmAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsServerMapAtmAddr": {
+    "name": "marsServerMapAtmAddr",
+    "oid": "1.3.6.1.6.3.17.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsServerMapRowType": {
+    "name": "marsServerMapRowType",
+    "oid": "1.3.6.1.6.3.17.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsServerMapRowStatus": {
+    "name": "marsServerMapRowStatus",
+    "oid": "1.3.6.1.6.3.17.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsVcTable": {
+    "name": "marsVcTable",
+    "oid": "1.3.6.1.6.3.17.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsVcEntry": {
+    "name": "marsVcEntry",
+    "oid": "1.3.6.1.6.3.17.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcVpi",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcVci",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcPartyAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsVcVpi": {
+    "name": "marsVcVpi",
+    "oid": "1.3.6.1.6.3.17.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsVcVci": {
+    "name": "marsVcVci",
+    "oid": "1.3.6.1.6.3.17.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsVcPartyAddr": {
+    "name": "marsVcPartyAddr",
+    "oid": "1.3.6.1.6.3.17.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsVcPartyAddrType": {
+    "name": "marsVcPartyAddrType",
+    "oid": "1.3.6.1.6.3.17.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "called": 1,
+          "calling": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsVcType": {
+    "name": "marsVcType",
+    "oid": "1.3.6.1.6.3.17.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 1,
+          "svc": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsVcCtrlType": {
+    "name": "marsVcCtrlType",
+    "oid": "1.3.6.1.6.3.17.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPointVC": 1,
+          "clusterControlVC": 2,
+          "serverControlVC": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsVcIdleTimer": {
+    "name": "marsVcIdleTimer",
+    "oid": "1.3.6.1.6.3.17.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsVcCmi": {
+    "name": "marsVcCmi",
+    "oid": "1.3.6.1.6.3.17.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsVcEncapsType": {
+    "name": "marsVcEncapsType",
+    "oid": "1.3.6.1.6.3.17.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "llcSnap": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsVcNegotiatedMtu": {
+    "name": "marsVcNegotiatedMtu",
+    "oid": "1.3.6.1.6.3.17.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsVcRowStatus": {
+    "name": "marsVcRowStatus",
+    "oid": "1.3.6.1.6.3.17.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsRegClientTable": {
+    "name": "marsRegClientTable",
+    "oid": "1.3.6.1.6.3.17.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsRegClientEntry": {
+    "name": "marsRegClientEntry",
+    "oid": "1.3.6.1.6.3.17.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsRegClientCmi",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsRegClientCmi": {
+    "name": "marsRegClientCmi",
+    "oid": "1.3.6.1.6.3.17.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsRegClientAtmAddr": {
+    "name": "marsRegClientAtmAddr",
+    "oid": "1.3.6.1.6.3.17.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsRegMcsTable": {
+    "name": "marsRegMcsTable",
+    "oid": "1.3.6.1.6.3.17.2.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsRegMcsEntry": {
+    "name": "marsRegMcsEntry",
+    "oid": "1.3.6.1.6.3.17.2.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsRegMcsAtmAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsRegMcsAtmAddr": {
+    "name": "marsRegMcsAtmAddr",
+    "oid": "1.3.6.1.6.3.17.2.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTable": {
+    "name": "marsStatTable",
+    "oid": "1.3.6.1.6.3.17.2.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsStatEntry": {
+    "name": "marsStatEntry",
+    "oid": "1.3.6.1.6.3.17.2.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsStatTxMultiMsgs": {
+    "name": "marsStatTxMultiMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTxGrpLstRplyMsgs": {
+    "name": "marsStatTxGrpLstRplyMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTxRedirectMapMsgs": {
+    "name": "marsStatTxRedirectMapMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTxMigrateMsgs": {
+    "name": "marsStatTxMigrateMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTxNakMsgs": {
+    "name": "marsStatTxNakMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTxJoinMsgs": {
+    "name": "marsStatTxJoinMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTxLeaveMsgs": {
+    "name": "marsStatTxLeaveMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTxSjoinMsgs": {
+    "name": "marsStatTxSjoinMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTxSleaveMsgs": {
+    "name": "marsStatTxSleaveMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTxMservMsgs": {
+    "name": "marsStatTxMservMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatTxUnservMsgs": {
+    "name": "marsStatTxUnservMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatRxReqMsgs": {
+    "name": "marsStatRxReqMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatRxGrpLstReqMsgs": {
+    "name": "marsStatRxGrpLstReqMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatRxJoinMsgs": {
+    "name": "marsStatRxJoinMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatRxLeaveMsgs": {
+    "name": "marsStatRxLeaveMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatRxMservMsgs": {
+    "name": "marsStatRxMservMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatRxUnservMsgs": {
+    "name": "marsStatRxUnservMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatRxBlkJoinMsgs": {
+    "name": "marsStatRxBlkJoinMsgs",
+    "oid": "1.3.6.1.6.3.17.2.8.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatRegMemGroups": {
+    "name": "marsStatRegMemGroups",
+    "oid": "1.3.6.1.6.3.17.2.8.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsStatRegMcsGroups": {
+    "name": "marsStatRegMcsGroups",
+    "oid": "1.3.6.1.6.3.17.2.8.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcsObjects": {
+    "name": "marsMcsObjects",
+    "oid": "1.3.6.1.6.3.17.3",
+    "class": "objectidentity"
+  },
+  "marsMcsTable": {
+    "name": "marsMcsTable",
+    "oid": "1.3.6.1.6.3.17.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsEntry": {
+    "name": "marsMcsEntry",
+    "oid": "1.3.6.1.6.3.17.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsMcsIndex": {
+    "name": "marsMcsIndex",
+    "oid": "1.3.6.1.6.3.17.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsIfIndex": {
+    "name": "marsMcsIfIndex",
+    "oid": "1.3.6.1.6.3.17.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsAddr": {
+    "name": "marsMcsAddr",
+    "oid": "1.3.6.1.6.3.17.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsDefaultMarsAddr": {
+    "name": "marsMcsDefaultMarsAddr",
+    "oid": "1.3.6.1.6.3.17.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsRegistration": {
+    "name": "marsMcsRegistration",
+    "oid": "1.3.6.1.6.3.17.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notRegistered": 1,
+          "registering": 2,
+          "registered": 3,
+          "reRegisteringFault": 4,
+          "reRegisteringRedirMap": 5
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsSsn": {
+    "name": "marsMcsSsn",
+    "oid": "1.3.6.1.6.3.17.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsDefaultMtu": {
+    "name": "marsMcsDefaultMtu",
+    "oid": "1.3.6.1.6.3.17.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 9180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsFailureTimer": {
+    "name": "marsMcsFailureTimer",
+    "oid": "1.3.6.1.6.3.17.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsRetranDelayTimer": {
+    "name": "marsMcsRetranDelayTimer",
+    "oid": "1.3.6.1.6.3.17.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsRdmMulReqAddRetrTimer": {
+    "name": "marsMcsRdmMulReqAddRetrTimer",
+    "oid": "1.3.6.1.6.3.17.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsRdmVcRevalidateTimer": {
+    "name": "marsMcsRdmVcRevalidateTimer",
+    "oid": "1.3.6.1.6.3.17.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsRegisterRetrInterval": {
+    "name": "marsMcsRegisterRetrInterval",
+    "oid": "1.3.6.1.6.3.17.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsRegisterRetrLimit": {
+    "name": "marsMcsRegisterRetrLimit",
+    "oid": "1.3.6.1.6.3.17.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsRegWithMarsRdmTimer": {
+    "name": "marsMcsRegWithMarsRdmTimer",
+    "oid": "1.3.6.1.6.3.17.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsForceWaitTimer": {
+    "name": "marsMcsForceWaitTimer",
+    "oid": "1.3.6.1.6.3.17.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsLmtToMissRedirMapTimer": {
+    "name": "marsMcsLmtToMissRedirMapTimer",
+    "oid": "1.3.6.1.6.3.17.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsIdleTimer": {
+    "name": "marsMcsIdleTimer",
+    "oid": "1.3.6.1.6.3.17.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsRowStatus": {
+    "name": "marsMcsRowStatus",
+    "oid": "1.3.6.1.6.3.17.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsMcGrpTable": {
+    "name": "marsMcsMcGrpTable",
+    "oid": "1.3.6.1.6.3.17.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsMcGrpEntry": {
+    "name": "marsMcsMcGrpEntry",
+    "oid": "1.3.6.1.6.3.17.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsMcMinGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsMcMaxGrpAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsMcsMcMinGrpAddr": {
+    "name": "marsMcsMcMinGrpAddr",
+    "oid": "1.3.6.1.6.3.17.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsMcMaxGrpAddr": {
+    "name": "marsMcsMcMaxGrpAddr",
+    "oid": "1.3.6.1.6.3.17.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsMcGrpRowStatus": {
+    "name": "marsMcsMcGrpRowStatus",
+    "oid": "1.3.6.1.6.3.17.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsBackupMarsTable": {
+    "name": "marsMcsBackupMarsTable",
+    "oid": "1.3.6.1.6.3.17.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsBackupMarsEntry": {
+    "name": "marsMcsBackupMarsEntry",
+    "oid": "1.3.6.1.6.3.17.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsBackupMarsPriority",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsBackupMarsAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsMcsBackupMarsPriority": {
+    "name": "marsMcsBackupMarsPriority",
+    "oid": "1.3.6.1.6.3.17.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsBackupMarsAddr": {
+    "name": "marsMcsBackupMarsAddr",
+    "oid": "1.3.6.1.6.3.17.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsBackupMarsRowStatus": {
+    "name": "marsMcsBackupMarsRowStatus",
+    "oid": "1.3.6.1.6.3.17.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsVcTable": {
+    "name": "marsMcsVcTable",
+    "oid": "1.3.6.1.6.3.17.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsVcEntry": {
+    "name": "marsMcsVcEntry",
+    "oid": "1.3.6.1.6.3.17.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcVpi",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcVci",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcMinGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcMaxGrpAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcPartyAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsMcsVcVpi": {
+    "name": "marsMcsVcVpi",
+    "oid": "1.3.6.1.6.3.17.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4095
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsVcVci": {
+    "name": "marsMcsVcVci",
+    "oid": "1.3.6.1.6.3.17.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsVcMinGrpAddr": {
+    "name": "marsMcsVcMinGrpAddr",
+    "oid": "1.3.6.1.6.3.17.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsVcMaxGrpAddr": {
+    "name": "marsMcsVcMaxGrpAddr",
+    "oid": "1.3.6.1.6.3.17.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsVcPartyAddr": {
+    "name": "marsMcsVcPartyAddr",
+    "oid": "1.3.6.1.6.3.17.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsVcPartyAddrType": {
+    "name": "marsMcsVcPartyAddrType",
+    "oid": "1.3.6.1.6.3.17.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "called": 1,
+          "calling": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsVcType": {
+    "name": "marsMcsVcType",
+    "oid": "1.3.6.1.6.3.17.3.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 1,
+          "svc": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsVcCtrlType": {
+    "name": "marsMcsVcCtrlType",
+    "oid": "1.3.6.1.6.3.17.3.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pointToPointVC": 1,
+          "serverControlVC": 2,
+          "pointToMultiPointVC": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsVcIdleTimer": {
+    "name": "marsMcsVcIdleTimer",
+    "oid": "1.3.6.1.6.3.17.3.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "minutes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsVcRevalidate": {
+    "name": "marsMcsVcRevalidate",
+    "oid": "1.3.6.1.6.3.17.3.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsVcEncapsType": {
+    "name": "marsMcsVcEncapsType",
+    "oid": "1.3.6.1.6.3.17.3.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "llcSnap": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsVcNegotiatedMtu": {
+    "name": "marsMcsVcNegotiatedMtu",
+    "oid": "1.3.6.1.6.3.17.3.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsVcRowStatus": {
+    "name": "marsMcsVcRowStatus",
+    "oid": "1.3.6.1.6.3.17.3.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "marsMcsStatTable": {
+    "name": "marsMcsStatTable",
+    "oid": "1.3.6.1.6.3.17.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "marsMcsStatEntry": {
+    "name": "marsMcsStatEntry",
+    "oid": "1.3.6.1.6.3.17.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "marsMcsStatTxReqMsgs": {
+    "name": "marsMcsStatTxReqMsgs",
+    "oid": "1.3.6.1.6.3.17.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcsStatTxMservMsgs": {
+    "name": "marsMcsStatTxMservMsgs",
+    "oid": "1.3.6.1.6.3.17.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcsStatTxUnservMsgs": {
+    "name": "marsMcsStatTxUnservMsgs",
+    "oid": "1.3.6.1.6.3.17.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcsStatRxMultiMsgs": {
+    "name": "marsMcsStatRxMultiMsgs",
+    "oid": "1.3.6.1.6.3.17.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcsStatRxSjoinMsgs": {
+    "name": "marsMcsStatRxSjoinMsgs",
+    "oid": "1.3.6.1.6.3.17.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcsStatRxSleaveMsgs": {
+    "name": "marsMcsStatRxSleaveMsgs",
+    "oid": "1.3.6.1.6.3.17.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcsStatRxNakMsgs": {
+    "name": "marsMcsStatRxNakMsgs",
+    "oid": "1.3.6.1.6.3.17.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcsStatRxMigrateMsgs": {
+    "name": "marsMcsStatRxMigrateMsgs",
+    "oid": "1.3.6.1.6.3.17.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsMcsStatFailMultiMsgs": {
+    "name": "marsMcsStatFailMultiMsgs",
+    "oid": "1.3.6.1.6.3.17.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "marsTrapInfo": {
+    "name": "marsTrapInfo",
+    "oid": "1.3.6.1.6.3.17.0",
+    "class": "objectidentity"
+  },
+  "marsFaultTrap": {
+    "name": "marsFaultTrap",
+    "oid": "1.3.6.1.6.3.17.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsAddr"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsServStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "marsConformance": {
+    "name": "marsConformance",
+    "oid": "1.3.6.1.6.3.17.4",
+    "class": "objectidentity"
+  },
+  "marsClientConformance": {
+    "name": "marsClientConformance",
+    "oid": "1.3.6.1.6.3.17.4.1",
+    "class": "objectidentity"
+  },
+  "marsServerConformance": {
+    "name": "marsServerConformance",
+    "oid": "1.3.6.1.6.3.17.4.2",
+    "class": "objectidentity"
+  },
+  "marsMcsConformance": {
+    "name": "marsMcsConformance",
+    "oid": "1.3.6.1.6.3.17.4.3",
+    "class": "objectidentity"
+  },
+  "marsClientCompliances": {
+    "name": "marsClientCompliances",
+    "oid": "1.3.6.1.6.3.17.4.1.1",
+    "class": "objectidentity"
+  },
+  "marsClientGroups": {
+    "name": "marsClientGroups",
+    "oid": "1.3.6.1.6.3.17.4.1.2",
+    "class": "objectidentity"
+  },
+  "marsServerCompliances": {
+    "name": "marsServerCompliances",
+    "oid": "1.3.6.1.6.3.17.4.2.1",
+    "class": "objectidentity"
+  },
+  "marsServerGroups": {
+    "name": "marsServerGroups",
+    "oid": "1.3.6.1.6.3.17.4.2.2",
+    "class": "objectidentity"
+  },
+  "marsMcsCompliances": {
+    "name": "marsMcsCompliances",
+    "oid": "1.3.6.1.6.3.17.4.3.1",
+    "class": "objectidentity"
+  },
+  "marsMcsGroups": {
+    "name": "marsMcsGroups",
+    "oid": "1.3.6.1.6.3.17.4.3.2",
+    "class": "objectidentity"
+  },
+  "marsClientCompliance": {
+    "name": "marsClientCompliance",
+    "oid": "1.3.6.1.6.3.17.4.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "marsClientGroup",
+        "module": "IPATM-IPMC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "marsClientGroup": {
+    "name": "marsClientGroup",
+    "oid": "1.3.6.1.6.3.17.4.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientAddr"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientDefaultMarsAddr"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientHsn"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientRegistration"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientCmi"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientDefaultMtu"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientFailureTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientRetranDelayTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientRdmMulReqAddRetrTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientRdmVcRevalidateTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientJoinLeaveRetrInterval"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientJoinLeaveRetrLimit"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientRegWithMarsRdmTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientForceWaitTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientIdleTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientLmtToMissRedirMapTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientMcGrpRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientBackupMarsRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcPartyAddrType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcCtrlType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcIdleTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcRevalidate"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcEncapsType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcNegotiatedMtu"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientVcRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatTxReqMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatTxJoinMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatTxLeaveMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatTxGrpLstReqMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatRxJoinMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatRxLeaveMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatRxMultiMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatRxNakMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatRxGrpLstRplyMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatRxMigrateMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsClientStatFailMultiMsgs"
+      }
+    ],
+    "status": "current"
+  },
+  "marsServerCompliance": {
+    "name": "marsServerCompliance",
+    "oid": "1.3.6.1.6.3.17.4.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "marsServerGroup",
+        "module": "IPATM-IPMC-MIB"
+      },
+      {
+        "object": "marsServerEventGroup",
+        "module": "IPATM-IPMC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "marsServerGroup": {
+    "name": "marsServerGroup",
+    "oid": "1.3.6.1.6.3.17.4.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsAddr"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsLocal"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsServStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsServType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsServPriority"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsRedirMapMsgTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsCsn"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsSsn"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcGrpAddrUsage"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcGrpRxLayer3GrpSets"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcGrpRxLayer3GrpResets"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcGrpRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsHostMapRowType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsHostMapRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsServerMapRowType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsServerMapRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcPartyAddrType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcCtrlType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcIdleTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcCmi"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcEncapsType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcNegotiatedMtu"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsVcRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsRegClientAtmAddr"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsRegMcsAtmAddr"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxMultiMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxGrpLstRplyMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxRedirectMapMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxMigrateMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxNakMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxJoinMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxLeaveMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxSjoinMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxSleaveMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxMservMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatTxUnservMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatRxReqMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatRxGrpLstReqMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatRxJoinMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatRxLeaveMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatRxMservMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatRxUnservMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatRxBlkJoinMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatRegMemGroups"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsStatRegMcsGroups"
+      }
+    ],
+    "status": "current"
+  },
+  "marsServerEventGroup": {
+    "name": "marsServerEventGroup",
+    "oid": "1.3.6.1.6.3.17.4.2.2.2",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsFaultTrap"
+      }
+    ],
+    "status": "current"
+  },
+  "marsMcsCompliance": {
+    "name": "marsMcsCompliance",
+    "oid": "1.3.6.1.6.3.17.4.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "marsMcsGroup",
+        "module": "IPATM-IPMC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "marsMcsGroup": {
+    "name": "marsMcsGroup",
+    "oid": "1.3.6.1.6.3.17.4.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsAddr"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsDefaultMarsAddr"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsRegistration"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsSsn"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsDefaultMtu"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsFailureTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsRetranDelayTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsRdmMulReqAddRetrTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsRdmVcRevalidateTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsRegisterRetrInterval"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsRegisterRetrLimit"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsRegWithMarsRdmTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsForceWaitTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsIdleTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsLmtToMissRedirMapTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsMcGrpRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcPartyAddrType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsBackupMarsRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcCtrlType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcIdleTimer"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcRevalidate"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcEncapsType"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcNegotiatedMtu"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsVcRowStatus"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsStatTxReqMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsStatTxMservMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsStatTxUnservMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsStatRxMultiMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsStatRxSjoinMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsStatRxSleaveMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsStatRxNakMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsStatRxMigrateMsgs"
+      },
+      {
+        "module": "IPATM-IPMC-MIB",
+        "object": "marsMcsStatFailMultiMsgs"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPATM-IPMC-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "IPATM-IPMC-MIB"
+  }
+}

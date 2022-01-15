@@ -6,20 +6,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Integer32",
       "Counter32",
       "iso",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -42,7 +42,7 @@
       }
     },
     "displayhint": "2x:",
-    "status": "obsolete"
+    "status": "current"
   },
   "Ipv6AddressPrefix": {
     "name": "Ipv6AddressPrefix",
@@ -60,7 +60,7 @@
       }
     },
     "displayhint": "2x:",
-    "status": "obsolete"
+    "status": "current"
   },
   "Ipv6AddressIfIdentifier": {
     "name": "Ipv6AddressIfIdentifier",
@@ -78,7 +78,7 @@
       }
     },
     "displayhint": "2x:",
-    "status": "obsolete"
+    "status": "current"
   },
   "Ipv6IfIndex": {
     "name": "Ipv6IfIndex",
@@ -96,7 +96,7 @@
       }
     },
     "displayhint": "d",
-    "status": "obsolete"
+    "status": "current"
   },
   "Ipv6IfIndexOrZero": {
     "name": "Ipv6IfIndexOrZero",
@@ -114,13 +114,13 @@
       }
     },
     "displayhint": "d",
-    "status": "obsolete"
+    "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IPV6-TC",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPV6-TC",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IPV6-TC"

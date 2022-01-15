@@ -10,6 +10,7 @@ RMON-MIB DEFINITIONS ::= BEGIN
         MODULE-COMPLIANCE, OBJECT-GROUP,
         NOTIFICATION-GROUP                     FROM SNMPv2-CONF;
 
+
 --  Remote Network Monitoring MIB
 
 rmonMibModule MODULE-IDENTITY
@@ -43,7 +44,6 @@ rmonMibModule MODULE-IDENTITY
         captureBufferPacketStatus object, indicating that the
         packet order within the capture buffer may not be identical to
         the packet order as received off the wire.  This bit may only
-
         be used for packets transmitted by the probe.  Older NMS
         applications can safely ignore this status bit, which might be
         used by newer agents.
@@ -86,6 +86,7 @@ rmonMibModule MODULE-IDENTITY
     ::= { rmonConformance 8 }
 
     rmon    OBJECT IDENTIFIER ::= { mib-2 16 }
+
 
     -- textual conventions
 
@@ -139,7 +140,6 @@ EntryStatus ::= TEXTUAL-CONVENTION
         this object is created, the agent may wish to create
         supplemental object instances with default values
         to complete a conceptual row in this table.  Because the
-
         creation of these default objects is entirely at the option
         of the agent, the manager must not assume that any will be
         created, but may make use of any that are created.
@@ -187,7 +187,6 @@ EntryStatus ::= TEXTUAL-CONVENTION
         manager will never find the variable in that state.  The
         nonExistent state is not a value of the enumeration, rather
         it means that the entryStatus variable does not exist at all.
-
         An agent may allow an entryStatus variable to change state in
         additional ways, so long as the semantics of the states are
         followed.  This allowance is made to ease the implementation of
@@ -332,7 +331,6 @@ etherStatsOctets OBJECT-TYPE
         those in bad packets) received on the
         network (excluding framing bits but including
         FCS octets).
-
         This object can be used as a reasonable estimate of
         10-Megabit ethernet utilization.  If greater precision is
         desired, the etherStatsPkts and etherStatsOctets objects
@@ -381,7 +379,6 @@ etherStatsMulticastPkts OBJECT-TYPE
         "The total number of good packets received that were
         directed to a multicast address.  Note that this number
         does not include packets directed to the broadcast
-
         address."
     ::= { etherStatsEntry 7 }
 
@@ -478,7 +475,6 @@ etherStatsCollisions OBJECT-TYPE
         station must detect a collision, in the receive mode, if
         three or more stations are transmitting simultaneously.  A
         repeater port must detect a collision when two or more
-
         stations are transmitting simultaneously.  Thus a probe
         placed on a repeater port could record more collisions
         than a probe connected to a station on the same segment
@@ -671,7 +667,6 @@ historyControlDataSource OBJECT-TYPE
         placed in a media-specific table on behalf of this
         historyControlEntry.  This source can be any
         interface on this device.  In order to identify
-
         a particular interface, this object shall identify
         the instance of the ifIndex object, defined
         in  RFC 2233 [17], for the desired interface.
@@ -720,7 +715,6 @@ historyControlBucketsGranted OBJECT-TYPE
         over which data shall be saved in the part of
         the media-specific table associated with this
         historyControlEntry.
-
         When the associated historyControlBucketsRequested
         object is created or modified, the probe
         should set this object as closely to the requested
@@ -769,7 +763,6 @@ historyControlInterval OBJECT-TYPE
         3600 (1 hour).
 
         Because the counters in a bucket may overflow at their
-
         maximum value with no indication, a prudent manager will
         take into account the possibility of overflow in any of
         the associated counters.  It is important to consider the
@@ -915,7 +908,6 @@ etherHistoryDropEvents OBJECT-TYPE
         during this sampling interval.  Note that this number
         is not necessarily the number of packets dropped, it
         is just the number of times this condition has been
-
         detected."
     ::= { etherHistoryEntry 4 }
 
@@ -1012,7 +1004,6 @@ etherHistoryFragments OBJECT-TYPE
         "The total number of packets received during this
         sampling interval that were less than 64 octets in
         length (excluding framing bits but including FCS
-
         octets) had either a bad Frame Check Sequence (FCS)
         with an integral number of octets (FCS Error) or a bad
         FCS with a non-integral number of octets (Alignment
@@ -1061,7 +1052,6 @@ etherHistoryCollisions OBJECT-TYPE
         station must detect a collision, in the receive mode, if
         three or more stations are transmitting simultaneously.  A
         repeater port must detect a collision when two or more
-
         stations are transmitting simultaneously.  Thus a probe
         placed on a repeater port could record more collisions
         than a probe connected to a station on the same segment
@@ -1207,7 +1197,6 @@ alarmVariable OBJECT-TYPE
         acceptable means of restricting the read access that
         could be obtained through the alarm mechanism, the
         probe must only grant write access to this object in
-
         those views that have read access to all objects on
         the probe.
 
@@ -1256,7 +1245,6 @@ alarmValue OBJECT-TYPE
         at the beginning and end of the period.  If the sample
         type is absoluteValue, this value will be the sampled
         value at the end of the period.
-
         This is the value that is compared with the rising and
         falling thresholds.
 
@@ -1305,7 +1293,6 @@ alarmRisingThreshold OBJECT-TYPE
         risingOrFallingAlarm(3).
 
         After a rising event is generated, another such event
-
         will not be generated until the sampled value
         falls below this threshold and reaches the
         alarmFallingThreshold.
@@ -1354,7 +1341,6 @@ alarmRisingEventIndex OBJECT-TYPE
         zero is not a valid event index.
 
         This object may not be modified if the associated
-
         alarmStatus object is equal to valid(1)."
     ::= { alarmEntry 9 }
 
@@ -1463,6 +1449,7 @@ alarmStatus OBJECT-TYPE
 -- the host table, the management station may fail to download
 -- all of the entries in the table.
 
+
 hostControlTable OBJECT-TYPE
     SYNTAX     SEQUENCE OF HostControlEntry
     MAX-ACCESS not-accessible
@@ -1500,7 +1487,6 @@ hostControlIndex OBJECT-TYPE
     STATUS     current
     DESCRIPTION
         "An index that uniquely identifies an entry in the
-
         hostControl table.  Each such entry defines
         a function that discovers hosts on a particular interface
         and places statistics about them in the hostTable and
@@ -1790,7 +1776,6 @@ hostTimeCreationOrder OBJECT-TYPE
         the hostTime table among those entries associated
         with the same hostControlEntry.  This index shall
         be between 1 and N, where N is the value of
-
         the associated hostControlTableSize.  The ordering
         of the indexes is based on the order of each entry's
         insertion into the table, in which entries added earlier
@@ -1887,7 +1872,6 @@ hostTimeOutBroadcastPkts OBJECT-TYPE
     DESCRIPTION
         "The number of good packets transmitted by this
         address that were directed to the broadcast address
-
         since this host was added to the hostTimeTable."
     ::= { hostTimeEntry 9 }
 
@@ -2080,7 +2064,6 @@ hostTopNGrantedSize OBJECT-TYPE
         created or modified, the probe should set this
         object as closely to the requested value as is possible
         for the particular implementation and available
-
         resources. The probe must not lower this value except
         as a result of a set to the associated
         hostTopNRequestedSize object.
@@ -2226,7 +2209,6 @@ matrixControlEntry OBJECT-TYPE
     STATUS     current
     DESCRIPTION
         "Information about a traffic matrix on a particular
-
         interface.  For example, an instance of the
         matrixControlLastDeleteTime object might be named
         matrixControlLastDeleteTime.1"
@@ -2275,7 +2257,6 @@ matrixControlDataSource OBJECT-TYPE
 
         An agent may or may not be able to tell if fundamental
         changes to the media of the interface have occurred and
-
         necessitate an invalidation of this entry.  For example, a
         hot-pluggable ethernet card could be pulled out and replaced
         by a token-ring card.  In such a case, if the agent has such
@@ -2324,7 +2305,6 @@ matrixControlStatus OBJECT-TYPE
     STATUS     current
     DESCRIPTION
         "The status of this matrixControl entry.
-
         If this object is not equal to valid(1), all associated
         entries in the matrixSDTable and the matrixDSTable
         shall be deleted by the agent."
@@ -2664,7 +2644,6 @@ filterPktDataMask OBJECT-TYPE
         After adjusting this mask for the offset, only those
         bits in the received packet that correspond to bits set
         in this mask are relevant for further processing by the
-
         match algorithm.  The offset is applied to filterPktDataMask
         in the same way it is applied to the filter.  For the
         purposes of the matching algorithm, if the associated
@@ -2713,7 +2692,6 @@ filterPktStatus OBJECT-TYPE
         (1) For each relevant bit from the packet status with the
             corresponding filterPktStatusNotMask bit set to zero, if
             the bit from the packet status is not equal to the
-
             corresponding bit from the filterPktStatus, then the
             packet will fail this status match.
 
@@ -2954,7 +2932,6 @@ channelTurnOnEventIndex OBJECT-TYPE
         association exists.  In fact, if no event is intended
         for this channel, channelTurnOnEventIndex must be
         set to zero, a non-existent event index.
-
         This object may not be modified if the associated
         channelStatus object is equal to valid(1)."
     ::= { channelEntry 5 }
@@ -3147,7 +3124,6 @@ bufferControlChannelIndex OBJECT-TYPE
 
 bufferControlFullStatus OBJECT-TYPE
     SYNTAX     INTEGER {
-
                  spaceAvailable(1),
                  full(2)
                }
@@ -3292,7 +3268,6 @@ bufferControlMaxOctetsGranted OBJECT-TYPE
         as closely to the requested value as is possible for the
         particular probe implementation and available resources.
         However, if the request object has the special value
-
         of -1, the probe must set this object to -1.
 
         The probe must not lower this value except as a result of
@@ -3437,7 +3412,6 @@ captureBufferPacketData OBJECT-TYPE
     DESCRIPTION
         "The data inside the packet, starting at the beginning
         of the packet plus any offset specified in the
-
         associated bufferControlDownloadOffset, including any
         link level headers.  The length of the data in this object
         is the minimum of the length of the captured packet minus
@@ -3486,7 +3460,6 @@ captureBufferPacketStatus OBJECT-TYPE
 
             bit #    Error
                 0    Packet is longer than 1518 octets
-
                 1    Packet is shorter than 64 octets
                 2    Packet experienced a CRC or Alignment error
                 3    First packet in this capture buffer after
@@ -3919,7 +3892,6 @@ rmonCompliance MODULE-COMPLIANCE
 
     rmonFilterGroup OBJECT-GROUP
         OBJECTS {
-
             filterIndex, filterChannelIndex, filterPktDataOffset,
             filterPktData, filterPktDataMask,
             filterPktDataNotMask, filterPktStatus,

@@ -1,0 +1,739 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETWORK-SERVICES-MIB": [
+      "applIndex",
+      "DistinguishedName"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "dsaMIB": {
+    "name": "dsaMIB",
+    "oid": "1.3.6.1.2.1.29",
+    "class": "moduleidentity"
+  },
+  "dsaOpsTable": {
+    "name": "dsaOpsTable",
+    "oid": "1.3.6.1.2.1.29.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsaOpsEntry": {
+    "name": "dsaOpsEntry",
+    "oid": "1.3.6.1.2.1.29.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsaAnonymousBinds": {
+    "name": "dsaAnonymousBinds",
+    "oid": "1.3.6.1.2.1.29.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaUnauthBinds": {
+    "name": "dsaUnauthBinds",
+    "oid": "1.3.6.1.2.1.29.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaSimpleAuthBinds": {
+    "name": "dsaSimpleAuthBinds",
+    "oid": "1.3.6.1.2.1.29.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaStrongAuthBinds": {
+    "name": "dsaStrongAuthBinds",
+    "oid": "1.3.6.1.2.1.29.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaBindSecurityErrors": {
+    "name": "dsaBindSecurityErrors",
+    "oid": "1.3.6.1.2.1.29.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaInOps": {
+    "name": "dsaInOps",
+    "oid": "1.3.6.1.2.1.29.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaReadOps": {
+    "name": "dsaReadOps",
+    "oid": "1.3.6.1.2.1.29.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaCompareOps": {
+    "name": "dsaCompareOps",
+    "oid": "1.3.6.1.2.1.29.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaAddEntryOps": {
+    "name": "dsaAddEntryOps",
+    "oid": "1.3.6.1.2.1.29.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaRemoveEntryOps": {
+    "name": "dsaRemoveEntryOps",
+    "oid": "1.3.6.1.2.1.29.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaModifyEntryOps": {
+    "name": "dsaModifyEntryOps",
+    "oid": "1.3.6.1.2.1.29.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaModifyRDNOps": {
+    "name": "dsaModifyRDNOps",
+    "oid": "1.3.6.1.2.1.29.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaListOps": {
+    "name": "dsaListOps",
+    "oid": "1.3.6.1.2.1.29.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaSearchOps": {
+    "name": "dsaSearchOps",
+    "oid": "1.3.6.1.2.1.29.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaOneLevelSearchOps": {
+    "name": "dsaOneLevelSearchOps",
+    "oid": "1.3.6.1.2.1.29.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaWholeTreeSearchOps": {
+    "name": "dsaWholeTreeSearchOps",
+    "oid": "1.3.6.1.2.1.29.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaReferrals": {
+    "name": "dsaReferrals",
+    "oid": "1.3.6.1.2.1.29.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaChainings": {
+    "name": "dsaChainings",
+    "oid": "1.3.6.1.2.1.29.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaSecurityErrors": {
+    "name": "dsaSecurityErrors",
+    "oid": "1.3.6.1.2.1.29.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaErrors": {
+    "name": "dsaErrors",
+    "oid": "1.3.6.1.2.1.29.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaEntriesTable": {
+    "name": "dsaEntriesTable",
+    "oid": "1.3.6.1.2.1.29.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsaEntriesEntry": {
+    "name": "dsaEntriesEntry",
+    "oid": "1.3.6.1.2.1.29.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsaMasterEntries": {
+    "name": "dsaMasterEntries",
+    "oid": "1.3.6.1.2.1.29.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaCopyEntries": {
+    "name": "dsaCopyEntries",
+    "oid": "1.3.6.1.2.1.29.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaCacheEntries": {
+    "name": "dsaCacheEntries",
+    "oid": "1.3.6.1.2.1.29.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaCacheHits": {
+    "name": "dsaCacheHits",
+    "oid": "1.3.6.1.2.1.29.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaSlaveHits": {
+    "name": "dsaSlaveHits",
+    "oid": "1.3.6.1.2.1.29.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaIntTable": {
+    "name": "dsaIntTable",
+    "oid": "1.3.6.1.2.1.29.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsaIntEntry": {
+    "name": "dsaIntEntry",
+    "oid": "1.3.6.1.2.1.29.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaIntIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsaIntIndex": {
+    "name": "dsaIntIndex",
+    "oid": "1.3.6.1.2.1.29.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsaName": {
+    "name": "dsaName",
+    "oid": "1.3.6.1.2.1.29.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DistinguishedName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaTimeOfCreation": {
+    "name": "dsaTimeOfCreation",
+    "oid": "1.3.6.1.2.1.29.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaTimeOfLastAttempt": {
+    "name": "dsaTimeOfLastAttempt",
+    "oid": "1.3.6.1.2.1.29.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaTimeOfLastSuccess": {
+    "name": "dsaTimeOfLastSuccess",
+    "oid": "1.3.6.1.2.1.29.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaFailuresSinceLastSuccess": {
+    "name": "dsaFailuresSinceLastSuccess",
+    "oid": "1.3.6.1.2.1.29.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaFailures": {
+    "name": "dsaFailures",
+    "oid": "1.3.6.1.2.1.29.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaSuccesses": {
+    "name": "dsaSuccesses",
+    "oid": "1.3.6.1.2.1.29.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsaConformance": {
+    "name": "dsaConformance",
+    "oid": "1.3.6.1.2.1.29.4",
+    "class": "objectidentity"
+  },
+  "dsaGroups": {
+    "name": "dsaGroups",
+    "oid": "1.3.6.1.2.1.29.4.1",
+    "class": "objectidentity"
+  },
+  "dsaCompliances": {
+    "name": "dsaCompliances",
+    "oid": "1.3.6.1.2.1.29.4.2",
+    "class": "objectidentity"
+  },
+  "dsaOpsCompliance": {
+    "name": "dsaOpsCompliance",
+    "oid": "1.3.6.1.2.1.29.4.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dsaOpsGroup",
+        "module": "DSA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dsaEntryCompliance": {
+    "name": "dsaEntryCompliance",
+    "oid": "1.3.6.1.2.1.29.4.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dsaOpsGroup",
+        "module": "DSA-MIB"
+      },
+      {
+        "object": "dsaEntryGroup",
+        "module": "DSA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dsaIntCompliance": {
+    "name": "dsaIntCompliance",
+    "oid": "1.3.6.1.2.1.29.4.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dsaOpsGroup",
+        "module": "DSA-MIB"
+      },
+      {
+        "object": "dsaIntGroup",
+        "module": "DSA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dsaOpsGroup": {
+    "name": "dsaOpsGroup",
+    "oid": "1.3.6.1.2.1.29.4.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DSA-MIB",
+        "object": "dsaAnonymousBinds"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaUnauthBinds"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaSimpleAuthBinds"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaStrongAuthBinds"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaBindSecurityErrors"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaInOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaReadOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaCompareOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaAddEntryOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaRemoveEntryOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaModifyEntryOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaModifyRDNOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaListOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaSearchOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaOneLevelSearchOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaWholeTreeSearchOps"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaReferrals"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaChainings"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaSecurityErrors"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "dsaEntryGroup": {
+    "name": "dsaEntryGroup",
+    "oid": "1.3.6.1.2.1.29.4.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DSA-MIB",
+        "object": "dsaMasterEntries"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaCopyEntries"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaCacheEntries"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaCacheHits"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaSlaveHits"
+      }
+    ],
+    "status": "current"
+  },
+  "dsaIntGroup": {
+    "name": "dsaIntGroup",
+    "oid": "1.3.6.1.2.1.29.4.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DSA-MIB",
+        "object": "dsaName"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaTimeOfCreation"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaTimeOfLastAttempt"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaTimeOfLastSuccess"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaFailuresSinceLastSuccess"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaFailures"
+      },
+      {
+        "module": "DSA-MIB",
+        "object": "dsaSuccesses"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DSA-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "DSA-MIB"
+  }
+}

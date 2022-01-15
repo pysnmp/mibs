@@ -5,9 +5,9 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "ifOperStatus",
       "InterfaceIndexOrZero",
       "InterfaceIndex",
+      "ifOperStatus",
       "ifIndex"
     ],
     "SNMPv2-CONF": [
@@ -16,26 +16,26 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "MibIdentifier",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
       "transmission",
-      "Bits",
+      "Counter32",
+      "iso",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "RowStatus"
     ]
   },
@@ -48,7 +48,7 @@
     "name": "AbsoluteCounter32",
     "class": "textualconvention",
     "type": {
-      "type": "Gauge32",
+      "type": "Unsigned32",
       "class": "type"
     },
     "status": "current"
@@ -1356,6 +1356,10 @@
       {
         "object": "callHistoryGroup",
         "module": "DIAL-CONTROL-MIB"
+      },
+      {
+        "object": "callNotificationsGroup",
+        "module": "DIAL-CONTROL-MIB"
       }
     ],
     "status": "current"
@@ -1628,11 +1632,27 @@
     ],
     "status": "current"
   },
+  "callNotificationsGroup": {
+    "name": "callNotificationsGroup",
+    "oid": "1.3.6.1.2.1.10.21.3.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCallInformation"
+      },
+      {
+        "module": "DIAL-CONTROL-MIB",
+        "object": "dialCtlPeerCallSetup"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DIAL-CONTROL-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIAL-CONTROL-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DIAL-CONTROL-MIB"

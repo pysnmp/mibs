@@ -1,0 +1,548 @@
+{
+  "imports": {
+    "class": "imports",
+    "ALARM-MIB": [
+      "alarmActiveIndex",
+      "alarmModelIndex",
+      "alarmListName",
+      "alarmActiveDateAndTime"
+    ],
+    "IANA-ITU-ALARM-TC-MIB": [
+      "IANAItuEventType",
+      "IANAItuProbableCause"
+    ],
+    "ITU-ALARM-TC-MIB": [
+      "ItuPerceivedSeverity",
+      "ItuTrendIndication"
+    ],
+    "RMON2-MIB": [
+      "ZeroBasedCounter32"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "AutonomousType",
+      "TEXTUAL-CONVENTION",
+      "RowPointer"
+    ]
+  },
+  "ituAlarmMIB": {
+    "name": "ituAlarmMIB",
+    "oid": "1.3.6.1.2.1.121",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2004-09-09 00:00",
+        "description": "Initial version, published as RFC 3877."
+      }
+    ]
+  },
+  "ituAlarmObjects": {
+    "name": "ituAlarmObjects",
+    "oid": "1.3.6.1.2.1.121.1",
+    "class": "objectidentity"
+  },
+  "ituAlarmModel": {
+    "name": "ituAlarmModel",
+    "oid": "1.3.6.1.2.1.121.1.1",
+    "class": "objectidentity"
+  },
+  "ituAlarmActive": {
+    "name": "ituAlarmActive",
+    "oid": "1.3.6.1.2.1.121.1.2",
+    "class": "objectidentity"
+  },
+  "ituAlarmTable": {
+    "name": "ituAlarmTable",
+    "oid": "1.3.6.1.2.1.121.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ituAlarmEntry": {
+    "name": "ituAlarmEntry",
+    "oid": "1.3.6.1.2.1.121.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmModelIndex",
+        "implied": 0
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmPerceivedSeverity",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ituAlarmPerceivedSeverity": {
+    "name": "ituAlarmPerceivedSeverity",
+    "oid": "1.3.6.1.2.1.121.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuPerceivedSeverity",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ituAlarmEventType": {
+    "name": "ituAlarmEventType",
+    "oid": "1.3.6.1.2.1.121.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAItuEventType",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ituAlarmProbableCause": {
+    "name": "ituAlarmProbableCause",
+    "oid": "1.3.6.1.2.1.121.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IANAItuProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ituAlarmAdditionalText": {
+    "name": "ituAlarmAdditionalText",
+    "oid": "1.3.6.1.2.1.121.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ituAlarmGenericModel": {
+    "name": "ituAlarmGenericModel",
+    "oid": "1.3.6.1.2.1.121.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowPointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ituAlarmActiveTable": {
+    "name": "ituAlarmActiveTable",
+    "oid": "1.3.6.1.2.1.121.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ituAlarmActiveEntry": {
+    "name": "ituAlarmActiveEntry",
+    "oid": "1.3.6.1.2.1.121.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveDateAndTime",
+        "implied": 0
+      },
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmActiveIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ituAlarmActiveTrendIndication": {
+    "name": "ituAlarmActiveTrendIndication",
+    "oid": "1.3.6.1.2.1.121.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ItuTrendIndication",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveDetector": {
+    "name": "ituAlarmActiveDetector",
+    "oid": "1.3.6.1.2.1.121.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveServiceProvider": {
+    "name": "ituAlarmActiveServiceProvider",
+    "oid": "1.3.6.1.2.1.121.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveServiceUser": {
+    "name": "ituAlarmActiveServiceUser",
+    "oid": "1.3.6.1.2.1.121.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsTable": {
+    "name": "ituAlarmActiveStatsTable",
+    "oid": "1.3.6.1.2.1.121.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsEntry": {
+    "name": "ituAlarmActiveStatsEntry",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "ALARM-MIB",
+        "object": "alarmListName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ituAlarmActiveStatsIndeterminateCurrent": {
+    "name": "ituAlarmActiveStatsIndeterminateCurrent",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsCriticalCurrent": {
+    "name": "ituAlarmActiveStatsCriticalCurrent",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsMajorCurrent": {
+    "name": "ituAlarmActiveStatsMajorCurrent",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsMinorCurrent": {
+    "name": "ituAlarmActiveStatsMinorCurrent",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsWarningCurrent": {
+    "name": "ituAlarmActiveStatsWarningCurrent",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsIndeterminates": {
+    "name": "ituAlarmActiveStatsIndeterminates",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsCriticals": {
+    "name": "ituAlarmActiveStatsCriticals",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsMajors": {
+    "name": "ituAlarmActiveStatsMajors",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsMinors": {
+    "name": "ituAlarmActiveStatsMinors",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmActiveStatsWarnings": {
+    "name": "ituAlarmActiveStatsWarnings",
+    "oid": "1.3.6.1.2.1.121.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ituAlarmConformance": {
+    "name": "ituAlarmConformance",
+    "oid": "1.3.6.1.2.1.121.2",
+    "class": "objectidentity"
+  },
+  "ituAlarmCompliances": {
+    "name": "ituAlarmCompliances",
+    "oid": "1.3.6.1.2.1.121.2.1",
+    "class": "objectidentity"
+  },
+  "ituAlarmCompliance": {
+    "name": "ituAlarmCompliance",
+    "oid": "1.3.6.1.2.1.121.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ituAlarmGroup",
+        "module": "ITU-ALARM-MIB"
+      },
+      {
+        "object": "ituAlarmServiceUserGroup",
+        "module": "ITU-ALARM-MIB"
+      },
+      {
+        "object": "ituAlarmSecurityGroup",
+        "module": "ITU-ALARM-MIB"
+      },
+      {
+        "object": "ituAlarmStatisticsGroup",
+        "module": "ITU-ALARM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ituAlarmGroups": {
+    "name": "ituAlarmGroups",
+    "oid": "1.3.6.1.2.1.121.2.2",
+    "class": "objectidentity"
+  },
+  "ituAlarmGroup": {
+    "name": "ituAlarmGroup",
+    "oid": "1.3.6.1.2.1.121.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmEventType"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmProbableCause"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmGenericModel"
+      }
+    ],
+    "status": "current"
+  },
+  "ituAlarmServiceUserGroup": {
+    "name": "ituAlarmServiceUserGroup",
+    "oid": "1.3.6.1.2.1.121.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmAdditionalText"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveTrendIndication"
+      }
+    ],
+    "status": "current"
+  },
+  "ituAlarmSecurityGroup": {
+    "name": "ituAlarmSecurityGroup",
+    "oid": "1.3.6.1.2.1.121.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveDetector"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveServiceProvider"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveServiceUser"
+      }
+    ],
+    "status": "current"
+  },
+  "ituAlarmStatisticsGroup": {
+    "name": "ituAlarmStatisticsGroup",
+    "oid": "1.3.6.1.2.1.121.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveStatsIndeterminateCurrent"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveStatsCriticalCurrent"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveStatsMajorCurrent"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveStatsMinorCurrent"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveStatsWarningCurrent"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveStatsIndeterminates"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveStatsCriticals"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveStatsMajors"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveStatsMinors"
+      },
+      {
+        "module": "ITU-ALARM-MIB",
+        "object": "ituAlarmActiveStatsWarnings"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ITU-ALARM-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:35 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "ITU-ALARM-MIB"
+  }
+}

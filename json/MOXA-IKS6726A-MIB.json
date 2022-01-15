@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "enterprises",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "Bits",
-      "Integer32",
-      "Unsigned32",
       "Counter64",
-      "Gauge32",
+      "Counter32",
       "OBJECT-IDENTITY",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Bits",
+      "MibIdentifier",
+      "Unsigned32",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
       "DisplayString",
+      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "MacAddress"
     ]
   },
@@ -7147,8 +7147,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/moxa/MOXA-IKS6726A-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:28:01 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:29:30 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MOXA-IKS6726A-MIB"

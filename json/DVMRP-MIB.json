@@ -2,31 +2,31 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
+      "Bits",
+      "IpAddress",
       "iso",
-      "Gauge32",
-      "Unsigned32",
-      "experimental",
-      "TimeTicks",
+      "Integer32",
       "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
       "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "experimental",
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dvmrpMIB": {
@@ -402,7 +402,7 @@
       "type": "Integer32",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "dvmrpNeighborAddress": {
@@ -414,7 +414,7 @@
       "type": "IpAddress",
       "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "dvmrpNeighborUpTime": {
@@ -1221,9 +1221,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DVMRP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/internet-drafts/DVMRP-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:17 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DVMRP-MIB"

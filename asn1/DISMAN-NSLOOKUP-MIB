@@ -19,6 +19,9 @@ IMPORTS
     CONTACT-INFO
         "Juergen Quittek
 
+
+
+
         NEC Europe Ltd.
         Network Laboratories
         Kurfuersten-Anlage 36
@@ -56,6 +59,7 @@ IMPORTS
      REVISION     "200009210000Z"         -- 21 September 2000
      DESCRIPTION
          "Initial version, published as RFC 2925."
+
     ::= { mib-2 82 }
 
  -- Top level structure of the MIB
@@ -66,6 +70,9 @@ IMPORTS
  -- Simple Object Definitions
 
  lookupMaxConcurrentRequests OBJECT-TYPE
+
+
+
     SYNTAX      Unsigned32
     UNITS       "requests"
     MAX-ACCESS  read-write
@@ -114,6 +121,9 @@ IMPORTS
         the capability of performing a lookup operation
         for a symbolic host name or for a host address
         from a remote host."
+
+
+
    ::= { lookupObjects 3 }
 
  lookupCtlEntry OBJECT-TYPE
@@ -163,6 +173,8 @@ IMPORTS
        an 'owner index'.  Such an initial index has a syntax of
        SnmpAdminString and can thus be trivially mapped to a
 
+
+
        securityName or groupName defined in VACM, in
        accordance with a security policy.
 
@@ -195,6 +207,7 @@ IMPORTS
     SYNTAX      InetAddressType
     MAX-ACCESS  read-create
     STATUS      current
+
     DESCRIPTION
         "Specifies the type of address for performing a
         lookup operation for a symbolic host name or for a host
@@ -209,6 +222,9 @@ IMPORTS
         the symbolic names associated with a host."
     DEFVAL { unknown }
     ::= { lookupCtlEntry 3 }
+
+
+
 
  lookupCtlTargetAddress OBJECT-TYPE
     SYNTAX      InetAddress
@@ -259,6 +275,8 @@ IMPORTS
         operation required to be completed at a remote host.
         Completed means operation failure as well as
 
+
+
         success."
     ::= { lookupCtlEntry 6 }
 
@@ -307,9 +325,13 @@ IMPORTS
         can be determined by examination of its
         lookupCtlOperStatus object."
     REFERENCE
+
+
+
         "See definition of RowStatus in RFC 2579,
         'Textual Conventions for SMIv2.'"
     ::= { lookupCtlEntry 8 }
+
 
 -- Lookup Results Table
 
@@ -354,6 +376,8 @@ IMPORTS
         A function such as, for example, getaddrinfo() or
         gethostbyname() is called with a symbolic host name and is
         used primarily to retrieve a host address.  The entries
+
+
 
         MUST be stored in the order that they are retrieved from
         the lookup function.  lookupResultsIndex 1 MUST be
@@ -403,6 +427,9 @@ IMPORTS
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
+
+
+
         "Indicates the type of result of a remote lookup
         operation.  A value of unknown(0) implies either that
         the operation hasn't been started or that
@@ -420,7 +447,9 @@ IMPORTS
         The address type (InetAddressType) that relates to
         this object is specified by the corresponding value
         of lookupResultsAddress."
+
     ::= { lookupResultsEntry 3 }
+
 
  -- Conformance information
  -- Compliance statements
@@ -449,6 +478,9 @@ IMPORTS
         DESCRIPTION
             "The agent is not required to support a set
             operation to this object."
+
+
+
     ::= { lookupCompliances 1 }
 
  lookupMinimumCompliance MODULE-COMPLIANCE
@@ -497,6 +529,9 @@ IMPORTS
              lookupCtlTime,
              lookupCtlRc,
              lookupCtlRowStatus,
+
+
+
              lookupResultsAddressType,
              lookupResultsAddress
            }

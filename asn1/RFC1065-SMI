@@ -1,15 +1,11 @@
-
--- WinAgents MIB Extraction Wizard
--- Extracted from rfc1065.txt 17.03.2005 16:16:47
-
 RFC1065-SMI DEFINITIONS ::= BEGIN
 
--- EXPORTS  EVERYTHING
---        internet, directory, mgmt,
---        experimental, private, enterprises,
---        OBJECT-TYPE, ObjectName, ObjectSyntax, SimpleSyntax,
---        ApplicationSyntax, NetworkAddress, IpAddress,
---        Counter, Gauge, TimeTicks, Opaque;
+EXPORTS -- EVERYTHING
+        internet, directory, mgmt,
+        experimental, private, enterprises,
+        OBJECT-TYPE, ObjectName, ObjectSyntax, SimpleSyntax,
+        ApplicationSyntax, NetworkAddress, IpAddress,
+        Counter, Gauge, TimeTicks, Opaque;
 
  -- the path to the root
 
@@ -27,27 +23,27 @@ RFC1065-SMI DEFINITIONS ::= BEGIN
 
  -- definition of object types
 
--- MIB Extraction: All MACRO definitions are predefined by compiler
--- commented by MIB Extraction:  OBJECT-TYPE MACRO ::=
--- commented by MIB Extraction:  BEGIN
--- commented by MIB Extraction:      TYPE NOTATION ::= "SYNTAX" type (TYPE ObjectSyntax)
--- commented by MIB Extraction:                        "ACCESS" Access
--- commented by MIB Extraction:                        "STATUS" Status
--- commented by MIB Extraction:      VALUE NOTATION ::= value (VALUE ObjectName)
--- commented by MIB Extraction: 
--- commented by MIB Extraction:      Access ::= "read-only"
--- commented by MIB Extraction:                      | "read-write"
--- commented by MIB Extraction:                      | "write-only"
--- commented by MIB Extraction:                      | "not-accessible"
--- commented by MIB Extraction:      Status ::= "mandatory"
--- commented by MIB Extraction:                      | "optional"
--- commented by MIB Extraction:                      | "obsolete"
--- commented by MIB Extraction:  END
+ OBJECT-TYPE MACRO ::=
+ BEGIN
+     TYPE NOTATION ::= "SYNTAX" type (TYPE ObjectSyntax)
+                       "ACCESS" Access
+                       "STATUS" Status
+     VALUE NOTATION ::= value (VALUE ObjectName)
+
+     Access ::= "read-only"
+                     | "read-write"
+                     | "write-only"
+                     | "not-accessible"
+     Status ::= "mandatory"
+                     | "optional"
+                     | "obsolete"
+ END
 
     -- names of objects in the MIB
 
     ObjectName ::=
         OBJECT IDENTIFIER
+
 
 
     -- syntax of objects in the MIB
@@ -98,6 +94,7 @@ RFC1065-SMI DEFINITIONS ::= BEGIN
 
                arbitrary
                    Opaque
+
 
        -- other application-wide types, as they are
        -- defined, will be added here

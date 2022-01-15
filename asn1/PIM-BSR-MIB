@@ -39,6 +39,8 @@ pimBsrMIB MODULE-IDENTITY
 pimBsrNotifications   OBJECT IDENTIFIER ::= { pimBsrMIB 0 }
 pimBsrObjects         OBJECT IDENTIFIER ::= { pimBsrMIB 1 }
 
+
+
 --
 -- Conformance Information
 --
@@ -87,6 +89,8 @@ PimBsrCandidateRPEntry ::= SEQUENCE {
     pimBsrCandidateRPStatus            RowStatus,
     pimBsrCandidateRPStorageType       StorageType
 }
+
+
 
 pimBsrCandidateRPAddressType OBJECT-TYPE
     SYNTAX     InetAddressType
@@ -137,6 +141,8 @@ pimBsrCandidateRPGroupPrefixLength OBJECT-TYPE
             for which the local router will advertise itself as a
             Candidate-RP.  The InetAddressType is given by the
 
+
+
             pimBsrCandidateRPAddressType object."
     ::= { pimBsrCandidateRPEntry 4 }
 
@@ -182,8 +188,12 @@ pimBsrCandidateRPAdvInterval OBJECT-TYPE
             "A Candidate-RP generates Candidate-RP-Advertisements
             periodically.  This object represents the time interval
             in seconds between two consecutive advertisements."
+
     REFERENCE "RFC 5059, sections 3.2 and 5"
     DEFVAL { 60 }
+
+
+
     ::= { pimBsrCandidateRPEntry 8 }
 
 pimBsrCandidateRPHoldtime OBJECT-TYPE
@@ -197,8 +207,10 @@ pimBsrCandidateRPHoldtime OBJECT-TYPE
 
             This object's value can be zero only when this C-RP is
             shutting down."
+
     REFERENCE "RFC 5059, section 4.2"
     DEFVAL { 150 }
+
     ::= { pimBsrCandidateRPEntry 9 }
 
 pimBsrCandidateRPStatus OBJECT-TYPE
@@ -214,7 +226,9 @@ pimBsrCandidateRPStatus OBJECT-TYPE
 
             All writable objects in this entry can be modified
             when the status of this entry is active(1)."
+
     ::= { pimBsrCandidateRPEntry 10 }
+
 
 pimBsrCandidateRPStorageType OBJECT-TYPE
     SYNTAX     StorageType
@@ -228,6 +242,8 @@ pimBsrCandidateRPStorageType OBJECT-TYPE
    ::= { pimBsrCandidateRPEntry 11 }
 
 --
+
+
 
 -- The BSR Elected BSR RP-Set Table
 --
@@ -245,6 +261,7 @@ pimBsrElectedBSRRPSetTable OBJECT-TYPE
             An Elected BSR uses this table to create Bootstrap
             messages after applying a local policy to include some
             or all of the group mappings in this table."
+
     ::= { pimBsrObjects 2 }
 
 pimBsrElectedBSRRPSetEntry OBJECT-TYPE
@@ -276,6 +293,9 @@ pimBsrElectedBSRGrpMappingAddrType OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
+
+
+
             "The Inet address type of the IP multicast group
             prefix."
     ::= { pimBsrElectedBSRRPSetEntry 2 }
@@ -324,6 +344,9 @@ pimBsrElectedBSRGrpMappingRPAddr OBJECT-TYPE
     ::= { pimBsrElectedBSRRPSetEntry 5 }
 
 pimBsrElectedBSRRPSetPriority OBJECT-TYPE
+
+
+
     SYNTAX     Unsigned32 (0..255)
     MAX-ACCESS read-only
     STATUS     current
@@ -372,6 +395,9 @@ pimBsrCandidateBSRTable OBJECT-TYPE
     SYNTAX     SEQUENCE OF PimBsrCandidateBSREntry
     MAX-ACCESS not-accessible
     STATUS     current
+
+
+
     DESCRIPTION
             "The (conceptual) table containing Candidate-BSR
             configuration for the local router.  The table contains
@@ -415,10 +441,14 @@ pimBsrCandidateBSRZoneIndex OBJECT-TYPE
             Zero is a special value used to request the default zone
             for a given scope.  Zero is not a valid value for this
             object."
+
     ::= { pimBsrCandidateBSREntry 1 }
 
 pimBsrCandidateBSRAddressType OBJECT-TYPE
     SYNTAX     InetAddressType
+
+
+
     MAX-ACCESS read-create
     STATUS     current
     DESCRIPTION
@@ -467,6 +497,9 @@ pimBsrCandidateBSRElectedBSR OBJECT-TYPE
     DESCRIPTION
             "Whether the local router is the elected BSR for this
             zone."
+
+
+
     ::= { pimBsrCandidateBSREntry 6 }
 
 pimBsrCandidateBSRBootstrapTimer OBJECT-TYPE
@@ -515,6 +548,9 @@ pimBsrElectedBSRTable OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
+
+
+
             "The (conceptual) table containing information about
             elected BSRs.  The table contains one row for each
             zone for which there is an elected BSR."
@@ -553,6 +589,7 @@ pimBsrElectedBSRZoneIndex OBJECT-TYPE
             Zero is a special value used to request the default zone
             for a given scope.  Zero is not a valid value for this
             object."
+
     ::= { pimBsrElectedBSREntry 1 }
 
 pimBsrElectedBSRAddressType OBJECT-TYPE
@@ -562,6 +599,8 @@ pimBsrElectedBSRAddressType OBJECT-TYPE
     DESCRIPTION
             "The address type of the elected BSR."
     ::= { pimBsrElectedBSREntry 2 }
+
+
 
 pimBsrElectedBSRAddress OBJECT-TYPE
     SYNTAX     InetAddress (SIZE (4|8|16|20))
@@ -611,6 +650,9 @@ pimBsrElectedBSRLostElection   NOTIFICATION-TYPE
               pimBsrElectedBSRPriority }
     STATUS     current
     DESCRIPTION
+
+
+
             "A pimBsrElectedBSRLostElection notification should be
             generated when current E-BSR lost election to a new
             Candidate-BSR.  Only an E-BSR should generate this
@@ -618,6 +660,7 @@ pimBsrElectedBSRLostElection   NOTIFICATION-TYPE
 
             This notification is generated when
             pimBsrCandidateBSRElectedBSR becomes FALSE."
+
     REFERENCE "RFC 5059, section 3.1"
     ::= { pimBsrNotifications 1 }
 
@@ -631,6 +674,7 @@ pimBsrCandidateBSRWinElection   NOTIFICATION-TYPE
 
             This notification is generated when
             pimBsrCandidateBSRElectedBSR becomes TRUE."
+
     REFERENCE "RFC 5059, section 3.1"
     ::= { pimBsrNotifications 2 }
 
@@ -649,6 +693,7 @@ pimBsrCompliance MODULE-COMPLIANCE
       GROUP   pimBsrDiagnosticsGroup
       DESCRIPTION
           "This group is optional."
+
     ::= { pimBsrCompliances 1 }
 
 --
@@ -656,6 +701,8 @@ pimBsrCompliance MODULE-COMPLIANCE
 --
 
 pimBsrObjectGroup OBJECT-GROUP
+
+
 
     OBJECTS { pimBsrCandidateRPBidir,
               pimBsrCandidateRPAdvTimer,

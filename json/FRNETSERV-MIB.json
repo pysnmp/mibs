@@ -1,0 +1,2529 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "transmission",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "RowStatus"
+    ]
+  },
+  "frnetservMIB": {
+    "name": "frnetservMIB",
+    "oid": "1.3.6.1.2.1.10.44",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-09-28 00:00",
+        "description": "Published as RFC 2954. The major new features of this revision include: o Support for read-write capability to provision switch components providing service, o Support for cross-connection via a frame relay to ATM service interworking function, o Support for frame relay fragmentation, o Additional frame counters to track frame loss. Refer to Appendix A for a comprehensive list of changes since RFC 1604."
+      },
+      {
+        "revision": "1993-11-16 12:00",
+        "description": "Published as RFC 1604."
+      }
+    ]
+  },
+  "frnetservObjects": {
+    "name": "frnetservObjects",
+    "oid": "1.3.6.1.2.1.10.44.1",
+    "class": "objectidentity"
+  },
+  "frnetservTraps": {
+    "name": "frnetservTraps",
+    "oid": "1.3.6.1.2.1.10.44.2",
+    "class": "objectidentity"
+  },
+  "frnetservTrapsPrefix": {
+    "name": "frnetservTrapsPrefix",
+    "oid": "1.3.6.1.2.1.10.44.2.0",
+    "class": "objectidentity"
+  },
+  "frLportTable": {
+    "name": "frLportTable",
+    "oid": "1.3.6.1.2.1.10.44.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frLportEntry": {
+    "name": "frLportEntry",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frLportNumPlan": {
+    "name": "frLportNumPlan",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "e164": 2,
+          "x121": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frLportContact": {
+    "name": "frLportContact",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frLportLocation": {
+    "name": "frLportLocation",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frLportType": {
+    "name": "frLportType",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uni": 1,
+          "nni": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frLportAddrDLCILen": {
+    "name": "frLportAddrDLCILen",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "twoOctets10Bits": 1,
+          "threeOctets10Bits": 2,
+          "threeOctets16Bits": 3,
+          "fourOctets17Bits": 4,
+          "fourOctets23Bits": 5
+        }
+      }
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frLportVCSigProtocol": {
+    "name": "frLportVCSigProtocol",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "lmi": 2,
+          "ansiT1617D": 3,
+          "ansiT1617B": 4,
+          "ccittQ933A": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frLportVCSigPointer": {
+    "name": "frLportVCSigPointer",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "frLportDLCIIndexValue": {
+    "name": "frLportDLCIIndexValue",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 4194303
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frLportTypeAdmin": {
+    "name": "frLportTypeAdmin",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "uni": 1,
+          "nni": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frLportVCSigProtocolAdmin": {
+    "name": "frLportVCSigProtocolAdmin",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "lmi": 2,
+          "ansiT1617D": 3,
+          "ansiT1617B": 4,
+          "ccittQ933A": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frLportFragControl": {
+    "name": "frLportFragControl",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "off",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frLportFragSize": {
+    "name": "frLportFragSize",
+    "oid": "1.3.6.1.2.1.10.44.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "units": "Octets",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frMgtVCSigTable": {
+    "name": "frMgtVCSigTable",
+    "oid": "1.3.6.1.2.1.10.44.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frMgtVCSigEntry": {
+    "name": "frMgtVCSigEntry",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frMgtVCSigProced": {
+    "name": "frMgtVCSigProced",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "u2nnet": 1,
+          "bidirect": 2,
+          "u2nuser": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigUserN391": {
+    "name": "frMgtVCSigUserN391",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6,
+        "format": "decimal"
+      }
+    },
+    "units": "Polls",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigUserN392": {
+    "name": "frMgtVCSigUserN392",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigUserN393": {
+    "name": "frMgtVCSigUserN393",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigUserT391": {
+    "name": "frMgtVCSigUserT391",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigNetN392": {
+    "name": "frMgtVCSigNetN392",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigNetN393": {
+    "name": "frMgtVCSigNetN393",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigNetT392": {
+    "name": "frMgtVCSigNetT392",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 15,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigNetnN4": {
+    "name": "frMgtVCSigNetnN4",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigNetnT3": {
+    "name": "frMgtVCSigNetnT3",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 15,
+            "max": 15
+          },
+          {
+            "min": 20,
+            "max": 20
+          },
+          {
+            "min": 25,
+            "max": 25
+          },
+          {
+            "min": 30,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigUserLinkRelErrors": {
+    "name": "frMgtVCSigUserLinkRelErrors",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Errors",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigUserProtErrors": {
+    "name": "frMgtVCSigUserProtErrors",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Errors",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigUserChanInactive": {
+    "name": "frMgtVCSigUserChanInactive",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigNetLinkRelErrors": {
+    "name": "frMgtVCSigNetLinkRelErrors",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Errors",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigNetProtErrors": {
+    "name": "frMgtVCSigNetProtErrors",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Errors",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigNetChanInactive": {
+    "name": "frMgtVCSigNetChanInactive",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Events",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frMgtVCSigProcedAdmin": {
+    "name": "frMgtVCSigProcedAdmin",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "u2nnet": 1,
+          "bidirect": 2,
+          "u2nuser": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "u2nnet",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frMgtVCSigUserN391Admin": {
+    "name": "frMgtVCSigUserN391Admin",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "units": "Polls",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frMgtVCSigUserN392Admin": {
+    "name": "frMgtVCSigUserN392Admin",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "Events",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frMgtVCSigUserN393Admin": {
+    "name": "frMgtVCSigUserN393Admin",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "Events",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frMgtVCSigUserT391Admin": {
+    "name": "frMgtVCSigUserT391Admin",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frMgtVCSigNetN392Admin": {
+    "name": "frMgtVCSigNetN392Admin",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "Events",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frMgtVCSigNetN393Admin": {
+    "name": "frMgtVCSigNetN393Admin",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "units": "Events",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frMgtVCSigNetT392Admin": {
+    "name": "frMgtVCSigNetT392Admin",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frMgtVCSigNetnT3Admin": {
+    "name": "frMgtVCSigNetnT3Admin",
+    "oid": "1.3.6.1.2.1.10.44.1.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 5,
+            "max": 5
+          },
+          {
+            "min": 10,
+            "max": 10
+          },
+          {
+            "min": 15,
+            "max": 15
+          },
+          {
+            "min": 20,
+            "max": 20
+          },
+          {
+            "min": 25,
+            "max": 25
+          },
+          {
+            "min": 30,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "units": "Seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "frPVCEndptTable": {
+    "name": "frPVCEndptTable",
+    "oid": "1.3.6.1.2.1.10.44.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frPVCEndptEntry": {
+    "name": "frPVCEndptEntry",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptDLCIIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frPVCEndptDLCIIndex": {
+    "name": "frPVCEndptDLCIIndex",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 4194303
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frPVCEndptInMaxFrameSize": {
+    "name": "frPVCEndptInMaxFrameSize",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1600,
+        "format": "decimal"
+      }
+    },
+    "units": "Octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCEndptInBc": {
+    "name": "frPVCEndptInBc",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCEndptInBe": {
+    "name": "frPVCEndptInBe",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCEndptInCIR": {
+    "name": "frPVCEndptInCIR",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bits per Second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCEndptOutMaxFrameSize": {
+    "name": "frPVCEndptOutMaxFrameSize",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4096
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1600,
+        "format": "decimal"
+      }
+    },
+    "units": "Octets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCEndptOutBc": {
+    "name": "frPVCEndptOutBc",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCEndptOutBe": {
+    "name": "frPVCEndptOutBe",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bits",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCEndptOutCIR": {
+    "name": "frPVCEndptOutCIR",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "Bits per Second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCEndptConnectIdentifier": {
+    "name": "frPVCEndptConnectIdentifier",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptRowStatus": {
+    "name": "frPVCEndptRowStatus",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCEndptRcvdSigStatus": {
+    "name": "frPVCEndptRcvdSigStatus",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "deleted": 1,
+          "active": 2,
+          "inactive": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptInFrames": {
+    "name": "frPVCEndptInFrames",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptOutFrames": {
+    "name": "frPVCEndptOutFrames",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptInDEFrames": {
+    "name": "frPVCEndptInDEFrames",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptInExcessFrames": {
+    "name": "frPVCEndptInExcessFrames",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptOutExcessFrames": {
+    "name": "frPVCEndptOutExcessFrames",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptInDiscards": {
+    "name": "frPVCEndptInDiscards",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptInOctets": {
+    "name": "frPVCEndptInOctets",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptOutOctets": {
+    "name": "frPVCEndptOutOctets",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptInDiscardsDESet": {
+    "name": "frPVCEndptInDiscardsDESet",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptInFramesFECNSet": {
+    "name": "frPVCEndptInFramesFECNSet",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptOutFramesFECNSet": {
+    "name": "frPVCEndptOutFramesFECNSet",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptInFramesBECNSet": {
+    "name": "frPVCEndptInFramesBECNSet",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptOutFramesBECNSet": {
+    "name": "frPVCEndptOutFramesBECNSet",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptInCongDiscards": {
+    "name": "frPVCEndptInCongDiscards",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptInDECongDiscards": {
+    "name": "frPVCEndptInDECongDiscards",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptOutCongDiscards": {
+    "name": "frPVCEndptOutCongDiscards",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptOutDECongDiscards": {
+    "name": "frPVCEndptOutDECongDiscards",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptOutDEFrames": {
+    "name": "frPVCEndptOutDEFrames",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCEndptAtmIwfConnIndex": {
+    "name": "frPVCEndptAtmIwfConnIndex",
+    "oid": "1.3.6.1.2.1.10.44.1.3.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCConnectIndexValue": {
+    "name": "frPVCConnectIndexValue",
+    "oid": "1.3.6.1.2.1.10.44.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCConnectTable": {
+    "name": "frPVCConnectTable",
+    "oid": "1.3.6.1.2.1.10.44.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frPVCConnectEntry": {
+    "name": "frPVCConnectEntry",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectIndex",
+        "implied": 0
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectLowIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectLowDLCIIndex",
+        "implied": 0
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectHighIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectHighDLCIIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frPVCConnectIndex": {
+    "name": "frPVCConnectIndex",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frPVCConnectLowIfIndex": {
+    "name": "frPVCConnectLowIfIndex",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frPVCConnectLowDLCIIndex": {
+    "name": "frPVCConnectLowDLCIIndex",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 4194303
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frPVCConnectHighIfIndex": {
+    "name": "frPVCConnectHighIfIndex",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frPVCConnectHighDLCIIndex": {
+    "name": "frPVCConnectHighDLCIIndex",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 4194303
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frPVCConnectAdminStatus": {
+    "name": "frPVCConnectAdminStatus",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "testing": 3
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCConnectL2hOperStatus": {
+    "name": "frPVCConnectL2hOperStatus",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "testing": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCConnectH2lOperStatus": {
+    "name": "frPVCConnectH2lOperStatus",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "testing": 3,
+          "unknown": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCConnectL2hLastChange": {
+    "name": "frPVCConnectL2hLastChange",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCConnectH2lLastChange": {
+    "name": "frPVCConnectH2lLastChange",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCConnectRowStatus": {
+    "name": "frPVCConnectRowStatus",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCConnectUserName": {
+    "name": "frPVCConnectUserName",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frPVCConnectProviderName": {
+    "name": "frPVCConnectProviderName",
+    "oid": "1.3.6.1.2.1.10.44.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAccountPVCTable": {
+    "name": "frAccountPVCTable",
+    "oid": "1.3.6.1.2.1.10.44.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAccountPVCEntry": {
+    "name": "frAccountPVCEntry",
+    "oid": "1.3.6.1.2.1.10.44.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frAccountPVCDLCIIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frAccountPVCDLCIIndex": {
+    "name": "frAccountPVCDLCIIndex",
+    "oid": "1.3.6.1.2.1.10.44.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 4194303
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAccountPVCSegmentSize": {
+    "name": "frAccountPVCSegmentSize",
+    "oid": "1.3.6.1.2.1.10.44.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAccountPVCInSegments": {
+    "name": "frAccountPVCInSegments",
+    "oid": "1.3.6.1.2.1.10.44.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Segments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAccountPVCOutSegments": {
+    "name": "frAccountPVCOutSegments",
+    "oid": "1.3.6.1.2.1.10.44.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Segments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAccountLportTable": {
+    "name": "frAccountLportTable",
+    "oid": "1.3.6.1.2.1.10.44.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAccountLportEntry": {
+    "name": "frAccountLportEntry",
+    "oid": "1.3.6.1.2.1.10.44.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frAccountLportSegmentSize": {
+    "name": "frAccountLportSegmentSize",
+    "oid": "1.3.6.1.2.1.10.44.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Octets",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAccountLportInSegments": {
+    "name": "frAccountLportInSegments",
+    "oid": "1.3.6.1.2.1.10.44.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Segments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAccountLportOutSegments": {
+    "name": "frAccountLportOutSegments",
+    "oid": "1.3.6.1.2.1.10.44.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Segments",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frPVCConnectStatusChange": {
+    "name": "frPVCConnectStatusChange",
+    "oid": "1.3.6.1.2.1.10.44.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectIndex"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectLowIfIndex"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectLowDLCIIndex"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectHighIfIndex"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectHighDLCIIndex"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectL2hOperStatus"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectH2lOperStatus"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptRcvdSigStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "frPVCConnectStatusNotif": {
+    "name": "frPVCConnectStatusNotif",
+    "oid": "1.3.6.1.2.1.10.44.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectL2hOperStatus"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectH2lOperStatus"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptRcvdSigStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservConformance": {
+    "name": "frnetservConformance",
+    "oid": "1.3.6.1.2.1.10.44.3",
+    "class": "objectidentity"
+  },
+  "frnetservGroups": {
+    "name": "frnetservGroups",
+    "oid": "1.3.6.1.2.1.10.44.3.1",
+    "class": "objectidentity"
+  },
+  "frnetservCompliances": {
+    "name": "frnetservCompliances",
+    "oid": "1.3.6.1.2.1.10.44.3.2",
+    "class": "objectidentity"
+  },
+  "frnetservCompliance2": {
+    "name": "frnetservCompliance2",
+    "oid": "1.3.6.1.2.1.10.44.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "frnetservLportGroup2",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservMgtVCSigGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCEndptGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCEndptGroup2",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCConnectGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCConnectNamesGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCNotifGroup2",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservAccountPVCGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservAccountLportGroup",
+        "module": "FRNETSERV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetSwitchCompliance": {
+    "name": "frnetSwitchCompliance",
+    "oid": "1.3.6.1.2.1.10.44.3.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "frnetservLportGroup2",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservLportAdminGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservMgtVCSigGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservMgtVCSigAdminGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCEndptGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCEndptGroup2",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCConnectGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCConnectNamesGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCNotifGroup2",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservAccountPVCGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservAccountLportGroup",
+        "module": "FRNETSERV-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservCompliance": {
+    "name": "frnetservCompliance",
+    "oid": "1.3.6.1.2.1.10.44.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "frnetservLportGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservMgtVCSigGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCEndptGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservPVCConnectGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservAccountPVCGroup",
+        "module": "FRNETSERV-MIB"
+      },
+      {
+        "object": "frnetservAccountLportGroup",
+        "module": "FRNETSERV-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "frnetservLportGroup": {
+    "name": "frnetservLportGroup",
+    "oid": "1.3.6.1.2.1.10.44.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportNumPlan"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportContact"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportLocation"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportType"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportAddrDLCILen"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportVCSigProtocol"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportVCSigPointer"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "frnetservMgtVCSigGroup": {
+    "name": "frnetservMgtVCSigGroup",
+    "oid": "1.3.6.1.2.1.10.44.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigProced"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserN391"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserN392"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserN393"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserT391"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetN392"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetN393"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetT392"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetnN4"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetnT3"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserLinkRelErrors"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserProtErrors"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserChanInactive"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetLinkRelErrors"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetProtErrors"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetChanInactive"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservPVCEndptGroup": {
+    "name": "frnetservPVCEndptGroup",
+    "oid": "1.3.6.1.2.1.10.44.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectIndexValue"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInMaxFrameSize"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInBc"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInBe"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInCIR"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutMaxFrameSize"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutBc"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutBe"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutCIR"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptConnectIdentifier"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptRowStatus"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptRcvdSigStatus"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInFrames"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutFrames"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInDEFrames"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInExcessFrames"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutExcessFrames"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInDiscards"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInOctets"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservPVCConnectGroup": {
+    "name": "frnetservPVCConnectGroup",
+    "oid": "1.3.6.1.2.1.10.44.3.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectAdminStatus"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectL2hOperStatus"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectH2lOperStatus"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectL2hLastChange"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectH2lLastChange"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservAccountPVCGroup": {
+    "name": "frnetservAccountPVCGroup",
+    "oid": "1.3.6.1.2.1.10.44.3.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frAccountPVCSegmentSize"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frAccountPVCInSegments"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frAccountPVCOutSegments"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservAccountLportGroup": {
+    "name": "frnetservAccountLportGroup",
+    "oid": "1.3.6.1.2.1.10.44.3.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frAccountLportSegmentSize"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frAccountLportInSegments"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frAccountLportOutSegments"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservLportGroup2": {
+    "name": "frnetservLportGroup2",
+    "oid": "1.3.6.1.2.1.10.44.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportNumPlan"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportContact"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportLocation"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportType"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportAddrDLCILen"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportVCSigProtocol"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportFragControl"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportFragSize"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservPVCEndptGroup2": {
+    "name": "frnetservPVCEndptGroup2",
+    "oid": "1.3.6.1.2.1.10.44.3.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInDiscardsDESet"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInFramesFECNSet"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutFramesFECNSet"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInFramesBECNSet"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutFramesBECNSet"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInCongDiscards"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptInDECongDiscards"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutCongDiscards"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutDECongDiscards"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptOutDEFrames"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCEndptAtmIwfConnIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservPVCConnectNamesGroup": {
+    "name": "frnetservPVCConnectNamesGroup",
+    "oid": "1.3.6.1.2.1.10.44.3.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectUserName"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectProviderName"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservLportAdminGroup": {
+    "name": "frnetservLportAdminGroup",
+    "oid": "1.3.6.1.2.1.10.44.3.1.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportDLCIIndexValue"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportTypeAdmin"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frLportVCSigProtocolAdmin"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservMgtVCSigAdminGroup": {
+    "name": "frnetservMgtVCSigAdminGroup",
+    "oid": "1.3.6.1.2.1.10.44.3.1.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigProcedAdmin"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserN391Admin"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserN392Admin"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserN393Admin"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigUserT391Admin"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetN392Admin"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetN393Admin"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetT392Admin"
+      },
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frMgtVCSigNetnT3Admin"
+      }
+    ],
+    "status": "current"
+  },
+  "frnetservPVCNotifGroup": {
+    "name": "frnetservPVCNotifGroup",
+    "oid": "1.3.6.1.2.1.10.44.3.1.12",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectStatusChange"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "frnetservPVCNotifGroup2": {
+    "name": "frnetservPVCNotifGroup2",
+    "oid": "1.3.6.1.2.1.10.44.3.1.13",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FRNETSERV-MIB",
+        "object": "frPVCConnectStatusNotif"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FRNETSERV-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:37 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "FRNETSERV-MIB"
+  }
+}

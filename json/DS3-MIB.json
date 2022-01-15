@@ -5,9 +5,9 @@
       "InterfaceIndex"
     ],
     "PerfHist-TC-MIB": [
-      "PerfCurrentCount",
+      "PerfIntervalCount",
       "PerfTotalCount",
-      "PerfIntervalCount"
+      "PerfCurrentCount"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -15,47 +15,33 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "MibIdentifier",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
       "transmission",
-      "Bits",
+      "Counter32",
+      "iso",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TimeStamp",
       "TEXTUAL-CONVENTION",
+      "TimeStamp",
       "TruthValue"
     ]
   },
   "ds3": {
     "name": "ds3",
     "oid": "1.3.6.1.2.1.10.30",
-    "class": "moduleidentity",
-    "revisions": [
-      {
-        "revision": "2004-09-08 00:00",
-        "description": "The RFC 3896 </rfcs/rfc3896.html> version of this MIB module. The key changes made to this MIB module since its publication in RFC 2496 </rfcs/rfc2496.html> are as follows: (1) The dsx3FracIfIndex SYNTAX matches the description range. (2) Reference was added to Circuit Identifier object. (3) Usage of ifStackTable section was updated. (4) Align the DESCRIPTION clauses of few statistic objects with thenear end definition, the far end definition and with RFC 3593 </rfcs/rfc3593.html>. (5) Add new value, dsx3M13, to dsx3LineType."
-      },
-      {
-        "revision": "1998-08-01 21:30",
-        "description": "The RFC 2496 </rfcs/rfc2496.html> version of this MIB module. The key changes made to this MIB module since its publication in RFC 1407 </rfcs/rfc1407.html> are as follows: (1) The Fractional Table has been deprecated. (2) This document uses SMIv2. (3) Values are given for ifTable and ifXTable. (4) Example usage of ifStackTable is included. (5) dsx3IfIndex has been deprecated. (6) The definition of valid intervals has been clarified for the case where the agent proxied for other devices. In particular, the treatment of missing intervals has been clarified. (7) An inward loopback has been added. (8) Additional lineStatus bits have been added for Near End in Unavailable Signal State, Carrier Equipment Out of Service. (9) A read-write line Length object has been added. (10) Added a lineStatus last change, trap and enabler. (11) Textual Conventions for statistics objects have been used. (12) A new object, dsx3LoopbackStatus, has been introduced to reflect the loopbacks established on a DS3/E3 interface and the source to the requests. dsx3LoopbackConfig continues to be the desired loopback state while dsx3LoopbackStatus reflects the actual state. (13) A dual loopback has been added to allow the setting of an inward loopback and a line loopback at the same time. (14) An object has been added to indicated whether or not this is a channelized DS3/E3. (15) A new object has been added to indicate which DS1 is to set for remote loopback."
-      },
-      {
-        "revision": "1993-01-25 20:28",
-        "description": "Initial version, published as RFC 1407 </rfcs/rfc1407.html>."
-      }
-    ]
+    "class": "moduleidentity"
   },
   "dsx3ConfigTable": {
     "name": "dsx3ConfigTable",
@@ -161,8 +147,7 @@
           "dsx3ClearChannel": 5,
           "e3other": 6,
           "e3Framed": 7,
-          "e3Plcp": 8,
-          "dsx3M13": 9
+          "e3Plcp": 8
         }
       }
     },
@@ -1489,7 +1474,7 @@
       "constraints": {
         "range": [
           {
-            "min": 0,
+            "min": 1,
             "max": 2147483647
           }
         ]
@@ -1549,10 +1534,6 @@
       },
       {
         "object": "ds3FarEndGroup",
-        "module": "DS3-MIB"
-      },
-      {
-        "object": "ds3NearEndOptionalTrapGroup",
         "module": "DS3-MIB"
       },
       {
@@ -1944,9 +1925,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DS3-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DS3-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DS3-MIB"

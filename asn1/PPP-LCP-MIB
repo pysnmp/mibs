@@ -20,7 +20,9 @@ IMPORTS
      pppLqr       OBJECT IDENTIFIER ::= { pppLcp 2 }
      pppTests     OBJECT IDENTIFIER ::= { pppLcp 3 }
 
+
 -- 4.1.  PPP Link Group
+
 
 --
 -- The PPP Link Group. Implementation of this
@@ -50,6 +52,7 @@ IMPORTS
 -- returned when accessing the objects is an implementation
 -- dependent issue.
 
+
 pppLinkStatusTable   OBJECT-TYPE
      SYNTAX    SEQUENCE OF PppLinkStatusEntry
      ACCESS    not-accessible
@@ -68,6 +71,7 @@ pppLinkStatusEntry   OBJECT-TYPE
                Link."
      INDEX     { ifIndex }
      ::= { pppLinkStatusTable 1 }
+
 
 PppLinkStatusEntry ::= SEQUENCE {
      pppLinkStatusPhysicalIndex
@@ -126,6 +130,7 @@ pppLinkStatusPhysicalIndex   OBJECT-TYPE
                specific MIB."
      ::= { pppLinkStatusEntry 1 }
 
+
 pppLinkStatusBadAddresses   OBJECT-TYPE
      SYNTAX    Counter
      ACCESS    read-only
@@ -140,6 +145,7 @@ pppLinkStatusBadAddresses   OBJECT-TYPE
                "Section 3.1, Address Field, of RFC1331."
      ::= { pppLinkStatusEntry 2 }
 
+
 pppLinkStatusBadControls   OBJECT-TYPE
      SYNTAX    Counter
      ACCESS    read-only
@@ -153,6 +159,7 @@ pppLinkStatusBadControls   OBJECT-TYPE
      REFERENCE
                "Section 3.1, Control Field, of RFC1331."
      ::= { pppLinkStatusEntry 3 }
+
 
 pppLinkStatusPacketTooLongs   OBJECT-TYPE
      SYNTAX    Counter
@@ -169,6 +176,7 @@ pppLinkStatusPacketTooLongs   OBJECT-TYPE
                included in this count."
      ::= { pppLinkStatusEntry 4 }
 
+
 pppLinkStatusBadFCSs   OBJECT-TYPE
      SYNTAX    Counter
      ACCESS    read-only
@@ -180,6 +188,7 @@ pppLinkStatusBadFCSs   OBJECT-TYPE
                variable that is associated with the interface
                that represents this PPP Link."
      ::= { pppLinkStatusEntry 5 }
+
 
 pppLinkStatusLocalMRU   OBJECT-TYPE
      SYNTAX    INTEGER(1..2147483647)
@@ -194,6 +203,7 @@ pppLinkStatusLocalMRU   OBJECT-TYPE
                open state (ifOperStatus is up)."
      ::= { pppLinkStatusEntry 6 }
 
+
 pppLinkStatusRemoteMRU   OBJECT-TYPE
      SYNTAX    INTEGER(1..2147483647)
      ACCESS    read-only
@@ -207,6 +217,7 @@ pppLinkStatusRemoteMRU   OBJECT-TYPE
                the open state (ifOperStatus is up)."
      ::= { pppLinkStatusEntry 7 }
 
+
 pppLinkStatusLocalToPeerACCMap   OBJECT-TYPE
      SYNTAX    OCTET STRING (SIZE (4))
      ACCESS    read-only
@@ -218,6 +229,7 @@ pppLinkStatusLocalToPeerACCMap   OBJECT-TYPE
                is meaningful only when the link has reached
                the open state (ifOperStatus is up)."
      ::= { pppLinkStatusEntry 8 }
+
 
 pppLinkStatusPeerToLocalACCMap   OBJECT-TYPE
      SYNTAX    OCTET STRING (SIZE (4))
@@ -231,6 +243,7 @@ pppLinkStatusPeerToLocalACCMap   OBJECT-TYPE
                (ifOperStatus is up)."
      ::= { pppLinkStatusEntry 9 }
 
+
 pppLinkStatusLocalToRemoteProtocolCompression
      OBJECT-TYPE
      SYNTAX    INTEGER {
@@ -241,13 +254,13 @@ pppLinkStatusLocalToRemoteProtocolCompression
      STATUS    mandatory
      DESCRIPTION
                "Indicates whether the local PPP entity will
-
                use Protocol Compression when transmitting
                packets to the remote PPP entity. The value of
                this object is meaningful only when the link
                has reached the open state (ifOperStatus is
                up)."
      ::= { pppLinkStatusEntry 10 }
+
 
 pppLinkStatusRemoteToLocalProtocolCompression
      OBJECT-TYPE
@@ -266,6 +279,7 @@ pppLinkStatusRemoteToLocalProtocolCompression
                up)."
      ::= { pppLinkStatusEntry 11 }
 
+
 pppLinkStatusLocalToRemoteACCompression   OBJECT-TYPE
      SYNTAX    INTEGER {
                enabled(1),
@@ -281,6 +295,7 @@ pppLinkStatusLocalToRemoteACCompression   OBJECT-TYPE
                when the link has reached the open state
                (ifOperStatus is up)."
      ::= { pppLinkStatusEntry 12 }
+
 
 pppLinkStatusRemoteToLocalACCompression   OBJECT-TYPE
      SYNTAX    INTEGER {
@@ -298,6 +313,7 @@ pppLinkStatusRemoteToLocalACCompression   OBJECT-TYPE
                (ifOperStatus is up)."
      ::= { pppLinkStatusEntry 13 }
 
+
 pppLinkStatusTransmitFcsSize   OBJECT-TYPE
      SYNTAX    INTEGER (0..128)
      ACCESS    read-only
@@ -310,6 +326,7 @@ pppLinkStatusTransmitFcsSize   OBJECT-TYPE
                has reached the open state (ifOperStatus is
                up)."
      ::= { pppLinkStatusEntry 14 }
+
 
 pppLinkStatusReceiveFcsSize   OBJECT-TYPE
      SYNTAX    INTEGER (0..128)
@@ -324,6 +341,7 @@ pppLinkStatusReceiveFcsSize   OBJECT-TYPE
                up)."
      ::= { pppLinkStatusEntry 15 }
 
+
 pppLinkConfigTable   OBJECT-TYPE
      SYNTAX    SEQUENCE OF PppLinkConfigEntry
      ACCESS    not-accessible
@@ -332,11 +350,11 @@ pppLinkConfigTable   OBJECT-TYPE
                "A table containing the LCP configuration
                parameters for this PPP Link. These variables
                represent the initial configuration of the PPP
-
                Link. The actual values of the parameters may
                be changed when the link is brought up via the
                LCP options negotiation mechanism."
      ::= { pppLink 2 }
+
 
 pppLinkConfigEntry   OBJECT-TYPE
      SYNTAX    PppLinkConfigEntry
@@ -347,6 +365,7 @@ pppLinkConfigEntry   OBJECT-TYPE
                PPP Link."
      INDEX     { ifIndex }
      ::= { pppLinkConfigTable 1 }
+
 
 PppLinkConfigEntry ::= SEQUENCE {
      pppLinkConfigInitialMRU
@@ -401,6 +420,7 @@ pppLinkConfigReceiveACCMap   OBJECT-TYPE
      DEFVAL    { 'ffffffff'h }
      ::= { pppLinkConfigEntry 2 }
 
+
 pppLinkConfigTransmitACCMap   OBJECT-TYPE
      SYNTAX    OCTET STRING (SIZE (4))
      ACCESS    read-write
@@ -442,6 +462,7 @@ pppLinkConfigMagicNumber   OBJECT-TYPE
      DEFVAL    { false }
      ::= { pppLinkConfigEntry 4 }
 
+
 pppLinkConfigFcsSize   OBJECT-TYPE
      SYNTAX    INTEGER (0..128)
      ACCESS    read-write
@@ -458,7 +479,9 @@ pppLinkConfigFcsSize   OBJECT-TYPE
      DEFVAL    { 16 }
      ::= { pppLinkConfigEntry 5 }
 
+
 -- 4.2.  PPP LQR Group
+
 
      --
      -- The PPP LQR Group.
@@ -475,6 +498,7 @@ pppLqrTable   OBJECT-TYPE
                statistics for the local PPP entity."
      ::= { pppLqr 1 }
 
+
 pppLqrEntry   OBJECT-TYPE
      SYNTAX    PppLqrEntry
      ACCESS    not-accessible
@@ -486,6 +510,7 @@ pppLqrEntry   OBJECT-TYPE
                successfully negotiated for said link."
      INDEX     { ifIndex }
      ::= { pppLqrTable 1 }
+
 
 PppLqrEntry ::= SEQUENCE {
      pppLqrQuality
@@ -515,7 +540,6 @@ pppLqrQuality   OBJECT-TYPE
                the local PPP entity's Link-Quality Management
                modules. No effort is made to define good or
                bad, nor the policy used to determine it. The
-
                not-determined value indicates that the entity
                does not actually evaluate the link's quality.
                This value is used to disambiguate the
@@ -523,6 +547,7 @@ pppLqrQuality   OBJECT-TYPE
                determination made and presumed to be good'
                case."
      ::= { pppLqrEntry 1 }
+
 
 pppLqrInGoodOctets   OBJECT-TYPE
      SYNTAX    Counter
@@ -533,6 +558,7 @@ pppLqrInGoodOctets   OBJECT-TYPE
      REFERENCE
                "Section 2.2, Counters, of RFC1333."
      ::= { pppLqrEntry 2 }
+
 
 pppLqrLocalPeriod   OBJECT-TYPE
      SYNTAX    INTEGER(1..2147483647)
@@ -546,6 +572,7 @@ pppLqrLocalPeriod   OBJECT-TYPE
                "Section 2.5, Configuration Option Format, of
                RFC1333."
      ::= { pppLqrEntry 3 }
+
 
 pppLqrRemotePeriod   OBJECT-TYPE
      SYNTAX    INTEGER(1..2147483647)
@@ -571,6 +598,7 @@ pppLqrOutLQRs   OBJECT-TYPE
                "Section 2.2, Counters, of RFC1333."
      ::= { pppLqrEntry 5 }
 
+
 pppLqrInLQRs   OBJECT-TYPE
      SYNTAX    Counter
      ACCESS    read-only
@@ -581,6 +609,7 @@ pppLqrInLQRs   OBJECT-TYPE
      REFERENCE
                "Section 2.2, Counters, of RFC1333."
      ::= { pppLqrEntry 6 }
+
 
 --
 -- The PPP LQR Configuration table.
@@ -594,6 +623,7 @@ pppLqrConfigTable   OBJECT-TYPE
                "Table containing the LQR Configuration
                parameters for the local PPP entity."
      ::= { pppLqr 2 }
+
 
 pppLqrConfigEntry   OBJECT-TYPE
      SYNTAX    PppLqrConfigEntry
@@ -628,6 +658,7 @@ pppLqrConfigPeriod   OBJECT-TYPE
      DEFVAL    { 0 }
      ::= { pppLqrConfigEntry 1 }
 
+
 pppLqrConfigStatus   OBJECT-TYPE
      SYNTAX    INTEGER {disabled (1), enabled (2)}
      ACCESS    read-write
@@ -655,7 +686,9 @@ pppLqrConfigStatus   OBJECT-TYPE
      DEFVAL    { enabled }
      ::= { pppLqrConfigEntry 2 }
 
+
 -- 4.3.  PPP LQR Extensions Group
+
 
 --
 -- The PPP LQR Extensions Group.
@@ -682,6 +715,7 @@ pppLqrExtnsTable   OBJECT-TYPE
                for the local PPP entity."
      ::= { pppLqr 3 }
 
+
 pppLqrExtnsEntry   OBJECT-TYPE
      SYNTAX    PppLqrExtnsEntry
      ACCESS    not-accessible
@@ -697,7 +731,6 @@ pppLqrExtnsEntry   OBJECT-TYPE
      ::= { pppLqrExtnsTable 1 }
 
 PppLqrExtnsEntry ::= SEQUENCE {
-
      pppLqrExtnsLastReceivedLqrPacket
           OCTET STRING(SIZE(68))
 }
@@ -725,6 +758,7 @@ pppLqrExtnsLastReceivedLqrPacket   OBJECT-TYPE
      REFERENCE
                "Section 2.6, Packet Format, of RFC1333"
      ::= { pppLqrExtnsEntry 1 }
+
 
 -- 4.4.  PPP Tests
 

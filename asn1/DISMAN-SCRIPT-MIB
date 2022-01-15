@@ -24,6 +24,7 @@ scriptMIB MODULE-IDENTITY
          Chair:     Randy Presuhn
                     BMC Software, Inc.
 
+
          Postal:    Office 1-3141
                     2141 North First Street
                     San Jose,  California 95131
@@ -73,6 +74,7 @@ scriptMIB MODULE-IDENTITY
          ambiguities or contradictions that were discovered and
          reported by implementors."
 
+
     REVISION    "199902221800Z"
     DESCRIPTION
         "Initial version, published as RFC 2592."
@@ -121,6 +123,8 @@ SmLangEntry ::= SEQUENCE {
 }
 
 smLangIndex OBJECT-TYPE
+
+
     SYNTAX      Integer32 (1..2147483647)
     MAX-ACCESS  not-accessible
     STATUS      current
@@ -169,6 +173,8 @@ smLangVendor OBJECT-TYPE
          below the enterprise object identifier {1 3 6 1 4 1}
          allocated for the vendor. The value must be the object
          identifier {0 0} if the vendor is not known."
+
+
     ::= { smLangEntry 4 }
 
 smLangRevision OBJECT-TYPE
@@ -193,6 +199,7 @@ smLangDescr OBJECT-TYPE
         "A textual description of the language."
     ::= { smLangEntry 6 }
 
+
 smExtsnTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF SmExtsnEntry
     MAX-ACCESS  not-accessible
@@ -216,6 +223,8 @@ SmExtsnEntry ::= SEQUENCE {
     smExtsnVersion      SnmpAdminString,
     smExtsnVendor       OBJECT IDENTIFIER,
     smExtsnRevision     SnmpAdminString,
+
+
     smExtsnDescr        SnmpAdminString
 }
 
@@ -265,6 +274,7 @@ smExtsnVendor OBJECT-TYPE
          identifier {0 0} if the vendor is not known."
     ::= { smExtsnEntry 4 }
 
+
 smExtsnRevision OBJECT-TYPE
     SYNTAX      SnmpAdminString (SIZE (0..32))
     MAX-ACCESS  read-only
@@ -313,6 +323,8 @@ smScriptEntry OBJECT-TYPE
         "An entry describing a particular script. Every script that
          is stored in non-volatile memory is required to appear in
          this script table."
+
+
     INDEX { smScriptOwner, smScriptName }
     ::= { smScriptTable 1 }
 
@@ -361,6 +373,8 @@ smScriptDescr OBJECT-TYPE
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
+
+
         "A description of the purpose of the script."
     ::= { smScriptEntry 3 }
 
@@ -408,6 +422,8 @@ smScriptSource OBJECT-TYPE
          specific URL scheme. An attempt to load a script from a
          nonsupported URL scheme will cause the smScriptOperStatus
          to report an `unknownProtocol' error.
+
+
 
          Set requests to change this object are invalid if the
          value of smScriptOperStatus is `enabled', `editing',
@@ -457,6 +473,8 @@ smScriptOperStatus OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
+
+
         "The actual status of the script in the runtime system. The
          value of this object is only meaningful when the value of
          the smScriptRowStatus object is `active'.
@@ -505,6 +523,7 @@ smScriptOperStatus OBJECT-TYPE
            failure.
 
          - `genericError' indicates that the script could not be
+
 
            loaded due to an error condition not listed above.
 
@@ -555,6 +574,7 @@ smScriptStorageType OBJECT-TYPE
          The value of smScriptStorageType is only meaningful if the
          value of the corresponding RowStatus object is `active'.
 
+
          If smScriptStorageType has the value permanent(4), then all
          objects whose MAX-ACCESS value is read-create must be
          writable, with the exception of the smScriptStorageType and
@@ -604,6 +624,7 @@ smScriptError OBJECT-TYPE
     DESCRIPTION
         "This object contains a descriptive error message if the
 
+
          transition into the operational status `enabled' failed.
          Implementations must reset the error message to a
          zero-length string when a new attempt to change the
@@ -652,6 +673,8 @@ smCodeEntry OBJECT-TYPE
 
 SmCodeEntry ::= SEQUENCE {
     smCodeIndex         Unsigned32,
+
+
     smCodeText          OCTET STRING,
     smCodeRowStatus     RowStatus
 }
@@ -700,6 +723,8 @@ smRunObjects OBJECT IDENTIFIER ::= { smObjects 4 }
 smLaunchTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF SmLaunchEntry
     MAX-ACCESS  not-accessible
+
+
     STATUS      current
     DESCRIPTION
         "This table lists and describes scripts that are ready
@@ -748,6 +773,8 @@ smLaunchOwner OBJECT-TYPE
          be owned by the same smLaunchOwner used to index the entry
          in the smLaunchTable. This owner is not necessarily the same
          as the owner of the script itself (smLaunchScriptOwner)."
+
+
     ::= { smLaunchEntry 1 }
 
 smLaunchName OBJECT-TYPE
@@ -796,6 +823,8 @@ smLaunchScriptName OBJECT-TYPE
 
 smLaunchArgument OBJECT-TYPE
     SYNTAX      OCTET STRING
+
+
     MAX-ACCESS  read-create
     STATUS      current
     DESCRIPTION
@@ -844,6 +873,7 @@ smLaunchLifeTime OBJECT-TYPE
          to initialize the smRunLifeTime object when a script is
          launched. Changing the value of an smLaunchLifeTime
          instance does not affect scripts previously launched from
+
 
          this entry."
     DEFVAL { 360000 }
@@ -894,6 +924,7 @@ smLaunchStart OBJECT-TYPE
 
          If this object is set, the following checks must be
 
+
          performed:
 
          1) The value of the smLaunchOperStatus object in this
@@ -942,6 +973,7 @@ smLaunchStart OBJECT-TYPE
          Note that the data type and the range of this object must
          be consistent with the smRunIndex object. Since this
          object might be written from the scheduling MIB, the
+
 
          data type Integer32 rather than Unsigned32 is used."
     DEFVAL { 0 }
@@ -992,6 +1024,7 @@ smLaunchAdminStatus OBJECT-TYPE
          this launch table entry. The values enabled(1) and
          autostart(3) both indicate that the launch table entry
 
+
          should transition into the operational enabled(1) state as
          soon as the associated script table entry is enabled(1).
 
@@ -1040,6 +1073,8 @@ smLaunchRunIndexNext OBJECT-TYPE
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
+
+
         "This variable is used for creating rows in the smRunTable.
          The value of this variable is a currently unused value
          for smRunIndex, which can be written into the smLaunchStart
@@ -1087,6 +1122,8 @@ smLaunchRowStatus OBJECT-TYPE
          Attempts to `destroy' a row or to set a row `notInService'
          while the smLaunchOperStatus is `enabled' will result in
          an inconsistentValue error.
+
+
 
          Attempts to `destroy' a row or to set a row `notInService'
          where the value of the smLaunchStorageType object is
@@ -1137,6 +1174,7 @@ smLaunchRowExpireTime OBJECT-TYPE
          reaches 0, it stops ticking backward and the row is
          deleted if there are no smRunTable entries associated with
 
+
          this smLaunchTable entry. Otherwise, the smLaunchOperStatus
          changes to `expired' and the row deletion is deferred
          until there are no smRunTable entries associated with this
@@ -1163,6 +1201,7 @@ smLaunchRowExpireTime OBJECT-TYPE
     DEFVAL { 2147483647 }
     ::= { smLaunchEntry 19 }
 
+
 smRunTable OBJECT-TYPE
     SYNTAX      SEQUENCE OF SmRunEntry
     MAX-ACCESS  not-accessible
@@ -1184,6 +1223,8 @@ smRunEntry OBJECT-TYPE
 
 SmRunEntry ::= SEQUENCE {
     smRunIndex          Integer32,
+
+
     smRunArgument       OCTET STRING,
     smRunStartTime      DateAndTime,
     smRunEndTime        DateAndTime,
@@ -1233,6 +1274,7 @@ smRunStartTime OBJECT-TYPE
     DEFVAL { '0000000000000000'H }
     ::= { smRunEntry 3 }
 
+
 smRunEndTime OBJECT-TYPE
     SYNTAX      DateAndTime
     MAX-ACCESS  read-only
@@ -1280,6 +1322,8 @@ smRunLifeTime OBJECT-TYPE
          to modify smRunLifeTime via set operations while a script
          is suspended."
     ::= { smRunEntry 5 }
+
+
 
 smRunExpireTime OBJECT-TYPE
     SYNTAX      TimeInterval
@@ -1330,6 +1374,7 @@ smRunExitCode OBJECT-TYPE
          - `lifeTimeExceeded', which indicates that the script
             exited because a time limit was exceeded;
 
+
          - `noResourcesLeft', which indicates that the script
             exited because it ran out of resources (e.g. memory);
 
@@ -1378,6 +1423,7 @@ smRunControl OBJECT-TYPE
          script execution defined by this row.
 
          Setting this object to `abort' will abort execution if the
+
 
          value of smRunState is `initializing', `executing',
          `suspending', `suspended' or `resuming'. Setting this object
@@ -1428,6 +1474,7 @@ smRunState OBJECT-TYPE
          `suspended' when the script has actually been suspended. The
          temporary `suspending' state changes back to `executing' if
 
+
          the attempt to suspend the running script fails.
 
          A suspended script which received a request to resume
@@ -1476,6 +1523,7 @@ smRunErrorTime OBJECT-TYPE
     DESCRIPTION
         "The date and time when the smRunError was last updated.
          The value '0000000000000000'H is returned if smRunError
+
 
          has not yet been updated after the creation of this
          smRunTable entry."
@@ -1526,6 +1574,7 @@ smScriptException NOTIFICATION-TYPE
 
 -- conformance information
 
+
 smCompliances OBJECT IDENTIFIER ::= { smConformance 1 }
 smGroups      OBJECT IDENTIFIER ::= { smConformance 2 }
 
@@ -1574,6 +1623,8 @@ smCompliance2 MODULE-COMPLIANCE
          when the smRunControl is set to `suspend' and remain in this
          state until smRunControl is set to `resume' or the script
          terminates."
+
+
     ::= { smCompliances 2 }
 
 smLanguageGroup OBJECT-GROUP
@@ -1622,6 +1673,8 @@ smLaunchGroup2 OBJECT-GROUP
         smLaunchExpireTime, smLaunchStart,
         smLaunchControl, smLaunchAdminStatus,
         smLaunchOperStatus, smLaunchRunIndexNext,
+
+
         smLaunchStorageType, smLaunchRowStatus,
         smLaunchError, smLaunchLastChange,
         smLaunchRowExpireTime
@@ -1671,6 +1724,7 @@ smCompliance MODULE-COMPLIANCE
     MODULE      -- this module
     MANDATORY-GROUPS {
 
+
             smLanguageGroup, smScriptGroup, smLaunchGroup, smRunGroup
     }
     GROUP   smCodeGroup
@@ -1719,6 +1773,8 @@ smScriptGroup OBJECT-GROUP
     DESCRIPTION
         "A collection of objects providing information about
          installed scripts."
+
+
     ::= { smGroups 2 }
 
 smLaunchGroup OBJECT-GROUP

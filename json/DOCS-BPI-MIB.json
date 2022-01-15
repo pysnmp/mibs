@@ -3,8 +3,8 @@
     "class": "imports",
     "DOCS-IF-MIB": [
       "docsIfCmServiceId",
-      "docsIfMib",
-      "docsIfCmtsServiceId"
+      "docsIfCmtsServiceId",
+      "docsIfMib"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -15,28 +15,28 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Integer32",
       "Counter32",
       "iso",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "TruthValue",
       "RowStatus",
-      "MacAddress",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "docsBpiMIB": {
@@ -1921,9 +1921,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-BPI-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOCS-BPI-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:35 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DOCS-BPI-MIB"

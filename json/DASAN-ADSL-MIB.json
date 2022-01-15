@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "ADSL-LINE-MIB": [
-      "adslLineAlarmConfProfileName",
       "adslAturChanIntervalNumber",
+      "adslLineConfProfileName",
       "adslAtucChanIntervalNumber",
-      "adslAtucIntervalNumber",
-      "adslLineConfProfileName"
+      "adslLineAlarmConfProfileName",
+      "adslAtucIntervalNumber"
     ],
     "DASAN-SMI": [
       "dasanMgmt"
@@ -15,32 +15,32 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Bits",
-      "iso",
       "IpAddress",
       "Integer32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Gauge32",
       "Counter64",
-      "mib-2",
-      "MODULE-IDENTITY"
+      "TimeTicks",
+      "Counter32",
+      "iso",
+      "Bits",
+      "mib-2"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
+      "TimeStamp",
       "DisplayString",
       "TEXTUAL-CONVENTION",
-      "TimeStamp",
-      "RowStatus"
+      "RowStatus",
+      "TruthValue"
     ]
   },
   "dasanAdslMIB": {
@@ -4004,8 +4004,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/DASAN-ADSL-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:15:48 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:23:18 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DASAN-ADSL-MIB"

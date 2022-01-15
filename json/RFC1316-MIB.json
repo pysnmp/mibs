@@ -1,0 +1,593 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "mib-2",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "char": {
+    "name": "char",
+    "oid": "1.3.6.1.2.1.19",
+    "class": "objectidentity"
+  },
+  "AutonomousType": {
+    "name": "AutonomousType",
+    "class": "type",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    }
+  },
+  "InstancePointer": {
+    "name": "InstancePointer",
+    "class": "type",
+    "type": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    }
+  },
+  "charNumber": {
+    "name": "charNumber",
+    "oid": "1.3.6.1.2.1.19.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortTable": {
+    "name": "charPortTable",
+    "oid": "1.3.6.1.2.1.19.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "charPortEntry": {
+    "name": "charPortEntry",
+    "oid": "1.3.6.1.2.1.19.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1316-MIB",
+        "object": "charPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "charPortIndex": {
+    "name": "charPortIndex",
+    "oid": "1.3.6.1.2.1.19.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortName": {
+    "name": "charPortName",
+    "oid": "1.3.6.1.2.1.19.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "charPortType": {
+    "name": "charPortType",
+    "oid": "1.3.6.1.2.1.19.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "physical": 1,
+          "virtual": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortHardware": {
+    "name": "charPortHardware",
+    "oid": "1.3.6.1.2.1.19.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortReset": {
+    "name": "charPortReset",
+    "oid": "1.3.6.1.2.1.19.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "execute": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "charPortAdminStatus": {
+    "name": "charPortAdminStatus",
+    "oid": "1.3.6.1.2.1.19.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "off": 3,
+          "maintenance": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "charPortOperStatus": {
+    "name": "charPortOperStatus",
+    "oid": "1.3.6.1.2.1.19.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2,
+          "maintenance": 3,
+          "absent": 4,
+          "active": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortLastChange": {
+    "name": "charPortLastChange",
+    "oid": "1.3.6.1.2.1.19.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortInFlowType": {
+    "name": "charPortInFlowType",
+    "oid": "1.3.6.1.2.1.19.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "xonXoff": 2,
+          "hardware": 3,
+          "ctsRts": 4,
+          "dsrDtr": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "charPortOutFlowType": {
+    "name": "charPortOutFlowType",
+    "oid": "1.3.6.1.2.1.19.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "xonXoff": 2,
+          "hardware": 3,
+          "ctsRts": 4,
+          "dsrDtr": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "charPortInFlowState": {
+    "name": "charPortInFlowState",
+    "oid": "1.3.6.1.2.1.19.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unknown": 2,
+          "stop": 3,
+          "go": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortOutFlowState": {
+    "name": "charPortOutFlowState",
+    "oid": "1.3.6.1.2.1.19.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "unknown": 2,
+          "stop": 3,
+          "go": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortInCharacters": {
+    "name": "charPortInCharacters",
+    "oid": "1.3.6.1.2.1.19.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortOutCharacters": {
+    "name": "charPortOutCharacters",
+    "oid": "1.3.6.1.2.1.19.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortAdminOrigin": {
+    "name": "charPortAdminOrigin",
+    "oid": "1.3.6.1.2.1.19.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dynamic": 1,
+          "network": 2,
+          "local": 3,
+          "none": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "charPortSessionMaximum": {
+    "name": "charPortSessionMaximum",
+    "oid": "1.3.6.1.2.1.19.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "charPortSessionNumber": {
+    "name": "charPortSessionNumber",
+    "oid": "1.3.6.1.2.1.19.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charPortSessionIndex": {
+    "name": "charPortSessionIndex",
+    "oid": "1.3.6.1.2.1.19.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charSessTable": {
+    "name": "charSessTable",
+    "oid": "1.3.6.1.2.1.19.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "charSessEntry": {
+    "name": "charSessEntry",
+    "oid": "1.3.6.1.2.1.19.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RFC1316-MIB",
+        "object": "charSessPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "RFC1316-MIB",
+        "object": "charSessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "charSessPortIndex": {
+    "name": "charSessPortIndex",
+    "oid": "1.3.6.1.2.1.19.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charSessIndex": {
+    "name": "charSessIndex",
+    "oid": "1.3.6.1.2.1.19.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charSessKill": {
+    "name": "charSessKill",
+    "oid": "1.3.6.1.2.1.19.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ready": 1,
+          "execute": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "charSessState": {
+    "name": "charSessState",
+    "oid": "1.3.6.1.2.1.19.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "connecting": 1,
+          "connected": 2,
+          "disconnecting": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charSessProtocol": {
+    "name": "charSessProtocol",
+    "oid": "1.3.6.1.2.1.19.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "wellKnownProtocols": {
+    "name": "wellKnownProtocols",
+    "oid": "1.3.6.1.2.1.19.4",
+    "class": "objectidentity"
+  },
+  "protocolOther": {
+    "name": "protocolOther",
+    "oid": "1.3.6.1.2.1.19.4.1",
+    "class": "objectidentity"
+  },
+  "protocolTelnet": {
+    "name": "protocolTelnet",
+    "oid": "1.3.6.1.2.1.19.4.2",
+    "class": "objectidentity"
+  },
+  "protocolRlogin": {
+    "name": "protocolRlogin",
+    "oid": "1.3.6.1.2.1.19.4.3",
+    "class": "objectidentity"
+  },
+  "protocolLat": {
+    "name": "protocolLat",
+    "oid": "1.3.6.1.2.1.19.4.4",
+    "class": "objectidentity"
+  },
+  "protocolX29": {
+    "name": "protocolX29",
+    "oid": "1.3.6.1.2.1.19.4.5",
+    "class": "objectidentity"
+  },
+  "protocolVtp": {
+    "name": "protocolVtp",
+    "oid": "1.3.6.1.2.1.19.4.6",
+    "class": "objectidentity"
+  },
+  "charSessOperOrigin": {
+    "name": "charSessOperOrigin",
+    "oid": "1.3.6.1.2.1.19.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "network": 2,
+          "local": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charSessInCharacters": {
+    "name": "charSessInCharacters",
+    "oid": "1.3.6.1.2.1.19.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charSessOutCharacters": {
+    "name": "charSessOutCharacters",
+    "oid": "1.3.6.1.2.1.19.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charSessConnectionId": {
+    "name": "charSessConnectionId",
+    "oid": "1.3.6.1.2.1.19.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "charSessStartTime": {
+    "name": "charSessStartTime",
+    "oid": "1.3.6.1.2.1.19.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC1316-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "RFC1316-MIB"
+  }
+}

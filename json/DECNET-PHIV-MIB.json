@@ -1,0 +1,4226 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "phiv": {
+    "name": "phiv",
+    "oid": "1.3.6.1.2.1.18",
+    "class": "objectidentity"
+  },
+  "PhivAddr": {
+    "name": "PhivAddr",
+    "class": "type",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    }
+  },
+  "PhivCounter": {
+    "name": "PhivCounter",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "InterfaceIndex": {
+    "name": "InterfaceIndex",
+    "class": "type",
+    "type": {
+      "type": "INTEGER",
+      "class": "type"
+    }
+  },
+  "phivSystem": {
+    "name": "phivSystem",
+    "oid": "1.3.6.1.2.1.18.1",
+    "class": "objectidentity"
+  },
+  "phivManagement": {
+    "name": "phivManagement",
+    "oid": "1.3.6.1.2.1.18.2",
+    "class": "objectidentity"
+  },
+  "session": {
+    "name": "session",
+    "oid": "1.3.6.1.2.1.18.3",
+    "class": "objectidentity"
+  },
+  "end": {
+    "name": "end",
+    "oid": "1.3.6.1.2.1.18.4",
+    "class": "objectidentity"
+  },
+  "routing": {
+    "name": "routing",
+    "oid": "1.3.6.1.2.1.18.5",
+    "class": "objectidentity"
+  },
+  "circuit": {
+    "name": "circuit",
+    "oid": "1.3.6.1.2.1.18.6",
+    "class": "objectidentity"
+  },
+  "ddcmp": {
+    "name": "ddcmp",
+    "oid": "1.3.6.1.2.1.18.7",
+    "class": "objectidentity"
+  },
+  "control": {
+    "name": "control",
+    "oid": "1.3.6.1.2.1.18.8",
+    "class": "objectidentity"
+  },
+  "ethernet": {
+    "name": "ethernet",
+    "oid": "1.3.6.1.2.1.18.9",
+    "class": "objectidentity"
+  },
+  "counters": {
+    "name": "counters",
+    "oid": "1.3.6.1.2.1.18.10",
+    "class": "objectidentity"
+  },
+  "adjacency": {
+    "name": "adjacency",
+    "oid": "1.3.6.1.2.1.18.11",
+    "class": "objectidentity"
+  },
+  "line": {
+    "name": "line",
+    "oid": "1.3.6.1.2.1.18.12",
+    "class": "objectidentity"
+  },
+  "nonBroadcastLine": {
+    "name": "nonBroadcastLine",
+    "oid": "1.3.6.1.2.1.18.14",
+    "class": "objectidentity"
+  },
+  "area": {
+    "name": "area",
+    "oid": "1.3.6.1.2.1.18.15",
+    "class": "objectidentity"
+  },
+  "phivSystemState": {
+    "name": "phivSystemState",
+    "oid": "1.3.6.1.2.1.18.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "shut": 3,
+          "restricted": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivExecIdent": {
+    "name": "phivExecIdent",
+    "oid": "1.3.6.1.2.1.18.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivMgmtMgmtVers": {
+    "name": "phivMgmtMgmtVers",
+    "oid": "1.3.6.1.2.1.18.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivSessionSystemName": {
+    "name": "phivSessionSystemName",
+    "oid": "1.3.6.1.2.1.18.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivSessionInTimer": {
+    "name": "phivSessionInTimer",
+    "oid": "1.3.6.1.2.1.18.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivSessionOutTimer": {
+    "name": "phivSessionOutTimer",
+    "oid": "1.3.6.1.2.1.18.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEndRemoteTable": {
+    "name": "phivEndRemoteTable",
+    "oid": "1.3.6.1.2.1.18.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivEndRemoteEntry": {
+    "name": "phivEndRemoteEntry",
+    "oid": "1.3.6.1.2.1.18.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivEndRemoteHostNodeID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivEndRemoteHostNodeID": {
+    "name": "phivEndRemoteHostNodeID",
+    "oid": "1.3.6.1.2.1.18.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndRemoteState": {
+    "name": "phivEndRemoteState",
+    "oid": "1.3.6.1.2.1.18.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "shut": 3,
+          "restricted": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEndCircuitIndex": {
+    "name": "phivEndCircuitIndex",
+    "oid": "1.3.6.1.2.1.18.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndActiveLinks": {
+    "name": "phivEndActiveLinks",
+    "oid": "1.3.6.1.2.1.18.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndDelay": {
+    "name": "phivEndDelay",
+    "oid": "1.3.6.1.2.1.18.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountTable": {
+    "name": "phivEndCountTable",
+    "oid": "1.3.6.1.2.1.18.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivEndCountEntry": {
+    "name": "phivEndCountEntry",
+    "oid": "1.3.6.1.2.1.18.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivEndCountHostNodeID",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivEndCountHostNodeID": {
+    "name": "phivEndCountHostNodeID",
+    "oid": "1.3.6.1.2.1.18.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountSecsLastZeroed": {
+    "name": "phivEndCountSecsLastZeroed",
+    "oid": "1.3.6.1.2.1.18.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountUsrBytesRec": {
+    "name": "phivEndCountUsrBytesRec",
+    "oid": "1.3.6.1.2.1.18.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountUsrBytesSent": {
+    "name": "phivEndCountUsrBytesSent",
+    "oid": "1.3.6.1.2.1.18.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndUCountUsrMessRec": {
+    "name": "phivEndUCountUsrMessRec",
+    "oid": "1.3.6.1.2.1.18.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountUsrMessSent": {
+    "name": "phivEndCountUsrMessSent",
+    "oid": "1.3.6.1.2.1.18.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountTotalBytesRec": {
+    "name": "phivEndCountTotalBytesRec",
+    "oid": "1.3.6.1.2.1.18.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountTotalBytesSent": {
+    "name": "phivEndCountTotalBytesSent",
+    "oid": "1.3.6.1.2.1.18.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountTotalMessRec": {
+    "name": "phivEndCountTotalMessRec",
+    "oid": "1.3.6.1.2.1.18.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountTotalMessSent": {
+    "name": "phivEndCountTotalMessSent",
+    "oid": "1.3.6.1.2.1.18.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountConnectsRecd": {
+    "name": "phivEndCountConnectsRecd",
+    "oid": "1.3.6.1.2.1.18.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountConnectsSent": {
+    "name": "phivEndCountConnectsSent",
+    "oid": "1.3.6.1.2.1.18.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountReponseTimeouts": {
+    "name": "phivEndCountReponseTimeouts",
+    "oid": "1.3.6.1.2.1.18.4.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndCountRecdConnectResErrs": {
+    "name": "phivEndCountRecdConnectResErrs",
+    "oid": "1.3.6.1.2.1.18.4.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndMaxLinks": {
+    "name": "phivEndMaxLinks",
+    "oid": "1.3.6.1.2.1.18.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEndNSPVers": {
+    "name": "phivEndNSPVers",
+    "oid": "1.3.6.1.2.1.18.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEndRetransmitFactor": {
+    "name": "phivEndRetransmitFactor",
+    "oid": "1.3.6.1.2.1.18.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEndDelayFact": {
+    "name": "phivEndDelayFact",
+    "oid": "1.3.6.1.2.1.18.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEndDelayWeight": {
+    "name": "phivEndDelayWeight",
+    "oid": "1.3.6.1.2.1.18.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEndInactivityTimer": {
+    "name": "phivEndInactivityTimer",
+    "oid": "1.3.6.1.2.1.18.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEndCountZeroCount": {
+    "name": "phivEndCountZeroCount",
+    "oid": "1.3.6.1.2.1.18.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEndMaxLinksActive": {
+    "name": "phivEndMaxLinksActive",
+    "oid": "1.3.6.1.2.1.18.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteBroadcastRouteTimer": {
+    "name": "phivRouteBroadcastRouteTimer",
+    "oid": "1.3.6.1.2.1.18.5.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteBuffSize": {
+    "name": "phivRouteBuffSize",
+    "oid": "1.3.6.1.2.1.18.5.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteRoutingVers": {
+    "name": "phivRouteRoutingVers",
+    "oid": "1.3.6.1.2.1.18.5.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivRouteMaxAddr": {
+    "name": "phivRouteMaxAddr",
+    "oid": "1.3.6.1.2.1.18.5.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1023
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteMaxBdcastNonRouters": {
+    "name": "phivRouteMaxBdcastNonRouters",
+    "oid": "1.3.6.1.2.1.18.5.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteMaxBdcastRouters": {
+    "name": "phivRouteMaxBdcastRouters",
+    "oid": "1.3.6.1.2.1.18.5.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteMaxBuffs": {
+    "name": "phivRouteMaxBuffs",
+    "oid": "1.3.6.1.2.1.18.5.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteMaxCircuits": {
+    "name": "phivRouteMaxCircuits",
+    "oid": "1.3.6.1.2.1.18.5.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteMaxCost": {
+    "name": "phivRouteMaxCost",
+    "oid": "1.3.6.1.2.1.18.5.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1022
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteMaxHops": {
+    "name": "phivRouteMaxHops",
+    "oid": "1.3.6.1.2.1.18.5.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteMaxVisits": {
+    "name": "phivRouteMaxVisits",
+    "oid": "1.3.6.1.2.1.18.5.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteRoutingTimer": {
+    "name": "phivRouteRoutingTimer",
+    "oid": "1.3.6.1.2.1.18.5.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteSegBuffSize": {
+    "name": "phivRouteSegBuffSize",
+    "oid": "1.3.6.1.2.1.18.5.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteType": {
+    "name": "phivRouteType",
+    "oid": "1.3.6.1.2.1.18.5.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routing-III": 1,
+          "nonrouting-III": 2,
+          "area": 3,
+          "routing-IV": 4,
+          "nonrouting-IV": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivRouteCountAgedPktLoss": {
+    "name": "phivRouteCountAgedPktLoss",
+    "oid": "1.3.6.1.2.1.18.5.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivRouteCountNodeUnrPktLoss": {
+    "name": "phivRouteCountNodeUnrPktLoss",
+    "oid": "1.3.6.1.2.1.18.5.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivRouteCountOutRngePktLoss": {
+    "name": "phivRouteCountOutRngePktLoss",
+    "oid": "1.3.6.1.2.1.18.5.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivRouteCountOverSzePktLoss": {
+    "name": "phivRouteCountOverSzePktLoss",
+    "oid": "1.3.6.1.2.1.18.5.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivRouteCountPacketFmtErr": {
+    "name": "phivRouteCountPacketFmtErr",
+    "oid": "1.3.6.1.2.1.18.5.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivRouteCountPtlRteUpdtLoss": {
+    "name": "phivRouteCountPtlRteUpdtLoss",
+    "oid": "1.3.6.1.2.1.18.5.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivRouteCountVerifReject": {
+    "name": "phivRouteCountVerifReject",
+    "oid": "1.3.6.1.2.1.18.5.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLevel1RouteTable": {
+    "name": "phivLevel1RouteTable",
+    "oid": "1.3.6.1.2.1.18.5.22",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivLevel1RouteEntry": {
+    "name": "phivLevel1RouteEntry",
+    "oid": "1.3.6.1.2.1.18.5.22.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivLevel1RouteNodeAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivLevel1RouteNodeAddr": {
+    "name": "phivLevel1RouteNodeAddr",
+    "oid": "1.3.6.1.2.1.18.5.22.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLevel1RouteCircuitIndex": {
+    "name": "phivLevel1RouteCircuitIndex",
+    "oid": "1.3.6.1.2.1.18.5.22.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLevel1RouteCost": {
+    "name": "phivLevel1RouteCost",
+    "oid": "1.3.6.1.2.1.18.5.22.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLevel1RouteHops": {
+    "name": "phivLevel1RouteHops",
+    "oid": "1.3.6.1.2.1.18.5.22.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLevel1RouteNextNode": {
+    "name": "phivLevel1RouteNextNode",
+    "oid": "1.3.6.1.2.1.18.5.22.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivRouteCountZeroCount": {
+    "name": "phivRouteCountZeroCount",
+    "oid": "1.3.6.1.2.1.18.5.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteSystemAddr": {
+    "name": "phivRouteSystemAddr",
+    "oid": "1.3.6.1.2.1.18.5.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivRouteRoutingType": {
+    "name": "phivRouteRoutingType",
+    "oid": "1.3.6.1.2.1.18.5.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routing-III": 1,
+          "nonrouting-III": 2,
+          "area": 3,
+          "routing-IV": 4,
+          "nonrouting-IV": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteSystemAddress": {
+    "name": "phivRouteSystemAddress",
+    "oid": "1.3.6.1.2.1.18.5.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivCircuitParametersTable": {
+    "name": "phivCircuitParametersTable",
+    "oid": "1.3.6.1.2.1.18.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivCircuitParametersEntry": {
+    "name": "phivCircuitParametersEntry",
+    "oid": "1.3.6.1.2.1.18.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivCircuitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivCircuitIndex": {
+    "name": "phivCircuitIndex",
+    "oid": "1.3.6.1.2.1.18.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitLineIndex": {
+    "name": "phivCircuitLineIndex",
+    "oid": "1.3.6.1.2.1.18.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCommonState": {
+    "name": "phivCircuitCommonState",
+    "oid": "1.3.6.1.2.1.18.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "service": 3,
+          "cleared": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivCircuitCommonSubState": {
+    "name": "phivCircuitCommonSubState",
+    "oid": "1.3.6.1.2.1.18.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "starting": 1,
+          "reflecting": 2,
+          "looping": 3,
+          "loading": 4,
+          "dumping": 5,
+          "triggering": 6,
+          "autoservice": 7,
+          "autoloading": 8,
+          "autodumping": 9,
+          "autotriggering": 10,
+          "synchronizing": 11,
+          "failed": 12,
+          "running": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCommonName": {
+    "name": "phivCircuitCommonName",
+    "oid": "1.3.6.1.2.1.18.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitExecRecallTimer": {
+    "name": "phivCircuitExecRecallTimer",
+    "oid": "1.3.6.1.2.1.18.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivCircuitCommonType": {
+    "name": "phivCircuitCommonType",
+    "oid": "1.3.6.1.2.1.18.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ddcmp-point": 1,
+          "ddcmp-control": 2,
+          "ddcmp-tributary": 3,
+          "x25": 4,
+          "ddcmp-dmc": 5,
+          "ethernet": 6,
+          "ci": 7,
+          "qp2-dte20": 8,
+          "bisync": 9,
+          "other": 14,
+          "fddi": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitService": {
+    "name": "phivCircuitService",
+    "oid": "1.3.6.1.2.1.18.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivCircuitExecCost": {
+    "name": "phivCircuitExecCost",
+    "oid": "1.3.6.1.2.1.18.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 25
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivCircuitExecHelloTimer": {
+    "name": "phivCircuitExecHelloTimer",
+    "oid": "1.3.6.1.2.1.18.6.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8191
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivCircuitCountTable": {
+    "name": "phivCircuitCountTable",
+    "oid": "1.3.6.1.2.1.18.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivCircuitCountEntry": {
+    "name": "phivCircuitCountEntry",
+    "oid": "1.3.6.1.2.1.18.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivCircuitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivCircuitCountSecLastZeroed": {
+    "name": "phivCircuitCountSecLastZeroed",
+    "oid": "1.3.6.1.2.1.18.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountTermPacketsRecd": {
+    "name": "phivCircuitCountTermPacketsRecd",
+    "oid": "1.3.6.1.2.1.18.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountOriginPackSent": {
+    "name": "phivCircuitCountOriginPackSent",
+    "oid": "1.3.6.1.2.1.18.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountTermCongLoss": {
+    "name": "phivCircuitCountTermCongLoss",
+    "oid": "1.3.6.1.2.1.18.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountCorruptLoss": {
+    "name": "phivCircuitCountCorruptLoss",
+    "oid": "1.3.6.1.2.1.18.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountTransitPksRecd": {
+    "name": "phivCircuitCountTransitPksRecd",
+    "oid": "1.3.6.1.2.1.18.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountTransitPkSent": {
+    "name": "phivCircuitCountTransitPkSent",
+    "oid": "1.3.6.1.2.1.18.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountTransitCongestLoss": {
+    "name": "phivCircuitCountTransitCongestLoss",
+    "oid": "1.3.6.1.2.1.18.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountCircuitDown": {
+    "name": "phivCircuitCountCircuitDown",
+    "oid": "1.3.6.1.2.1.18.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountInitFailure": {
+    "name": "phivCircuitCountInitFailure",
+    "oid": "1.3.6.1.2.1.18.6.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountAdjDown": {
+    "name": "phivCircuitCountAdjDown",
+    "oid": "1.3.6.1.2.1.18.6.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountPeakAdj": {
+    "name": "phivCircuitCountPeakAdj",
+    "oid": "1.3.6.1.2.1.18.6.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountBytesRecd": {
+    "name": "phivCircuitCountBytesRecd",
+    "oid": "1.3.6.1.2.1.18.6.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountBytesSent": {
+    "name": "phivCircuitCountBytesSent",
+    "oid": "1.3.6.1.2.1.18.6.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountDataBlocksRecd": {
+    "name": "phivCircuitCountDataBlocksRecd",
+    "oid": "1.3.6.1.2.1.18.6.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountDataBlocksSent": {
+    "name": "phivCircuitCountDataBlocksSent",
+    "oid": "1.3.6.1.2.1.18.6.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitCountUsrBuffUnav": {
+    "name": "phivCircuitCountUsrBuffUnav",
+    "oid": "1.3.6.1.2.1.18.6.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCircuitOrigQueueLimit": {
+    "name": "phivCircuitOrigQueueLimit",
+    "oid": "1.3.6.1.2.1.18.6.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivCircuitCountZeroCount": {
+    "name": "phivCircuitCountZeroCount",
+    "oid": "1.3.6.1.2.1.18.6.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitParametersTable": {
+    "name": "phivDDCMPCircuitParametersTable",
+    "oid": "1.3.6.1.2.1.18.7.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitParametersEntry": {
+    "name": "phivDDCMPCircuitParametersEntry",
+    "oid": "1.3.6.1.2.1.18.7.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivDDCMPCircuitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitIndex": {
+    "name": "phivDDCMPCircuitIndex",
+    "oid": "1.3.6.1.2.1.18.7.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitAdjNodeAddr": {
+    "name": "phivDDCMPCircuitAdjNodeAddr",
+    "oid": "1.3.6.1.2.1.18.7.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitTributary": {
+    "name": "phivDDCMPCircuitTributary",
+    "oid": "1.3.6.1.2.1.18.7.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitCountTable": {
+    "name": "phivDDCMPCircuitCountTable",
+    "oid": "1.3.6.1.2.1.18.7.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitCountEntry": {
+    "name": "phivDDCMPCircuitCountEntry",
+    "oid": "1.3.6.1.2.1.18.7.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivCircuitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitErrorsInbd": {
+    "name": "phivDDCMPCircuitErrorsInbd",
+    "oid": "1.3.6.1.2.1.18.7.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitErrorsOutbd": {
+    "name": "phivDDCMPCircuitErrorsOutbd",
+    "oid": "1.3.6.1.2.1.18.7.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitRmteReplyTimeouts": {
+    "name": "phivDDCMPCircuitRmteReplyTimeouts",
+    "oid": "1.3.6.1.2.1.18.7.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitLocalReplyTimeouts": {
+    "name": "phivDDCMPCircuitLocalReplyTimeouts",
+    "oid": "1.3.6.1.2.1.18.7.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitRmteBuffErrors": {
+    "name": "phivDDCMPCircuitRmteBuffErrors",
+    "oid": "1.3.6.1.2.1.18.7.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitLocalBuffErrors": {
+    "name": "phivDDCMPCircuitLocalBuffErrors",
+    "oid": "1.3.6.1.2.1.18.7.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitSelectIntervalsElap": {
+    "name": "phivDDCMPCircuitSelectIntervalsElap",
+    "oid": "1.3.6.1.2.1.18.7.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPCircuitSelectTimeouts": {
+    "name": "phivDDCMPCircuitSelectTimeouts",
+    "oid": "1.3.6.1.2.1.18.7.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPLineCountTable": {
+    "name": "phivDDCMPLineCountTable",
+    "oid": "1.3.6.1.2.1.18.7.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivDDCMPLineCountEntry": {
+    "name": "phivDDCMPLineCountEntry",
+    "oid": "1.3.6.1.2.1.18.7.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivDDCMPLineCountIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivDDCMPLineCountIndex": {
+    "name": "phivDDCMPLineCountIndex",
+    "oid": "1.3.6.1.2.1.18.7.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPLineCountDataErrsIn": {
+    "name": "phivDDCMPLineCountDataErrsIn",
+    "oid": "1.3.6.1.2.1.18.7.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPLineCountRmteStationErrs": {
+    "name": "phivDDCMPLineCountRmteStationErrs",
+    "oid": "1.3.6.1.2.1.18.7.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivDDCMPLineCountLocalStationErrs": {
+    "name": "phivDDCMPLineCountLocalStationErrs",
+    "oid": "1.3.6.1.2.1.18.7.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivControlSchedTimer": {
+    "name": "phivControlSchedTimer",
+    "oid": "1.3.6.1.2.1.18.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 50,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 200,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivControlDeadTimer": {
+    "name": "phivControlDeadTimer",
+    "oid": "1.3.6.1.2.1.18.8.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivControlDelayTimer": {
+    "name": "phivControlDelayTimer",
+    "oid": "1.3.6.1.2.1.18.8.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivControlStreamTimer": {
+    "name": "phivControlStreamTimer",
+    "oid": "1.3.6.1.2.1.18.8.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivControlParametersTable": {
+    "name": "phivControlParametersTable",
+    "oid": "1.3.6.1.2.1.18.8.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivControlParametersEntry": {
+    "name": "phivControlParametersEntry",
+    "oid": "1.3.6.1.2.1.18.8.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivControlCircuitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivControlCircuitIndex": {
+    "name": "phivControlCircuitIndex",
+    "oid": "1.3.6.1.2.1.18.8.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivControlBabbleTimer": {
+    "name": "phivControlBabbleTimer",
+    "oid": "1.3.6.1.2.1.18.8.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 6000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivControlMaxBuffs": {
+    "name": "phivControlMaxBuffs",
+    "oid": "1.3.6.1.2.1.18.8.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 254
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivControlMaxTransmits": {
+    "name": "phivControlMaxTransmits",
+    "oid": "1.3.6.1.2.1.18.8.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 4,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivControlDyingBase": {
+    "name": "phivControlDyingBase",
+    "oid": "1.3.6.1.2.1.18.8.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivControlDyingIncrement": {
+    "name": "phivControlDyingIncrement",
+    "oid": "1.3.6.1.2.1.18.8.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivControlDeadThreshold": {
+    "name": "phivControlDeadThreshold",
+    "oid": "1.3.6.1.2.1.18.8.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivControlDyingThreshold": {
+    "name": "phivControlDyingThreshold",
+    "oid": "1.3.6.1.2.1.18.8.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivControlInactTreshold": {
+    "name": "phivControlInactTreshold",
+    "oid": "1.3.6.1.2.1.18.8.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 8,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivControlPollingState": {
+    "name": "phivControlPollingState",
+    "oid": "1.3.6.1.2.1.18.8.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "automatic": 1,
+          "active": 2,
+          "inactive": 3,
+          "dying": 4,
+          "dead": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivControlPollingSubState": {
+    "name": "phivControlPollingSubState",
+    "oid": "1.3.6.1.2.1.18.8.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "dying": 3,
+          "dead": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivControlTransTimer": {
+    "name": "phivControlTransTimer",
+    "oid": "1.3.6.1.2.1.18.8.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEthLinkParametersTable": {
+    "name": "phivEthLinkParametersTable",
+    "oid": "1.3.6.1.2.1.18.9.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivEthLinkParametersEntry": {
+    "name": "phivEthLinkParametersEntry",
+    "oid": "1.3.6.1.2.1.18.9.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivEthLinkIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivEthLinkIndex": {
+    "name": "phivEthLinkIndex",
+    "oid": "1.3.6.1.2.1.18.9.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEthDesigRouterNodeAddr": {
+    "name": "phivEthDesigRouterNodeAddr",
+    "oid": "1.3.6.1.2.1.18.9.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivEthMaxRouters": {
+    "name": "phivEthMaxRouters",
+    "oid": "1.3.6.1.2.1.18.9.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEthRouterPri": {
+    "name": "phivEthRouterPri",
+    "oid": "1.3.6.1.2.1.18.9.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 64,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivEthHardwareAddr": {
+    "name": "phivEthHardwareAddr",
+    "oid": "1.3.6.1.2.1.18.9.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountTable": {
+    "name": "phivCountersCountTable",
+    "oid": "1.3.6.1.2.1.18.10.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivCountersCountEntry": {
+    "name": "phivCountersCountEntry",
+    "oid": "1.3.6.1.2.1.18.10.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivCountersIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivCountersIndex": {
+    "name": "phivCountersIndex",
+    "oid": "1.3.6.1.2.1.18.10.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountBytesRecd": {
+    "name": "phivCountersCountBytesRecd",
+    "oid": "1.3.6.1.2.1.18.10.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountBytesSent": {
+    "name": "phivCountersCountBytesSent",
+    "oid": "1.3.6.1.2.1.18.10.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountDataBlocksRecd": {
+    "name": "phivCountersCountDataBlocksRecd",
+    "oid": "1.3.6.1.2.1.18.10.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivCountersCountDataBlocksSent": {
+    "name": "phivCountersCountDataBlocksSent",
+    "oid": "1.3.6.1.2.1.18.10.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivCountersCountEthUsrBuffUnav": {
+    "name": "phivCountersCountEthUsrBuffUnav",
+    "oid": "1.3.6.1.2.1.18.10.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountMcastBytesRecd": {
+    "name": "phivCountersCountMcastBytesRecd",
+    "oid": "1.3.6.1.2.1.18.10.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountDataBlksRecd": {
+    "name": "phivCountersCountDataBlksRecd",
+    "oid": "1.3.6.1.2.1.18.10.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountDataBlksSent": {
+    "name": "phivCountersCountDataBlksSent",
+    "oid": "1.3.6.1.2.1.18.10.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountMcastBlksRecd": {
+    "name": "phivCountersCountMcastBlksRecd",
+    "oid": "1.3.6.1.2.1.18.10.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountBlksSentDef": {
+    "name": "phivCountersCountBlksSentDef",
+    "oid": "1.3.6.1.2.1.18.10.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountBlksSentSingleCol": {
+    "name": "phivCountersCountBlksSentSingleCol",
+    "oid": "1.3.6.1.2.1.18.10.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountBlksSentMultCol": {
+    "name": "phivCountersCountBlksSentMultCol",
+    "oid": "1.3.6.1.2.1.18.10.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivCounter",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountSendFailure": {
+    "name": "phivCountersCountSendFailure",
+    "oid": "1.3.6.1.2.1.18.10.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountCollDetectFailure": {
+    "name": "phivCountersCountCollDetectFailure",
+    "oid": "1.3.6.1.2.1.18.10.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountReceiveFailure": {
+    "name": "phivCountersCountReceiveFailure",
+    "oid": "1.3.6.1.2.1.18.10.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountUnrecFrameDest": {
+    "name": "phivCountersCountUnrecFrameDest",
+    "oid": "1.3.6.1.2.1.18.10.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountDataOver": {
+    "name": "phivCountersCountDataOver",
+    "oid": "1.3.6.1.2.1.18.10.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountSysBuffUnav": {
+    "name": "phivCountersCountSysBuffUnav",
+    "oid": "1.3.6.1.2.1.18.10.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivCountersCountUsrBuffUnav": {
+    "name": "phivCountersCountUsrBuffUnav",
+    "oid": "1.3.6.1.2.1.18.10.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAdjTable": {
+    "name": "phivAdjTable",
+    "oid": "1.3.6.1.2.1.18.11.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "obsolete"
+  },
+  "phivAdjEntry": {
+    "name": "phivAdjEntry",
+    "oid": "1.3.6.1.2.1.18.11.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivAdjCircuitIndex",
+        "implied": 0
+      }
+    ],
+    "status": "obsolete"
+  },
+  "phivAdjCircuitIndex": {
+    "name": "phivAdjCircuitIndex",
+    "oid": "1.3.6.1.2.1.18.11.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivAdjNodeAddr": {
+    "name": "phivAdjNodeAddr",
+    "oid": "1.3.6.1.2.1.18.11.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivAdjBlockSize": {
+    "name": "phivAdjBlockSize",
+    "oid": "1.3.6.1.2.1.18.11.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivAdjListenTimer": {
+    "name": "phivAdjListenTimer",
+    "oid": "1.3.6.1.2.1.18.11.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivAdjCircuitEtherServPhysAddr": {
+    "name": "phivAdjCircuitEtherServPhysAddr",
+    "oid": "1.3.6.1.2.1.18.11.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivAdjType": {
+    "name": "phivAdjType",
+    "oid": "1.3.6.1.2.1.18.11.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routing-III": 1,
+          "nonrouting-III": 2,
+          "area": 3,
+          "routing-IV": 4,
+          "nonrouting-IV": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivAdjState": {
+    "name": "phivAdjState",
+    "oid": "1.3.6.1.2.1.18.11.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializing": 1,
+          "up": 2,
+          "run": 3,
+          "circuit-rejected": 4,
+          "data-link-start": 5,
+          "routing-layer-initialize": 6,
+          "routing-layer-verify": 7,
+          "routing-layer-complete": 8,
+          "off": 9,
+          "halt": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivAdjPriority": {
+    "name": "phivAdjPriority",
+    "oid": "1.3.6.1.2.1.18.11.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivAdjExecListenTimer": {
+    "name": "phivAdjExecListenTimer",
+    "oid": "1.3.6.1.2.1.18.11.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "obsolete"
+  },
+  "phivAdjNodeTable": {
+    "name": "phivAdjNodeTable",
+    "oid": "1.3.6.1.2.1.18.11.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivAdjNodeEntry": {
+    "name": "phivAdjNodeEntry",
+    "oid": "1.3.6.1.2.1.18.11.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivAdjNodeCircuitIndex",
+        "implied": 0
+      },
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivAdjAddr",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivAdjNodeCircuitIndex": {
+    "name": "phivAdjNodeCircuitIndex",
+    "oid": "1.3.6.1.2.1.18.11.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAdjAddr": {
+    "name": "phivAdjAddr",
+    "oid": "1.3.6.1.2.1.18.11.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAdjNodeBlockSize": {
+    "name": "phivAdjNodeBlockSize",
+    "oid": "1.3.6.1.2.1.18.11.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAdjNodeListenTimer": {
+    "name": "phivAdjNodeListenTimer",
+    "oid": "1.3.6.1.2.1.18.11.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAdjNodeCircuitEtherServPhysAddr": {
+    "name": "phivAdjNodeCircuitEtherServPhysAddr",
+    "oid": "1.3.6.1.2.1.18.11.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAdjNodeType": {
+    "name": "phivAdjNodeType",
+    "oid": "1.3.6.1.2.1.18.11.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "routing-III": 1,
+          "nonrouting-III": 2,
+          "area": 3,
+          "routing-IV": 4,
+          "nonrouting-IV": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAdjNodeState": {
+    "name": "phivAdjNodeState",
+    "oid": "1.3.6.1.2.1.18.11.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initializing": 1,
+          "up": 2,
+          "run": 3,
+          "circuit-rejected": 4,
+          "data-link-start": 5,
+          "routing-layer-initialize": 6,
+          "routing-layer-verify": 7,
+          "routing-layer-complete": 8,
+          "off": 9,
+          "halt": 10
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAdjNodePriority": {
+    "name": "phivAdjNodePriority",
+    "oid": "1.3.6.1.2.1.18.11.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLineTable": {
+    "name": "phivLineTable",
+    "oid": "1.3.6.1.2.1.18.12.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivLineEntry": {
+    "name": "phivLineEntry",
+    "oid": "1.3.6.1.2.1.18.12.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivLineIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivLineIndex": {
+    "name": "phivLineIndex",
+    "oid": "1.3.6.1.2.1.18.12.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLineName": {
+    "name": "phivLineName",
+    "oid": "1.3.6.1.2.1.18.12.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLineState": {
+    "name": "phivLineState",
+    "oid": "1.3.6.1.2.1.18.12.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "on": 1,
+          "off": 2,
+          "service": 3,
+          "cleared": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLineSubstate": {
+    "name": "phivLineSubstate",
+    "oid": "1.3.6.1.2.1.18.12.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "starting": 1,
+          "reflecting": 2,
+          "looping": 3,
+          "loading": 4,
+          "dumping": 5,
+          "triggering": 6,
+          "auto-service": 7,
+          "auto-loading": 8,
+          "auto-dumping": 9,
+          "auto-triggering": 10,
+          "synchronizing": 11,
+          "failed": 12,
+          "running": 13
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLineService": {
+    "name": "phivLineService",
+    "oid": "1.3.6.1.2.1.18.12.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "starting": 1,
+          "reflecting": 2,
+          "looping": 3,
+          "other": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLineDevice": {
+    "name": "phivLineDevice",
+    "oid": "1.3.6.1.2.1.18.12.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLineReceiveBuffs": {
+    "name": "phivLineReceiveBuffs",
+    "oid": "1.3.6.1.2.1.18.12.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLineProtocol": {
+    "name": "phivLineProtocol",
+    "oid": "1.3.6.1.2.1.18.12.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ddcmp-point": 1,
+          "ddcmp-control": 2,
+          "ddcmp-tributary": 3,
+          "reserved": 4,
+          "ddcmp-dmc": 5,
+          "olapb": 6,
+          "ethernet": 7,
+          "ci": 8,
+          "qp2": 9,
+          "other": 14,
+          "fddi": 15
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLineServiceTimer": {
+    "name": "phivLineServiceTimer",
+    "oid": "1.3.6.1.2.1.18.12.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivLineMaxBlock": {
+    "name": "phivLineMaxBlock",
+    "oid": "1.3.6.1.2.1.18.12.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivNonBroadcastTable": {
+    "name": "phivNonBroadcastTable",
+    "oid": "1.3.6.1.2.1.18.14.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivNonBroadcastEntry": {
+    "name": "phivNonBroadcastEntry",
+    "oid": "1.3.6.1.2.1.18.14.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivNonBroadcastIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivNonBroadcastIndex": {
+    "name": "phivNonBroadcastIndex",
+    "oid": "1.3.6.1.2.1.18.14.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivNonBroadcastController": {
+    "name": "phivNonBroadcastController",
+    "oid": "1.3.6.1.2.1.18.14.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "loopback": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivNonBroadcastDuplex": {
+    "name": "phivNonBroadcastDuplex",
+    "oid": "1.3.6.1.2.1.18.14.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "full": 1,
+          "half": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivNonBroadcastClock": {
+    "name": "phivNonBroadcastClock",
+    "oid": "1.3.6.1.2.1.18.14.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "external": 1,
+          "internal": 2,
+          "other": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivNonBroadcastRetransmitTimer": {
+    "name": "phivNonBroadcastRetransmitTimer",
+    "oid": "1.3.6.1.2.1.18.14.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAreaTable": {
+    "name": "phivAreaTable",
+    "oid": "1.3.6.1.2.1.18.15.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "phivAreaEntry": {
+    "name": "phivAreaEntry",
+    "oid": "1.3.6.1.2.1.18.15.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DECNET-PHIV-MIB",
+        "object": "phivAreaNum",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "phivAreaNum": {
+    "name": "phivAreaNum",
+    "oid": "1.3.6.1.2.1.18.15.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAreaState": {
+    "name": "phivAreaState",
+    "oid": "1.3.6.1.2.1.18.15.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reachable": 4,
+          "unreachable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAreaCost": {
+    "name": "phivAreaCost",
+    "oid": "1.3.6.1.2.1.18.15.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAreaHops": {
+    "name": "phivAreaHops",
+    "oid": "1.3.6.1.2.1.18.15.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAreaNextNode": {
+    "name": "phivAreaNextNode",
+    "oid": "1.3.6.1.2.1.18.15.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PhivAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAreaCircuitIndex": {
+    "name": "phivAreaCircuitIndex",
+    "oid": "1.3.6.1.2.1.18.15.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "phivAreaMaxCost": {
+    "name": "phivAreaMaxCost",
+    "oid": "1.3.6.1.2.1.18.15.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1022
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivAreaMaxHops": {
+    "name": "phivAreaMaxHops",
+    "oid": "1.3.6.1.2.1.18.15.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "phivRouteMaxArea": {
+    "name": "phivRouteMaxArea",
+    "oid": "1.3.6.1.2.1.18.15.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DECNET-PHIV-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "DECNET-PHIV-MIB"
+  }
+}

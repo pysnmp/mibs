@@ -1,0 +1,327 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex",
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "transmission",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ds0": {
+    "name": "ds0",
+    "oid": "1.3.6.1.2.1.10.81",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1998-05-24 20:10",
+        "description": "Initial version of the DS0-MIB."
+      }
+    ]
+  },
+  "dsx0ConfigTable": {
+    "name": "dsx0ConfigTable",
+    "oid": "1.3.6.1.2.1.10.81.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx0ConfigEntry": {
+    "name": "dsx0ConfigEntry",
+    "oid": "1.3.6.1.2.1.10.81.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx0Ds0ChannelNumber": {
+    "name": "dsx0Ds0ChannelNumber",
+    "oid": "1.3.6.1.2.1.10.81.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 31
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx0RobbedBitSignalling": {
+    "name": "dsx0RobbedBitSignalling",
+    "oid": "1.3.6.1.2.1.10.81.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx0CircuitIdentifier": {
+    "name": "dsx0CircuitIdentifier",
+    "oid": "1.3.6.1.2.1.10.81.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx0IdleCode": {
+    "name": "dsx0IdleCode",
+    "oid": "1.3.6.1.2.1.10.81.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx0SeizedCode": {
+    "name": "dsx0SeizedCode",
+    "oid": "1.3.6.1.2.1.10.81.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx0ReceivedCode": {
+    "name": "dsx0ReceivedCode",
+    "oid": "1.3.6.1.2.1.10.81.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 15
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx0TransmitCodesEnable": {
+    "name": "dsx0TransmitCodesEnable",
+    "oid": "1.3.6.1.2.1.10.81.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dsx0Ds0BundleMappedIfIndex": {
+    "name": "dsx0Ds0BundleMappedIfIndex",
+    "oid": "1.3.6.1.2.1.10.81.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsx0ChanMappingTable": {
+    "name": "dsx0ChanMappingTable",
+    "oid": "1.3.6.1.2.1.10.81.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsx0ChanMappingEntry": {
+    "name": "dsx0ChanMappingEntry",
+    "oid": "1.3.6.1.2.1.10.81.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "DS0-MIB",
+        "object": "dsx0Ds0ChannelNumber",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsx0ChanMappedIfIndex": {
+    "name": "dsx0ChanMappedIfIndex",
+    "oid": "1.3.6.1.2.1.10.81.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ds0Conformance": {
+    "name": "ds0Conformance",
+    "oid": "1.3.6.1.2.1.10.81.2",
+    "class": "objectidentity"
+  },
+  "ds0Groups": {
+    "name": "ds0Groups",
+    "oid": "1.3.6.1.2.1.10.81.2.1",
+    "class": "objectidentity"
+  },
+  "ds0Compliances": {
+    "name": "ds0Compliances",
+    "oid": "1.3.6.1.2.1.10.81.2.2",
+    "class": "objectidentity"
+  },
+  "ds0Compliance": {
+    "name": "ds0Compliance",
+    "oid": "1.3.6.1.2.1.10.81.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ds0ConfigGroup",
+        "module": "DS0-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ds0ConfigGroup": {
+    "name": "ds0ConfigGroup",
+    "oid": "1.3.6.1.2.1.10.81.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DS0-MIB",
+        "object": "dsx0Ds0ChannelNumber"
+      },
+      {
+        "module": "DS0-MIB",
+        "object": "dsx0RobbedBitSignalling"
+      },
+      {
+        "module": "DS0-MIB",
+        "object": "dsx0CircuitIdentifier"
+      },
+      {
+        "module": "DS0-MIB",
+        "object": "dsx0IdleCode"
+      },
+      {
+        "module": "DS0-MIB",
+        "object": "dsx0SeizedCode"
+      },
+      {
+        "module": "DS0-MIB",
+        "object": "dsx0ReceivedCode"
+      },
+      {
+        "module": "DS0-MIB",
+        "object": "dsx0TransmitCodesEnable"
+      },
+      {
+        "module": "DS0-MIB",
+        "object": "dsx0Ds0BundleMappedIfIndex"
+      },
+      {
+        "module": "DS0-MIB",
+        "object": "dsx0ChanMappedIfIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DS0-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "DS0-MIB"
+  }
+}

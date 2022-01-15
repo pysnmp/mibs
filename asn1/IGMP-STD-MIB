@@ -1,11 +1,3 @@
--- *****************************************************************
--- IGMP-STD-MIB.my:  IGMP Standard MIB file
---
--- August 2000
---
--- Copyright (c) 2000 by cisco Systems, Inc.
--- All rights reserved.
--- *****************************************************************
 IGMP-STD-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -31,9 +23,6 @@ igmpStdMIB MODULE-IDENTITY
     DESCRIPTION
             "The MIB module for IGMP Management."
     REVISION     "200009280000Z" -- September 28, 2000
-
-
-
 
 
     DESCRIPTION
@@ -83,9 +72,6 @@ IgmpInterfaceEntry ::= SEQUENCE {
     igmpInterfaceRobustness            Unsigned32,
     igmpInterfaceLastMembQueryIntvl    Unsigned32
 }
-
-
-
 
 
 
@@ -139,9 +125,6 @@ igmpInterfaceQuerier OBJECT-TYPE
             "The address of the IGMP Querier on the IP subnet to which
 
 
-
-
-
             this interface is attached."
     ::= { igmpInterfaceEntry 5 }
 
@@ -190,9 +173,6 @@ igmpInterfaceWrongVersionQueries OBJECT-TYPE
     MAX-ACCESS read-only
     STATUS     current
     DESCRIPTION
-
-
-
 
 
             "The number of queries received whose IGMP version does not
@@ -245,9 +225,6 @@ igmpInterfaceRobustness OBJECT-TYPE
     MAX-ACCESS read-create
 
 
-
-
-
     STATUS     current
     DESCRIPTION
             "The Robustness Variable allows tuning for the expected
@@ -295,9 +272,6 @@ igmpCacheEntry OBJECT-TYPE
             "An entry (conceptual row) in the igmpCacheTable."
     INDEX      { igmpCacheAddress, igmpCacheIfIndex }
     ::= { igmpCacheTable 1 }
-
-
-
 
 
 
@@ -351,9 +325,6 @@ igmpCacheLastReporter OBJECT-TYPE
             object has the value 0.0.0.0."
 
 
-
-
-
     ::= { igmpCacheEntry 4 }
 
 igmpCacheUpTime OBJECT-TYPE
@@ -401,9 +372,6 @@ igmpCacheVersion1HostTimer OBJECT-TYPE
     ::= { igmpCacheEntry 8 }
 
 -- conformance information
-
-
-
 
 
 
@@ -457,9 +425,6 @@ igmpV1RouterMIBCompliance MODULE-COMPLIANCE
 
 
 
-
-
-
     ::= { igmpMIBCompliances 2 }
 
 igmpV2HostMIBCompliance MODULE-COMPLIANCE
@@ -510,9 +475,6 @@ igmpV2RouterMIBCompliance MODULE-COMPLIANCE
 -- units of conformance
 
 
-
-
-
 igmpBaseMIBGroup OBJECT-GROUP
     OBJECTS { igmpCacheSelf,
               igmpCacheStatus, igmpInterfaceStatus
@@ -561,9 +523,6 @@ igmpV2RouterMIBGroup OBJECT-GROUP
               igmpInterfaceQueryMaxResponseTime,
               igmpInterfaceRobustness,
               igmpInterfaceWrongVersionQueries,
-
-
-
 
 
               igmpInterfaceLastMembQueryIntvl,

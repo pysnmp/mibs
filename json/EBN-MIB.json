@@ -1,0 +1,778 @@
+{
+  "imports": {
+    "class": "imports",
+    "APPN-MIB": [
+      "SnaControlPointName"
+    ],
+    "SNA-NAU-MIB": [
+      "snanauMIB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "ebnMIB": {
+    "name": "ebnMIB",
+    "oid": "1.3.6.1.2.1.34.7",
+    "class": "moduleidentity"
+  },
+  "SnaNAUWildcardName": {
+    "name": "SnaNAUWildcardName",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "ebnObjects": {
+    "name": "ebnObjects",
+    "oid": "1.3.6.1.2.1.34.7.1",
+    "class": "objectidentity"
+  },
+  "ebnDir": {
+    "name": "ebnDir",
+    "oid": "1.3.6.1.2.1.34.7.1.1",
+    "class": "objectidentity"
+  },
+  "ebnDirTable": {
+    "name": "ebnDirTable",
+    "oid": "1.3.6.1.2.1.34.7.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnDirEntry": {
+    "name": "ebnDirEntry",
+    "oid": "1.3.6.1.2.1.34.7.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EBN-MIB",
+        "object": "ebnDirLuName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ebnDirLuName": {
+    "name": "ebnDirLuName",
+    "oid": "1.3.6.1.2.1.34.7.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaNAUWildcardName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnDirSubnetAffiliation": {
+    "name": "ebnDirSubnetAffiliation",
+    "oid": "1.3.6.1.2.1.34.7.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "native": 1,
+          "nonNative": 2,
+          "subarea": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnIsRscv": {
+    "name": "ebnIsRscv",
+    "oid": "1.3.6.1.2.1.34.7.1.2",
+    "class": "objectidentity"
+  },
+  "ebnIsRscvTable": {
+    "name": "ebnIsRscvTable",
+    "oid": "1.3.6.1.2.1.34.7.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnIsRscvEntry": {
+    "name": "ebnIsRscvEntry",
+    "oid": "1.3.6.1.2.1.34.7.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EBN-MIB",
+        "object": "ebnIsRscvCpName",
+        "implied": 0
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "ebnIsRscvPcid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ebnIsRscvCpName": {
+    "name": "ebnIsRscvCpName",
+    "oid": "1.3.6.1.2.1.34.7.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnIsRscvPcid": {
+    "name": "ebnIsRscvPcid",
+    "oid": "1.3.6.1.2.1.34.7.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnIsRscvDestinationRoute": {
+    "name": "ebnIsRscvDestinationRoute",
+    "oid": "1.3.6.1.2.1.34.7.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnIsRscvDestinationCos": {
+    "name": "ebnIsRscvDestinationCos",
+    "oid": "1.3.6.1.2.1.34.7.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnDirConfig": {
+    "name": "ebnDirConfig",
+    "oid": "1.3.6.1.2.1.34.7.1.3",
+    "class": "objectidentity"
+  },
+  "ebnSearchCacheTime": {
+    "name": "ebnSearchCacheTime",
+    "oid": "1.3.6.1.2.1.34.7.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "minutes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnMaxSearchCache": {
+    "name": "ebnMaxSearchCache",
+    "oid": "1.3.6.1.2.1.34.7.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnDefaultSubnetVisitCount": {
+    "name": "ebnDefaultSubnetVisitCount",
+    "oid": "1.3.6.1.2.1.34.7.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "topology subnetworks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnCOS": {
+    "name": "ebnCOS",
+    "oid": "1.3.6.1.2.1.34.7.1.4",
+    "class": "objectidentity"
+  },
+  "ebnCosMapTable": {
+    "name": "ebnCosMapTable",
+    "oid": "1.3.6.1.2.1.34.7.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnCosMapEntry": {
+    "name": "ebnCosMapEntry",
+    "oid": "1.3.6.1.2.1.34.7.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EBN-MIB",
+        "object": "ebnCosMapCpName",
+        "implied": 0
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "ebnCosMapNonNativeCos",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ebnCosMapCpName": {
+    "name": "ebnCosMapCpName",
+    "oid": "1.3.6.1.2.1.34.7.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaNAUWildcardName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnCosMapNonNativeCos": {
+    "name": "ebnCosMapNonNativeCos",
+    "oid": "1.3.6.1.2.1.34.7.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnCosMapNativeCos": {
+    "name": "ebnCosMapNativeCos",
+    "oid": "1.3.6.1.2.1.34.7.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnSubnetRoutingList": {
+    "name": "ebnSubnetRoutingList",
+    "oid": "1.3.6.1.2.1.34.7.1.5",
+    "class": "objectidentity"
+  },
+  "ebnSubnetSearchTable": {
+    "name": "ebnSubnetSearchTable",
+    "oid": "1.3.6.1.2.1.34.7.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnSubnetSearchEntry": {
+    "name": "ebnSubnetSearchEntry",
+    "oid": "1.3.6.1.2.1.34.7.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EBN-MIB",
+        "object": "ebnSubnetSearchLuName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ebnSubnetSearchLuName": {
+    "name": "ebnSubnetSearchLuName",
+    "oid": "1.3.6.1.2.1.34.7.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaNAUWildcardName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnSubnetSearchDynamics": {
+    "name": "ebnSubnetSearchDynamics",
+    "oid": "1.3.6.1.2.1.34.7.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "limited": 2,
+          "full": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnSubnetSearchOrdering": {
+    "name": "ebnSubnetSearchOrdering",
+    "oid": "1.3.6.1.2.1.34.7.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "priority": 1,
+          "defined": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnSearchTable": {
+    "name": "ebnSearchTable",
+    "oid": "1.3.6.1.2.1.34.7.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnSearchEntry": {
+    "name": "ebnSearchEntry",
+    "oid": "1.3.6.1.2.1.34.7.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EBN-MIB",
+        "object": "ebnSearchLuName",
+        "implied": 0
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "ebnSearchIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ebnSearchLuName": {
+    "name": "ebnSearchLuName",
+    "oid": "1.3.6.1.2.1.34.7.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaNAUWildcardName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnSearchIndex": {
+    "name": "ebnSearchIndex",
+    "oid": "1.3.6.1.2.1.34.7.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ebnSearchCpName": {
+    "name": "ebnSearchCpName",
+    "oid": "1.3.6.1.2.1.34.7.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnSearchSNVC": {
+    "name": "ebnSearchSNVC",
+    "oid": "1.3.6.1.2.1.34.7.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hbn": {
+    "name": "hbn",
+    "oid": "1.3.6.1.2.1.34.7.1.6",
+    "class": "objectidentity"
+  },
+  "hbnIsInTable": {
+    "name": "hbnIsInTable",
+    "oid": "1.3.6.1.2.1.34.7.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hbnIsInEntry": {
+    "name": "hbnIsInEntry",
+    "oid": "1.3.6.1.2.1.34.7.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "EBN-MIB",
+        "object": "hbnIsInFqCpName",
+        "implied": 0
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "hbnIsInPcid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "hbnIsInFqCpName": {
+    "name": "hbnIsInFqCpName",
+    "oid": "1.3.6.1.2.1.34.7.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaControlPointName",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hbnIsInPcid": {
+    "name": "hbnIsInPcid",
+    "oid": "1.3.6.1.2.1.34.7.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "hbnIsInRtpNceId": {
+    "name": "hbnIsInRtpNceId",
+    "oid": "1.3.6.1.2.1.34.7.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "hbnIsInRtpTcid": {
+    "name": "hbnIsInRtpTcid",
+    "oid": "1.3.6.1.2.1.34.7.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ebnConformance": {
+    "name": "ebnConformance",
+    "oid": "1.3.6.1.2.1.34.7.2",
+    "class": "objectidentity"
+  },
+  "ebnCompliances": {
+    "name": "ebnCompliances",
+    "oid": "1.3.6.1.2.1.34.7.2.1",
+    "class": "objectidentity"
+  },
+  "ebnGroups": {
+    "name": "ebnGroups",
+    "oid": "1.3.6.1.2.1.34.7.2.2",
+    "class": "objectidentity"
+  },
+  "ebnCompliance": {
+    "name": "ebnCompliance",
+    "oid": "1.3.6.1.2.1.34.7.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ebnDirectoryGroup",
+        "module": "EBN-MIB"
+      },
+      {
+        "object": "ebnIsRscvGroup",
+        "module": "EBN-MIB"
+      },
+      {
+        "object": "ebnDirectoryConfigGroup",
+        "module": "EBN-MIB"
+      },
+      {
+        "object": "ebnCosMappingGroup",
+        "module": "EBN-MIB"
+      },
+      {
+        "object": "ebnSubnetRoutingListGroup",
+        "module": "EBN-MIB"
+      },
+      {
+        "object": "hbnIsInGroup",
+        "module": "EBN-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ebnDirectoryGroup": {
+    "name": "ebnDirectoryGroup",
+    "oid": "1.3.6.1.2.1.34.7.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EBN-MIB",
+        "object": "ebnDirSubnetAffiliation"
+      }
+    ],
+    "status": "current"
+  },
+  "ebnIsRscvGroup": {
+    "name": "ebnIsRscvGroup",
+    "oid": "1.3.6.1.2.1.34.7.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EBN-MIB",
+        "object": "ebnIsRscvDestinationRoute"
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "ebnIsRscvDestinationCos"
+      }
+    ],
+    "status": "current"
+  },
+  "ebnDirectoryConfigGroup": {
+    "name": "ebnDirectoryConfigGroup",
+    "oid": "1.3.6.1.2.1.34.7.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EBN-MIB",
+        "object": "ebnSearchCacheTime"
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "ebnMaxSearchCache"
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "ebnDefaultSubnetVisitCount"
+      }
+    ],
+    "status": "current"
+  },
+  "ebnCosMappingGroup": {
+    "name": "ebnCosMappingGroup",
+    "oid": "1.3.6.1.2.1.34.7.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EBN-MIB",
+        "object": "ebnCosMapNativeCos"
+      }
+    ],
+    "status": "current"
+  },
+  "ebnSubnetRoutingListGroup": {
+    "name": "ebnSubnetRoutingListGroup",
+    "oid": "1.3.6.1.2.1.34.7.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EBN-MIB",
+        "object": "ebnSubnetSearchDynamics"
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "ebnSubnetSearchOrdering"
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "ebnSearchCpName"
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "ebnSearchSNVC"
+      }
+    ],
+    "status": "current"
+  },
+  "hbnIsInGroup": {
+    "name": "hbnIsInGroup",
+    "oid": "1.3.6.1.2.1.34.7.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "EBN-MIB",
+        "object": "hbnIsInRtpNceId"
+      },
+      {
+        "module": "EBN-MIB",
+        "object": "hbnIsInRtpTcid"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/EBN-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "EBN-MIB"
+  }
+}

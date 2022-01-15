@@ -8,45 +8,45 @@
       "CiscoInetAddressMask"
     ],
     "IF-MIB": [
-      "ifPhysAddress",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifPhysAddress"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Integer32",
-      "iso",
-      "Gauge32",
-      "IpAddress",
-      "OBJECT-TYPE",
+      "Unsigned32",
       "TimeTicks",
       "MODULE-IDENTITY",
-      "Unsigned32"
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
       "TimeStamp",
-      "TruthValue",
       "MacAddress",
-      "TimeInterval",
-      "RowStatus",
-      "DisplayString"
+      "TimeInterval"
     ]
   },
   "ciscoDot11ContextServicesMIB": {
@@ -1434,8 +1434,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-DOT11-CONTEXT-SERVICES-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:14:05 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:24:09 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-DOT11-CONTEXT-SERVICES-MIB"

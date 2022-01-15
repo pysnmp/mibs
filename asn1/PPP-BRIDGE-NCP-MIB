@@ -37,6 +37,7 @@ IMPORTS
 -- returned when accessing the objects is an implementation
 -- dependent issue.
 
+
 pppBridgeTable   OBJECT-TYPE
      SYNTAX    SEQUENCE OF PppBridgeEntry
      ACCESS    not-accessible
@@ -47,6 +48,7 @@ pppBridgeTable   OBJECT-TYPE
                the operation of Bridging over the PPP."
      ::= { pppBridge 1 }
 
+
 pppBridgeEntry   OBJECT-TYPE
      SYNTAX    PppBridgeEntry
      ACCESS    not-accessible
@@ -56,6 +58,7 @@ pppBridgeEntry   OBJECT-TYPE
                link."
      INDEX     { ifIndex }
      ::= { pppBridgeTable 1 }
+
 
 PppBridgeEntry ::= SEQUENCE {
      pppBridgeOperStatus
@@ -81,6 +84,7 @@ pppBridgeOperStatus   OBJECT-TYPE
                network protocol has reached the Opened state."
      ::= { pppBridgeEntry 1 }
 
+
 pppBridgeLocalToRemoteTinygramCompression   OBJECT-TYPE
      SYNTAX    INTEGER { false(1), true(2) }
      ACCESS    read-only
@@ -99,6 +103,7 @@ pppBridgeLocalToRemoteTinygramCompression   OBJECT-TYPE
                "Section 6.7, Tinygram Compression Option, of
                RFC1220"
      ::= { pppBridgeEntry 2 }
+
 
 pppBridgeRemoteToLocalTinygramCompression   OBJECT-TYPE
      SYNTAX    INTEGER { false(1), true(2) }
@@ -135,6 +140,7 @@ pppBridgeLocalToRemoteLanId   OBJECT-TYPE
                RFC1220"
      ::= { pppBridgeEntry 4 }
 
+
 pppBridgeRemoteToLocalLanId   OBJECT-TYPE
      SYNTAX    INTEGER { false(1), true(2) }
      ACCESS    read-only
@@ -153,6 +159,7 @@ pppBridgeRemoteToLocalLanId   OBJECT-TYPE
                RFC1220"
      ::= { pppBridgeEntry 5 }
 
+
 --
 -- The PPP Bridge Configuration table
 --
@@ -163,10 +170,10 @@ pppBridgeConfigTable   OBJECT-TYPE
      STATUS    mandatory
      DESCRIPTION
                "Table containing the parameters and statistics
-
                for the local PPP entity that are related to
                the operation of Bridging over the PPP."
      ::= { pppBridge 2 }
+
 
 pppBridgeConfigEntry   OBJECT-TYPE
      SYNTAX    PppBridgeConfigEntry
@@ -177,6 +184,7 @@ pppBridgeConfigEntry   OBJECT-TYPE
                particular PPP link."
      INDEX     { ifIndex }
      ::= { pppBridgeConfigTable 1 }
+
 
 PppBridgeConfigEntry ::= SEQUENCE {
      pppBridgeConfigAdminStatus
@@ -190,6 +198,7 @@ PppBridgeConfigEntry ::= SEQUENCE {
      pppBridgeConfigLanId
           INTEGER
 }
+
 
 pppBridgeConfigAdminStatus   OBJECT-TYPE
      SYNTAX    INTEGER { open(1), close(2) }
@@ -206,6 +215,7 @@ pppBridgeConfigAdminStatus   OBJECT-TYPE
                machine."
      ::= { pppBridgeConfigEntry 1 }
 
+
 pppBridgeConfigTinygram   OBJECT-TYPE
      SYNTAX    INTEGER { false(1), true(2) }
      ACCESS    read-write
@@ -220,6 +230,7 @@ pppBridgeConfigTinygram   OBJECT-TYPE
                RFC1220"
      DEFVAL    { true }
      ::= { pppBridgeConfigEntry 2 }
+
 
 pppBridgeConfigRingId   OBJECT-TYPE
      SYNTAX    INTEGER { false(1), true(2) }
@@ -237,6 +248,7 @@ pppBridgeConfigRingId   OBJECT-TYPE
                Identification Option, of RFC1220"
      DEFVAL    { false }
      ::= { pppBridgeConfigEntry 3 }
+
 
 pppBridgeConfigLineId   OBJECT-TYPE
      SYNTAX    INTEGER { false(1), true(2) }
@@ -270,6 +282,7 @@ pppBridgeConfigLanId   OBJECT-TYPE
      DEFVAL    { false }
      ::= { pppBridgeConfigEntry 5 }
 
+
 --
 -- The PPP Bridge Media Status Table
 --
@@ -283,6 +296,7 @@ pppBridgeMediaTable   OBJECT-TYPE
                enabled for the Bridging NCPs."
      ::= { pppBridge 3 }
 
+
 pppBridgeMediaEntry   OBJECT-TYPE
      SYNTAX    PppBridgeMediaEntry
      ACCESS    not-accessible
@@ -293,6 +307,7 @@ pppBridgeMediaEntry   OBJECT-TYPE
      INDEX     { ifIndex, pppBridgeMediaMacType }
      ::= { pppBridgeMediaTable 1 }
 
+
 PppBridgeMediaEntry ::= SEQUENCE {
      pppBridgeMediaMacType
           INTEGER,
@@ -300,7 +315,6 @@ PppBridgeMediaEntry ::= SEQUENCE {
           INTEGER,
      pppBridgeMediaRemoteStatus
           INTEGER
-
 }
 
 pppBridgeMediaMacType   OBJECT-TYPE
@@ -318,6 +332,7 @@ pppBridgeMediaMacType   OBJECT-TYPE
                "Section 6.6, MAC Type Support Selection, of
                RFC1212."
      ::= { pppBridgeMediaEntry 1 }
+
 
 pppBridgeMediaLocalStatus   OBJECT-TYPE
      SYNTAX    INTEGER { accept(1), dont-accept(2) }
@@ -338,6 +353,7 @@ pppBridgeMediaLocalStatus   OBJECT-TYPE
                RFC1212."
      ::= { pppBridgeMediaEntry 2 }
 
+
 pppBridgeMediaRemoteStatus   OBJECT-TYPE
      SYNTAX    INTEGER { accept(1), dont-accept(2) }
      ACCESS    read-only
@@ -347,12 +363,12 @@ pppBridgeMediaRemoteStatus   OBJECT-TYPE
                Entity believes that the remote PPP Bridging
                Entity will accept packets of the protocol type
                identified in pppBridgeMediaMacType on the PPP
-
                link identified by ifIndex or not."
      REFERENCE
                "Section 6.6, MAC Type Support Selection, of
                RFC1212."
      ::= { pppBridgeMediaEntry 3 }
+
 
 --
 -- The PPP Bridge Media Configuration Table
@@ -367,6 +383,7 @@ pppBridgeMediaConfigTable   OBJECT-TYPE
                enabled for the Bridging NCPs."
      ::= { pppBridge 4 }
 
+
 pppBridgeMediaConfigEntry   OBJECT-TYPE
      SYNTAX    PppBridgeMediaConfigEntry
      ACCESS    not-accessible
@@ -377,12 +394,14 @@ pppBridgeMediaConfigEntry   OBJECT-TYPE
      INDEX     { ifIndex, pppBridgeMediaConfigMacType }
      ::= { pppBridgeMediaConfigTable 1 }
 
+
 PppBridgeMediaConfigEntry ::= SEQUENCE {
      pppBridgeMediaConfigMacType
           INTEGER,
      pppBridgeMediaConfigLocalStatus
           INTEGER
 }
+
 
 pppBridgeMediaConfigMacType   OBJECT-TYPE
      SYNTAX    INTEGER(0..2147483647)
@@ -392,7 +411,6 @@ pppBridgeMediaConfigMacType   OBJECT-TYPE
                "The MAC type for which this entry in the
                pppBridgeMediaConfigTable is providing status
                information. Valid values for this object are
-
                defined in Section 6.6 MAC Type Support
                Selection of RFC1220 (Bridging Point-to-Point
                Protocol)."
@@ -400,6 +418,7 @@ pppBridgeMediaConfigMacType   OBJECT-TYPE
                "Section 6.6, MAC Type Support Selection, of
                RFC1212."
      ::= { pppBridgeMediaConfigEntry 1 }
+
 
 pppBridgeMediaConfigLocalStatus   OBJECT-TYPE
      SYNTAX    INTEGER { accept(1), dont-accept(2) }
@@ -425,5 +444,6 @@ pppBridgeMediaConfigLocalStatus   OBJECT-TYPE
                "Section 6.6, MAC Type Support Selection, of
                RFC1212."
      ::= { pppBridgeMediaConfigEntry 2 }
+
 
 END

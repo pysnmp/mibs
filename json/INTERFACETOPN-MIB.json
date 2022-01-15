@@ -5,12 +5,8 @@
       "CounterBasedGauge64"
     ],
     "RMON-MIB": [
-      "OwnerString",
-      "rmon"
-    ],
-    "RMON2-MIB": [
-      "probeConfig",
-      "rmonConformance"
+      "rmon",
+      "OwnerString"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -18,26 +14,27 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
       "Integer32",
       "Counter32",
       "iso",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TimeStamp",
+      "TruthValue",
+      "RowStatus",
       "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TimeStamp",
+      "DisplayString"
     ]
   },
   "interfaceTopNMIB": {
@@ -69,81 +66,82 @@
       "type": "Bits",
       "class": "type",
       "bits": {
-        "usrTopN": 0,
-        "ifInOctets": 1,
-        "ifInUcastPkts": 2,
-        "ifInNUcastPkts": 3,
-        "ifInDiscards": 4,
-        "ifInErrors": 5,
-        "ifInUnknownProtos": 6,
-        "ifOutOctets": 7,
-        "ifOutUcastPkts": 8,
-        "ifOutNUcastPkts": 9,
-        "ifOutDiscards": 10,
-        "ifOutErrors": 11,
-        "ifInMulticastPkts": 12,
-        "ifInBroadcastPkts": 13,
-        "ifOutMulticastPkts": 14,
-        "ifOutBroadcastPkts": 15,
-        "ifHCInOctets": 16,
-        "ifHCInUcastPkts": 17,
-        "ifHCInMulticastPkts": 18,
-        "ifHCInBroadcastPkts": 19,
-        "ifHCOutOctets": 20,
-        "ifHCOutUcastPkts": 21,
-        "ifHCOutMulticastPkts": 22,
-        "ifHCOutBroadcastPkts": 23,
-        "dot3StatsAlignmentErrors": 24,
-        "dot3StatsFCSErrors": 25,
-        "dot3StatsSingleCollisionFrames": 26,
-        "dot3StatsMultipleCollisionFrames": 27,
-        "dot3StatsSQETestErrors": 28,
-        "dot3StatsDeferredTransmissions": 29,
-        "dot3StatsLateCollisions": 30,
-        "dot3StatsExcessiveCollisions": 31,
-        "dot3StatsInternalMacTransmitErrors": 32,
-        "dot3StatsCarrierSenseErrors": 33,
-        "dot3StatsFrameTooLongs": 34,
-        "dot3StatsInternalMacReceiveErrors": 35,
-        "dot3StatsSymbolErrors": 36,
-        "dot5StatsLineErrors": 37,
-        "dot5StatsBurstErrors": 38,
-        "dot5StatsACErrors": 39,
-        "dot5StatsAbortTransErrors": 40,
-        "dot5StatsInternalErrors": 41,
-        "dot5StatsLostFrameErrors": 42,
-        "dot5StatsReceiveCongestions": 43,
-        "dot5StatsFrameCopiedErrors": 44,
-        "dot5StatsTokenErrors": 45,
-        "dot5StatsSoftErrors": 46,
-        "dot5StatsHardErrors": 47,
-        "dot5StatsSignalLoss": 48,
-        "dot5StatsTransmitBeacons": 49,
-        "dot5StatsRecoverys": 50,
-        "dot5StatsLobeWires": 51,
-        "dot5StatsRemoves": 52,
-        "dot5StatsSingles": 53,
-        "dot5StatsFreqErrors": 54,
-        "etherStatsDropEvents": 55,
-        "etherStatsOctets": 56,
-        "etherStatsPkts": 57,
-        "etherStatsBroadcastPkts": 58,
-        "etherStatsMulticastPkts": 59,
-        "etherStatsCRCAlignErrors": 60,
-        "etherStatsUndersizePkts": 61,
-        "etherStatsOversizePkts": 62,
-        "etherStatsFragments": 63,
-        "etherStatsJabbers": 64,
-        "etherStatsCollisions": 65,
-        "etherStatsPkts64Octets": 66,
-        "etherStatsPkts65to127Octets": 67,
-        "etherStatsPkts128to255Octets": 68,
-        "etherStatsPkts256to511Octets": 69,
-        "etherStatsPkts512to1023Octets": 70,
-        "etherStatsPkts1024to1518Octets": 71,
-        "dot1dTpPortInFrames": 72,
-        "dot1dTpPortOutFrames": 73,
-        "dot1dTpPortInDiscards": 74
+        "ifInOctets": 0,
+        "ifInUcastPkts": 1,
+        "ifInNUcastPkts": 2,
+        "ifInDiscards": 3,
+        "ifInErrors": 4,
+        "ifInUnknownProtos": 5,
+        "ifOutOctets": 6,
+        "ifOutUcastPkts": 7,
+        "ifOutNUcastPkts": 8,
+        "ifOutDiscards": 9,
+        "ifOutErrors": 10,
+        "ifInMulticastPkts": 11,
+        "ifInBroadcastPkts": 12,
+        "ifOutMulticastPkts": 13,
+        "ifOutBroadcastPkts": 14,
+        "ifHCInOctets": 15,
+        "ifHCInUcastPkts": 16,
+        "ifHCInMulticastPkts": 17,
+        "ifHCInBroadcastPkts": 18,
+        "ifHCOutOctets": 19,
+        "ifHCOutUcastPkts": 20,
+        "ifHCOutMulticastPkts": 21,
+        "ifHCOutBroadcastPkts": 22,
+        "dot3StatsAlignmentErrors": 23,
+        "dot3StatsFCSErrors": 24,
+        "dot3StatsSingleCollisionFrames": 25,
+        "dot3StatsMultipleCollisionFrames": 26,
+        "dot3StatsSQETestErrors": 27,
+        "dot3StatsDeferredTransmissions": 28,
+        "dot3StatsLateCollisions": 29,
+        "dot3StatsExcessiveCollisions": 30,
+        "dot3StatsInternalMacTxErrors": 31,
+        "dot3StatsCarrierSenseErrors": 32,
+        "dot3StatsFrameTooLongs": 33,
+        "dot3StatsInternalMacRxErrors": 34,
+        "dot3StatsSymbolErrors": 35,
+        "dot3InPauseFrames": 36,
+        "dot3OutPauseFrames": 37,
+        "dot5StatsLineErrors": 38,
+        "dot5StatsBurstErrors": 39,
+        "dot5StatsACErrors": 40,
+        "dot5StatsAbortTransErrors": 41,
+        "dot5StatsInternalErrors": 42,
+        "dot5StatsLostFrameErrors": 43,
+        "dot5StatsReceiveCongestions": 44,
+        "dot5StatsFrameCopiedErrors": 45,
+        "dot5StatsTokenErrors": 46,
+        "dot5StatsSoftErrors": 47,
+        "dot5StatsHardErrors": 48,
+        "dot5StatsSignalLoss": 49,
+        "dot5StatsTransmitBeacons": 50,
+        "dot5StatsRecoverys": 51,
+        "dot5StatsLobeWires": 52,
+        "dot5StatsRemoves": 53,
+        "dot5StatsSingles": 54,
+        "dot5StatsFreqErrors": 55,
+        "etherStatsDropEvents": 56,
+        "etherStatsOctets": 57,
+        "etherStatsPkts": 58,
+        "etherStatsBroadcastPkts": 59,
+        "etherStatsMulticastPkts": 60,
+        "etherStatsCRCAlignErrors": 61,
+        "etherStatsUndersizePkts": 62,
+        "etherStatsOversizePkts": 63,
+        "etherStatsFragments": 64,
+        "etherStatsJabbers": 65,
+        "etherStatsCollisions": 66,
+        "etherStatsPkts64Octets": 67,
+        "etherStatsPkts65to127Octets": 68,
+        "etherStatsPkts128to255Octets": 69,
+        "etherStatsPkts256to511Octets": 70,
+        "etherStatsPkts512to1023Octets": 71,
+        "etherStatsPkts1024to1518Octets": 72,
+        "dot1dTpPortInFrames": 73,
+        "dot1dTpPortOutFrames": 74,
+        "dot1dTpPortInDiscards": 75
       }
     },
     "maxaccess": "read-only",
@@ -202,80 +200,82 @@
       "class": "type",
       "constraints": {
         "enumeration": {
-          "ifInOctets": 1,
-          "ifInUcastPkts": 2,
-          "ifInNUcastPkts": 3,
-          "ifInDiscards": 4,
-          "ifInErrors": 5,
-          "ifInUnknownProtos": 6,
-          "ifOutOctets": 7,
-          "ifOutUcastPkts": 8,
-          "ifOutNUcastPkts": 9,
-          "ifOutDiscards": 10,
-          "ifOutErrors": 11,
-          "ifInMulticastPkts": 12,
-          "ifInBroadcastPkts": 13,
-          "ifOutMulticastPkts": 14,
-          "ifOutBroadcastPkts": 15,
-          "ifHCInOctets": 16,
-          "ifHCInUcastPkts": 17,
-          "ifHCInMulticastPkts": 18,
-          "ifHCInBroadcastPkts": 19,
-          "ifHCOutOctets": 20,
-          "ifHCOutUcastPkts": 21,
-          "ifHCOutMulticastPkts": 22,
-          "ifHCOutBroadcastPkts": 23,
-          "dot3StatsAlignmentErrors": 24,
-          "dot3StatsFCSErrors": 25,
-          "dot3StatsSingleCollisionFrames": 26,
-          "dot3StatsMultipleCollisionFrames": 27,
-          "dot3StatsSQETestErrors": 28,
-          "dot3StatsDeferredTransmissions": 29,
-          "dot3StatsLateCollisions": 30,
-          "dot3StatsExcessiveCollisions": 31,
-          "dot3StatsInternalMacTransmitErrors": 32,
-          "dot3StatsCarrierSenseErrors": 33,
-          "dot3StatsFrameTooLongs": 34,
-          "dot3StatsInternalMacReceiveErrors": 35,
-          "dot3StatsSymbolErrors": 36,
-          "dot5StatsLineErrors": 37,
-          "dot5StatsBurstErrors": 38,
-          "dot5StatsACErrors": 39,
-          "dot5StatsAbortTransErrors": 40,
-          "dot5StatsInternalErrors": 41,
-          "dot5StatsLostFrameErrors": 42,
-          "dot5StatsReceiveCongestions": 43,
-          "dot5StatsFrameCopiedErrors": 44,
-          "dot5StatsTokenErrors": 45,
-          "dot5StatsSoftErrors": 46,
-          "dot5StatsHardErrors": 47,
-          "dot5StatsSignalLoss": 48,
-          "dot5StatsTransmitBeacons": 49,
-          "dot5StatsRecoverys": 50,
-          "dot5StatsLobeWires": 51,
-          "dot5StatsRemoves": 52,
-          "dot5StatsSingles": 53,
-          "dot5StatsFreqErrors": 54,
-          "etherStatsDropEvents": 55,
-          "etherStatsOctets": 56,
-          "etherStatsPkts": 57,
-          "etherStatsBroadcastPkts": 58,
-          "etherStatsMulticastPkts": 59,
-          "etherStatsCRCAlignErrors": 60,
-          "etherStatsUndersizePkts": 61,
-          "etherStatsOversizePkts": 62,
-          "etherStatsFragments": 63,
-          "etherStatsJabbers": 64,
-          "etherStatsCollisions": 65,
-          "etherStatsPkts64Octets": 66,
-          "etherStatsPkts65to127Octets": 67,
-          "etherStatsPkts128to255Octets": 68,
-          "etherStatsPkts256to511Octets": 69,
-          "etherStatsPkts512to1023Octets": 70,
-          "etherStatsPkts1024to1518Octets": 71,
-          "dot1dTpPortInFrames": 72,
-          "dot1dTpPortOutFrames": 73,
-          "dot1dTpPortInDiscards": 74
+          "ifInOctets": 0,
+          "ifInUcastPkts": 1,
+          "ifInNUcastPkts": 2,
+          "ifInDiscards": 3,
+          "ifInErrors": 4,
+          "ifInUnknownProtos": 5,
+          "ifOutOctets": 6,
+          "ifOutUcastPkts": 7,
+          "ifOutNUcastPkts": 8,
+          "ifOutDiscards": 9,
+          "ifOutErrors": 10,
+          "ifInMulticastPkts": 11,
+          "ifInBroadcastPkts": 12,
+          "ifOutMulticastPkts": 13,
+          "ifOutBroadcastPkts": 14,
+          "ifHCInOctets": 15,
+          "ifHCInUcastPkts": 16,
+          "ifHCInMulticastPkts": 17,
+          "ifHCInBroadcastPkts": 18,
+          "ifHCOutOctets": 19,
+          "ifHCOutUcastPkts": 20,
+          "ifHCOutMulticastPkts": 21,
+          "ifHCOutBroadcastPkts": 22,
+          "dot3StatsAlignmentErrors": 23,
+          "dot3StatsFCSErrors": 24,
+          "dot3StatsSingleCollisionFrames": 25,
+          "dot3StatsMultipleCollisionFrames": 26,
+          "dot3StatsSQETestErrors": 27,
+          "dot3StatsDeferredTransmissions": 28,
+          "dot3StatsLateCollisions": 29,
+          "dot3StatsExcessiveCollisions": 30,
+          "dot3StatsInternalMacTxErrors": 31,
+          "dot3StatsCarrierSenseErrors": 32,
+          "dot3StatsFrameTooLongs": 33,
+          "dot3StatsInternalMacRxErrors": 34,
+          "dot3StatsSymbolErrors": 35,
+          "dot3InPauseFrames": 36,
+          "dot3OutPauseFrames": 37,
+          "dot5StatsLineErrors": 38,
+          "dot5StatsBurstErrors": 39,
+          "dot5StatsACErrors": 40,
+          "dot5StatsAbortTransErrors": 41,
+          "dot5StatsInternalErrors": 42,
+          "dot5StatsLostFrameErrors": 43,
+          "dot5StatsReceiveCongestions": 44,
+          "dot5StatsFrameCopiedErrors": 45,
+          "dot5StatsTokenErrors": 46,
+          "dot5StatsSoftErrors": 47,
+          "dot5StatsHardErrors": 48,
+          "dot5StatsSignalLoss": 49,
+          "dot5StatsTransmitBeacons": 50,
+          "dot5StatsRecoverys": 51,
+          "dot5StatsLobeWires": 52,
+          "dot5StatsRemoves": 53,
+          "dot5StatsSingles": 54,
+          "dot5StatsFreqErrors": 55,
+          "etherStatsDropEvents": 56,
+          "etherStatsOctets": 57,
+          "etherStatsPkts": 58,
+          "etherStatsBroadcastPkts": 59,
+          "etherStatsMulticastPkts": 60,
+          "etherStatsCRCAlignErrors": 61,
+          "etherStatsUndersizePkts": 62,
+          "etherStatsOversizePkts": 63,
+          "etherStatsFragments": 64,
+          "etherStatsJabbers": 65,
+          "etherStatsCollisions": 66,
+          "etherStatsPkts64Octets": 67,
+          "etherStatsPkts65to127Octets": 68,
+          "etherStatsPkts128to255Octets": 69,
+          "etherStatsPkts256to511Octets": 70,
+          "etherStatsPkts512to1023Octets": 71,
+          "etherStatsPkts1024to1518Octets": 72,
+          "dot1dTpPortInFrames": 73,
+          "dot1dTpPortOutFrames": 74,
+          "dot1dTpPortInDiscards": 75
         }
       }
     },
@@ -301,20 +301,14 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "interfaceTopNNormalization": {
-    "name": "interfaceTopNNormalization",
+  "interfaceTopNNormalizationReq": {
+    "name": "interfaceTopNNormalizationReq",
     "oid": "1.3.6.1.2.1.16.27.1.2.1.4",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "normalizationRequired": 1,
-          "normalizationNotRequired": 2
-        }
-      }
+      "type": "TruthValue",
+      "class": "type"
     },
     "maxaccess": "read-create",
     "status": "current"
@@ -325,33 +319,23 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
-      "class": "type"
-    },
-    "default": {
-      "default": {
-        "value": 1,
-        "format": "decimal"
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
       }
     },
     "maxaccess": "read-create",
     "status": "current"
   },
-  "interfaceTopNControlGeneratedReports": {
-    "name": "interfaceTopNControlGeneratedReports",
-    "oid": "1.3.6.1.2.1.16.27.1.2.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "interfaceTopNTimeRemaining": {
     "name": "interfaceTopNTimeRemaining",
-    "oid": "1.3.6.1.2.1.16.27.1.2.1.7",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.6",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -371,7 +355,7 @@
   },
   "interfaceTopNDuration": {
     "name": "interfaceTopNDuration",
-    "oid": "1.3.6.1.2.1.16.27.1.2.1.8",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.7",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -391,7 +375,7 @@
   },
   "interfaceTopNRequestedSize": {
     "name": "interfaceTopNRequestedSize",
-    "oid": "1.3.6.1.2.1.16.27.1.2.1.9",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.8",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -409,7 +393,7 @@
   },
   "interfaceTopNGrantedSize": {
     "name": "interfaceTopNGrantedSize",
-    "oid": "1.3.6.1.2.1.16.27.1.2.1.10",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.9",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -419,7 +403,7 @@
         "range": [
           {
             "min": 0,
-            "max": 65535
+            "max": 2147483647
           }
         ]
       }
@@ -429,7 +413,7 @@
   },
   "interfaceTopNStartTime": {
     "name": "interfaceTopNStartTime",
-    "oid": "1.3.6.1.2.1.16.27.1.2.1.11",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.10",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -441,7 +425,7 @@
   },
   "interfaceTopNOwner": {
     "name": "interfaceTopNOwner",
-    "oid": "1.3.6.1.2.1.16.27.1.2.1.12",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.11",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -449,6 +433,18 @@
       "class": "type"
     },
     "maxaccess": "read-create",
+    "status": "current"
+  },
+  "interfaceTopNLastCompletionTime": {
+    "name": "interfaceTopNLastCompletionTime",
+    "oid": "1.3.6.1.2.1.16.27.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
     "status": "current"
   },
   "interfaceTopNRowStatus": {
@@ -588,10 +584,6 @@
       },
       {
         "module": "INTERFACETOPN-MIB",
-        "object": "interfaceTopNControlIndex"
-      },
-      {
-        "module": "INTERFACETOPN-MIB",
         "object": "interfaceTopNObjectVariable"
       },
       {
@@ -600,15 +592,11 @@
       },
       {
         "module": "INTERFACETOPN-MIB",
-        "object": "interfaceTopNNormalization"
+        "object": "interfaceTopNNormalizationReq"
       },
       {
         "module": "INTERFACETOPN-MIB",
         "object": "interfaceTopNNormalizationFactor"
-      },
-      {
-        "module": "INTERFACETOPN-MIB",
-        "object": "interfaceTopNControlGeneratedReports"
       },
       {
         "module": "INTERFACETOPN-MIB",
@@ -636,11 +624,11 @@
       },
       {
         "module": "INTERFACETOPN-MIB",
-        "object": "interfaceTopNRowStatus"
+        "object": "interfaceTopNLastCompletionTime"
       },
       {
         "module": "INTERFACETOPN-MIB",
-        "object": "interfaceTopNIndex"
+        "object": "interfaceTopNRowStatus"
       },
       {
         "module": "INTERFACETOPN-MIB",
@@ -659,9 +647,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/INTERFACETOPN-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/INTERFACETOPN-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "INTERFACETOPN-MIB"

@@ -1,5 +1,9 @@
 DVMRP-MIB DEFINITIONS ::= BEGIN
 
+--
+-- http://tools.ietf.org/html/draft-thaler-dvmrp-mib-09
+--
+
 IMPORTS
     MODULE-IDENTITY, OBJECT-TYPE, experimental,
     Integer32, Counter32, Gauge32, NOTIFICATION-TYPE,
@@ -83,7 +87,6 @@ dvmrpInterfaceEntry OBJECT-TYPE
             "An entry (conceptual row) in the dvmrpInterfaceTable.  This
             row augments ipMRouteInterfaceEntry in the IP Multicast MIB,
             where the threshold object resides."
-
     INDEX      { dvmrpInterfaceIfIndex }
     ::= { dvmrpInterfaceTable 1 }
 
@@ -335,7 +338,7 @@ DvmrpNeighborEntry ::= SEQUENCE {
 
 dvmrpNeighborIfIndex OBJECT-TYPE
     SYNTAX     Integer32
-    MAX-ACCESS read-only
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
             "The value of ifIndex for the virtual interface used to
@@ -344,7 +347,7 @@ dvmrpNeighborIfIndex OBJECT-TYPE
 
 dvmrpNeighborAddress OBJECT-TYPE
     SYNTAX     IpAddress
-    MAX-ACCESS read-only
+    MAX-ACCESS not-accessible
     STATUS     current
     DESCRIPTION
             "The IP address of the DVMRP neighbor for which this entry
@@ -625,7 +628,6 @@ dvmrpAltNetTable OBJECT-TYPE
     SYNTAX     SEQUENCE OF DvmrpAltNetEntry
     MAX-ACCESS not-accessible
     STATUS     deprecated
-
     DESCRIPTION
             "The (conceptual) table listing the router's alternate
             subnets on physical interfaces for use in constructing the
@@ -671,7 +673,6 @@ dvmrpAltNetMask OBJECT-TYPE
     MAX-ACCESS not-accessible
     STATUS     deprecated
     DESCRIPTION
-
             "The subnet mask of the alternate subnet."
     ::= { dvmrpAltNetEntry 3 }
 

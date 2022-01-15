@@ -1,51 +1,55 @@
 {
   "imports": {
     "class": "imports",
+    "IEEE8021-TC-MIB": [
+      "IEEE8021VlanIndex",
+      "ieee802dot1mibs"
+    ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "LLDP-MIB": [
-      "LldpPortIdSubtype",
+      "LldpChassisIdSubtype",
       "LldpChassisId",
-      "LldpPortId",
-      "LldpChassisIdSubtype"
+      "LldpPortIdSubtype",
+      "LldpPortId"
     ],
     "Q-BRIDGE-MIB": [
       "VlanIdOrNone",
       "VlanId"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "Unsigned32",
-      "iso",
-      "Gauge32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
+      "TDomain",
       "TruthValue",
       "RowStatus",
-      "TAddress",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION",
       "MacAddress",
       "TimeStamp",
       "DisplayString",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "TDomain"
+      "TAddress"
     ]
   },
   "ieee8021CfmMib": {
@@ -54,12 +58,20 @@
     "class": "moduleidentity",
     "revisions": [
       {
+        "revision": "2011-02-27 00:00",
+        "description": "Addition of support for ICC format and minor edits as part of 2011 revision of IEEE Std 802.1Q."
+      },
+      {
+        "revision": "2008-11-18 00:00",
+        "description": "Added new columns to the dot1agCfmMepTable to support new MEP functionality required for PBB-TE support. Modified dot1agCfmMepDbTable to support new functionality requried for PBB-TE. Modified conformance clauses to indicate objects needed for PBB-TE support."
+      },
+      {
         "revision": "2008-10-15 00:00",
-        "description": "The IEEE8021-CFM-MIB Module was originally included in IEEE P802.1ag D8.1. Some objects in this module are deprecated and replaced by objects in the IEEE8021-CFM-V2-MIB module defined in 802.1ap. This revision is included in IEEE 802.1ap"
+        "description": "The IEEE8021-CFM-MIB Module was originally included in IEEE 802.1ag-2007. Some objects in this module are deprecated and replaced by objects in the IEEE8021-CFM-V2-MIB module defined in 802.1ap. This revision is included in IEEE 802.1ap"
       },
       {
         "revision": "2007-06-10 00:00",
-        "description": "Included in IEEE P802.1ag Draft 8.1 Copyright (C) IEEE802.1."
+        "description": "Included in IEEE 802.1ag-2007 Copyright (C) IEEE802.1."
       }
     ]
   },
@@ -158,7 +170,8 @@
           "primaryVid": 1,
           "charString": 2,
           "unsignedInt16": 3,
-          "rfc2865VpnId": 4
+          "rfc2865VpnId": 4,
+          "iccFormat": 32
         }
       }
     },
@@ -789,8 +802,15 @@
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "Dot1agCfmMhfCreation",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "defMHFnone": 1,
+          "defMHFdefault": 2,
+          "defMHFexplicit": 3
+        }
+      }
     },
     "default": {
       "default": {
@@ -807,8 +827,16 @@
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "Dot1agCfmIdPermission",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sendIdNone": 1,
+          "sendIdChassis": 2,
+          "sendIdManage": 3,
+          "sendIdChassisManage": 4
+        }
+      }
     },
     "default": {
       "default": {
@@ -1110,8 +1138,15 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Dot1agCfmMhfCreation",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "defMHFnone": 1,
+          "defMHFdefault": 2,
+          "defMHFexplicit": 3
+        }
+      }
     },
     "default": {
       "default": {
@@ -1128,8 +1163,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Dot1agCfmIdPermission",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "sendIdNone": 1,
+          "sendIdChassis": 2,
+          "sendIdManage": 3,
+          "sendIdChassisManage": 4
+        }
+      }
     },
     "default": {
       "default": {
@@ -1980,7 +2023,7 @@
     },
     "default": {
       "default": {
-        "value": "true",
+        "value": "false",
         "format": "enum"
       }
     },
@@ -2182,6 +2225,90 @@
       "class": "type"
     },
     "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1agCfmMepPbbTeCanReportPbbTePresence": {
+    "name": "dot1agCfmMepPbbTeCanReportPbbTePresence",
+    "oid": "1.3.111.2.802.1.1.8.1.7.1.1.46",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1agCfmMepPbbTeTrafficMismatchDefect": {
+    "name": "dot1agCfmMepPbbTeTrafficMismatchDefect",
+    "oid": "1.3.111.2.802.1.1.8.1.7.1.1.47",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1agCfmMepPbbTransmitLbmLtmReverseVid": {
+    "name": "dot1agCfmMepPbbTransmitLbmLtmReverseVid",
+    "oid": "1.3.111.2.802.1.1.8.1.7.1.1.48",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IEEE8021VlanIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1agCfmMepPbbTeMismatchAlarm": {
+    "name": "dot1agCfmMepPbbTeMismatchAlarm",
+    "oid": "1.3.111.2.802.1.1.8.1.7.1.1.49",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot1agCfmMepPbbTeLocalMismatchDefect": {
+    "name": "dot1agCfmMepPbbTeLocalMismatchDefect",
+    "oid": "1.3.111.2.802.1.1.8.1.7.1.1.50",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1agCfmMepPbbTeMismatchSinceReset": {
+    "name": "dot1agCfmMepPbbTeMismatchSinceReset",
+    "oid": "1.3.111.2.802.1.1.8.1.7.1.1.51",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
     "status": "current"
   },
   "dot1agCfmLtrTable": {
@@ -2711,6 +2838,18 @@
       "class": "type"
     },
     "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dot1agCfmMepDbRMepIsActive": {
+    "name": "dot1agCfmMepDbRMepIsActive",
+    "oid": "1.3.111.2.802.1.1.8.1.7.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "dot1agCfmFaultAlarm": {
@@ -3325,9 +3464,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-CFM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-CFM-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:14 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-CFM-MIB"

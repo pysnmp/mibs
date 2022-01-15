@@ -1,28 +1,29 @@
 {
   "imports": {
     "class": "imports",
-    "CISCO-SMI": [
-      "ciscoExperiment"
+    "ATM-TC-MIB": [
+      "AtmAddr"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
       "Unsigned32",
+      "Integer32",
       "Counter32",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
+      "iso",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Integer32",
-      "Gauge32",
       "IpAddress",
-      "OBJECT-TYPE",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "iso"
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -32,54 +33,23 @@
   },
   "atmAccountingInformationMIB": {
     "name": "atmAccountingInformationMIB",
-    "oid": "1.3.6.1.4.1.9.10.18",
-    "class": "moduleidentity",
-    "revisions": [
-      {
-        "revision": "1997-11-05 00:00",
-        "description": "Added objects atmAcctngTransmittedPeakCells and atmAcctngReceivedPeakCells."
-      }
-    ]
+    "oid": "1.3.6.1.2.1.59",
+    "class": "moduleidentity"
   },
   "atmAcctngMIBObjects": {
     "name": "atmAcctngMIBObjects",
-    "oid": "1.3.6.1.4.1.9.10.18.1",
+    "oid": "1.3.6.1.2.1.59.1",
     "class": "objectidentity"
-  },
-  "AtmAddr": {
-    "name": "AtmAddr",
-    "class": "textualconvention",
-    "type": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 0
-          },
-          {
-            "min": 8,
-            "max": 8
-          },
-          {
-            "min": 20,
-            "max": 20
-          }
-        ]
-      }
-    },
-    "status": "current"
   },
   "atmAcctngDataObjects": {
     "name": "atmAcctngDataObjects",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1",
+    "oid": "1.3.6.1.2.1.59.1.1",
     "class": "objectidentity",
     "status": "current"
   },
   "atmAcctngConnectionType": {
     "name": "atmAcctngConnectionType",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.1",
+    "oid": "1.3.6.1.2.1.59.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -105,7 +75,7 @@
   },
   "atmAcctngCastType": {
     "name": "atmAcctngCastType",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.2",
+    "oid": "1.3.6.1.2.1.59.1.1.2",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -123,7 +93,7 @@
   },
   "atmAcctngIfName": {
     "name": "atmAcctngIfName",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.3",
+    "oid": "1.3.6.1.2.1.59.1.1.3",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -135,7 +105,7 @@
   },
   "atmAcctngIfAlias": {
     "name": "atmAcctngIfAlias",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.4",
+    "oid": "1.3.6.1.2.1.59.1.1.4",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -147,7 +117,7 @@
   },
   "atmAcctngVpi": {
     "name": "atmAcctngVpi",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.5",
+    "oid": "1.3.6.1.2.1.59.1.1.5",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -167,7 +137,7 @@
   },
   "atmAcctngVci": {
     "name": "atmAcctngVci",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.6",
+    "oid": "1.3.6.1.2.1.59.1.1.6",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -187,7 +157,7 @@
   },
   "atmAcctngCallingParty": {
     "name": "atmAcctngCallingParty",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.7",
+    "oid": "1.3.6.1.2.1.59.1.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -199,7 +169,7 @@
   },
   "atmAcctngCalledParty": {
     "name": "atmAcctngCalledParty",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.8",
+    "oid": "1.3.6.1.2.1.59.1.1.8",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -211,7 +181,7 @@
   },
   "atmAcctngCallReference": {
     "name": "atmAcctngCallReference",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.9",
+    "oid": "1.3.6.1.2.1.59.1.1.9",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -231,7 +201,7 @@
   },
   "atmAcctngStartTime": {
     "name": "atmAcctngStartTime",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.10",
+    "oid": "1.3.6.1.2.1.59.1.1.10",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -243,7 +213,7 @@
   },
   "atmAcctngCollectionTime": {
     "name": "atmAcctngCollectionTime",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.11",
+    "oid": "1.3.6.1.2.1.59.1.1.11",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -255,7 +225,7 @@
   },
   "atmAcctngCollectMode": {
     "name": "atmAcctngCollectMode",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.12",
+    "oid": "1.3.6.1.2.1.59.1.1.12",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -274,7 +244,7 @@
   },
   "atmAcctngReleaseCause": {
     "name": "atmAcctngReleaseCause",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.13",
+    "oid": "1.3.6.1.2.1.59.1.1.13",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -286,7 +256,7 @@
   },
   "atmAcctngServiceCategory": {
     "name": "atmAcctngServiceCategory",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.14",
+    "oid": "1.3.6.1.2.1.59.1.1.14",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -309,7 +279,7 @@
   },
   "atmAcctngTransmittedCells": {
     "name": "atmAcctngTransmittedCells",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.15",
+    "oid": "1.3.6.1.2.1.59.1.1.15",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -321,7 +291,7 @@
   },
   "atmAcctngTransmittedClp0Cells": {
     "name": "atmAcctngTransmittedClp0Cells",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.16",
+    "oid": "1.3.6.1.2.1.59.1.1.16",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -333,7 +303,7 @@
   },
   "atmAcctngReceivedCells": {
     "name": "atmAcctngReceivedCells",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.17",
+    "oid": "1.3.6.1.2.1.59.1.1.17",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -345,7 +315,7 @@
   },
   "atmAcctngReceivedClp0Cells": {
     "name": "atmAcctngReceivedClp0Cells",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.18",
+    "oid": "1.3.6.1.2.1.59.1.1.18",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -357,7 +327,7 @@
   },
   "atmAcctngTransmitTrafficDescriptorType": {
     "name": "atmAcctngTransmitTrafficDescriptorType",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.19",
+    "oid": "1.3.6.1.2.1.59.1.1.19",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -369,7 +339,7 @@
   },
   "atmAcctngTransmitTrafficDescriptorParam1": {
     "name": "atmAcctngTransmitTrafficDescriptorParam1",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.20",
+    "oid": "1.3.6.1.2.1.59.1.1.20",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -389,7 +359,7 @@
   },
   "atmAcctngTransmitTrafficDescriptorParam2": {
     "name": "atmAcctngTransmitTrafficDescriptorParam2",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.21",
+    "oid": "1.3.6.1.2.1.59.1.1.21",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -409,7 +379,7 @@
   },
   "atmAcctngTransmitTrafficDescriptorParam3": {
     "name": "atmAcctngTransmitTrafficDescriptorParam3",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.22",
+    "oid": "1.3.6.1.2.1.59.1.1.22",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -429,7 +399,7 @@
   },
   "atmAcctngTransmitTrafficDescriptorParam4": {
     "name": "atmAcctngTransmitTrafficDescriptorParam4",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.23",
+    "oid": "1.3.6.1.2.1.59.1.1.23",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -449,7 +419,7 @@
   },
   "atmAcctngTransmitTrafficDescriptorParam5": {
     "name": "atmAcctngTransmitTrafficDescriptorParam5",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.24",
+    "oid": "1.3.6.1.2.1.59.1.1.24",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -469,7 +439,7 @@
   },
   "atmAcctngReceiveTrafficDescriptorType": {
     "name": "atmAcctngReceiveTrafficDescriptorType",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.25",
+    "oid": "1.3.6.1.2.1.59.1.1.25",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -481,7 +451,7 @@
   },
   "atmAcctngReceiveTrafficDescriptorParam1": {
     "name": "atmAcctngReceiveTrafficDescriptorParam1",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.26",
+    "oid": "1.3.6.1.2.1.59.1.1.26",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -501,7 +471,7 @@
   },
   "atmAcctngReceiveTrafficDescriptorParam2": {
     "name": "atmAcctngReceiveTrafficDescriptorParam2",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.27",
+    "oid": "1.3.6.1.2.1.59.1.1.27",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -521,7 +491,7 @@
   },
   "atmAcctngReceiveTrafficDescriptorParam3": {
     "name": "atmAcctngReceiveTrafficDescriptorParam3",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.28",
+    "oid": "1.3.6.1.2.1.59.1.1.28",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -541,7 +511,7 @@
   },
   "atmAcctngReceiveTrafficDescriptorParam4": {
     "name": "atmAcctngReceiveTrafficDescriptorParam4",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.29",
+    "oid": "1.3.6.1.2.1.59.1.1.29",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -561,7 +531,7 @@
   },
   "atmAcctngReceiveTrafficDescriptorParam5": {
     "name": "atmAcctngReceiveTrafficDescriptorParam5",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.30",
+    "oid": "1.3.6.1.2.1.59.1.1.30",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -581,7 +551,7 @@
   },
   "atmAcctngCallingPartySubAddress": {
     "name": "atmAcctngCallingPartySubAddress",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.31",
+    "oid": "1.3.6.1.2.1.59.1.1.31",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -593,7 +563,7 @@
   },
   "atmAcctngCalledPartySubAddress": {
     "name": "atmAcctngCalledPartySubAddress",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.32",
+    "oid": "1.3.6.1.2.1.59.1.1.32",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -605,7 +575,7 @@
   },
   "atmAcctngRecordCrc16": {
     "name": "atmAcctngRecordCrc16",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.33",
+    "oid": "1.3.6.1.2.1.59.1.1.33",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -623,35 +593,11 @@
     "maxaccess": "not-accessible",
     "status": "current"
   },
-  "atmAcctngTransmittedPeakCells": {
-    "name": "atmAcctngTransmittedPeakCells",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.34",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
-  "atmAcctngReceivedPeakCells": {
-    "name": "atmAcctngReceivedPeakCells",
-    "oid": "1.3.6.1.4.1.9.10.18.1.1.35",
-    "nodetype": "scalar",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type"
-    },
-    "maxaccess": "not-accessible",
-    "status": "current"
-  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ATM-ACCOUNTING-INFORMATION-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:14:05 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ATM-ACCOUNTING-INFORMATION-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ATM-ACCOUNTING-INFORMATION-MIB"

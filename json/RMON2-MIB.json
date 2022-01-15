@@ -5,73 +5,59 @@
       "ifIndex"
     ],
     "RMON-MIB": [
-      "history",
-      "statistics",
-      "OwnerString",
-      "hostControlEntry",
-      "etherStatsEntry",
-      "matrix",
-      "historyControlEntry",
-      "matrixControlEntry",
       "hosts",
-      "filterEntry",
+      "hostControlEntry",
+      "historyControlEntry",
+      "history",
       "channelEntry",
-      "filter"
+      "etherStatsEntry",
+      "filterEntry",
+      "OwnerString",
+      "matrix",
+      "matrixControlEntry",
+      "filter",
+      "statistics"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
-      "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
       "Bits",
       "Counter64",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "mib-2",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "iso",
+      "Counter32"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "DisplayString",
       "TimeStamp",
-      "TEXTUAL-CONVENTION",
       "RowStatus"
     ],
     "TOKEN-RING-RMON-MIB": [
-      "tokenRingPStatsEntry",
-      "sourceRoutingStatsEntry",
       "tokenRingMLStatsEntry",
+      "ringStationControlEntry",
       "tokenRing",
-      "ringStationControlEntry"
+      "tokenRingPStatsEntry",
+      "sourceRoutingStatsEntry"
     ]
   },
   "rmon": {
     "name": "rmon",
     "oid": "1.3.6.1.2.1.16",
-    "class": "moduleidentity",
-    "revisions": [
-      {
-        "revision": "2006-05-02 00:00",
-        "description": "This version updates the proposed-standard version of the RMON2 MIB (published as RFC 2021) by adding 2 new enumerations to the nlMatrixTopNControlRateBase object and 4 new enumerations to the alMatrixTopNControlRateBase object. These new enumerations support the creation of high-capacity topN reports in the High Capacity RMON MIB [RFC3273]. Additionally, the following objects have been deprecated, as they have not had enough independent implementations to demonstrate interoperability to meet the requirements of a Draft Standard: probeDownloadFile probeDownloadTFTPServer probeDownloadAction probeDownloadStatus serialMode serialProtocol serialTimeout serialModemInitString serialModemHangUpString serialModemConnectResp serialModemNoConnectResp serialDialoutTimeout serialStatus serialConnectDestIpAddress serialConnectType serialConnectDialString serialConnectSwitchConnectSeq serialConnectSwitchDisconnectSeq serialConnectSwitchResetSeq serialConnectOwner serialConnectStatus netConfigIPAddress netConfigSubnetMask netConfigStatus netDefaultGateway tokenRingMLStats2DroppedFrames tokenRingMLStats2CreateTime tokenRingPStats2DroppedFrames tokenRingPStats2CreateTime ringStationControl2DroppedFrames ringStationControl2CreateTime sourceRoutingStats2DroppedFrames sourceRoutingStats2CreateTime trapDestIndex trapDestCommunity trapDestProtocol trapDestAddress trapDestOwner trapDestStatus In addition, two corrections were made. The LastCreateTime Textual Convention had been defined with a base type of another textual convention, which isn't allowed in SMIv2. The definition has been modified to use TimeTicks as the base type. Further, the SerialConfigEntry SEQUENCE definition included sub-typing information that is not allowed in SMIv2. This information has been deleted. Ranges were added to a number of objects and textual-conventions to constrain their maximum (and sometimes minimum) sizes. The addition of these ranges documents existing practice for these objects. These objects are: ControlString protocolDirID protocolDirParameters addressMapNetworkAddress nlHostAddress nlMatrixSDSourceAddress nlMatrixSDDestAddress nlMatrixDSSourceAddress nlMatrixDSDestAddress nlMatrixTopNSourceAddress nlMatrixTopNDestAddress alHostEntry alMatrixSDEntry alMatrixDSEntry alMatrixTopNSourceAddress alMatrixTopNDestAddress Finally, the TimeFilter TC has been updated to encourage agent implementations that allow a MIB walk to behave well even when performed by an application that is not aware of the special TimeFilter semantics."
-      },
-      {
-        "revision": "2002-07-08 00:00",
-        "description": "Added new enumerations to support the High-Capacity RMON MIB as defined in RFC 3273. Also fixed some typos and added clarifications."
-      },
-      {
-        "revision": "1996-05-27 00:00",
-        "description": "Original version. Published as RFC 2021."
-      }
-    ]
+    "class": "moduleidentity"
   },
   "protocolDir": {
     "name": "protocolDir",
@@ -136,7 +122,7 @@
     "name": "LastCreateTime",
     "class": "textualconvention",
     "type": {
-      "type": "TimeTicks",
+      "type": "TimeStamp",
       "class": "type"
     },
     "status": "current"
@@ -206,15 +192,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 4,
-            "max": 128
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -226,15 +204,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 32
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -723,15 +693,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -1020,15 +982,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -1358,15 +1312,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -1378,15 +1324,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -1489,15 +1427,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -1509,15 +1439,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -1632,9 +1554,7 @@
       "constraints": {
         "enumeration": {
           "nlMatrixTopNPkts": 1,
-          "nlMatrixTopNOctets": 2,
-          "nlMatrixTopNHighCapacityPkts": 3,
-          "nlMatrixTopNHighCapacityOctets": 4
+          "nlMatrixTopNOctets": 2
         }
       }
     },
@@ -1848,15 +1768,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1868,15 +1780,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2312,11 +2216,7 @@
           "alMatrixTopNTerminalsPkts": 1,
           "alMatrixTopNTerminalsOctets": 2,
           "alMatrixTopNAllPkts": 3,
-          "alMatrixTopNAllOctets": 4,
-          "alMatrixTopNTerminalsHighCapacityPkts": 5,
-          "alMatrixTopNTerminalsHighCapacityOctets": 6,
-          "alMatrixTopNAllHighCapacityPkts": 7,
-          "alMatrixTopNAllHighCapacityOctets": 8
+          "alMatrixTopNAllOctets": 4
         }
       }
     },
@@ -2530,15 +2430,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2550,15 +2442,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 1,
-            "max": 255
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2980,16 +2864,8 @@
     "name": "ControlString",
     "class": "textualconvention",
     "type": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
+      "type": "DisplayString",
+      "class": "type"
     },
     "status": "current"
   },
@@ -3139,7 +3015,7 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
   "probeDownloadTFTPServer": {
     "name": "probeDownloadTFTPServer",
@@ -3151,7 +3027,7 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
   "probeDownloadAction": {
     "name": "probeDownloadAction",
@@ -3170,7 +3046,7 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
   "probeDownloadStatus": {
     "name": "probeDownloadStatus",
@@ -3194,7 +3070,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConfigTable": {
     "name": "serialConfigTable",
@@ -3202,7 +3078,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConfigEntry": {
     "name": "serialConfigEntry",
@@ -3217,7 +3093,7 @@
         "implied": 0
       }
     ],
-    "status": "deprecated"
+    "status": "current"
   },
   "serialMode": {
     "name": "serialMode",
@@ -3241,7 +3117,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialProtocol": {
     "name": "serialProtocol",
@@ -3266,7 +3142,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialTimeout": {
     "name": "serialTimeout",
@@ -3292,7 +3168,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialModemInitString": {
     "name": "serialModemInitString",
@@ -3312,7 +3188,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialModemHangUpString": {
     "name": "serialModemHangUpString",
@@ -3332,7 +3208,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialModemConnectResp": {
     "name": "serialModemConnectResp",
@@ -3352,7 +3228,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialModemNoConnectResp": {
     "name": "serialModemNoConnectResp",
@@ -3372,7 +3248,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialDialoutTimeout": {
     "name": "serialDialoutTimeout",
@@ -3398,7 +3274,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialStatus": {
     "name": "serialStatus",
@@ -3410,7 +3286,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "netConfigTable": {
     "name": "netConfigTable",
@@ -3418,7 +3294,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "deprecated"
+    "status": "current"
   },
   "netConfigEntry": {
     "name": "netConfigEntry",
@@ -3433,7 +3309,7 @@
         "implied": 0
       }
     ],
-    "status": "deprecated"
+    "status": "current"
   },
   "netConfigIPAddress": {
     "name": "netConfigIPAddress",
@@ -3445,7 +3321,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "netConfigSubnetMask": {
     "name": "netConfigSubnetMask",
@@ -3457,7 +3333,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "netConfigStatus": {
     "name": "netConfigStatus",
@@ -3469,7 +3345,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "netDefaultGateway": {
     "name": "netDefaultGateway",
@@ -3481,7 +3357,7 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "deprecated"
+    "status": "current"
   },
   "trapDestTable": {
     "name": "trapDestTable",
@@ -3489,7 +3365,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "deprecated"
+    "status": "current"
   },
   "trapDestEntry": {
     "name": "trapDestEntry",
@@ -3504,7 +3380,7 @@
         "implied": 0
       }
     ],
-    "status": "deprecated"
+    "status": "current"
   },
   "trapDestIndex": {
     "name": "trapDestIndex",
@@ -3524,7 +3400,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "deprecated"
+    "status": "current"
   },
   "trapDestCommunity": {
     "name": "trapDestCommunity",
@@ -3544,7 +3420,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "trapDestProtocol": {
     "name": "trapDestProtocol",
@@ -3562,7 +3438,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "trapDestAddress": {
     "name": "trapDestAddress",
@@ -3574,7 +3450,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "trapDestOwner": {
     "name": "trapDestOwner",
@@ -3586,7 +3462,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "trapDestStatus": {
     "name": "trapDestStatus",
@@ -3598,7 +3474,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectionTable": {
     "name": "serialConnectionTable",
@@ -3606,7 +3482,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectionEntry": {
     "name": "serialConnectionEntry",
@@ -3621,7 +3497,7 @@
         "implied": 0
       }
     ],
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectIndex": {
     "name": "serialConnectIndex",
@@ -3641,7 +3517,7 @@
       }
     },
     "maxaccess": "not-accessible",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectDestIpAddress": {
     "name": "serialConnectDestIpAddress",
@@ -3653,7 +3529,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectType": {
     "name": "serialConnectType",
@@ -3679,7 +3555,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectDialString": {
     "name": "serialConnectDialString",
@@ -3699,7 +3575,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectSwitchConnectSeq": {
     "name": "serialConnectSwitchConnectSeq",
@@ -3719,7 +3595,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectSwitchDisconnectSeq": {
     "name": "serialConnectSwitchDisconnectSeq",
@@ -3739,7 +3615,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectSwitchResetSeq": {
     "name": "serialConnectSwitchResetSeq",
@@ -3759,7 +3635,7 @@
       }
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectOwner": {
     "name": "serialConnectOwner",
@@ -3771,7 +3647,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "serialConnectStatus": {
     "name": "serialConnectStatus",
@@ -3783,7 +3659,7 @@
       "class": "type"
     },
     "maxaccess": "read-create",
-    "status": "deprecated"
+    "status": "current"
   },
   "etherStats2Table": {
     "name": "etherStats2Table",
@@ -4004,7 +3880,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "deprecated"
+    "status": "current"
   },
   "tokenRingMLStats2Entry": {
     "name": "tokenRingMLStats2Entry",
@@ -4017,7 +3893,7 @@
       "module": "RMON2-MIB",
       "object": "tokenRingMLStatsEntry"
     },
-    "status": "deprecated"
+    "status": "current"
   },
   "tokenRingMLStatsDroppedFrames": {
     "name": "tokenRingMLStatsDroppedFrames",
@@ -4029,7 +3905,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "current"
   },
   "tokenRingMLStatsCreateTime": {
     "name": "tokenRingMLStatsCreateTime",
@@ -4041,7 +3917,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "current"
   },
   "tokenRingPStats2Table": {
     "name": "tokenRingPStats2Table",
@@ -4049,7 +3925,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "deprecated"
+    "status": "current"
   },
   "tokenRingPStats2Entry": {
     "name": "tokenRingPStats2Entry",
@@ -4062,7 +3938,7 @@
       "module": "RMON2-MIB",
       "object": "tokenRingPStatsEntry"
     },
-    "status": "deprecated"
+    "status": "current"
   },
   "tokenRingPStatsDroppedFrames": {
     "name": "tokenRingPStatsDroppedFrames",
@@ -4074,7 +3950,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "current"
   },
   "tokenRingPStatsCreateTime": {
     "name": "tokenRingPStatsCreateTime",
@@ -4086,7 +3962,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "current"
   },
   "ringStationControl2Table": {
     "name": "ringStationControl2Table",
@@ -4094,7 +3970,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "deprecated"
+    "status": "current"
   },
   "ringStationControl2Entry": {
     "name": "ringStationControl2Entry",
@@ -4107,7 +3983,7 @@
       "module": "RMON2-MIB",
       "object": "ringStationControlEntry"
     },
-    "status": "deprecated"
+    "status": "current"
   },
   "ringStationControlDroppedFrames": {
     "name": "ringStationControlDroppedFrames",
@@ -4119,7 +3995,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "current"
   },
   "ringStationControlCreateTime": {
     "name": "ringStationControlCreateTime",
@@ -4131,7 +4007,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "current"
   },
   "sourceRoutingStats2Table": {
     "name": "sourceRoutingStats2Table",
@@ -4139,7 +4015,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "deprecated"
+    "status": "current"
   },
   "sourceRoutingStats2Entry": {
     "name": "sourceRoutingStats2Entry",
@@ -4152,7 +4028,7 @@
       "module": "RMON2-MIB",
       "object": "sourceRoutingStatsEntry"
     },
-    "status": "deprecated"
+    "status": "current"
   },
   "sourceRoutingStatsDroppedFrames": {
     "name": "sourceRoutingStatsDroppedFrames",
@@ -4164,7 +4040,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "current"
   },
   "sourceRoutingStatsCreateTime": {
     "name": "sourceRoutingStatsCreateTime",
@@ -4176,7 +4052,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "deprecated"
+    "status": "current"
   },
   "filter2Table": {
     "name": "filter2Table",
@@ -4281,6 +4157,10 @@
       {
         "object": "probeInformationGroup",
         "module": "RMON2-MIB"
+      },
+      {
+        "object": "rmon1EnhancementGroup",
+        "module": "RMON2-MIB"
       }
     ],
     "status": "current"
@@ -4324,6 +4204,10 @@
       },
       {
         "object": "probeInformationGroup",
+        "module": "RMON2-MIB"
+      },
+      {
+        "object": "rmon1EnhancementGroup",
         "module": "RMON2-MIB"
       }
     ],
@@ -5015,7 +4899,7 @@
         "object": "serialConnectStatus"
       }
     ],
-    "status": "deprecated"
+    "status": "current"
   },
   "rmon1EnhancementGroup": {
     "name": "rmon1EnhancementGroup",
@@ -5115,13 +4999,13 @@
         "object": "sourceRoutingStatsCreateTime"
       }
     ],
-    "status": "deprecated"
+    "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/RMON2-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/RMON2-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:20:18 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RMON2-MIB"

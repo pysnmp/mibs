@@ -1956,8 +1956,10 @@ lldpV2TxRxCompliance MODULE-COMPLIANCE
             This version defines compliance requirements for
             V2 of the LLDP MIB module."
     MODULE  -- this module
-        MANDATORY-GROUPS { lldpV2ConfigGroup, 
-                           ifGeneralInformationGroup
+        MANDATORY-GROUPS { lldpV2ConfigGroup
+        }
+    MODULE  IF-MIB -- The interfaces Group MIB, RFC 2863
+        MANDATORY-GROUPS { ifGeneralInformationGroup
         }
 
     ::= { lldpV2Compliances 1 }

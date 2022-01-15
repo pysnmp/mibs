@@ -1,0 +1,923 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETWORK-SERVICES-MIB": [
+      "applIndex",
+      "URLString",
+      "DistinguishedName"
+    ],
+    "RMON2-MIB": [
+      "ZeroBasedCounter32"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "dsMIB": {
+    "name": "dsMIB",
+    "oid": "1.3.6.1.2.1.66",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1999-06-07 00:00",
+        "description": "This revision of this MIB is published in RFC 2605. This revision obsoletes RFC 1567. It is incompatible with the original MIB and so it has been renamed from dsaMIB to dsMIB."
+      },
+      {
+        "revision": "1993-11-25 00:00",
+        "description": "The original version of this MIB was published in RFC 1567."
+      }
+    ]
+  },
+  "dsTable": {
+    "name": "dsTable",
+    "oid": "1.3.6.1.2.1.66.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsTableEntry": {
+    "name": "dsTableEntry",
+    "oid": "1.3.6.1.2.1.66.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsServerType": {
+    "name": "dsServerType",
+    "oid": "1.3.6.1.2.1.66.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "frontEndDirectoryServer": 0,
+        "backEndDirectoryServer": 1
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsServerDescription": {
+    "name": "dsServerDescription",
+    "oid": "1.3.6.1.2.1.66.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsMasterEntries": {
+    "name": "dsMasterEntries",
+    "oid": "1.3.6.1.2.1.66.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsCopyEntries": {
+    "name": "dsCopyEntries",
+    "oid": "1.3.6.1.2.1.66.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsCacheEntries": {
+    "name": "dsCacheEntries",
+    "oid": "1.3.6.1.2.1.66.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsCacheHits": {
+    "name": "dsCacheHits",
+    "oid": "1.3.6.1.2.1.66.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsSlaveHits": {
+    "name": "dsSlaveHits",
+    "oid": "1.3.6.1.2.1.66.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfOpsTable": {
+    "name": "dsApplIfOpsTable",
+    "oid": "1.3.6.1.2.1.66.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsApplIfOpsEntry": {
+    "name": "dsApplIfOpsEntry",
+    "oid": "1.3.6.1.2.1.66.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfProtocolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsApplIfProtocolIndex": {
+    "name": "dsApplIfProtocolIndex",
+    "oid": "1.3.6.1.2.1.66.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfProtocol": {
+    "name": "dsApplIfProtocol",
+    "oid": "1.3.6.1.2.1.66.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfUnauthBinds": {
+    "name": "dsApplIfUnauthBinds",
+    "oid": "1.3.6.1.2.1.66.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfSimpleAuthBinds": {
+    "name": "dsApplIfSimpleAuthBinds",
+    "oid": "1.3.6.1.2.1.66.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfStrongAuthBinds": {
+    "name": "dsApplIfStrongAuthBinds",
+    "oid": "1.3.6.1.2.1.66.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfBindSecurityErrors": {
+    "name": "dsApplIfBindSecurityErrors",
+    "oid": "1.3.6.1.2.1.66.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfInOps": {
+    "name": "dsApplIfInOps",
+    "oid": "1.3.6.1.2.1.66.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfReadOps": {
+    "name": "dsApplIfReadOps",
+    "oid": "1.3.6.1.2.1.66.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfCompareOps": {
+    "name": "dsApplIfCompareOps",
+    "oid": "1.3.6.1.2.1.66.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfAddEntryOps": {
+    "name": "dsApplIfAddEntryOps",
+    "oid": "1.3.6.1.2.1.66.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfRemoveEntryOps": {
+    "name": "dsApplIfRemoveEntryOps",
+    "oid": "1.3.6.1.2.1.66.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfModifyEntryOps": {
+    "name": "dsApplIfModifyEntryOps",
+    "oid": "1.3.6.1.2.1.66.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfModifyRDNOps": {
+    "name": "dsApplIfModifyRDNOps",
+    "oid": "1.3.6.1.2.1.66.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfListOps": {
+    "name": "dsApplIfListOps",
+    "oid": "1.3.6.1.2.1.66.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfSearchOps": {
+    "name": "dsApplIfSearchOps",
+    "oid": "1.3.6.1.2.1.66.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfOneLevelSearchOps": {
+    "name": "dsApplIfOneLevelSearchOps",
+    "oid": "1.3.6.1.2.1.66.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfWholeSubtreeSearchOps": {
+    "name": "dsApplIfWholeSubtreeSearchOps",
+    "oid": "1.3.6.1.2.1.66.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfReferrals": {
+    "name": "dsApplIfReferrals",
+    "oid": "1.3.6.1.2.1.66.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfChainings": {
+    "name": "dsApplIfChainings",
+    "oid": "1.3.6.1.2.1.66.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfSecurityErrors": {
+    "name": "dsApplIfSecurityErrors",
+    "oid": "1.3.6.1.2.1.66.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfErrors": {
+    "name": "dsApplIfErrors",
+    "oid": "1.3.6.1.2.1.66.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfReplicationUpdatesIn": {
+    "name": "dsApplIfReplicationUpdatesIn",
+    "oid": "1.3.6.1.2.1.66.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfReplicationUpdatesOut": {
+    "name": "dsApplIfReplicationUpdatesOut",
+    "oid": "1.3.6.1.2.1.66.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfInBytes": {
+    "name": "dsApplIfInBytes",
+    "oid": "1.3.6.1.2.1.66.2.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsApplIfOutBytes": {
+    "name": "dsApplIfOutBytes",
+    "oid": "1.3.6.1.2.1.66.2.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsIntTable": {
+    "name": "dsIntTable",
+    "oid": "1.3.6.1.2.1.66.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsIntEntry": {
+    "name": "dsIntEntry",
+    "oid": "1.3.6.1.2.1.66.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsIntEntIndex",
+        "implied": 0
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfProtocolIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dsIntEntIndex": {
+    "name": "dsIntEntIndex",
+    "oid": "1.3.6.1.2.1.66.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dsIntEntDirectoryName": {
+    "name": "dsIntEntDirectoryName",
+    "oid": "1.3.6.1.2.1.66.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DistinguishedName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsIntEntTimeOfCreation": {
+    "name": "dsIntEntTimeOfCreation",
+    "oid": "1.3.6.1.2.1.66.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsIntEntTimeOfLastAttempt": {
+    "name": "dsIntEntTimeOfLastAttempt",
+    "oid": "1.3.6.1.2.1.66.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsIntEntTimeOfLastSuccess": {
+    "name": "dsIntEntTimeOfLastSuccess",
+    "oid": "1.3.6.1.2.1.66.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsIntEntFailuresSinceLastSuccess": {
+    "name": "dsIntEntFailuresSinceLastSuccess",
+    "oid": "1.3.6.1.2.1.66.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsIntEntFailures": {
+    "name": "dsIntEntFailures",
+    "oid": "1.3.6.1.2.1.66.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsIntEntSuccesses": {
+    "name": "dsIntEntSuccesses",
+    "oid": "1.3.6.1.2.1.66.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ZeroBasedCounter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsIntEntURL": {
+    "name": "dsIntEntURL",
+    "oid": "1.3.6.1.2.1.66.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "URLString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "dsConformance": {
+    "name": "dsConformance",
+    "oid": "1.3.6.1.2.1.66.4",
+    "class": "objectidentity"
+  },
+  "dsGroups": {
+    "name": "dsGroups",
+    "oid": "1.3.6.1.2.1.66.4.1",
+    "class": "objectidentity"
+  },
+  "dsCompliances": {
+    "name": "dsCompliances",
+    "oid": "1.3.6.1.2.1.66.4.2",
+    "class": "objectidentity"
+  },
+  "dsEntryCompliance": {
+    "name": "dsEntryCompliance",
+    "oid": "1.3.6.1.2.1.66.4.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dsEntryGroup",
+        "module": "DIRECTORY-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dsOpsCompliance": {
+    "name": "dsOpsCompliance",
+    "oid": "1.3.6.1.2.1.66.4.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dsEntryGroup",
+        "module": "DIRECTORY-SERVER-MIB"
+      },
+      {
+        "object": "dsOpsGroup",
+        "module": "DIRECTORY-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dsIntCompliance": {
+    "name": "dsIntCompliance",
+    "oid": "1.3.6.1.2.1.66.4.2.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dsEntryGroup",
+        "module": "DIRECTORY-SERVER-MIB"
+      },
+      {
+        "object": "dsIntGroup",
+        "module": "DIRECTORY-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dsOpsIntCompliance": {
+    "name": "dsOpsIntCompliance",
+    "oid": "1.3.6.1.2.1.66.4.2.4",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dsEntryGroup",
+        "module": "DIRECTORY-SERVER-MIB"
+      },
+      {
+        "object": "dsOpsGroup",
+        "module": "DIRECTORY-SERVER-MIB"
+      },
+      {
+        "object": "dsIntGroup",
+        "module": "DIRECTORY-SERVER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dsEntryGroup": {
+    "name": "dsEntryGroup",
+    "oid": "1.3.6.1.2.1.66.4.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsServerType"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsServerDescription"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsMasterEntries"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsCopyEntries"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsCacheEntries"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsCacheHits"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsSlaveHits"
+      }
+    ],
+    "status": "current"
+  },
+  "dsOpsGroup": {
+    "name": "dsOpsGroup",
+    "oid": "1.3.6.1.2.1.66.4.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfProtocolIndex"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfProtocol"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfUnauthBinds"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfSimpleAuthBinds"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfStrongAuthBinds"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfBindSecurityErrors"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfInOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfReadOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfCompareOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfAddEntryOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfRemoveEntryOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfModifyEntryOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfModifyRDNOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfListOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfSearchOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfOneLevelSearchOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfWholeSubtreeSearchOps"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfReferrals"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfChainings"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfSecurityErrors"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfErrors"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfReplicationUpdatesIn"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfReplicationUpdatesOut"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfInBytes"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsApplIfOutBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "dsIntGroup": {
+    "name": "dsIntGroup",
+    "oid": "1.3.6.1.2.1.66.4.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsIntEntDirectoryName"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsIntEntTimeOfCreation"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsIntEntTimeOfLastAttempt"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsIntEntTimeOfLastSuccess"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsIntEntFailuresSinceLastSuccess"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsIntEntFailures"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsIntEntSuccesses"
+      },
+      {
+        "module": "DIRECTORY-SERVER-MIB",
+        "object": "dsIntEntURL"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DIRECTORY-SERVER-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:35 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "DIRECTORY-SERVER-MIB"
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "snmpTsmMIB": {
+    "name": "snmpTsmMIB",
+    "oid": "1.3.6.1.2.1.190",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2009-06-09 00:00",
+        "description": "The initial version, published in RFC 5591."
+      }
+    ]
+  },
+  "snmpTsmNotifications": {
+    "name": "snmpTsmNotifications",
+    "oid": "1.3.6.1.2.1.190.0",
+    "class": "objectidentity"
+  },
+  "snmpTsmMIBObjects": {
+    "name": "snmpTsmMIBObjects",
+    "oid": "1.3.6.1.2.1.190.1",
+    "class": "objectidentity"
+  },
+  "snmpTsmConformance": {
+    "name": "snmpTsmConformance",
+    "oid": "1.3.6.1.2.1.190.2",
+    "class": "objectidentity"
+  },
+  "snmpTsmStats": {
+    "name": "snmpTsmStats",
+    "oid": "1.3.6.1.2.1.190.1.1",
+    "class": "objectidentity"
+  },
+  "snmpTsmInvalidCaches": {
+    "name": "snmpTsmInvalidCaches",
+    "oid": "1.3.6.1.2.1.190.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpTsmInadequateSecurityLevels": {
+    "name": "snmpTsmInadequateSecurityLevels",
+    "oid": "1.3.6.1.2.1.190.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpTsmUnknownPrefixes": {
+    "name": "snmpTsmUnknownPrefixes",
+    "oid": "1.3.6.1.2.1.190.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpTsmInvalidPrefixes": {
+    "name": "snmpTsmInvalidPrefixes",
+    "oid": "1.3.6.1.2.1.190.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "snmpTsmConfiguration": {
+    "name": "snmpTsmConfiguration",
+    "oid": "1.3.6.1.2.1.190.1.2",
+    "class": "objectidentity"
+  },
+  "snmpTsmConfigurationUsePrefix": {
+    "name": "snmpTsmConfigurationUsePrefix",
+    "oid": "1.3.6.1.2.1.190.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "snmpTsmCompliances": {
+    "name": "snmpTsmCompliances",
+    "oid": "1.3.6.1.2.1.190.2.1",
+    "class": "objectidentity"
+  },
+  "snmpTsmGroups": {
+    "name": "snmpTsmGroups",
+    "oid": "1.3.6.1.2.1.190.2.2",
+    "class": "objectidentity"
+  },
+  "snmpTsmCompliance": {
+    "name": "snmpTsmCompliance",
+    "oid": "1.3.6.1.2.1.190.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "snmpTsmGroup",
+        "module": "SNMP-TSM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpTsmGroup": {
+    "name": "snmpTsmGroup",
+    "oid": "1.3.6.1.2.1.190.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-TSM-MIB",
+        "object": "snmpTsmInvalidCaches"
+      },
+      {
+        "module": "SNMP-TSM-MIB",
+        "object": "snmpTsmInadequateSecurityLevels"
+      },
+      {
+        "module": "SNMP-TSM-MIB",
+        "object": "snmpTsmUnknownPrefixes"
+      },
+      {
+        "module": "SNMP-TSM-MIB",
+        "object": "snmpTsmInvalidPrefixes"
+      },
+      {
+        "module": "SNMP-TSM-MIB",
+        "object": "snmpTsmConfigurationUsePrefix"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-TSM-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "SNMP-TSM-MIB"
+  }
+}

@@ -1,23 +1,21 @@
 #
 # PySNMP MIB module ENTITY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ENTITY-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 20:06:47 2022
-# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
+# ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ENTITY-MIB
+# Produced by pysmi-1.1.8 at Sat Jan 15 23:19:55 2022
+# On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-IANAPhysicalClass, = mibBuilder.importSymbols("IANA-ENTITY-MIB", "IANAPhysicalClass")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-mib_2, ObjectIdentity, Integer32, Counter32, Gauge32, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, ModuleIdentity, Bits, Counter64, MibIdentifier, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "mib-2", "ObjectIdentity", "Integer32", "Counter32", "Gauge32", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "ModuleIdentity", "Bits", "Counter64", "MibIdentifier", "NotificationType", "iso")
-DisplayString, TruthValue, TimeStamp, DateAndTime, TextualConvention, TAddress, TDomain, AutonomousType, RowPointer = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TimeStamp", "DateAndTime", "TextualConvention", "TAddress", "TDomain", "AutonomousType", "RowPointer")
-UUIDorZero, = mibBuilder.importSymbols("UUID-TC-MIB", "UUIDorZero")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, ModuleIdentity, Bits, Counter32, Unsigned32, ObjectIdentity, NotificationType, Counter64, IpAddress, iso, Integer32, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "ModuleIdentity", "Bits", "Counter32", "Unsigned32", "ObjectIdentity", "NotificationType", "Counter64", "IpAddress", "iso", "Integer32", "mib-2")
+TextualConvention, DateAndTime, TDomain, DisplayString, RowPointer, TAddress, AutonomousType, TruthValue, TimeStamp = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DateAndTime", "TDomain", "DisplayString", "RowPointer", "TAddress", "AutonomousType", "TruthValue", "TimeStamp")
 entityMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 47))
-entityMIB.setRevisions(('2013-04-05 00:00', '2005-08-10 00:00', '1999-12-07 00:00', '1996-10-31 00:00',))
-if mibBuilder.loadTexts: entityMIB.setLastUpdated('201304050000Z')
-if mibBuilder.loadTexts: entityMIB.setOrganization('IETF Energy Management Working Group')
+entityMIB.setRevisions(('2005-08-10 00:00', '1999-12-07 00:00', '1996-10-31 00:00',))
+if mibBuilder.loadTexts: entityMIB.setLastUpdated('200508100000Z')
+if mibBuilder.loadTexts: entityMIB.setOrganization('IETF ENTMIB Working Group')
 entityMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 47, 1))
 entityPhysical = MibIdentifier((1, 3, 6, 1, 2, 1, 47, 1, 1))
 entityLogical = MibIdentifier((1, 3, 6, 1, 2, 1, 47, 1, 2))
@@ -33,14 +31,14 @@ class PhysicalIndexOrZero(TextualConvention, Integer32):
     displayHint = 'd'
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
 
+class PhysicalClass(TextualConvention, Integer32):
+    status = 'current'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+    namedValues = NamedValues(("other", 1), ("unknown", 2), ("chassis", 3), ("backplane", 4), ("container", 5), ("powerSupply", 6), ("fan", 7), ("sensor", 8), ("module", 9), ("port", 10), ("stack", 11), ("cpu", 12))
+
 class SnmpEngineIdOrNone(TextualConvention, OctetString):
     status = 'current'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 32)
-
-class PhysicalClass(TextualConvention, Integer32):
-    status = 'deprecated'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("chassis", 3), ("backplane", 4), ("container", 5), ("powerSupply", 6), ("fan", 7), ("sensor", 8), ("module", 9), ("port", 10), ("stack", 11), ("cpu", 12))
 
 entPhysicalTable = MibTable((1, 3, 6, 1, 2, 1, 47, 1, 1, 1), )
 if mibBuilder.loadTexts: entPhysicalTable.setStatus('current')
@@ -54,7 +52,7 @@ entPhysicalVendorType = MibTableColumn((1, 3, 6, 1, 2, 1, 47, 1, 1, 1, 1, 3), Au
 if mibBuilder.loadTexts: entPhysicalVendorType.setStatus('current')
 entPhysicalContainedIn = MibTableColumn((1, 3, 6, 1, 2, 1, 47, 1, 1, 1, 1, 4), PhysicalIndexOrZero()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: entPhysicalContainedIn.setStatus('current')
-entPhysicalClass = MibTableColumn((1, 3, 6, 1, 2, 1, 47, 1, 1, 1, 1, 5), IANAPhysicalClass()).setMaxAccess("readonly")
+entPhysicalClass = MibTableColumn((1, 3, 6, 1, 2, 1, 47, 1, 1, 1, 1, 5), PhysicalClass()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: entPhysicalClass.setStatus('current')
 entPhysicalParentRelPos = MibTableColumn((1, 3, 6, 1, 2, 1, 47, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 2147483647))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: entPhysicalParentRelPos.setStatus('current')
@@ -82,8 +80,6 @@ entPhysicalMfgDate = MibTableColumn((1, 3, 6, 1, 2, 1, 47, 1, 1, 1, 1, 17), Date
 if mibBuilder.loadTexts: entPhysicalMfgDate.setStatus('current')
 entPhysicalUris = MibTableColumn((1, 3, 6, 1, 2, 1, 47, 1, 1, 1, 1, 18), OctetString()).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: entPhysicalUris.setStatus('current')
-entPhysicalUUID = MibTableColumn((1, 3, 6, 1, 2, 1, 47, 1, 1, 1, 1, 19), UUIDorZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: entPhysicalUUID.setStatus('current')
 entLogicalTable = MibTable((1, 3, 6, 1, 2, 1, 47, 1, 2, 1), )
 if mibBuilder.loadTexts: entLogicalTable.setStatus('current')
 entLogicalEntry = MibTableRow((1, 3, 6, 1, 2, 1, 47, 1, 2, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entLogicalIndex"))
@@ -144,15 +140,7 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 entity3Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 47, 3, 1, 3)).setObjects(("ENTITY-MIB", "entityPhysicalGroup"), ("ENTITY-MIB", "entityPhysical2Group"), ("ENTITY-MIB", "entityPhysical3Group"), ("ENTITY-MIB", "entityGeneralGroup"), ("ENTITY-MIB", "entityNotificationsGroup"), ("ENTITY-MIB", "entityLogical2Group"), ("ENTITY-MIB", "entityMappingGroup"))
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    entity3Compliance = entity3Compliance.setStatus('deprecated')
-entity4Compliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 47, 3, 1, 4)).setObjects(("ENTITY-MIB", "entityPhysicalGroup"), ("ENTITY-MIB", "entityPhysical2Group"), ("ENTITY-MIB", "entityPhysical3Group"), ("ENTITY-MIB", "entityGeneralGroup"), ("ENTITY-MIB", "entityNotificationsGroup"), ("ENTITY-MIB", "entityPhysical4Group"), ("ENTITY-MIB", "entityLogical2Group"), ("ENTITY-MIB", "entityMappingGroup"))
-
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    entity4Compliance = entity4Compliance.setStatus('current')
-entity4CRCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 47, 3, 1, 5)).setObjects(("ENTITY-MIB", "entityPhysicalCRGroup"), ("ENTITY-MIB", "entityPhysical4Group"))
-
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    entity4CRCompliance = entity4CRCompliance.setStatus('current')
+    entity3Compliance = entity3Compliance.setStatus('current')
 entityPhysicalGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 47, 3, 2, 1)).setObjects(("ENTITY-MIB", "entPhysicalDescr"), ("ENTITY-MIB", "entPhysicalVendorType"), ("ENTITY-MIB", "entPhysicalContainedIn"), ("ENTITY-MIB", "entPhysicalClass"), ("ENTITY-MIB", "entPhysicalParentRelPos"), ("ENTITY-MIB", "entPhysicalName"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     entityPhysicalGroup = entityPhysicalGroup.setStatus('current')
@@ -177,10 +165,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 entityPhysical3Group = ObjectGroup((1, 3, 6, 1, 2, 1, 47, 3, 2, 8)).setObjects(("ENTITY-MIB", "entPhysicalMfgDate"), ("ENTITY-MIB", "entPhysicalUris"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     entityPhysical3Group = entityPhysical3Group.setStatus('current')
-entityPhysical4Group = ObjectGroup((1, 3, 6, 1, 2, 1, 47, 3, 2, 9)).setObjects(("ENTITY-MIB", "entPhysicalUUID"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    entityPhysical4Group = entityPhysical4Group.setStatus('current')
-entityPhysicalCRGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 47, 3, 2, 10)).setObjects(("ENTITY-MIB", "entPhysicalClass"), ("ENTITY-MIB", "entPhysicalName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    entityPhysicalCRGroup = entityPhysicalCRGroup.setStatus('current')
-mibBuilder.exportSymbols("ENTITY-MIB", entPhysicalContainedIn=entPhysicalContainedIn, entLogicalEntry=entLogicalEntry, entPhysicalSerialNum=entPhysicalSerialNum, entityNotificationsGroup=entityNotificationsGroup, entPhysicalContainsEntry=entPhysicalContainsEntry, entLogicalType=entLogicalType, entityPhysicalCRGroup=entityPhysicalCRGroup, entityCompliance=entityCompliance, entPhysicalIsFRU=entPhysicalIsFRU, entPhysicalUUID=entPhysicalUUID, PhysicalIndex=PhysicalIndex, entPhysicalMfgName=entPhysicalMfgName, entPhysicalIndex=entPhysicalIndex, entLogicalTable=entLogicalTable, entityMappingGroup=entityMappingGroup, entityGeneralGroup=entityGeneralGroup, entLogicalTDomain=entLogicalTDomain, entityPhysical2Group=entityPhysical2Group, entLogicalIndex=entLogicalIndex, entityCompliances=entityCompliances, entLPMappingTable=entLPMappingTable, entityConformance=entityConformance, entityMIB=entityMIB, entityLogical=entityLogical, PhysicalClass=PhysicalClass, entPhysicalUris=entPhysicalUris, entLPPhysicalIndex=entLPPhysicalIndex, entity2Compliance=entity2Compliance, entity4CRCompliance=entity4CRCompliance, entityPhysicalGroup=entityPhysicalGroup, entityPhysical3Group=entityPhysical3Group, entPhysicalMfgDate=entPhysicalMfgDate, entLPMappingEntry=entLPMappingEntry, entityMIBTraps=entityMIBTraps, entPhysicalFirmwareRev=entPhysicalFirmwareRev, entityGroups=entityGroups, PYSNMP_MODULE_ID=entityMIB, entityLogical2Group=entityLogical2Group, entPhysicalAssetID=entPhysicalAssetID, entLogicalContextName=entLogicalContextName, entLogicalDescr=entLogicalDescr, SnmpEngineIdOrNone=SnmpEngineIdOrNone, entPhysicalHardwareRev=entPhysicalHardwareRev, entLogicalCommunity=entLogicalCommunity, entityMIBTrapPrefix=entityMIBTrapPrefix, entity3Compliance=entity3Compliance, entAliasLogicalIndexOrZero=entAliasLogicalIndexOrZero, entPhysicalTable=entPhysicalTable, entityMIBObjects=entityMIBObjects, entityMapping=entityMapping, entityPhysical=entityPhysical, entPhysicalAlias=entPhysicalAlias, entPhysicalChildIndex=entPhysicalChildIndex, entPhysicalParentRelPos=entPhysicalParentRelPos, entConfigChange=entConfigChange, entity4Compliance=entity4Compliance, entityLogicalGroup=entityLogicalGroup, entPhysicalModelName=entPhysicalModelName, entAliasMappingEntry=entAliasMappingEntry, entPhysicalContainsTable=entPhysicalContainsTable, entAliasMappingIdentifier=entAliasMappingIdentifier, PhysicalIndexOrZero=PhysicalIndexOrZero, entPhysicalEntry=entPhysicalEntry, entLastChangeTime=entLastChangeTime, entPhysicalClass=entPhysicalClass, entityPhysical4Group=entityPhysical4Group, entPhysicalVendorType=entPhysicalVendorType, entAliasMappingTable=entAliasMappingTable, entLogicalContextEngineID=entLogicalContextEngineID, entLogicalTAddress=entLogicalTAddress, entPhysicalSoftwareRev=entPhysicalSoftwareRev, entityGeneral=entityGeneral, entPhysicalDescr=entPhysicalDescr, entPhysicalName=entPhysicalName)
+mibBuilder.exportSymbols("ENTITY-MIB", entPhysicalMfgName=entPhysicalMfgName, entPhysicalSoftwareRev=entPhysicalSoftwareRev, entPhysicalDescr=entPhysicalDescr, entityGeneralGroup=entityGeneralGroup, entLogicalDescr=entLogicalDescr, entLPMappingTable=entLPMappingTable, entityMapping=entityMapping, entPhysicalUris=entPhysicalUris, entPhysicalFirmwareRev=entPhysicalFirmwareRev, entLogicalContextName=entLogicalContextName, entLPMappingEntry=entLPMappingEntry, entityPhysicalGroup=entityPhysicalGroup, entityPhysical=entityPhysical, entPhysicalMfgDate=entPhysicalMfgDate, entityGroups=entityGroups, entity3Compliance=entity3Compliance, entityPhysical2Group=entityPhysical2Group, entLastChangeTime=entLastChangeTime, entityNotificationsGroup=entityNotificationsGroup, entityConformance=entityConformance, entLogicalIndex=entLogicalIndex, entLogicalCommunity=entLogicalCommunity, PhysicalIndexOrZero=PhysicalIndexOrZero, entPhysicalVendorType=entPhysicalVendorType, entity2Compliance=entity2Compliance, entLPPhysicalIndex=entLPPhysicalIndex, entPhysicalAlias=entPhysicalAlias, entLogicalType=entLogicalType, entityMappingGroup=entityMappingGroup, PhysicalClass=PhysicalClass, PhysicalIndex=PhysicalIndex, entPhysicalHardwareRev=entPhysicalHardwareRev, entLogicalTAddress=entLogicalTAddress, entAliasMappingIdentifier=entAliasMappingIdentifier, entPhysicalAssetID=entPhysicalAssetID, entPhysicalClass=entPhysicalClass, entPhysicalIsFRU=entPhysicalIsFRU, entAliasMappingTable=entAliasMappingTable, entityPhysical3Group=entityPhysical3Group, entLogicalTDomain=entLogicalTDomain, entPhysicalChildIndex=entPhysicalChildIndex, entPhysicalEntry=entPhysicalEntry, entPhysicalParentRelPos=entPhysicalParentRelPos, entityMIBObjects=entityMIBObjects, entLogicalTable=entLogicalTable, entityMIBTraps=entityMIBTraps, entPhysicalContainedIn=entPhysicalContainedIn, entityLogicalGroup=entityLogicalGroup, entAliasMappingEntry=entAliasMappingEntry, entityMIB=entityMIB, entPhysicalModelName=entPhysicalModelName, entPhysicalName=entPhysicalName, entPhysicalSerialNum=entPhysicalSerialNum, entityLogical2Group=entityLogical2Group, PYSNMP_MODULE_ID=entityMIB, SnmpEngineIdOrNone=SnmpEngineIdOrNone, entLogicalContextEngineID=entLogicalContextEngineID, entityMIBTrapPrefix=entityMIBTrapPrefix, entLogicalEntry=entLogicalEntry, entConfigChange=entConfigChange, entPhysicalContainsTable=entPhysicalContainsTable, entPhysicalIndex=entPhysicalIndex, entityLogical=entityLogical, entPhysicalContainsEntry=entPhysicalContainsEntry, entAliasLogicalIndexOrZero=entAliasLogicalIndexOrZero, entityCompliance=entityCompliance, entPhysicalTable=entPhysicalTable, entityCompliances=entityCompliances, entityGeneral=entityGeneral)

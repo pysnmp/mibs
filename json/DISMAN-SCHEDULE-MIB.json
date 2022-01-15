@@ -10,46 +10,35 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
       "Unsigned32",
+      "mib-2",
       "Integer32",
       "Counter32",
       "iso",
-      "mib-2",
-      "Gauge32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "zeroDotZero",
-      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "StorageType",
       "RowStatus",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
+      "StorageType",
       "DisplayString",
-      "VariablePointer",
-      "TEXTUAL-CONVENTION"
+      "VariablePointer"
     ]
   },
   "schedMIB": {
     "name": "schedMIB",
     "oid": "1.3.6.1.2.1.63",
-    "class": "moduleidentity",
-    "revisions": [
-      {
-        "revision": "2002-01-07 00:00",
-        "description": "Revised version, published as RFC 3231. This revision introduces a new object type called schedTriggers. Created new conformance and compliance statements that take care of the new schedTriggers object. Several clarifications have been added to remove ambiguities that were discovered and reported by implementors."
-      },
-      {
-        "revision": "1998-11-17 18:00",
-        "description": "Initial version, published as RFC 2591."
-      }
-    ]
+    "class": "moduleidentity"
   },
   "schedObjects": {
     "name": "schedObjects",
@@ -195,6 +184,12 @@
     "syntax": {
       "type": "SnmpAdminString",
       "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
     },
     "maxaccess": "read-create",
     "status": "current"
@@ -476,12 +471,6 @@
       "type": "VariablePointer",
       "class": "type"
     },
-    "default": {
-      "default": {
-        "value": "(0, 0)",
-        "format": "oid"
-      }
-    },
     "maxaccess": "read-create",
     "status": "current"
   },
@@ -643,18 +632,6 @@
     "maxaccess": "read-create",
     "status": "current"
   },
-  "schedTriggers": {
-    "name": "schedTriggers",
-    "oid": "1.3.6.1.2.1.63.1.2.1.21",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
   "schedTraps": {
     "name": "schedTraps",
     "oid": "1.3.6.1.2.1.63.2.0",
@@ -686,134 +663,6 @@
     "oid": "1.3.6.1.2.1.63.3.2",
     "class": "objectidentity"
   },
-  "schedCompliance2": {
-    "name": "schedCompliance2",
-    "oid": "1.3.6.1.2.1.63.3.1.2",
-    "class": "modulecompliance",
-    "modulecompliance": [
-      {
-        "object": "schedGroup2",
-        "module": "DISMAN-SCHEDULE-MIB"
-      },
-      {
-        "object": "schedNotificationsGroup",
-        "module": "DISMAN-SCHEDULE-MIB"
-      },
-      {
-        "object": "schedCalendarGroup",
-        "module": "DISMAN-SCHEDULE-MIB"
-      }
-    ],
-    "status": "current"
-  },
-  "schedGroup2": {
-    "name": "schedGroup2",
-    "oid": "1.3.6.1.2.1.63.3.2.4",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedDescr"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedInterval"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedContextName"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedVariable"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedValue"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedType"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedAdminStatus"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedOperStatus"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedFailures"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedLastFailure"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedLastFailed"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedStorageType"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedRowStatus"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedTriggers"
-      }
-    ],
-    "status": "current"
-  },
-  "schedCalendarGroup": {
-    "name": "schedCalendarGroup",
-    "oid": "1.3.6.1.2.1.63.3.2.2",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedLocalTime"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedWeekDay"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedMonth"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedDay"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedHour"
-      },
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedMinute"
-      }
-    ],
-    "status": "current"
-  },
-  "schedNotificationsGroup": {
-    "name": "schedNotificationsGroup",
-    "oid": "1.3.6.1.2.1.63.3.2.3",
-    "class": "notificationgroup",
-    "objects": [
-      {
-        "module": "DISMAN-SCHEDULE-MIB",
-        "object": "schedActionFailure"
-      }
-    ],
-    "status": "current"
-  },
   "schedCompliance": {
     "name": "schedCompliance",
     "oid": "1.3.6.1.2.1.63.3.1.1",
@@ -832,7 +681,7 @@
         "module": "DISMAN-SCHEDULE-MIB"
       }
     ],
-    "status": "deprecated"
+    "status": "current"
   },
   "schedGroup": {
     "name": "schedGroup",
@@ -892,13 +741,57 @@
         "object": "schedRowStatus"
       }
     ],
-    "status": "deprecated"
+    "status": "current"
+  },
+  "schedCalendarGroup": {
+    "name": "schedCalendarGroup",
+    "oid": "1.3.6.1.2.1.63.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedLocalTime"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedWeekDay"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedMonth"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedDay"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedHour"
+      },
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedMinute"
+      }
+    ],
+    "status": "current"
+  },
+  "schedNotificationsGroup": {
+    "name": "schedNotificationsGroup",
+    "oid": "1.3.6.1.2.1.63.3.2.3",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DISMAN-SCHEDULE-MIB",
+        "object": "schedActionFailure"
+      }
+    ],
+    "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DISMAN-SCHEDULE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DISMAN-SCHEDULE-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:37 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DISMAN-SCHEDULE-MIB"

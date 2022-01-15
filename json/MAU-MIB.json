@@ -1,34 +1,30 @@
 {
   "imports": {
     "class": "imports",
-    "IF-MIB": [
-      "InterfaceIndex"
-    ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
       "Integer32",
       "Counter32",
       "iso",
-      "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "AutonomousType",
       "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
@@ -39,16 +35,12 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2003-09-19 00:00",
-        "description": "Updated to include support for 10 Gb/s MAUs. This resulted in the following revisions: - Added OBJECT-IDENTITY definitions for 10 gigabit MAU types - Added fiberLC jack type to JackType TC - Extended ifMauTypeListBits with bits for the 10 gigabit MAU types - Added enumerations to ifMauMediaAvailable, and updated its DESCRIPTION to reflect behaviour at 10 Gb/s - Added 64-bit version of ifMauFalseCarriers and added mauIfGrpHCStats object group to contain the new object - Deprecated mauModIfCompl2 and replaced it with mauModIfCompl3, which includes the new object group This version published as RFC 3636."
-      },
-      {
         "revision": "1999-08-24 04:00",
         "description": "This version published as RFC 2668. Updated to include support for 1000 Mb/sec MAUs and flow control negotiation."
       },
       {
         "revision": "1997-10-31 00:00",
-        "description": "Version published as RFC 2239."
+        "description": "This version published as RFC 2239."
       },
       {
         "revision": "1993-09-30 00:00",
@@ -81,8 +73,7 @@
           "fiberST": 10,
           "telco": 11,
           "mtrj": 12,
-          "hssdc": 13,
-          "fiberLC": 14
+          "hssdc": 13
         }
       }
     },
@@ -293,66 +284,6 @@
     "class": "objectidentity",
     "status": "current"
   },
-  "dot3MauType10GigBaseX": {
-    "name": "dot3MauType10GigBaseX",
-    "oid": "1.3.6.1.2.1.26.4.31",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10GigBaseLX4": {
-    "name": "dot3MauType10GigBaseLX4",
-    "oid": "1.3.6.1.2.1.26.4.32",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10GigBaseR": {
-    "name": "dot3MauType10GigBaseR",
-    "oid": "1.3.6.1.2.1.26.4.33",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10GigBaseER": {
-    "name": "dot3MauType10GigBaseER",
-    "oid": "1.3.6.1.2.1.26.4.34",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10GigBaseLR": {
-    "name": "dot3MauType10GigBaseLR",
-    "oid": "1.3.6.1.2.1.26.4.35",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10GigBaseSR": {
-    "name": "dot3MauType10GigBaseSR",
-    "oid": "1.3.6.1.2.1.26.4.36",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10GigBaseW": {
-    "name": "dot3MauType10GigBaseW",
-    "oid": "1.3.6.1.2.1.26.4.37",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10GigBaseEW": {
-    "name": "dot3MauType10GigBaseEW",
-    "oid": "1.3.6.1.2.1.26.4.38",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10GigBaseLW": {
-    "name": "dot3MauType10GigBaseLW",
-    "oid": "1.3.6.1.2.1.26.4.39",
-    "class": "objectidentity",
-    "status": "current"
-  },
-  "dot3MauType10GigBaseSW": {
-    "name": "dot3MauType10GigBaseSW",
-    "oid": "1.3.6.1.2.1.26.4.40",
-    "class": "objectidentity",
-    "status": "current"
-  },
   "rpMauTable": {
     "name": "rpMauTable",
     "oid": "1.3.6.1.2.1.26.1.1",
@@ -452,7 +383,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "AutonomousType",
+      "type": "OBJECT IDENTIFIER",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -667,8 +598,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "InterfaceIndex",
-      "class": "type"
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -699,7 +638,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "AutonomousType",
+      "type": "OBJECT IDENTIFIER",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -747,14 +686,7 @@
           "remoteLinkLoss": 8,
           "remoteTest": 9,
           "offline": 10,
-          "autoNegError": 11,
-          "pmdLinkFault": 12,
-          "wisFrameLoss": 13,
-          "wisSignalLoss": 14,
-          "pcsLinkFault": 15,
-          "excessiveBER": 16,
-          "dxsLinkFault": 17,
-          "pxsLinkFault": 18
+          "autoNegError": 11
         }
       }
     },
@@ -835,7 +767,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "AutonomousType",
+      "type": "OBJECT IDENTIFIER",
       "class": "type"
     },
     "maxaccess": "read-write",
@@ -892,30 +824,8 @@
         "b1000baseCXHD": 27,
         "b1000baseCXFD": 28,
         "b1000baseTHD": 29,
-        "b1000baseTFD": 30,
-        "b10GbaseX": 31,
-        "b10GbaseLX4": 32,
-        "b10GbaseR": 33,
-        "b10GbaseER": 34,
-        "b10GbaseLR": 35,
-        "b10GbaseSR": 36,
-        "b10GbaseW": 37,
-        "b10GbaseEW": 38,
-        "b10GbaseLW": 39,
-        "b10GbaseSW": 40
+        "b1000baseTFD": 30
       }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "ifMauHCFalseCarriers": {
-    "name": "ifMauHCFalseCarriers",
-    "oid": "1.3.6.1.2.1.26.2.1.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter64",
-      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1288,8 +1198,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "InterfaceIndex",
-      "class": "type"
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "deprecated"
@@ -1690,18 +1608,6 @@
     ],
     "status": "current"
   },
-  "mauIfGrpHCStats": {
-    "name": "mauIfGrpHCStats",
-    "oid": "1.3.6.1.2.1.26.6.1.2.12",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "MAU-MIB",
-        "object": "ifMauHCFalseCarriers"
-      }
-    ],
-    "status": "current"
-  },
   "rpMauNotifications": {
     "name": "rpMauNotifications",
     "oid": "1.3.6.1.2.1.26.6.1.3.1",
@@ -1812,7 +1718,7 @@
         "module": "MAU-MIB"
       }
     ],
-    "status": "deprecated"
+    "status": "current"
   },
   "mauModRpCompl2": {
     "name": "mauModRpCompl2",
@@ -1838,47 +1744,11 @@
     ],
     "status": "current"
   },
-  "mauModIfCompl3": {
-    "name": "mauModIfCompl3",
-    "oid": "1.3.6.1.2.1.26.6.1.1.5",
-    "class": "modulecompliance",
-    "modulecompliance": [
-      {
-        "object": "mauIfGrpBasic",
-        "module": "MAU-MIB"
-      },
-      {
-        "object": "mauIfGrpHighCapacity",
-        "module": "MAU-MIB"
-      },
-      {
-        "object": "mauIfGrpHCStats",
-        "module": "MAU-MIB"
-      },
-      {
-        "object": "mauIfGrpJack",
-        "module": "MAU-MIB"
-      },
-      {
-        "object": "mauIfGrpAutoNeg2",
-        "module": "MAU-MIB"
-      },
-      {
-        "object": "mauIfGrpAutoNeg1000Mbps",
-        "module": "MAU-MIB"
-      },
-      {
-        "object": "ifMauNotifications",
-        "module": "MAU-MIB"
-      }
-    ],
-    "status": "current"
-  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOT3-MAU-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RFC2668-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MAU-MIB"

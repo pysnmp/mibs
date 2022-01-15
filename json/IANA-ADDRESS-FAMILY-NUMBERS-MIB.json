@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
+      "Bits",
       "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "iso",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "mib-2",
       "Counter64",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -32,10 +32,6 @@
     "oid": "1.3.6.1.2.1.72",
     "class": "moduleidentity",
     "revisions": [
-      {
-        "revision": "2019-11-04 00:00",
-        "description": "Assigned value 16397."
-      },
       {
         "revision": "2014-09-02 00:00",
         "description": "Assigned value 16396."
@@ -128,7 +124,6 @@
           "ipv664": 16394,
           "rBridgePortID": 16395,
           "trillNickname": 16396,
-          "universallyUniqueIdentifier": 16397,
           "reserved": 65535
         }
       }
@@ -137,9 +132,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IANA-ADDRESS-FAMILY-NUMBERS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-ADDRESS-FAMILY-NUMBERS-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IANA-ADDRESS-FAMILY-NUMBERS-MIB"

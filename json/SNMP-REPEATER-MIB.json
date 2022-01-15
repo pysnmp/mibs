@@ -1,31 +1,53 @@
 {
   "imports": {
     "class": "imports",
+    "IF-MIB": [
+      "OwnerString"
+    ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
-      "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "TRAP-TYPE",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "MibIdentifier",
       "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "MacAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "TestAndIncr",
+      "DisplayString"
+    ]
+  },
+  "snmpRptrMod": {
+    "name": "snmpRptrMod",
+    "oid": "1.3.6.1.2.1.22.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1993-09-01 00:00",
+        "description": "Published as RFC 1516"
+      },
+      {
+        "revision": "1992-10-01 00:00",
+        "description": "Published as RFC 1368"
+      }
     ]
   },
   "snmpDot3RptrMgt": {
@@ -33,35 +55,31 @@
     "oid": "1.3.6.1.2.1.22",
     "class": "objectidentity"
   },
-  "MacAddress": {
-    "name": "MacAddress",
-    "class": "type",
+  "OptMacAddr": {
+    "name": "OptMacAddr",
+    "class": "textualconvention",
     "type": {
       "type": "OCTET STRING",
       "class": "type",
       "constraints": {
         "size": [
           {
+            "min": 0,
+            "max": 0
+          },
+          {
             "min": 6,
             "max": 6
           }
         ]
       }
-    }
+    },
+    "displayhint": "1x:",
+    "status": "current"
   },
   "rptrBasicPackage": {
     "name": "rptrBasicPackage",
     "oid": "1.3.6.1.2.1.22.1",
-    "class": "objectidentity"
-  },
-  "rptrMonitorPackage": {
-    "name": "rptrMonitorPackage",
-    "oid": "1.3.6.1.2.1.22.2",
-    "class": "objectidentity"
-  },
-  "rptrAddrTrackPackage": {
-    "name": "rptrAddrTrackPackage",
-    "oid": "1.3.6.1.2.1.22.3",
     "class": "objectidentity"
   },
   "rptrRptrInfo": {
@@ -79,6 +97,16 @@
     "oid": "1.3.6.1.2.1.22.1.3",
     "class": "objectidentity"
   },
+  "rptrAllRptrInfo": {
+    "name": "rptrAllRptrInfo",
+    "oid": "1.3.6.1.2.1.22.1.4",
+    "class": "objectidentity"
+  },
+  "rptrMonitorPackage": {
+    "name": "rptrMonitorPackage",
+    "oid": "1.3.6.1.2.1.22.2",
+    "class": "objectidentity"
+  },
   "rptrMonitorRptrInfo": {
     "name": "rptrMonitorRptrInfo",
     "oid": "1.3.6.1.2.1.22.2.1",
@@ -92,6 +120,16 @@
   "rptrMonitorPortInfo": {
     "name": "rptrMonitorPortInfo",
     "oid": "1.3.6.1.2.1.22.2.3",
+    "class": "objectidentity"
+  },
+  "rptrMonitorAllRptrInfo": {
+    "name": "rptrMonitorAllRptrInfo",
+    "oid": "1.3.6.1.2.1.22.2.4",
+    "class": "objectidentity"
+  },
+  "rptrAddrTrackPackage": {
+    "name": "rptrAddrTrackPackage",
+    "oid": "1.3.6.1.2.1.22.3",
     "class": "objectidentity"
   },
   "rptrAddrTrackRptrInfo": {
@@ -109,25 +147,45 @@
     "oid": "1.3.6.1.2.1.22.3.3",
     "class": "objectidentity"
   },
+  "rptrTopNPackage": {
+    "name": "rptrTopNPackage",
+    "oid": "1.3.6.1.2.1.22.4",
+    "class": "objectidentity"
+  },
+  "rptrTopNRptrInfo": {
+    "name": "rptrTopNRptrInfo",
+    "oid": "1.3.6.1.2.1.22.4.1",
+    "class": "objectidentity"
+  },
+  "rptrTopNGroupInfo": {
+    "name": "rptrTopNGroupInfo",
+    "oid": "1.3.6.1.2.1.22.4.2",
+    "class": "objectidentity"
+  },
+  "rptrTopNPortInfo": {
+    "name": "rptrTopNPortInfo",
+    "oid": "1.3.6.1.2.1.22.4.3",
+    "class": "objectidentity"
+  },
   "rptrGroupCapacity": {
     "name": "rptrGroupCapacity",
     "oid": "1.3.6.1.2.1.22.1.1.1",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 1024
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrOperStatus": {
     "name": "rptrOperStatus",
@@ -149,7 +207,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrHealthText": {
     "name": "rptrHealthText",
@@ -169,7 +227,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrReset": {
     "name": "rptrReset",
@@ -187,7 +245,7 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrNonDisruptTest": {
     "name": "rptrNonDisruptTest",
@@ -205,7 +263,7 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrTotalPartitionedPorts": {
     "name": "rptrTotalPartitionedPorts",
@@ -213,11 +271,11 @@
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "Gauge",
+      "type": "Gauge32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrGroupTable": {
     "name": "rptrGroupTable",
@@ -225,7 +283,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrGroupEntry": {
     "name": "rptrGroupEntry",
@@ -240,7 +298,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrGroupIndex": {
     "name": "rptrGroupIndex",
@@ -248,19 +306,19 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 1024
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrGroupDescr": {
     "name": "rptrGroupDescr",
@@ -280,7 +338,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrGroupObjectID": {
     "name": "rptrGroupObjectID",
@@ -292,7 +350,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrGroupOperStatus": {
     "name": "rptrGroupOperStatus",
@@ -314,7 +372,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrGroupLastOperStatusChange": {
     "name": "rptrGroupLastOperStatusChange",
@@ -326,7 +384,7 @@
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrGroupPortCapacity": {
     "name": "rptrGroupPortCapacity",
@@ -334,19 +392,19 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 1024
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrPortTable": {
     "name": "rptrPortTable",
@@ -354,7 +412,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrPortEntry": {
     "name": "rptrPortEntry",
@@ -374,7 +432,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrPortGroupIndex": {
     "name": "rptrPortGroupIndex",
@@ -382,19 +440,19 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 1024
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrPortIndex": {
     "name": "rptrPortIndex",
@@ -402,19 +460,19 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 1024
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrPortAdminStatus": {
     "name": "rptrPortAdminStatus",
@@ -432,7 +490,7 @@
       }
     },
     "maxaccess": "read-write",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrPortAutoPartitionState": {
     "name": "rptrPortAutoPartitionState",
@@ -450,7 +508,7 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrPortOperStatus": {
     "name": "rptrPortOperStatus",
@@ -469,7 +527,151 @@
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
+  },
+  "rptrPortRptrId": {
+    "name": "rptrPortRptrId",
+    "oid": "1.3.6.1.2.1.22.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrInfoTable": {
+    "name": "rptrInfoTable",
+    "oid": "1.3.6.1.2.1.22.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rptrInfoEntry": {
+    "name": "rptrInfoEntry",
+    "oid": "1.3.6.1.2.1.22.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rptrInfoId": {
+    "name": "rptrInfoId",
+    "oid": "1.3.6.1.2.1.22.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrInfoRptrType": {
+    "name": "rptrInfoRptrType",
+    "oid": "1.3.6.1.2.1.22.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "tenMb": 2,
+          "onehundredMbClassI": 3,
+          "onehundredMbClassII": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrInfoOperStatus": {
+    "name": "rptrInfoOperStatus",
+    "oid": "1.3.6.1.2.1.22.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "failure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrInfoReset": {
+    "name": "rptrInfoReset",
+    "oid": "1.3.6.1.2.1.22.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rptrInfoPartitionedPorts": {
+    "name": "rptrInfoPartitionedPorts",
+    "oid": "1.3.6.1.2.1.22.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrInfoLastChange": {
+    "name": "rptrInfoLastChange",
+    "oid": "1.3.6.1.2.1.22.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
   },
   "rptrMonitorTransmitCollisions": {
     "name": "rptrMonitorTransmitCollisions",
@@ -477,11 +679,11 @@
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrMonitorGroupTable": {
     "name": "rptrMonitorGroupTable",
@@ -489,7 +691,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrMonitorGroupEntry": {
     "name": "rptrMonitorGroupEntry",
@@ -504,7 +706,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrMonitorGroupIndex": {
     "name": "rptrMonitorGroupIndex",
@@ -512,19 +714,19 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 1024
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrMonitorGroupTotalFrames": {
     "name": "rptrMonitorGroupTotalFrames",
@@ -532,11 +734,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrMonitorGroupTotalOctets": {
     "name": "rptrMonitorGroupTotalOctets",
@@ -544,11 +746,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrMonitorGroupTotalErrors": {
     "name": "rptrMonitorGroupTotalErrors",
@@ -556,11 +758,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "deprecated"
   },
   "rptrMonitorPortTable": {
     "name": "rptrMonitorPortTable",
@@ -568,7 +770,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortEntry": {
     "name": "rptrMonitorPortEntry",
@@ -588,7 +790,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortGroupIndex": {
     "name": "rptrMonitorPortGroupIndex",
@@ -596,19 +798,19 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 1024
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortIndex": {
     "name": "rptrMonitorPortIndex",
@@ -616,19 +818,19 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "INTEGER",
+      "type": "Integer32",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 1,
-            "max": 1024
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortReadableFrames": {
     "name": "rptrMonitorPortReadableFrames",
@@ -636,11 +838,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortReadableOctets": {
     "name": "rptrMonitorPortReadableOctets",
@@ -648,11 +850,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortFCSErrors": {
     "name": "rptrMonitorPortFCSErrors",
@@ -660,11 +862,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortAlignmentErrors": {
     "name": "rptrMonitorPortAlignmentErrors",
@@ -672,11 +874,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortFrameTooLongs": {
     "name": "rptrMonitorPortFrameTooLongs",
@@ -684,11 +886,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortShortEvents": {
     "name": "rptrMonitorPortShortEvents",
@@ -696,11 +898,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortRunts": {
     "name": "rptrMonitorPortRunts",
@@ -708,11 +910,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortCollisions": {
     "name": "rptrMonitorPortCollisions",
@@ -720,11 +922,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortLateEvents": {
     "name": "rptrMonitorPortLateEvents",
@@ -732,11 +934,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortVeryLongEvents": {
     "name": "rptrMonitorPortVeryLongEvents",
@@ -744,11 +946,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortDataRateMismatches": {
     "name": "rptrMonitorPortDataRateMismatches",
@@ -756,11 +958,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortAutoPartitions": {
     "name": "rptrMonitorPortAutoPartitions",
@@ -768,11 +970,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrMonitorPortTotalErrors": {
     "name": "rptrMonitorPortTotalErrors",
@@ -780,11 +982,353 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
+  },
+  "rptrMonitorPortLastChange": {
+    "name": "rptrMonitorPortLastChange",
+    "oid": "1.3.6.1.2.1.22.2.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrMonitor100PortTable": {
+    "name": "rptrMonitor100PortTable",
+    "oid": "1.3.6.1.2.1.22.2.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rptrMonitor100PortEntry": {
+    "name": "rptrMonitor100PortEntry",
+    "oid": "1.3.6.1.2.1.22.2.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rptrMonitorPortIsolates": {
+    "name": "rptrMonitorPortIsolates",
+    "oid": "1.3.6.1.2.1.22.2.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrMonitorPortSymbolErrors": {
+    "name": "rptrMonitorPortSymbolErrors",
+    "oid": "1.3.6.1.2.1.22.2.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrMonitorPortUpper32Octets": {
+    "name": "rptrMonitorPortUpper32Octets",
+    "oid": "1.3.6.1.2.1.22.2.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrMonitorPortHCReadableOctets": {
+    "name": "rptrMonitorPortHCReadableOctets",
+    "oid": "1.3.6.1.2.1.22.2.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrMonTable": {
+    "name": "rptrMonTable",
+    "oid": "1.3.6.1.2.1.22.2.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rptrMonEntry": {
+    "name": "rptrMonEntry",
+    "oid": "1.3.6.1.2.1.22.2.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rptrMonTxCollisions": {
+    "name": "rptrMonTxCollisions",
+    "oid": "1.3.6.1.2.1.22.2.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrMonTotalFrames": {
+    "name": "rptrMonTotalFrames",
+    "oid": "1.3.6.1.2.1.22.2.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrMonTotalErrors": {
+    "name": "rptrMonTotalErrors",
+    "oid": "1.3.6.1.2.1.22.2.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrMonTotalOctets": {
+    "name": "rptrMonTotalOctets",
+    "oid": "1.3.6.1.2.1.22.2.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrMon100Table": {
+    "name": "rptrMon100Table",
+    "oid": "1.3.6.1.2.1.22.2.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rptrMon100Entry": {
+    "name": "rptrMon100Entry",
+    "oid": "1.3.6.1.2.1.22.2.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rptrMonUpper32TotalOctets": {
+    "name": "rptrMonUpper32TotalOctets",
+    "oid": "1.3.6.1.2.1.22.2.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrMonHCTotalOctets": {
+    "name": "rptrMonHCTotalOctets",
+    "oid": "1.3.6.1.2.1.22.2.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrAddrSearchTable": {
+    "name": "rptrAddrSearchTable",
+    "oid": "1.3.6.1.2.1.22.3.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rptrAddrSearchEntry": {
+    "name": "rptrAddrSearchEntry",
+    "oid": "1.3.6.1.2.1.22.3.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rptrAddrSearchLock": {
+    "name": "rptrAddrSearchLock",
+    "oid": "1.3.6.1.2.1.22.3.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rptrAddrSearchStatus": {
+    "name": "rptrAddrSearchStatus",
+    "oid": "1.3.6.1.2.1.22.3.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notInUse": 1,
+          "inUse": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rptrAddrSearchAddress": {
+    "name": "rptrAddrSearchAddress",
+    "oid": "1.3.6.1.2.1.22.3.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rptrAddrSearchState": {
+    "name": "rptrAddrSearchState",
+    "oid": "1.3.6.1.2.1.22.3.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "single": 2,
+          "multiple": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrAddrSearchGroup": {
+    "name": "rptrAddrSearchGroup",
+    "oid": "1.3.6.1.2.1.22.3.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrAddrSearchPort": {
+    "name": "rptrAddrSearchPort",
+    "oid": "1.3.6.1.2.1.22.3.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrAddrSearchOwner": {
+    "name": "rptrAddrSearchOwner",
+    "oid": "1.3.6.1.2.1.22.3.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
   },
   "rptrAddrTrackTable": {
     "name": "rptrAddrTrackTable",
@@ -792,7 +1336,7 @@
     "nodetype": "table",
     "class": "objecttype",
     "maxaccess": "not-accessible",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrAddrTrackEntry": {
     "name": "rptrAddrTrackEntry",
@@ -812,7 +1356,7 @@
         "implied": 0
       }
     ],
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrAddrTrackGroupIndex": {
     "name": "rptrAddrTrackGroupIndex",
@@ -826,13 +1370,13 @@
         "range": [
           {
             "min": 1,
-            "max": 1024
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrAddrTrackPortIndex": {
     "name": "rptrAddrTrackPortIndex",
@@ -846,13 +1390,13 @@
         "range": [
           {
             "min": 1,
-            "max": 1024
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrAddrTrackLastSourceAddress": {
     "name": "rptrAddrTrackLastSourceAddress",
@@ -872,11 +1416,11 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Counter",
+      "type": "Counter32",
       "class": "type"
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
   },
   "rptrAddrTrackNewLastSrcAddress": {
     "name": "rptrAddrTrackNewLastSrcAddress",
@@ -884,58 +1428,1122 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "OCTET STRING",
+      "type": "OptMacAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrAddrTrackCapacity": {
+    "name": "rptrAddrTrackCapacity",
+    "oid": "1.3.6.1.2.1.22.3.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrExtAddrTrackTable": {
+    "name": "rptrExtAddrTrackTable",
+    "oid": "1.3.6.1.2.1.22.3.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rptrExtAddrTrackEntry": {
+    "name": "rptrExtAddrTrackEntry",
+    "oid": "1.3.6.1.2.1.22.3.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrExtAddrTrackMacIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rptrExtAddrTrackMacIndex": {
+    "name": "rptrExtAddrTrackMacIndex",
+    "oid": "1.3.6.1.2.1.22.3.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
       "class": "type",
       "constraints": {
-        "size": [
+        "range": [
           {
-            "min": 0,
-            "max": 6
+            "min": 1,
+            "max": 2147483647
           }
         ]
       }
     },
     "maxaccess": "read-only",
-    "status": "mandatory"
+    "status": "current"
+  },
+  "rptrExtAddrTrackSourceAddress": {
+    "name": "rptrExtAddrTrackSourceAddress",
+    "oid": "1.3.6.1.2.1.22.3.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrTopNPortControlTable": {
+    "name": "rptrTopNPortControlTable",
+    "oid": "1.3.6.1.2.1.22.4.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rptrTopNPortControlEntry": {
+    "name": "rptrTopNPortControlEntry",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortControlIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rptrTopNPortControlIndex": {
+    "name": "rptrTopNPortControlIndex",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrTopNPortRepeaterId": {
+    "name": "rptrTopNPortRepeaterId",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rptrTopNPortRateBase": {
+    "name": "rptrTopNPortRateBase",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "readableFrames": 1,
+          "readableOctets": 2,
+          "fcsErrors": 3,
+          "alignmentErrors": 4,
+          "frameTooLongs": 5,
+          "shortEvents": 6,
+          "runts": 7,
+          "collisions": 8,
+          "lateEvents": 9,
+          "veryLongEvents": 10,
+          "dataRateMismatches": 11,
+          "autoPartitions": 12,
+          "totalErrors": 13,
+          "isolates": 14,
+          "symbolErrors": 15
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rptrTopNPortTimeRemaining": {
+    "name": "rptrTopNPortTimeRemaining",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rptrTopNPortDuration": {
+    "name": "rptrTopNPortDuration",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrTopNPortRequestedSize": {
+    "name": "rptrTopNPortRequestedSize",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rptrTopNPortGrantedSize": {
+    "name": "rptrTopNPortGrantedSize",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrTopNPortStartTime": {
+    "name": "rptrTopNPortStartTime",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrTopNPortOwner": {
+    "name": "rptrTopNPortOwner",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rptrTopNPortRowStatus": {
+    "name": "rptrTopNPortRowStatus",
+    "oid": "1.3.6.1.2.1.22.4.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "rptrTopNPortTable": {
+    "name": "rptrTopNPortTable",
+    "oid": "1.3.6.1.2.1.22.4.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rptrTopNPortEntry": {
+    "name": "rptrTopNPortEntry",
+    "oid": "1.3.6.1.2.1.22.4.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortControlIndex",
+        "implied": 0
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rptrTopNPortIndex": {
+    "name": "rptrTopNPortIndex",
+    "oid": "1.3.6.1.2.1.22.4.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrTopNPortGroupIndex": {
+    "name": "rptrTopNPortGroupIndex",
+    "oid": "1.3.6.1.2.1.22.4.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrTopNPortPortIndex": {
+    "name": "rptrTopNPortPortIndex",
+    "oid": "1.3.6.1.2.1.22.4.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rptrTopNPortRate": {
+    "name": "rptrTopNPortRate",
+    "oid": "1.3.6.1.2.1.22.4.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
   },
   "rptrHealth": {
     "name": "rptrHealth",
-    "oid": "1.3.6.1.2.1.220.1",
+    "oid": "1.3.6.1.2.1.22.0.1",
     "class": "notificationtype",
     "objects": [
       {
         "module": "SNMP-REPEATER-MIB",
         "object": "rptrOperStatus"
       }
-    ]
+    ],
+    "status": "deprecated"
   },
   "rptrGroupChange": {
     "name": "rptrGroupChange",
-    "oid": "1.3.6.1.2.1.220.2",
+    "oid": "1.3.6.1.2.1.22.0.2",
     "class": "notificationtype",
     "objects": [
       {
         "module": "SNMP-REPEATER-MIB",
         "object": "rptrGroupIndex"
       }
-    ]
+    ],
+    "status": "deprecated"
   },
   "rptrResetEvent": {
     "name": "rptrResetEvent",
-    "oid": "1.3.6.1.2.1.220.3",
+    "oid": "1.3.6.1.2.1.22.0.3",
     "class": "notificationtype",
     "objects": [
       {
         "module": "SNMP-REPEATER-MIB",
         "object": "rptrOperStatus"
       }
-    ]
+    ],
+    "status": "deprecated"
+  },
+  "rptrInfoHealth": {
+    "name": "rptrInfoHealth",
+    "oid": "1.3.6.1.2.1.22.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "rptrInfoResetEvent": {
+    "name": "rptrInfoResetEvent",
+    "oid": "1.3.6.1.2.1.22.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpRptrModConf": {
+    "name": "snmpRptrModConf",
+    "oid": "1.3.6.1.2.1.22.5.1",
+    "class": "objectidentity"
+  },
+  "snmpRptrModCompls": {
+    "name": "snmpRptrModCompls",
+    "oid": "1.3.6.1.2.1.22.5.1.1",
+    "class": "objectidentity"
+  },
+  "snmpRptrModObjGrps": {
+    "name": "snmpRptrModObjGrps",
+    "oid": "1.3.6.1.2.1.22.5.1.2",
+    "class": "objectidentity"
+  },
+  "snmpRptrModNotGrps": {
+    "name": "snmpRptrModNotGrps",
+    "oid": "1.3.6.1.2.1.22.5.1.3",
+    "class": "objectidentity"
+  },
+  "snmpRptrGrpBasic1516": {
+    "name": "snmpRptrGrpBasic1516",
+    "oid": "1.3.6.1.2.1.22.5.1.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupCapacity"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrOperStatus"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrHealthText"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrReset"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrNonDisruptTest"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTotalPartitionedPorts"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupDescr"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupObjectID"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupOperStatus"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupLastOperStatusChange"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupPortCapacity"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortAdminStatus"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortAutoPartitionState"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortOperStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "snmpRptrGrpMonitor1516": {
+    "name": "snmpRptrGrpMonitor1516",
+    "oid": "1.3.6.1.2.1.22.5.1.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorTransmitCollisions"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorGroupTotalFrames"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorGroupTotalOctets"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorGroupTotalErrors"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortReadableFrames"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortReadableOctets"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortFCSErrors"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortAlignmentErrors"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortFrameTooLongs"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortShortEvents"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortRunts"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortCollisions"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortLateEvents"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortVeryLongEvents"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortDataRateMismatches"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortAutoPartitions"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortTotalErrors"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "snmpRptrGrpAddrTrack1368": {
+    "name": "snmpRptrGrpAddrTrack1368",
+    "oid": "1.3.6.1.2.1.22.5.1.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackPortIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackLastSourceAddress"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackSourceAddrChanges"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "snmpRptrGrpAddrTrack1516": {
+    "name": "snmpRptrGrpAddrTrack1516",
+    "oid": "1.3.6.1.2.1.22.5.1.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackPortIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackLastSourceAddress"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackSourceAddrChanges"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackNewLastSrcAddress"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "snmpRptrGrpBasic": {
+    "name": "snmpRptrGrpBasic",
+    "oid": "1.3.6.1.2.1.22.5.1.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupObjectID"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupOperStatus"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrGroupPortCapacity"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortAdminStatus"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortAutoPartitionState"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortOperStatus"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrPortRptrId"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoId"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoRptrType"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoOperStatus"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoReset"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoPartitionedPorts"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrInfoLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpRptrGrpMonitor": {
+    "name": "snmpRptrGrpMonitor",
+    "oid": "1.3.6.1.2.1.22.5.1.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortReadableFrames"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortReadableOctets"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortFCSErrors"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortAlignmentErrors"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortFrameTooLongs"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortShortEvents"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortRunts"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortCollisions"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortLateEvents"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortVeryLongEvents"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortDataRateMismatches"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortAutoPartitions"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortTotalErrors"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortLastChange"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonTxCollisions"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonTotalFrames"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonTotalErrors"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonTotalOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpRptrGrpMonitor100": {
+    "name": "snmpRptrGrpMonitor100",
+    "oid": "1.3.6.1.2.1.22.5.1.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortIsolates"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortSymbolErrors"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortUpper32Octets"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonUpper32TotalOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpRptrGrpMonitor100w64": {
+    "name": "snmpRptrGrpMonitor100w64",
+    "oid": "1.3.6.1.2.1.22.5.1.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonitorPortHCReadableOctets"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrMonHCTotalOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpRptrGrpAddrTrack": {
+    "name": "snmpRptrGrpAddrTrack",
+    "oid": "1.3.6.1.2.1.22.5.1.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackPortIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackSourceAddrChanges"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackNewLastSrcAddress"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrTrackCapacity"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpRptrGrpExtAddrTrack": {
+    "name": "snmpRptrGrpExtAddrTrack",
+    "oid": "1.3.6.1.2.1.22.5.1.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrExtAddrTrackMacIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrExtAddrTrackSourceAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpRptrGrpRptrAddrSearch": {
+    "name": "snmpRptrGrpRptrAddrSearch",
+    "oid": "1.3.6.1.2.1.22.5.1.2.11",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrSearchLock"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrSearchStatus"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrSearchAddress"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrSearchState"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrSearchGroup"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrSearchPort"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrAddrSearchOwner"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpRptrGrpTopNPort": {
+    "name": "snmpRptrGrpTopNPort",
+    "oid": "1.3.6.1.2.1.22.5.1.2.12",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortControlIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortRepeaterId"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortRateBase"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortTimeRemaining"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortDuration"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortRequestedSize"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortGrantedSize"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortStartTime"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortOwner"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortRowStatus"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortGroupIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortPortIndex"
+      },
+      {
+        "module": "SNMP-REPEATER-MIB",
+        "object": "rptrTopNPortRate"
+      }
+    ],
+    "status": "current"
+  },
+  "snmpRptrModComplRFC1368": {
+    "name": "snmpRptrModComplRFC1368",
+    "oid": "1.3.6.1.2.1.22.5.1.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "snmpRptrGrpBasic1516",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpMonitor1516",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpAddrTrack1368",
+        "module": "SNMP-REPEATER-MIB"
+      }
+    ],
+    "status": "obsolete"
+  },
+  "snmpRptrModComplRFC1516": {
+    "name": "snmpRptrModComplRFC1516",
+    "oid": "1.3.6.1.2.1.22.5.1.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "snmpRptrGrpBasic1516",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpMonitor1516",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpAddrTrack1516",
+        "module": "SNMP-REPEATER-MIB"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "snmpRptrModCompl": {
+    "name": "snmpRptrModCompl",
+    "oid": "1.3.6.1.2.1.22.5.1.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "snmpRptrGrpBasic",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpMonitor",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpAddrTrack",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpMonitor100",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpMonitor100w64",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpExtAddrTrack",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpRptrAddrSearch",
+        "module": "SNMP-REPEATER-MIB"
+      },
+      {
+        "object": "snmpRptrGrpTopNPort",
+        "module": "SNMP-REPEATER-MIB"
+      }
+    ],
+    "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/SNMP-REPEATER-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-REPEATER-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SNMP-REPEATER-MIB"

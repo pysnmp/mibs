@@ -7,26 +7,26 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "IpAddress",
+      "Counter64",
+      "TRAP-TYPE",
       "Bits",
+      "Gauge32",
+      "MODULE-IDENTITY",
       "Integer32",
       "Unsigned32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "enterprises",
-      "IpAddress",
-      "TRAP-TYPE",
-      "iso",
       "TimeTicks",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE"
+      "enterprises",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress"
     ]
   },
   "eip": {
@@ -297,8 +297,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/efficientip/EIP-STATS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:17:40 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:24:34 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EIP-STATS-MIB"

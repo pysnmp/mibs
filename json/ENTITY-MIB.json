@@ -1,47 +1,41 @@
 {
   "imports": {
     "class": "imports",
-    "IANA-ENTITY-MIB": [
-      "IANAPhysicalClass"
-    ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
-      "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Unsigned32",
+      "MibIdentifier",
+      "mib-2",
+      "OBJECT-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "IpAddress",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TAddress",
-      "TimeStamp",
-      "AutonomousType",
-      "DateAndTime",
       "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
       "RowPointer",
+      "AutonomousType",
+      "TimeStamp",
+      "DateAndTime",
+      "TAddress",
       "TDomain"
-    ],
-    "UUID-TC-MIB": [
-      "UUIDorZero"
     ]
   },
   "entityMIB": {
@@ -50,16 +44,12 @@
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2013-04-05 00:00",
-        "description": "Entity MIB (Version 4). This revision obsoletes RFC 4133. - Creation of a new MIB module, IANA-ENTITY-MIB, which makes the PhysicalIndex TC an IANA-maintained TEXTUAL- CONVENTION. IANAPhysicalClass is now imported from the IANA-ENTITY-MIB. - Addition of a new MIB object to the entPhysicalTable, entPhysicalUUID. UUIDorZero is imported from the UUID-TC-MIB. - Addition of two new MODULE-COMPLIANCE modules- entity4Compliance and entity4CRCompliance. This version is published as RFC 6933."
-      },
-      {
         "revision": "2005-08-10 00:00",
-        "description": "Initial Version of Entity MIB (Version 3). This revision obsoletes RFC 2737. Additions: - cpu(12) enumeration added to IANAPhysicalClass TC - DISPLAY-HINT clause to PhysicalIndex TC - PhysicalIndexOrZero TC - entPhysicalMfgDate object - entPhysicalUris object Changes: - entPhysicalContainedIn SYNTAX changed from INTEGER to PhysicalIndexOrZero This version was published as RFC 4133."
+        "description": "Initial Version of Entity MIB (Version 3). This revision obsoletes RFC 2737. Additions: - cpu(12) enumeration added to PhysicalClass TC - DISPLAY-HINT clause to PhysicalIndex TC - PhysicalIndexOrZero TC - entPhysicalMfgDate object - entPhysicalUris object Changes: - entPhysicalContainedIn SYNTAX changed from INTEGER to PhysicalIndexOrZero This version published as RFC 4133."
       },
       {
         "revision": "1999-12-07 00:00",
-        "description": "Initial Version of Entity MIB (Version 2). This revision obsoletes RFC 2037. This version was published as RFC 2737."
+        "description": "Initial Version of Entity MIB (Version 2). This revision obsoletes RFC 2037. This version published as RFC 2737."
       },
       {
         "revision": "1996-10-31 00:00",
@@ -128,23 +118,6 @@
     "displayhint": "d",
     "status": "current"
   },
-  "SnmpEngineIdOrNone": {
-    "name": "SnmpEngineIdOrNone",
-    "class": "textualconvention",
-    "type": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 32
-          }
-        ]
-      }
-    },
-    "status": "current"
-  },
   "PhysicalClass": {
     "name": "PhysicalClass",
     "class": "textualconvention",
@@ -168,7 +141,24 @@
         }
       }
     },
-    "status": "deprecated"
+    "status": "current"
+  },
+  "SnmpEngineIdOrNone": {
+    "name": "SnmpEngineIdOrNone",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "current"
   },
   "entPhysicalTable": {
     "name": "entPhysicalTable",
@@ -247,7 +237,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "IANAPhysicalClass",
+      "type": "PhysicalClass",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -439,18 +429,6 @@
       "class": "type"
     },
     "maxaccess": "read-write",
-    "status": "current"
-  },
-  "entPhysicalUUID": {
-    "name": "entPhysicalUUID",
-    "oid": "1.3.6.1.2.1.47.1.1.1.1.19",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "UUIDorZero",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
     "status": "current"
   },
   "entLogicalTable": {
@@ -865,62 +843,6 @@
         "module": "ENTITY-MIB"
       }
     ],
-    "status": "deprecated"
-  },
-  "entity4Compliance": {
-    "name": "entity4Compliance",
-    "oid": "1.3.6.1.2.1.47.3.1.4",
-    "class": "modulecompliance",
-    "modulecompliance": [
-      {
-        "object": "entityPhysicalGroup",
-        "module": "ENTITY-MIB"
-      },
-      {
-        "object": "entityPhysical2Group",
-        "module": "ENTITY-MIB"
-      },
-      {
-        "object": "entityPhysical3Group",
-        "module": "ENTITY-MIB"
-      },
-      {
-        "object": "entityGeneralGroup",
-        "module": "ENTITY-MIB"
-      },
-      {
-        "object": "entityNotificationsGroup",
-        "module": "ENTITY-MIB"
-      },
-      {
-        "object": "entityPhysical4Group",
-        "module": "ENTITY-MIB"
-      },
-      {
-        "object": "entityLogical2Group",
-        "module": "ENTITY-MIB"
-      },
-      {
-        "object": "entityMappingGroup",
-        "module": "ENTITY-MIB"
-      }
-    ],
-    "status": "current"
-  },
-  "entity4CRCompliance": {
-    "name": "entity4CRCompliance",
-    "oid": "1.3.6.1.2.1.47.3.1.5",
-    "class": "modulecompliance",
-    "modulecompliance": [
-      {
-        "object": "entityPhysicalCRGroup",
-        "module": "ENTITY-MIB"
-      },
-      {
-        "object": "entityPhysical4Group",
-        "module": "ENTITY-MIB"
-      }
-    ],
     "status": "current"
   },
   "entityPhysicalGroup": {
@@ -1119,39 +1041,11 @@
     ],
     "status": "current"
   },
-  "entityPhysical4Group": {
-    "name": "entityPhysical4Group",
-    "oid": "1.3.6.1.2.1.47.3.2.9",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ENTITY-MIB",
-        "object": "entPhysicalUUID"
-      }
-    ],
-    "status": "current"
-  },
-  "entityPhysicalCRGroup": {
-    "name": "entityPhysicalCRGroup",
-    "oid": "1.3.6.1.2.1.47.3.2.10",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "ENTITY-MIB",
-        "object": "entPhysicalClass"
-      },
-      {
-        "module": "ENTITY-MIB",
-        "object": "entPhysicalName"
-      }
-    ],
-    "status": "current"
-  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ENTITY-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/ENTITY-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:20:18 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ENTITY-MIB"

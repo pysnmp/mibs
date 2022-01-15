@@ -1,0 +1,81 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "snmpAuthProtocols"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "mib-2",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "snmpUsmHmacSha2MIB": {
+    "name": "snmpUsmHmacSha2MIB",
+    "oid": "1.3.6.1.2.1.235",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2016-04-18 00:00",
+        "description": "Version correcting the MODULE-IDENTITY value, published as RFC 7860"
+      },
+      {
+        "revision": "2015-10-14 00:00",
+        "description": "Initial version, published as RFC 7630"
+      }
+    ]
+  },
+  "usmHMAC128SHA224AuthProtocol": {
+    "name": "usmHMAC128SHA224AuthProtocol",
+    "oid": "1.3.6.1.6.3.10.1.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "usmHMAC192SHA256AuthProtocol": {
+    "name": "usmHMAC192SHA256AuthProtocol",
+    "oid": "1.3.6.1.6.3.10.1.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "usmHMAC256SHA384AuthProtocol": {
+    "name": "usmHMAC256SHA384AuthProtocol",
+    "oid": "1.3.6.1.6.3.10.1.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "usmHMAC384SHA512AuthProtocol": {
+    "name": "usmHMAC384SHA512AuthProtocol",
+    "oid": "1.3.6.1.6.3.10.1.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMP-USM-HMAC-SHA2-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "SNMP-USM-HMAC-SHA2-MIB"
+  }
+}

@@ -14,29 +14,29 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
-      "Gauge32",
-      "Unsigned32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "MibIdentifier",
       "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
       "transmission",
-      "Bits",
+      "Counter32",
+      "iso",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "TimeStamp",
       "TestAndIncr",
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "isdnMib": {
@@ -999,22 +999,22 @@
   },
   "isdnMibConformance": {
     "name": "isdnMibConformance",
-    "oid": "1.3.6.1.2.1.10.20.3",
+    "oid": "1.3.6.1.2.1.10.20.2",
     "class": "objectidentity"
   },
   "isdnMibCompliances": {
     "name": "isdnMibCompliances",
-    "oid": "1.3.6.1.2.1.10.20.3.1",
+    "oid": "1.3.6.1.2.1.10.20.2.1",
     "class": "objectidentity"
   },
   "isdnMibGroups": {
     "name": "isdnMibGroups",
-    "oid": "1.3.6.1.2.1.10.20.3.2",
+    "oid": "1.3.6.1.2.1.10.20.2.2",
     "class": "objectidentity"
   },
   "isdnMibCompliance": {
     "name": "isdnMibCompliance",
-    "oid": "1.3.6.1.2.1.10.20.3.1.1",
+    "oid": "1.3.6.1.2.1.10.20.2.1.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -1023,6 +1023,10 @@
       },
       {
         "object": "isdnMibBearerGroup",
+        "module": "ISDN-MIB"
+      },
+      {
+        "object": "isdnMibNotificationsGroup",
         "module": "ISDN-MIB"
       },
       {
@@ -1042,7 +1046,7 @@
   },
   "isdnMibBasicRateGroup": {
     "name": "isdnMibBasicRateGroup",
-    "oid": "1.3.6.1.2.1.10.20.3.2.1",
+    "oid": "1.3.6.1.2.1.10.20.2.2.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -1066,7 +1070,7 @@
   },
   "isdnMibBearerGroup": {
     "name": "isdnMibBearerGroup",
-    "oid": "1.3.6.1.2.1.10.20.3.2.2",
+    "oid": "1.3.6.1.2.1.10.20.2.2.2",
     "class": "objectgroup",
     "objects": [
       {
@@ -1118,7 +1122,7 @@
   },
   "isdnMibSignalingGroup": {
     "name": "isdnMibSignalingGroup",
-    "oid": "1.3.6.1.2.1.10.20.3.2.3",
+    "oid": "1.3.6.1.2.1.10.20.2.2.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -1194,7 +1198,7 @@
   },
   "isdnMibEndpointGroup": {
     "name": "isdnMibEndpointGroup",
-    "oid": "1.3.6.1.2.1.10.20.3.2.4",
+    "oid": "1.3.6.1.2.1.10.20.2.2.4",
     "class": "objectgroup",
     "objects": [
       {
@@ -1230,7 +1234,7 @@
   },
   "isdnMibDirectoryGroup": {
     "name": "isdnMibDirectoryGroup",
-    "oid": "1.3.6.1.2.1.10.20.3.2.5",
+    "oid": "1.3.6.1.2.1.10.20.2.2.5",
     "class": "objectgroup",
     "objects": [
       {
@@ -1248,11 +1252,23 @@
     ],
     "status": "current"
   },
+  "isdnMibNotificationsGroup": {
+    "name": "isdnMibNotificationsGroup",
+    "oid": "1.3.6.1.2.1.10.20.2.2.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "ISDN-MIB",
+        "object": "isdnMibCallInformation"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ISDN-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ISDN-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ISDN-MIB"

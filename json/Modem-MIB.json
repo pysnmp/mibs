@@ -1,0 +1,1554 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "mdmMIB": {
+    "name": "mdmMIB",
+    "oid": "1.3.6.1.2.1.38.1",
+    "class": "moduleidentity"
+  },
+  "mdmMib": {
+    "name": "mdmMib",
+    "oid": "1.3.6.1.2.1.38",
+    "class": "objectidentity"
+  },
+  "mdmMIBObjects": {
+    "name": "mdmMIBObjects",
+    "oid": "1.3.6.1.2.1.38.1.1",
+    "class": "objectidentity"
+  },
+  "mdmConformance": {
+    "name": "mdmConformance",
+    "oid": "1.3.6.1.2.1.38.1.2",
+    "class": "objectidentity"
+  },
+  "mdmCompliances": {
+    "name": "mdmCompliances",
+    "oid": "1.3.6.1.2.1.38.1.2.1",
+    "class": "objectidentity"
+  },
+  "mdmGroups": {
+    "name": "mdmGroups",
+    "oid": "1.3.6.1.2.1.38.1.2.2",
+    "class": "objectidentity"
+  },
+  "mdmIDGroup": {
+    "name": "mdmIDGroup",
+    "oid": "1.3.6.1.2.1.38.1.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmIDManufacturerOID"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmIDProductDetails"
+      }
+    ],
+    "status": "current"
+  },
+  "mdmLineInterfaceGroup": {
+    "name": "mdmLineInterfaceGroup",
+    "oid": "1.3.6.1.2.1.38.1.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmLineCarrierLossTime"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmLineState"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmLineCapabilitiesID"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmLineCapabilitiesEnableRequested"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmLineCapabilitiesEnableGranted"
+      }
+    ],
+    "status": "current"
+  },
+  "mdmDTEInterfaceGroup": {
+    "name": "mdmDTEInterfaceGroup",
+    "oid": "1.3.6.1.2.1.38.1.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmDTEActionDTROnToOff"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmDTEActionDTROffToOn"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmDTESyncTimingSource"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmDTESyncAsyncMode"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmDTEInactivityTimeout"
+      }
+    ],
+    "status": "current"
+  },
+  "mdmCallControlGroup": {
+    "name": "mdmCallControlGroup",
+    "oid": "1.3.6.1.2.1.38.1.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmCCRingsBeforeAnswer"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmCCCallSetUpFailTimer"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmCCResultCodeEnable"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmCCEscapeAction"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmCCCallDuration"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmCCConnectionFailReason"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmCCStoredDialString"
+      }
+    ],
+    "status": "current"
+  },
+  "mdmErrorControlGroup": {
+    "name": "mdmErrorControlGroup",
+    "oid": "1.3.6.1.2.1.38.1.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmECErrorControlUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "mdmDataCompressionGroup": {
+    "name": "mdmDataCompressionGroup",
+    "oid": "1.3.6.1.2.1.38.1.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmDCCompressionTypeUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "mdmSignalConvertorGroup": {
+    "name": "mdmSignalConvertorGroup",
+    "oid": "1.3.6.1.2.1.38.1.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmSCCurrentLineReceiveRate"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmSCCurrentLineTransmitRate"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmSCInitialLineReceiveRate"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmSCInitialLineTransmitRate"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmSCModulationSchemeUsed"
+      }
+    ],
+    "status": "current"
+  },
+  "mdmStatisticsGroup": {
+    "name": "mdmStatisticsGroup",
+    "oid": "1.3.6.1.2.1.38.1.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsRingNoAnswers"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsIncomingConnectionFailures"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsIncomingConnectionCompletions"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsFailedDialAttempts"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsOutgoingConnectionFailures"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsOutgoingConnectionCompletions"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsRetrains"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStats2400OrLessConnections"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStats2400To14400Connections"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsGreaterThan14400Connections"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsErrorControlledConnections"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsCompressedConnections"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsCompressionEfficiency"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsSentOctets"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsReceivedOctets"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsSentDataFrames"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsReceivedDataFrames"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsResentFrames"
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmStatsErrorFrames"
+      }
+    ],
+    "status": "current"
+  },
+  "mdmNumber": {
+    "name": "mdmNumber",
+    "oid": "1.3.6.1.2.1.38.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmIDTable": {
+    "name": "mdmIDTable",
+    "oid": "1.3.6.1.2.1.38.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmIDEntry": {
+    "name": "mdmIDEntry",
+    "oid": "1.3.6.1.2.1.38.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mdmIndex": {
+    "name": "mdmIndex",
+    "oid": "1.3.6.1.2.1.38.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmIDManufacturerOID": {
+    "name": "mdmIDManufacturerOID",
+    "oid": "1.3.6.1.2.1.38.1.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmIDProductDetails": {
+    "name": "mdmIDProductDetails",
+    "oid": "1.3.6.1.2.1.38.1.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 79
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmLineTable": {
+    "name": "mdmLineTable",
+    "oid": "1.3.6.1.2.1.38.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmLineEntry": {
+    "name": "mdmLineEntry",
+    "oid": "1.3.6.1.2.1.38.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mdmLineEntry",
+      "module": "Modem-MIB",
+      "object": "mdmIDEntry"
+    },
+    "status": "current"
+  },
+  "mdmLineCarrierLossTime": {
+    "name": "mdmLineCarrierLossTime",
+    "oid": "1.3.6.1.2.1.38.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmLineState": {
+    "name": "mdmLineState",
+    "oid": "1.3.6.1.2.1.38.1.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "onHook": 2,
+          "offHook": 3,
+          "connected": 4,
+          "busiedOut": 5,
+          "reset": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesTable": {
+    "name": "mdmLineCapabilitiesTable",
+    "oid": "1.3.6.1.2.1.38.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesEntry": {
+    "name": "mdmLineCapabilitiesEntry",
+    "oid": "1.3.6.1.2.1.38.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmIndex",
+        "implied": 0
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmLineCapabilitiesIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mdmLineCapabilitiesIndex": {
+    "name": "mdmLineCapabilitiesIndex",
+    "oid": "1.3.6.1.2.1.38.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesID": {
+    "name": "mdmLineCapabilitiesID",
+    "oid": "1.3.6.1.2.1.38.1.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesEnableRequested": {
+    "name": "mdmLineCapabilitiesEnableRequested",
+    "oid": "1.3.6.1.2.1.38.1.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "optional": 2,
+          "preferred": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "preferred",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesEnableGranted": {
+    "name": "mdmLineCapabilitiesEnableGranted",
+    "oid": "1.3.6.1.2.1.38.1.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "optional": 2,
+          "preferred": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmLineCapabilities": {
+    "name": "mdmLineCapabilities",
+    "oid": "1.3.6.1.2.1.38.1.1.5",
+    "class": "objectidentity"
+  },
+  "mdmLineCapabilitiesV21": {
+    "name": "mdmLineCapabilitiesV21",
+    "oid": "1.3.6.1.2.1.38.1.1.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV22": {
+    "name": "mdmLineCapabilitiesV22",
+    "oid": "1.3.6.1.2.1.38.1.1.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV22bis": {
+    "name": "mdmLineCapabilitiesV22bis",
+    "oid": "1.3.6.1.2.1.38.1.1.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV23CC": {
+    "name": "mdmLineCapabilitiesV23CC",
+    "oid": "1.3.6.1.2.1.38.1.1.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV23SC": {
+    "name": "mdmLineCapabilitiesV23SC",
+    "oid": "1.3.6.1.2.1.38.1.1.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV25bis": {
+    "name": "mdmLineCapabilitiesV25bis",
+    "oid": "1.3.6.1.2.1.38.1.1.5.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV26bis": {
+    "name": "mdmLineCapabilitiesV26bis",
+    "oid": "1.3.6.1.2.1.38.1.1.5.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV26ter": {
+    "name": "mdmLineCapabilitiesV26ter",
+    "oid": "1.3.6.1.2.1.38.1.1.5.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV27ter": {
+    "name": "mdmLineCapabilitiesV27ter",
+    "oid": "1.3.6.1.2.1.38.1.1.5.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV32": {
+    "name": "mdmLineCapabilitiesV32",
+    "oid": "1.3.6.1.2.1.38.1.1.5.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV32bis": {
+    "name": "mdmLineCapabilitiesV32bis",
+    "oid": "1.3.6.1.2.1.38.1.1.5.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV32terbo": {
+    "name": "mdmLineCapabilitiesV32terbo",
+    "oid": "1.3.6.1.2.1.38.1.1.5.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesVFC": {
+    "name": "mdmLineCapabilitiesVFC",
+    "oid": "1.3.6.1.2.1.38.1.1.5.13",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV34": {
+    "name": "mdmLineCapabilitiesV34",
+    "oid": "1.3.6.1.2.1.38.1.1.5.14",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV42": {
+    "name": "mdmLineCapabilitiesV42",
+    "oid": "1.3.6.1.2.1.38.1.1.5.15",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV42bis": {
+    "name": "mdmLineCapabilitiesV42bis",
+    "oid": "1.3.6.1.2.1.38.1.1.5.16",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesMNP1": {
+    "name": "mdmLineCapabilitiesMNP1",
+    "oid": "1.3.6.1.2.1.38.1.1.5.17",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesMNP2": {
+    "name": "mdmLineCapabilitiesMNP2",
+    "oid": "1.3.6.1.2.1.38.1.1.5.18",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesMNP3": {
+    "name": "mdmLineCapabilitiesMNP3",
+    "oid": "1.3.6.1.2.1.38.1.1.5.19",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesMNP4": {
+    "name": "mdmLineCapabilitiesMNP4",
+    "oid": "1.3.6.1.2.1.38.1.1.5.20",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesMNP5": {
+    "name": "mdmLineCapabilitiesMNP5",
+    "oid": "1.3.6.1.2.1.38.1.1.5.21",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesMNP6": {
+    "name": "mdmLineCapabilitiesMNP6",
+    "oid": "1.3.6.1.2.1.38.1.1.5.22",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesMNP7": {
+    "name": "mdmLineCapabilitiesMNP7",
+    "oid": "1.3.6.1.2.1.38.1.1.5.23",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesMNP8": {
+    "name": "mdmLineCapabilitiesMNP8",
+    "oid": "1.3.6.1.2.1.38.1.1.5.24",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesMNP9": {
+    "name": "mdmLineCapabilitiesMNP9",
+    "oid": "1.3.6.1.2.1.38.1.1.5.25",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesMNP10": {
+    "name": "mdmLineCapabilitiesMNP10",
+    "oid": "1.3.6.1.2.1.38.1.1.5.26",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV29": {
+    "name": "mdmLineCapabilitiesV29",
+    "oid": "1.3.6.1.2.1.38.1.1.5.27",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesV33": {
+    "name": "mdmLineCapabilitiesV33",
+    "oid": "1.3.6.1.2.1.38.1.1.5.28",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmLineCapabilitiesBell208": {
+    "name": "mdmLineCapabilitiesBell208",
+    "oid": "1.3.6.1.2.1.38.1.1.5.29",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "mdmDTEInterfaceTable": {
+    "name": "mdmDTEInterfaceTable",
+    "oid": "1.3.6.1.2.1.38.1.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmDTEInterfaceEntry": {
+    "name": "mdmDTEInterfaceEntry",
+    "oid": "1.3.6.1.2.1.38.1.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mdmDTEInterfaceEntry",
+      "module": "Modem-MIB",
+      "object": "mdmIDEntry"
+    },
+    "status": "current"
+  },
+  "mdmDTEActionDTROnToOff": {
+    "name": "mdmDTEActionDTROnToOff",
+    "oid": "1.3.6.1.2.1.38.1.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "escapeToCommandMode": 2,
+          "disconnectCall": 3,
+          "resetModem": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disconnectCall",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmDTEActionDTROffToOn": {
+    "name": "mdmDTEActionDTROffToOn",
+    "oid": "1.3.6.1.2.1.38.1.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "enableDial": 2,
+          "autoAnswerEnable": 3,
+          "establishConnection": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "autoAnswerEnable",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmDTESyncTimingSource": {
+    "name": "mdmDTESyncTimingSource",
+    "oid": "1.3.6.1.2.1.38.1.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "internal": 1,
+          "external": 2,
+          "loopback": 3,
+          "network": 4
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "internal",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmDTESyncAsyncMode": {
+    "name": "mdmDTESyncAsyncMode",
+    "oid": "1.3.6.1.2.1.38.1.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "async": 1,
+          "sync": 2,
+          "syncAfterDial": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "async",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmDTEInactivityTimeout": {
+    "name": "mdmDTEInactivityTimeout",
+    "oid": "1.3.6.1.2.1.38.1.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmCallControlTable": {
+    "name": "mdmCallControlTable",
+    "oid": "1.3.6.1.2.1.38.1.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmCallControlEntry": {
+    "name": "mdmCallControlEntry",
+    "oid": "1.3.6.1.2.1.38.1.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mdmCallControlEntry",
+      "module": "Modem-MIB",
+      "object": "mdmIDEntry"
+    },
+    "status": "current"
+  },
+  "mdmCCRingsBeforeAnswer": {
+    "name": "mdmCCRingsBeforeAnswer",
+    "oid": "1.3.6.1.2.1.38.1.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmCCCallSetUpFailTimer": {
+    "name": "mdmCCCallSetUpFailTimer",
+    "oid": "1.3.6.1.2.1.38.1.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 30,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmCCResultCodeEnable": {
+    "name": "mdmCCResultCodeEnable",
+    "oid": "1.3.6.1.2.1.38.1.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "disabled": 1,
+          "numericEnabled": 2,
+          "verboseEnabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "verboseEnabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmCCEscapeAction": {
+    "name": "mdmCCEscapeAction",
+    "oid": "1.3.6.1.2.1.38.1.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignoreEscape": 1,
+          "hangUp": 2,
+          "enterCommandMode": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "ignoreEscape",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmCCCallDuration": {
+    "name": "mdmCCCallDuration",
+    "oid": "1.3.6.1.2.1.38.1.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmCCConnectionFailReason": {
+    "name": "mdmCCConnectionFailReason",
+    "oid": "1.3.6.1.2.1.38.1.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "other": 2,
+          "managementCommand": 3,
+          "inactivityTimeout": 4,
+          "mnpIncompatibility": 5,
+          "protocolError": 6,
+          "powerLoss": 10,
+          "equipmentFailure": 11,
+          "dtrDrop": 20,
+          "noDialTone": 30,
+          "lineBusy": 31,
+          "noAnswer": 32,
+          "voiceDetected": 33,
+          "carrierLost": 40,
+          "trainingFailed": 41,
+          "faxDetected": 42
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmCCStoredDialStringTable": {
+    "name": "mdmCCStoredDialStringTable",
+    "oid": "1.3.6.1.2.1.38.1.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmCCStoredDialStringEntry": {
+    "name": "mdmCCStoredDialStringEntry",
+    "oid": "1.3.6.1.2.1.38.1.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "Modem-MIB",
+        "object": "mdmIndex",
+        "implied": 0
+      },
+      {
+        "module": "Modem-MIB",
+        "object": "mdmCCStoredDialStringIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "mdmCCStoredDialStringIndex": {
+    "name": "mdmCCStoredDialStringIndex",
+    "oid": "1.3.6.1.2.1.38.1.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmCCStoredDialString": {
+    "name": "mdmCCStoredDialString",
+    "oid": "1.3.6.1.2.1.38.1.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "mdmECTable": {
+    "name": "mdmECTable",
+    "oid": "1.3.6.1.2.1.38.1.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmECEntry": {
+    "name": "mdmECEntry",
+    "oid": "1.3.6.1.2.1.38.1.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mdmECEntry",
+      "module": "Modem-MIB",
+      "object": "mdmIDEntry"
+    },
+    "status": "current"
+  },
+  "mdmECErrorControlUsed": {
+    "name": "mdmECErrorControlUsed",
+    "oid": "1.3.6.1.2.1.38.1.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmDCTable": {
+    "name": "mdmDCTable",
+    "oid": "1.3.6.1.2.1.38.1.1.10",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmDCEntry": {
+    "name": "mdmDCEntry",
+    "oid": "1.3.6.1.2.1.38.1.1.10.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mdmDCEntry",
+      "module": "Modem-MIB",
+      "object": "mdmIDEntry"
+    },
+    "status": "current"
+  },
+  "mdmDCCompressionTypeUsed": {
+    "name": "mdmDCCompressionTypeUsed",
+    "oid": "1.3.6.1.2.1.38.1.1.10.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmSCTable": {
+    "name": "mdmSCTable",
+    "oid": "1.3.6.1.2.1.38.1.1.11",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmSCEntry": {
+    "name": "mdmSCEntry",
+    "oid": "1.3.6.1.2.1.38.1.1.11.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mdmSCEntry",
+      "module": "Modem-MIB",
+      "object": "mdmIDEntry"
+    },
+    "status": "current"
+  },
+  "mdmSCCurrentLineTransmitRate": {
+    "name": "mdmSCCurrentLineTransmitRate",
+    "oid": "1.3.6.1.2.1.38.1.1.11.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmSCCurrentLineReceiveRate": {
+    "name": "mdmSCCurrentLineReceiveRate",
+    "oid": "1.3.6.1.2.1.38.1.1.11.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmSCInitialLineTransmitRate": {
+    "name": "mdmSCInitialLineTransmitRate",
+    "oid": "1.3.6.1.2.1.38.1.1.11.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmSCInitialLineReceiveRate": {
+    "name": "mdmSCInitialLineReceiveRate",
+    "oid": "1.3.6.1.2.1.38.1.1.11.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmSCModulationSchemeUsed": {
+    "name": "mdmSCModulationSchemeUsed",
+    "oid": "1.3.6.1.2.1.38.1.1.11.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsTable": {
+    "name": "mdmStatsTable",
+    "oid": "1.3.6.1.2.1.38.1.1.12",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "mdmStatsEntry": {
+    "name": "mdmStatsEntry",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "mdmStatsEntry",
+      "module": "Modem-MIB",
+      "object": "mdmIDEntry"
+    },
+    "status": "current"
+  },
+  "mdmStatsRingNoAnswers": {
+    "name": "mdmStatsRingNoAnswers",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsIncomingConnectionFailures": {
+    "name": "mdmStatsIncomingConnectionFailures",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsIncomingConnectionCompletions": {
+    "name": "mdmStatsIncomingConnectionCompletions",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsFailedDialAttempts": {
+    "name": "mdmStatsFailedDialAttempts",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsOutgoingConnectionFailures": {
+    "name": "mdmStatsOutgoingConnectionFailures",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsOutgoingConnectionCompletions": {
+    "name": "mdmStatsOutgoingConnectionCompletions",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsRetrains": {
+    "name": "mdmStatsRetrains",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStats2400OrLessConnections": {
+    "name": "mdmStats2400OrLessConnections",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStats2400To14400Connections": {
+    "name": "mdmStats2400To14400Connections",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsGreaterThan14400Connections": {
+    "name": "mdmStatsGreaterThan14400Connections",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsErrorControlledConnections": {
+    "name": "mdmStatsErrorControlledConnections",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsCompressedConnections": {
+    "name": "mdmStatsCompressedConnections",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsCompressionEfficiency": {
+    "name": "mdmStatsCompressionEfficiency",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsSentOctets": {
+    "name": "mdmStatsSentOctets",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsReceivedOctets": {
+    "name": "mdmStatsReceivedOctets",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsSentDataFrames": {
+    "name": "mdmStatsSentDataFrames",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsReceivedDataFrames": {
+    "name": "mdmStatsReceivedDataFrames",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsResentFrames": {
+    "name": "mdmStatsResentFrames",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmStatsErrorFrames": {
+    "name": "mdmStatsErrorFrames",
+    "oid": "1.3.6.1.2.1.38.1.1.12.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "mdmCompliance": {
+    "name": "mdmCompliance",
+    "oid": "1.3.6.1.2.1.38.1.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "mdmIDGroup",
+        "module": "Modem-MIB"
+      },
+      {
+        "object": "mdmLineInterfaceGroup",
+        "module": "Modem-MIB"
+      },
+      {
+        "object": "mdmDTEInterfaceGroup",
+        "module": "Modem-MIB"
+      },
+      {
+        "object": "mdmCallControlGroup",
+        "module": "Modem-MIB"
+      },
+      {
+        "object": "mdmSignalConvertorGroup",
+        "module": "Modem-MIB"
+      },
+      {
+        "object": "mdmStatisticsGroup",
+        "module": "Modem-MIB"
+      },
+      {
+        "object": "mdmErrorControlGroup",
+        "module": "Modem-MIB"
+      },
+      {
+        "object": "mdmDataCompressionGroup",
+        "module": "Modem-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/Modem-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "Modem-MIB"
+  }
+}

@@ -32,6 +32,8 @@ IMPORTS
 
         Phone: +49 6221 4342-115
 
+
+
         Email: quittek@netlab.nec.de"
     DESCRIPTION
         "The Ping MIB (DISMAN-PING-MIB) provides the capability of
@@ -72,6 +74,7 @@ IMPORTS
      REVISION     "200009210000Z"         -- 21 September 2000
      DESCRIPTION
          "Initial version, published as RFC 2925."
+
     ::= { mib-2 80 }
 
  -- Textual Conventions
@@ -79,6 +82,9 @@ IMPORTS
   OperationResponseStatus ::= TEXTUAL-CONVENTION
     STATUS  current
     DESCRIPTION
+
+
+
         "Used to report the result of an operation:
 
          responseReceived(1) - Operation is completed successfully.
@@ -124,7 +130,11 @@ IMPORTS
  pingObjects                    OBJECT IDENTIFIER ::= { pingMIB 1 }
  pingConformance                OBJECT IDENTIFIER ::= { pingMIB 2 }
 
+
  -- The registration node (point) for ping implementation types
+
+
+
 
  pingImplementationTypeDomains  OBJECT IDENTIFIER ::= { pingMIB 3 }
 
@@ -140,6 +150,7 @@ IMPORTS
     DESCRIPTION
         "Indicates that an implementation is using the UDP echo
         port (7)."
+
     REFERENCE
         "RFC 862, 'Echo Protocol'."
     ::= { pingImplementationTypeDomains 2 }
@@ -159,6 +170,7 @@ IMPORTS
         trip time."
     ::= { pingImplementationTypeDomains 4 }
 
+
  -- Simple Object Definitions
 
  pingMaxConcurrentRequests OBJECT-TYPE
@@ -171,6 +183,9 @@ IMPORTS
        that are allowed within an agent implementation.  A value
        of 0 for this object implies that there is no limit for
        the number of concurrent active requests in effect.
+
+
+
 
        The limit applies only to new requests being activated.
        When a new value is set, the agent will continue processing
@@ -220,6 +235,9 @@ IMPORTS
         pingCtlTargetAddress          InetAddress,
         pingCtlDataSize               Unsigned32,
         pingCtlTimeOut                Unsigned32,
+
+
+
         pingCtlProbeCount             Unsigned32,
         pingCtlAdminStatus            INTEGER,
         pingCtlDataFill               OCTET STRING,
@@ -269,6 +287,8 @@ IMPORTS
        configurations are possible."
     ::= { pingCtlEntry 1 }
 
+
+
  pingCtlTestName OBJECT-TYPE
     SYNTAX      SnmpAdminString (SIZE(0..32))
     MAX-ACCESS  not-accessible
@@ -289,6 +309,7 @@ IMPORTS
     ::= { pingCtlEntry 3 }
 
  pingCtlTargetAddress OBJECT-TYPE
+
     SYNTAX      InetAddress
     MAX-ACCESS  read-create
     STATUS      current
@@ -317,6 +338,8 @@ IMPORTS
         indicated by pingCtlType in the same conceptual row.
         If the method used allows applying the value contained
 
+
+
         in this object, then it MUST be applied.  If the specified
         size is not appropriate for the chosen ping method, the
         implementation SHOULD use whatever size (appropriate to
@@ -340,6 +363,7 @@ IMPORTS
         "Specifies the time-out value, in seconds, for a
         remote ping operation."
     DEFVAL { 3 }
+
     ::= { pingCtlEntry 6 }
 
  pingCtlProbeCount OBJECT-TYPE
@@ -363,6 +387,9 @@ IMPORTS
     DESCRIPTION
         "Reflects the desired state that a pingCtlEntry should be
         in:
+
+
+
 
            enabled(1)  - Attempt to activate the test as defined by
                          this pingCtlEntry.
@@ -412,6 +439,9 @@ IMPORTS
         as defined by the corresponding entry will not be
         repeated."
     DEFVAL { 0 }
+
+
+
     ::= { pingCtlEntry 10 }
 
  pingCtlMaxRows OBJECT-TYPE
@@ -441,6 +471,7 @@ IMPORTS
     SYNTAX      StorageType
     MAX-ACCESS  read-create
     STATUS      current
+
     DESCRIPTION
         "The storage type for this conceptual row.
         Conceptual rows having the value 'permanent' need not
@@ -459,6 +490,8 @@ IMPORTS
     DESCRIPTION
         "The value of this object determines when and whether
         to generate a notification for this entry:
+
+
 
         probeFailure(0)   - Generate a pingProbeFailed
             notification subject to the value of
@@ -509,6 +542,8 @@ IMPORTS
 
         Setting BIT testFailure(1) of object
 
+
+
         pingCtlTrapGeneration to '1' implies that a
         pingTestFailed NOTIFICATION is generated only when
         a number of consecutive ping tests equal to the
@@ -543,6 +578,7 @@ IMPORTS
         "The purpose of this object is to provide a
         descriptive name of the remote ping test."
     DEFVAL { ''H }
+
     ::= { pingCtlEntry 17 }
 
  pingCtlSourceAddressType OBJECT-TYPE
@@ -555,6 +591,9 @@ IMPORTS
         when a ping operation is performed."
     DEFVAL { unknown }
     ::= { pingCtlEntry 18 }
+
+
+
 
   pingCtlSourceAddress OBJECT-TYPE
     SYNTAX      InetAddress
@@ -593,6 +632,7 @@ IMPORTS
     SYNTAX      TruthValue
     MAX-ACCESS  read-create
     STATUS      current
+
     DESCRIPTION
        "The purpose of this object is to enable optional
        bypassing the route table.  If enabled, the remote
@@ -603,6 +643,9 @@ IMPORTS
        the ping operation to a local host through an
        interface that has no route defined (e.g., after the
        interface was dropped by the routing daemon at the host)."
+
+
+
     DEFVAL { false }
     ::= { pingCtlEntry 21 }
 
@@ -651,6 +694,9 @@ IMPORTS
         prior to acceptance of a transition to active(1) state.
 
         When a value for pingCtlTargetAddress is set,
+
+
+
         the value of object pingCtlRowStatus changes
         from notReady(3) to notInService(2).
 
@@ -699,6 +745,9 @@ IMPORTS
 
         An entry is removed from the pingResultsTable when
         its corresponding pingCtlEntry is deleted."
+
+
+
    ::= { pingObjects 3 }
 
  pingResultsEntry OBJECT-TYPE
@@ -747,6 +796,9 @@ IMPORTS
            completed(3)  - Test is completed."
     ::= { pingResultsEntry 1 }
 
+
+
+
  pingResultsIpTargetAddressType OBJECT-TYPE
     SYNTAX      InetAddressType
     MAX-ACCESS  read-only
@@ -792,8 +844,12 @@ IMPORTS
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
+
         "The maximum ping round-trip-time (RTT) received.  A value
         of 0 for this object implies that no RTT has been received."
+
+
+
     ::= { pingResultsEntry 5 }
 
   pingResultsAverageRtt OBJECT-TYPE
@@ -841,6 +897,9 @@ IMPORTS
         be reported as 0 when no ping responses have been
         received."
     ::= { pingResultsEntry 9 }
+
+
+
 
  pingResultsLastGoodProbe OBJECT-TYPE
     SYNTAX      DateAndTime
@@ -891,6 +950,8 @@ IMPORTS
         probe result."
     INDEX {
 
+
+
              pingCtlOwnerIndex,
              pingCtlTestName,
              pingProbeHistoryIndex
@@ -939,6 +1000,9 @@ IMPORTS
     SYNTAX      OperationResponseStatus
     MAX-ACCESS  read-only
     STATUS      current
+
+
+
     DESCRIPTION
         "The result of a particular probe done by a remote host."
     ::= { pingProbeHistoryEntry 3 }
@@ -966,6 +1030,7 @@ IMPORTS
         "Timestamp for when this probe result was determined."
     ::= { pingProbeHistoryEntry 5 }
 
+
  -- Notification Definition section
 
  pingProbeFailed NOTIFICATION-TYPE
@@ -987,12 +1052,15 @@ IMPORTS
       DESCRIPTION
           "Generated when a probe failure is detected, when the
 
+
+
           corresponding pingCtlTrapGeneration object is set to
           probeFailure(0), subject to the value of
           pingCtlTrapProbeFailureFilter.  The object
           pingCtlTrapProbeFailureFilter can be used to specify the
           number of consecutive probe failures that are required
           before this notification can be generated."
+
       ::= { pingNotifications 1 }
 
  pingTestFailed NOTIFICATION-TYPE
@@ -1034,6 +1102,8 @@ IMPORTS
         pingResultsSentProbes,
         pingResultsRttSumOfSquares,
         pingResultsLastGoodProbe
+
+
 
       }
       STATUS  current
@@ -1083,6 +1153,9 @@ IMPORTS
             value that MUST be supported by an implementation is
             pingIcmpEcho."
 
+
+
+
         OBJECT pingCtlSourceAddressType
         SYNTAX  InetAddressType { unknown(0), ipv4(1), ipv6(2) }
         MIN-ACCESS  read-only
@@ -1095,6 +1168,7 @@ IMPORTS
         OBJECT pingCtlSourceAddress
         SYNTAX  InetAddress (SIZE(0|4|16))
         MIN-ACCESS  read-only
+
         DESCRIPTION
             "Write access to this object is not required by
             implementations that are not capable of binding the
@@ -1130,6 +1204,8 @@ IMPORTS
         SYNTAX  InetAddressType { unknown(0), ipv4(1), ipv6(2) }
         DESCRIPTION
             "An implementation is only required to
+
+
 
             support IPv4 and IPv6 addresses."
 
@@ -1180,6 +1256,8 @@ IMPORTS
         DESCRIPTION
             "A compliant implementation does not have to implement
 
+
+
             the pingNotificationsGroup."
 
         OBJECT pingMaxConcurrentRequests
@@ -1228,6 +1306,9 @@ IMPORTS
         OBJECT pingCtlTrapProbeFailureFilter
         MIN-ACCESS  read-only
         DESCRIPTION
+
+
+
             "If write access to pingCtlTrapGeneration is not
             supported, then write access to this object must also
             not be supported.  In this case, return 0 as the value
@@ -1277,6 +1358,8 @@ IMPORTS
         DESCRIPTION
             "Write access is not required.  If write access is
 
+
+
             not supported, return a 0 as the value of this object.
             A value of 0 means that the function represented by
             this option is not supported."
@@ -1299,6 +1382,7 @@ IMPORTS
 
         OBJECT pingResultsIpTargetAddressType
         SYNTAX  InetAddressType { unknown(0), ipv4(1), ipv6(2) }
+
         DESCRIPTION
             "An implementation is only required to
             support IPv4 and IPv6 addresses."
@@ -1325,7 +1409,10 @@ IMPORTS
             the values for DateAndTime objects.  It is RECOMMENDED
             that when this object is not supported its values
 
+
+
             be reported as '0000000000000000'H."
+
     ::= { pingCompliances 3 }
 
  pingCompliance MODULE-COMPLIANCE
@@ -1371,6 +1458,9 @@ IMPORTS
             "Write access is not required.  In addition, the only
             value that MUST be supported by an implementation is
             pingIcmpEcho."
+
+
+
 
         OBJECT pingCtlByPassRouteTable
         MIN-ACCESS  read-only
@@ -1421,6 +1511,8 @@ IMPORTS
             "An implementation is only required to
             support IPv4 and IPv6 addresses."
 
+
+
         OBJECT pingResultsIpTargetAddress
         SYNTAX  InetAddress (SIZE(0|4|16))
         DESCRIPTION
@@ -1448,6 +1540,7 @@ IMPORTS
              pingCtlTrapTestFailureFilter,
              pingCtlType,
              pingCtlDescr,
+
              pingCtlByPassRouteTable,
              pingCtlSourceAddressType,
              pingCtlSourceAddress,
@@ -1468,6 +1561,9 @@ IMPORTS
    DESCRIPTION
        "The group of objects that constitute the remote ping
        capability."
+
+
+
     ::= { pingGroups 4 }
 
  pingCtlRowStatusGroup OBJECT-GROUP
@@ -1498,6 +1594,7 @@ IMPORTS
              pingTestFailed,
              pingTestCompleted
           }
+
    STATUS        current
    DESCRIPTION
        "The notification that are required to be supported by
@@ -1515,6 +1612,9 @@ IMPORTS
              pingCtlAdminStatus,
              pingCtlDataFill,
              pingCtlFrequency,
+
+
+
              pingCtlMaxRows,
              pingCtlStorageType,
              pingCtlTrapGeneration,

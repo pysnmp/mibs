@@ -1,0 +1,562 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "RFC1316-MIB": [
+      "InstancePointer"
+    ],
+    "RFC1381-MIB": [
+      "PositiveInteger"
+    ],
+    "RFC1382-MIB": [
+      "X121Address"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "transmission",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "miox": {
+    "name": "miox",
+    "oid": "1.3.6.1.2.1.10.38",
+    "class": "objectidentity"
+  },
+  "mioxPle": {
+    "name": "mioxPle",
+    "oid": "1.3.6.1.2.1.10.38.1",
+    "class": "objectidentity"
+  },
+  "mioxPeer": {
+    "name": "mioxPeer",
+    "oid": "1.3.6.1.2.1.10.38.2",
+    "class": "objectidentity"
+  },
+  "mioxPleTable": {
+    "name": "mioxPleTable",
+    "oid": "1.3.6.1.2.1.10.38.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "mioxPleEntry": {
+    "name": "mioxPleEntry",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mioxPleMaxCircuits": {
+    "name": "mioxPleMaxCircuits",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPleRefusedConnections": {
+    "name": "mioxPleRefusedConnections",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPleEnAddrToX121LkupFlrs": {
+    "name": "mioxPleEnAddrToX121LkupFlrs",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPleLastFailedEnAddr": {
+    "name": "mioxPleLastFailedEnAddr",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPleEnAddrToX121LkupFlrTime": {
+    "name": "mioxPleEnAddrToX121LkupFlrTime",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPleX121ToEnAddrLkupFlrs": {
+    "name": "mioxPleX121ToEnAddrLkupFlrs",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPleLastFailedX121Address": {
+    "name": "mioxPleLastFailedX121Address",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "X121Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPleX121ToEnAddrLkupFlrTime": {
+    "name": "mioxPleX121ToEnAddrLkupFlrTime",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPleQbitFailures": {
+    "name": "mioxPleQbitFailures",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPleQbitFailureRemoteAddress": {
+    "name": "mioxPleQbitFailureRemoteAddress",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "X121Address",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPleQbitFailureTime": {
+    "name": "mioxPleQbitFailureTime",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPleMinimumOpenTimer": {
+    "name": "mioxPleMinimumOpenTimer",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPleInactivityTimer": {
+    "name": "mioxPleInactivityTimer",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10000,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPleHoldDownTimer": {
+    "name": "mioxPleHoldDownTimer",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPleCollisionRetryTimer": {
+    "name": "mioxPleCollisionRetryTimer",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPleDefaultPeerId": {
+    "name": "mioxPleDefaultPeerId",
+    "oid": "1.3.6.1.2.1.10.38.1.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPeerTable": {
+    "name": "mioxPeerTable",
+    "oid": "1.3.6.1.2.1.10.38.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "mioxPeerEntry": {
+    "name": "mioxPeerEntry",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIOX25-MIB",
+        "object": "mioxPeerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mioxPeerIndex": {
+    "name": "mioxPeerIndex",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPeerStatus": {
+    "name": "mioxPeerStatus",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "valid": 1,
+          "createRequest": 2,
+          "underCreation": 3,
+          "invalid": 4,
+          "clearCall": 5,
+          "makeCall": 6
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPeerMaxCircuits": {
+    "name": "mioxPeerMaxCircuits",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPeerIfIndex": {
+    "name": "mioxPeerIfIndex",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPeerConnectSeconds": {
+    "name": "mioxPeerConnectSeconds",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPeerX25CallParamId": {
+    "name": "mioxPeerX25CallParamId",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPeerEnAddr": {
+    "name": "mioxPeerEnAddr",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPeerX121Address": {
+    "name": "mioxPeerX121Address",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "X121Address",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPeerX25CircuitId": {
+    "name": "mioxPeerX25CircuitId",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPeerDescr": {
+    "name": "mioxPeerDescr",
+    "oid": "1.3.6.1.2.1.10.38.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "mioxPeerEncTable": {
+    "name": "mioxPeerEncTable",
+    "oid": "1.3.6.1.2.1.10.38.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "mioxPeerEncEntry": {
+    "name": "mioxPeerEncEntry",
+    "oid": "1.3.6.1.2.1.10.38.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "MIOX25-MIB",
+        "object": "mioxPeerIndex",
+        "implied": 0
+      },
+      {
+        "module": "MIOX25-MIB",
+        "object": "mioxPeerEncIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "mioxPeerEncIndex": {
+    "name": "mioxPeerEncIndex",
+    "oid": "1.3.6.1.2.1.10.38.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PositiveInteger",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "mioxPeerEncType": {
+    "name": "mioxPeerEncType",
+    "oid": "1.3.6.1.2.1.10.38.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 256
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/MIOX25-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "MIOX25-MIB"
+  }
+}

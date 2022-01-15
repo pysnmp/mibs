@@ -1,0 +1,925 @@
+{
+  "imports": {
+    "class": "imports",
+    "ATM-MIB": [
+      "atmVclEntry"
+    ],
+    "ATM-TC-MIB": [
+      "AtmVcIdentifier",
+      "AtmVpIdentifier"
+    ],
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "RowStatus"
+    ]
+  },
+  "frAtmIwfMIB": {
+    "name": "frAtmIwfMIB",
+    "oid": "1.3.6.1.2.1.86",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-09-28 00:00",
+        "description": "Published as RFC 2955"
+      }
+    ]
+  },
+  "frAtmIwfMIBObjects": {
+    "name": "frAtmIwfMIBObjects",
+    "oid": "1.3.6.1.2.1.86.1",
+    "class": "objectidentity"
+  },
+  "frAtmIwfTraps": {
+    "name": "frAtmIwfTraps",
+    "oid": "1.3.6.1.2.1.86.2",
+    "class": "objectidentity"
+  },
+  "frAtmIwfTrapsPrefix": {
+    "name": "frAtmIwfTrapsPrefix",
+    "oid": "1.3.6.1.2.1.86.2.0",
+    "class": "objectidentity"
+  },
+  "frAtmIwfConformance": {
+    "name": "frAtmIwfConformance",
+    "oid": "1.3.6.1.2.1.86.3",
+    "class": "objectidentity"
+  },
+  "frAtmIwfGroups": {
+    "name": "frAtmIwfGroups",
+    "oid": "1.3.6.1.2.1.86.3.1",
+    "class": "objectidentity"
+  },
+  "frAtmIwfCompliances": {
+    "name": "frAtmIwfCompliances",
+    "oid": "1.3.6.1.2.1.86.3.2",
+    "class": "objectidentity"
+  },
+  "frAtmIwfConnIndexNext": {
+    "name": "frAtmIwfConnIndexNext",
+    "oid": "1.3.6.1.2.1.86.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnectionTable": {
+    "name": "frAtmIwfConnectionTable",
+    "oid": "1.3.6.1.2.1.86.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAtmIwfConnectionEntry": {
+    "name": "frAtmIwfConnectionEntry",
+    "oid": "1.3.6.1.2.1.86.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnIndex",
+        "implied": 0
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnAtmPort",
+        "implied": 0
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnVpi",
+        "implied": 0
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnVci",
+        "implied": 0
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnFrPort",
+        "implied": 0
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnDlci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frAtmIwfConnIndex": {
+    "name": "frAtmIwfConnIndex",
+    "oid": "1.3.6.1.2.1.86.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAtmIwfConnAtmPort": {
+    "name": "frAtmIwfConnAtmPort",
+    "oid": "1.3.6.1.2.1.86.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAtmIwfConnVpi": {
+    "name": "frAtmIwfConnVpi",
+    "oid": "1.3.6.1.2.1.86.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVpIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAtmIwfConnVci": {
+    "name": "frAtmIwfConnVci",
+    "oid": "1.3.6.1.2.1.86.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AtmVcIdentifier",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAtmIwfConnFrPort": {
+    "name": "frAtmIwfConnFrPort",
+    "oid": "1.3.6.1.2.1.86.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAtmIwfConnDlci": {
+    "name": "frAtmIwfConnDlci",
+    "oid": "1.3.6.1.2.1.86.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 16,
+            "max": 4194303
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAtmIwfConnRowStatus": {
+    "name": "frAtmIwfConnRowStatus",
+    "oid": "1.3.6.1.2.1.86.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfConnAdminStatus": {
+    "name": "frAtmIwfConnAdminStatus",
+    "oid": "1.3.6.1.2.1.86.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfConnAtm2FrOperStatus": {
+    "name": "frAtmIwfConnAtm2FrOperStatus",
+    "oid": "1.3.6.1.2.1.86.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnAtm2FrLastChange": {
+    "name": "frAtmIwfConnAtm2FrLastChange",
+    "oid": "1.3.6.1.2.1.86.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnFr2AtmOperStatus": {
+    "name": "frAtmIwfConnFr2AtmOperStatus",
+    "oid": "1.3.6.1.2.1.86.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnFr2AtmLastChange": {
+    "name": "frAtmIwfConnFr2AtmLastChange",
+    "oid": "1.3.6.1.2.1.86.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnectionDescriptor": {
+    "name": "frAtmIwfConnectionDescriptor",
+    "oid": "1.3.6.1.2.1.86.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfConnFailedFrameTranslate": {
+    "name": "frAtmIwfConnFailedFrameTranslate",
+    "oid": "1.3.6.1.2.1.86.1.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnOverSizedFrames": {
+    "name": "frAtmIwfConnOverSizedFrames",
+    "oid": "1.3.6.1.2.1.86.1.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "Frames",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnFailedAal5PduTranslate": {
+    "name": "frAtmIwfConnFailedAal5PduTranslate",
+    "oid": "1.3.6.1.2.1.86.1.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnOverSizedSDUs": {
+    "name": "frAtmIwfConnOverSizedSDUs",
+    "oid": "1.3.6.1.2.1.86.1.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "SDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnCrcErrors": {
+    "name": "frAtmIwfConnCrcErrors",
+    "oid": "1.3.6.1.2.1.86.1.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnSarTimeOuts": {
+    "name": "frAtmIwfConnSarTimeOuts",
+    "oid": "1.3.6.1.2.1.86.1.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "PDUs",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnectionDescriptorIndexNext": {
+    "name": "frAtmIwfConnectionDescriptorIndexNext",
+    "oid": "1.3.6.1.2.1.86.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnectionDescriptorTable": {
+    "name": "frAtmIwfConnectionDescriptorTable",
+    "oid": "1.3.6.1.2.1.86.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAtmIwfConnectionDescriptorEntry": {
+    "name": "frAtmIwfConnectionDescriptorEntry",
+    "oid": "1.3.6.1.2.1.86.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnectionDescriptorIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "frAtmIwfConnectionDescriptorIndex": {
+    "name": "frAtmIwfConnectionDescriptorIndex",
+    "oid": "1.3.6.1.2.1.86.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAtmIwfConnDescriptorRowStatus": {
+    "name": "frAtmIwfConnDescriptorRowStatus",
+    "oid": "1.3.6.1.2.1.86.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfConnDeToClpMappingMode": {
+    "name": "frAtmIwfConnDeToClpMappingMode",
+    "oid": "1.3.6.1.2.1.86.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode1": 1,
+          "mode2Const0": 2,
+          "mode2Const1": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mode1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfConnClpToDeMappingMode": {
+    "name": "frAtmIwfConnClpToDeMappingMode",
+    "oid": "1.3.6.1.2.1.86.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode1": 1,
+          "mode2Const0": 2,
+          "mode2Const1": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mode1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfConnCongestionMappingMode": {
+    "name": "frAtmIwfConnCongestionMappingMode",
+    "oid": "1.3.6.1.2.1.86.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode1": 1,
+          "mode2": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "mode1",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfConnEncapsulationMappingMode": {
+    "name": "frAtmIwfConnEncapsulationMappingMode",
+    "oid": "1.3.6.1.2.1.86.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transparentMode": 1,
+          "translationMode": 2,
+          "translationModeAll": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "transparentMode",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfConnEncapsulationMappings": {
+    "name": "frAtmIwfConnEncapsulationMappings",
+    "oid": "1.3.6.1.2.1.86.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "none": 0,
+        "bridgedPdus": 1,
+        "bridged802dot6": 2,
+        "bPdus": 3,
+        "routedIp": 4,
+        "routedOsi": 5,
+        "otherRouted": 6,
+        "x25Iso8202": 7,
+        "q933q2931": 8
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "none": 0
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfConnFragAndReassEnabled": {
+    "name": "frAtmIwfConnFragAndReassEnabled",
+    "oid": "1.3.6.1.2.1.86.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfConnArpTranslationEnabled": {
+    "name": "frAtmIwfConnArpTranslationEnabled",
+    "oid": "1.3.6.1.2.1.86.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "frAtmIwfVclTable": {
+    "name": "frAtmIwfVclTable",
+    "oid": "1.3.6.1.2.1.86.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "frAtmIwfVclEntry": {
+    "name": "frAtmIwfVclEntry",
+    "oid": "1.3.6.1.2.1.86.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "frAtmIwfVclEntry",
+      "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+      "object": "atmVclEntry"
+    },
+    "status": "current"
+  },
+  "frAtmIwfVclCrossConnectIdentifier": {
+    "name": "frAtmIwfVclCrossConnectIdentifier",
+    "oid": "1.3.6.1.2.1.86.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "frAtmIwfConnStatusChange": {
+    "name": "frAtmIwfConnStatusChange",
+    "oid": "1.3.6.1.2.1.86.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnAdminStatus"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnAtm2FrOperStatus"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnFr2AtmOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "frAtmIwfEquipmentCompliance": {
+    "name": "frAtmIwfEquipmentCompliance",
+    "oid": "1.3.6.1.2.1.86.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "frAtmIwfBasicGroup",
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB"
+      },
+      {
+        "object": "frAtmIwfConnectionDescriptorGroup",
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB"
+      },
+      {
+        "object": "frAtmIwfAtmVclTableAugmentGroup",
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB"
+      },
+      {
+        "object": "frAtmIwfNotificationsGroup",
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "frAtmIwfServiceCompliance": {
+    "name": "frAtmIwfServiceCompliance",
+    "oid": "1.3.6.1.2.1.86.3.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "frAtmIwfBasicGroup",
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB"
+      },
+      {
+        "object": "frAtmIwfConnectionDescriptorGroup",
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB"
+      },
+      {
+        "object": "frAtmIwfAtmVclTableAugmentGroup",
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB"
+      },
+      {
+        "object": "frAtmIwfNotificationsGroup",
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "frAtmIwfBasicGroup": {
+    "name": "frAtmIwfBasicGroup",
+    "oid": "1.3.6.1.2.1.86.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnIndexNext"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnAdminStatus"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnAtm2FrOperStatus"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnAtm2FrLastChange"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnFr2AtmOperStatus"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnFr2AtmLastChange"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnectionDescriptor"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnFailedFrameTranslate"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnOverSizedFrames"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnFailedAal5PduTranslate"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnOverSizedSDUs"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnCrcErrors"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnSarTimeOuts"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "frAtmIwfConnectionDescriptorGroup": {
+    "name": "frAtmIwfConnectionDescriptorGroup",
+    "oid": "1.3.6.1.2.1.86.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnectionDescriptorIndexNext"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnDeToClpMappingMode"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnClpToDeMappingMode"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnCongestionMappingMode"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnEncapsulationMappingMode"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnEncapsulationMappings"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnFragAndReassEnabled"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnArpTranslationEnabled"
+      },
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnDescriptorRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "frAtmIwfAtmVclTableAugmentGroup": {
+    "name": "frAtmIwfAtmVclTableAugmentGroup",
+    "oid": "1.3.6.1.2.1.86.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfVclCrossConnectIdentifier"
+      }
+    ],
+    "status": "current"
+  },
+  "frAtmIwfNotificationsGroup": {
+    "name": "frAtmIwfNotificationsGroup",
+    "oid": "1.3.6.1.2.1.86.3.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "FR-ATM-PVC-SERVICE-IWF-MIB",
+        "object": "frAtmIwfConnStatusChange"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FR-ATM-PVC-SERVICE-IWF-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "FR-ATM-PVC-SERVICE-IWF-MIB"
+  }
+}

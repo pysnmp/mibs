@@ -1,0 +1,1382 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifGeneralInformationGroup"
+    ],
+    "LLDP-V2-MIB": [
+      "lldpV2RemIndex",
+      "lldpV2PortConfigEntry",
+      "lldpV2RemLocalDestMACAddress",
+      "lldpV2RemLocalIfIndex",
+      "lldpV2RemTimeMark",
+      "lldpV2LocPortIfIndex"
+    ],
+    "LLDP-V2-TC-MIB": [
+      "LldpV2PowerPortClass"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Counter64",
+      "Counter32",
+      "org",
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "Bits"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
+    ]
+  },
+  "ieee8023lldpV2Xdot3MIB": {
+    "name": "ieee8023lldpV2Xdot3MIB",
+    "oid": "1.3.111.2.802.3.1.5",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2013-04-11 00:00",
+        "description": "Revision, based on an earlier version in IEEE Std 802.3.1-2011."
+      },
+      {
+        "revision": "2011-02-02 00:00",
+        "description": "This revision incorporated changes to the MIB module to add objects to support management of Energy Efficient Ethernet (EEE) and Enhanced DTE Power via the MDI (PoE+)."
+      }
+    ]
+  },
+  "lldpV2Xdot3Objects": {
+    "name": "lldpV2Xdot3Objects",
+    "oid": "1.3.111.2.802.3.1.5.1",
+    "class": "objectidentity"
+  },
+  "lldpV2Xdot3Config": {
+    "name": "lldpV2Xdot3Config",
+    "oid": "1.3.111.2.802.3.1.5.1.1",
+    "class": "objectidentity"
+  },
+  "lldpV2Xdot3LocalData": {
+    "name": "lldpV2Xdot3LocalData",
+    "oid": "1.3.111.2.802.3.1.5.1.2",
+    "class": "objectidentity"
+  },
+  "lldpV2Xdot3RemoteData": {
+    "name": "lldpV2Xdot3RemoteData",
+    "oid": "1.3.111.2.802.3.1.5.1.3",
+    "class": "objectidentity"
+  },
+  "lldpV2Xdot3PortConfigTable": {
+    "name": "lldpV2Xdot3PortConfigTable",
+    "oid": "1.3.111.2.802.3.1.5.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot3PortConfigEntry": {
+    "name": "lldpV2Xdot3PortConfigEntry",
+    "oid": "1.3.111.2.802.3.1.5.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "lldpV2Xdot3PortConfigEntry",
+      "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+      "object": "lldpV2PortConfigEntry"
+    },
+    "status": "current"
+  },
+  "lldpV2Xdot3PortConfigTLVsTxEnable": {
+    "name": "lldpV2Xdot3PortConfigTLVsTxEnable",
+    "oid": "1.3.111.2.802.3.1.5.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "macPhyConfigStatus": 0,
+        "powerViaMDI": 1,
+        "unused": 2,
+        "maxFrameSize": 3
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPortTable": {
+    "name": "lldpV2Xdot3LocPortTable",
+    "oid": "1.3.111.2.802.3.1.5.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPortEntry": {
+    "name": "lldpV2Xdot3LocPortEntry",
+    "oid": "1.3.111.2.802.3.1.5.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPortAutoNegSupported": {
+    "name": "lldpV2Xdot3LocPortAutoNegSupported",
+    "oid": "1.3.111.2.802.3.1.5.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPortAutoNegEnabled": {
+    "name": "lldpV2Xdot3LocPortAutoNegEnabled",
+    "oid": "1.3.111.2.802.3.1.5.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPortAutoNegAdvertisedCap": {
+    "name": "lldpV2Xdot3LocPortAutoNegAdvertisedCap",
+    "oid": "1.3.111.2.802.3.1.5.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPortOperMauType": {
+    "name": "lldpV2Xdot3LocPortOperMauType",
+    "oid": "1.3.111.2.802.3.1.5.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerTable": {
+    "name": "lldpV2Xdot3LocPowerTable",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerEntry": {
+    "name": "lldpV2Xdot3LocPowerEntry",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerPortClass": {
+    "name": "lldpV2Xdot3LocPowerPortClass",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2PowerPortClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerMDISupported": {
+    "name": "lldpV2Xdot3LocPowerMDISupported",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerMDIEnabled": {
+    "name": "lldpV2Xdot3LocPowerMDIEnabled",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerPairControlable": {
+    "name": "lldpV2Xdot3LocPowerPairControlable",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerPairs": {
+    "name": "lldpV2Xdot3LocPowerPairs",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerClass": {
+    "name": "lldpV2Xdot3LocPowerClass",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 3,
+            "max": 3
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerType": {
+    "name": "lldpV2Xdot3LocPowerType",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "psetype1": 0,
+          "psetype2": 1,
+          "pdtype": 2,
+          "pdtype2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerSource": {
+    "name": "lldpV2Xdot3LocPowerSource",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pseprimary": 0,
+          "psebackup": 1,
+          "pseunknown": 2,
+          "pdpseandlocal": 3,
+          "pdpseonly": 4,
+          "pdunknown": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPowerPriority": {
+    "name": "lldpV2Xdot3LocPowerPriority",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1,
+          "critical": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPDRequestedPowerValue": {
+    "name": "lldpV2Xdot3LocPDRequestedPowerValue",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocPSEAllocatedPowerValue": {
+    "name": "lldpV2Xdot3LocPSEAllocatedPowerValue",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocResponseTime": {
+    "name": "lldpV2Xdot3LocResponseTime",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocReady": {
+    "name": "lldpV2Xdot3LocReady",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocReducedOperationPowerValue": {
+    "name": "lldpV2Xdot3LocReducedOperationPowerValue",
+    "oid": "1.3.111.2.802.3.1.5.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocMaxFrameSizeTable": {
+    "name": "lldpV2Xdot3LocMaxFrameSizeTable",
+    "oid": "1.3.111.2.802.3.1.5.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocMaxFrameSizeEntry": {
+    "name": "lldpV2Xdot3LocMaxFrameSizeEntry",
+    "oid": "1.3.111.2.802.3.1.5.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3LocMaxFrameSize": {
+    "name": "lldpV2Xdot3LocMaxFrameSize",
+    "oid": "1.3.111.2.802.3.1.5.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocEEETable": {
+    "name": "lldpV2Xdot3LocEEETable",
+    "oid": "1.3.111.2.802.3.1.5.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocEEEEntry": {
+    "name": "lldpV2Xdot3LocEEEEntry",
+    "oid": "1.3.111.2.802.3.1.5.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2LocPortIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3LocTxTwSys": {
+    "name": "lldpV2Xdot3LocTxTwSys",
+    "oid": "1.3.111.2.802.3.1.5.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocTxTwSysEcho": {
+    "name": "lldpV2Xdot3LocTxTwSysEcho",
+    "oid": "1.3.111.2.802.3.1.5.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocRxTwSys": {
+    "name": "lldpV2Xdot3LocRxTwSys",
+    "oid": "1.3.111.2.802.3.1.5.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocRxTwSysEcho": {
+    "name": "lldpV2Xdot3LocRxTwSysEcho",
+    "oid": "1.3.111.2.802.3.1.5.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocFbTwSys": {
+    "name": "lldpV2Xdot3LocFbTwSys",
+    "oid": "1.3.111.2.802.3.1.5.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3TxDllReady": {
+    "name": "lldpV2Xdot3TxDllReady",
+    "oid": "1.3.111.2.802.3.1.5.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RxDllReady": {
+    "name": "lldpV2Xdot3RxDllReady",
+    "oid": "1.3.111.2.802.3.1.5.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3LocDllEnabled": {
+    "name": "lldpV2Xdot3LocDllEnabled",
+    "oid": "1.3.111.2.802.3.1.5.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPortTable": {
+    "name": "lldpV2Xdot3RemPortTable",
+    "oid": "1.3.111.2.802.3.1.5.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPortEntry": {
+    "name": "lldpV2Xdot3RemPortEntry",
+    "oid": "1.3.111.2.802.3.1.5.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPortAutoNegSupported": {
+    "name": "lldpV2Xdot3RemPortAutoNegSupported",
+    "oid": "1.3.111.2.802.3.1.5.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPortAutoNegEnabled": {
+    "name": "lldpV2Xdot3RemPortAutoNegEnabled",
+    "oid": "1.3.111.2.802.3.1.5.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPortAutoNegAdvertisedCap": {
+    "name": "lldpV2Xdot3RemPortAutoNegAdvertisedCap",
+    "oid": "1.3.111.2.802.3.1.5.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPortOperMauType": {
+    "name": "lldpV2Xdot3RemPortOperMauType",
+    "oid": "1.3.111.2.802.3.1.5.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerTable": {
+    "name": "lldpV2Xdot3RemPowerTable",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerEntry": {
+    "name": "lldpV2Xdot3RemPowerEntry",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerPortClass": {
+    "name": "lldpV2Xdot3RemPowerPortClass",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LldpV2PowerPortClass",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerMDISupported": {
+    "name": "lldpV2Xdot3RemPowerMDISupported",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerMDIEnabled": {
+    "name": "lldpV2Xdot3RemPowerMDIEnabled",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerPairControlable": {
+    "name": "lldpV2Xdot3RemPowerPairControlable",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerPairs": {
+    "name": "lldpV2Xdot3RemPowerPairs",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerClass": {
+    "name": "lldpV2Xdot3RemPowerClass",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 1
+          },
+          {
+            "min": 2,
+            "max": 2
+          },
+          {
+            "min": 3,
+            "max": 3
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 5,
+            "max": 5
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerType": {
+    "name": "lldpV2Xdot3RemPowerType",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "psetype1": 0,
+          "psetype2": 1,
+          "pdtype": 2,
+          "pdtype2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerSource": {
+    "name": "lldpV2Xdot3RemPowerSource",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pseprimary": 0,
+          "psebackup": 1,
+          "pseunknown": 2,
+          "pdpseandlocal": 3,
+          "pdlocalonly": 4,
+          "pdpseonly": 5,
+          "pdunknown": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPowerPriority": {
+    "name": "lldpV2Xdot3RemPowerPriority",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "low": 0,
+          "high": 1,
+          "critical": 2,
+          "unknown": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPDRequestedPowerValue": {
+    "name": "lldpV2Xdot3RemPDRequestedPowerValue",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemPSEAllocatedPowerValue": {
+    "name": "lldpV2Xdot3RemPSEAllocatedPowerValue",
+    "oid": "1.3.111.2.802.3.1.5.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemMaxFrameSizeTable": {
+    "name": "lldpV2Xdot3RemMaxFrameSizeTable",
+    "oid": "1.3.111.2.802.3.1.5.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemMaxFrameSizeEntry": {
+    "name": "lldpV2Xdot3RemMaxFrameSizeEntry",
+    "oid": "1.3.111.2.802.3.1.5.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalDestMACAddress",
+        "implied": 0
+      },
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3RemMaxFrameSize": {
+    "name": "lldpV2Xdot3RemMaxFrameSize",
+    "oid": "1.3.111.2.802.3.1.5.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemEEETable": {
+    "name": "lldpV2Xdot3RemEEETable",
+    "oid": "1.3.111.2.802.3.1.5.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemEEEEntry": {
+    "name": "lldpV2Xdot3RemEEEEntry",
+    "oid": "1.3.111.2.802.3.1.5.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "LLDP-V2-MIB",
+        "object": "lldpV2RemLocalIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3RemTxTwSys": {
+    "name": "lldpV2Xdot3RemTxTwSys",
+    "oid": "1.3.111.2.802.3.1.5.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemTxTwSysEcho": {
+    "name": "lldpV2Xdot3RemTxTwSysEcho",
+    "oid": "1.3.111.2.802.3.1.5.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemRxTwSys": {
+    "name": "lldpV2Xdot3RemRxTwSys",
+    "oid": "1.3.111.2.802.3.1.5.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemRxTwSysEcho": {
+    "name": "lldpV2Xdot3RemRxTwSysEcho",
+    "oid": "1.3.111.2.802.3.1.5.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3RemFbTwSys": {
+    "name": "lldpV2Xdot3RemFbTwSys",
+    "oid": "1.3.111.2.802.3.1.5.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "lldpV2Xdot3Conformance": {
+    "name": "lldpV2Xdot3Conformance",
+    "oid": "1.3.111.2.802.3.1.5.2",
+    "class": "objectidentity"
+  },
+  "lldpV2Xdot3Compliances": {
+    "name": "lldpV2Xdot3Compliances",
+    "oid": "1.3.111.2.802.3.1.5.2.1",
+    "class": "objectidentity"
+  },
+  "lldpV2Xdot3Groups": {
+    "name": "lldpV2Xdot3Groups",
+    "oid": "1.3.111.2.802.3.1.5.2.2",
+    "class": "objectidentity"
+  },
+  "lldpV2Xdot3TxRxCompliance": {
+    "name": "lldpV2Xdot3TxRxCompliance",
+    "oid": "1.3.111.2.802.3.1.5.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpV2Xdot3ConfigGroup",
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB"
+      },
+      {
+        "object": "ifGeneralInformationGroup",
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3TxCompliance": {
+    "name": "lldpV2Xdot3TxCompliance",
+    "oid": "1.3.111.2.802.3.1.5.2.1.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpV2Xdot3LocSysGroup",
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3RxCompliance": {
+    "name": "lldpV2Xdot3RxCompliance",
+    "oid": "1.3.111.2.802.3.1.5.2.1.3",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "lldpV2Xdot3RemSysGroup",
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3ConfigGroup": {
+    "name": "lldpV2Xdot3ConfigGroup",
+    "oid": "1.3.111.2.802.3.1.5.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3PortConfigTLVsTxEnable"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3LocSysGroup": {
+    "name": "lldpV2Xdot3LocSysGroup",
+    "oid": "1.3.111.2.802.3.1.5.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPortAutoNegSupported"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPortAutoNegEnabled"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPortAutoNegAdvertisedCap"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPortOperMauType"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPowerPortClass"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPowerMDISupported"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPowerMDIEnabled"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPowerPairControlable"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPowerPairs"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPowerClass"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocMaxFrameSize"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPowerType"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPowerSource"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPowerPriority"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPDRequestedPowerValue"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocPSEAllocatedPowerValue"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocResponseTime"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocReady"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocReducedOperationPowerValue"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocTxTwSys"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocTxTwSysEcho"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocRxTwSys"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocRxTwSysEcho"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocFbTwSys"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3TxDllReady"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RxDllReady"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3LocDllEnabled"
+      }
+    ],
+    "status": "current"
+  },
+  "lldpV2Xdot3RemSysGroup": {
+    "name": "lldpV2Xdot3RemSysGroup",
+    "oid": "1.3.111.2.802.3.1.5.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPortAutoNegSupported"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPortAutoNegEnabled"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPortAutoNegAdvertisedCap"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPortOperMauType"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPowerPortClass"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPowerMDISupported"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPowerMDIEnabled"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPowerPairControlable"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPowerPairs"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPowerClass"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemMaxFrameSize"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPowerType"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPowerSource"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPowerPriority"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPDRequestedPowerValue"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemPSEAllocatedPowerValue"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemTxTwSys"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemTxTwSysEcho"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemRxTwSys"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemRxTwSysEcho"
+      },
+      {
+        "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+        "object": "lldpV2Xdot3RemFbTwSys"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8023-DOT3-LLDP-EXT-V2-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:13 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "IEEE8023-DOT3-LLDP-EXT-V2-MIB"
+  }
+}

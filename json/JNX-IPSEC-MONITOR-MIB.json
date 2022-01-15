@@ -6,18 +6,18 @@
       "InetAddressType"
     ],
     "JUNIPER-IPSEC-FLOW-MON-MIB": [
-      "JnxRemotePeerType",
-      "JnxEncapMode",
-      "JnxIkePeerRole",
-      "JnxIkeNegoMode",
-      "JnxSAType",
-      "JnxKeyType",
-      "JnxAuthAlgo",
-      "JnxIkePeerType",
       "JnxIkeHashAlgo",
+      "JnxEncapMode",
+      "JnxSAType",
+      "JnxRemotePeerType",
+      "JnxAuthAlgo",
       "JnxEncryptAlgo",
+      "JnxIkePeerRole",
+      "JnxIkeAuthMethod",
+      "JnxKeyType",
       "JnxDiffHellmanGrp",
-      "JnxIkeAuthMethod"
+      "JnxIkeNegoMode",
+      "JnxIkePeerType"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -26,28 +26,28 @@
       "jnxSpSvcSetName"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter64",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Counter32",
       "TimeTicks",
-      "iso"
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Integer32",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TimeInterval",
       "DisplayString",
+      "TimeInterval",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -1126,8 +1126,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-IPSEC-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:26:15 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:29:07 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "JNX-IPSEC-MONITOR-MIB"

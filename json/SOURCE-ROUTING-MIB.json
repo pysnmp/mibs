@@ -1,0 +1,430 @@
+{
+  "imports": {
+    "class": "imports",
+    "BRIDGE-MIB": [
+      "dot1dSr",
+      "dot1dBridge"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "dot1dPortPair": {
+    "name": "dot1dPortPair",
+    "oid": "1.3.6.1.2.1.17.10",
+    "class": "objectidentity"
+  },
+  "dot1dSrPortTable": {
+    "name": "dot1dSrPortTable",
+    "oid": "1.3.6.1.2.1.17.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dot1dSrPortEntry": {
+    "name": "dot1dSrPortEntry",
+    "oid": "1.3.6.1.2.1.17.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SOURCE-ROUTING-MIB",
+        "object": "dot1dSrPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "dot1dSrPort": {
+    "name": "dot1dSrPort",
+    "oid": "1.3.6.1.2.1.17.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortHopCount": {
+    "name": "dot1dSrPortHopCount",
+    "oid": "1.3.6.1.2.1.17.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot1dSrPortLocalSegment": {
+    "name": "dot1dSrPortLocalSegment",
+    "oid": "1.3.6.1.2.1.17.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot1dSrPortBridgeNum": {
+    "name": "dot1dSrPortBridgeNum",
+    "oid": "1.3.6.1.2.1.17.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot1dSrPortTargetSegment": {
+    "name": "dot1dSrPortTargetSegment",
+    "oid": "1.3.6.1.2.1.17.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot1dSrPortLargestFrame": {
+    "name": "dot1dSrPortLargestFrame",
+    "oid": "1.3.6.1.2.1.17.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot1dSrPortSTESpanMode": {
+    "name": "dot1dSrPortSTESpanMode",
+    "oid": "1.3.6.1.2.1.17.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "auto-span": 1,
+          "disabled": 2,
+          "forced": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot1dSrPortSpecInFrames": {
+    "name": "dot1dSrPortSpecInFrames",
+    "oid": "1.3.6.1.2.1.17.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortSpecOutFrames": {
+    "name": "dot1dSrPortSpecOutFrames",
+    "oid": "1.3.6.1.2.1.17.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortApeInFrames": {
+    "name": "dot1dSrPortApeInFrames",
+    "oid": "1.3.6.1.2.1.17.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortApeOutFrames": {
+    "name": "dot1dSrPortApeOutFrames",
+    "oid": "1.3.6.1.2.1.17.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortSteInFrames": {
+    "name": "dot1dSrPortSteInFrames",
+    "oid": "1.3.6.1.2.1.17.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortSteOutFrames": {
+    "name": "dot1dSrPortSteOutFrames",
+    "oid": "1.3.6.1.2.1.17.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortSegmentMismatchDiscards": {
+    "name": "dot1dSrPortSegmentMismatchDiscards",
+    "oid": "1.3.6.1.2.1.17.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortDuplicateSegmentDiscards": {
+    "name": "dot1dSrPortDuplicateSegmentDiscards",
+    "oid": "1.3.6.1.2.1.17.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortHopCountExceededDiscards": {
+    "name": "dot1dSrPortHopCountExceededDiscards",
+    "oid": "1.3.6.1.2.1.17.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortDupLanIdOrTreeErrors": {
+    "name": "dot1dSrPortDupLanIdOrTreeErrors",
+    "oid": "1.3.6.1.2.1.17.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrPortLanIdMismatches": {
+    "name": "dot1dSrPortLanIdMismatches",
+    "oid": "1.3.6.1.2.1.17.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dSrBridgeLfMode": {
+    "name": "dot1dSrBridgeLfMode",
+    "oid": "1.3.6.1.2.1.17.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "mode3": 1,
+          "mode6": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot1dPortPairTableSize": {
+    "name": "dot1dPortPairTableSize",
+    "oid": "1.3.6.1.2.1.17.10.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "dot1dPortPairTable": {
+    "name": "dot1dPortPairTable",
+    "oid": "1.3.6.1.2.1.17.10.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "dot1dPortPairEntry": {
+    "name": "dot1dPortPairEntry",
+    "oid": "1.3.6.1.2.1.17.10.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SOURCE-ROUTING-MIB",
+        "object": "dot1dPortPairLowPort",
+        "implied": 0
+      },
+      {
+        "module": "SOURCE-ROUTING-MIB",
+        "object": "dot1dPortPairHighPort",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "dot1dPortPairLowPort": {
+    "name": "dot1dPortPairLowPort",
+    "oid": "1.3.6.1.2.1.17.10.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot1dPortPairHighPort": {
+    "name": "dot1dPortPairHighPort",
+    "oid": "1.3.6.1.2.1.17.10.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot1dPortPairBridgeNum": {
+    "name": "dot1dPortPairBridgeNum",
+    "oid": "1.3.6.1.2.1.17.10.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "dot1dPortPairBridgeState": {
+    "name": "dot1dPortPairBridgeState",
+    "oid": "1.3.6.1.2.1.17.10.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "invalid": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SOURCE-ROUTING-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:35 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "SOURCE-ROUTING-MIB"
+  }
+}

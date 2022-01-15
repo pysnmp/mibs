@@ -716,7 +716,6 @@ smonPrioStatsControlStatus OBJECT-TYPE
  STATUS      current
  DESCRIPTION
      "The status of this row.
-
      An entry MAY NOT exist in the active state unless all
      objects in the entry have an appropriate value.
 
@@ -860,7 +859,6 @@ portCopyTable  OBJECT-TYPE
 
       One to one, many to one and one to many source to destination
       relationships may be configured.
-
       Each row that exists in this table defines such a
       relationship. By disabling a row in this table the port copy
       relationship no longer exists.
@@ -958,7 +956,6 @@ portCopyDirection OBJECT-TYPE
  DESCRIPTION
      "This object affects the way traffic is copied from a switch
        source port, for the indicated port copy operation.
-
       If this object has the value 'copyRxOnly(1)', then only
       traffic received on the indicated source port will be copied
       to the indicated destination port.
@@ -1150,7 +1147,6 @@ smonPrioStatsGroup      OBJECT-GROUP
      DESCRIPTION
      "Defines the switch monitoring specific statistics - per VLAN
       Id on interface."
-
 ::= { smonMIBGroups 3 }
 
 smonHcTo100mbGroup        OBJECT-GROUP

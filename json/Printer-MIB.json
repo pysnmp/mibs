@@ -2,30 +2,8 @@
   "imports": {
     "class": "imports",
     "HOST-RESOURCES-MIB": [
-      "hrStorageIndex",
-      "hrDeviceIndex"
-    ],
-    "IANA-CHARSET-MIB": [
-      "IANACharset"
-    ],
-    "IANA-PRINTER-MIB": [
-      "PrtAlertTrainingLevelTC",
-      "PrtCoverStatusTC",
-      "PrtChannelTypeTC",
-      "PrtOutputTypeTC",
-      "PrtGeneralResetTC",
-      "PrtAlertCodeTC",
-      "PrtConsoleColorTC",
-      "PrtAlertGroupTC",
-      "PrtMarkerSuppliesTypeTC",
-      "PrtConsoleDisableTC",
-      "PrtMediaPathTypeTC",
-      "PrtMarkerMarkTechTC",
-      "PrtInputTypeTC",
-      "PrtInterpreterLangFamilyTC"
-    ],
-    "IF-MIB": [
-      "InterfaceIndexOrZero"
+      "hrDeviceIndex",
+      "hrStorageIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -33,21 +11,21 @@
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
       "Integer32",
       "Counter32",
       "iso",
-      "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -57,32 +35,7 @@
   "printmib": {
     "name": "printmib",
     "oid": "1.3.6.1.2.1.43",
-    "class": "moduleidentity",
-    "revisions": [
-      {
-        "revision": "2004-06-02 00:00",
-        "description": "Printer MIB v2. Moved all enum groups to be maintained by IANA into new TCs within the ianaPrinterMIB, which is contained in this document. New TCs created from enums defined within RFC 1759 Objects: PrtPrintOrientationTC, PrtLocalizedDescriptionStringTC, PrtConsoleDescriptionStringTC, PrtChannelStateTC, PrtOutputStackingOrderTC, PrtOutputPageDeliveryOrientationTC, PrtMarkerCounterUnitTC, PrtMarkerSuppliesSupplyUnitTC, PrtMarkerSuppliesClassTC, PrtMarkerAddressabilityUnitTC, PrtMarkerColorantRoleTC, PrtMediaPathMaxSpeedPrintUnitTC, PrtInterpreterTwoWayTC, and PrtAlertSeverityLevelTC. The following four TCs have been deprecated: MediaUnit (replaced by PrtMediaUnitTC), CapacityUnit (replaced by PrtCapacityUnitTC), SubUnitStatus (replaced by PrtSubUnitStatusTC), CodedCharSet (replaced by IANACharset in IANA Charset MIB) Five new OBJECT-GROUPs: prtAuxilliarySheetGroup, prtInputSwitchingGroup, prtGeneralV2Group, prtAlertTableV2Group, prtChannelV2Group. Nine new objects added to those groups: prtAuxiliarySheetStartupPage, prtAuxiliarySheetBannerPage, prtGeneralPrinterName, prtGeneralSerialNumber, prtAlertCriticalEvents, prtAlertAllEvents, prtInputMediaLoadTimeout, prtInputNextIndex, prtChannelInformation. SYNTAX range changed from (0..65535) to (1..65535) for the index objects prtStorageRefSeqNumber, prtDeviceRefSeqNumber, and prtConsoleLightIndex. SYNTAX range changed from (0..65535) to (0..2147483647) for the objects prtStorageRefIndex and prtDeviceRefIndex to agree with the Host Resources MIB. Defined a range for the objects with a SYNTAX of Integer32: prtOutputDefaultIndex, prtInputMediaDimFeedDirDeclared, prtInputMediaDimXFeedDirDeclared, prtInputMaxCapacity, prtInputCurrentLevel, prtInputMediaDimFeedDirChosen, prtInputMediaDimXFeedDirChosen, prtInputMediaWeight, prtInputMediaFormParts, prtOutputIndex, prtOutputMaxCapacity, prtOutputRemainingCapacity, prtOutputMaxDimFeedDir, prtOutputMaxDimXFeedDir, prtOutputMinDimFeedDir, prtOutputMinDimXFeedDir, prtMarkerAddressibilityFeedDir, prtMarkerAddressibilityXFeedDir, prtMarkerNorthMargin, prtMarkerSouthMargin, prtMarkerWestMargin, prtMarkerEastMargin, prtMarkerSuppliesMaxCapacity, prtMarkerSuppliesLevel, prtMarkerColorantTonality, prtMediaPathMaxSpeed, prtMediaPathMaxMediaFeedDir, prtMediaPathMaxMediaXFeedDir, prtMediaPathMinMediaFeedDir, prtMediaPathMinMediaXFeedDir, prtChannelIndex, prtChannelCurrentJobCntlLangIndex, prtInterpreterIndex, prtChannelDefaultPageDescLangIndex, prtConsoleOnTime, prtInterpreterFeedAddressibility, prtConsoleOffTime, prtInterpreterXFeedAddressibility, prtAlertIndex, prtAlertGroupIndex, prtAlertLocation. Changed SYNTAX from Integer32 to InterfaceIndexOrZero for prtChannelIfIndex. Changed MAX-ACCESS of prtAlertIndex from not-accessible to Read-only and added a compliance statement to allow a MIN-ACCESS of accessible-for-notify. One new NOTIFICATION-GROUP: prtAlertTrapGroup which contains printerV2Alert. In MODULE-COMPLIANCE prtMIBCompliance, new OBJECT-GROUPs and the NOTIFICATION_GROUP, all in GROUP (not MANDATORY-GROUP) clauses. The nine new objects are optional, i.e., this document is backward compatible with RFC 1759."
-      },
-      {
-        "revision": "1994-11-25 00:00",
-        "description": "The original version of this MIB, published as RFC1759."
-      }
-    ]
-  },
-  "PrtMediaUnitTC": {
-    "name": "PrtMediaUnitTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "tenThousandthsOfInches": 3,
-          "micrometers": 4
-        }
-      }
-    },
-    "status": "current"
+    "class": "moduleidentity"
   },
   "MediaUnit": {
     "name": "MediaUnit",
@@ -94,28 +47,6 @@
         "enumeration": {
           "tenThousandthsOfInches": 3,
           "micrometers": 4
-        }
-      }
-    },
-    "status": "deprecated"
-  },
-  "PrtCapacityUnitTC": {
-    "name": "PrtCapacityUnitTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "unknown": 2,
-          "tenThousandthsOfInches": 3,
-          "micrometers": 4,
-          "sheets": 8,
-          "feet": 16,
-          "meters": 17,
-          "items": 18,
-          "percent": 19
         }
       }
     },
@@ -137,39 +68,6 @@
         }
       }
     },
-    "status": "deprecated"
-  },
-  "PrtPrintOrientationTC": {
-    "name": "PrtPrintOrientationTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "portrait": 3,
-          "landscape": 4
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtSubUnitStatusTC": {
-    "name": "PrtSubUnitStatusTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 126
-          }
-        ]
-      }
-    },
     "status": "current"
   },
   "SubUnitStatus": {
@@ -187,7 +85,7 @@
         ]
       }
     },
-    "status": "deprecated"
+    "status": "current"
   },
   "PresentOnOff": {
     "name": "PresentOnOff",
@@ -206,40 +104,6 @@
     },
     "status": "current"
   },
-  "PrtLocalizedDescriptionStringTC": {
-    "name": "PrtLocalizedDescriptionStringTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "status": "current"
-  },
-  "PrtConsoleDescriptionStringTC": {
-    "name": "PrtConsoleDescriptionStringTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "status": "current"
-  },
   "CodedCharSet": {
     "name": "CodedCharSet",
     "class": "textualconvention",
@@ -249,205 +113,6 @@
       "constraints": {
         "enumeration": {
           "other": 1
-        }
-      }
-    },
-    "status": "deprecated"
-  },
-  "PrtChannelStateTC": {
-    "name": "PrtChannelStateTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "printDataAccepted": 3,
-          "noDataAccepted": 4
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtOutputStackingOrderTC": {
-    "name": "PrtOutputStackingOrderTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "unknown": 2,
-          "firstToLast": 3,
-          "lastToFirst": 4
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtOutputPageDeliveryOrientationTC": {
-    "name": "PrtOutputPageDeliveryOrientationTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "faceUp": 3,
-          "faceDown": 4
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtMarkerCounterUnitTC": {
-    "name": "PrtMarkerCounterUnitTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "tenThousandthsOfInches": 3,
-          "micrometers": 4,
-          "characters": 5,
-          "lines": 6,
-          "impressions": 7,
-          "sheets": 8,
-          "dotRow": 9,
-          "hours": 11,
-          "feet": 16,
-          "meters": 17
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtMarkerSuppliesSupplyUnitTC": {
-    "name": "PrtMarkerSuppliesSupplyUnitTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "unknown": 2,
-          "tenThousandthsOfInches": 3,
-          "micrometers": 4,
-          "impressions": 7,
-          "sheets": 8,
-          "hours": 11,
-          "thousandthsOfOunces": 12,
-          "tenthsOfGrams": 13,
-          "hundrethsOfFluidOunces": 14,
-          "tenthsOfMilliliters": 15,
-          "feet": 16,
-          "meters": 17,
-          "items": 18,
-          "percent": 19
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtMarkerSuppliesClassTC": {
-    "name": "PrtMarkerSuppliesClassTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "supplyThatIsConsumed": 3,
-          "receptacleThatIsFilled": 4
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtMarkerColorantRoleTC": {
-    "name": "PrtMarkerColorantRoleTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "process": 3,
-          "spot": 4
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtMarkerAddressabilityUnitTC": {
-    "name": "PrtMarkerAddressabilityUnitTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "tenThousandthsOfInches": 3,
-          "micrometers": 4
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtMediaPathMaxSpeedPrintUnitTC": {
-    "name": "PrtMediaPathMaxSpeedPrintUnitTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "tenThousandthsOfInchesPerHour": 3,
-          "micrometersPerHour": 4,
-          "charactersPerHour": 5,
-          "linesPerHour": 6,
-          "impressionsPerHour": 7,
-          "sheetsPerHour": 8,
-          "dotRowPerHour": 9,
-          "feetPerHour": 16,
-          "metersPerHour": 17
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtInterpreterTwoWayTC": {
-    "name": "PrtInterpreterTwoWayTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "yes": 3,
-          "no": 4
-        }
-      }
-    },
-    "status": "current"
-  },
-  "PrtAlertSeverityLevelTC": {
-    "name": "PrtAlertSeverityLevelTC",
-    "class": "textualconvention",
-    "type": {
-      "type": "INTEGER",
-      "class": "type",
-      "constraints": {
-        "enumeration": {
-          "other": 1,
-          "critical": 3,
-          "warning": 4,
-          "warningBinaryChangeEvent": 5
         }
       }
     },
@@ -519,290 +184,18 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtGeneralResetTC",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtGeneralCurrentOperator": {
-    "name": "prtGeneralCurrentOperator",
-    "oid": "1.3.6.1.2.1.43.5.1.1.4",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 127
-          }
-        ]
+        "enumeration": {
+          "notResetting": 3,
+          "powerCycleReset": 4,
+          "resetToNVRAM": 5,
+          "resetToFactoryDefaults": 6
+        }
       }
     },
     "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtGeneralServicePerson": {
-    "name": "prtGeneralServicePerson",
-    "oid": "1.3.6.1.2.1.43.5.1.1.5",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 127
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtInputDefaultIndex": {
-    "name": "prtInputDefaultIndex",
-    "oid": "1.3.6.1.2.1.43.5.1.1.6",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtOutputDefaultIndex": {
-    "name": "prtOutputDefaultIndex",
-    "oid": "1.3.6.1.2.1.43.5.1.1.7",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtMarkerDefaultIndex": {
-    "name": "prtMarkerDefaultIndex",
-    "oid": "1.3.6.1.2.1.43.5.1.1.8",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtMediaPathDefaultIndex": {
-    "name": "prtMediaPathDefaultIndex",
-    "oid": "1.3.6.1.2.1.43.5.1.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtConsoleLocalization": {
-    "name": "prtConsoleLocalization",
-    "oid": "1.3.6.1.2.1.43.5.1.1.10",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtConsoleNumberOfDisplayLines": {
-    "name": "prtConsoleNumberOfDisplayLines",
-    "oid": "1.3.6.1.2.1.43.5.1.1.11",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "prtConsoleNumberOfDisplayChars": {
-    "name": "prtConsoleNumberOfDisplayChars",
-    "oid": "1.3.6.1.2.1.43.5.1.1.12",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "prtConsoleDisable": {
-    "name": "prtConsoleDisable",
-    "oid": "1.3.6.1.2.1.43.5.1.1.13",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "PrtConsoleDisableTC",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtAuxiliarySheetStartupPage": {
-    "name": "prtAuxiliarySheetStartupPage",
-    "oid": "1.3.6.1.2.1.43.5.1.1.14",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "PresentOnOff",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtAuxiliarySheetBannerPage": {
-    "name": "prtAuxiliarySheetBannerPage",
-    "oid": "1.3.6.1.2.1.43.5.1.1.15",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "PresentOnOff",
-      "class": "type"
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtGeneralPrinterName": {
-    "name": "prtGeneralPrinterName",
-    "oid": "1.3.6.1.2.1.43.5.1.1.16",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 127
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtGeneralSerialNumber": {
-    "name": "prtGeneralSerialNumber",
-    "oid": "1.3.6.1.2.1.43.5.1.1.17",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtAlertCriticalEvents": {
-    "name": "prtAlertCriticalEvents",
-    "oid": "1.3.6.1.2.1.43.5.1.1.18",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "prtAlertAllEvents": {
-    "name": "prtAlertAllEvents",
-    "oid": "1.3.6.1.2.1.43.5.1.1.19",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Counter32",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
     "status": "current"
   },
   "prtCover": {
@@ -864,8 +257,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtLocalizedDescriptionStringTC",
-      "class": "type"
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -876,8 +277,17 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtCoverStatusTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "doorOpen": 3,
+          "doorClosed": 4,
+          "interlockOpen": 5,
+          "interlockClosed": 6
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -946,7 +356,7 @@
       "constraints": {
         "size": [
           {
-            "min": 2,
+            "min": 0,
             "max": 2
           }
         ]
@@ -966,7 +376,7 @@
       "constraints": {
         "size": [
           {
-            "min": 2,
+            "min": 0,
             "max": 2
           }
         ]
@@ -981,7 +391,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "IANACharset",
+      "type": "CodedCharSet",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1026,7 +436,7 @@
       "constraints": {
         "range": [
           {
-            "min": 1,
+            "min": 0,
             "max": 65535
           }
         ]
@@ -1047,7 +457,7 @@
         "range": [
           {
             "min": 0,
-            "max": 2147483647
+            "max": 65535
           }
         ]
       }
@@ -1094,7 +504,7 @@
       "constraints": {
         "range": [
           {
-            "min": 1,
+            "min": 0,
             "max": 65535
           }
         ]
@@ -1115,7 +525,7 @@
         "range": [
           {
             "min": 0,
-            "max": 2147483647
+            "max": 65535
           }
         ]
       }
@@ -1123,10 +533,70 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "prtGeneralCurrentOperator": {
+    "name": "prtGeneralCurrentOperator",
+    "oid": "1.3.6.1.2.1.43.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prtGeneralServicePerson": {
+    "name": "prtGeneralServicePerson",
+    "oid": "1.3.6.1.2.1.43.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "prtInput": {
     "name": "prtInput",
     "oid": "1.3.6.1.2.1.43.8",
     "class": "objectidentity"
+  },
+  "prtInputDefaultIndex": {
+    "name": "prtInputDefaultIndex",
+    "oid": "1.3.6.1.2.1.43.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
   },
   "prtInputTable": {
     "name": "prtInputTable",
@@ -1182,8 +652,19 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtInputTypeTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "sheetFeedAutoRemovableTray": 3,
+          "sheetFeedAutoNonRemovableTray": 4,
+          "sheetFeedManual": 5,
+          "continuousRoll": 6,
+          "continuousFanFold": 7
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1194,7 +675,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMediaUnitTC",
+      "type": "MediaUnit",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1207,15 +688,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1227,15 +700,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1247,15 +712,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1267,15 +724,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1286,7 +735,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtCapacityUnitTC",
+      "type": "CapacityUnit",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1299,15 +748,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1319,15 +760,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -3,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1338,7 +771,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtSubUnitStatusTC",
+      "type": "SubUnitStatus",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1470,8 +903,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtLocalizedDescriptionStringTC",
-      "class": "type"
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1495,15 +936,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1555,55 +988,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtInputMediaLoadTimeout": {
-    "name": "prtInputMediaLoadTimeout",
-    "oid": "1.3.6.1.2.1.43.8.2.1.24",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
-    },
-    "maxaccess": "read-write",
-    "status": "current"
-  },
-  "prtInputNextIndex": {
-    "name": "prtInputNextIndex",
-    "oid": "1.3.6.1.2.1.43.8.2.1.25",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -3,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1612,6 +997,18 @@
     "name": "prtOutput",
     "oid": "1.3.6.1.2.1.43.9",
     "class": "objectidentity"
+  },
+  "prtOutputDefaultIndex": {
+    "name": "prtOutputDefaultIndex",
+    "oid": "1.3.6.1.2.1.43.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
   },
   "prtOutputTable": {
     "name": "prtOutputTable",
@@ -1648,15 +1045,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -1667,8 +1056,19 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtOutputTypeTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "removableBin": 3,
+          "unRemovableBin": 4,
+          "continuousRollDevice": 5,
+          "mailBox": 6,
+          "continuousFanFold": 7
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1679,7 +1079,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtCapacityUnitTC",
+      "type": "CapacityUnit",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1692,15 +1092,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1712,15 +1104,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -3,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1731,7 +1115,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtSubUnitStatusTC",
+      "type": "SubUnitStatus",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1843,8 +1227,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtLocalizedDescriptionStringTC",
-      "class": "type"
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -1867,7 +1259,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMediaUnitTC",
+      "type": "MediaUnit",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -1880,15 +1272,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1900,15 +1284,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1920,15 +1296,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1940,15 +1308,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1959,8 +1319,15 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtOutputStackingOrderTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 2,
+          "firstToLast": 3,
+          "lastToFirst": 4
+        }
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -1971,8 +1338,14 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtOutputPageDeliveryOrientationTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "faceUp": 3,
+          "faceDown": 4
+        }
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -2030,6 +1403,26 @@
     "oid": "1.3.6.1.2.1.43.10",
     "class": "objectidentity"
   },
+  "prtMarkerDefaultIndex": {
+    "name": "prtMarkerDefaultIndex",
+    "oid": "1.3.6.1.2.1.43.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
   "prtMarkerTable": {
     "name": "prtMarkerTable",
     "oid": "1.3.6.1.2.1.43.10.2",
@@ -2084,8 +1477,39 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMarkerMarkTechTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "electrophotographicLED": 3,
+          "electrophotographicLaser": 4,
+          "electrophotographicOther": 5,
+          "impactMovingHeadDotMatrix9pin": 6,
+          "impactMovingHeadDotMatrix24pin": 7,
+          "impactMovingHeadDotMatrixOther": 8,
+          "impactMovingHeadFullyFormed": 9,
+          "impactBand": 10,
+          "impactOther": 11,
+          "inkjetAqueous": 12,
+          "inkjetSolid": 13,
+          "inkjetOther": 14,
+          "pen": 15,
+          "thermalTransfer": 16,
+          "thermalSensitive": 17,
+          "thermalDiffusion": 18,
+          "thermalOther": 19,
+          "electroerosion": 20,
+          "electrostatic": 21,
+          "photographicMicrofiche": 22,
+          "photographicImagesetter": 23,
+          "photographicOther": 24,
+          "ionDeposition": 25,
+          "eBeam": 26,
+          "typesetter": 27
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2096,8 +1520,22 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMarkerCounterUnitTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenThousandthsOfInches": 3,
+          "micrometers": 4,
+          "characters": 5,
+          "lines": 6,
+          "impressions": 7,
+          "sheets": 8,
+          "dotRow": 9,
+          "hours": 11,
+          "feet": 16,
+          "meters": 17
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2172,8 +1610,14 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMarkerAddressabilityUnitTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenThousandthsOfInches": 3,
+          "micrometers": 4
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2185,15 +1629,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2205,15 +1641,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2225,15 +1653,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2245,15 +1665,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2265,15 +1677,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2285,15 +1689,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2304,7 +1700,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtSubUnitStatusTC",
+      "type": "SubUnitStatus",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -2409,8 +1805,15 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMarkerSuppliesClassTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "supplyThatIsConsumed": 3,
+          "receptacleThatIsFilled": 4
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2421,8 +1824,26 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMarkerSuppliesTypeTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "toner": 3,
+          "wasteToner": 4,
+          "ink": 5,
+          "inkCartridge": 6,
+          "inkRibbon": 7,
+          "wasteInk": 8,
+          "opc": 9,
+          "developer": 10,
+          "fuserOil": 11,
+          "solidWax": 12,
+          "ribbonWax": 13,
+          "wasteWax": 14
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2433,8 +1854,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtLocalizedDescriptionStringTC",
-      "class": "type"
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2445,8 +1874,18 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMarkerSuppliesSupplyUnitTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenThousandthsOfInches": 3,
+          "micrometers": 4,
+          "thousandthsOfOunces": 12,
+          "tenthsOfGrams": 13,
+          "hundrethsOfFluidOunces": 14,
+          "tenthsOfMilliliters": 15
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2458,15 +1897,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -2478,15 +1909,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -3,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -2570,8 +1993,15 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMarkerColorantRoleTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "process": 3,
+          "spot": 4
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2588,7 +2018,7 @@
         "size": [
           {
             "min": 0,
-            "max": 255
+            "max": 63
           }
         ]
       }
@@ -2603,15 +2033,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2620,6 +2042,26 @@
     "name": "prtMediaPath",
     "oid": "1.3.6.1.2.1.43.13",
     "class": "objectidentity"
+  },
+  "prtMediaPathDefaultIndex": {
+    "name": "prtMediaPathDefaultIndex",
+    "oid": "1.3.6.1.2.1.43.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
   },
   "prtMediaPathTable": {
     "name": "prtMediaPathTable",
@@ -2675,8 +2117,21 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMediaPathMaxSpeedPrintUnitTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "tenThousandthsOfInchesPerHour": 3,
+          "micrometersPerHour": 4,
+          "charactersPerHour": 5,
+          "linesPerHour": 6,
+          "impressionsPerHour": 7,
+          "sheetsPerHour": 8,
+          "dotRowPerHour": 9,
+          "feetPerHour": 16,
+          "metersPerHour": 17
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2687,7 +2142,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMediaUnitTC",
+      "type": "MediaUnit",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -2700,15 +2155,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2720,15 +2167,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2740,15 +2179,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2760,15 +2191,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2780,15 +2203,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2799,8 +2214,17 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtMediaPathTypeTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "longEdgeBindingDuplex": 3,
+          "shortEdgeBindingDuplex": 4,
+          "simplex": 5
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2811,8 +2235,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtLocalizedDescriptionStringTC",
-      "class": "type"
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2823,7 +2255,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtSubUnitStatusTC",
+      "type": "SubUnitStatus",
       "class": "type"
     },
     "maxaccess": "read-only",
@@ -2869,15 +2301,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -2888,8 +2312,44 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtChannelTypeTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "chSerialPort": 3,
+          "chParallelPort": 4,
+          "chIEEE1284Port": 5,
+          "chSCSIPort": 6,
+          "chAppleTalkPAP": 7,
+          "chLPDServer": 8,
+          "chNetwareRPrinter": 9,
+          "chNetwarePServer": 10,
+          "chPort9100": 11,
+          "chAppSocket": 12,
+          "chFTP": 13,
+          "chTFTP": 14,
+          "chDLCLLCPort": 15,
+          "chIBM3270": 16,
+          "chIBM5250": 17,
+          "chFax": 18,
+          "chIEEE1394": 19,
+          "chTransport1": 20,
+          "chCPAP": 21,
+          "chDCERemoteProcCall": 22,
+          "chONCRemoteProcCall": 23,
+          "chOLE": 24,
+          "chNamedPipe": 25,
+          "chPCPrint": 26,
+          "chServerMessageBlock": 27,
+          "chDPMF": 28,
+          "chDLLAPI": 29,
+          "chVxDAPI": 30,
+          "chSystemObjectManager": 31,
+          "chDECLAT": 32,
+          "chNPAP": 33
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -2921,15 +2381,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -2941,15 +2393,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 65535
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -2960,8 +2404,15 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtChannelStateTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "printDataAccepted": 3,
+          "noDataAccepted": 4
+        }
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -2972,7 +2423,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "InterfaceIndexOrZero",
+      "type": "Integer32",
       "class": "type"
     },
     "maxaccess": "read-write",
@@ -2984,28 +2435,8 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtSubUnitStatusTC",
+      "type": "SubUnitStatus",
       "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "prtChannelInformation": {
-    "name": "prtChannelInformation",
-    "oid": "1.3.6.1.2.1.43.14.1.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "OCTET STRING",
-      "class": "type",
-      "constraints": {
-        "size": [
-          {
-            "min": 0,
-            "max": 255
-          }
-        ]
-      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3050,15 +2481,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 65535
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "not-accessible",
     "status": "current"
@@ -3069,8 +2492,57 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtInterpreterLangFamilyTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "langPCL": 3,
+          "langHPGL": 4,
+          "langPJL": 5,
+          "langPS": 6,
+          "langPSPrinter": 42,
+          "langIPDS": 7,
+          "langPPDS": 8,
+          "langEscapeP": 9,
+          "langEpson": 10,
+          "langDDIF": 11,
+          "langInterpress": 12,
+          "langISO6429": 13,
+          "langLineData": 14,
+          "langMODCA": 15,
+          "langREGIS": 16,
+          "langSCS": 17,
+          "langSPDL": 18,
+          "langTEK4014": 19,
+          "langPDS": 20,
+          "langIGP": 21,
+          "langCodeV": 22,
+          "langDSCDSE": 23,
+          "langWPS": 24,
+          "langLN03": 25,
+          "langCCITT": 26,
+          "langQUIC": 27,
+          "langCPAP": 28,
+          "langDecPPL": 29,
+          "langSimpleText": 30,
+          "langNPAP": 31,
+          "langDOC": 32,
+          "langimPress": 33,
+          "langPinwriter": 34,
+          "langNPDL": 35,
+          "langNEC201PL": 36,
+          "langAutomatic": 37,
+          "langPages": 38,
+          "langLIPS": 39,
+          "langTIFF": 40,
+          "langDiagnostic": 41,
+          "langCaPSL": 43,
+          "langEXCL": 44,
+          "langLCDS": 45,
+          "langXES": 46
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3121,8 +2593,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtLocalizedDescriptionStringTC",
-      "class": "type"
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3153,8 +2633,15 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtPrintOrientationTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "portrait": 3,
+          "landscape": 4
+        }
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -3166,15 +2653,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3186,15 +2665,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3205,7 +2676,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "IANACharset",
+      "type": "CodedCharSet",
       "class": "type"
     },
     "maxaccess": "read-write",
@@ -3217,7 +2688,7 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "IANACharset",
+      "type": "CodedCharSet",
       "class": "type"
     },
     "maxaccess": "read-write",
@@ -3229,10 +2700,94 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtInterpreterTwoWayTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "yes": 3,
+          "no": 4
+        }
+      }
     },
     "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prtConsoleLocalization": {
+    "name": "prtConsoleLocalization",
+    "oid": "1.3.6.1.2.1.43.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "prtConsoleNumberOfDisplayLines": {
+    "name": "prtConsoleNumberOfDisplayLines",
+    "oid": "1.3.6.1.2.1.43.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prtConsoleNumberOfDisplayChars": {
+    "name": "prtConsoleNumberOfDisplayChars",
+    "oid": "1.3.6.1.2.1.43.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "prtConsoleDisable": {
+    "name": "prtConsoleDisable",
+    "oid": "1.3.6.1.2.1.43.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 3,
+          "disabled": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
     "status": "current"
   },
   "prtConsoleDisplayBuffer": {
@@ -3294,8 +2849,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtConsoleDescriptionStringTC",
-      "class": "type"
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -3344,7 +2907,7 @@
       "constraints": {
         "range": [
           {
-            "min": 1,
+            "min": 0,
             "max": 65535
           }
         ]
@@ -3360,15 +2923,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -3380,15 +2935,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 0,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-write",
     "status": "current"
@@ -3399,8 +2946,21 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtConsoleColorTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "white": 3,
+          "red": 4,
+          "green": 5,
+          "blue": 6,
+          "cyan": 7,
+          "magenta": 8,
+          "yellow": 9
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3411,8 +2971,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtConsoleDescriptionStringTC",
-      "class": "type"
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3457,17 +3025,9 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": 1,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
-    "maxaccess": "read-only",
+    "maxaccess": "not-accessible",
     "status": "current"
   },
   "prtAlertSeverityLevel": {
@@ -3476,8 +3036,15 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtAlertSeverityLevelTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "critical": 3,
+          "warning": 4
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3488,8 +3055,18 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtAlertTrainingLevelTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "untrained": 3,
+          "trained": 4,
+          "fieldService": 5,
+          "management": 6
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3500,8 +3077,28 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtAlertGroupTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "hostResourcesMIBStorageTable": 3,
+          "hostResourcesMIBDeviceTable": 4,
+          "generalPrinter": 5,
+          "cover": 6,
+          "localization": 7,
+          "input": 8,
+          "output": 9,
+          "marker": 10,
+          "markerSupplies": 11,
+          "markerColorant": 12,
+          "mediaPath": 13,
+          "channel": 14,
+          "interpreter": 15,
+          "consoleDisplayBuffer": 16,
+          "consoleLights": 17
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3513,15 +3110,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -1,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3533,15 +3122,7 @@
     "class": "objecttype",
     "syntax": {
       "type": "Integer32",
-      "class": "type",
-      "constraints": {
-        "range": [
-          {
-            "min": -2,
-            "max": 2147483647
-          }
-        ]
-      }
+      "class": "type"
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3552,8 +3133,61 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtAlertCodeTC",
-      "class": "type"
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "unknown": 2,
+          "coverOpen": 3,
+          "coverClosed": 4,
+          "interlockOpen": 5,
+          "interlockClosed": 6,
+          "configurationChange": 7,
+          "jam": 8,
+          "doorOpen": 501,
+          "doorClosed": 502,
+          "powerUp": 503,
+          "powerDown": 504,
+          "inputMediaTrayMissing": 801,
+          "inputMediaSizeChange": 802,
+          "inputMediaWeightChange": 803,
+          "inputMediaTypeChange": 804,
+          "inputMediaColorChange": 805,
+          "inputMediaFormPartsChange": 806,
+          "inputMediaSupplyLow": 807,
+          "inputMediaSupplyEmpty": 808,
+          "outputMediaTrayMissing": 901,
+          "outputMediaTrayAlmostFull": 902,
+          "outputMediaTrayFull": 903,
+          "markerFuserUnderTemperature": 1001,
+          "markerFuserOverTemperature": 1002,
+          "markerTonerEmpty": 1101,
+          "markerInkEmpty": 1102,
+          "markerPrintRibbonEmpty": 1103,
+          "markerTonerAlmostEmpty": 1104,
+          "markerInkAlmostEmpty": 1105,
+          "markerPrintRibbonAlmostEmpty": 1106,
+          "markerWasteTonerReceptacleAlmostFull": 1107,
+          "markerWasteInkReceptacleAlmostFull": 1108,
+          "markerWasteTonerReceptacleFull": 1109,
+          "markerWasteInkReceptacleFull": 1110,
+          "markerOpcLifeAlmostOver": 1111,
+          "markerOpcLifeOver": 1112,
+          "markerDeveloperAlmostEmpty": 1113,
+          "markerDeveloperEmpty": 1114,
+          "mediaPathMediaTrayMissing": 1301,
+          "mediaPathMediaTrayAlmostFull": 1302,
+          "mediaPathMediaTrayFull": 1303,
+          "interpreterMemoryIncrease": 1501,
+          "interpreterMemoryDecrease": 1502,
+          "interpreterCartridgeAdded": 1503,
+          "interpreterCartridgeDeleted": 1504,
+          "interpreterResourceAdded": 1505,
+          "interpreterResourceDeleted": 1506,
+          "interpreterResourceUnavailable": 1507
+        }
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3564,20 +3198,16 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "PrtLocalizedDescriptionStringTC",
-      "class": "type"
-    },
-    "maxaccess": "read-only",
-    "status": "current"
-  },
-  "prtAlertTime": {
-    "name": "prtAlertTime",
-    "oid": "1.3.6.1.2.1.43.18.1.1.9",
-    "nodetype": "column",
-    "class": "objecttype",
-    "syntax": {
-      "type": "TimeTicks",
-      "class": "type"
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
     },
     "maxaccess": "read-only",
     "status": "current"
@@ -3625,6 +3255,18 @@
     ],
     "status": "current"
   },
+  "prtAlertTime": {
+    "name": "prtAlertTime",
+    "oid": "1.3.6.1.2.1.43.18.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "prtMIBConformance": {
     "name": "prtMIBConformance",
     "oid": "1.3.6.1.2.1.43.2",
@@ -3633,50 +3275,6 @@
   "prtMIBCompliance": {
     "name": "prtMIBCompliance",
     "oid": "1.3.6.1.2.1.43.2.1",
-    "class": "modulecompliance",
-    "modulecompliance": [
-      {
-        "object": "prtGeneralGroup",
-        "module": "Printer-MIB"
-      },
-      {
-        "object": "prtInputGroup",
-        "module": "Printer-MIB"
-      },
-      {
-        "object": "prtOutputGroup",
-        "module": "Printer-MIB"
-      },
-      {
-        "object": "prtMarkerGroup",
-        "module": "Printer-MIB"
-      },
-      {
-        "object": "prtMediaPathGroup",
-        "module": "Printer-MIB"
-      },
-      {
-        "object": "prtChannelGroup",
-        "module": "Printer-MIB"
-      },
-      {
-        "object": "prtInterpreterGroup",
-        "module": "Printer-MIB"
-      },
-      {
-        "object": "prtConsoleGroup",
-        "module": "Printer-MIB"
-      },
-      {
-        "object": "prtAlertTableGroup",
-        "module": "Printer-MIB"
-      }
-    ],
-    "status": "current"
-  },
-  "prtMIB2Compliance": {
-    "name": "prtMIB2Compliance",
-    "oid": "1.3.6.1.2.1.43.2.3",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -4395,108 +3993,11 @@
     ],
     "status": "current"
   },
-  "prtMIB2Groups": {
-    "name": "prtMIB2Groups",
-    "oid": "1.3.6.1.2.1.43.2.4",
-    "class": "objectidentity"
-  },
-  "prtAuxiliarySheetGroup": {
-    "name": "prtAuxiliarySheetGroup",
-    "oid": "1.3.6.1.2.1.43.2.2.19",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "Printer-MIB",
-        "object": "prtAuxiliarySheetStartupPage"
-      },
-      {
-        "module": "Printer-MIB",
-        "object": "prtAuxiliarySheetBannerPage"
-      }
-    ],
-    "status": "current"
-  },
-  "prtInputSwitchingGroup": {
-    "name": "prtInputSwitchingGroup",
-    "oid": "1.3.6.1.2.1.43.2.2.20",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "Printer-MIB",
-        "object": "prtInputMediaLoadTimeout"
-      },
-      {
-        "module": "Printer-MIB",
-        "object": "prtInputNextIndex"
-      }
-    ],
-    "status": "current"
-  },
-  "prtGeneralV2Group": {
-    "name": "prtGeneralV2Group",
-    "oid": "1.3.6.1.2.1.43.2.2.21",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "Printer-MIB",
-        "object": "prtGeneralPrinterName"
-      },
-      {
-        "module": "Printer-MIB",
-        "object": "prtGeneralSerialNumber"
-      }
-    ],
-    "status": "current"
-  },
-  "prtAlertTableV2Group": {
-    "name": "prtAlertTableV2Group",
-    "oid": "1.3.6.1.2.1.43.2.2.22",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "Printer-MIB",
-        "object": "prtAlertIndex"
-      },
-      {
-        "module": "Printer-MIB",
-        "object": "prtAlertCriticalEvents"
-      },
-      {
-        "module": "Printer-MIB",
-        "object": "prtAlertAllEvents"
-      }
-    ],
-    "status": "current"
-  },
-  "prtChannelV2Group": {
-    "name": "prtChannelV2Group",
-    "oid": "1.3.6.1.2.1.43.2.2.23",
-    "class": "objectgroup",
-    "objects": [
-      {
-        "module": "Printer-MIB",
-        "object": "prtChannelInformation"
-      }
-    ],
-    "status": "current"
-  },
-  "prtAlertTrapGroup": {
-    "name": "prtAlertTrapGroup",
-    "oid": "1.3.6.1.2.1.43.2.2.24",
-    "class": "notificationgroup",
-    "objects": [
-      {
-        "module": "Printer-MIB",
-        "object": "printerV2Alert"
-      }
-    ],
-    "status": "current"
-  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/Printer-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/Printer-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:35 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Printer-MIB"

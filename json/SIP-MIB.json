@@ -1,0 +1,1078 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "transmission",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
+    ]
+  },
+  "sipMIB": {
+    "name": "sipMIB",
+    "oid": "1.3.6.1.2.1.36",
+    "class": "moduleidentity"
+  },
+  "SMDSAddress": {
+    "name": "SMDSAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "IfIndex": {
+    "name": "IfIndex",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "sip": {
+    "name": "sip",
+    "oid": "1.3.6.1.2.1.10.31",
+    "class": "objectidentity"
+  },
+  "sipMIBObjects": {
+    "name": "sipMIBObjects",
+    "oid": "1.3.6.1.2.1.36.1",
+    "class": "objectidentity"
+  },
+  "sipL3Table": {
+    "name": "sipL3Table",
+    "oid": "1.3.6.1.2.1.10.31.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sipL3Entry": {
+    "name": "sipL3Entry",
+    "oid": "1.3.6.1.2.1.10.31.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIP-MIB",
+        "object": "sipL3Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sipL3Index": {
+    "name": "sipL3Index",
+    "oid": "1.3.6.1.2.1.10.31.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL3ReceivedIndividualDAs": {
+    "name": "sipL3ReceivedIndividualDAs",
+    "oid": "1.3.6.1.2.1.10.31.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "sipL3ReceivedGAs": {
+    "name": "sipL3ReceivedGAs",
+    "oid": "1.3.6.1.2.1.10.31.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "sipL3UnrecognizedIndividualDAs": {
+    "name": "sipL3UnrecognizedIndividualDAs",
+    "oid": "1.3.6.1.2.1.10.31.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "sipL3UnrecognizedGAs": {
+    "name": "sipL3UnrecognizedGAs",
+    "oid": "1.3.6.1.2.1.10.31.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "sipL3SentIndividualDAs": {
+    "name": "sipL3SentIndividualDAs",
+    "oid": "1.3.6.1.2.1.10.31.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "sipL3SentGAs": {
+    "name": "sipL3SentGAs",
+    "oid": "1.3.6.1.2.1.10.31.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "sipL3Errors": {
+    "name": "sipL3Errors",
+    "oid": "1.3.6.1.2.1.10.31.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "sipL3InvalidSMDSAddressTypes": {
+    "name": "sipL3InvalidSMDSAddressTypes",
+    "oid": "1.3.6.1.2.1.10.31.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "sipL3VersionSupport": {
+    "name": "sipL3VersionSupport",
+    "oid": "1.3.6.1.2.1.10.31.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL2Table": {
+    "name": "sipL2Table",
+    "oid": "1.3.6.1.2.1.10.31.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sipL2Entry": {
+    "name": "sipL2Entry",
+    "oid": "1.3.6.1.2.1.10.31.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIP-MIB",
+        "object": "sipL2Index",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sipL2Index": {
+    "name": "sipL2Index",
+    "oid": "1.3.6.1.2.1.10.31.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL2ReceivedCounts": {
+    "name": "sipL2ReceivedCounts",
+    "oid": "1.3.6.1.2.1.10.31.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL2SentCounts": {
+    "name": "sipL2SentCounts",
+    "oid": "1.3.6.1.2.1.10.31.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL2HcsOrCRCErrors": {
+    "name": "sipL2HcsOrCRCErrors",
+    "oid": "1.3.6.1.2.1.10.31.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL2PayloadLengthErrors": {
+    "name": "sipL2PayloadLengthErrors",
+    "oid": "1.3.6.1.2.1.10.31.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL2SequenceNumberErrors": {
+    "name": "sipL2SequenceNumberErrors",
+    "oid": "1.3.6.1.2.1.10.31.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL2MidCurrentlyActiveErrors": {
+    "name": "sipL2MidCurrentlyActiveErrors",
+    "oid": "1.3.6.1.2.1.10.31.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL2BomOrSSMsMIDErrors": {
+    "name": "sipL2BomOrSSMsMIDErrors",
+    "oid": "1.3.6.1.2.1.10.31.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL2EomsMIDErrors": {
+    "name": "sipL2EomsMIDErrors",
+    "oid": "1.3.6.1.2.1.10.31.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipPLCP": {
+    "name": "sipPLCP",
+    "oid": "1.3.6.1.2.1.10.31.3",
+    "class": "objectidentity"
+  },
+  "sipDS1PLCPTable": {
+    "name": "sipDS1PLCPTable",
+    "oid": "1.3.6.1.2.1.10.31.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sipDS1PLCPEntry": {
+    "name": "sipDS1PLCPEntry",
+    "oid": "1.3.6.1.2.1.10.31.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIP-MIB",
+        "object": "sipDS1PLCPIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sipDS1PLCPIndex": {
+    "name": "sipDS1PLCPIndex",
+    "oid": "1.3.6.1.2.1.10.31.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDS1PLCPSEFSs": {
+    "name": "sipDS1PLCPSEFSs",
+    "oid": "1.3.6.1.2.1.10.31.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDS1PLCPAlarmState": {
+    "name": "sipDS1PLCPAlarmState",
+    "oid": "1.3.6.1.2.1.10.31.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAlarm": 1,
+          "receivedFarEndAlarm": 2,
+          "incomingLOF": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDS1PLCPUASs": {
+    "name": "sipDS1PLCPUASs",
+    "oid": "1.3.6.1.2.1.10.31.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDS3PLCPTable": {
+    "name": "sipDS3PLCPTable",
+    "oid": "1.3.6.1.2.1.10.31.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sipDS3PLCPEntry": {
+    "name": "sipDS3PLCPEntry",
+    "oid": "1.3.6.1.2.1.10.31.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIP-MIB",
+        "object": "sipDS3PLCPIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sipDS3PLCPIndex": {
+    "name": "sipDS3PLCPIndex",
+    "oid": "1.3.6.1.2.1.10.31.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDS3PLCPSEFSs": {
+    "name": "sipDS3PLCPSEFSs",
+    "oid": "1.3.6.1.2.1.10.31.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDS3PLCPAlarmState": {
+    "name": "sipDS3PLCPAlarmState",
+    "oid": "1.3.6.1.2.1.10.31.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAlarm": 1,
+          "receivedFarEndAlarm": 2,
+          "incomingLOF": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDS3PLCPUASs": {
+    "name": "sipDS3PLCPUASs",
+    "oid": "1.3.6.1.2.1.10.31.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smdsApplications": {
+    "name": "smdsApplications",
+    "oid": "1.3.6.1.2.1.10.31.4",
+    "class": "objectidentity"
+  },
+  "ipOverSMDS": {
+    "name": "ipOverSMDS",
+    "oid": "1.3.6.1.2.1.10.31.4.1",
+    "class": "objectidentity"
+  },
+  "ipOverSMDSTable": {
+    "name": "ipOverSMDSTable",
+    "oid": "1.3.6.1.2.1.10.31.4.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipOverSMDSEntry": {
+    "name": "ipOverSMDSEntry",
+    "oid": "1.3.6.1.2.1.10.31.4.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIP-MIB",
+        "object": "ipOverSMDSIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "ipOverSMDSAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipOverSMDSIndex": {
+    "name": "ipOverSMDSIndex",
+    "oid": "1.3.6.1.2.1.10.31.4.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipOverSMDSAddress": {
+    "name": "ipOverSMDSAddress",
+    "oid": "1.3.6.1.2.1.10.31.4.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipOverSMDSHA": {
+    "name": "ipOverSMDSHA",
+    "oid": "1.3.6.1.2.1.10.31.4.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SMDSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipOverSMDSLISGA": {
+    "name": "ipOverSMDSLISGA",
+    "oid": "1.3.6.1.2.1.10.31.4.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SMDSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipOverSMDSARPReq": {
+    "name": "ipOverSMDSARPReq",
+    "oid": "1.3.6.1.2.1.10.31.4.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SMDSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smdsCarrierSelection": {
+    "name": "smdsCarrierSelection",
+    "oid": "1.3.6.1.2.1.10.31.5",
+    "class": "objectidentity"
+  },
+  "sipErrorLog": {
+    "name": "sipErrorLog",
+    "oid": "1.3.6.1.2.1.10.31.6",
+    "class": "objectidentity"
+  },
+  "sipL3PDUErrorTable": {
+    "name": "sipL3PDUErrorTable",
+    "oid": "1.3.6.1.2.1.10.31.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sipL3PDUErrorEntry": {
+    "name": "sipL3PDUErrorEntry",
+    "oid": "1.3.6.1.2.1.10.31.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SIP-MIB",
+        "object": "sipL3PDUErrorIndex",
+        "implied": 0
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL3PDUErrorType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sipL3PDUErrorIndex": {
+    "name": "sipL3PDUErrorIndex",
+    "oid": "1.3.6.1.2.1.10.31.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IfIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL3PDUErrorType": {
+    "name": "sipL3PDUErrorType",
+    "oid": "1.3.6.1.2.1.10.31.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "erroredDAFieldFormat": 1,
+          "erroredSAFieldFormat": 2,
+          "invalidBAsizeFieldValue": 3,
+          "invalidHdrExtLength": 4,
+          "invalidHdrExtElementLength": 5,
+          "invalidHdrExtVersionElementPositionLenthOrValue": 6,
+          "invalidHdrExtCarSelectElementPositionLenghtValueOrFormat": 7,
+          "hePADError": 8,
+          "beTagMismatch": 9,
+          "baSizeFieldNotEqualToLengthField": 10,
+          "incorrectLength": 11,
+          "mriTimeout": 12
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL3PDUErrorSA": {
+    "name": "sipL3PDUErrorSA",
+    "oid": "1.3.6.1.2.1.10.31.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SMDSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL3PDUErrorDA": {
+    "name": "sipL3PDUErrorDA",
+    "oid": "1.3.6.1.2.1.10.31.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SMDSAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipL3PDUErrorTimeStamp": {
+    "name": "sipL3PDUErrorTimeStamp",
+    "oid": "1.3.6.1.2.1.10.31.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDxiTable": {
+    "name": "sipDxiTable",
+    "oid": "1.3.6.1.2.1.36.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sipDxiEntry": {
+    "name": "sipDxiEntry",
+    "oid": "1.3.6.1.2.1.36.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sipDxiCrc": {
+    "name": "sipDxiCrc",
+    "oid": "1.3.6.1.2.1.36.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crc16": 1,
+          "crc32": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDxiOutDiscards": {
+    "name": "sipDxiOutDiscards",
+    "oid": "1.3.6.1.2.1.36.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDxiInErrors": {
+    "name": "sipDxiInErrors",
+    "oid": "1.3.6.1.2.1.36.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDxiInAborts": {
+    "name": "sipDxiInAborts",
+    "oid": "1.3.6.1.2.1.36.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDxiInTestFrames": {
+    "name": "sipDxiInTestFrames",
+    "oid": "1.3.6.1.2.1.36.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDxiOutTestFrames": {
+    "name": "sipDxiOutTestFrames",
+    "oid": "1.3.6.1.2.1.36.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sipDxiHbpNoAcks": {
+    "name": "sipDxiHbpNoAcks",
+    "oid": "1.3.6.1.2.1.36.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "smdsConformance": {
+    "name": "smdsConformance",
+    "oid": "1.3.6.1.2.1.36.2",
+    "class": "objectidentity"
+  },
+  "smdsGroups": {
+    "name": "smdsGroups",
+    "oid": "1.3.6.1.2.1.36.2.1",
+    "class": "objectidentity"
+  },
+  "smdsCompliances": {
+    "name": "smdsCompliances",
+    "oid": "1.3.6.1.2.1.36.2.2",
+    "class": "objectidentity"
+  },
+  "smdsCompliance": {
+    "name": "smdsCompliance",
+    "oid": "1.3.6.1.2.1.36.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "sipLevel3Stuff",
+        "module": "SIP-MIB"
+      },
+      {
+        "object": "sipLevel2Stuff",
+        "module": "SIP-MIB"
+      },
+      {
+        "object": "sipDS1PLCPStuff",
+        "module": "SIP-MIB"
+      },
+      {
+        "object": "sipDS3PLCPStuff",
+        "module": "SIP-MIB"
+      },
+      {
+        "object": "sipIPApplicationsStuff",
+        "module": "SIP-MIB"
+      },
+      {
+        "object": "sipDxiStuff",
+        "module": "SIP-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "sipLevel3Stuff": {
+    "name": "sipLevel3Stuff",
+    "oid": "1.3.6.1.2.1.36.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SIP-MIB",
+        "object": "sipL3Index"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL3VersionSupport"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL3PDUErrorIndex"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL3PDUErrorType"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL3PDUErrorSA"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL3PDUErrorDA"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL3PDUErrorTimeStamp"
+      }
+    ],
+    "status": "current"
+  },
+  "sipLevel2Stuff": {
+    "name": "sipLevel2Stuff",
+    "oid": "1.3.6.1.2.1.36.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SIP-MIB",
+        "object": "sipL2Index"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL2HcsOrCRCErrors"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL2PayloadLengthErrors"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL2SequenceNumberErrors"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL2MidCurrentlyActiveErrors"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL2BomOrSSMsMIDErrors"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipL2EomsMIDErrors"
+      }
+    ],
+    "status": "current"
+  },
+  "sipDS1PLCPStuff": {
+    "name": "sipDS1PLCPStuff",
+    "oid": "1.3.6.1.2.1.36.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SIP-MIB",
+        "object": "sipDS1PLCPIndex"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDS1PLCPSEFSs"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDS1PLCPAlarmState"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDS1PLCPUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "sipDS3PLCPStuff": {
+    "name": "sipDS3PLCPStuff",
+    "oid": "1.3.6.1.2.1.36.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SIP-MIB",
+        "object": "sipDS3PLCPIndex"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDS3PLCPSEFSs"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDS3PLCPAlarmState"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDS3PLCPUASs"
+      }
+    ],
+    "status": "current"
+  },
+  "sipIPApplicationsStuff": {
+    "name": "sipIPApplicationsStuff",
+    "oid": "1.3.6.1.2.1.36.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SIP-MIB",
+        "object": "ipOverSMDSIndex"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "ipOverSMDSAddress"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "ipOverSMDSHA"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "ipOverSMDSLISGA"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "ipOverSMDSARPReq"
+      }
+    ],
+    "status": "current"
+  },
+  "sipDxiStuff": {
+    "name": "sipDxiStuff",
+    "oid": "1.3.6.1.2.1.36.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SIP-MIB",
+        "object": "sipDxiCrc"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDxiOutDiscards"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDxiInErrors"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDxiInAborts"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDxiInTestFrames"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDxiOutTestFrames"
+      },
+      {
+        "module": "SIP-MIB",
+        "object": "sipDxiHbpNoAcks"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SIP-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "SIP-MIB"
+  }
+}

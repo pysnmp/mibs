@@ -1,0 +1,317 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "snmpModules",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "usecMIB": {
+    "name": "usecMIB",
+    "oid": "1.3.6.1.6.3.6",
+    "class": "moduleidentity"
+  },
+  "usecMIBObjects": {
+    "name": "usecMIBObjects",
+    "oid": "1.3.6.1.6.3.6.1",
+    "class": "objectidentity"
+  },
+  "AgentID": {
+    "name": "AgentID",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 12,
+            "max": 12
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "usecAgent": {
+    "name": "usecAgent",
+    "oid": "1.3.6.1.6.3.6.1.1",
+    "class": "objectidentity"
+  },
+  "agentID": {
+    "name": "agentID",
+    "oid": "1.3.6.1.6.3.6.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AgentID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentBoots": {
+    "name": "agentBoots",
+    "oid": "1.3.6.1.6.3.6.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentTime": {
+    "name": "agentTime",
+    "oid": "1.3.6.1.6.3.6.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "agentSize": {
+    "name": "agentSize",
+    "oid": "1.3.6.1.6.3.6.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 484,
+            "max": 65507
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usecStats": {
+    "name": "usecStats",
+    "oid": "1.3.6.1.6.3.6.1.2",
+    "class": "objectidentity"
+  },
+  "usecStatsUnsupportedQoS": {
+    "name": "usecStatsUnsupportedQoS",
+    "oid": "1.3.6.1.6.3.6.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usecStatsNotInWindows": {
+    "name": "usecStatsNotInWindows",
+    "oid": "1.3.6.1.6.3.6.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usecStatsUnknownUserNames": {
+    "name": "usecStatsUnknownUserNames",
+    "oid": "1.3.6.1.6.3.6.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usecStatsWrongDigestValues": {
+    "name": "usecStatsWrongDigestValues",
+    "oid": "1.3.6.1.6.3.6.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usecStatsUnknownContexts": {
+    "name": "usecStatsUnknownContexts",
+    "oid": "1.3.6.1.6.3.6.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usecStatsBadParameters": {
+    "name": "usecStatsBadParameters",
+    "oid": "1.3.6.1.6.3.6.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usecStatsUnauthorizedOperations": {
+    "name": "usecStatsUnauthorizedOperations",
+    "oid": "1.3.6.1.6.3.6.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "usecMIBConformance": {
+    "name": "usecMIBConformance",
+    "oid": "1.3.6.1.6.3.6.2",
+    "class": "objectidentity"
+  },
+  "usecMIBCompliances": {
+    "name": "usecMIBCompliances",
+    "oid": "1.3.6.1.6.3.6.2.1",
+    "class": "objectidentity"
+  },
+  "usecMIBGroups": {
+    "name": "usecMIBGroups",
+    "oid": "1.3.6.1.6.3.6.2.2",
+    "class": "objectidentity"
+  },
+  "usecMIBCompliance": {
+    "name": "usecMIBCompliance",
+    "oid": "1.3.6.1.6.3.6.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "usecBasicGroup",
+        "module": "SNMPv2-USEC-MIB"
+      },
+      {
+        "object": "usecStatsGroup",
+        "module": "SNMPv2-USEC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "usecBasicGroup": {
+    "name": "usecBasicGroup",
+    "oid": "1.3.6.1.6.3.6.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "agentID"
+      },
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "agentBoots"
+      },
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "agentTime"
+      },
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "agentSize"
+      }
+    ],
+    "status": "current"
+  },
+  "usecStatsGroup": {
+    "name": "usecStatsGroup",
+    "oid": "1.3.6.1.6.3.6.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "usecStatsUnsupportedQoS"
+      },
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "usecStatsNotInWindows"
+      },
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "usecStatsUnknownUserNames"
+      },
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "usecStatsWrongDigestValues"
+      },
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "usecStatsUnknownContexts"
+      },
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "usecStatsBadParameters"
+      },
+      {
+        "module": "SNMPv2-USEC-MIB",
+        "object": "usecStatsUnauthorizedOperations"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SNMPv2-USEC-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:37 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "SNMPv2-USEC-MIB"
+  }
+}

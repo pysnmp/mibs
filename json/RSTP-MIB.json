@@ -3,61 +3,46 @@
     "class": "imports",
     "BRIDGE-MIB": [
       "dot1dStpPortEntry",
-      "dot1dStp"
+      "dot1dStp",
+      "dot1dBridge"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
+      "Bits",
       "iso",
-      "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
+      "IpAddress",
+      "Integer32",
       "MODULE-IDENTITY",
+      "Counter32",
+      "TimeTicks",
       "MibIdentifier",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "IpAddress"
+      "Gauge32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
+      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rstpMIB": {
     "name": "rstpMIB",
-    "oid": "1.3.6.1.2.1.134",
+    "oid": "1.3.6.1.2.1.17.11",
     "class": "moduleidentity",
     "revisions": [
       {
-        "revision": "2005-12-07 00:00",
-        "description": "The initial version of this MIB module as published in RFC 4318."
+        "revision": "2002-06-17 00:00",
+        "description": "Draft 1"
       }
     ]
-  },
-  "rstpNotifications": {
-    "name": "rstpNotifications",
-    "oid": "1.3.6.1.2.1.134.0",
-    "class": "objectidentity"
-  },
-  "rstpObjects": {
-    "name": "rstpObjects",
-    "oid": "1.3.6.1.2.1.134.1",
-    "class": "objectidentity"
-  },
-  "rstpConformance": {
-    "name": "rstpConformance",
-    "oid": "1.3.6.1.2.1.134.2",
-    "class": "objectidentity"
   },
   "dot1dStpVersion": {
     "name": "dot1dStpVersion",
@@ -89,7 +74,7 @@
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
@@ -104,6 +89,24 @@
       "default": {
         "value": 3,
         "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "dot1dStpPathCostDefault": {
+    "name": "dot1dStpPathCostDefault",
+    "oid": "1.3.6.1.2.1.17.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "stp8021d1998": 1,
+          "stp8021t2001": 2
+        }
       }
     },
     "maxaccess": "read-write",
@@ -203,13 +206,13 @@
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
-      "type": "Integer32",
+      "type": "INTEGER",
       "class": "type",
       "constraints": {
         "range": [
           {
             "min": 0,
-            "max": 200000000
+            "max": 65535
           }
         ]
       }
@@ -217,19 +220,24 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "rstpConformance": {
+    "name": "rstpConformance",
+    "oid": "1.3.6.1.2.1.17.11.1",
+    "class": "objectidentity"
+  },
   "rstpGroups": {
     "name": "rstpGroups",
-    "oid": "1.3.6.1.2.1.134.2.1",
+    "oid": "1.3.6.1.2.1.17.11.1.1",
     "class": "objectidentity"
   },
   "rstpCompliances": {
     "name": "rstpCompliances",
-    "oid": "1.3.6.1.2.1.134.2.2",
+    "oid": "1.3.6.1.2.1.17.11.1.2",
     "class": "objectidentity"
   },
   "rstpBridgeGroup": {
     "name": "rstpBridgeGroup",
-    "oid": "1.3.6.1.2.1.134.2.1.1",
+    "oid": "1.3.6.1.2.1.17.11.1.1.1",
     "class": "objectgroup",
     "objects": [
       {
@@ -243,9 +251,21 @@
     ],
     "status": "current"
   },
+  "rstpDefaultPathCostGroup": {
+    "name": "rstpDefaultPathCostGroup",
+    "oid": "1.3.6.1.2.1.17.11.1.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RSTP-MIB",
+        "object": "dot1dStpPathCostDefault"
+      }
+    ],
+    "status": "current"
+  },
   "rstpPortGroup": {
     "name": "rstpPortGroup",
-    "oid": "1.3.6.1.2.1.134.2.1.2",
+    "oid": "1.3.6.1.2.1.17.11.1.1.3",
     "class": "objectgroup",
     "objects": [
       {
@@ -277,7 +297,7 @@
   },
   "rstpCompliance": {
     "name": "rstpCompliance",
-    "oid": "1.3.6.1.2.1.134.2.2.1",
+    "oid": "1.3.6.1.2.1.17.11.1.2.1",
     "class": "modulecompliance",
     "modulecompliance": [
       {
@@ -287,15 +307,19 @@
       {
         "object": "rstpPortGroup",
         "module": "RSTP-MIB"
+      },
+      {
+        "object": "rstpDefaultPathCostGroup",
+        "module": "RSTP-MIB"
       }
     ],
     "status": "current"
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/RSTP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/internet-drafts/RSTP-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:17 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RSTP-MIB"

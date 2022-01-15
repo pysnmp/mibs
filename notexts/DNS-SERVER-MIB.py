@@ -1,21 +1,21 @@
 #
 # PySNMP MIB module DNS-SERVER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DNS-SERVER-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 20:06:47 2022
-# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
+# ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/DNS-SERVER-MIB
+# Produced by pysmi-1.1.8 at Sat Jan 15 23:31:30 2022
+# On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-mib_2, ObjectIdentity, Integer32, Counter32, IpAddress, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, ModuleIdentity, Bits, Counter64, MibIdentifier, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "mib-2", "ObjectIdentity", "Integer32", "Counter32", "IpAddress", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "ModuleIdentity", "Bits", "Counter64", "MibIdentifier", "NotificationType", "iso")
-TruthValue, DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "RowStatus", "TextualConvention")
-dns = ObjectIdentity((1, 3, 6, 1, 2, 1, 32))
-if mibBuilder.loadTexts: dns.setStatus('current')
+ValueRangeConstraint, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+ModuleIdentity, mib_2, NotificationType, Gauge32, Bits, MibIdentifier, Counter64, TimeTicks, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ObjectIdentity, Integer32, IpAddress, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "mib-2", "NotificationType", "Gauge32", "Bits", "MibIdentifier", "Counter64", "TimeTicks", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ObjectIdentity", "Integer32", "IpAddress", "Counter32")
+DisplayString, TextualConvention, TruthValue, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue", "RowStatus")
 dnsServMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 32, 1))
 if mibBuilder.loadTexts: dnsServMIB.setLastUpdated('9401282251Z')
 if mibBuilder.loadTexts: dnsServMIB.setOrganization('IETF DNS Working Group')
+dns = ObjectIdentity((1, 3, 6, 1, 2, 1, 32))
+if mibBuilder.loadTexts: dns.setStatus('current')
 dnsServMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 32, 1, 1))
 dnsServConfig = MibIdentifier((1, 3, 6, 1, 2, 1, 32, 1, 1, 1))
 dnsServCounter = MibIdentifier((1, 3, 6, 1, 2, 1, 32, 1, 1, 2))
@@ -33,31 +33,31 @@ class DnsNameAsIndex(DnsName):
 class DnsClass(TextualConvention, Integer32):
     reference = 'RFC-1035 section 3.2.4.'
     status = 'current'
-    displayHint = '2d'
+    displayHint = 'd'
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
 
 class DnsType(TextualConvention, Integer32):
     reference = 'RFC-1035 section 3.2.2.'
     status = 'current'
-    displayHint = '2d'
+    displayHint = 'd'
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
 
 class DnsQClass(TextualConvention, Integer32):
     reference = 'RFC-1035 section 3.2.5.'
     status = 'current'
-    displayHint = '2d'
+    displayHint = 'd'
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
 
 class DnsQType(TextualConvention, Integer32):
     reference = 'RFC-1035 section 3.2.3.'
     status = 'current'
-    displayHint = '2d'
+    displayHint = 'd'
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
 
 class DnsTime(TextualConvention, Gauge32):
     reference = 'RFC-1035.'
     status = 'current'
-    displayHint = '4d'
+    displayHint = 'd'
 
 class DnsOpCode(TextualConvention, Integer32):
     reference = 'RFC-1035 section 4.1.1.'
@@ -213,4 +213,4 @@ dnsServMIBCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 32, 1, 3, 1)).setObje
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     dnsServMIBCompliance = dnsServMIBCompliance.setStatus('current')
-mibBuilder.exportSymbols("DNS-SERVER-MIB", dnsServConfigRecurs=dnsServConfigRecurs, dnsServCounterTable=dnsServCounterTable, dnsServConfigGroup=dnsServConfigGroup, dnsServZoneTable=dnsServZoneTable, dnsServZoneStatus=dnsServZoneStatus, dnsServOptCounterSelfRelNames=dnsServOptCounterSelfRelNames, dnsServConfigResetTime=dnsServConfigResetTime, PYSNMP_MODULE_ID=dnsServMIB, dnsServCounterRequests=dnsServCounterRequests, dnsServOptCounterFriendsAuthNoNames=dnsServOptCounterFriendsAuthNoNames, dnsServCounterErrors=dnsServCounterErrors, dnsServOptCounterFriendsNonAuthDatas=dnsServOptCounterFriendsNonAuthDatas, dnsServZoneGroup=dnsServZoneGroup, dnsServOptCounterSelfNonAuthNoDatas=dnsServOptCounterSelfNonAuthNoDatas, dnsServOptCounterSelfErrors=dnsServOptCounterSelfErrors, dnsServCounterReferrals=dnsServCounterReferrals, dnsServCounterRelNames=dnsServCounterRelNames, dnsServOptCounterSelfReferrals=dnsServOptCounterSelfReferrals, dnsServZoneCurrent=dnsServZoneCurrent, dnsServMIBObjects=dnsServMIBObjects, dnsServZoneSrcEntry=dnsServZoneSrcEntry, dnsServZoneClass=dnsServZoneClass, dnsServCounterAuthNoDataResps=dnsServCounterAuthNoDataResps, dnsServOptCounterSelfAuthAns=dnsServOptCounterSelfAuthAns, dnsServCounterReqRefusals=dnsServCounterReqRefusals, dnsServZoneLastSourceSuccess=dnsServZoneLastSourceSuccess, dnsServCounterNonAuthNoDatas=dnsServCounterNonAuthNoDatas, dnsServConfigReset=dnsServConfigReset, dnsServZoneSrcAddr=dnsServZoneSrcAddr, dnsServOptCounterFriendsReqUnparses=dnsServOptCounterFriendsReqUnparses, dnsServZoneSerial=dnsServZoneSerial, dnsServConfigImplementIdent=dnsServConfigImplementIdent, dnsServZoneEntry=dnsServZoneEntry, dnsServOptCounterFriendsRelNames=dnsServOptCounterFriendsRelNames, dnsServConfigUpTime=dnsServConfigUpTime, dnsServOptCounterSelfReqRefusals=dnsServOptCounterSelfReqRefusals, dnsServZoneSrcStatus=dnsServZoneSrcStatus, dnsServOptCounterFriendsOtherErrors=dnsServOptCounterFriendsOtherErrors, DnsTime=DnsTime, dnsServCounterOpCode=dnsServCounterOpCode, dnsServCounterOtherErrors=dnsServCounterOtherErrors, DnsNameAsIndex=DnsNameAsIndex, dnsServMIB=dnsServMIB, dnsServCounterQType=dnsServCounterQType, dnsServOptCounterFriendsAuthNoDataResps=dnsServOptCounterFriendsAuthNoDataResps, dnsServMIBCompliance=dnsServMIBCompliance, dnsServOptCounterSelfNonAuthDatas=dnsServOptCounterSelfNonAuthDatas, dnsServOptCounterFriendsErrors=dnsServOptCounterFriendsErrors, dnsServZoneSrcClass=dnsServZoneSrcClass, dnsServOptCounterFriendsNonAuthNoDatas=dnsServOptCounterFriendsNonAuthNoDatas, dnsServCounterResponses=dnsServCounterResponses, DnsName=DnsName, dnsServOptCounterSelfAuthNoDataResps=dnsServOptCounterSelfAuthNoDataResps, dns=dns, dnsServZoneLastSourceAttempt=dnsServZoneLastSourceAttempt, dnsServOptCounterGroup=dnsServOptCounterGroup, dnsServZoneSrcTable=dnsServZoneSrcTable, DnsOpCode=DnsOpCode, dnsServMIBCompliances=dnsServMIBCompliances, DnsRespCode=DnsRespCode, DnsQType=DnsQType, dnsServMIBGroups=dnsServMIBGroups, dnsServCounterAuthAns=dnsServCounterAuthAns, dnsServConfig=dnsServConfig, dnsServCounterQClass=dnsServCounterQClass, dnsServCounterGroup=dnsServCounterGroup, dnsServOptCounterSelfOtherErrors=dnsServOptCounterSelfOtherErrors, dnsServZoneLastReloadAttempt=dnsServZoneLastReloadAttempt, dnsServCounter=dnsServCounter, dnsServOptCounterFriendsReferrals=dnsServOptCounterFriendsReferrals, dnsServOptCounterSelfAuthNoNames=dnsServOptCounterSelfAuthNoNames, dnsServOptCounter=dnsServOptCounter, dnsServOptCounterFriendsReqRefusals=dnsServOptCounterFriendsReqRefusals, dnsServCounterNonAuthDatas=dnsServCounterNonAuthDatas, dnsServCounterAuthNoNames=dnsServCounterAuthNoNames, DnsQClass=DnsQClass, dnsServCounterReqUnparses=dnsServCounterReqUnparses, dnsServOptCounterFriendsAuthAns=dnsServOptCounterFriendsAuthAns, dnsServZoneLastReloadSuccess=dnsServZoneLastReloadSuccess, DnsType=DnsType, DnsClass=DnsClass, dnsServOptCounterSelfReqUnparses=dnsServOptCounterSelfReqUnparses, dnsServZoneSrcName=dnsServZoneSrcName, dnsServZoneName=dnsServZoneName, dnsServZone=dnsServZone, dnsServCounterEntry=dnsServCounterEntry, dnsServCounterTransport=dnsServCounterTransport)
+mibBuilder.exportSymbols("DNS-SERVER-MIB", dnsServOptCounterSelfReferrals=dnsServOptCounterSelfReferrals, dnsServOptCounterSelfReqUnparses=dnsServOptCounterSelfReqUnparses, dnsServCounterGroup=dnsServCounterGroup, dnsServZoneCurrent=dnsServZoneCurrent, dnsServConfig=dnsServConfig, dnsServOptCounterSelfAuthAns=dnsServOptCounterSelfAuthAns, dnsServCounterQClass=dnsServCounterQClass, dnsServOptCounter=dnsServOptCounter, dnsServCounterNonAuthDatas=dnsServCounterNonAuthDatas, dnsServCounter=dnsServCounter, dnsServConfigReset=dnsServConfigReset, dnsServOptCounterFriendsReferrals=dnsServOptCounterFriendsReferrals, dnsServZoneSrcName=dnsServZoneSrcName, dnsServZoneSrcAddr=dnsServZoneSrcAddr, dnsServCounterNonAuthNoDatas=dnsServCounterNonAuthNoDatas, DnsClass=DnsClass, dnsServCounterRequests=dnsServCounterRequests, dnsServZoneSrcTable=dnsServZoneSrcTable, dnsServCounterAuthNoNames=dnsServCounterAuthNoNames, dnsServOptCounterFriendsOtherErrors=dnsServOptCounterFriendsOtherErrors, dnsServOptCounterFriendsAuthNoDataResps=dnsServOptCounterFriendsAuthNoDataResps, PYSNMP_MODULE_ID=dnsServMIB, dnsServOptCounterSelfAuthNoNames=dnsServOptCounterSelfAuthNoNames, dnsServOptCounterFriendsAuthNoNames=dnsServOptCounterFriendsAuthNoNames, dnsServConfigResetTime=dnsServConfigResetTime, dnsServOptCounterSelfErrors=dnsServOptCounterSelfErrors, dnsServOptCounterGroup=dnsServOptCounterGroup, dnsServCounterOtherErrors=dnsServCounterOtherErrors, DnsName=DnsName, dnsServMIBCompliances=dnsServMIBCompliances, dnsServMIBCompliance=dnsServMIBCompliance, dnsServCounterReqUnparses=dnsServCounterReqUnparses, dnsServZoneLastReloadAttempt=dnsServZoneLastReloadAttempt, dnsServOptCounterFriendsErrors=dnsServOptCounterFriendsErrors, dnsServZoneSerial=dnsServZoneSerial, DnsOpCode=DnsOpCode, dnsServOptCounterFriendsNonAuthNoDatas=dnsServOptCounterFriendsNonAuthNoDatas, dnsServConfigRecurs=dnsServConfigRecurs, dnsServOptCounterSelfNonAuthNoDatas=dnsServOptCounterSelfNonAuthNoDatas, dnsServMIBGroups=dnsServMIBGroups, dnsServOptCounterSelfRelNames=dnsServOptCounterSelfRelNames, dnsServMIB=dnsServMIB, dnsServCounterReqRefusals=dnsServCounterReqRefusals, dnsServConfigGroup=dnsServConfigGroup, dns=dns, DnsQClass=DnsQClass, dnsServCounterAuthAns=dnsServCounterAuthAns, dnsServCounterOpCode=dnsServCounterOpCode, dnsServCounterQType=dnsServCounterQType, dnsServZoneName=dnsServZoneName, dnsServZoneTable=dnsServZoneTable, dnsServOptCounterFriendsRelNames=dnsServOptCounterFriendsRelNames, dnsServOptCounterSelfNonAuthDatas=dnsServOptCounterSelfNonAuthDatas, dnsServCounterErrors=dnsServCounterErrors, dnsServZoneStatus=dnsServZoneStatus, DnsRespCode=DnsRespCode, dnsServCounterResponses=dnsServCounterResponses, dnsServZoneSrcClass=dnsServZoneSrcClass, dnsServOptCounterSelfAuthNoDataResps=dnsServOptCounterSelfAuthNoDataResps, dnsServConfigUpTime=dnsServConfigUpTime, dnsServCounterTable=dnsServCounterTable, dnsServMIBObjects=dnsServMIBObjects, dnsServOptCounterSelfOtherErrors=dnsServOptCounterSelfOtherErrors, dnsServConfigImplementIdent=dnsServConfigImplementIdent, DnsType=DnsType, DnsNameAsIndex=DnsNameAsIndex, dnsServOptCounterFriendsReqRefusals=dnsServOptCounterFriendsReqRefusals, dnsServOptCounterFriendsAuthAns=dnsServOptCounterFriendsAuthAns, dnsServOptCounterFriendsNonAuthDatas=dnsServOptCounterFriendsNonAuthDatas, dnsServZoneLastSourceSuccess=dnsServZoneLastSourceSuccess, dnsServCounterReferrals=dnsServCounterReferrals, dnsServZoneEntry=dnsServZoneEntry, dnsServCounterRelNames=dnsServCounterRelNames, DnsQType=DnsQType, dnsServCounterAuthNoDataResps=dnsServCounterAuthNoDataResps, dnsServZoneSrcEntry=dnsServZoneSrcEntry, dnsServCounterTransport=dnsServCounterTransport, dnsServZoneLastReloadSuccess=dnsServZoneLastReloadSuccess, dnsServZoneGroup=dnsServZoneGroup, DnsTime=DnsTime, dnsServZone=dnsServZone, dnsServCounterEntry=dnsServCounterEntry, dnsServOptCounterSelfReqRefusals=dnsServOptCounterSelfReqRefusals, dnsServZoneLastSourceAttempt=dnsServZoneLastSourceAttempt, dnsServOptCounterFriendsReqUnparses=dnsServOptCounterFriendsReqUnparses, dnsServZoneSrcStatus=dnsServZoneSrcStatus, dnsServZoneClass=dnsServZoneClass)

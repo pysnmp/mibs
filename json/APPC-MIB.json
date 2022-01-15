@@ -1,0 +1,5902 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNA-NAU-MIB": [
+      "snanauMIB"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "mib-2",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "InstancePointer",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "appcMIB": {
+    "name": "appcMIB",
+    "oid": "1.3.6.1.2.1.34.3",
+    "class": "moduleidentity"
+  },
+  "appcObjects": {
+    "name": "appcObjects",
+    "oid": "1.3.6.1.2.1.34.3.1",
+    "class": "objectidentity"
+  },
+  "appcGlobal": {
+    "name": "appcGlobal",
+    "oid": "1.3.6.1.2.1.34.3.1.1",
+    "class": "objectidentity"
+  },
+  "appcLu": {
+    "name": "appcLu",
+    "oid": "1.3.6.1.2.1.34.3.1.2",
+    "class": "objectidentity"
+  },
+  "appcTp": {
+    "name": "appcTp",
+    "oid": "1.3.6.1.2.1.34.3.1.3",
+    "class": "objectidentity"
+  },
+  "appcSession": {
+    "name": "appcSession",
+    "oid": "1.3.6.1.2.1.34.3.1.4",
+    "class": "objectidentity"
+  },
+  "appcConversation": {
+    "name": "appcConversation",
+    "oid": "1.3.6.1.2.1.34.3.1.5",
+    "class": "objectidentity"
+  },
+  "appcCPIC": {
+    "name": "appcCPIC",
+    "oid": "1.3.6.1.2.1.34.3.1.6",
+    "class": "objectidentity"
+  },
+  "SnaSenseData": {
+    "name": "SnaSenseData",
+    "class": "textualconvention",
+    "type": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "appcCntrlAdminGroup": {
+    "name": "appcCntrlAdminGroup",
+    "oid": "1.3.6.1.2.1.34.3.1.1.1",
+    "class": "objectidentity"
+  },
+  "appcCntrlAdminStat": {
+    "name": "appcCntrlAdminStat",
+    "oid": "1.3.6.1.2.1.34.3.1.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCntrlAdminRscv": {
+    "name": "appcCntrlAdminRscv",
+    "oid": "1.3.6.1.2.1.34.3.1.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCntrlAdminTrace": {
+    "name": "appcCntrlAdminTrace",
+    "oid": "1.3.6.1.2.1.34.3.1.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCntrlAdminTraceParm": {
+    "name": "appcCntrlAdminTraceParm",
+    "oid": "1.3.6.1.2.1.34.3.1.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCntrlOperGroup": {
+    "name": "appcCntrlOperGroup",
+    "oid": "1.3.6.1.2.1.34.3.1.1.2",
+    "class": "objectidentity"
+  },
+  "appcCntrlOperStat": {
+    "name": "appcCntrlOperStat",
+    "oid": "1.3.6.1.2.1.34.3.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCntrlOperStatTime": {
+    "name": "appcCntrlOperStatTime",
+    "oid": "1.3.6.1.2.1.34.3.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCntrlOperRscv": {
+    "name": "appcCntrlOperRscv",
+    "oid": "1.3.6.1.2.1.34.3.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCntrlOperRscvTime": {
+    "name": "appcCntrlOperRscvTime",
+    "oid": "1.3.6.1.2.1.34.3.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCntrlOperTrace": {
+    "name": "appcCntrlOperTrace",
+    "oid": "1.3.6.1.2.1.34.3.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notActive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCntrlOperTraceTime": {
+    "name": "appcCntrlOperTraceTime",
+    "oid": "1.3.6.1.2.1.34.3.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCntrlOperTraceParm": {
+    "name": "appcCntrlOperTraceParm",
+    "oid": "1.3.6.1.2.1.34.3.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcGlobalObjects": {
+    "name": "appcGlobalObjects",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3",
+    "class": "objectidentity"
+  },
+  "appcUpTime": {
+    "name": "appcUpTime",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcDefaultModeName": {
+    "name": "appcDefaultModeName",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcDefaultLuName": {
+    "name": "appcDefaultLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcDefaultImplInbndPlu": {
+    "name": "appcDefaultImplInbndPlu",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcDefaultMaxMcLlSndSize": {
+    "name": "appcDefaultMaxMcLlSndSize",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcDefaultFileSpec": {
+    "name": "appcDefaultFileSpec",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcDefaultTpOperation": {
+    "name": "appcDefaultTpOperation",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "queuedOperatorStarted": 2,
+          "queuedOperatorPreloaded": 3,
+          "queuedAmStarted": 4,
+          "nonqueuedAmStarted": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcDefaultTpConvSecRqd": {
+    "name": "appcDefaultTpConvSecRqd",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLocalCpName": {
+    "name": "appcLocalCpName",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveSessions": {
+    "name": "appcActiveSessions",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveHprSessions": {
+    "name": "appcActiveHprSessions",
+    "oid": "1.3.6.1.2.1.34.3.1.1.3.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCnosControl": {
+    "name": "appcCnosControl",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4",
+    "class": "objectidentity"
+  },
+  "appcCnosCommand": {
+    "name": "appcCnosCommand",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "initSesslimit": 1,
+          "changeSesslimit": 2,
+          "resetSesslimit": 3
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCnosMaxSessLimit": {
+    "name": "appcCnosMaxSessLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCnosMinCwinLimit": {
+    "name": "appcCnosMinCwinLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCnosMinClosLimit": {
+    "name": "appcCnosMinClosLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCnosDrainSelf": {
+    "name": "appcCnosDrainSelf",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCnosDrainPart": {
+    "name": "appcCnosDrainPart",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "yes",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCnosResponsible": {
+    "name": "appcCnosResponsible",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "source": 1,
+          "target": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "source",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCnosForce": {
+    "name": "appcCnosForce",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "no",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCnosTargetLocLuName": {
+    "name": "appcCnosTargetLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCnosTargetParLuName": {
+    "name": "appcCnosTargetParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcCnosTargetModeName": {
+    "name": "appcCnosTargetModeName",
+    "oid": "1.3.6.1.2.1.34.3.1.1.4.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcLluAdminTable": {
+    "name": "appcLluAdminTable",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcLluAdminEntry": {
+    "name": "appcLluAdminEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluAdminName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcLluAdminName": {
+    "name": "appcLluAdminName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcLluAdminDepType": {
+    "name": "appcLluAdminDepType",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dependent": 1,
+          "independent": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluAdminLocalAddress": {
+    "name": "appcLluAdminLocalAddress",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluAdminSessLimit": {
+    "name": "appcLluAdminSessLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluAdminBindRspMayQ": {
+    "name": "appcLluAdminBindRspMayQ",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluAdminCompression": {
+    "name": "appcLluAdminCompression",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prohibited": 1,
+          "required": 2,
+          "negotiable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluAdminInBoundCompLevel": {
+    "name": "appcLluAdminInBoundCompLevel",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rle": 2,
+          "lz9": 3,
+          "lz10": 4,
+          "lz12": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluAdminOutBoundCompLevel": {
+    "name": "appcLluAdminOutBoundCompLevel",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rle": 2,
+          "lz9": 3,
+          "lz10": 4,
+          "lz12": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluAdminCompRleBeforeLZ": {
+    "name": "appcLluAdminCompRleBeforeLZ",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluAdminAlias": {
+    "name": "appcLluAdminAlias",
+    "oid": "1.3.6.1.2.1.34.3.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluOperTable": {
+    "name": "appcLluOperTable",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcLluOperEntry": {
+    "name": "appcLluOperEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcLluOperName": {
+    "name": "appcLluOperName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcLluOperDepType": {
+    "name": "appcLluOperDepType",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "dependent": 1,
+          "independent": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluOperLocalAddress": {
+    "name": "appcLluOperLocalAddress",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluOperSessLimit": {
+    "name": "appcLluOperSessLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluOperBindRspMayQ": {
+    "name": "appcLluOperBindRspMayQ",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluOperCompression": {
+    "name": "appcLluOperCompression",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prohibited": 1,
+          "required": 2,
+          "negotiable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluOperInBoundCompLevel": {
+    "name": "appcLluOperInBoundCompLevel",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rle": 2,
+          "lz9": 3,
+          "lz10": 4,
+          "lz12": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluOperOutBoundCompLevel": {
+    "name": "appcLluOperOutBoundCompLevel",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rle": 2,
+          "lz9": 3,
+          "lz10": 4,
+          "lz12": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluOperCompRleBeforeLZ": {
+    "name": "appcLluOperCompRleBeforeLZ",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluOperAlias": {
+    "name": "appcLluOperAlias",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLluOperActiveSessions": {
+    "name": "appcLluOperActiveSessions",
+    "oid": "1.3.6.1.2.1.34.3.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairAdminTable": {
+    "name": "appcLuPairAdminTable",
+    "oid": "1.3.6.1.2.1.34.3.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcLuPairAdminEntry": {
+    "name": "appcLuPairAdminEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairAdminLocLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairAdminParLuName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcLuPairAdminLocLuName": {
+    "name": "appcLuPairAdminLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcLuPairAdminParLuName": {
+    "name": "appcLuPairAdminParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcLuPairAdminParLuAlias": {
+    "name": "appcLuPairAdminParLuAlias",
+    "oid": "1.3.6.1.2.1.34.3.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairAdminSessLimit": {
+    "name": "appcLuPairAdminSessLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairAdminSessSec": {
+    "name": "appcLuPairAdminSessSec",
+    "oid": "1.3.6.1.2.1.34.3.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "required": 1,
+          "accepted": 2,
+          "notAllowed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairAdminSecAccept": {
+    "name": "appcLuPairAdminSecAccept",
+    "oid": "1.3.6.1.2.1.34.3.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "conversation": 2,
+          "alreadyVerified": 3,
+          "persistentVerification": 4,
+          "aVandpV": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairAdminLinkObjId": {
+    "name": "appcLuPairAdminLinkObjId",
+    "oid": "1.3.6.1.2.1.34.3.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairAdminParaSessSup": {
+    "name": "appcLuPairAdminParaSessSup",
+    "oid": "1.3.6.1.2.1.34.3.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairOperTable": {
+    "name": "appcLuPairOperTable",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcLuPairOperEntry": {
+    "name": "appcLuPairOperEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairOperLocLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairOperParLuName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcLuPairOperLocLuName": {
+    "name": "appcLuPairOperLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcLuPairOperParLuName": {
+    "name": "appcLuPairOperParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcLuPairOperParLuAlias": {
+    "name": "appcLuPairOperParLuAlias",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairOperSessLimit": {
+    "name": "appcLuPairOperSessLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairOperSessSec": {
+    "name": "appcLuPairOperSessSec",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "required": 1,
+          "accepted": 2,
+          "notAllowed": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairOperSecAccept": {
+    "name": "appcLuPairOperSecAccept",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "conversation": 2,
+          "alreadyVerified": 3,
+          "persistentVerification": 4,
+          "aVandpV": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairOperLinkObjId": {
+    "name": "appcLuPairOperLinkObjId",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairOperParaSessSup": {
+    "name": "appcLuPairOperParaSessSup",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairOperParaSessSupLS": {
+    "name": "appcLuPairOperParaSessSupLS",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcLuPairOperState": {
+    "name": "appcLuPairOperState",
+    "oid": "1.3.6.1.2.1.34.3.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminTable": {
+    "name": "appcModeAdminTable",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcModeAdminEntry": {
+    "name": "appcModeAdminEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminLocLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminParLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminModeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcModeAdminLocLuName": {
+    "name": "appcModeAdminLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcModeAdminParLuName": {
+    "name": "appcModeAdminParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcModeAdminModeName": {
+    "name": "appcModeAdminModeName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcModeAdminCosName": {
+    "name": "appcModeAdminCosName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminSessEndTpName": {
+    "name": "appcModeAdminSessEndTpName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminMaxSessLimit": {
+    "name": "appcModeAdminMaxSessLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminMinCwinLimit": {
+    "name": "appcModeAdminMinCwinLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminMinClosLimit": {
+    "name": "appcModeAdminMinClosLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminConWinAutoActLmt": {
+    "name": "appcModeAdminConWinAutoActLmt",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminRecvPacWinSz": {
+    "name": "appcModeAdminRecvPacWinSz",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminSendPacWinSz": {
+    "name": "appcModeAdminSendPacWinSz",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminPrefRecvRuSz": {
+    "name": "appcModeAdminPrefRecvRuSz",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminPrefSendRuSz": {
+    "name": "appcModeAdminPrefSendRuSz",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminRecvRuSzUpBnd": {
+    "name": "appcModeAdminRecvRuSzUpBnd",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminSendRuSzUpBnd": {
+    "name": "appcModeAdminSendRuSzUpBnd",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminRecvRuSzLoBnd": {
+    "name": "appcModeAdminRecvRuSzLoBnd",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminSendRuSzLoBnd": {
+    "name": "appcModeAdminSendRuSzLoBnd",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminSingSessReinit": {
+    "name": "appcModeAdminSingSessReinit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "operatorControlled": 2,
+          "primaryOnly": 3,
+          "secondaryOnly": 4,
+          "primaryOrSecondary": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminCompression": {
+    "name": "appcModeAdminCompression",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prohibited": 1,
+          "required": 2,
+          "negotiable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminInBoundCompLevel": {
+    "name": "appcModeAdminInBoundCompLevel",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rle": 2,
+          "lz9": 3,
+          "lz10": 4,
+          "lz12": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminOutBoundCompLevel": {
+    "name": "appcModeAdminOutBoundCompLevel",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rle": 2,
+          "lz9": 3,
+          "lz10": 4,
+          "lz12": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminCompRleBeforeLZ": {
+    "name": "appcModeAdminCompRleBeforeLZ",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminSyncLvl": {
+    "name": "appcModeAdminSyncLvl",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "noneConfirm": 2,
+          "noneConfirmSyncPoint": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeAdminCrypto": {
+    "name": "appcModeAdminCrypto",
+    "oid": "1.3.6.1.2.1.34.3.1.2.5.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "mandatory": 2,
+          "selective": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperTable": {
+    "name": "appcModeOperTable",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcModeOperEntry": {
+    "name": "appcModeOperEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperLocLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperParLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperModeName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcModeOperLocLuName": {
+    "name": "appcModeOperLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcModeOperParLuName": {
+    "name": "appcModeOperParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcModeOperModeName": {
+    "name": "appcModeOperModeName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcModeOperCosName": {
+    "name": "appcModeOperCosName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperSessEndTpName": {
+    "name": "appcModeOperSessEndTpName",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperSessLimit": {
+    "name": "appcModeOperSessLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperMaxSessLimit": {
+    "name": "appcModeOperMaxSessLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperMinCwinLimit": {
+    "name": "appcModeOperMinCwinLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperMinClosLimit": {
+    "name": "appcModeOperMinClosLimit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperConWinAutoActLmt": {
+    "name": "appcModeOperConWinAutoActLmt",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperRecvPacWinSz": {
+    "name": "appcModeOperRecvPacWinSz",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperSendPacWinSz": {
+    "name": "appcModeOperSendPacWinSz",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperPrefRecvRuSz": {
+    "name": "appcModeOperPrefRecvRuSz",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperPrefSendRuSz": {
+    "name": "appcModeOperPrefSendRuSz",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperRecvRuSzUpBnd": {
+    "name": "appcModeOperRecvRuSzUpBnd",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperSendRuSzUpBnd": {
+    "name": "appcModeOperSendRuSzUpBnd",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperRecvRuSzLoBnd": {
+    "name": "appcModeOperRecvRuSzLoBnd",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperSendRuSzLoBnd": {
+    "name": "appcModeOperSendRuSzLoBnd",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperSingSessReinit": {
+    "name": "appcModeOperSingSessReinit",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApplicable": 1,
+          "operatorControlled": 2,
+          "primaryOnly": 3,
+          "secondaryOnly": 4,
+          "primaryOrSecondary": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperCompression": {
+    "name": "appcModeOperCompression",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "prohibited": 1,
+          "required": 2,
+          "negotiable": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperInBoundCompLevel": {
+    "name": "appcModeOperInBoundCompLevel",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rle": 2,
+          "lz9": 3,
+          "lz10": 4,
+          "lz12": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperOutBoundCompLevel": {
+    "name": "appcModeOperOutBoundCompLevel",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rle": 2,
+          "lz9": 3,
+          "lz10": 4,
+          "lz12": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperCompRleBeforeLZ": {
+    "name": "appcModeOperCompRleBeforeLZ",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperSyncLvl": {
+    "name": "appcModeOperSyncLvl",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "noneConfirm": 2,
+          "noneConfirmSyncPoint": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperCrypto": {
+    "name": "appcModeOperCrypto",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "mandatory": 2,
+          "selective": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperSyncLvlLastStart": {
+    "name": "appcModeOperSyncLvlLastStart",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "noneConfirm": 2,
+          "noneConfirmSyncPoint": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperCryptoLastStart": {
+    "name": "appcModeOperCryptoLastStart",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notSupported": 1,
+          "mandatory": 2,
+          "selective": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperCNOSNeg": {
+    "name": "appcModeOperCNOSNeg",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperActCwin": {
+    "name": "appcModeOperActCwin",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperActClos": {
+    "name": "appcModeOperActClos",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperPndCwin": {
+    "name": "appcModeOperPndCwin",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperPndClos": {
+    "name": "appcModeOperPndClos",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperPtmCwin": {
+    "name": "appcModeOperPtmCwin",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperPtmClos": {
+    "name": "appcModeOperPtmClos",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperDrainSelf": {
+    "name": "appcModeOperDrainSelf",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcModeOperDrainPart": {
+    "name": "appcModeOperDrainPart",
+    "oid": "1.3.6.1.2.1.34.3.1.2.6.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminTable": {
+    "name": "appcTpAdminTable",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcTpAdminEntry": {
+    "name": "appcTpAdminEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminLocLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminTpName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcTpAdminLocLuName": {
+    "name": "appcTpAdminLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcTpAdminTpName": {
+    "name": "appcTpAdminTpName",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcTpAdminFileSpec": {
+    "name": "appcTpAdminFileSpec",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 80
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminStartParm": {
+    "name": "appcTpAdminStartParm",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 128
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminTpOperation": {
+    "name": "appcTpAdminTpOperation",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "queuedOperatorStarted": 2,
+          "queuedOperatorPreloaded": 3,
+          "queuedAmStarted": 4,
+          "nonqueuedAmStarted": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminInAttachTimeout": {
+    "name": "appcTpAdminInAttachTimeout",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminRcvAllocTimeout": {
+    "name": "appcTpAdminRcvAllocTimeout",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminSyncLvl": {
+    "name": "appcTpAdminSyncLvl",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "confirm": 2,
+          "noneAndConfirm": 3,
+          "syncpoint": 4,
+          "noneAndSyncpoint": 5,
+          "confirmAndSyncpoint": 6,
+          "all": 7
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminInstLmt": {
+    "name": "appcTpAdminInstLmt",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminStatus": {
+    "name": "appcTpAdminStatus",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "tempDisabled": 2,
+          "permDisabled": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminLongRun": {
+    "name": "appcTpAdminLongRun",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminConvType": {
+    "name": "appcTpAdminConvType",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basic": 1,
+          "mapped": 2,
+          "basicOrMapped": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminConvDuplex": {
+    "name": "appcTpAdminConvDuplex",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 1,
+          "full": 2,
+          "halfOrFull": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminConvSecReq": {
+    "name": "appcTpAdminConvSecReq",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminVerPip": {
+    "name": "appcTpAdminVerPip",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcTpAdminPipSubNum": {
+    "name": "appcTpAdminPipSubNum",
+    "oid": "1.3.6.1.2.1.34.3.1.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessTable": {
+    "name": "appcActSessTable",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcActSessEntry": {
+    "name": "appcActSessEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessLocLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessParLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcActSessLocLuName": {
+    "name": "appcActSessLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcActSessParLuName": {
+    "name": "appcActSessParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcActSessIndex": {
+    "name": "appcActSessIndex",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcActSessPcidCpName": {
+    "name": "appcActSessPcidCpName",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessPcid": {
+    "name": "appcActSessPcid",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessPluIndicator": {
+    "name": "appcActSessPluIndicator",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localLuIsPlu": 1,
+          "partnerLuIsPlu": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessModeName": {
+    "name": "appcActSessModeName",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessCosName": {
+    "name": "appcActSessCosName",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessTransPriority": {
+    "name": "appcActSessTransPriority",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unknown": 1,
+          "low": 2,
+          "medium": 3,
+          "high": 4,
+          "network": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessEnhanceSecSup": {
+    "name": "appcActSessEnhanceSecSup",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "level1": 2,
+          "level2": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessSendPacingType": {
+    "name": "appcActSessSendPacingType",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "fixed": 2,
+          "adaptive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessSendRpc": {
+    "name": "appcActSessSendRpc",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessSendNxWndwSize": {
+    "name": "appcActSessSendNxWndwSize",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessRecvPacingType": {
+    "name": "appcActSessRecvPacingType",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "fixed": 2,
+          "adaptive": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessRecvRpc": {
+    "name": "appcActSessRecvRpc",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessRecvNxWndwSize": {
+    "name": "appcActSessRecvNxWndwSize",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessRscv": {
+    "name": "appcActSessRscv",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessInUse": {
+    "name": "appcActSessInUse",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "no": 1,
+          "yes": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessMaxSndRuSize": {
+    "name": "appcActSessMaxSndRuSize",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessMaxRcvRuSize": {
+    "name": "appcActSessMaxRcvRuSize",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 8192
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessSndPacingSize": {
+    "name": "appcActSessSndPacingSize",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessRcvPacingSize": {
+    "name": "appcActSessRcvPacingSize",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 63
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessOperState": {
+    "name": "appcActSessOperState",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "unbound": 1,
+          "pendingBind": 2,
+          "bound": 3,
+          "pendingUnbind": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "appcActSessUpTime": {
+    "name": "appcActSessUpTime",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessRtpNceId": {
+    "name": "appcActSessRtpNceId",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessRtpTcid": {
+    "name": "appcActSessRtpTcid",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActSessLinkIndex": {
+    "name": "appcActSessLinkIndex",
+    "oid": "1.3.6.1.2.1.34.3.1.4.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InstancePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcSessStatsTable": {
+    "name": "appcSessStatsTable",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcSessStatsEntry": {
+    "name": "appcSessStatsEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsLocLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsParLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsSessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcSessStatsLocLuName": {
+    "name": "appcSessStatsLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcSessStatsParLuName": {
+    "name": "appcSessStatsParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcSessStatsSessIndex": {
+    "name": "appcSessStatsSessIndex",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcSessStatsSentFmdBytes": {
+    "name": "appcSessStatsSentFmdBytes",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcSessStatsSentNonFmdBytes": {
+    "name": "appcSessStatsSentNonFmdBytes",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcSessStatsRcvdFmdBytes": {
+    "name": "appcSessStatsRcvdFmdBytes",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcSessStatsRcvdNonFmdBytes": {
+    "name": "appcSessStatsRcvdNonFmdBytes",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcSessStatsSentFmdRus": {
+    "name": "appcSessStatsSentFmdRus",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcSessStatsSentNonFmdRus": {
+    "name": "appcSessStatsSentNonFmdRus",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcSessStatsRcvdFmdRus": {
+    "name": "appcSessStatsRcvdFmdRus",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcSessStatsRcvdNonFmdRus": {
+    "name": "appcSessStatsRcvdNonFmdRus",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcSessStatsCtrUpTime": {
+    "name": "appcSessStatsCtrUpTime",
+    "oid": "1.3.6.1.2.1.34.3.1.4.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistSessTable": {
+    "name": "appcHistSessTable",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcHistSessEntry": {
+    "name": "appcHistSessEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistSessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcHistSessIndex": {
+    "name": "appcHistSessIndex",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcHistSessTime": {
+    "name": "appcHistSessTime",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistSessType": {
+    "name": "appcHistSessType",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "recvNegBindRsp": 1,
+          "sendNegBindRsp": 2,
+          "sessActRejected": 3,
+          "unbindSent": 4,
+          "unbindReceived": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistSessLocLuName": {
+    "name": "appcHistSessLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistSessParLuName": {
+    "name": "appcHistSessParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistSessModeName": {
+    "name": "appcHistSessModeName",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistSessUnbindType": {
+    "name": "appcHistSessUnbindType",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 1
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistSessSenseData": {
+    "name": "appcHistSessSenseData",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaSenseData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistSessComponentId": {
+    "name": "appcHistSessComponentId",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistSessDetectModule": {
+    "name": "appcHistSessDetectModule",
+    "oid": "1.3.6.1.2.1.34.3.1.4.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcSessRtpTable": {
+    "name": "appcSessRtpTable",
+    "oid": "1.3.6.1.2.1.34.3.1.4.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcSessRtpEntry": {
+    "name": "appcSessRtpEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.4.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessRtpNceId",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessRtpTcid",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcSessRtpNceId": {
+    "name": "appcSessRtpNceId",
+    "oid": "1.3.6.1.2.1.34.3.1.4.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcSessRtpTcid": {
+    "name": "appcSessRtpTcid",
+    "oid": "1.3.6.1.2.1.34.3.1.4.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcSessRtpSessions": {
+    "name": "appcSessRtpSessions",
+    "oid": "1.3.6.1.2.1.34.3.1.4.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvTable": {
+    "name": "appcActiveConvTable",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcActiveConvEntry": {
+    "name": "appcActiveConvEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvLocLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvParLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvSessIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcActiveConvLocLuName": {
+    "name": "appcActiveConvLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcActiveConvParLuName": {
+    "name": "appcActiveConvParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcActiveConvSessIndex": {
+    "name": "appcActiveConvSessIndex",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcActiveConvId": {
+    "name": "appcActiveConvId",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvState": {
+    "name": "appcActiveConvState",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "reset": 1,
+          "send": 2,
+          "receive": 3,
+          "confirm": 4,
+          "confirmSend": 5,
+          "confirmDealloc": 6,
+          "pendingDeallocate": 7,
+          "pendingPost": 8,
+          "sendReceive": 9,
+          "sendOnly": 10,
+          "receiveOnly": 11,
+          "deferReceive": 12,
+          "deferDeallocate": 13,
+          "syncpoint": 14,
+          "syncpointSend": 15,
+          "syncpointDeallocate": 16,
+          "backoutRequired": 17
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvType": {
+    "name": "appcActiveConvType",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "basic": 1,
+          "mapped": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvCorrelator": {
+    "name": "appcActiveConvCorrelator",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvSyncLvl": {
+    "name": "appcActiveConvSyncLvl",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "confirm": 2,
+          "syncpt": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvSource": {
+    "name": "appcActiveConvSource",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localLu": 1,
+          "partnerLu": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvDuplex": {
+    "name": "appcActiveConvDuplex",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "half": 1,
+          "full": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvUpTime": {
+    "name": "appcActiveConvUpTime",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeTicks",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvSendBytes": {
+    "name": "appcActiveConvSendBytes",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvRcvBytes": {
+    "name": "appcActiveConvRcvBytes",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvUserid": {
+    "name": "appcActiveConvUserid",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvPcidNauName": {
+    "name": "appcActiveConvPcidNauName",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvPcid": {
+    "name": "appcActiveConvPcid",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvModeName": {
+    "name": "appcActiveConvModeName",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvLuwIdName": {
+    "name": "appcActiveConvLuwIdName",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvLuwIdInstance": {
+    "name": "appcActiveConvLuwIdInstance",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvLuwIdSequence": {
+    "name": "appcActiveConvLuwIdSequence",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcActiveConvTpName": {
+    "name": "appcActiveConvTpName",
+    "oid": "1.3.6.1.2.1.34.3.1.5.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistConvTable": {
+    "name": "appcHistConvTable",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcHistConvEntry": {
+    "name": "appcHistConvEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistConvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcHistConvIndex": {
+    "name": "appcHistConvIndex",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcHistConvEndTime": {
+    "name": "appcHistConvEndTime",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistConvLocLuName": {
+    "name": "appcHistConvLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistConvParLuName": {
+    "name": "appcHistConvParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistConvTpName": {
+    "name": "appcHistConvTpName",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistConvPcidNauName": {
+    "name": "appcHistConvPcidNauName",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 3,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistConvPcid": {
+    "name": "appcHistConvPcid",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 8,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistConvSenseData": {
+    "name": "appcHistConvSenseData",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnaSenseData",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistConvLogData": {
+    "name": "appcHistConvLogData",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcHistConvEndedBy": {
+    "name": "appcHistConvEndedBy",
+    "oid": "1.3.6.1.2.1.34.3.1.5.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "localLu": 1,
+          "partnerLu": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicAdminTable": {
+    "name": "appcCpicAdminTable",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcCpicAdminEntry": {
+    "name": "appcCpicAdminEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicAdminLocLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicAdminSymbDestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcCpicAdminLocLuName": {
+    "name": "appcCpicAdminLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcCpicAdminSymbDestName": {
+    "name": "appcCpicAdminSymbDestName",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcCpicAdminParLuAlias": {
+    "name": "appcCpicAdminParLuAlias",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicAdminParLuName": {
+    "name": "appcCpicAdminParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicAdminModeName": {
+    "name": "appcCpicAdminModeName",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicAdminTpNameType": {
+    "name": "appcCpicAdminTpNameType",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "snaServiceTp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicAdminTpName": {
+    "name": "appcCpicAdminTpName",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicAdminUserid": {
+    "name": "appcCpicAdminUserid",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicAdminSecurity": {
+    "name": "appcCpicAdminSecurity",
+    "oid": "1.3.6.1.2.1.34.3.1.6.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "same": 2,
+          "pgm": 3,
+          "pgmStrong": 4,
+          "distributed": 5,
+          "mutual": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicOperTable": {
+    "name": "appcCpicOperTable",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcCpicOperEntry": {
+    "name": "appcCpicOperEntry",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicOperLocLuName",
+        "implied": 0
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicOperSymbDestName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "appcCpicOperLocLuName": {
+    "name": "appcCpicOperLocLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcCpicOperSymbDestName": {
+    "name": "appcCpicOperSymbDestName",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "appcCpicOperParLuAlias": {
+    "name": "appcCpicOperParLuAlias",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicOperParLuName": {
+    "name": "appcCpicOperParLuName",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 17
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicOperModeName": {
+    "name": "appcCpicOperModeName",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 8
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicOperTpNameType": {
+    "name": "appcCpicOperTpNameType",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "snaServiceTp": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicOperTpName": {
+    "name": "appcCpicOperTpName",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicOperUserid": {
+    "name": "appcCpicOperUserid",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcCpicOperSecurity": {
+    "name": "appcCpicOperSecurity",
+    "oid": "1.3.6.1.2.1.34.3.1.6.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "same": 2,
+          "pgm": 3,
+          "pgmStrong": 4,
+          "distributed": 5,
+          "mutual": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "appcConformance": {
+    "name": "appcConformance",
+    "oid": "1.3.6.1.2.1.34.3.2",
+    "class": "objectidentity"
+  },
+  "appcCompliances": {
+    "name": "appcCompliances",
+    "oid": "1.3.6.1.2.1.34.3.2.1",
+    "class": "objectidentity"
+  },
+  "appcGroups": {
+    "name": "appcGroups",
+    "oid": "1.3.6.1.2.1.34.3.2.2",
+    "class": "objectidentity"
+  },
+  "appcCompliance": {
+    "name": "appcCompliance",
+    "oid": "1.3.6.1.2.1.34.3.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "appcGlobalConfGroup",
+        "module": "APPC-MIB"
+      },
+      {
+        "object": "appcLluConfGroup",
+        "module": "APPC-MIB"
+      },
+      {
+        "object": "appcParLuConfGroup",
+        "module": "APPC-MIB"
+      },
+      {
+        "object": "appcModeConfGroup",
+        "module": "APPC-MIB"
+      },
+      {
+        "object": "appcTpConfGroup",
+        "module": "APPC-MIB"
+      },
+      {
+        "object": "appcSessionConfGroup",
+        "module": "APPC-MIB"
+      },
+      {
+        "object": "appcControlConfGroup",
+        "module": "APPC-MIB"
+      },
+      {
+        "object": "appcCnosConfGroup",
+        "module": "APPC-MIB"
+      },
+      {
+        "object": "appcCpicConfGroup",
+        "module": "APPC-MIB"
+      },
+      {
+        "object": "appcConversationConfGroup",
+        "module": "APPC-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "appcGlobalConfGroup": {
+    "name": "appcGlobalConfGroup",
+    "oid": "1.3.6.1.2.1.34.3.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcUpTime"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcDefaultModeName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcDefaultLuName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcDefaultImplInbndPlu"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcDefaultMaxMcLlSndSize"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcDefaultFileSpec"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcDefaultTpOperation"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcDefaultTpConvSecRqd"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLocalCpName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveSessions"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveHprSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "appcLluConfGroup": {
+    "name": "appcLluConfGroup",
+    "oid": "1.3.6.1.2.1.34.3.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluAdminDepType"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluAdminLocalAddress"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluAdminSessLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluAdminBindRspMayQ"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluAdminCompression"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluAdminInBoundCompLevel"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluAdminOutBoundCompLevel"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluAdminCompRleBeforeLZ"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluAdminAlias"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperDepType"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperLocalAddress"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperSessLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperBindRspMayQ"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperCompression"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperInBoundCompLevel"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperOutBoundCompLevel"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperCompRleBeforeLZ"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperAlias"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLluOperActiveSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "appcParLuConfGroup": {
+    "name": "appcParLuConfGroup",
+    "oid": "1.3.6.1.2.1.34.3.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairAdminParLuAlias"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairAdminSessLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairAdminSessSec"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairAdminSecAccept"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairAdminLinkObjId"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairAdminParaSessSup"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairOperParLuAlias"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairOperSessLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairOperSessSec"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairOperSecAccept"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairOperLinkObjId"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairOperParaSessSup"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairOperParaSessSupLS"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcLuPairOperState"
+      }
+    ],
+    "status": "current"
+  },
+  "appcModeConfGroup": {
+    "name": "appcModeConfGroup",
+    "oid": "1.3.6.1.2.1.34.3.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminCosName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminSessEndTpName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminMaxSessLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminMinCwinLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminMinClosLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminConWinAutoActLmt"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminRecvPacWinSz"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminSendPacWinSz"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminPrefRecvRuSz"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminPrefSendRuSz"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminRecvRuSzUpBnd"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminSendRuSzUpBnd"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminRecvRuSzLoBnd"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminSendRuSzLoBnd"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminSingSessReinit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminCompression"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminInBoundCompLevel"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminOutBoundCompLevel"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminCompRleBeforeLZ"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminSyncLvl"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeAdminCrypto"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperCosName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperSessEndTpName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperSessLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperMaxSessLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperMinCwinLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperMinClosLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperConWinAutoActLmt"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperRecvPacWinSz"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperSendPacWinSz"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperPrefRecvRuSz"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperPrefSendRuSz"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperRecvRuSzUpBnd"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperSendRuSzUpBnd"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperRecvRuSzLoBnd"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperSendRuSzLoBnd"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperSingSessReinit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperCompression"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperInBoundCompLevel"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperOutBoundCompLevel"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperCompRleBeforeLZ"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperSyncLvl"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperCrypto"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperSyncLvlLastStart"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperCryptoLastStart"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperCNOSNeg"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperActCwin"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperActClos"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperPndCwin"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperPndClos"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperPtmCwin"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperPtmClos"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperDrainSelf"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcModeOperDrainPart"
+      }
+    ],
+    "status": "current"
+  },
+  "appcTpConfGroup": {
+    "name": "appcTpConfGroup",
+    "oid": "1.3.6.1.2.1.34.3.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminFileSpec"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminStartParm"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminTpOperation"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminInAttachTimeout"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminRcvAllocTimeout"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminSyncLvl"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminInstLmt"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminStatus"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminLongRun"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminConvType"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminConvDuplex"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminConvSecReq"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminVerPip"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcTpAdminPipSubNum"
+      }
+    ],
+    "status": "current"
+  },
+  "appcSessionConfGroup": {
+    "name": "appcSessionConfGroup",
+    "oid": "1.3.6.1.2.1.34.3.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessPcidCpName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessPcid"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessPluIndicator"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessModeName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessCosName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessTransPriority"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessEnhanceSecSup"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessSendPacingType"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessSendRpc"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessSendNxWndwSize"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessRecvPacingType"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessRecvRpc"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessRecvNxWndwSize"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessRscv"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessInUse"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessMaxSndRuSize"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessMaxRcvRuSize"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessSndPacingSize"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessRcvPacingSize"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessOperState"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessUpTime"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessRtpNceId"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessRtpTcid"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActSessLinkIndex"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsSentFmdBytes"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsSentNonFmdBytes"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsRcvdFmdBytes"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsRcvdNonFmdBytes"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsSentFmdRus"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsSentNonFmdRus"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsRcvdFmdRus"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsRcvdNonFmdRus"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessStatsCtrUpTime"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistSessTime"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistSessType"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistSessLocLuName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistSessParLuName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistSessModeName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistSessUnbindType"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistSessSenseData"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistSessComponentId"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistSessDetectModule"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcSessRtpSessions"
+      }
+    ],
+    "status": "current"
+  },
+  "appcControlConfGroup": {
+    "name": "appcControlConfGroup",
+    "oid": "1.3.6.1.2.1.34.3.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlAdminStat"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlAdminRscv"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlAdminTrace"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlAdminTraceParm"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlOperStat"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlOperStatTime"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlOperRscv"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlOperRscvTime"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlOperTrace"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlOperTraceTime"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCntrlOperTraceParm"
+      }
+    ],
+    "status": "current"
+  },
+  "appcCnosConfGroup": {
+    "name": "appcCnosConfGroup",
+    "oid": "1.3.6.1.2.1.34.3.2.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosCommand"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosMaxSessLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosMinCwinLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosMinClosLimit"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosDrainSelf"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosDrainPart"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosResponsible"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosForce"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosTargetLocLuName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosTargetParLuName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCnosTargetModeName"
+      }
+    ],
+    "status": "current"
+  },
+  "appcCpicConfGroup": {
+    "name": "appcCpicConfGroup",
+    "oid": "1.3.6.1.2.1.34.3.2.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicAdminParLuAlias"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicAdminParLuName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicAdminModeName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicAdminTpNameType"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicAdminTpName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicAdminUserid"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicAdminSecurity"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicOperParLuAlias"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicOperParLuName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicOperModeName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicOperTpNameType"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicOperTpName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicOperUserid"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcCpicOperSecurity"
+      }
+    ],
+    "status": "current"
+  },
+  "appcConversationConfGroup": {
+    "name": "appcConversationConfGroup",
+    "oid": "1.3.6.1.2.1.34.3.2.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvId"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvState"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvType"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvCorrelator"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvSyncLvl"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvSource"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvDuplex"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvUpTime"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvSendBytes"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvRcvBytes"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvUserid"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvPcidNauName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvPcid"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvModeName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvLuwIdName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvLuwIdInstance"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvLuwIdSequence"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcActiveConvTpName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistConvEndTime"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistConvLocLuName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistConvParLuName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistConvTpName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistConvPcidNauName"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistConvPcid"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistConvSenseData"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistConvLogData"
+      },
+      {
+        "module": "APPC-MIB",
+        "object": "appcHistConvEndedBy"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPC-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "APPC-MIB"
+  }
+}

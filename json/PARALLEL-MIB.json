@@ -1,0 +1,409 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "transmission",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "para": {
+    "name": "para",
+    "oid": "1.3.6.1.2.1.10.34",
+    "class": "moduleidentity"
+  },
+  "paraNumber": {
+    "name": "paraNumber",
+    "oid": "1.3.6.1.2.1.10.34.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraPortTable": {
+    "name": "paraPortTable",
+    "oid": "1.3.6.1.2.1.10.34.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "paraPortEntry": {
+    "name": "paraPortEntry",
+    "oid": "1.3.6.1.2.1.10.34.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "paraPortIndex": {
+    "name": "paraPortIndex",
+    "oid": "1.3.6.1.2.1.10.34.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraPortType": {
+    "name": "paraPortType",
+    "oid": "1.3.6.1.2.1.10.34.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "centronics": 2,
+          "dataproducts": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraPortInSigNumber": {
+    "name": "paraPortInSigNumber",
+    "oid": "1.3.6.1.2.1.10.34.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraPortOutSigNumber": {
+    "name": "paraPortOutSigNumber",
+    "oid": "1.3.6.1.2.1.10.34.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraInSigTable": {
+    "name": "paraInSigTable",
+    "oid": "1.3.6.1.2.1.10.34.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "paraInSigEntry": {
+    "name": "paraInSigEntry",
+    "oid": "1.3.6.1.2.1.10.34.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraInSigPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraInSigName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "paraInSigPortIndex": {
+    "name": "paraInSigPortIndex",
+    "oid": "1.3.6.1.2.1.10.34.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraInSigName": {
+    "name": "paraInSigName",
+    "oid": "1.3.6.1.2.1.10.34.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "power": 1,
+          "online": 2,
+          "busy": 3,
+          "paperout": 4,
+          "fault": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraInSigState": {
+    "name": "paraInSigState",
+    "oid": "1.3.6.1.2.1.10.34.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraInSigChanges": {
+    "name": "paraInSigChanges",
+    "oid": "1.3.6.1.2.1.10.34.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraOutSigTable": {
+    "name": "paraOutSigTable",
+    "oid": "1.3.6.1.2.1.10.34.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "paraOutSigEntry": {
+    "name": "paraOutSigEntry",
+    "oid": "1.3.6.1.2.1.10.34.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraOutSigPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraOutSigName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "paraOutSigPortIndex": {
+    "name": "paraOutSigPortIndex",
+    "oid": "1.3.6.1.2.1.10.34.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraOutSigName": {
+    "name": "paraOutSigName",
+    "oid": "1.3.6.1.2.1.10.34.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "power": 1,
+          "online": 2,
+          "busy": 3,
+          "paperout": 4,
+          "fault": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraOutSigState": {
+    "name": "paraOutSigState",
+    "oid": "1.3.6.1.2.1.10.34.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "on": 2,
+          "off": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraOutSigChanges": {
+    "name": "paraOutSigChanges",
+    "oid": "1.3.6.1.2.1.10.34.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "paraConformance": {
+    "name": "paraConformance",
+    "oid": "1.3.6.1.2.1.10.34.5",
+    "class": "objectidentity"
+  },
+  "paraGroups": {
+    "name": "paraGroups",
+    "oid": "1.3.6.1.2.1.10.34.5.1",
+    "class": "objectidentity"
+  },
+  "paraCompliances": {
+    "name": "paraCompliances",
+    "oid": "1.3.6.1.2.1.10.34.5.2",
+    "class": "objectidentity"
+  },
+  "paraCompliance": {
+    "name": "paraCompliance",
+    "oid": "1.3.6.1.2.1.10.34.5.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "paraGroup",
+        "module": "PARALLEL-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "paraGroup": {
+    "name": "paraGroup",
+    "oid": "1.3.6.1.2.1.10.34.5.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraNumber"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraPortIndex"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraPortType"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraPortInSigNumber"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraPortOutSigNumber"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraInSigPortIndex"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraInSigName"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraInSigState"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraInSigChanges"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraOutSigPortIndex"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraOutSigName"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraOutSigState"
+      },
+      {
+        "module": "PARALLEL-MIB",
+        "object": "paraOutSigChanges"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PARALLEL-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "PARALLEL-MIB"
+  }
+}

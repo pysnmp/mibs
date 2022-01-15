@@ -1,0 +1,3529 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "experimental",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TestAndIncr",
+      "DisplayString"
+    ]
+  },
+  "slapmMIB": {
+    "name": "slapmMIB",
+    "oid": "1.3.6.1.3.88",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-01-24 00:00",
+        "description": "This version published as RFC 2758."
+      }
+    ]
+  },
+  "SlapmNameType": {
+    "name": "SlapmNameType",
+    "class": "textualconvention",
+    "type": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "status": "deprecated"
+  },
+  "SlapmStatus": {
+    "name": "SlapmStatus",
+    "class": "textualconvention",
+    "type": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "slaMinInRateNotAchieved": 0,
+        "slaMaxInRateExceeded": 1,
+        "slaMaxDelayExceeded": 2,
+        "slaMinOutRateNotAchieved": 3,
+        "slaMaxOutRateExceeded": 4,
+        "monitorMinInRateNotAchieved": 5,
+        "monitorMaxInRateExceeded": 6,
+        "monitorMaxDelayExceeded": 7,
+        "monitorMinOutRateNotAchieved": 8,
+        "monitorMaxOutRateExceeded": 9
+      }
+    },
+    "status": "current"
+  },
+  "SlapmPolicyRuleName": {
+    "name": "SlapmPolicyRuleName",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 1024
+          }
+        ]
+      }
+    },
+    "displayhint": "1024t",
+    "status": "current"
+  },
+  "slapmNotifications": {
+    "name": "slapmNotifications",
+    "oid": "1.3.6.1.3.88.0",
+    "class": "objectidentity"
+  },
+  "slapmObjects": {
+    "name": "slapmObjects",
+    "oid": "1.3.6.1.3.88.1",
+    "class": "objectidentity"
+  },
+  "slapmConformance": {
+    "name": "slapmConformance",
+    "oid": "1.3.6.1.3.88.2",
+    "class": "objectidentity"
+  },
+  "slapmBaseObjects": {
+    "name": "slapmBaseObjects",
+    "oid": "1.3.6.1.3.88.1.1",
+    "class": "objectidentity"
+  },
+  "slapmSpinLock": {
+    "name": "slapmSpinLock",
+    "oid": "1.3.6.1.3.88.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slapmPolicyCountQueries": {
+    "name": "slapmPolicyCountQueries",
+    "oid": "1.3.6.1.3.88.1.1.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyCountAccesses": {
+    "name": "slapmPolicyCountAccesses",
+    "oid": "1.3.6.1.3.88.1.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyCountSuccessAccesses": {
+    "name": "slapmPolicyCountSuccessAccesses",
+    "oid": "1.3.6.1.3.88.1.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyCountNotFounds": {
+    "name": "slapmPolicyCountNotFounds",
+    "oid": "1.3.6.1.3.88.1.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyPurgeTime": {
+    "name": "slapmPolicyPurgeTime",
+    "oid": "1.3.6.1.3.88.1.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 3600
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slapmPolicyTrapEnable": {
+    "name": "slapmPolicyTrapEnable",
+    "oid": "1.3.6.1.3.88.1.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "disabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slapmPolicyTrapFilter": {
+    "name": "slapmPolicyTrapFilter",
+    "oid": "1.3.6.1.3.88.1.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 3,
+        "format": "decimal"
+      }
+    },
+    "units": "intervals",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "slapmTableObjects": {
+    "name": "slapmTableObjects",
+    "oid": "1.3.6.1.3.88.1.2",
+    "class": "objectidentity"
+  },
+  "slapmPolicyStatsTable": {
+    "name": "slapmPolicyStatsTable",
+    "oid": "1.3.6.1.3.88.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsEntry": {
+    "name": "slapmPolicyStatsEntry",
+    "oid": "1.3.6.1.3.88.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsSystemAddress",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsTrafficProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsSystemAddress": {
+    "name": "slapmPolicyStatsSystemAddress",
+    "oid": "1.3.6.1.3.88.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsPolicyName": {
+    "name": "slapmPolicyStatsPolicyName",
+    "oid": "1.3.6.1.3.88.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlapmNameType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsTrafficProfileName": {
+    "name": "slapmPolicyStatsTrafficProfileName",
+    "oid": "1.3.6.1.3.88.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlapmNameType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsOperStatus": {
+    "name": "slapmPolicyStatsOperStatus",
+    "oid": "1.3.6.1.3.88.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "deleteNeeded": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsActiveConns": {
+    "name": "slapmPolicyStatsActiveConns",
+    "oid": "1.3.6.1.3.88.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsTotalConns": {
+    "name": "slapmPolicyStatsTotalConns",
+    "oid": "1.3.6.1.3.88.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsFirstActivated": {
+    "name": "slapmPolicyStatsFirstActivated",
+    "oid": "1.3.6.1.3.88.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsLastMapping": {
+    "name": "slapmPolicyStatsLastMapping",
+    "oid": "1.3.6.1.3.88.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsInOctets": {
+    "name": "slapmPolicyStatsInOctets",
+    "oid": "1.3.6.1.3.88.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsOutOctets": {
+    "name": "slapmPolicyStatsOutOctets",
+    "oid": "1.3.6.1.3.88.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsConnectionLimit": {
+    "name": "slapmPolicyStatsConnectionLimit",
+    "oid": "1.3.6.1.3.88.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsCountAccepts": {
+    "name": "slapmPolicyStatsCountAccepts",
+    "oid": "1.3.6.1.3.88.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsCountDenies": {
+    "name": "slapmPolicyStatsCountDenies",
+    "oid": "1.3.6.1.3.88.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsInDiscards": {
+    "name": "slapmPolicyStatsInDiscards",
+    "oid": "1.3.6.1.3.88.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsOutDiscards": {
+    "name": "slapmPolicyStatsOutDiscards",
+    "oid": "1.3.6.1.3.88.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsInPackets": {
+    "name": "slapmPolicyStatsInPackets",
+    "oid": "1.3.6.1.3.88.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsOutPackets": {
+    "name": "slapmPolicyStatsOutPackets",
+    "oid": "1.3.6.1.3.88.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsInProfileOctets": {
+    "name": "slapmPolicyStatsInProfileOctets",
+    "oid": "1.3.6.1.3.88.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsOutProfileOctets": {
+    "name": "slapmPolicyStatsOutProfileOctets",
+    "oid": "1.3.6.1.3.88.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsMinRate": {
+    "name": "slapmPolicyStatsMinRate",
+    "oid": "1.3.6.1.3.88.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Kilobits per second",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsMaxRate": {
+    "name": "slapmPolicyStatsMaxRate",
+    "oid": "1.3.6.1.3.88.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "Kilobits per second",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyStatsMaxDelay": {
+    "name": "slapmPolicyStatsMaxDelay",
+    "oid": "1.3.6.1.3.88.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorTable": {
+    "name": "slapmPolicyMonitorTable",
+    "oid": "1.3.6.1.3.88.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorEntry": {
+    "name": "slapmPolicyMonitorEntry",
+    "oid": "1.3.6.1.3.88.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorSystemAddress",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorPolicyName",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorTrafficProfileName",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorOwnerIndex": {
+    "name": "slapmPolicyMonitorOwnerIndex",
+    "oid": "1.3.6.1.3.88.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorSystemAddress": {
+    "name": "slapmPolicyMonitorSystemAddress",
+    "oid": "1.3.6.1.3.88.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorPolicyName": {
+    "name": "slapmPolicyMonitorPolicyName",
+    "oid": "1.3.6.1.3.88.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlapmNameType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorTrafficProfileName": {
+    "name": "slapmPolicyMonitorTrafficProfileName",
+    "oid": "1.3.6.1.3.88.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlapmNameType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorControl": {
+    "name": "slapmPolicyMonitorControl",
+    "oid": "1.3.6.1.3.88.1.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "monitorMinRate": 0,
+        "monitorMaxRate": 1,
+        "monitorMaxDelay": 2,
+        "enableAggregateTraps": 3,
+        "enableSubcomponentTraps": 4,
+        "monitorSubcomponents": 5
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "monitorMinRate": 0,
+          "monitorMaxRate": 1,
+          "monitorMaxDelay": 2
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorStatus": {
+    "name": "slapmPolicyMonitorStatus",
+    "oid": "1.3.6.1.3.88.1.2.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlapmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorInterval": {
+    "name": "slapmPolicyMonitorInterval",
+    "oid": "1.3.6.1.3.88.1.2.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorIntTime": {
+    "name": "slapmPolicyMonitorIntTime",
+    "oid": "1.3.6.1.3.88.1.2.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorCurrentInRate": {
+    "name": "slapmPolicyMonitorCurrentInRate",
+    "oid": "1.3.6.1.3.88.1.2.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorCurrentOutRate": {
+    "name": "slapmPolicyMonitorCurrentOutRate",
+    "oid": "1.3.6.1.3.88.1.2.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMinRateLow": {
+    "name": "slapmPolicyMonitorMinRateLow",
+    "oid": "1.3.6.1.3.88.1.2.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMinRateHigh": {
+    "name": "slapmPolicyMonitorMinRateHigh",
+    "oid": "1.3.6.1.3.88.1.2.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMaxRateHigh": {
+    "name": "slapmPolicyMonitorMaxRateHigh",
+    "oid": "1.3.6.1.3.88.1.2.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMaxRateLow": {
+    "name": "slapmPolicyMonitorMaxRateLow",
+    "oid": "1.3.6.1.3.88.1.2.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMaxDelayHigh": {
+    "name": "slapmPolicyMonitorMaxDelayHigh",
+    "oid": "1.3.6.1.3.88.1.2.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMaxDelayLow": {
+    "name": "slapmPolicyMonitorMaxDelayLow",
+    "oid": "1.3.6.1.3.88.1.2.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMinInRateNotAchieves": {
+    "name": "slapmPolicyMonitorMinInRateNotAchieves",
+    "oid": "1.3.6.1.3.88.1.2.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMaxInRateExceeds": {
+    "name": "slapmPolicyMonitorMaxInRateExceeds",
+    "oid": "1.3.6.1.3.88.1.2.2.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMaxDelayExceeds": {
+    "name": "slapmPolicyMonitorMaxDelayExceeds",
+    "oid": "1.3.6.1.3.88.1.2.2.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMinOutRateNotAchieves": {
+    "name": "slapmPolicyMonitorMinOutRateNotAchieves",
+    "oid": "1.3.6.1.3.88.1.2.2.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorMaxOutRateExceeds": {
+    "name": "slapmPolicyMonitorMaxOutRateExceeds",
+    "oid": "1.3.6.1.3.88.1.2.2.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorCurrentDelayRate": {
+    "name": "slapmPolicyMonitorCurrentDelayRate",
+    "oid": "1.3.6.1.3.88.1.2.2.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorRowStatus": {
+    "name": "slapmPolicyMonitorRowStatus",
+    "oid": "1.3.6.1.3.88.1.2.2.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "slapmSubcomponentTable": {
+    "name": "slapmSubcomponentTable",
+    "oid": "1.3.6.1.3.88.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmSubcomponentEntry": {
+    "name": "slapmSubcomponentEntry",
+    "oid": "1.3.6.1.3.88.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentRemAddress",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentRemPort",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentLocalAddress",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentLocalPort",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slapmSubcomponentRemAddress": {
+    "name": "slapmSubcomponentRemAddress",
+    "oid": "1.3.6.1.3.88.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmSubcomponentRemPort": {
+    "name": "slapmSubcomponentRemPort",
+    "oid": "1.3.6.1.3.88.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmSubcomponentLocalAddress": {
+    "name": "slapmSubcomponentLocalAddress",
+    "oid": "1.3.6.1.3.88.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmSubcomponentLocalPort": {
+    "name": "slapmSubcomponentLocalPort",
+    "oid": "1.3.6.1.3.88.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmSubcomponentProtocol": {
+    "name": "slapmSubcomponentProtocol",
+    "oid": "1.3.6.1.3.88.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "udpListener": 1,
+          "tcpConnection": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentSystemAddress": {
+    "name": "slapmSubcomponentSystemAddress",
+    "oid": "1.3.6.1.3.88.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentPolicyName": {
+    "name": "slapmSubcomponentPolicyName",
+    "oid": "1.3.6.1.3.88.1.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlapmNameType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmSubcomponentTrafficProfileName": {
+    "name": "slapmSubcomponentTrafficProfileName",
+    "oid": "1.3.6.1.3.88.1.2.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlapmNameType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "slapmSubcomponentLastActivity": {
+    "name": "slapmSubcomponentLastActivity",
+    "oid": "1.3.6.1.3.88.1.2.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentInOctets": {
+    "name": "slapmSubcomponentInOctets",
+    "oid": "1.3.6.1.3.88.1.2.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentOutOctets": {
+    "name": "slapmSubcomponentOutOctets",
+    "oid": "1.3.6.1.3.88.1.2.3.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentTcpOutBufferedOctets": {
+    "name": "slapmSubcomponentTcpOutBufferedOctets",
+    "oid": "1.3.6.1.3.88.1.2.3.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentTcpInBufferedOctets": {
+    "name": "slapmSubcomponentTcpInBufferedOctets",
+    "oid": "1.3.6.1.3.88.1.2.3.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentTcpReXmts": {
+    "name": "slapmSubcomponentTcpReXmts",
+    "oid": "1.3.6.1.3.88.1.2.3.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentTcpRoundTripTime": {
+    "name": "slapmSubcomponentTcpRoundTripTime",
+    "oid": "1.3.6.1.3.88.1.2.3.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentTcpRoundTripVariance": {
+    "name": "slapmSubcomponentTcpRoundTripVariance",
+    "oid": "1.3.6.1.3.88.1.2.3.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentInPdus": {
+    "name": "slapmSubcomponentInPdus",
+    "oid": "1.3.6.1.3.88.1.2.3.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentOutPdus": {
+    "name": "slapmSubcomponentOutPdus",
+    "oid": "1.3.6.1.3.88.1.2.3.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentApplName": {
+    "name": "slapmSubcomponentApplName",
+    "oid": "1.3.6.1.3.88.1.2.3.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentMonitorStatus": {
+    "name": "slapmSubcomponentMonitorStatus",
+    "oid": "1.3.6.1.3.88.1.2.3.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlapmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentMonitorIntTime": {
+    "name": "slapmSubcomponentMonitorIntTime",
+    "oid": "1.3.6.1.3.88.1.2.3.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentMonitorCurrentInRate": {
+    "name": "slapmSubcomponentMonitorCurrentInRate",
+    "oid": "1.3.6.1.3.88.1.2.3.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentMonitorCurrentOutRate": {
+    "name": "slapmSubcomponentMonitorCurrentOutRate",
+    "oid": "1.3.6.1.3.88.1.2.3.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmSubcomponentPolicyRuleIndex": {
+    "name": "slapmSubcomponentPolicyRuleIndex",
+    "oid": "1.3.6.1.3.88.1.2.3.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyNameTable": {
+    "name": "slapmPolicyNameTable",
+    "oid": "1.3.6.1.3.88.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmPolicyNameEntry": {
+    "name": "slapmPolicyNameEntry",
+    "oid": "1.3.6.1.3.88.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyNameSystemAddress",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slapmPolicyNameSystemAddress": {
+    "name": "slapmPolicyNameSystemAddress",
+    "oid": "1.3.6.1.3.88.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmPolicyNameIndex": {
+    "name": "slapmPolicyNameIndex",
+    "oid": "1.3.6.1.3.88.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmPolicyNameOfRule": {
+    "name": "slapmPolicyNameOfRule",
+    "oid": "1.3.6.1.3.88.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlapmPolicyRuleName",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsTable": {
+    "name": "slapmPolicyRuleStatsTable",
+    "oid": "1.3.6.1.3.88.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsEntry": {
+    "name": "slapmPolicyRuleStatsEntry",
+    "oid": "1.3.6.1.3.88.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyNameSystemAddress",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyNameIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsOperStatus": {
+    "name": "slapmPolicyRuleStatsOperStatus",
+    "oid": "1.3.6.1.3.88.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "active": 2,
+          "deleteNeeded": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsActiveConns": {
+    "name": "slapmPolicyRuleStatsActiveConns",
+    "oid": "1.3.6.1.3.88.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsTotalConns": {
+    "name": "slapmPolicyRuleStatsTotalConns",
+    "oid": "1.3.6.1.3.88.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsLActivated": {
+    "name": "slapmPolicyRuleStatsLActivated",
+    "oid": "1.3.6.1.3.88.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsLastMapping": {
+    "name": "slapmPolicyRuleStatsLastMapping",
+    "oid": "1.3.6.1.3.88.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsInOctets": {
+    "name": "slapmPolicyRuleStatsInOctets",
+    "oid": "1.3.6.1.3.88.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsOutOctets": {
+    "name": "slapmPolicyRuleStatsOutOctets",
+    "oid": "1.3.6.1.3.88.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsConnLimit": {
+    "name": "slapmPolicyRuleStatsConnLimit",
+    "oid": "1.3.6.1.3.88.1.2.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsCountAccepts": {
+    "name": "slapmPolicyRuleStatsCountAccepts",
+    "oid": "1.3.6.1.3.88.1.2.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsCountDenies": {
+    "name": "slapmPolicyRuleStatsCountDenies",
+    "oid": "1.3.6.1.3.88.1.2.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsInDiscards": {
+    "name": "slapmPolicyRuleStatsInDiscards",
+    "oid": "1.3.6.1.3.88.1.2.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsOutDiscards": {
+    "name": "slapmPolicyRuleStatsOutDiscards",
+    "oid": "1.3.6.1.3.88.1.2.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsInPackets": {
+    "name": "slapmPolicyRuleStatsInPackets",
+    "oid": "1.3.6.1.3.88.1.2.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsOutPackets": {
+    "name": "slapmPolicyRuleStatsOutPackets",
+    "oid": "1.3.6.1.3.88.1.2.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsInProOctets": {
+    "name": "slapmPolicyRuleStatsInProOctets",
+    "oid": "1.3.6.1.3.88.1.2.5.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsOutProOctets": {
+    "name": "slapmPolicyRuleStatsOutProOctets",
+    "oid": "1.3.6.1.3.88.1.2.5.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsMinRate": {
+    "name": "slapmPolicyRuleStatsMinRate",
+    "oid": "1.3.6.1.3.88.1.2.5.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsMaxRate": {
+    "name": "slapmPolicyRuleStatsMaxRate",
+    "oid": "1.3.6.1.3.88.1.2.5.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "Kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsMaxDelay": {
+    "name": "slapmPolicyRuleStatsMaxDelay",
+    "oid": "1.3.6.1.3.88.1.2.5.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsTotalRsvpFlows": {
+    "name": "slapmPolicyRuleStatsTotalRsvpFlows",
+    "oid": "1.3.6.1.3.88.1.2.5.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPolicyRuleStatsActRsvpFlows": {
+    "name": "slapmPolicyRuleStatsActRsvpFlows",
+    "oid": "1.3.6.1.3.88.1.2.5.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonTable": {
+    "name": "slapmPRMonTable",
+    "oid": "1.3.6.1.3.88.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmPRMonEntry": {
+    "name": "slapmPRMonEntry",
+    "oid": "1.3.6.1.3.88.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonOwnerIndex",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonSystemAddress",
+        "implied": 0
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "slapmPRMonOwnerIndex": {
+    "name": "slapmPRMonOwnerIndex",
+    "oid": "1.3.6.1.3.88.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmPRMonSystemAddress": {
+    "name": "slapmPRMonSystemAddress",
+    "oid": "1.3.6.1.3.88.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 4,
+            "max": 4
+          },
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmPRMonIndex": {
+    "name": "slapmPRMonIndex",
+    "oid": "1.3.6.1.3.88.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "slapmPRMonControl": {
+    "name": "slapmPRMonControl",
+    "oid": "1.3.6.1.3.88.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "monitorMinRate": 0,
+        "monitorMaxRate": 1,
+        "monitorMaxDelay": 2,
+        "enableAggregateTraps": 3,
+        "enableSubcomponentTraps": 4,
+        "monitorSubcomponents": 5
+      }
+    },
+    "default": {
+      "value": {
+        "type": "Bits",
+        "class": "type",
+        "bits": {
+          "monitorMinRate": 0,
+          "monitorMaxRate": 1,
+          "monitorMaxDelay": 2
+        }
+      },
+      "format": "bits"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slapmPRMonStatus": {
+    "name": "slapmPRMonStatus",
+    "oid": "1.3.6.1.3.88.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SlapmStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonInterval": {
+    "name": "slapmPRMonInterval",
+    "oid": "1.3.6.1.3.88.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 15,
+            "max": 86400
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 20,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slapmPRMonIntTime": {
+    "name": "slapmPRMonIntTime",
+    "oid": "1.3.6.1.3.88.1.2.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonCurrentInRate": {
+    "name": "slapmPRMonCurrentInRate",
+    "oid": "1.3.6.1.3.88.1.2.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonCurrentOutRate": {
+    "name": "slapmPRMonCurrentOutRate",
+    "oid": "1.3.6.1.3.88.1.2.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonMinRateLow": {
+    "name": "slapmPRMonMinRateLow",
+    "oid": "1.3.6.1.3.88.1.2.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slapmPRMonMinRateHigh": {
+    "name": "slapmPRMonMinRateHigh",
+    "oid": "1.3.6.1.3.88.1.2.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slapmPRMonMaxRateHigh": {
+    "name": "slapmPRMonMaxRateHigh",
+    "oid": "1.3.6.1.3.88.1.2.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slapmPRMonMaxRateLow": {
+    "name": "slapmPRMonMaxRateLow",
+    "oid": "1.3.6.1.3.88.1.2.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "kilobits per second",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slapmPRMonMaxDelayHigh": {
+    "name": "slapmPRMonMaxDelayHigh",
+    "oid": "1.3.6.1.3.88.1.2.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slapmPRMonMaxDelayLow": {
+    "name": "slapmPRMonMaxDelayLow",
+    "oid": "1.3.6.1.3.88.1.2.6.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slapmPRMonMinInRateNotAchieves": {
+    "name": "slapmPRMonMinInRateNotAchieves",
+    "oid": "1.3.6.1.3.88.1.2.6.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonMaxInRateExceeds": {
+    "name": "slapmPRMonMaxInRateExceeds",
+    "oid": "1.3.6.1.3.88.1.2.6.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonMaxDelayExceeds": {
+    "name": "slapmPRMonMaxDelayExceeds",
+    "oid": "1.3.6.1.3.88.1.2.6.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonMinOutRateNotAchieves": {
+    "name": "slapmPRMonMinOutRateNotAchieves",
+    "oid": "1.3.6.1.3.88.1.2.6.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonMaxOutRateExceeds": {
+    "name": "slapmPRMonMaxOutRateExceeds",
+    "oid": "1.3.6.1.3.88.1.2.6.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonCurrentDelayRate": {
+    "name": "slapmPRMonCurrentDelayRate",
+    "oid": "1.3.6.1.3.88.1.2.6.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "slapmPRMonRowStatus": {
+    "name": "slapmPRMonRowStatus",
+    "oid": "1.3.6.1.3.88.1.2.6.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "slapmMonitoredEventNotAchieved": {
+    "name": "slapmMonitoredEventNotAchieved",
+    "oid": "1.3.6.1.3.88.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorControl"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentDelayRate"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmMonitoredEventOkay": {
+    "name": "slapmMonitoredEventOkay",
+    "oid": "1.3.6.1.3.88.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorControl"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentDelayRate"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmPolicyProfileDeleted": {
+    "name": "slapmPolicyProfileDeleted",
+    "oid": "1.3.6.1.3.88.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsActiveConns"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsTotalConns"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsFirstActivated"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsLastMapping"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsInOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsOutOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsConnectionLimit"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsCountAccepts"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsCountDenies"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsInDiscards"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsOutDiscards"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsInPackets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsOutPackets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsInProfileOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsOutProfileOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsMinRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsMaxRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsMaxDelay"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmPolicyMonitorDeleted": {
+    "name": "slapmPolicyMonitorDeleted",
+    "oid": "1.3.6.1.3.88.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorInterval"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentDelayRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMinRateLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMinRateHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxRateHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxRateLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxDelayHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxDelayLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMinInRateNotAchieves"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxInRateExceeds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxDelayExceeds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMinOutRateNotAchieves"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxOutRateExceeds"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmSubcomponentMonitoredEventNotAchieved": {
+    "name": "slapmSubcomponentMonitoredEventNotAchieved",
+    "oid": "1.3.6.1.3.88.0.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentSystemAddress"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentPolicyName"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTrafficProfileName"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpRoundTripTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmSubcomponentMonitoredEventOkay": {
+    "name": "slapmSubcomponentMonitoredEventOkay",
+    "oid": "1.3.6.1.3.88.0.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentSystemAddress"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentPolicyName"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTrafficProfileName"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpRoundTripTime"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmPolicyRuleMonNotOkay": {
+    "name": "slapmPolicyRuleMonNotOkay",
+    "oid": "1.3.6.1.3.88.0.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonControl"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentDelayRate"
+      }
+    ],
+    "status": "current"
+  },
+  "slapmPolicyRuleMonOkay": {
+    "name": "slapmPolicyRuleMonOkay",
+    "oid": "1.3.6.1.3.88.0.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonControl"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentDelayRate"
+      }
+    ],
+    "status": "current"
+  },
+  "slapmPolicyRuleDeleted": {
+    "name": "slapmPolicyRuleDeleted",
+    "oid": "1.3.6.1.3.88.0.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsActiveConns"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsTotalConns"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsLActivated"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsLastMapping"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsInOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsOutOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsConnLimit"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsCountAccepts"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsCountDenies"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsInDiscards"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsOutDiscards"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsInPackets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsOutPackets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsInProOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsOutProOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsMinRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsMaxRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsMaxDelay"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsTotalRsvpFlows"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsActRsvpFlows"
+      }
+    ],
+    "status": "current"
+  },
+  "slapmPolicyRuleMonDeleted": {
+    "name": "slapmPolicyRuleMonDeleted",
+    "oid": "1.3.6.1.3.88.0.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonControl"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonInterval"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentDelayRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMinRateLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMinRateHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxRateHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxRateLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxDelayHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxDelayLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMinInRateNotAchieves"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxInRateExceeds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxDelayExceeds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMinOutRateNotAchieves"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxOutRateExceeds"
+      }
+    ],
+    "status": "current"
+  },
+  "slapmSubcMonitorNotOkay": {
+    "name": "slapmSubcMonitorNotOkay",
+    "oid": "1.3.6.1.3.88.0.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentSystemAddress"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentPolicyRuleIndex"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonControl"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpRoundTripTime"
+      }
+    ],
+    "status": "current"
+  },
+  "slapmSubcMonitorOkay": {
+    "name": "slapmSubcMonitorOkay",
+    "oid": "1.3.6.1.3.88.0.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentSystemAddress"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentPolicyRuleIndex"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonControl"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpRoundTripTime"
+      }
+    ],
+    "status": "current"
+  },
+  "slapmCompliances": {
+    "name": "slapmCompliances",
+    "oid": "1.3.6.1.3.88.2.1",
+    "class": "objectidentity"
+  },
+  "slapmGroups": {
+    "name": "slapmGroups",
+    "oid": "1.3.6.1.3.88.2.2",
+    "class": "objectidentity"
+  },
+  "slapmCompliance": {
+    "name": "slapmCompliance",
+    "oid": "1.3.6.1.3.88.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "slapmBaseGroup2",
+        "module": "SLAPM-MIB"
+      },
+      {
+        "object": "slapmNotGroup2",
+        "module": "SLAPM-MIB"
+      },
+      {
+        "object": "slapmEndSystemGroup2",
+        "module": "SLAPM-MIB"
+      },
+      {
+        "object": "slapmEndSystemNotGroup2",
+        "module": "SLAPM-MIB"
+      },
+      {
+        "object": "slapmBaseGroup",
+        "module": "SLAPM-MIB"
+      },
+      {
+        "object": "slapmNotGroup",
+        "module": "SLAPM-MIB"
+      },
+      {
+        "object": "slapmOptionalGroup",
+        "module": "SLAPM-MIB"
+      },
+      {
+        "object": "slapmEndSystemGroup",
+        "module": "SLAPM-MIB"
+      },
+      {
+        "object": "slapmEndSystemNotGroup",
+        "module": "SLAPM-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "slapmBaseGroup": {
+    "name": "slapmBaseGroup",
+    "oid": "1.3.6.1.3.88.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSpinLock"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyCountQueries"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyCountAccesses"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyCountSuccessAccesses"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyCountNotFounds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyPurgeTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyTrapEnable"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsOperStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsActiveConns"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsFirstActivated"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsLastMapping"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsInOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsOutOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsConnectionLimit"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsTotalConns"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsCountAccepts"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsCountDenies"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsInDiscards"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsOutDiscards"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsInPackets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsOutPackets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsMinRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsMaxRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsMaxDelay"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorControl"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorInterval"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMinRateLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMinRateHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxRateHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxRateLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxDelayHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxDelayLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMinInRateNotAchieves"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxInRateExceeds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxDelayExceeds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMinOutRateNotAchieves"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorMaxOutRateExceeds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorCurrentDelayRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorRowStatus"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmOptionalGroup": {
+    "name": "slapmOptionalGroup",
+    "oid": "1.3.6.1.3.88.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsInProfileOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyStatsOutProfileOctets"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmEndSystemGroup": {
+    "name": "slapmEndSystemGroup",
+    "oid": "1.3.6.1.3.88.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyTrapFilter"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentProtocol"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentSystemAddress"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentPolicyName"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTrafficProfileName"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentLastActivity"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentInOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentOutOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpOutBufferedOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpInBufferedOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpReXmts"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpRoundTripTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpRoundTripVariance"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentInPdus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentOutPdus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentApplName"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentInRate"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmNotGroup": {
+    "name": "slapmNotGroup",
+    "oid": "1.3.6.1.3.88.2.2.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmMonitoredEventNotAchieved"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmMonitoredEventOkay"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyProfileDeleted"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyMonitorDeleted"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmEndSystemNotGroup": {
+    "name": "slapmEndSystemNotGroup",
+    "oid": "1.3.6.1.3.88.2.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitoredEventNotAchieved"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitoredEventOkay"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "slapmBaseGroup2": {
+    "name": "slapmBaseGroup2",
+    "oid": "1.3.6.1.3.88.2.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSpinLock"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyCountQueries"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyCountAccesses"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyCountSuccessAccesses"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyCountNotFounds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyPurgeTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyTrapEnable"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyNameOfRule"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsOperStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsActiveConns"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsTotalConns"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsLActivated"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsLastMapping"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsInOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsOutOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsConnLimit"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsCountAccepts"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsCountDenies"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsInDiscards"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsOutDiscards"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsInPackets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsOutPackets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsInProOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsOutProOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsMinRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsMaxRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsMaxDelay"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsTotalRsvpFlows"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleStatsActRsvpFlows"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonControl"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonInterval"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMinRateLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMinRateHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxRateHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxRateLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxDelayHigh"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxDelayLow"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMinInRateNotAchieves"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxInRateExceeds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxDelayExceeds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMinOutRateNotAchieves"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonMaxOutRateExceeds"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonCurrentDelayRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPRMonRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "slapmEndSystemGroup2": {
+    "name": "slapmEndSystemGroup2",
+    "oid": "1.3.6.1.3.88.2.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyTrapFilter"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentProtocol"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentSystemAddress"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentLastActivity"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentInOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentOutOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpOutBufferedOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpInBufferedOctets"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpReXmts"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpRoundTripTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentTcpRoundTripVariance"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentInPdus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentOutPdus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentApplName"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorStatus"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorIntTime"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentOutRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentMonitorCurrentInRate"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcomponentPolicyRuleIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "slapmNotGroup2": {
+    "name": "slapmNotGroup2",
+    "oid": "1.3.6.1.3.88.2.2.8",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleMonNotOkay"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleMonOkay"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleDeleted"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmPolicyRuleMonDeleted"
+      }
+    ],
+    "status": "current"
+  },
+  "slapmEndSystemNotGroup2": {
+    "name": "slapmEndSystemNotGroup2",
+    "oid": "1.3.6.1.3.88.2.2.9",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcMonitorNotOkay"
+      },
+      {
+        "module": "SLAPM-MIB",
+        "object": "slapmSubcMonitorOkay"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/SLAPM-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "SLAPM-MIB"
+  }
+}

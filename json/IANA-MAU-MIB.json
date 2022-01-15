@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Bits",
+      "Gauge32",
+      "iso",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Unsigned32",
       "Integer32",
       "Counter32",
-      "iso",
-      "Gauge32",
       "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "Bits",
       "Counter64",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -32,6 +32,10 @@
     "oid": "1.3.6.1.2.1.154",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2011-08-12 00:00",
+        "description": "Added MAU types and associated AutoNeg capability bits specified in amendments to IEEE Std 802.3-2008: IEEE Std 802.3ba-2010 and IEEE Std 802.3bg-2011."
+      },
       {
         "revision": "2010-02-23 00:00",
         "description": "Added assignments that will be included in Clause 14 of IEEE P802.3.1."
@@ -118,7 +122,16 @@
         "b10GbasePRD2": 66,
         "b10GbasePRD3": 67,
         "b10GbasePRU1": 68,
-        "b10GbasePRU3": 69
+        "b10GbasePRU3": 69,
+        "b40GbaseKR4": 70,
+        "b40GbaseCR4": 71,
+        "b40GbaseSR4": 72,
+        "b40GbaseFR": 73,
+        "b40GbaseLR4": 74,
+        "b100GbaseCR10": 75,
+        "b100GbaseSR10": 76,
+        "b100GbaseLR4": 77,
+        "b100GbaseER4": 78
       }
     },
     "status": "current"
@@ -182,7 +195,10 @@
         "b10GbaseT": 16,
         "b1000baseKX": 17,
         "b10GbaseKX4": 18,
-        "b10GbaseKR": 19
+        "b10GbaseKR": 19,
+        "b40GbaseKR4": 20,
+        "b40GbaseCR4": 21,
+        "b100GbaseCR10": 22
       }
     },
     "status": "current"
@@ -634,11 +650,65 @@
     "class": "objectidentity",
     "status": "current"
   },
+  "dot3MauType40GbaseKR4": {
+    "name": "dot3MauType40GbaseKR4",
+    "oid": "1.3.6.1.2.1.26.4.70",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseCR4": {
+    "name": "dot3MauType40GbaseCR4",
+    "oid": "1.3.6.1.2.1.26.4.71",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseSR4": {
+    "name": "dot3MauType40GbaseSR4",
+    "oid": "1.3.6.1.2.1.26.4.72",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseFR": {
+    "name": "dot3MauType40GbaseFR",
+    "oid": "1.3.6.1.2.1.26.4.73",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType40GbaseLR4": {
+    "name": "dot3MauType40GbaseLR4",
+    "oid": "1.3.6.1.2.1.26.4.74",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseCR10": {
+    "name": "dot3MauType100GbaseCR10",
+    "oid": "1.3.6.1.2.1.26.4.75",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseSR10": {
+    "name": "dot3MauType100GbaseSR10",
+    "oid": "1.3.6.1.2.1.26.4.76",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseLR4": {
+    "name": "dot3MauType100GbaseLR4",
+    "oid": "1.3.6.1.2.1.26.4.77",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3MauType100GbaseER4": {
+    "name": "dot3MauType100GbaseER4",
+    "oid": "1.3.6.1.2.1.26.4.78",
+    "class": "objectidentity",
+    "status": "current"
+  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IANA-MAU-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANA-MAU-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IANA-MAU-MIB"

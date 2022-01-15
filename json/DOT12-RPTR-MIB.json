@@ -1,0 +1,1478 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "mib-2",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString"
+    ]
+  },
+  "vgRptrMIB": {
+    "name": "vgRptrMIB",
+    "oid": "1.3.6.1.2.1.53",
+    "class": "moduleidentity"
+  },
+  "vgRptrObjects": {
+    "name": "vgRptrObjects",
+    "oid": "1.3.6.1.2.1.53.1",
+    "class": "objectidentity"
+  },
+  "vgRptrBasic": {
+    "name": "vgRptrBasic",
+    "oid": "1.3.6.1.2.1.53.1.1",
+    "class": "objectidentity"
+  },
+  "vgRptrBasicRptr": {
+    "name": "vgRptrBasicRptr",
+    "oid": "1.3.6.1.2.1.53.1.1.1",
+    "class": "objectidentity"
+  },
+  "vgRptrInfoTable": {
+    "name": "vgRptrInfoTable",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vgRptrInfoEntry": {
+    "name": "vgRptrInfoEntry",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrInfoIndex": {
+    "name": "vgRptrInfoIndex",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vgRptrInfoMACAddress": {
+    "name": "vgRptrInfoMACAddress",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrInfoCurrentFramingType": {
+    "name": "vgRptrInfoCurrentFramingType",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameType88023": 1,
+          "frameType88025": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrInfoDesiredFramingType": {
+    "name": "vgRptrInfoDesiredFramingType",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameType88023": 1,
+          "frameType88025": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vgRptrInfoFramingCapability": {
+    "name": "vgRptrInfoFramingCapability",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "frameType88023": 1,
+          "frameType88025": 2,
+          "frameTypeEither": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrInfoTrainingVersion": {
+    "name": "vgRptrInfoTrainingVersion",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 7
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrInfoOperStatus": {
+    "name": "vgRptrInfoOperStatus",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "ok": 2,
+          "generalFailure": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrInfoReset": {
+    "name": "vgRptrInfoReset",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noReset": 1,
+          "reset": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vgRptrInfoLastChange": {
+    "name": "vgRptrInfoLastChange",
+    "oid": "1.3.6.1.2.1.53.1.1.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrBasicGroup": {
+    "name": "vgRptrBasicGroup",
+    "oid": "1.3.6.1.2.1.53.1.1.2",
+    "class": "objectidentity"
+  },
+  "vgRptrBasicGroupTable": {
+    "name": "vgRptrBasicGroupTable",
+    "oid": "1.3.6.1.2.1.53.1.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vgRptrBasicGroupEntry": {
+    "name": "vgRptrBasicGroupEntry",
+    "oid": "1.3.6.1.2.1.53.1.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrGroupIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrGroupIndex": {
+    "name": "vgRptrGroupIndex",
+    "oid": "1.3.6.1.2.1.53.1.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2146483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vgRptrGroupObjectID": {
+    "name": "vgRptrGroupObjectID",
+    "oid": "1.3.6.1.2.1.53.1.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrGroupOperStatus": {
+    "name": "vgRptrGroupOperStatus",
+    "oid": "1.3.6.1.2.1.53.1.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "operational": 2,
+          "malfunctioning": 3,
+          "notPresent": 4,
+          "underTest": 5,
+          "resetInProgress": 6
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrGroupPortCapacity": {
+    "name": "vgRptrGroupPortCapacity",
+    "oid": "1.3.6.1.2.1.53.1.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2146483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrGroupCablesBundled": {
+    "name": "vgRptrGroupCablesBundled",
+    "oid": "1.3.6.1.2.1.53.1.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "someCablesBundled": 1,
+          "noCablesBundled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vgRptrBasicPort": {
+    "name": "vgRptrBasicPort",
+    "oid": "1.3.6.1.2.1.53.1.1.3",
+    "class": "objectidentity"
+  },
+  "vgRptrBasicPortTable": {
+    "name": "vgRptrBasicPortTable",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vgRptrBasicPortEntry": {
+    "name": "vgRptrBasicPortEntry",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrPortIndex": {
+    "name": "vgRptrPortIndex",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vgRptrPortType": {
+    "name": "vgRptrPortType",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cascadeExternal": 1,
+          "cascadeInternal": 2,
+          "localExternal": 3,
+          "localInternal": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortAdminStatus": {
+    "name": "vgRptrPortAdminStatus",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vgRptrPortOperStatus": {
+    "name": "vgRptrPortOperStatus",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "active": 1,
+          "inactive": 2,
+          "training": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortSupportedPromiscMode": {
+    "name": "vgRptrPortSupportedPromiscMode",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "singleModeOnly": 1,
+          "singleOrPromiscMode": 2,
+          "promiscModeOnly": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortSupportedCascadeMode": {
+    "name": "vgRptrPortSupportedCascadeMode",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "endNodesOnly": 1,
+          "endNodesOrRepeaters": 2,
+          "cascadePort": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortAllowedTrainType": {
+    "name": "vgRptrPortAllowedTrainType",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "allowEndNodesOnly": 1,
+          "allowPromiscuousEndNodes": 2,
+          "allowEndNodesOrRepeaters": 3,
+          "allowAnything": 4
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vgRptrPortLastTrainConfig": {
+    "name": "vgRptrPortLastTrainConfig",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortTrainingResult": {
+    "name": "vgRptrPortTrainingResult",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 3
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortPriorityEnable": {
+    "name": "vgRptrPortPriorityEnable",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vgRptrPortRptrInfoIndex": {
+    "name": "vgRptrPortRptrInfoIndex",
+    "oid": "1.3.6.1.2.1.53.1.1.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrMonitor": {
+    "name": "vgRptrMonitor",
+    "oid": "1.3.6.1.2.1.53.1.2",
+    "class": "objectidentity"
+  },
+  "vgRptrMonRepeater": {
+    "name": "vgRptrMonRepeater",
+    "oid": "1.3.6.1.2.1.53.1.2.1",
+    "class": "objectidentity"
+  },
+  "vgRptrMonitorTable": {
+    "name": "vgRptrMonitorTable",
+    "oid": "1.3.6.1.2.1.53.1.2.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vgRptrMonitorEntry": {
+    "name": "vgRptrMonitorEntry",
+    "oid": "1.3.6.1.2.1.53.1.2.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrMonTotalReadableFrames": {
+    "name": "vgRptrMonTotalReadableFrames",
+    "oid": "1.3.6.1.2.1.53.1.2.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrMonTotalReadableOctets": {
+    "name": "vgRptrMonTotalReadableOctets",
+    "oid": "1.3.6.1.2.1.53.1.2.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrMonReadableOctetRollovers": {
+    "name": "vgRptrMonReadableOctetRollovers",
+    "oid": "1.3.6.1.2.1.53.1.2.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrMonHCTotalReadableOctets": {
+    "name": "vgRptrMonHCTotalReadableOctets",
+    "oid": "1.3.6.1.2.1.53.1.2.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrMonTotalErrors": {
+    "name": "vgRptrMonTotalErrors",
+    "oid": "1.3.6.1.2.1.53.1.2.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrMonGroup": {
+    "name": "vgRptrMonGroup",
+    "oid": "1.3.6.1.2.1.53.1.2.2",
+    "class": "objectidentity"
+  },
+  "vgRptrMonPort": {
+    "name": "vgRptrMonPort",
+    "oid": "1.3.6.1.2.1.53.1.2.3",
+    "class": "objectidentity"
+  },
+  "vgRptrMonPortTable": {
+    "name": "vgRptrMonPortTable",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vgRptrMonPortEntry": {
+    "name": "vgRptrMonPortEntry",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrPortReadableFrames": {
+    "name": "vgRptrPortReadableFrames",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortReadableOctets": {
+    "name": "vgRptrPortReadableOctets",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortReadOctetRollovers": {
+    "name": "vgRptrPortReadOctetRollovers",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortHCReadableOctets": {
+    "name": "vgRptrPortHCReadableOctets",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortUnreadableOctets": {
+    "name": "vgRptrPortUnreadableOctets",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortUnreadOctetRollovers": {
+    "name": "vgRptrPortUnreadOctetRollovers",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortHCUnreadableOctets": {
+    "name": "vgRptrPortHCUnreadableOctets",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortHighPriorityFrames": {
+    "name": "vgRptrPortHighPriorityFrames",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortHighPriorityOctets": {
+    "name": "vgRptrPortHighPriorityOctets",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortHighPriOctetRollovers": {
+    "name": "vgRptrPortHighPriOctetRollovers",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortHCHighPriorityOctets": {
+    "name": "vgRptrPortHCHighPriorityOctets",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortNormPriorityFrames": {
+    "name": "vgRptrPortNormPriorityFrames",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortNormPriorityOctets": {
+    "name": "vgRptrPortNormPriorityOctets",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortNormPriOctetRollovers": {
+    "name": "vgRptrPortNormPriOctetRollovers",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortHCNormPriorityOctets": {
+    "name": "vgRptrPortHCNormPriorityOctets",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortBroadcastFrames": {
+    "name": "vgRptrPortBroadcastFrames",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortMulticastFrames": {
+    "name": "vgRptrPortMulticastFrames",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortNullAddressedFrames": {
+    "name": "vgRptrPortNullAddressedFrames",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortIPMFrames": {
+    "name": "vgRptrPortIPMFrames",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortOversizeFrames": {
+    "name": "vgRptrPortOversizeFrames",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortDataErrorFrames": {
+    "name": "vgRptrPortDataErrorFrames",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortPriorityPromotions": {
+    "name": "vgRptrPortPriorityPromotions",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortTransitionToTrainings": {
+    "name": "vgRptrPortTransitionToTrainings",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrPortLastChange": {
+    "name": "vgRptrPortLastChange",
+    "oid": "1.3.6.1.2.1.53.1.2.3.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrAddrTrack": {
+    "name": "vgRptrAddrTrack",
+    "oid": "1.3.6.1.2.1.53.1.3",
+    "class": "objectidentity"
+  },
+  "vgRptrAddrTrackRptr": {
+    "name": "vgRptrAddrTrackRptr",
+    "oid": "1.3.6.1.2.1.53.1.3.1",
+    "class": "objectidentity"
+  },
+  "vgRptrAddrTrackGroup": {
+    "name": "vgRptrAddrTrackGroup",
+    "oid": "1.3.6.1.2.1.53.1.3.2",
+    "class": "objectidentity"
+  },
+  "vgRptrAddrTrackPort": {
+    "name": "vgRptrAddrTrackPort",
+    "oid": "1.3.6.1.2.1.53.1.3.3",
+    "class": "objectidentity"
+  },
+  "vgRptrAddrTrackTable": {
+    "name": "vgRptrAddrTrackTable",
+    "oid": "1.3.6.1.2.1.53.1.3.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "vgRptrAddrTrackEntry": {
+    "name": "vgRptrAddrTrackEntry",
+    "oid": "1.3.6.1.2.1.53.1.3.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrGroupIndex",
+        "implied": 0
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrAddrLastTrainedAddress": {
+    "name": "vgRptrAddrLastTrainedAddress",
+    "oid": "1.3.6.1.2.1.53.1.3.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 0
+          },
+          {
+            "min": 6,
+            "max": 6
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrAddrTrainedAddrChanges": {
+    "name": "vgRptrAddrTrainedAddrChanges",
+    "oid": "1.3.6.1.2.1.53.1.3.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrRptrDetectedDupAddress": {
+    "name": "vgRptrRptrDetectedDupAddress",
+    "oid": "1.3.6.1.2.1.53.1.3.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "vgRptrMgrDetectedDupAddress": {
+    "name": "vgRptrMgrDetectedDupAddress",
+    "oid": "1.3.6.1.2.1.53.1.3.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "vgRptrTraps": {
+    "name": "vgRptrTraps",
+    "oid": "1.3.6.1.2.1.53.2",
+    "class": "objectidentity"
+  },
+  "vgRptrTrapPrefix": {
+    "name": "vgRptrTrapPrefix",
+    "oid": "1.3.6.1.2.1.53.2.0",
+    "class": "objectidentity"
+  },
+  "vgRptrHealth": {
+    "name": "vgRptrHealth",
+    "oid": "1.3.6.1.2.1.53.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrResetEvent": {
+    "name": "vgRptrResetEvent",
+    "oid": "1.3.6.1.2.1.53.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrConformance": {
+    "name": "vgRptrConformance",
+    "oid": "1.3.6.1.2.1.53.3",
+    "class": "objectidentity"
+  },
+  "vgRptrCompliances": {
+    "name": "vgRptrCompliances",
+    "oid": "1.3.6.1.2.1.53.3.1",
+    "class": "objectidentity"
+  },
+  "vgRptrGroups": {
+    "name": "vgRptrGroups",
+    "oid": "1.3.6.1.2.1.53.3.2",
+    "class": "objectidentity"
+  },
+  "vgRptrCompliance": {
+    "name": "vgRptrCompliance",
+    "oid": "1.3.6.1.2.1.53.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "vgRptrConfigGroup",
+        "module": "DOT12-RPTR-MIB"
+      },
+      {
+        "object": "vgRptrStatsGroup",
+        "module": "DOT12-RPTR-MIB"
+      },
+      {
+        "object": "vgRptrAddrGroup",
+        "module": "DOT12-RPTR-MIB"
+      },
+      {
+        "object": "vgRptrNotificationsGroup",
+        "module": "DOT12-RPTR-MIB"
+      },
+      {
+        "object": "vgRptrStats64Group",
+        "module": "DOT12-RPTR-MIB"
+      },
+      {
+        "object": "snmpRptrGrpRptrAddrSearch",
+        "module": "SNMP-REPEATER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrConfigGroup": {
+    "name": "vgRptrConfigGroup",
+    "oid": "1.3.6.1.2.1.53.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoMACAddress"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoCurrentFramingType"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoDesiredFramingType"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoFramingCapability"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoTrainingVersion"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoOperStatus"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoReset"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrInfoLastChange"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrGroupObjectID"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrGroupOperStatus"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrGroupPortCapacity"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrGroupCablesBundled"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortType"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortAdminStatus"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortOperStatus"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortSupportedPromiscMode"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortSupportedCascadeMode"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortAllowedTrainType"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortLastTrainConfig"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortTrainingResult"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortPriorityEnable"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortRptrInfoIndex"
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrStatsGroup": {
+    "name": "vgRptrStatsGroup",
+    "oid": "1.3.6.1.2.1.53.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrMonTotalReadableFrames"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrMonTotalReadableOctets"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrMonReadableOctetRollovers"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrMonTotalErrors"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortReadableFrames"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortReadableOctets"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortReadOctetRollovers"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortUnreadableOctets"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortUnreadOctetRollovers"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortHighPriorityFrames"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortHighPriorityOctets"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortHighPriOctetRollovers"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortNormPriorityFrames"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortNormPriorityOctets"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortNormPriOctetRollovers"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortBroadcastFrames"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortMulticastFrames"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortNullAddressedFrames"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortIPMFrames"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortOversizeFrames"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortDataErrorFrames"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortPriorityPromotions"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortTransitionToTrainings"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortLastChange"
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrStats64Group": {
+    "name": "vgRptrStats64Group",
+    "oid": "1.3.6.1.2.1.53.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrMonHCTotalReadableOctets"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortHCReadableOctets"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortHCUnreadableOctets"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortHCHighPriorityOctets"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrPortHCNormPriorityOctets"
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrAddrGroup": {
+    "name": "vgRptrAddrGroup",
+    "oid": "1.3.6.1.2.1.53.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrAddrLastTrainedAddress"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrAddrTrainedAddrChanges"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrRptrDetectedDupAddress"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrMgrDetectedDupAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "vgRptrNotificationsGroup": {
+    "name": "vgRptrNotificationsGroup",
+    "oid": "1.3.6.1.2.1.53.3.2.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrHealth"
+      },
+      {
+        "module": "DOT12-RPTR-MIB",
+        "object": "vgRptrResetEvent"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/DOT12-RPTR-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "DOT12-RPTR-MIB"
+  }
+}

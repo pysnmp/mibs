@@ -1,0 +1,327 @@
+{
+  "imports": {
+    "class": "imports",
+    "PPP-LCP-MIB": [
+      "ppp"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "pppSecurity": {
+    "name": "pppSecurity",
+    "oid": "1.3.6.1.2.1.10.23.2",
+    "class": "objectidentity"
+  },
+  "pppSecurityProtocols": {
+    "name": "pppSecurityProtocols",
+    "oid": "1.3.6.1.2.1.10.23.2.1",
+    "class": "objectidentity"
+  },
+  "pppSecurityPapProtocol": {
+    "name": "pppSecurityPapProtocol",
+    "oid": "1.3.6.1.2.1.10.23.2.1.1",
+    "class": "objectidentity"
+  },
+  "pppSecurityChapMD5Protocol": {
+    "name": "pppSecurityChapMD5Protocol",
+    "oid": "1.3.6.1.2.1.10.23.2.1.2",
+    "class": "objectidentity"
+  },
+  "pppSecurityConfigTable": {
+    "name": "pppSecurityConfigTable",
+    "oid": "1.3.6.1.2.1.10.23.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppSecurityConfigEntry": {
+    "name": "pppSecurityConfigEntry",
+    "oid": "1.3.6.1.2.1.10.23.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PPP-SEC-MIB",
+        "object": "pppSecurityConfigLink",
+        "implied": 0
+      },
+      {
+        "module": "PPP-SEC-MIB",
+        "object": "pppSecurityConfigPreference",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppSecurityConfigLink": {
+    "name": "pppSecurityConfigLink",
+    "oid": "1.3.6.1.2.1.10.23.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppSecurityConfigPreference": {
+    "name": "pppSecurityConfigPreference",
+    "oid": "1.3.6.1.2.1.10.23.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppSecurityConfigProtocol": {
+    "name": "pppSecurityConfigProtocol",
+    "oid": "1.3.6.1.2.1.10.23.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppSecurityConfigStatus": {
+    "name": "pppSecurityConfigStatus",
+    "oid": "1.3.6.1.2.1.10.23.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "valid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppSecuritySecretsTable": {
+    "name": "pppSecuritySecretsTable",
+    "oid": "1.3.6.1.2.1.10.23.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "mandatory"
+  },
+  "pppSecuritySecretsEntry": {
+    "name": "pppSecuritySecretsEntry",
+    "oid": "1.3.6.1.2.1.10.23.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "PPP-SEC-MIB",
+        "object": "pppSecuritySecretsLink",
+        "implied": 0
+      },
+      {
+        "module": "PPP-SEC-MIB",
+        "object": "pppSecuritySecretsIdIndex",
+        "implied": 0
+      }
+    ],
+    "status": "mandatory"
+  },
+  "pppSecuritySecretsLink": {
+    "name": "pppSecuritySecretsLink",
+    "oid": "1.3.6.1.2.1.10.23.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSecuritySecretsIdIndex": {
+    "name": "pppSecuritySecretsIdIndex",
+    "oid": "1.3.6.1.2.1.10.23.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "mandatory"
+  },
+  "pppSecuritySecretsDirection": {
+    "name": "pppSecuritySecretsDirection",
+    "oid": "1.3.6.1.2.1.10.23.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "local-to-remote": 1,
+          "remote-to-local": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppSecuritySecretsProtocol": {
+    "name": "pppSecuritySecretsProtocol",
+    "oid": "1.3.6.1.2.1.10.23.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppSecuritySecretsIdentity": {
+    "name": "pppSecuritySecretsIdentity",
+    "oid": "1.3.6.1.2.1.10.23.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppSecuritySecretsSecret": {
+    "name": "pppSecuritySecretsSecret",
+    "oid": "1.3.6.1.2.1.10.23.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "pppSecuritySecretsStatus": {
+    "name": "pppSecuritySecretsStatus",
+    "oid": "1.3.6.1.2.1.10.23.2.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 1,
+          "valid": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "valid",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "mandatory"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/PPP-SEC-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "PPP-SEC-MIB"
+  }
+}

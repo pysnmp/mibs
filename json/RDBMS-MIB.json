@@ -1,0 +1,1339 @@
+{
+  "imports": {
+    "class": "imports",
+    "NETWORK-SERVICES-MIB": [
+      "applIndex",
+      "applGroups"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "AutonomousType",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime"
+    ]
+  },
+  "rdbmsMIB": {
+    "name": "rdbmsMIB",
+    "oid": "1.3.6.1.2.1.39",
+    "class": "moduleidentity"
+  },
+  "rdbmsObjects": {
+    "name": "rdbmsObjects",
+    "oid": "1.3.6.1.2.1.39.1",
+    "class": "objectidentity"
+  },
+  "rdbmsDbTable": {
+    "name": "rdbmsDbTable",
+    "oid": "1.3.6.1.2.1.39.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsDbEntry": {
+    "name": "rdbmsDbEntry",
+    "oid": "1.3.6.1.2.1.39.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsDbIndex": {
+    "name": "rdbmsDbIndex",
+    "oid": "1.3.6.1.2.1.39.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsDbPrivateMibOID": {
+    "name": "rdbmsDbPrivateMibOID",
+    "oid": "1.3.6.1.2.1.39.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbVendorName": {
+    "name": "rdbmsDbVendorName",
+    "oid": "1.3.6.1.2.1.39.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbName": {
+    "name": "rdbmsDbName",
+    "oid": "1.3.6.1.2.1.39.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbContact": {
+    "name": "rdbmsDbContact",
+    "oid": "1.3.6.1.2.1.39.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsDbInfoTable": {
+    "name": "rdbmsDbInfoTable",
+    "oid": "1.3.6.1.2.1.39.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsDbInfoEntry": {
+    "name": "rdbmsDbInfoEntry",
+    "oid": "1.3.6.1.2.1.39.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsDbInfoProductName": {
+    "name": "rdbmsDbInfoProductName",
+    "oid": "1.3.6.1.2.1.39.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbInfoVersion": {
+    "name": "rdbmsDbInfoVersion",
+    "oid": "1.3.6.1.2.1.39.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbInfoSizeUnits": {
+    "name": "rdbmsDbInfoSizeUnits",
+    "oid": "1.3.6.1.2.1.39.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bytes": 1,
+          "kbytes": 2,
+          "mbytes": 3,
+          "gbytes": 4,
+          "tbytes": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbInfoSizeAllocated": {
+    "name": "rdbmsDbInfoSizeAllocated",
+    "oid": "1.3.6.1.2.1.39.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsDbInfoSizeUsed": {
+    "name": "rdbmsDbInfoSizeUsed",
+    "oid": "1.3.6.1.2.1.39.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbInfoLastBackup": {
+    "name": "rdbmsDbInfoLastBackup",
+    "oid": "1.3.6.1.2.1.39.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbParamTable": {
+    "name": "rdbmsDbParamTable",
+    "oid": "1.3.6.1.2.1.39.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsDbParamEntry": {
+    "name": "rdbmsDbParamEntry",
+    "oid": "1.3.6.1.2.1.39.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbIndex",
+        "implied": 0
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbParamName",
+        "implied": 0
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbParamSubIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsDbParamName": {
+    "name": "rdbmsDbParamName",
+    "oid": "1.3.6.1.2.1.39.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsDbParamSubIndex": {
+    "name": "rdbmsDbParamSubIndex",
+    "oid": "1.3.6.1.2.1.39.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsDbParamID": {
+    "name": "rdbmsDbParamID",
+    "oid": "1.3.6.1.2.1.39.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbParamCurrValue": {
+    "name": "rdbmsDbParamCurrValue",
+    "oid": "1.3.6.1.2.1.39.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsDbParamComment": {
+    "name": "rdbmsDbParamComment",
+    "oid": "1.3.6.1.2.1.39.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsDbLimitedResourceTable": {
+    "name": "rdbmsDbLimitedResourceTable",
+    "oid": "1.3.6.1.2.1.39.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsDbLimitedResourceEntry": {
+    "name": "rdbmsDbLimitedResourceEntry",
+    "oid": "1.3.6.1.2.1.39.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbIndex",
+        "implied": 0
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbLimitedResourceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsDbLimitedResourceName": {
+    "name": "rdbmsDbLimitedResourceName",
+    "oid": "1.3.6.1.2.1.39.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsDbLimitedResourceID": {
+    "name": "rdbmsDbLimitedResourceID",
+    "oid": "1.3.6.1.2.1.39.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbLimitedResourceLimit": {
+    "name": "rdbmsDbLimitedResourceLimit",
+    "oid": "1.3.6.1.2.1.39.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsDbLimitedResourceCurrent": {
+    "name": "rdbmsDbLimitedResourceCurrent",
+    "oid": "1.3.6.1.2.1.39.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbLimitedResourceHighwater": {
+    "name": "rdbmsDbLimitedResourceHighwater",
+    "oid": "1.3.6.1.2.1.39.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbLimitedResourceFailures": {
+    "name": "rdbmsDbLimitedResourceFailures",
+    "oid": "1.3.6.1.2.1.39.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsDbLimitedResourceDescription": {
+    "name": "rdbmsDbLimitedResourceDescription",
+    "oid": "1.3.6.1.2.1.39.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsSrvTable": {
+    "name": "rdbmsSrvTable",
+    "oid": "1.3.6.1.2.1.39.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsSrvEntry": {
+    "name": "rdbmsSrvEntry",
+    "oid": "1.3.6.1.2.1.39.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsSrvPrivateMibOID": {
+    "name": "rdbmsSrvPrivateMibOID",
+    "oid": "1.3.6.1.2.1.39.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OBJECT IDENTIFIER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvVendorName": {
+    "name": "rdbmsSrvVendorName",
+    "oid": "1.3.6.1.2.1.39.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvProductName": {
+    "name": "rdbmsSrvProductName",
+    "oid": "1.3.6.1.2.1.39.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvContact": {
+    "name": "rdbmsSrvContact",
+    "oid": "1.3.6.1.2.1.39.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsSrvInfoTable": {
+    "name": "rdbmsSrvInfoTable",
+    "oid": "1.3.6.1.2.1.39.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsSrvInfoEntry": {
+    "name": "rdbmsSrvInfoEntry",
+    "oid": "1.3.6.1.2.1.39.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsSrvInfoStartupTime": {
+    "name": "rdbmsSrvInfoStartupTime",
+    "oid": "1.3.6.1.2.1.39.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoFinishedTransactions": {
+    "name": "rdbmsSrvInfoFinishedTransactions",
+    "oid": "1.3.6.1.2.1.39.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoDiskReads": {
+    "name": "rdbmsSrvInfoDiskReads",
+    "oid": "1.3.6.1.2.1.39.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoLogicalReads": {
+    "name": "rdbmsSrvInfoLogicalReads",
+    "oid": "1.3.6.1.2.1.39.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoDiskWrites": {
+    "name": "rdbmsSrvInfoDiskWrites",
+    "oid": "1.3.6.1.2.1.39.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoLogicalWrites": {
+    "name": "rdbmsSrvInfoLogicalWrites",
+    "oid": "1.3.6.1.2.1.39.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoPageReads": {
+    "name": "rdbmsSrvInfoPageReads",
+    "oid": "1.3.6.1.2.1.39.1.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoPageWrites": {
+    "name": "rdbmsSrvInfoPageWrites",
+    "oid": "1.3.6.1.2.1.39.1.6.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoDiskOutOfSpaces": {
+    "name": "rdbmsSrvInfoDiskOutOfSpaces",
+    "oid": "1.3.6.1.2.1.39.1.6.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoHandledRequests": {
+    "name": "rdbmsSrvInfoHandledRequests",
+    "oid": "1.3.6.1.2.1.39.1.6.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoRequestRecvs": {
+    "name": "rdbmsSrvInfoRequestRecvs",
+    "oid": "1.3.6.1.2.1.39.1.6.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoRequestSends": {
+    "name": "rdbmsSrvInfoRequestSends",
+    "oid": "1.3.6.1.2.1.39.1.6.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoHighwaterInboundAssociations": {
+    "name": "rdbmsSrvInfoHighwaterInboundAssociations",
+    "oid": "1.3.6.1.2.1.39.1.6.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvInfoMaxInboundAssociations": {
+    "name": "rdbmsSrvInfoMaxInboundAssociations",
+    "oid": "1.3.6.1.2.1.39.1.6.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsSrvParamTable": {
+    "name": "rdbmsSrvParamTable",
+    "oid": "1.3.6.1.2.1.39.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsSrvParamEntry": {
+    "name": "rdbmsSrvParamEntry",
+    "oid": "1.3.6.1.2.1.39.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvParamName",
+        "implied": 0
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvParamSubIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsSrvParamName": {
+    "name": "rdbmsSrvParamName",
+    "oid": "1.3.6.1.2.1.39.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsSrvParamSubIndex": {
+    "name": "rdbmsSrvParamSubIndex",
+    "oid": "1.3.6.1.2.1.39.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsSrvParamID": {
+    "name": "rdbmsSrvParamID",
+    "oid": "1.3.6.1.2.1.39.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvParamCurrValue": {
+    "name": "rdbmsSrvParamCurrValue",
+    "oid": "1.3.6.1.2.1.39.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsSrvParamComment": {
+    "name": "rdbmsSrvParamComment",
+    "oid": "1.3.6.1.2.1.39.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsSrvLimitedResourceTable": {
+    "name": "rdbmsSrvLimitedResourceTable",
+    "oid": "1.3.6.1.2.1.39.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsSrvLimitedResourceEntry": {
+    "name": "rdbmsSrvLimitedResourceEntry",
+    "oid": "1.3.6.1.2.1.39.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvLimitedResourceName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsSrvLimitedResourceName": {
+    "name": "rdbmsSrvLimitedResourceName",
+    "oid": "1.3.6.1.2.1.39.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsSrvLimitedResourceID": {
+    "name": "rdbmsSrvLimitedResourceID",
+    "oid": "1.3.6.1.2.1.39.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AutonomousType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvLimitedResourceLimit": {
+    "name": "rdbmsSrvLimitedResourceLimit",
+    "oid": "1.3.6.1.2.1.39.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsSrvLimitedResourceCurrent": {
+    "name": "rdbmsSrvLimitedResourceCurrent",
+    "oid": "1.3.6.1.2.1.39.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvLimitedResourceHighwater": {
+    "name": "rdbmsSrvLimitedResourceHighwater",
+    "oid": "1.3.6.1.2.1.39.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvLimitedResourceFailures": {
+    "name": "rdbmsSrvLimitedResourceFailures",
+    "oid": "1.3.6.1.2.1.39.1.8.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsSrvLimitedResourceDescription": {
+    "name": "rdbmsSrvLimitedResourceDescription",
+    "oid": "1.3.6.1.2.1.39.1.8.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "rdbmsRelTable": {
+    "name": "rdbmsRelTable",
+    "oid": "1.3.6.1.2.1.39.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "rdbmsRelEntry": {
+    "name": "rdbmsRelEntry",
+    "oid": "1.3.6.1.2.1.39.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbIndex",
+        "implied": 0
+      },
+      {
+        "module": "NETWORK-SERVICES-MIB",
+        "object": "applIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsRelState": {
+    "name": "rdbmsRelState",
+    "oid": "1.3.6.1.2.1.39.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "active": 2,
+          "available": 3,
+          "restricted": 4,
+          "unavailable": 5
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsRelActiveTime": {
+    "name": "rdbmsRelActiveTime",
+    "oid": "1.3.6.1.2.1.39.1.9.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "rdbmsWellKnownLimitedResources": {
+    "name": "rdbmsWellKnownLimitedResources",
+    "oid": "1.3.6.1.2.1.39.1.10",
+    "class": "objectidentity"
+  },
+  "rdbmsLogSpace": {
+    "name": "rdbmsLogSpace",
+    "oid": "1.3.6.1.2.1.39.1.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "rdbmsTraps": {
+    "name": "rdbmsTraps",
+    "oid": "1.3.6.1.2.1.39.2",
+    "class": "objectidentity"
+  },
+  "rdbmsStateChange": {
+    "name": "rdbmsStateChange",
+    "oid": "1.3.6.1.2.1.39.2.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsRelState"
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsOutOfSpace": {
+    "name": "rdbmsOutOfSpace",
+    "oid": "1.3.6.1.2.1.39.2.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoDiskOutOfSpaces"
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsConformance": {
+    "name": "rdbmsConformance",
+    "oid": "1.3.6.1.2.1.39.3",
+    "class": "objectidentity"
+  },
+  "rdbmsCompliances": {
+    "name": "rdbmsCompliances",
+    "oid": "1.3.6.1.2.1.39.3.1",
+    "class": "objectidentity"
+  },
+  "rdbmsGroups": {
+    "name": "rdbmsGroups",
+    "oid": "1.3.6.1.2.1.39.3.2",
+    "class": "objectidentity"
+  },
+  "rdbmsCompliance": {
+    "name": "rdbmsCompliance",
+    "oid": "1.3.6.1.2.1.39.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "hrSystem",
+        "module": "HOST-RESOURCES-MIB"
+      },
+      {
+        "object": "applGroups",
+        "module": "NETWORK-SERVICES-MIB"
+      },
+      {
+        "object": "rdbmsGroup",
+        "module": "RDBMS-MIB"
+      },
+      {
+        "object": "rdbmsGroup",
+        "module": "RDBMS-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "rdbmsGroup": {
+    "name": "rdbmsGroup",
+    "oid": "1.3.6.1.2.1.39.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbPrivateMibOID"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbVendorName"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbName"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbContact"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbInfoProductName"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbInfoVersion"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbInfoSizeUnits"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbInfoSizeAllocated"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbInfoSizeUsed"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbInfoLastBackup"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbParamCurrValue"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbParamComment"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbLimitedResourceLimit"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbLimitedResourceCurrent"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbLimitedResourceHighwater"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbLimitedResourceFailures"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsDbLimitedResourceDescription"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvPrivateMibOID"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvVendorName"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvProductName"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvContact"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoStartupTime"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoFinishedTransactions"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoDiskReads"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoDiskWrites"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoLogicalReads"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoLogicalWrites"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoPageReads"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoPageWrites"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoHandledRequests"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoRequestRecvs"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoRequestSends"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoHighwaterInboundAssociations"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvInfoMaxInboundAssociations"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvParamCurrValue"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvParamComment"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvLimitedResourceLimit"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvLimitedResourceCurrent"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvLimitedResourceHighwater"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvLimitedResourceFailures"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsSrvLimitedResourceDescription"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsRelState"
+      },
+      {
+        "module": "RDBMS-MIB",
+        "object": "rdbmsRelActiveTime"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/RDBMS-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "RDBMS-MIB"
+  }
+}

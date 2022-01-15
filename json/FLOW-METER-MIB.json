@@ -1,0 +1,2434 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "RMON2-MIB": [
+      "TimeFilter"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString"
+    ]
+  },
+  "flowMIB": {
+    "name": "flowMIB",
+    "oid": "1.3.6.1.2.1.40",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1999-10-25 00:00",
+        "description": "Initial Version, published as RFC 2720."
+      },
+      {
+        "revision": "1999-08-30 12:50",
+        "description": "UTF8OwnerString Textual Convention added, and used to replace OwnerString. Conceptually the same as OwnerString, but facilitating internationalisation by using UTF-8 encoding for its characters rather than US-ASCII."
+      },
+      {
+        "revision": "1999-08-19 10:10",
+        "description": "Changes to SIZE specification for two variables: - flowRuleInfoName SIZE specified as (0..127) - flowRuleIndex SIZE increased to (1..2147483647)"
+      },
+      {
+        "revision": "1997-12-23 09:37",
+        "description": "Two further variables deprecated: - flowRuleInfoRulesReady (use flowRuleInfoStatus intead) - flowDataStatus (contains no useful information)"
+      },
+      {
+        "revision": "1997-07-07 17:15",
+        "description": "Significant changes since RFC 2064 include: - flowDataPackageTable added - flowColumnActivityTable deprecated - flowManagerCounterWrap deprecated"
+      },
+      {
+        "revision": "1996-03-08 02:08",
+        "description": "Initial version of this MIB (RFC 2064)"
+      }
+    ]
+  },
+  "flowControl": {
+    "name": "flowControl",
+    "oid": "1.3.6.1.2.1.40.1",
+    "class": "objectidentity"
+  },
+  "flowData": {
+    "name": "flowData",
+    "oid": "1.3.6.1.2.1.40.2",
+    "class": "objectidentity"
+  },
+  "flowRules": {
+    "name": "flowRules",
+    "oid": "1.3.6.1.2.1.40.3",
+    "class": "objectidentity"
+  },
+  "flowMIBConformance": {
+    "name": "flowMIBConformance",
+    "oid": "1.3.6.1.2.1.40.4",
+    "class": "objectidentity"
+  },
+  "UTF8OwnerString": {
+    "name": "UTF8OwnerString",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "displayhint": "127t",
+    "status": "current"
+  },
+  "PeerType": {
+    "name": "PeerType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ipv4": 1,
+          "ipv6": 2,
+          "nsap": 3,
+          "ipx": 11,
+          "appletalk": 12,
+          "decnet": 13
+        }
+      }
+    },
+    "status": "current"
+  },
+  "PeerAddress": {
+    "name": "PeerAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "AdjacentType": {
+    "name": "AdjacentType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ip": 1,
+          "nsap": 3,
+          "ethernet": 7,
+          "tokenring": 9,
+          "ipx": 11,
+          "appletalk": 12,
+          "decnet": 13,
+          "fddi": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AdjacentAddress": {
+    "name": "AdjacentAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TransportType": {
+    "name": "TransportType",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "TransportAddress": {
+    "name": "TransportAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "RuleAddress": {
+    "name": "RuleAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "FlowAttributeNumber": {
+    "name": "FlowAttributeNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "flowIndex": 1,
+          "flowStatus": 2,
+          "flowTimeMark": 3,
+          "sourceInterface": 4,
+          "sourceAdjacentType": 5,
+          "sourceAdjacentAddress": 6,
+          "sourceAdjacentMask": 7,
+          "sourcePeerType": 8,
+          "sourcePeerAddress": 9,
+          "sourcePeerMask": 10,
+          "sourceTransType": 11,
+          "sourceTransAddress": 12,
+          "sourceTransMask": 13,
+          "destInterface": 14,
+          "destAdjacentType": 15,
+          "destAdjacentAddress": 16,
+          "destAdjacentMask": 17,
+          "destPeerType": 18,
+          "destPeerAddress": 19,
+          "destPeerMask": 20,
+          "destTransType": 21,
+          "destTransAddress": 22,
+          "destTransMask": 23,
+          "pduScale": 24,
+          "octetScale": 25,
+          "ruleSet": 26,
+          "toOctets": 27,
+          "toPDUs": 28,
+          "fromOctets": 29,
+          "fromPDUs": 30,
+          "firstTime": 31,
+          "lastActiveTime": 32,
+          "sourceSubscriberID": 33,
+          "destSubscriberID": 34,
+          "sessionID": 35,
+          "sourceClass": 36,
+          "destClass": 37,
+          "flowClass": 38,
+          "sourceKind": 39,
+          "destKind": 40,
+          "flowKind": 41
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RuleAttributeNumber": {
+    "name": "RuleAttributeNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "null": 0,
+          "sourceInterface": 4,
+          "sourceAdjacentType": 5,
+          "sourceAdjacentAddress": 6,
+          "sourcePeerType": 8,
+          "sourcePeerAddress": 9,
+          "sourceTransType": 11,
+          "sourceTransAddress": 12,
+          "destInterface": 14,
+          "destAdjacentType": 15,
+          "destAdjacentAddress": 16,
+          "destPeerType": 18,
+          "destPeerAddress": 19,
+          "destTransType": 21,
+          "destTransAddress": 22,
+          "sourceSubscriberID": 33,
+          "destSubscriberID": 34,
+          "sessionID": 35,
+          "sourceClass": 36,
+          "destClass": 37,
+          "flowClass": 38,
+          "sourceKind": 39,
+          "destKind": 40,
+          "flowKind": 41,
+          "matchingStoD": 50,
+          "v1": 51,
+          "v2": 52,
+          "v3": 53,
+          "v4": 54,
+          "v5": 55
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ActionNumber": {
+    "name": "ActionNumber",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ignore": 1,
+          "noMatch": 2,
+          "count": 3,
+          "countPkt": 4,
+          "return": 5,
+          "gosub": 6,
+          "gosubAct": 7,
+          "assign": 8,
+          "assignAct": 9,
+          "goto": 10,
+          "gotoAct": 11,
+          "pushRuleTo": 12,
+          "pushRuleToAct": 13,
+          "pushPktTo": 14,
+          "pushPktToAct": 15,
+          "popTo": 16,
+          "popToAct": 17
+        }
+      }
+    },
+    "status": "current"
+  },
+  "flowRuleSetInfoTable": {
+    "name": "flowRuleSetInfoTable",
+    "oid": "1.3.6.1.2.1.40.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowRuleSetInfoEntry": {
+    "name": "flowRuleSetInfoEntry",
+    "oid": "1.3.6.1.2.1.40.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "flowRuleInfoIndex": {
+    "name": "flowRuleInfoIndex",
+    "oid": "1.3.6.1.2.1.40.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowRuleInfoSize": {
+    "name": "flowRuleInfoSize",
+    "oid": "1.3.6.1.2.1.40.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowRuleInfoOwner": {
+    "name": "flowRuleInfoOwner",
+    "oid": "1.3.6.1.2.1.40.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowRuleInfoTimeStamp": {
+    "name": "flowRuleInfoTimeStamp",
+    "oid": "1.3.6.1.2.1.40.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowRuleInfoStatus": {
+    "name": "flowRuleInfoStatus",
+    "oid": "1.3.6.1.2.1.40.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowRuleInfoName": {
+    "name": "flowRuleInfoName",
+    "oid": "1.3.6.1.2.1.40.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 127
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowRuleInfoRulesReady": {
+    "name": "flowRuleInfoRulesReady",
+    "oid": "1.3.6.1.2.1.40.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "flowRuleInfoFlowRecords": {
+    "name": "flowRuleInfoFlowRecords",
+    "oid": "1.3.6.1.2.1.40.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowInterfaceTable": {
+    "name": "flowInterfaceTable",
+    "oid": "1.3.6.1.2.1.40.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowInterfaceEntry": {
+    "name": "flowInterfaceEntry",
+    "oid": "1.3.6.1.2.1.40.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "flowInterfaceSampleRate": {
+    "name": "flowInterfaceSampleRate",
+    "oid": "1.3.6.1.2.1.40.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "flowInterfaceLostPackets": {
+    "name": "flowInterfaceLostPackets",
+    "oid": "1.3.6.1.2.1.40.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowReaderInfoTable": {
+    "name": "flowReaderInfoTable",
+    "oid": "1.3.6.1.2.1.40.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowReaderInfoEntry": {
+    "name": "flowReaderInfoEntry",
+    "oid": "1.3.6.1.2.1.40.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "flowReaderIndex": {
+    "name": "flowReaderIndex",
+    "oid": "1.3.6.1.2.1.40.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowReaderTimeout": {
+    "name": "flowReaderTimeout",
+    "oid": "1.3.6.1.2.1.40.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowReaderOwner": {
+    "name": "flowReaderOwner",
+    "oid": "1.3.6.1.2.1.40.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowReaderLastTime": {
+    "name": "flowReaderLastTime",
+    "oid": "1.3.6.1.2.1.40.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowReaderPreviousTime": {
+    "name": "flowReaderPreviousTime",
+    "oid": "1.3.6.1.2.1.40.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowReaderStatus": {
+    "name": "flowReaderStatus",
+    "oid": "1.3.6.1.2.1.40.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowReaderRuleSet": {
+    "name": "flowReaderRuleSet",
+    "oid": "1.3.6.1.2.1.40.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowManagerInfoTable": {
+    "name": "flowManagerInfoTable",
+    "oid": "1.3.6.1.2.1.40.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowManagerInfoEntry": {
+    "name": "flowManagerInfoEntry",
+    "oid": "1.3.6.1.2.1.40.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "flowManagerIndex": {
+    "name": "flowManagerIndex",
+    "oid": "1.3.6.1.2.1.40.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowManagerCurrentRuleSet": {
+    "name": "flowManagerCurrentRuleSet",
+    "oid": "1.3.6.1.2.1.40.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowManagerStandbyRuleSet": {
+    "name": "flowManagerStandbyRuleSet",
+    "oid": "1.3.6.1.2.1.40.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowManagerHighWaterMark": {
+    "name": "flowManagerHighWaterMark",
+    "oid": "1.3.6.1.2.1.40.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowManagerCounterWrap": {
+    "name": "flowManagerCounterWrap",
+    "oid": "1.3.6.1.2.1.40.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "wrap": 1,
+          "scale": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "wrap",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "deprecated"
+  },
+  "flowManagerOwner": {
+    "name": "flowManagerOwner",
+    "oid": "1.3.6.1.2.1.40.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "UTF8OwnerString",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowManagerTimeStamp": {
+    "name": "flowManagerTimeStamp",
+    "oid": "1.3.6.1.2.1.40.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowManagerStatus": {
+    "name": "flowManagerStatus",
+    "oid": "1.3.6.1.2.1.40.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowManagerRunningStandby": {
+    "name": "flowManagerRunningStandby",
+    "oid": "1.3.6.1.2.1.40.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "flowFloodMark": {
+    "name": "flowFloodMark",
+    "oid": "1.3.6.1.2.1.40.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 100
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 95,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "flowInactivityTimeout": {
+    "name": "flowInactivityTimeout",
+    "oid": "1.3.6.1.2.1.40.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 600,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "flowActiveFlows": {
+    "name": "flowActiveFlows",
+    "oid": "1.3.6.1.2.1.40.1.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowMaxFlows": {
+    "name": "flowMaxFlows",
+    "oid": "1.3.6.1.2.1.40.1.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowFloodMode": {
+    "name": "flowFloodMode",
+    "oid": "1.3.6.1.2.1.40.1.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "flowDataTable": {
+    "name": "flowDataTable",
+    "oid": "1.3.6.1.2.1.40.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowDataEntry": {
+    "name": "flowDataEntry",
+    "oid": "1.3.6.1.2.1.40.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataRuleSet",
+        "implied": 0
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataTimeMark",
+        "implied": 0
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "flowDataIndex": {
+    "name": "flowDataIndex",
+    "oid": "1.3.6.1.2.1.40.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowDataTimeMark": {
+    "name": "flowDataTimeMark",
+    "oid": "1.3.6.1.2.1.40.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeFilter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowDataStatus": {
+    "name": "flowDataStatus",
+    "oid": "1.3.6.1.2.1.40.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "inactive": 1,
+          "current": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "flowDataSourceInterface": {
+    "name": "flowDataSourceInterface",
+    "oid": "1.3.6.1.2.1.40.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourceAdjacentType": {
+    "name": "flowDataSourceAdjacentType",
+    "oid": "1.3.6.1.2.1.40.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdjacentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourceAdjacentAddress": {
+    "name": "flowDataSourceAdjacentAddress",
+    "oid": "1.3.6.1.2.1.40.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdjacentAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourceAdjacentMask": {
+    "name": "flowDataSourceAdjacentMask",
+    "oid": "1.3.6.1.2.1.40.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdjacentAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourcePeerType": {
+    "name": "flowDataSourcePeerType",
+    "oid": "1.3.6.1.2.1.40.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourcePeerAddress": {
+    "name": "flowDataSourcePeerAddress",
+    "oid": "1.3.6.1.2.1.40.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PeerAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourcePeerMask": {
+    "name": "flowDataSourcePeerMask",
+    "oid": "1.3.6.1.2.1.40.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PeerAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourceTransType": {
+    "name": "flowDataSourceTransType",
+    "oid": "1.3.6.1.2.1.40.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourceTransAddress": {
+    "name": "flowDataSourceTransAddress",
+    "oid": "1.3.6.1.2.1.40.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourceTransMask": {
+    "name": "flowDataSourceTransMask",
+    "oid": "1.3.6.1.2.1.40.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestInterface": {
+    "name": "flowDataDestInterface",
+    "oid": "1.3.6.1.2.1.40.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestAdjacentType": {
+    "name": "flowDataDestAdjacentType",
+    "oid": "1.3.6.1.2.1.40.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdjacentType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestAdjacentAddress": {
+    "name": "flowDataDestAdjacentAddress",
+    "oid": "1.3.6.1.2.1.40.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdjacentAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestAdjacentMask": {
+    "name": "flowDataDestAdjacentMask",
+    "oid": "1.3.6.1.2.1.40.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AdjacentAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestPeerType": {
+    "name": "flowDataDestPeerType",
+    "oid": "1.3.6.1.2.1.40.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PeerType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestPeerAddress": {
+    "name": "flowDataDestPeerAddress",
+    "oid": "1.3.6.1.2.1.40.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PeerAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestPeerMask": {
+    "name": "flowDataDestPeerMask",
+    "oid": "1.3.6.1.2.1.40.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PeerAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestTransType": {
+    "name": "flowDataDestTransType",
+    "oid": "1.3.6.1.2.1.40.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestTransAddress": {
+    "name": "flowDataDestTransAddress",
+    "oid": "1.3.6.1.2.1.40.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestTransMask": {
+    "name": "flowDataDestTransMask",
+    "oid": "1.3.6.1.2.1.40.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TransportAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataPDUScale": {
+    "name": "flowDataPDUScale",
+    "oid": "1.3.6.1.2.1.40.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataOctetScale": {
+    "name": "flowDataOctetScale",
+    "oid": "1.3.6.1.2.1.40.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataRuleSet": {
+    "name": "flowDataRuleSet",
+    "oid": "1.3.6.1.2.1.40.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowDataToOctets": {
+    "name": "flowDataToOctets",
+    "oid": "1.3.6.1.2.1.40.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataToPDUs": {
+    "name": "flowDataToPDUs",
+    "oid": "1.3.6.1.2.1.40.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataFromOctets": {
+    "name": "flowDataFromOctets",
+    "oid": "1.3.6.1.2.1.40.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataFromPDUs": {
+    "name": "flowDataFromPDUs",
+    "oid": "1.3.6.1.2.1.40.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataFirstTime": {
+    "name": "flowDataFirstTime",
+    "oid": "1.3.6.1.2.1.40.2.1.1.31",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataLastActiveTime": {
+    "name": "flowDataLastActiveTime",
+    "oid": "1.3.6.1.2.1.40.2.1.1.32",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourceSubscriberID": {
+    "name": "flowDataSourceSubscriberID",
+    "oid": "1.3.6.1.2.1.40.2.1.1.33",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestSubscriberID": {
+    "name": "flowDataDestSubscriberID",
+    "oid": "1.3.6.1.2.1.40.2.1.1.34",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 20
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSessionID": {
+    "name": "flowDataSessionID",
+    "oid": "1.3.6.1.2.1.40.2.1.1.35",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 4,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourceClass": {
+    "name": "flowDataSourceClass",
+    "oid": "1.3.6.1.2.1.40.2.1.1.36",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestClass": {
+    "name": "flowDataDestClass",
+    "oid": "1.3.6.1.2.1.40.2.1.1.37",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataClass": {
+    "name": "flowDataClass",
+    "oid": "1.3.6.1.2.1.40.2.1.1.38",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataSourceKind": {
+    "name": "flowDataSourceKind",
+    "oid": "1.3.6.1.2.1.40.2.1.1.39",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataDestKind": {
+    "name": "flowDataDestKind",
+    "oid": "1.3.6.1.2.1.40.2.1.1.40",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowDataKind": {
+    "name": "flowDataKind",
+    "oid": "1.3.6.1.2.1.40.2.1.1.41",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowColumnActivityTable": {
+    "name": "flowColumnActivityTable",
+    "oid": "1.3.6.1.2.1.40.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "deprecated"
+  },
+  "flowColumnActivityEntry": {
+    "name": "flowColumnActivityEntry",
+    "oid": "1.3.6.1.2.1.40.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowColumnActivityAttribute",
+        "implied": 0
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowColumnActivityTime",
+        "implied": 0
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowColumnActivityIndex",
+        "implied": 0
+      }
+    ],
+    "status": "deprecated"
+  },
+  "flowColumnActivityAttribute": {
+    "name": "flowColumnActivityAttribute",
+    "oid": "1.3.6.1.2.1.40.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowAttributeNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "flowColumnActivityTime": {
+    "name": "flowColumnActivityTime",
+    "oid": "1.3.6.1.2.1.40.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeFilter",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "flowColumnActivityIndex": {
+    "name": "flowColumnActivityIndex",
+    "oid": "1.3.6.1.2.1.40.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "flowColumnActivityData": {
+    "name": "flowColumnActivityData",
+    "oid": "1.3.6.1.2.1.40.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 3,
+            "max": 1000
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "deprecated"
+  },
+  "flowDataPackageTable": {
+    "name": "flowDataPackageTable",
+    "oid": "1.3.6.1.2.1.40.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowDataPackageEntry": {
+    "name": "flowDataPackageEntry",
+    "oid": "1.3.6.1.2.1.40.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowPackageSelector",
+        "implied": 0
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowPackageRuleSet",
+        "implied": 0
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowPackageTime",
+        "implied": 0
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowPackageIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "flowPackageSelector": {
+    "name": "flowPackageSelector",
+    "oid": "1.3.6.1.2.1.40.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowPackageRuleSet": {
+    "name": "flowPackageRuleSet",
+    "oid": "1.3.6.1.2.1.40.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowPackageTime": {
+    "name": "flowPackageTime",
+    "oid": "1.3.6.1.2.1.40.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeFilter",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowPackageIndex": {
+    "name": "flowPackageIndex",
+    "oid": "1.3.6.1.2.1.40.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowPackageData": {
+    "name": "flowPackageData",
+    "oid": "1.3.6.1.2.1.40.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "flowRuleTable": {
+    "name": "flowRuleTable",
+    "oid": "1.3.6.1.2.1.40.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowRuleEntry": {
+    "name": "flowRuleEntry",
+    "oid": "1.3.6.1.2.1.40.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleSet",
+        "implied": 0
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "flowRuleSet": {
+    "name": "flowRuleSet",
+    "oid": "1.3.6.1.2.1.40.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowRuleIndex": {
+    "name": "flowRuleIndex",
+    "oid": "1.3.6.1.2.1.40.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 2147483647
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "flowRuleSelector": {
+    "name": "flowRuleSelector",
+    "oid": "1.3.6.1.2.1.40.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RuleAttributeNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "flowRuleMask": {
+    "name": "flowRuleMask",
+    "oid": "1.3.6.1.2.1.40.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RuleAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "flowRuleMatchedValue": {
+    "name": "flowRuleMatchedValue",
+    "oid": "1.3.6.1.2.1.40.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RuleAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "flowRuleAction": {
+    "name": "flowRuleAction",
+    "oid": "1.3.6.1.2.1.40.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ActionNumber",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "flowRuleParameter": {
+    "name": "flowRuleParameter",
+    "oid": "1.3.6.1.2.1.40.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "flowMIBCompliances": {
+    "name": "flowMIBCompliances",
+    "oid": "1.3.6.1.2.1.40.4.1",
+    "class": "objectidentity"
+  },
+  "flowMIBGroups": {
+    "name": "flowMIBGroups",
+    "oid": "1.3.6.1.2.1.40.4.2",
+    "class": "objectidentity"
+  },
+  "flowControlGroup": {
+    "name": "flowControlGroup",
+    "oid": "1.3.6.1.2.1.40.4.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoSize"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoOwner"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoTimeStamp"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoStatus"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoName"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoRulesReady"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoFlowRecords"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowInterfaceSampleRate"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowInterfaceLostPackets"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderTimeout"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderOwner"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderLastTime"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderPreviousTime"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderStatus"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderRuleSet"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerCurrentRuleSet"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerStandbyRuleSet"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerHighWaterMark"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerCounterWrap"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerOwner"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerTimeStamp"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerStatus"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerRunningStandby"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowFloodMark"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowInactivityTimeout"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowActiveFlows"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowMaxFlows"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowFloodMode"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "flowDataTableGroup": {
+    "name": "flowDataTableGroup",
+    "oid": "1.3.6.1.2.1.40.4.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataStatus"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourceInterface"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourceAdjacentType"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourceAdjacentAddress"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourceAdjacentMask"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourcePeerType"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourcePeerAddress"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourcePeerMask"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourceTransType"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourceTransAddress"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourceTransMask"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestInterface"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestAdjacentType"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestAdjacentAddress"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestAdjacentMask"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestPeerType"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestPeerAddress"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestPeerMask"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestTransType"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestTransAddress"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestTransMask"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataToOctets"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataToPDUs"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataFromOctets"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataFromPDUs"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataFirstTime"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataLastActiveTime"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourceClass"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestClass"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataClass"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourceKind"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestKind"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataKind"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "flowDataScaleGroup": {
+    "name": "flowDataScaleGroup",
+    "oid": "1.3.6.1.2.1.40.4.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerCounterWrap"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataPDUScale"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataOctetScale"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "flowDataSubscriberGroup": {
+    "name": "flowDataSubscriberGroup",
+    "oid": "1.3.6.1.2.1.40.4.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSourceSubscriberID"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataDestSubscriberID"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataSessionID"
+      }
+    ],
+    "status": "current"
+  },
+  "flowDataColumnTableGroup": {
+    "name": "flowDataColumnTableGroup",
+    "oid": "1.3.6.1.2.1.40.4.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowColumnActivityAttribute"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowColumnActivityIndex"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowColumnActivityTime"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowColumnActivityData"
+      }
+    ],
+    "status": "deprecated"
+  },
+  "flowDataPackageGroup": {
+    "name": "flowDataPackageGroup",
+    "oid": "1.3.6.1.2.1.40.4.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowPackageData"
+      }
+    ],
+    "status": "current"
+  },
+  "flowRuleTableGroup": {
+    "name": "flowRuleTableGroup",
+    "oid": "1.3.6.1.2.1.40.4.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleSelector"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleMask"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleMatchedValue"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleAction"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleParameter"
+      }
+    ],
+    "status": "current"
+  },
+  "flowDataScaleGroup2": {
+    "name": "flowDataScaleGroup2",
+    "oid": "1.3.6.1.2.1.40.4.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataPDUScale"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowDataOctetScale"
+      }
+    ],
+    "status": "current"
+  },
+  "flowControlGroup2": {
+    "name": "flowControlGroup2",
+    "oid": "1.3.6.1.2.1.40.4.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoSize"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoOwner"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoTimeStamp"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoStatus"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoName"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowRuleInfoFlowRecords"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowInterfaceSampleRate"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowInterfaceLostPackets"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderTimeout"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderOwner"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderLastTime"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderPreviousTime"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderStatus"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowReaderRuleSet"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerCurrentRuleSet"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerStandbyRuleSet"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerHighWaterMark"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerOwner"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerTimeStamp"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerStatus"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowManagerRunningStandby"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowFloodMark"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowInactivityTimeout"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowActiveFlows"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowMaxFlows"
+      },
+      {
+        "module": "FLOW-METER-MIB",
+        "object": "flowFloodMode"
+      }
+    ],
+    "status": "current"
+  },
+  "flowMIBCompliance": {
+    "name": "flowMIBCompliance",
+    "oid": "1.3.6.1.2.1.40.4.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "flowControlGroup2",
+        "module": "FLOW-METER-MIB"
+      },
+      {
+        "object": "flowDataTableGroup",
+        "module": "FLOW-METER-MIB"
+      },
+      {
+        "object": "flowDataPackageGroup",
+        "module": "FLOW-METER-MIB"
+      },
+      {
+        "object": "flowRuleTableGroup",
+        "module": "FLOW-METER-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/FLOW-METER-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:37 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "FLOW-METER-MIB"
+  }
+}

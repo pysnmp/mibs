@@ -22,7 +22,6 @@ BEGIN
                   Object
                 | Objects "," Object
     Object ::=
-
                   value(ObjectName)
 
     Status ::=
@@ -120,7 +119,6 @@ BEGIN
                 | empty
 
     Groups ::=
-
                   Group
                 | Groups "," Group
     Group ::=
@@ -217,7 +215,6 @@ BEGIN
                   VariationPart
 
     ModuleName ::=
-
                   -- identifier must start with uppercase letter
                   identifier ModuleIdentifier
     ModuleIdentifier ::=
@@ -266,7 +263,6 @@ BEGIN
                        -- a base type (or its refinement),
                        -- a textual convention (or its refinement), or
                        -- a BITS pseudo-type
-
                   type
                 | "BITS" "{" NamedBits "}"
 

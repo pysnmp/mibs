@@ -8,10 +8,10 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetVersion",
       "InetAddressType",
-      "InetZoneIndex",
       "InetAddress",
+      "InetZoneIndex",
+      "InetVersion",
       "InetAddressPrefixLength"
     ],
     "IP-MIB": [
@@ -19,38 +19,38 @@
       "IpAddressStatusTC"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "mib-2",
-      "Integer32",
-      "Bits",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "TimeTicks",
-      "OBJECT-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
       "Counter32",
-      "Gauge32",
+      "TimeTicks",
+      "Bits",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "zeroDotZero",
       "OBJECT-IDENTITY",
-      "IpAddress"
+      "Integer32",
+      "Gauge32",
+      "zeroDotZero",
+      "mib-2",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
+      "StorageType",
       "TimeStamp",
+      "RowStatus",
+      "RowPointer",
+      "DisplayString",
+      "PhysAddress",
       "TruthValue",
       "TestAndIncr",
-      "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowPointer",
-      "StorageType",
-      "PhysAddress"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dell/Dell-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:16:34 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:23:58 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Dell-rlIP-MIB"

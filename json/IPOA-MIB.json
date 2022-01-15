@@ -1,0 +1,1697 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "InterfaceIndexOrZero",
+      "InterfaceIndex"
+    ],
+    "IP-MIB": [
+      "ipNetToMediaPhysAddress",
+      "ipNetToMediaIfIndex",
+      "ipNetToMediaNetAddress",
+      "ipAdEntAddr"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "transmission",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "ipoaMIB": {
+    "name": "ipoaMIB",
+    "oid": "1.3.6.1.2.1.10.46",
+    "class": "moduleidentity"
+  },
+  "IpoaEncapsType": {
+    "name": "IpoaEncapsType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "llcSnap": 1,
+          "vcMuxed": 2,
+          "other": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "IpoaVpiInteger": {
+    "name": "IpoaVpiInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IpoaVciInteger": {
+    "name": "IpoaVciInteger",
+    "class": "textualconvention",
+    "type": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "IpoaAtmAddr": {
+    "name": "IpoaAtmAddr",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 40
+          }
+        ]
+      }
+    },
+    "displayhint": "1x",
+    "status": "current"
+  },
+  "IpoaAtmConnKind": {
+    "name": "IpoaAtmConnKind",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "pvc": 1,
+          "svcIncoming": 2,
+          "svcOutgoing": 3,
+          "spvcInitiator": 4,
+          "spvcTarget": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ipoaObjects": {
+    "name": "ipoaObjects",
+    "oid": "1.3.6.1.2.1.10.46.1",
+    "class": "objectidentity"
+  },
+  "ipoaNotifications": {
+    "name": "ipoaNotifications",
+    "oid": "1.3.6.1.2.1.10.46.2",
+    "class": "objectidentity"
+  },
+  "ipoaConformance": {
+    "name": "ipoaConformance",
+    "oid": "1.3.6.1.2.1.10.46.3",
+    "class": "objectidentity"
+  },
+  "ipoaLisTrapEnable": {
+    "name": "ipoaLisTrapEnable",
+    "oid": "1.3.6.1.2.1.10.46.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "ipoaLisTable": {
+    "name": "ipoaLisTable",
+    "oid": "1.3.6.1.2.1.10.46.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaLisEntry": {
+    "name": "ipoaLisEntry",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisSubnetAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaLisSubnetAddr": {
+    "name": "ipoaLisSubnetAddr",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaLisDefaultMtu": {
+    "name": "ipoaLisDefaultMtu",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 9180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisDefaultEncapsType": {
+    "name": "ipoaLisDefaultEncapsType",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaEncapsType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "llcSnap",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisInactivityTimer": {
+    "name": "ipoaLisInactivityTimer",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisMinHoldingTime": {
+    "name": "ipoaLisMinHoldingTime",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 60,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisQDepth": {
+    "name": "ipoaLisQDepth",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "units": "packets",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisMaxCalls": {
+    "name": "ipoaLisMaxCalls",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisCacheEntryAge": {
+    "name": "ipoaLisCacheEntryAge",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 60,
+            "max": 1200
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 900,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisRetries": {
+    "name": "ipoaLisRetries",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 10
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 2,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisTimeout": {
+    "name": "ipoaLisTimeout",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 60
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisDefaultPeakCellRate": {
+    "name": "ipoaLisDefaultPeakCellRate",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisActiveVcs": {
+    "name": "ipoaLisActiveVcs",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaLisRowStatus": {
+    "name": "ipoaLisRowStatus",
+    "oid": "1.3.6.1.2.1.10.46.1.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaLisIfMappingTable": {
+    "name": "ipoaLisIfMappingTable",
+    "oid": "1.3.6.1.2.1.10.46.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaLisIfMappingEntry": {
+    "name": "ipoaLisIfMappingEntry",
+    "oid": "1.3.6.1.2.1.10.46.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisSubnetAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisIfMappingIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaLisIfMappingIfIndex": {
+    "name": "ipoaLisIfMappingIfIndex",
+    "oid": "1.3.6.1.2.1.10.46.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaLisIfMappingRowStatus": {
+    "name": "ipoaLisIfMappingRowStatus",
+    "oid": "1.3.6.1.2.1.10.46.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaArpClientTable": {
+    "name": "ipoaArpClientTable",
+    "oid": "1.3.6.1.2.1.10.46.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaArpClientEntry": {
+    "name": "ipoaArpClientEntry",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaArpClientAtmAddr": {
+    "name": "ipoaArpClientAtmAddr",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaAtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaArpClientSrvrInUse": {
+    "name": "ipoaArpClientSrvrInUse",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaAtmAddr",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientInArpInReqs": {
+    "name": "ipoaArpClientInArpInReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientInArpOutReqs": {
+    "name": "ipoaArpClientInArpOutReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientInArpInReplies": {
+    "name": "ipoaArpClientInArpInReplies",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientInArpOutReplies": {
+    "name": "ipoaArpClientInArpOutReplies",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientInArpInvalidInReqs": {
+    "name": "ipoaArpClientInArpInvalidInReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientInArpInvalidOutReqs": {
+    "name": "ipoaArpClientInArpInvalidOutReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientArpInReqs": {
+    "name": "ipoaArpClientArpInReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientArpOutReqs": {
+    "name": "ipoaArpClientArpOutReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientArpInReplies": {
+    "name": "ipoaArpClientArpInReplies",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientArpOutReplies": {
+    "name": "ipoaArpClientArpOutReplies",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientArpInNaks": {
+    "name": "ipoaArpClientArpInNaks",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientArpOutNaks": {
+    "name": "ipoaArpClientArpOutNaks",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientArpUnknownOps": {
+    "name": "ipoaArpClientArpUnknownOps",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientArpNoSrvrResps": {
+    "name": "ipoaArpClientArpNoSrvrResps",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpClientRowStatus": {
+    "name": "ipoaArpClientRowStatus",
+    "oid": "1.3.6.1.2.1.10.46.1.4.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaArpSrvrTable": {
+    "name": "ipoaArpSrvrTable",
+    "oid": "1.3.6.1.2.1.10.46.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaArpSrvrEntry": {
+    "name": "ipoaArpSrvrEntry",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IP-MIB",
+        "object": "ipAdEntAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrAddr",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaArpSrvrAddr": {
+    "name": "ipoaArpSrvrAddr",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaAtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaArpSrvrLis": {
+    "name": "ipoaArpSrvrLis",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaArpSrvrInArpInReqs": {
+    "name": "ipoaArpSrvrInArpInReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrInArpOutReqs": {
+    "name": "ipoaArpSrvrInArpOutReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrInArpInReplies": {
+    "name": "ipoaArpSrvrInArpInReplies",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrInArpOutReplies": {
+    "name": "ipoaArpSrvrInArpOutReplies",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrInArpInvalidInReqs": {
+    "name": "ipoaArpSrvrInArpInvalidInReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrInArpInvalidOutReqs": {
+    "name": "ipoaArpSrvrInArpInvalidOutReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrArpInReqs": {
+    "name": "ipoaArpSrvrArpInReqs",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrArpOutReplies": {
+    "name": "ipoaArpSrvrArpOutReplies",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrArpOutNaks": {
+    "name": "ipoaArpSrvrArpOutNaks",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrArpDupIpAddrs": {
+    "name": "ipoaArpSrvrArpDupIpAddrs",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrArpUnknownOps": {
+    "name": "ipoaArpSrvrArpUnknownOps",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpSrvrRowStatus": {
+    "name": "ipoaArpSrvrRowStatus",
+    "oid": "1.3.6.1.2.1.10.46.1.5.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaArpRemoteSrvrTable": {
+    "name": "ipoaArpRemoteSrvrTable",
+    "oid": "1.3.6.1.2.1.10.46.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaArpRemoteSrvrEntry": {
+    "name": "ipoaArpRemoteSrvrEntry",
+    "oid": "1.3.6.1.2.1.10.46.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisSubnetAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpRemoteSrvrAtmAddr",
+        "implied": 0
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpRemoteSrvrIfIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaArpRemoteSrvrAtmAddr": {
+    "name": "ipoaArpRemoteSrvrAtmAddr",
+    "oid": "1.3.6.1.2.1.10.46.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaAtmAddr",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaArpRemoteSrvrRowStatus": {
+    "name": "ipoaArpRemoteSrvrRowStatus",
+    "oid": "1.3.6.1.2.1.10.46.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaArpRemoteSrvrIfIndex": {
+    "name": "ipoaArpRemoteSrvrIfIndex",
+    "oid": "1.3.6.1.2.1.10.46.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndexOrZero",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaArpRemoteSrvrIpAddr": {
+    "name": "ipoaArpRemoteSrvrIpAddr",
+    "oid": "1.3.6.1.2.1.10.46.1.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpAddress",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaArpRemoteSrvrAdminStatus": {
+    "name": "ipoaArpRemoteSrvrAdminStatus",
+    "oid": "1.3.6.1.2.1.10.46.1.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaArpRemoteSrvrOperStatus": {
+    "name": "ipoaArpRemoteSrvrOperStatus",
+    "oid": "1.3.6.1.2.1.10.46.1.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "up": 1,
+          "down": 2
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "down",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaVcTable": {
+    "name": "ipoaVcTable",
+    "oid": "1.3.6.1.2.1.10.46.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaVcEntry": {
+    "name": "ipoaVcEntry",
+    "oid": "1.3.6.1.2.1.10.46.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IP-MIB",
+        "object": "ipNetToMediaIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipNetToMediaNetAddress",
+        "implied": 0
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaVcVpi",
+        "implied": 0
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaVcVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaVcVpi": {
+    "name": "ipoaVcVpi",
+    "oid": "1.3.6.1.2.1.10.46.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaVpiInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaVcVci": {
+    "name": "ipoaVcVci",
+    "oid": "1.3.6.1.2.1.10.46.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaVciInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaVcType": {
+    "name": "ipoaVcType",
+    "oid": "1.3.6.1.2.1.10.46.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaAtmConnKind",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaVcNegotiatedEncapsType": {
+    "name": "ipoaVcNegotiatedEncapsType",
+    "oid": "1.3.6.1.2.1.10.46.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaEncapsType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaVcNegotiatedMtu": {
+    "name": "ipoaVcNegotiatedMtu",
+    "oid": "1.3.6.1.2.1.10.46.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ipoaConfigPvcTable": {
+    "name": "ipoaConfigPvcTable",
+    "oid": "1.3.6.1.2.1.10.46.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaConfigPvcEntry": {
+    "name": "ipoaConfigPvcEntry",
+    "oid": "1.3.6.1.2.1.10.46.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaConfigPvcIfIndex",
+        "implied": 0
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaConfigPvcVpi",
+        "implied": 0
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaConfigPvcVci",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaConfigPvcIfIndex": {
+    "name": "ipoaConfigPvcIfIndex",
+    "oid": "1.3.6.1.2.1.10.46.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InterfaceIndex",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaConfigPvcVpi": {
+    "name": "ipoaConfigPvcVpi",
+    "oid": "1.3.6.1.2.1.10.46.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaVpiInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaConfigPvcVci": {
+    "name": "ipoaConfigPvcVci",
+    "oid": "1.3.6.1.2.1.10.46.1.8.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "IpoaVciInteger",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ipoaConfigPvcDefaultMtu": {
+    "name": "ipoaConfigPvcDefaultMtu",
+    "oid": "1.3.6.1.2.1.10.46.1.8.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 9180,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaConfigPvcRowStatus": {
+    "name": "ipoaConfigPvcRowStatus",
+    "oid": "1.3.6.1.2.1.10.46.1.8.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "ipoaTrapPrefix": {
+    "name": "ipoaTrapPrefix",
+    "oid": "1.3.6.1.2.1.10.46.2.0",
+    "class": "objectidentity"
+  },
+  "ipoaMtuExceeded": {
+    "name": "ipoaMtuExceeded",
+    "oid": "1.3.6.1.2.1.10.46.2.0.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaVcNegotiatedMtu"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaDuplicateIpAddress": {
+    "name": "ipoaDuplicateIpAddress",
+    "oid": "1.3.6.1.2.1.10.46.2.0.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IP-MIB",
+        "object": "ipNetToMediaIfIndex"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipNetToMediaNetAddress"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipNetToMediaPhysAddress"
+      },
+      {
+        "module": "IP-MIB",
+        "object": "ipNetToMediaPhysAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaLisCreate": {
+    "name": "ipoaLisCreate",
+    "oid": "1.3.6.1.2.1.10.46.2.0.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisSubnetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaLisDelete": {
+    "name": "ipoaLisDelete",
+    "oid": "1.3.6.1.2.1.10.46.2.0.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisSubnetAddr"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaGroups": {
+    "name": "ipoaGroups",
+    "oid": "1.3.6.1.2.1.10.46.3.1",
+    "class": "objectidentity"
+  },
+  "ipoaCompliances": {
+    "name": "ipoaCompliances",
+    "oid": "1.3.6.1.2.1.10.46.3.2",
+    "class": "objectidentity"
+  },
+  "ipoaCompliance": {
+    "name": "ipoaCompliance",
+    "oid": "1.3.6.1.2.1.10.46.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "ipoaGeneralGroup",
+        "module": "IPOA-MIB"
+      },
+      {
+        "object": "ipoaBasicNotificationsGroup",
+        "module": "IPOA-MIB"
+      },
+      {
+        "object": "ipoaClientGroup",
+        "module": "IPOA-MIB"
+      },
+      {
+        "object": "ipoaSrvrGroup",
+        "module": "IPOA-MIB"
+      },
+      {
+        "object": "ipoaSrvrNotificationsGroup",
+        "module": "IPOA-MIB"
+      },
+      {
+        "object": "ipoaLisNotificationsGroup",
+        "module": "IPOA-MIB"
+      },
+      {
+        "object": "ipoaLisTableGroup",
+        "module": "IPOA-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaGeneralGroup": {
+    "name": "ipoaGeneralGroup",
+    "oid": "1.3.6.1.2.1.10.46.3.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaVcType"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaVcNegotiatedEncapsType"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaVcNegotiatedMtu"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaConfigPvcDefaultMtu"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaConfigPvcRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaClientGroup": {
+    "name": "ipoaClientGroup",
+    "oid": "1.3.6.1.2.1.10.46.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientAtmAddr"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientSrvrInUse"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientInArpInReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientInArpOutReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientInArpInReplies"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientInArpOutReplies"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientInArpInvalidInReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientInArpInvalidOutReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientArpInReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientArpOutReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientArpInReplies"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientArpOutReplies"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientArpInNaks"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientArpOutNaks"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientArpUnknownOps"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientArpNoSrvrResps"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpClientRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaSrvrGroup": {
+    "name": "ipoaSrvrGroup",
+    "oid": "1.3.6.1.2.1.10.46.3.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrLis"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrInArpInReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrInArpOutReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrInArpInReplies"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrInArpOutReplies"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrInArpInvalidInReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrInArpInvalidOutReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrArpInReqs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrArpOutReplies"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrArpOutNaks"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrArpDupIpAddrs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrArpUnknownOps"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpSrvrRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaBasicNotificationsGroup": {
+    "name": "ipoaBasicNotificationsGroup",
+    "oid": "1.3.6.1.2.1.10.46.3.1.4",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaMtuExceeded"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaSrvrNotificationsGroup": {
+    "name": "ipoaSrvrNotificationsGroup",
+    "oid": "1.3.6.1.2.1.10.46.3.1.5",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaDuplicateIpAddress"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaLisNotificationsGroup": {
+    "name": "ipoaLisNotificationsGroup",
+    "oid": "1.3.6.1.2.1.10.46.3.1.6",
+    "class": "notificationgroup",
+    "objects": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisCreate"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisDelete"
+      }
+    ],
+    "status": "current"
+  },
+  "ipoaLisTableGroup": {
+    "name": "ipoaLisTableGroup",
+    "oid": "1.3.6.1.2.1.10.46.3.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisTrapEnable"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisSubnetAddr"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisDefaultMtu"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisDefaultEncapsType"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisInactivityTimer"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisMinHoldingTime"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisQDepth"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisMaxCalls"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisCacheEntryAge"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisRetries"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisTimeout"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisDefaultPeakCellRate"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisActiveVcs"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisRowStatus"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaLisIfMappingRowStatus"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpRemoteSrvrRowStatus"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpRemoteSrvrIpAddr"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpRemoteSrvrAdminStatus"
+      },
+      {
+        "module": "IPOA-MIB",
+        "object": "ipoaArpRemoteSrvrOperStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/IPOA-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "IPOA-MIB"
+  }
+}

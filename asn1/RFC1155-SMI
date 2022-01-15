@@ -20,6 +20,7 @@ EXPORTS -- EVERYTHING
  private       OBJECT IDENTIFIER ::= { internet 4 }
  enterprises   OBJECT IDENTIFIER ::= { private 1 }
 
+
  -- definition of object types
 
  OBJECT-TYPE MACRO ::=
@@ -49,6 +50,7 @@ EXPORTS -- EVERYTHING
         CHOICE {
             simple
                 SimpleSyntax,
+
     -- note that simple SEQUENCEs are not directly
     -- mentioned here to keep things simple (i.e.,
     -- prevent mis-use).  However, application-wide
@@ -63,10 +65,13 @@ EXPORTS -- EVERYTHING
            CHOICE {
                number
                    INTEGER,
+
                string
                    OCTET STRING,
+
                object
                    OBJECT IDENTIFIER,
+
                empty
                    NULL
            }
@@ -75,18 +80,23 @@ EXPORTS -- EVERYTHING
            CHOICE {
                address
                    NetworkAddress,
+
                counter
                    Counter,
+
                gauge
                    Gauge,
+
                ticks
                    TimeTicks,
+
                arbitrary
                    Opaque
 
        -- other application-wide types, as they are
        -- defined, will be added here
            }
+
 
        -- application-wide types
 

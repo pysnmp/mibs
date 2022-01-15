@@ -1,23 +1,23 @@
 #
 # PySNMP MIB module Q-BRIDGE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/Q-BRIDGE
-# Produced by pysmi-1.1.8 at Sat Jan 15 20:06:47 2022
-# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
+# ASN.1 source file:///home/runner/work/mibs/mibs/output/asn1/Q-BRIDGE-MIB
+# Produced by pysmi-1.1.8 at Sat Jan 15 23:19:55 2022
+# On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
-dot1dBridge, dot1dBasePortEntry, dot1dBasePort = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBridge", "dot1dBasePortEntry", "dot1dBasePort")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+dot1dBasePort, dot1dBasePortEntry, dot1dBridge = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort", "dot1dBasePortEntry", "dot1dBridge")
 EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
 TimeFilter, = mibBuilder.importSymbols("RMON2-MIB", "TimeFilter")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-ObjectIdentity, Integer32, Counter32, Gauge32, IpAddress, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, Bits, Counter64, MibIdentifier, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "Counter32", "Gauge32", "IpAddress", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "Bits", "Counter64", "MibIdentifier", "NotificationType", "iso")
-DisplayString, TruthValue, TextualConvention, RowStatus, MacAddress = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TruthValue", "TextualConvention", "RowStatus", "MacAddress")
+ModuleCompliance, ObjectGroup, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "ObjectGroup", "NotificationGroup")
+MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, TimeTicks, ModuleIdentity, Bits, Counter32, Gauge32, ObjectIdentity, NotificationType, Counter64, IpAddress, iso, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "TimeTicks", "ModuleIdentity", "Bits", "Counter32", "Gauge32", "ObjectIdentity", "NotificationType", "Counter64", "IpAddress", "iso", "Integer32")
+TextualConvention, DisplayString, MacAddress, TruthValue, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "MacAddress", "TruthValue", "RowStatus")
 qBridgeMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 17, 7))
-qBridgeMIB.setRevisions(('1999-08-25 00:00',))
-if mibBuilder.loadTexts: qBridgeMIB.setLastUpdated('9908250000Z')
+qBridgeMIB.setRevisions(('2006-01-09 00:00', '1999-08-25 00:00',))
+if mibBuilder.loadTexts: qBridgeMIB.setLastUpdated('200601090000Z')
 if mibBuilder.loadTexts: qBridgeMIB.setOrganization('IETF Bridge MIB Working Group')
 qBridgeMIBObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 7, 1))
 class PortList(TextualConvention, OctetString):
@@ -25,15 +25,31 @@ class PortList(TextualConvention, OctetString):
 
 class VlanIndex(TextualConvention, Unsigned32):
     status = 'current'
+    displayHint = 'd'
 
 class VlanId(TextualConvention, Integer32):
+    reference = 'IEEE Std 802.1Q 2003 Edition, Virtual Bridged Local Area Networks.'
     status = 'current'
+    displayHint = 'd'
     subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 4094)
 
+class VlanIdOrAny(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(1, 4094), ValueRangeConstraint(4095, 4095), )
+class VlanIdOrNone(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4094), )
+class VlanIdOrAnyOrNone(TextualConvention, Integer32):
+    status = 'current'
+    displayHint = 'd'
+    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4094), ValueRangeConstraint(4095, 4095), )
 dot1qBase = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 7, 1, 1))
 dot1qTp = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 7, 1, 2))
 dot1qStatic = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 7, 1, 3))
 dot1qVlan = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 7, 1, 4))
+dot1vProtocol = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 7, 1, 5))
 dot1qVlanVersionNumber = MibScalar((1, 3, 6, 1, 2, 1, 17, 7, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("version1", 1)))).setMaxAccess("readonly")
 if mibBuilder.loadTexts: dot1qVlanVersionNumber.setStatus('current')
 dot1qMaxVlanId = MibScalar((1, 3, 6, 1, 2, 1, 17, 7, 1, 1, 2), VlanId()).setMaxAccess("readonly")
@@ -172,6 +188,8 @@ dot1qPortGvrpFailedRegistrations = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 7, 1, 4
 if mibBuilder.loadTexts: dot1qPortGvrpFailedRegistrations.setStatus('current')
 dot1qPortGvrpLastPduOrigin = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 7, 1, 4, 5, 1, 6), MacAddress()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: dot1qPortGvrpLastPduOrigin.setStatus('current')
+dot1qPortRestrictedVlanRegistration = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 7, 1, 4, 5, 1, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
+if mibBuilder.loadTexts: dot1qPortRestrictedVlanRegistration.setStatus('current')
 dot1qPortVlanStatisticsTable = MibTable((1, 3, 6, 1, 2, 1, 17, 7, 1, 4, 6), )
 if mibBuilder.loadTexts: dot1qPortVlanStatisticsTable.setStatus('current')
 dot1qPortVlanStatisticsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 17, 7, 1, 4, 6, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"), (0, "Q-BRIDGE-MIB", "dot1qVlanIndex"))
@@ -214,6 +232,28 @@ dot1qConstraintSetDefault = MibScalar((1, 3, 6, 1, 2, 1, 17, 7, 1, 4, 9), Intege
 if mibBuilder.loadTexts: dot1qConstraintSetDefault.setStatus('current')
 dot1qConstraintTypeDefault = MibScalar((1, 3, 6, 1, 2, 1, 17, 7, 1, 4, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("independent", 1), ("shared", 2)))).setMaxAccess("readwrite")
 if mibBuilder.loadTexts: dot1qConstraintTypeDefault.setStatus('current')
+dot1vProtocolGroupTable = MibTable((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 1), )
+if mibBuilder.loadTexts: dot1vProtocolGroupTable.setStatus('current')
+dot1vProtocolGroupEntry = MibTableRow((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 1, 1), ).setIndexNames((0, "Q-BRIDGE-MIB", "dot1vProtocolTemplateFrameType"), (0, "Q-BRIDGE-MIB", "dot1vProtocolTemplateProtocolValue"))
+if mibBuilder.loadTexts: dot1vProtocolGroupEntry.setStatus('current')
+dot1vProtocolTemplateFrameType = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("ethernet", 1), ("rfc1042", 2), ("snap8021H", 3), ("snapOther", 4), ("llcOther", 5))))
+if mibBuilder.loadTexts: dot1vProtocolTemplateFrameType.setStatus('current')
+dot1vProtocolTemplateProtocolValue = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 1, 1, 2), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(2, 2), ValueSizeConstraint(5, 5), )))
+if mibBuilder.loadTexts: dot1vProtocolTemplateProtocolValue.setStatus('current')
+dot1vProtocolGroupId = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot1vProtocolGroupId.setStatus('current')
+dot1vProtocolGroupRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot1vProtocolGroupRowStatus.setStatus('current')
+dot1vProtocolPortTable = MibTable((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 2), )
+if mibBuilder.loadTexts: dot1vProtocolPortTable.setStatus('current')
+dot1vProtocolPortEntry = MibTableRow((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 2, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"), (0, "Q-BRIDGE-MIB", "dot1vProtocolPortGroupId"))
+if mibBuilder.loadTexts: dot1vProtocolPortEntry.setStatus('current')
+dot1vProtocolPortGroupId = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
+if mibBuilder.loadTexts: dot1vProtocolPortGroupId.setStatus('current')
+dot1vProtocolPortGroupVid = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot1vProtocolPortGroupVid.setStatus('current')
+dot1vProtocolPortRowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 17, 7, 1, 5, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
+if mibBuilder.loadTexts: dot1vProtocolPortRowStatus.setStatus('current')
 qBridgeConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 7, 2))
 qBridgeGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 7, 2, 1))
 qBridgeCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 17, 7, 2, 2))
@@ -240,7 +280,7 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     qBridgeVlanStaticGroup = qBridgeVlanStaticGroup.setStatus('current')
 qBridgePortGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 17, 7, 2, 1, 8)).setObjects(("Q-BRIDGE-MIB", "dot1qPvid"), ("Q-BRIDGE-MIB", "dot1qPortAcceptableFrameTypes"), ("Q-BRIDGE-MIB", "dot1qPortIngressFiltering"), ("Q-BRIDGE-MIB", "dot1qPortGvrpStatus"), ("Q-BRIDGE-MIB", "dot1qPortGvrpFailedRegistrations"), ("Q-BRIDGE-MIB", "dot1qPortGvrpLastPduOrigin"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qBridgePortGroup = qBridgePortGroup.setStatus('current')
+    qBridgePortGroup = qBridgePortGroup.setStatus('deprecated')
 qBridgeVlanStatisticsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 17, 7, 2, 1, 9)).setObjects(("Q-BRIDGE-MIB", "dot1qTpVlanPortInFrames"), ("Q-BRIDGE-MIB", "dot1qTpVlanPortOutFrames"), ("Q-BRIDGE-MIB", "dot1qTpVlanPortInDiscards"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     qBridgeVlanStatisticsGroup = qBridgeVlanStatisticsGroup.setStatus('current')
@@ -256,8 +296,21 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 qBridgeLearningConstraintDefaultGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 17, 7, 2, 1, 13)).setObjects(("Q-BRIDGE-MIB", "dot1qConstraintSetDefault"), ("Q-BRIDGE-MIB", "dot1qConstraintTypeDefault"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     qBridgeLearningConstraintDefaultGroup = qBridgeLearningConstraintDefaultGroup.setStatus('current')
+qBridgeClassificationDeviceGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 17, 7, 2, 1, 14)).setObjects(("Q-BRIDGE-MIB", "dot1vProtocolGroupId"), ("Q-BRIDGE-MIB", "dot1vProtocolGroupRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qBridgeClassificationDeviceGroup = qBridgeClassificationDeviceGroup.setStatus('current')
+qBridgeClassificationPortGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 17, 7, 2, 1, 15)).setObjects(("Q-BRIDGE-MIB", "dot1vProtocolPortGroupVid"), ("Q-BRIDGE-MIB", "dot1vProtocolPortRowStatus"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qBridgeClassificationPortGroup = qBridgeClassificationPortGroup.setStatus('current')
+qBridgePortGroup2 = ObjectGroup((1, 3, 6, 1, 2, 1, 17, 7, 2, 1, 16)).setObjects(("Q-BRIDGE-MIB", "dot1qPvid"), ("Q-BRIDGE-MIB", "dot1qPortAcceptableFrameTypes"), ("Q-BRIDGE-MIB", "dot1qPortIngressFiltering"), ("Q-BRIDGE-MIB", "dot1qPortGvrpStatus"), ("Q-BRIDGE-MIB", "dot1qPortGvrpFailedRegistrations"), ("Q-BRIDGE-MIB", "dot1qPortGvrpLastPduOrigin"), ("Q-BRIDGE-MIB", "dot1qPortRestrictedVlanRegistration"))
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qBridgePortGroup2 = qBridgePortGroup2.setStatus('current')
 qBridgeCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 17, 7, 2, 2, 1)).setObjects(("Q-BRIDGE-MIB", "qBridgeBaseGroup"), ("Q-BRIDGE-MIB", "qBridgeVlanGroup"), ("Q-BRIDGE-MIB", "qBridgeVlanStaticGroup"), ("Q-BRIDGE-MIB", "qBridgePortGroup"), ("Q-BRIDGE-MIB", "qBridgeFdbUnicastGroup"), ("Q-BRIDGE-MIB", "qBridgeFdbMulticastGroup"), ("Q-BRIDGE-MIB", "qBridgeServiceRequirementsGroup"), ("Q-BRIDGE-MIB", "qBridgeFdbStaticGroup"), ("Q-BRIDGE-MIB", "qBridgeVlanStatisticsGroup"), ("Q-BRIDGE-MIB", "qBridgeVlanStatisticsOverflowGroup"), ("Q-BRIDGE-MIB", "qBridgeVlanHCStatisticsGroup"), ("Q-BRIDGE-MIB", "qBridgeLearningConstraintsGroup"), ("Q-BRIDGE-MIB", "qBridgeLearningConstraintDefaultGroup"))
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qBridgeCompliance = qBridgeCompliance.setStatus('current')
-mibBuilder.exportSymbols("Q-BRIDGE-MIB", qBridgeMIBObjects=qBridgeMIBObjects, dot1qTpFdbEntry=dot1qTpFdbEntry, dot1qLearningConstraintsTable=dot1qLearningConstraintsTable, dot1qTpVlanPortInDiscards=dot1qTpVlanPortInDiscards, dot1qVlanCurrentUntaggedPorts=dot1qVlanCurrentUntaggedPorts, dot1qMaxVlanId=dot1qMaxVlanId, qBridgeFdbMulticastGroup=qBridgeFdbMulticastGroup, dot1qTpFdbAddress=dot1qTpFdbAddress, dot1qStaticUnicastAllowedToGoTo=dot1qStaticUnicastAllowedToGoTo, VlanIndex=VlanIndex, dot1qConstraintTypeDefault=dot1qConstraintTypeDefault, dot1qTpFdbTable=dot1qTpFdbTable, dot1qStaticUnicastAddress=dot1qStaticUnicastAddress, dot1qVlanVersionNumber=dot1qVlanVersionNumber, dot1qTpGroupEntry=dot1qTpGroupEntry, dot1qConstraintStatus=dot1qConstraintStatus, dot1qForwardUnregisteredPorts=dot1qForwardUnregisteredPorts, dot1qConstraintSetDefault=dot1qConstraintSetDefault, dot1qTpGroupTable=dot1qTpGroupTable, dot1qVlanStaticEntry=dot1qVlanStaticEntry, dot1qForwardAllPorts=dot1qForwardAllPorts, dot1qVlanCurrentTable=dot1qVlanCurrentTable, dot1qForwardUnregisteredForbiddenPorts=dot1qForwardUnregisteredForbiddenPorts, dot1qFdbId=dot1qFdbId, dot1qForwardAllEntry=dot1qForwardAllEntry, dot1qTpVlanPortOutOverflowFrames=dot1qTpVlanPortOutOverflowFrames, dot1qGvrpStatus=dot1qGvrpStatus, qBridgeGroups=qBridgeGroups, qBridgeCompliances=qBridgeCompliances, dot1qVlanStaticRowStatus=dot1qVlanStaticRowStatus, dot1qStaticMulticastReceivePort=dot1qStaticMulticastReceivePort, dot1qVlanFdbId=dot1qVlanFdbId, dot1qPortGvrpStatus=dot1qPortGvrpStatus, dot1qStaticUnicastEntry=dot1qStaticUnicastEntry, dot1qPvid=dot1qPvid, qBridgeVlanHCStatisticsGroup=qBridgeVlanHCStatisticsGroup, dot1qConstraintSet=dot1qConstraintSet, dot1qForwardUnregisteredStaticPorts=dot1qForwardUnregisteredStaticPorts, dot1qVlanCreationTime=dot1qVlanCreationTime, dot1qTpVlanPortInOverflowFrames=dot1qTpVlanPortInOverflowFrames, dot1qTp=dot1qTp, dot1qTpGroupEgressPorts=dot1qTpGroupEgressPorts, PYSNMP_MODULE_ID=qBridgeMIB, dot1qPortVlanStatisticsEntry=dot1qPortVlanStatisticsEntry, dot1qNumVlans=dot1qNumVlans, dot1qVlanStaticTable=dot1qVlanStaticTable, dot1qStaticUnicastStatus=dot1qStaticUnicastStatus, dot1qVlanStaticEgressPorts=dot1qVlanStaticEgressPorts, dot1qStaticMulticastTable=dot1qStaticMulticastTable, dot1qTpGroupAddress=dot1qTpGroupAddress, dot1qPortVlanHCStatisticsEntry=dot1qPortVlanHCStatisticsEntry, qBridgeVlanGroup=qBridgeVlanGroup, qBridgeConformance=qBridgeConformance, dot1qPortVlanEntry=dot1qPortVlanEntry, PortList=PortList, dot1qTpVlanPortOutFrames=dot1qTpVlanPortOutFrames, qBridgeVlanStatisticsGroup=qBridgeVlanStatisticsGroup, dot1qVlanStaticName=dot1qVlanStaticName, dot1qVlan=dot1qVlan, dot1qForwardUnregisteredEntry=dot1qForwardUnregisteredEntry, dot1qVlanIndex=dot1qVlanIndex, dot1qPortGvrpLastPduOrigin=dot1qPortGvrpLastPduOrigin, dot1qVlanNumDeletes=dot1qVlanNumDeletes, dot1qForwardAllForbiddenPorts=dot1qForwardAllForbiddenPorts, dot1qTpVlanPortInFrames=dot1qTpVlanPortInFrames, dot1qStaticMulticastForbiddenEgressPorts=dot1qStaticMulticastForbiddenEgressPorts, dot1qTpFdbStatus=dot1qTpFdbStatus, dot1qStaticMulticastAddress=dot1qStaticMulticastAddress, dot1qTpGroupLearnt=dot1qTpGroupLearnt, dot1qVlanStatus=dot1qVlanStatus, dot1qPortVlanHCStatisticsTable=dot1qPortVlanHCStatisticsTable, dot1qVlanForbiddenEgressPorts=dot1qVlanForbiddenEgressPorts, dot1qForwardAllStaticPorts=dot1qForwardAllStaticPorts, qBridgeServiceRequirementsGroup=qBridgeServiceRequirementsGroup, dot1qConstraintType=dot1qConstraintType, dot1qTpVlanPortInOverflowDiscards=dot1qTpVlanPortInOverflowDiscards, dot1qPortVlanTable=dot1qPortVlanTable, qBridgeCompliance=qBridgeCompliance, dot1qVlanTimeMark=dot1qVlanTimeMark, dot1qTpVlanPortHCOutFrames=dot1qTpVlanPortHCOutFrames, dot1qBase=dot1qBase, qBridgeMIB=qBridgeMIB, qBridgeBaseGroup=qBridgeBaseGroup, dot1qConstraintVlan=dot1qConstraintVlan, dot1qPortGvrpFailedRegistrations=dot1qPortGvrpFailedRegistrations, dot1qStatic=dot1qStatic, dot1qVlanStaticUntaggedPorts=dot1qVlanStaticUntaggedPorts, dot1qTpVlanPortHCInDiscards=dot1qTpVlanPortHCInDiscards, dot1qForwardUnregisteredTable=dot1qForwardUnregisteredTable, VlanId=VlanId, qBridgeLearningConstraintDefaultGroup=qBridgeLearningConstraintDefaultGroup, dot1qFdbEntry=dot1qFdbEntry, dot1qVlanCurrentEntry=dot1qVlanCurrentEntry, dot1qStaticMulticastEntry=dot1qStaticMulticastEntry, dot1qPortIngressFiltering=dot1qPortIngressFiltering, dot1qPortVlanStatisticsTable=dot1qPortVlanStatisticsTable, qBridgeVlanStatisticsOverflowGroup=qBridgeVlanStatisticsOverflowGroup, dot1qMaxSupportedVlans=dot1qMaxSupportedVlans, dot1qTpFdbPort=dot1qTpFdbPort, dot1qVlanCurrentEgressPorts=dot1qVlanCurrentEgressPorts, dot1qForwardAllTable=dot1qForwardAllTable, dot1qNextFreeLocalVlanIndex=dot1qNextFreeLocalVlanIndex, dot1qStaticUnicastReceivePort=dot1qStaticUnicastReceivePort, qBridgeFdbStaticGroup=qBridgeFdbStaticGroup, qBridgeVlanStaticGroup=qBridgeVlanStaticGroup, dot1qLearningConstraintsEntry=dot1qLearningConstraintsEntry, qBridgeLearningConstraintsGroup=qBridgeLearningConstraintsGroup, qBridgePortGroup=qBridgePortGroup, dot1qStaticMulticastStaticEgressPorts=dot1qStaticMulticastStaticEgressPorts, dot1qStaticMulticastStatus=dot1qStaticMulticastStatus, dot1qFdbTable=dot1qFdbTable, dot1qFdbDynamicCount=dot1qFdbDynamicCount, dot1qPortAcceptableFrameTypes=dot1qPortAcceptableFrameTypes, qBridgeFdbUnicastGroup=qBridgeFdbUnicastGroup, dot1qTpVlanPortHCInFrames=dot1qTpVlanPortHCInFrames, dot1qStaticUnicastTable=dot1qStaticUnicastTable)
+    qBridgeCompliance = qBridgeCompliance.setStatus('deprecated')
+qBridgeCompliance2 = ModuleCompliance((1, 3, 6, 1, 2, 1, 17, 7, 2, 2, 2)).setObjects(("Q-BRIDGE-MIB", "qBridgeBaseGroup"), ("Q-BRIDGE-MIB", "qBridgeVlanGroup"), ("Q-BRIDGE-MIB", "qBridgeVlanStaticGroup"), ("Q-BRIDGE-MIB", "qBridgePortGroup2"), ("Q-BRIDGE-MIB", "qBridgeFdbUnicastGroup"), ("Q-BRIDGE-MIB", "qBridgeFdbMulticastGroup"), ("Q-BRIDGE-MIB", "qBridgeServiceRequirementsGroup"), ("Q-BRIDGE-MIB", "qBridgeFdbStaticGroup"), ("Q-BRIDGE-MIB", "qBridgeVlanStatisticsGroup"), ("Q-BRIDGE-MIB", "qBridgeVlanStatisticsOverflowGroup"), ("Q-BRIDGE-MIB", "qBridgeVlanHCStatisticsGroup"), ("Q-BRIDGE-MIB", "qBridgeLearningConstraintsGroup"), ("Q-BRIDGE-MIB", "qBridgeLearningConstraintDefaultGroup"), ("Q-BRIDGE-MIB", "qBridgeClassificationDeviceGroup"), ("Q-BRIDGE-MIB", "qBridgeClassificationPortGroup"))
+
+if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
+    qBridgeCompliance2 = qBridgeCompliance2.setStatus('current')
+mibBuilder.exportSymbols("Q-BRIDGE-MIB", dot1qStaticUnicastAddress=dot1qStaticUnicastAddress, dot1qPortVlanTable=dot1qPortVlanTable, dot1qStaticMulticastTable=dot1qStaticMulticastTable, dot1qPortAcceptableFrameTypes=dot1qPortAcceptableFrameTypes, dot1qStaticUnicastAllowedToGoTo=dot1qStaticUnicastAllowedToGoTo, qBridgeCompliance2=qBridgeCompliance2, PortList=PortList, qBridgeVlanStatisticsOverflowGroup=qBridgeVlanStatisticsOverflowGroup, dot1qStaticUnicastTable=dot1qStaticUnicastTable, dot1qTpFdbStatus=dot1qTpFdbStatus, dot1vProtocolGroupTable=dot1vProtocolGroupTable, VlanIdOrAnyOrNone=VlanIdOrAnyOrNone, dot1qStaticUnicastReceivePort=dot1qStaticUnicastReceivePort, qBridgeCompliance=qBridgeCompliance, qBridgeGroups=qBridgeGroups, dot1qPortVlanStatisticsTable=dot1qPortVlanStatisticsTable, dot1vProtocolTemplateFrameType=dot1vProtocolTemplateFrameType, qBridgePortGroup2=qBridgePortGroup2, dot1qForwardAllStaticPorts=dot1qForwardAllStaticPorts, dot1qStaticUnicastEntry=dot1qStaticUnicastEntry, qBridgePortGroup=qBridgePortGroup, dot1qStaticMulticastReceivePort=dot1qStaticMulticastReceivePort, dot1qPortGvrpLastPduOrigin=dot1qPortGvrpLastPduOrigin, dot1qMaxVlanId=dot1qMaxVlanId, qBridgeVlanGroup=qBridgeVlanGroup, dot1qPvid=dot1qPvid, dot1qStaticMulticastStatus=dot1qStaticMulticastStatus, dot1qTpFdbAddress=dot1qTpFdbAddress, dot1qForwardAllPorts=dot1qForwardAllPorts, qBridgeFdbUnicastGroup=qBridgeFdbUnicastGroup, dot1qPortGvrpFailedRegistrations=dot1qPortGvrpFailedRegistrations, dot1qStaticMulticastEntry=dot1qStaticMulticastEntry, dot1qTpFdbTable=dot1qTpFdbTable, qBridgeFdbMulticastGroup=qBridgeFdbMulticastGroup, dot1qTp=dot1qTp, dot1qFdbEntry=dot1qFdbEntry, VlanIndex=VlanIndex, qBridgeClassificationPortGroup=qBridgeClassificationPortGroup, qBridgeVlanStatisticsGroup=qBridgeVlanStatisticsGroup, dot1qTpGroupAddress=dot1qTpGroupAddress, dot1qPortGvrpStatus=dot1qPortGvrpStatus, dot1qFdbTable=dot1qFdbTable, dot1vProtocolGroupEntry=dot1vProtocolGroupEntry, VlanIdOrAny=VlanIdOrAny, qBridgeCompliances=qBridgeCompliances, dot1qVlan=dot1qVlan, dot1qVlanStaticEgressPorts=dot1qVlanStaticEgressPorts, dot1qTpGroupEgressPorts=dot1qTpGroupEgressPorts, VlanId=VlanId, dot1qTpGroupEntry=dot1qTpGroupEntry, dot1qVlanCurrentTable=dot1qVlanCurrentTable, dot1vProtocolPortGroupId=dot1vProtocolPortGroupId, dot1qNumVlans=dot1qNumVlans, qBridgeMIB=qBridgeMIB, dot1qVlanCreationTime=dot1qVlanCreationTime, dot1vProtocol=dot1vProtocol, dot1qConstraintStatus=dot1qConstraintStatus, dot1qVlanIndex=dot1qVlanIndex, qBridgeVlanStaticGroup=qBridgeVlanStaticGroup, dot1qForwardUnregisteredPorts=dot1qForwardUnregisteredPorts, dot1qTpVlanPortOutFrames=dot1qTpVlanPortOutFrames, dot1qTpGroupLearnt=dot1qTpGroupLearnt, dot1qVlanCurrentUntaggedPorts=dot1qVlanCurrentUntaggedPorts, dot1qVlanStaticTable=dot1qVlanStaticTable, dot1qVlanFdbId=dot1qVlanFdbId, dot1vProtocolPortTable=dot1vProtocolPortTable, dot1qVlanCurrentEntry=dot1qVlanCurrentEntry, dot1qVlanNumDeletes=dot1qVlanNumDeletes, dot1qVlanForbiddenEgressPorts=dot1qVlanForbiddenEgressPorts, dot1qTpVlanPortHCInFrames=dot1qTpVlanPortHCInFrames, dot1qForwardAllForbiddenPorts=dot1qForwardAllForbiddenPorts, dot1qForwardAllTable=dot1qForwardAllTable, dot1qConstraintSet=dot1qConstraintSet, dot1qStatic=dot1qStatic, dot1qForwardUnregisteredTable=dot1qForwardUnregisteredTable, dot1qPortVlanHCStatisticsTable=dot1qPortVlanHCStatisticsTable, qBridgeFdbStaticGroup=qBridgeFdbStaticGroup, qBridgeServiceRequirementsGroup=qBridgeServiceRequirementsGroup, dot1qTpVlanPortInOverflowFrames=dot1qTpVlanPortInOverflowFrames, dot1qPortRestrictedVlanRegistration=dot1qPortRestrictedVlanRegistration, dot1qFdbId=dot1qFdbId, dot1qStaticUnicastStatus=dot1qStaticUnicastStatus, dot1qPortIngressFiltering=dot1qPortIngressFiltering, dot1qPortVlanStatisticsEntry=dot1qPortVlanStatisticsEntry, dot1vProtocolPortEntry=dot1vProtocolPortEntry, dot1qVlanStaticUntaggedPorts=dot1qVlanStaticUntaggedPorts, dot1vProtocolPortRowStatus=dot1vProtocolPortRowStatus, dot1qStaticMulticastStaticEgressPorts=dot1qStaticMulticastStaticEgressPorts, dot1qNextFreeLocalVlanIndex=dot1qNextFreeLocalVlanIndex, dot1qForwardUnregisteredStaticPorts=dot1qForwardUnregisteredStaticPorts, dot1qBase=dot1qBase, dot1qLearningConstraintsEntry=dot1qLearningConstraintsEntry, qBridgeVlanHCStatisticsGroup=qBridgeVlanHCStatisticsGroup, dot1vProtocolGroupId=dot1vProtocolGroupId, qBridgeLearningConstraintsGroup=qBridgeLearningConstraintsGroup, dot1qVlanTimeMark=dot1qVlanTimeMark, dot1qConstraintVlan=dot1qConstraintVlan, qBridgeBaseGroup=qBridgeBaseGroup, PYSNMP_MODULE_ID=qBridgeMIB, dot1qForwardUnregisteredForbiddenPorts=dot1qForwardUnregisteredForbiddenPorts, dot1qTpVlanPortInOverflowDiscards=dot1qTpVlanPortInOverflowDiscards, dot1qTpVlanPortInFrames=dot1qTpVlanPortInFrames, qBridgeConformance=qBridgeConformance, qBridgeLearningConstraintDefaultGroup=qBridgeLearningConstraintDefaultGroup, dot1qPortVlanHCStatisticsEntry=dot1qPortVlanHCStatisticsEntry, dot1qGvrpStatus=dot1qGvrpStatus, dot1qVlanStaticName=dot1qVlanStaticName, dot1qTpVlanPortOutOverflowFrames=dot1qTpVlanPortOutOverflowFrames, dot1qVlanCurrentEgressPorts=dot1qVlanCurrentEgressPorts, qBridgeClassificationDeviceGroup=qBridgeClassificationDeviceGroup, VlanIdOrNone=VlanIdOrNone, dot1qPortVlanEntry=dot1qPortVlanEntry, dot1qConstraintType=dot1qConstraintType, dot1qStaticMulticastAddress=dot1qStaticMulticastAddress, dot1qVlanVersionNumber=dot1qVlanVersionNumber, dot1qTpFdbEntry=dot1qTpFdbEntry, dot1vProtocolGroupRowStatus=dot1vProtocolGroupRowStatus, dot1qTpVlanPortHCOutFrames=dot1qTpVlanPortHCOutFrames, dot1qConstraintTypeDefault=dot1qConstraintTypeDefault, dot1qTpVlanPortInDiscards=dot1qTpVlanPortInDiscards, dot1qVlanStatus=dot1qVlanStatus, dot1qLearningConstraintsTable=dot1qLearningConstraintsTable, dot1qTpGroupTable=dot1qTpGroupTable, dot1qStaticMulticastForbiddenEgressPorts=dot1qStaticMulticastForbiddenEgressPorts, dot1qTpVlanPortHCInDiscards=dot1qTpVlanPortHCInDiscards, dot1vProtocolTemplateProtocolValue=dot1vProtocolTemplateProtocolValue, dot1qForwardUnregisteredEntry=dot1qForwardUnregisteredEntry, dot1qMaxSupportedVlans=dot1qMaxSupportedVlans, dot1qTpFdbPort=dot1qTpFdbPort, dot1qFdbDynamicCount=dot1qFdbDynamicCount, dot1qForwardAllEntry=dot1qForwardAllEntry, dot1vProtocolPortGroupVid=dot1vProtocolPortGroupVid, qBridgeMIBObjects=qBridgeMIBObjects, dot1qVlanStaticRowStatus=dot1qVlanStaticRowStatus, dot1qVlanStaticEntry=dot1qVlanStaticEntry, dot1qConstraintSetDefault=dot1qConstraintSetDefault)

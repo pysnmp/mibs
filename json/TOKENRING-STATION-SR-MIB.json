@@ -1,0 +1,204 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "MacAddress",
+      "RowStatus"
+    ]
+  },
+  "dot5SrMIB": {
+    "name": "dot5SrMIB",
+    "oid": "1.3.6.1.2.1.42",
+    "class": "moduleidentity"
+  },
+  "dot5SrMIBObjects": {
+    "name": "dot5SrMIBObjects",
+    "oid": "1.3.6.1.2.1.42.1",
+    "class": "objectidentity"
+  },
+  "SourceRoute": {
+    "name": "SourceRoute",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 30
+          }
+        ]
+      }
+    },
+    "displayhint": "1x:",
+    "status": "current"
+  },
+  "dot5SrRouteTable": {
+    "name": "dot5SrRouteTable",
+    "oid": "1.3.6.1.2.1.42.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot5SrRouteEntry": {
+    "name": "dot5SrRouteEntry",
+    "oid": "1.3.6.1.2.1.42.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      },
+      {
+        "module": "TOKENRING-STATION-SR-MIB",
+        "object": "dot5SrRouteDestination",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "dot5SrRouteDestination": {
+    "name": "dot5SrRouteDestination",
+    "oid": "1.3.6.1.2.1.42.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "dot5SrRouteControl": {
+    "name": "dot5SrRouteControl",
+    "oid": "1.3.6.1.2.1.42.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 2,
+            "max": 2
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot5SrRouteDescr": {
+    "name": "dot5SrRouteDescr",
+    "oid": "1.3.6.1.2.1.42.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SourceRoute",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot5SrRouteStatus": {
+    "name": "dot5SrRouteStatus",
+    "oid": "1.3.6.1.2.1.42.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "dot5SrConformance": {
+    "name": "dot5SrConformance",
+    "oid": "1.3.6.1.2.1.42.2",
+    "class": "objectidentity"
+  },
+  "dot5SrGroups": {
+    "name": "dot5SrGroups",
+    "oid": "1.3.6.1.2.1.42.2.1",
+    "class": "objectidentity"
+  },
+  "dot5SrCompliances": {
+    "name": "dot5SrCompliances",
+    "oid": "1.3.6.1.2.1.42.2.2",
+    "class": "objectidentity"
+  },
+  "dot5SrCompliance": {
+    "name": "dot5SrCompliance",
+    "oid": "1.3.6.1.2.1.42.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "dot5SrRouteGroup",
+        "module": "TOKENRING-STATION-SR-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "dot5SrRouteGroup": {
+    "name": "dot5SrRouteGroup",
+    "oid": "1.3.6.1.2.1.42.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "TOKENRING-STATION-SR-MIB",
+        "object": "dot5SrRouteControl"
+      },
+      {
+        "module": "TOKENRING-STATION-SR-MIB",
+        "object": "dot5SrRouteDescr"
+      },
+      {
+        "module": "TOKENRING-STATION-SR-MIB",
+        "object": "dot5SrRouteStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/TOKENRING-STATION-SR-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "TOKENRING-STATION-SR-MIB"
+  }
+}

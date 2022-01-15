@@ -1,0 +1,972 @@
+{
+  "imports": {
+    "class": "imports",
+    "INET-ADDRESS-MIB": [
+      "InetAddress",
+      "InetAddressType"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "mib-2",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TimeInterval",
+      "RowStatus",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DisplayString"
+    ]
+  },
+  "copsClientMIB": {
+    "name": "copsClientMIB",
+    "oid": "1.3.6.1.2.1.89",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2000-09-28 00:00",
+        "description": "This version published as RFC 2940"
+      }
+    ]
+  },
+  "copsClientMIBObjects": {
+    "name": "copsClientMIBObjects",
+    "oid": "1.3.6.1.2.1.89.1",
+    "class": "objectidentity"
+  },
+  "CopsClientState": {
+    "name": "CopsClientState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copsClientInvalid": 1,
+          "copsClientTcpconnected": 2,
+          "copsClientAuthenticating": 3,
+          "copsClientSecAccepted": 4,
+          "copsClientAccepted": 5,
+          "copsClientTimingout": 6
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CopsServerEntryType": {
+    "name": "CopsServerEntryType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "copsServerStatic": 1,
+          "copsServerRedirect": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CopsErrorCode": {
+    "name": "CopsErrorCode",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "errorOther": 0,
+          "errorBadHandle": 1,
+          "errorInvalidHandleReference": 2,
+          "errorBadMessageFormat": 3,
+          "errorUnableToProcess": 4,
+          "errorMandatoryClientSiMissing": 5,
+          "errorUnsupportedClientType": 6,
+          "errorMandatoryCopsObjectMissing": 7,
+          "errorClientFailure": 8,
+          "errorCommunicationFailure": 9,
+          "errorUnspecified": 10,
+          "errorShuttingDown": 11,
+          "errorRedirectToPreferredServer": 12,
+          "errorUnknownCopsObject": 13,
+          "errorAuthenticationFailure": 14,
+          "errorAuthenticationMissing": 15
+        }
+      }
+    },
+    "status": "current"
+  },
+  "CopsTcpPort": {
+    "name": "CopsTcpPort",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "CopsAuthType": {
+    "name": "CopsAuthType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "authNone": 0,
+          "authOther": 1,
+          "authIpSecAh": 2,
+          "authIpSecEsp": 3,
+          "authTls": 4,
+          "authCopsIntegrity": 5
+        }
+      }
+    },
+    "status": "current"
+  },
+  "copsClientCapabilitiesGroup": {
+    "name": "copsClientCapabilitiesGroup",
+    "oid": "1.3.6.1.2.1.89.1.1",
+    "class": "objectidentity"
+  },
+  "copsClientCapabilities": {
+    "name": "copsClientCapabilities",
+    "oid": "1.3.6.1.2.1.89.1.1.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Bits",
+      "class": "type",
+      "bits": {
+        "copsClientVersion1": 0,
+        "copsClientAuthIpSecAh": 1,
+        "copsClientAuthIpSecEsp": 2,
+        "copsClientAuthTls": 3,
+        "copsClientAuthInteg": 4
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientStatusGroup": {
+    "name": "copsClientStatusGroup",
+    "oid": "1.3.6.1.2.1.89.1.2",
+    "class": "objectidentity"
+  },
+  "copsClientServerCurrentTable": {
+    "name": "copsClientServerCurrentTable",
+    "oid": "1.3.6.1.2.1.89.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "copsClientServerCurrentEntry": {
+    "name": "copsClientServerCurrentEntry",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerAddressType",
+        "implied": 0
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerAddress",
+        "implied": 0
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerClientType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "copsClientServerAddressType": {
+    "name": "copsClientServerAddressType",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "copsClientServerAddress": {
+    "name": "copsClientServerAddress",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "copsClientServerClientType": {
+    "name": "copsClientServerClientType",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "copsClientServerTcpPort": {
+    "name": "copsClientServerTcpPort",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CopsTcpPort",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientServerType": {
+    "name": "copsClientServerType",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CopsServerEntryType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientServerAuthType": {
+    "name": "copsClientServerAuthType",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CopsAuthType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientServerLastConnAttempt": {
+    "name": "copsClientServerLastConnAttempt",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientState": {
+    "name": "copsClientState",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CopsClientState",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientServerKeepaliveTime": {
+    "name": "copsClientServerKeepaliveTime",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientServerAccountingTime": {
+    "name": "copsClientServerAccountingTime",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientInPkts": {
+    "name": "copsClientInPkts",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientOutPkts": {
+    "name": "copsClientOutPkts",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientInErrs": {
+    "name": "copsClientInErrs",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientLastError": {
+    "name": "copsClientLastError",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CopsErrorCode",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientTcpConnectAttempts": {
+    "name": "copsClientTcpConnectAttempts",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientTcpConnectFailures": {
+    "name": "copsClientTcpConnectFailures",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientOpenAttempts": {
+    "name": "copsClientOpenAttempts",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientOpenFailures": {
+    "name": "copsClientOpenFailures",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.18",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrUnsupportClienttype": {
+    "name": "copsClientErrUnsupportClienttype",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.19",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrUnsupportedVersion": {
+    "name": "copsClientErrUnsupportedVersion",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.20",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrLengthMismatch": {
+    "name": "copsClientErrLengthMismatch",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.21",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrUnknownOpcode": {
+    "name": "copsClientErrUnknownOpcode",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.22",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrUnknownCnum": {
+    "name": "copsClientErrUnknownCnum",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.23",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrBadCtype": {
+    "name": "copsClientErrBadCtype",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.24",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrBadSends": {
+    "name": "copsClientErrBadSends",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.25",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrWrongObjects": {
+    "name": "copsClientErrWrongObjects",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.26",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrWrongOpcode": {
+    "name": "copsClientErrWrongOpcode",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.27",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientKaTimedoutClients": {
+    "name": "copsClientKaTimedoutClients",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.28",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrAuthFailures": {
+    "name": "copsClientErrAuthFailures",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.29",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientErrAuthMissing": {
+    "name": "copsClientErrAuthMissing",
+    "oid": "1.3.6.1.2.1.89.1.2.1.1.30",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "copsClientConfigGroup": {
+    "name": "copsClientConfigGroup",
+    "oid": "1.3.6.1.2.1.89.1.3",
+    "class": "objectidentity"
+  },
+  "copsClientServerConfigTable": {
+    "name": "copsClientServerConfigTable",
+    "oid": "1.3.6.1.2.1.89.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "copsClientServerConfigEntry": {
+    "name": "copsClientServerConfigEntry",
+    "oid": "1.3.6.1.2.1.89.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerConfigAddrType",
+        "implied": 0
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerConfigAddress",
+        "implied": 0
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerConfigClientType",
+        "implied": 0
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerConfigAuthType",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "copsClientServerConfigAddrType": {
+    "name": "copsClientServerConfigAddrType",
+    "oid": "1.3.6.1.2.1.89.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddressType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "copsClientServerConfigAddress": {
+    "name": "copsClientServerConfigAddress",
+    "oid": "1.3.6.1.2.1.89.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "InetAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "copsClientServerConfigClientType": {
+    "name": "copsClientServerConfigClientType",
+    "oid": "1.3.6.1.2.1.89.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "copsClientServerConfigAuthType": {
+    "name": "copsClientServerConfigAuthType",
+    "oid": "1.3.6.1.2.1.89.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CopsAuthType",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "copsClientServerConfigTcpPort": {
+    "name": "copsClientServerConfigTcpPort",
+    "oid": "1.3.6.1.2.1.89.1.3.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "CopsTcpPort",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "copsClientServerConfigPriority": {
+    "name": "copsClientServerConfigPriority",
+    "oid": "1.3.6.1.2.1.89.1.3.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "copsClientServerConfigRowStatus": {
+    "name": "copsClientServerConfigRowStatus",
+    "oid": "1.3.6.1.2.1.89.1.3.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "copsClientServerConfigRetryAlgrm": {
+    "name": "copsClientServerConfigRetryAlgrm",
+    "oid": "1.3.6.1.2.1.89.1.3.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "other": 1,
+          "sequential": 2,
+          "roundRobin": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "sequential",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "copsClientServerConfigRetryCount": {
+    "name": "copsClientServerConfigRetryCount",
+    "oid": "1.3.6.1.2.1.89.1.3.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "copsClientServerConfigRetryIntvl": {
+    "name": "copsClientServerConfigRetryIntvl",
+    "oid": "1.3.6.1.2.1.89.1.3.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeInterval",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1000,
+        "format": "decimal"
+      }
+    },
+    "units": "centi-seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "copsClientConformance": {
+    "name": "copsClientConformance",
+    "oid": "1.3.6.1.2.1.89.2",
+    "class": "objectidentity"
+  },
+  "copsClientGroups": {
+    "name": "copsClientGroups",
+    "oid": "1.3.6.1.2.1.89.2.1",
+    "class": "objectidentity"
+  },
+  "copsClientCompliances": {
+    "name": "copsClientCompliances",
+    "oid": "1.3.6.1.2.1.89.2.2",
+    "class": "objectidentity"
+  },
+  "copsDeviceStatusGroup": {
+    "name": "copsDeviceStatusGroup",
+    "oid": "1.3.6.1.2.1.89.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientCapabilities"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerTcpPort"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerType"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerAuthType"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerLastConnAttempt"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientState"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerKeepaliveTime"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerAccountingTime"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientInPkts"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientOutPkts"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientInErrs"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientLastError"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientTcpConnectAttempts"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientTcpConnectFailures"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientOpenAttempts"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientOpenFailures"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrUnsupportClienttype"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrUnsupportedVersion"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrLengthMismatch"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrUnknownOpcode"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrUnknownCnum"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrBadCtype"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrBadSends"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrWrongObjects"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrWrongOpcode"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientKaTimedoutClients"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrAuthFailures"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientErrAuthMissing"
+      }
+    ],
+    "status": "current"
+  },
+  "copsDeviceConfigGroup": {
+    "name": "copsDeviceConfigGroup",
+    "oid": "1.3.6.1.2.1.89.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerConfigTcpPort"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerConfigPriority"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerConfigRowStatus"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerConfigRetryAlgrm"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerConfigRetryCount"
+      },
+      {
+        "module": "COPS-CLIENT-MIB",
+        "object": "copsClientServerConfigRetryIntvl"
+      }
+    ],
+    "status": "current"
+  },
+  "copsClientCompliance": {
+    "name": "copsClientCompliance",
+    "oid": "1.3.6.1.2.1.89.2.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "copsDeviceStatusGroup",
+        "module": "COPS-CLIENT-MIB"
+      },
+      {
+        "object": "copsDeviceConfigGroup",
+        "module": "COPS-CLIENT-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/COPS-CLIENT-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "COPS-CLIENT-MIB"
+  }
+}

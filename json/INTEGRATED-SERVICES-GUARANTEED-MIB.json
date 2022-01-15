@@ -1,0 +1,209 @@
+{
+  "imports": {
+    "class": "imports",
+    "IF-MIB": [
+      "ifIndex"
+    ],
+    "INTEGRATED-SERVICES-MIB": [
+      "intSrv"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION",
+      "RowStatus"
+    ]
+  },
+  "intSrvGuaranteed": {
+    "name": "intSrvGuaranteed",
+    "oid": "1.3.6.1.2.1.52.5",
+    "class": "moduleidentity"
+  },
+  "intSrvGuaranteedObjects": {
+    "name": "intSrvGuaranteedObjects",
+    "oid": "1.3.6.1.2.1.52.5.1",
+    "class": "objectidentity"
+  },
+  "intSrvGuaranteedNotifications": {
+    "name": "intSrvGuaranteedNotifications",
+    "oid": "1.3.6.1.2.1.52.5.2",
+    "class": "objectidentity"
+  },
+  "intSrvGuaranteedConformance": {
+    "name": "intSrvGuaranteedConformance",
+    "oid": "1.3.6.1.2.1.52.5.3",
+    "class": "objectidentity"
+  },
+  "intSrvGuaranteedIfTable": {
+    "name": "intSrvGuaranteedIfTable",
+    "oid": "1.3.6.1.2.1.52.5.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "intSrvGuaranteedIfEntry": {
+    "name": "intSrvGuaranteedIfEntry",
+    "oid": "1.3.6.1.2.1.52.5.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "IF-MIB",
+        "object": "ifIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "intSrvGuaranteedIfBacklog": {
+    "name": "intSrvGuaranteedIfBacklog",
+    "oid": "1.3.6.1.2.1.52.5.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 268435455
+          }
+        ]
+      }
+    },
+    "units": "bytes",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvGuaranteedIfDelay": {
+    "name": "intSrvGuaranteedIfDelay",
+    "oid": "1.3.6.1.2.1.52.5.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 268435455
+          }
+        ]
+      }
+    },
+    "units": "microseconds",
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvGuaranteedIfSlack": {
+    "name": "intSrvGuaranteedIfSlack",
+    "oid": "1.3.6.1.2.1.52.5.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 268435455
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvGuaranteedIfStatus": {
+    "name": "intSrvGuaranteedIfStatus",
+    "oid": "1.3.6.1.2.1.52.5.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "intSrvGuaranteedGroups": {
+    "name": "intSrvGuaranteedGroups",
+    "oid": "1.3.6.1.2.1.52.5.3.1",
+    "class": "objectidentity"
+  },
+  "intSrvGuaranteedCompliances": {
+    "name": "intSrvGuaranteedCompliances",
+    "oid": "1.3.6.1.2.1.52.5.3.2",
+    "class": "objectidentity"
+  },
+  "intSrvGuaranteedCompliance": {
+    "name": "intSrvGuaranteedCompliance",
+    "oid": "1.3.6.1.2.1.52.5.3.2.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "intSrvGuaranteedIfAttribGroup",
+        "module": "INTEGRATED-SERVICES-GUARANTEED-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "intSrvGuaranteedIfAttribGroup": {
+    "name": "intSrvGuaranteedIfAttribGroup",
+    "oid": "1.3.6.1.2.1.52.5.3.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "INTEGRATED-SERVICES-GUARANTEED-MIB",
+        "object": "intSrvGuaranteedIfBacklog"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-GUARANTEED-MIB",
+        "object": "intSrvGuaranteedIfDelay"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-GUARANTEED-MIB",
+        "object": "intSrvGuaranteedIfSlack"
+      },
+      {
+        "module": "INTEGRATED-SERVICES-GUARANTEED-MIB",
+        "object": "intSrvGuaranteedIfStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/INTEGRATED-SERVICES-GUARANTEED-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "INTEGRATED-SERVICES-GUARANTEED-MIB"
+  }
+}

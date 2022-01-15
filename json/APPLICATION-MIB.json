@@ -1,0 +1,2884 @@
+{
+  "imports": {
+    "class": "imports",
+    "SNMP-FRAMEWORK-MIB": [
+      "SnmpAdminString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "mib-2",
+      "Unsigned32",
+      "Integer32",
+      "zeroDotZero",
+      "Counter32",
+      "Counter64",
+      "iso",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "TruthValue",
+      "TDomain",
+      "TEXTUAL-CONVENTION",
+      "TimeStamp",
+      "DateAndTime",
+      "TestAndIncr",
+      "DisplayString"
+    ],
+    "SYSAPPL-MIB": [
+      "LongUtf8String",
+      "sysApplElmtRunIndex"
+    ]
+  },
+  "applicationMib": {
+    "name": "applicationMib",
+    "oid": "1.3.6.1.2.1.62",
+    "class": "moduleidentity"
+  },
+  "applicationMibObjects": {
+    "name": "applicationMibObjects",
+    "oid": "1.3.6.1.2.1.62.1",
+    "class": "objectidentity"
+  },
+  "applicationMibConformance": {
+    "name": "applicationMibConformance",
+    "oid": "1.3.6.1.2.1.62.2",
+    "class": "objectidentity"
+  },
+  "applServiceGroup": {
+    "name": "applServiceGroup",
+    "oid": "1.3.6.1.2.1.62.1.1",
+    "class": "objectidentity"
+  },
+  "applChannelGroup": {
+    "name": "applChannelGroup",
+    "oid": "1.3.6.1.2.1.62.1.2",
+    "class": "objectidentity"
+  },
+  "applPastChannelGroup": {
+    "name": "applPastChannelGroup",
+    "oid": "1.3.6.1.2.1.62.1.3",
+    "class": "objectidentity"
+  },
+  "applElmtRunControlGroup": {
+    "name": "applElmtRunControlGroup",
+    "oid": "1.3.6.1.2.1.62.1.4",
+    "class": "objectidentity"
+  },
+  "Unsigned64TC": {
+    "name": "Unsigned64TC",
+    "class": "textualconvention",
+    "type": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "status": "current"
+  },
+  "ApplTAddress": {
+    "name": "ApplTAddress",
+    "class": "textualconvention",
+    "type": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 255
+          }
+        ]
+      }
+    },
+    "status": "current"
+  },
+  "applSrvNameToSrvInstTable": {
+    "name": "applSrvNameToSrvInstTable",
+    "oid": "1.3.6.1.2.1.62.1.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applSrvNameToSrvInstEntry": {
+    "name": "applSrvNameToSrvInstEntry",
+    "oid": "1.3.6.1.2.1.62.1.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applSrvName",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applSrvIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applSrvInstQual": {
+    "name": "applSrvInstQual",
+    "oid": "1.3.6.1.2.1.62.1.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applSrvInstToSrvNameTable": {
+    "name": "applSrvInstToSrvNameTable",
+    "oid": "1.3.6.1.2.1.62.1.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applSrvInstToSrvNameEntry": {
+    "name": "applSrvInstToSrvNameEntry",
+    "oid": "1.3.6.1.2.1.62.1.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applSrvIndex",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applSrvName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applSrvName": {
+    "name": "applSrvName",
+    "oid": "1.3.6.1.2.1.62.1.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applSrvInstToRunApplElmtTable": {
+    "name": "applSrvInstToRunApplElmtTable",
+    "oid": "1.3.6.1.2.1.62.1.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applSrvInstToRunApplElmtEntry": {
+    "name": "applSrvInstToRunApplElmtEntry",
+    "oid": "1.3.6.1.2.1.62.1.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applSrvIndex",
+        "implied": 0
+      },
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applSrvIndex": {
+    "name": "applSrvIndex",
+    "oid": "1.3.6.1.2.1.62.1.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applRunApplElmtToSrvInstTable": {
+    "name": "applRunApplElmtToSrvInstTable",
+    "oid": "1.3.6.1.2.1.62.1.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applRunApplElmtToSrvInstEntry": {
+    "name": "applRunApplElmtToSrvInstEntry",
+    "oid": "1.3.6.1.2.1.62.1.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunIndex",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applSrvInstance",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applSrvInstance": {
+    "name": "applSrvInstance",
+    "oid": "1.3.6.1.2.1.62.1.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelTable": {
+    "name": "applOpenChannelTable",
+    "oid": "1.3.6.1.2.1.62.1.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applOpenChannelEntry": {
+    "name": "applOpenChannelEntry",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applElmtOrSvc": {
+    "name": "applElmtOrSvc",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "service": 1,
+          "element": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applElmtOrSvcId": {
+    "name": "applElmtOrSvcId",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applOpenChannelIndex": {
+    "name": "applOpenChannelIndex",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applOpenChannelOpenTime": {
+    "name": "applOpenChannelOpenTime",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TimeStamp",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelReadRequests": {
+    "name": "applOpenChannelReadRequests",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "read requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelReadRequestsLow": {
+    "name": "applOpenChannelReadRequestsLow",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "read requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelReadFailures": {
+    "name": "applOpenChannelReadFailures",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed read requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelBytesRead": {
+    "name": "applOpenChannelBytesRead",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelBytesReadLow": {
+    "name": "applOpenChannelBytesReadLow",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelLastReadTime": {
+    "name": "applOpenChannelLastReadTime",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelWriteRequests": {
+    "name": "applOpenChannelWriteRequests",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "write requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelWriteRequestsLow": {
+    "name": "applOpenChannelWriteRequestsLow",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "write requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelWriteFailures": {
+    "name": "applOpenChannelWriteFailures",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "failed write requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelBytesWritten": {
+    "name": "applOpenChannelBytesWritten",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelBytesWrittenLow": {
+    "name": "applOpenChannelBytesWrittenLow",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenChannelLastWriteTime": {
+    "name": "applOpenChannelLastWriteTime",
+    "oid": "1.3.6.1.2.1.62.1.2.1.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenFileTable": {
+    "name": "applOpenFileTable",
+    "oid": "1.3.6.1.2.1.62.1.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applOpenFileEntry": {
+    "name": "applOpenFileEntry",
+    "oid": "1.3.6.1.2.1.62.1.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applOpenFileName": {
+    "name": "applOpenFileName",
+    "oid": "1.3.6.1.2.1.62.1.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LongUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenFileSizeHigh": {
+    "name": "applOpenFileSizeHigh",
+    "oid": "1.3.6.1.2.1.62.1.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "2^32 byte blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenFileSizeLow": {
+    "name": "applOpenFileSizeLow",
+    "oid": "1.3.6.1.2.1.62.1.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenFileMode": {
+    "name": "applOpenFileMode",
+    "oid": "1.3.6.1.2.1.62.1.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read": 1,
+          "write": 2,
+          "readWrite": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenConnectionTable": {
+    "name": "applOpenConnectionTable",
+    "oid": "1.3.6.1.2.1.62.1.2.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applOpenConnectionEntry": {
+    "name": "applOpenConnectionEntry",
+    "oid": "1.3.6.1.2.1.62.1.2.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applOpenConnectionTransport": {
+    "name": "applOpenConnectionTransport",
+    "oid": "1.3.6.1.2.1.62.1.2.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomain",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenConnectionNearEndAddr": {
+    "name": "applOpenConnectionNearEndAddr",
+    "oid": "1.3.6.1.2.1.62.1.2.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApplTAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenConnectionNearEndpoint": {
+    "name": "applOpenConnectionNearEndpoint",
+    "oid": "1.3.6.1.2.1.62.1.2.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenConnectionFarEndAddr": {
+    "name": "applOpenConnectionFarEndAddr",
+    "oid": "1.3.6.1.2.1.62.1.2.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApplTAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenConnectionFarEndpoint": {
+    "name": "applOpenConnectionFarEndpoint",
+    "oid": "1.3.6.1.2.1.62.1.2.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applOpenConnectionApplication": {
+    "name": "applOpenConnectionApplication",
+    "oid": "1.3.6.1.2.1.62.1.2.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactionStreamTable": {
+    "name": "applTransactionStreamTable",
+    "oid": "1.3.6.1.2.1.62.1.2.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applTransactionStreamEntry": {
+    "name": "applTransactionStreamEntry",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applTransactStreamDescr": {
+    "name": "applTransactStreamDescr",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactStreamUnitOfWork": {
+    "name": "applTransactStreamUnitOfWork",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactStreamInvokes": {
+    "name": "applTransactStreamInvokes",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactStreamInvokesLow": {
+    "name": "applTransactStreamInvokesLow",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactStreamInvCumTimes": {
+    "name": "applTransactStreamInvCumTimes",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactStreamInvRspTimes": {
+    "name": "applTransactStreamInvRspTimes",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactStreamPerforms": {
+    "name": "applTransactStreamPerforms",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactStreamPerformsLow": {
+    "name": "applTransactStreamPerformsLow",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactStreamPrfCumTimes": {
+    "name": "applTransactStreamPrfCumTimes",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactStreamPrfRspTimes": {
+    "name": "applTransactStreamPrfRspTimes",
+    "oid": "1.3.6.1.2.1.62.1.2.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactFlowTable": {
+    "name": "applTransactFlowTable",
+    "oid": "1.3.6.1.2.1.62.1.2.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applTransactFlowEntry": {
+    "name": "applTransactFlowEntry",
+    "oid": "1.3.6.1.2.1.62.1.2.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactFlowDirection",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactFlowReqRsp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applTransactFlowDirection": {
+    "name": "applTransactFlowDirection",
+    "oid": "1.3.6.1.2.1.62.1.2.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmit": 1,
+          "receive": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applTransactFlowReqRsp": {
+    "name": "applTransactFlowReqRsp",
+    "oid": "1.3.6.1.2.1.62.1.2.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "request": 1,
+          "response": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applTransactFlowTrans": {
+    "name": "applTransactFlowTrans",
+    "oid": "1.3.6.1.2.1.62.1.2.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactFlowTransLow": {
+    "name": "applTransactFlowTransLow",
+    "oid": "1.3.6.1.2.1.62.1.2.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactFlowBytes": {
+    "name": "applTransactFlowBytes",
+    "oid": "1.3.6.1.2.1.62.1.2.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactFlowBytesLow": {
+    "name": "applTransactFlowBytesLow",
+    "oid": "1.3.6.1.2.1.62.1.2.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactFlowTime": {
+    "name": "applTransactFlowTime",
+    "oid": "1.3.6.1.2.1.62.1.2.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactKindTable": {
+    "name": "applTransactKindTable",
+    "oid": "1.3.6.1.2.1.62.1.2.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applTransactKindEntry": {
+    "name": "applTransactKindEntry",
+    "oid": "1.3.6.1.2.1.62.1.2.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactFlowDirection",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactFlowReqRsp",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactKind",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applTransactKind": {
+    "name": "applTransactKind",
+    "oid": "1.3.6.1.2.1.62.1.2.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applTransactKindTrans": {
+    "name": "applTransactKindTrans",
+    "oid": "1.3.6.1.2.1.62.1.2.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactKindTransLow": {
+    "name": "applTransactKindTransLow",
+    "oid": "1.3.6.1.2.1.62.1.2.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactKindBytes": {
+    "name": "applTransactKindBytes",
+    "oid": "1.3.6.1.2.1.62.1.2.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactKindBytesLow": {
+    "name": "applTransactKindBytesLow",
+    "oid": "1.3.6.1.2.1.62.1.2.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applTransactKindTime": {
+    "name": "applTransactKindTime",
+    "oid": "1.3.6.1.2.1.62.1.2.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelControlTable": {
+    "name": "applPastChannelControlTable",
+    "oid": "1.3.6.1.2.1.62.1.3.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastChannelControlEntry": {
+    "name": "applPastChannelControlEntry",
+    "oid": "1.3.6.1.2.1.62.1.3.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applPastChannelControlCollect": {
+    "name": "applPastChannelControlCollect",
+    "oid": "1.3.6.1.2.1.62.1.3.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "frozen": 2,
+          "disabled": 3
+        }
+      }
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "applPastChannelControlMaxRows": {
+    "name": "applPastChannelControlMaxRows",
+    "oid": "1.3.6.1.2.1.62.1.3.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 500,
+        "format": "decimal"
+      }
+    },
+    "units": "channel history entries",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "applPastChannelControlTimeLimit": {
+    "name": "applPastChannelControlTimeLimit",
+    "oid": "1.3.6.1.2.1.62.1.3.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 7200,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "applPastChannelControlRemItems": {
+    "name": "applPastChannelControlRemItems",
+    "oid": "1.3.6.1.2.1.62.1.3.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "units": "channel history entries",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelTable": {
+    "name": "applPastChannelTable",
+    "oid": "1.3.6.1.2.1.62.1.3.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastChannelEntry": {
+    "name": "applPastChannelEntry",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applPastChannelIndex": {
+    "name": "applPastChannelIndex",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 4294967295
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastChannelOpenTime": {
+    "name": "applPastChannelOpenTime",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelCloseTime": {
+    "name": "applPastChannelCloseTime",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelReadRequests": {
+    "name": "applPastChannelReadRequests",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64TC",
+      "class": "type"
+    },
+    "units": "read requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelReadReqsLow": {
+    "name": "applPastChannelReadReqsLow",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "read requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelReadFailures": {
+    "name": "applPastChannelReadFailures",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "failed read requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelBytesRead": {
+    "name": "applPastChannelBytesRead",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64TC",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelBytesReadLow": {
+    "name": "applPastChannelBytesReadLow",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelLastReadTime": {
+    "name": "applPastChannelLastReadTime",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelWriteRequests": {
+    "name": "applPastChannelWriteRequests",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64TC",
+      "class": "type"
+    },
+    "units": "write requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelWriteReqsLow": {
+    "name": "applPastChannelWriteReqsLow",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "write requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelWriteFailures": {
+    "name": "applPastChannelWriteFailures",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "failed write requests",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelBytesWritten": {
+    "name": "applPastChannelBytesWritten",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64TC",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelBytesWritLow": {
+    "name": "applPastChannelBytesWritLow",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastChannelLastWriteTime": {
+    "name": "applPastChannelLastWriteTime",
+    "oid": "1.3.6.1.2.1.62.1.3.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastFileTable": {
+    "name": "applPastFileTable",
+    "oid": "1.3.6.1.2.1.62.1.3.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastFileEntry": {
+    "name": "applPastFileEntry",
+    "oid": "1.3.6.1.2.1.62.1.3.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applPastFileName": {
+    "name": "applPastFileName",
+    "oid": "1.3.6.1.2.1.62.1.3.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LongUtf8String",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastFileSizeHigh": {
+    "name": "applPastFileSizeHigh",
+    "oid": "1.3.6.1.2.1.62.1.3.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "2^32 byte blocks",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastFileSizeLow": {
+    "name": "applPastFileSizeLow",
+    "oid": "1.3.6.1.2.1.62.1.3.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastFileMode": {
+    "name": "applPastFileMode",
+    "oid": "1.3.6.1.2.1.62.1.3.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "read": 1,
+          "write": 2,
+          "readWrite": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastConTable": {
+    "name": "applPastConTable",
+    "oid": "1.3.6.1.2.1.62.1.3.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastConEntry": {
+    "name": "applPastConEntry",
+    "oid": "1.3.6.1.2.1.62.1.3.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applPastConTransport": {
+    "name": "applPastConTransport",
+    "oid": "1.3.6.1.2.1.62.1.3.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TDomain",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "(0, 0)",
+        "format": "oid"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastConNearEndAddr": {
+    "name": "applPastConNearEndAddr",
+    "oid": "1.3.6.1.2.1.62.1.3.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApplTAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastConNearEndpoint": {
+    "name": "applPastConNearEndpoint",
+    "oid": "1.3.6.1.2.1.62.1.3.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastConFarEndAddr": {
+    "name": "applPastConFarEndAddr",
+    "oid": "1.3.6.1.2.1.62.1.3.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ApplTAddress",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastConFarEndpoint": {
+    "name": "applPastConFarEndpoint",
+    "oid": "1.3.6.1.2.1.62.1.3.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastConApplication": {
+    "name": "applPastConApplication",
+    "oid": "1.3.6.1.2.1.62.1.3.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransStreamTable": {
+    "name": "applPastTransStreamTable",
+    "oid": "1.3.6.1.2.1.62.1.3.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastTransStreamEntry": {
+    "name": "applPastTransStreamEntry",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applPastTransStreamDescr": {
+    "name": "applPastTransStreamDescr",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransStreamUnitOfWork": {
+    "name": "applPastTransStreamUnitOfWork",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransStreamInvokes": {
+    "name": "applPastTransStreamInvokes",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64TC",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransStreamInvokesLow": {
+    "name": "applPastTransStreamInvokesLow",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransStreamInvCumTimes": {
+    "name": "applPastTransStreamInvCumTimes",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransStreamInvRspTimes": {
+    "name": "applPastTransStreamInvRspTimes",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransStreamPerforms": {
+    "name": "applPastTransStreamPerforms",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64TC",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransStreamPerformsLow": {
+    "name": "applPastTransStreamPerformsLow",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransStreamPrfCumTimes": {
+    "name": "applPastTransStreamPrfCumTimes",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransStreamPrfRspTimes": {
+    "name": "applPastTransStreamPrfRspTimes",
+    "oid": "1.3.6.1.2.1.62.1.3.5.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "milliseconds",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransFlowTable": {
+    "name": "applPastTransFlowTable",
+    "oid": "1.3.6.1.2.1.62.1.3.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastTransFlowEntry": {
+    "name": "applPastTransFlowEntry",
+    "oid": "1.3.6.1.2.1.62.1.3.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransFlowDirection",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransFlowReqRsp",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applPastTransFlowDirection": {
+    "name": "applPastTransFlowDirection",
+    "oid": "1.3.6.1.2.1.62.1.3.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "transmit": 1,
+          "receive": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastTransFlowReqRsp": {
+    "name": "applPastTransFlowReqRsp",
+    "oid": "1.3.6.1.2.1.62.1.3.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "request": 1,
+          "response": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastTransFlowTrans": {
+    "name": "applPastTransFlowTrans",
+    "oid": "1.3.6.1.2.1.62.1.3.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64TC",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransFlowTransLow": {
+    "name": "applPastTransFlowTransLow",
+    "oid": "1.3.6.1.2.1.62.1.3.6.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransFlowBytes": {
+    "name": "applPastTransFlowBytes",
+    "oid": "1.3.6.1.2.1.62.1.3.6.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64TC",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransFlowBytesLow": {
+    "name": "applPastTransFlowBytesLow",
+    "oid": "1.3.6.1.2.1.62.1.3.6.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransFlowTime": {
+    "name": "applPastTransFlowTime",
+    "oid": "1.3.6.1.2.1.62.1.3.6.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransKindTable": {
+    "name": "applPastTransKindTable",
+    "oid": "1.3.6.1.2.1.62.1.3.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastTransKindEntry": {
+    "name": "applPastTransKindEntry",
+    "oid": "1.3.6.1.2.1.62.1.3.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvc",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtOrSvcId",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelIndex",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransFlowDirection",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransFlowReqRsp",
+        "implied": 0
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransKind",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applPastTransKind": {
+    "name": "applPastTransKind",
+    "oid": "1.3.6.1.2.1.62.1.3.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 1,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applPastTransKindTrans": {
+    "name": "applPastTransKindTrans",
+    "oid": "1.3.6.1.2.1.62.1.3.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64TC",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransKindTransLow": {
+    "name": "applPastTransKindTransLow",
+    "oid": "1.3.6.1.2.1.62.1.3.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "transactions",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransKindBytes": {
+    "name": "applPastTransKindBytes",
+    "oid": "1.3.6.1.2.1.62.1.3.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned64TC",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransKindBytesLow": {
+    "name": "applPastTransKindBytesLow",
+    "oid": "1.3.6.1.2.1.62.1.3.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applPastTransKindTime": {
+    "name": "applPastTransKindTime",
+    "oid": "1.3.6.1.2.1.62.1.3.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applElmtRunStatusTable": {
+    "name": "applElmtRunStatusTable",
+    "oid": "1.3.6.1.2.1.62.1.4.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applElmtRunStatusEntry": {
+    "name": "applElmtRunStatusEntry",
+    "oid": "1.3.6.1.2.1.62.1.4.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applElmtRunStatusSuspended": {
+    "name": "applElmtRunStatusSuspended",
+    "oid": "1.3.6.1.2.1.62.1.4.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applElmtRunStatusHeapUsage": {
+    "name": "applElmtRunStatusHeapUsage",
+    "oid": "1.3.6.1.2.1.62.1.4.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "bytes",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applElmtRunStatusOpenConnections": {
+    "name": "applElmtRunStatusOpenConnections",
+    "oid": "1.3.6.1.2.1.62.1.4.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "units": "connections",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applElmtRunStatusOpenFiles": {
+    "name": "applElmtRunStatusOpenFiles",
+    "oid": "1.3.6.1.2.1.62.1.4.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "units": "files",
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applElmtRunStatusLastErrorMsg": {
+    "name": "applElmtRunStatusLastErrorMsg",
+    "oid": "1.3.6.1.2.1.62.1.4.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "SnmpAdminString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applElmtRunStatusLastErrorTime": {
+    "name": "applElmtRunStatusLastErrorTime",
+    "oid": "1.3.6.1.2.1.62.1.4.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DateAndTime",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "applElmtRunControlTable": {
+    "name": "applElmtRunControlTable",
+    "oid": "1.3.6.1.2.1.62.1.4.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "applElmtRunControlEntry": {
+    "name": "applElmtRunControlEntry",
+    "oid": "1.3.6.1.2.1.62.1.4.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "SYSAPPL-MIB",
+        "object": "sysApplElmtRunIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "applElmtRunControlSuspend": {
+    "name": "applElmtRunControlSuspend",
+    "oid": "1.3.6.1.2.1.62.1.4.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "applElmtRunControlReconfigure": {
+    "name": "applElmtRunControlReconfigure",
+    "oid": "1.3.6.1.2.1.62.1.4.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TestAndIncr",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "applElmtRunControlTerminate": {
+    "name": "applElmtRunControlTerminate",
+    "oid": "1.3.6.1.2.1.62.1.4.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "false",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "applicationMibGroups": {
+    "name": "applicationMibGroups",
+    "oid": "1.3.6.1.2.1.62.2.1",
+    "class": "objectidentity"
+  },
+  "applicationMonitorGroup": {
+    "name": "applicationMonitorGroup",
+    "oid": "1.3.6.1.2.1.62.2.1.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applSrvInstQual"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applSrvName"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applSrvIndex"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applSrvInstance"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelOpenTime"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelReadRequestsLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelReadFailures"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelBytesReadLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelLastReadTime"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelWriteRequestsLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelWriteFailures"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelBytesWrittenLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelLastWriteTime"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenFileName"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenFileSizeHigh"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenFileSizeLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenFileMode"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenConnectionTransport"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenConnectionNearEndAddr"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenConnectionNearEndpoint"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenConnectionFarEndAddr"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenConnectionFarEndpoint"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenConnectionApplication"
+      }
+    ],
+    "status": "current"
+  },
+  "applicationFastMonitorGroup": {
+    "name": "applicationFastMonitorGroup",
+    "oid": "1.3.6.1.2.1.62.2.1.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelReadRequests"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelBytesRead"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelWriteRequests"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applOpenChannelBytesWritten"
+      }
+    ],
+    "status": "current"
+  },
+  "applicationTransactGroup": {
+    "name": "applicationTransactGroup",
+    "oid": "1.3.6.1.2.1.62.2.1.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactStreamDescr"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactStreamUnitOfWork"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactStreamInvokesLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactStreamInvCumTimes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactStreamInvRspTimes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactStreamPerformsLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactStreamPrfCumTimes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactStreamPrfRspTimes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactFlowTransLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactFlowBytesLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactFlowTime"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactKindTransLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactKindBytesLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactKindTime"
+      }
+    ],
+    "status": "current"
+  },
+  "applicationFastTransactGroup": {
+    "name": "applicationFastTransactGroup",
+    "oid": "1.3.6.1.2.1.62.2.1.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactStreamInvokes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactStreamPerforms"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactFlowTrans"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactFlowBytes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactKindTrans"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applTransactKindBytes"
+      }
+    ],
+    "status": "current"
+  },
+  "applicationHistoryGroup": {
+    "name": "applicationHistoryGroup",
+    "oid": "1.3.6.1.2.1.62.2.1.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelControlCollect"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelControlMaxRows"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelControlTimeLimit"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelControlRemItems"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelOpenTime"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelCloseTime"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelReadReqsLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelReadFailures"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelBytesReadLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelLastReadTime"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelWriteReqsLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelWriteFailures"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelBytesWritLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelLastWriteTime"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastFileName"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastFileSizeHigh"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastFileSizeLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastFileMode"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastConTransport"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastConNearEndAddr"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastConNearEndpoint"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastConFarEndAddr"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastConFarEndpoint"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastConApplication"
+      }
+    ],
+    "status": "current"
+  },
+  "applicationFastHistoryGroup": {
+    "name": "applicationFastHistoryGroup",
+    "oid": "1.3.6.1.2.1.62.2.1.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelReadRequests"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelBytesRead"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelWriteRequests"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastChannelBytesWritten"
+      }
+    ],
+    "status": "current"
+  },
+  "applicationTransHistoryGroup": {
+    "name": "applicationTransHistoryGroup",
+    "oid": "1.3.6.1.2.1.62.2.1.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransStreamDescr"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransStreamUnitOfWork"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransStreamInvokesLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransStreamInvCumTimes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransStreamInvRspTimes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransStreamPerformsLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransStreamPrfCumTimes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransStreamPrfRspTimes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransFlowTransLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransFlowBytesLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransFlowTime"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransKindTransLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransKindBytesLow"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransKindTime"
+      }
+    ],
+    "status": "current"
+  },
+  "applicationFastTransHistoryGroup": {
+    "name": "applicationFastTransHistoryGroup",
+    "oid": "1.3.6.1.2.1.62.2.1.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransFlowTrans"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransFlowBytes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransKindTrans"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransKindBytes"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransStreamPerforms"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applPastTransStreamInvokes"
+      }
+    ],
+    "status": "current"
+  },
+  "applicationRunGroup": {
+    "name": "applicationRunGroup",
+    "oid": "1.3.6.1.2.1.62.2.1.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtRunStatusSuspended"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtRunStatusHeapUsage"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtRunStatusOpenConnections"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtRunStatusOpenFiles"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtRunStatusLastErrorMsg"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtRunStatusLastErrorTime"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtRunControlSuspend"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtRunControlReconfigure"
+      },
+      {
+        "module": "APPLICATION-MIB",
+        "object": "applElmtRunControlTerminate"
+      }
+    ],
+    "status": "current"
+  },
+  "applicationMibCompliance": {
+    "name": "applicationMibCompliance",
+    "oid": "1.3.6.1.2.1.62.2.2",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "applicationMonitorGroup",
+        "module": "APPLICATION-MIB"
+      },
+      {
+        "object": "applicationHistoryGroup",
+        "module": "APPLICATION-MIB"
+      },
+      {
+        "object": "applicationRunGroup",
+        "module": "APPLICATION-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/APPLICATION-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:37 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "APPLICATION-MIB"
+  }
+}

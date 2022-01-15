@@ -8,31 +8,31 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Counter32",
-      "iso",
-      "Integer32",
-      "Gauge32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Gauge32",
+      "Counter64",
+      "Counter32",
+      "Integer32",
+      "MibIdentifier",
+      "iso",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "MacAddress"
+      "TruthValue"
     ]
   },
   "ieee8021paeMIB": {
@@ -42,7 +42,7 @@
     "revisions": [
       {
         "revision": "2004-06-22 00:00",
-        "description": "IEEE Std. 802.1X-2004 revision: - In the MODULE-IDENTITY value assignment changed .iso(1). to .iso.; - Clarified original references to 802.1X-2001; - Added references to 802.1X-2004; - Added restart(10) to dot1xAuthPaeState; - Added ignore(8) to dot1xAuthBackendAuthState; - Deprecated dot1xAuthTxPeriod, dot1xSuppTimeout, dotxAuthMaxReq, all of dot1xAuthDiagTable, dot1xSuppEapolRespIdFramesTx, dot1xSuppEapolRespFramesTx, dot1xSuppEapolReqIdFramesRx, dot1xSuppEapolReqFramesRx; - Added restart(8), sForceAuth(9) and sForceUnauth(10) to dot1xSuppPaeState; - Added dot1xSuppControlledPortStatus; - Added dot1xSuppAccessCtrlWithAuth; - Added dot1xSuppBackendState; - Bug fix to add dot1xPaePortReauthenticate and dot1xAuthSessionUserName to the appropriate conformance groups; - Updated conformance groups for new and deprecated objects; - Deprecated dot1xPaeCompliance; - Added dot1xPaeCompliance2."
+        "description": "IEEE Std. 802.1X-2004 revision: - In the MODULE-IDENTITY value assignment changed 'iso(1)' to 'iso'; - Clarified original references to 802.1X-2001; - Added references to 802.1X-2004; - Added restart(10) to dot1xAuthPaeState; - Added ignore(8) to dot1xAuthBackendAuthState; - Deprecated dot1xAuthTxPeriod, dot1xSuppTimeout, dotxAuthMaxReq, all of dot1xAuthDiagTable, dot1xSuppEapolRespIdFramesTx, dot1xSuppEapolRespFramesTx, dot1xSuppEapolReqIdFramesRx, dot1xSuppEapolReqFramesRx; - Added restart(8), sForceAuth(9) and sForceUnauth(10) to dot1xSuppPaeState; - Added dot1xSuppControlledPortStatus; - Added dot1xSuppAccessCtrlWithAuth; - Added dot1xSuppBackendState; - Bug fix to add dot1xPaePortReauthenticate and dot1xAuthSessionUserName to the appropriate conformance groups; - Updated conformance groups for new and deprecated objects; - Deprecated dot1xPaeCompliance; - Added dot1xPaeCompliance2."
       },
       {
         "revision": "2001-01-16 00:00",
@@ -1940,9 +1940,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-PAE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iee/IEEE8021-PAE-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:13 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IEEE8021-PAE-MIB"

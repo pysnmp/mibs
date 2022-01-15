@@ -1,0 +1,502 @@
+{
+  "imports": {
+    "class": "imports",
+    "EtherLike-MIB": [
+      "dot3"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "MibIdentifier",
+      "mib-2",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "iso",
+      "Counter64",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "TimeTicks"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "etherChipsetMIB": {
+    "name": "etherChipsetMIB",
+    "oid": "1.3.6.1.2.1.70",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "1999-08-24 04:00",
+        "description": "Initial version of this module created by splitting the chipset registration information out from the EtherLike-MIB. Version published as RFC 2666."
+      }
+    ]
+  },
+  "dot3ChipSets": {
+    "name": "dot3ChipSets",
+    "oid": "1.3.6.1.2.1.10.7.8",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetAMD": {
+    "name": "dot3ChipSetAMD",
+    "oid": "1.3.6.1.2.1.10.7.8.1",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetAMD7990": {
+    "name": "dot3ChipSetAMD7990",
+    "oid": "1.3.6.1.2.1.10.7.8.1.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79900": {
+    "name": "dot3ChipSetAMD79900",
+    "oid": "1.3.6.1.2.1.10.7.8.1.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79C940": {
+    "name": "dot3ChipSetAMD79C940",
+    "oid": "1.3.6.1.2.1.10.7.8.1.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79C90": {
+    "name": "dot3ChipSetAMD79C90",
+    "oid": "1.3.6.1.2.1.10.7.8.1.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79C960": {
+    "name": "dot3ChipSetAMD79C960",
+    "oid": "1.3.6.1.2.1.10.7.8.1.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79C961": {
+    "name": "dot3ChipSetAMD79C961",
+    "oid": "1.3.6.1.2.1.10.7.8.1.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79C961A": {
+    "name": "dot3ChipSetAMD79C961A",
+    "oid": "1.3.6.1.2.1.10.7.8.1.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79C965": {
+    "name": "dot3ChipSetAMD79C965",
+    "oid": "1.3.6.1.2.1.10.7.8.1.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79C970": {
+    "name": "dot3ChipSetAMD79C970",
+    "oid": "1.3.6.1.2.1.10.7.8.1.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79C970A": {
+    "name": "dot3ChipSetAMD79C970A",
+    "oid": "1.3.6.1.2.1.10.7.8.1.10",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79C971": {
+    "name": "dot3ChipSetAMD79C971",
+    "oid": "1.3.6.1.2.1.10.7.8.1.11",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetAMD79C972": {
+    "name": "dot3ChipSetAMD79C972",
+    "oid": "1.3.6.1.2.1.10.7.8.1.12",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetIntel": {
+    "name": "dot3ChipSetIntel",
+    "oid": "1.3.6.1.2.1.10.7.8.2",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetIntel82586": {
+    "name": "dot3ChipSetIntel82586",
+    "oid": "1.3.6.1.2.1.10.7.8.2.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetIntel82596": {
+    "name": "dot3ChipSetIntel82596",
+    "oid": "1.3.6.1.2.1.10.7.8.2.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetIntel82595": {
+    "name": "dot3ChipSetIntel82595",
+    "oid": "1.3.6.1.2.1.10.7.8.2.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetIntel82557": {
+    "name": "dot3ChipSetIntel82557",
+    "oid": "1.3.6.1.2.1.10.7.8.2.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetIntel82558": {
+    "name": "dot3ChipSetIntel82558",
+    "oid": "1.3.6.1.2.1.10.7.8.2.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetSeeq": {
+    "name": "dot3ChipSetSeeq",
+    "oid": "1.3.6.1.2.1.10.7.8.3",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetSeeq8003": {
+    "name": "dot3ChipSetSeeq8003",
+    "oid": "1.3.6.1.2.1.10.7.8.3.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetSeeq80C03": {
+    "name": "dot3ChipSetSeeq80C03",
+    "oid": "1.3.6.1.2.1.10.7.8.3.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetSeeq84C30": {
+    "name": "dot3ChipSetSeeq84C30",
+    "oid": "1.3.6.1.2.1.10.7.8.3.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetSeeq8431": {
+    "name": "dot3ChipSetSeeq8431",
+    "oid": "1.3.6.1.2.1.10.7.8.3.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetSeeq80C300": {
+    "name": "dot3ChipSetSeeq80C300",
+    "oid": "1.3.6.1.2.1.10.7.8.3.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetSeeq84C300": {
+    "name": "dot3ChipSetSeeq84C300",
+    "oid": "1.3.6.1.2.1.10.7.8.3.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetSeeq84301": {
+    "name": "dot3ChipSetSeeq84301",
+    "oid": "1.3.6.1.2.1.10.7.8.3.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetSeeq84302": {
+    "name": "dot3ChipSetSeeq84302",
+    "oid": "1.3.6.1.2.1.10.7.8.3.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetSeeq8100": {
+    "name": "dot3ChipSetSeeq8100",
+    "oid": "1.3.6.1.2.1.10.7.8.3.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetNational": {
+    "name": "dot3ChipSetNational",
+    "oid": "1.3.6.1.2.1.10.7.8.4",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetNational8390": {
+    "name": "dot3ChipSetNational8390",
+    "oid": "1.3.6.1.2.1.10.7.8.4.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetNationalSonic": {
+    "name": "dot3ChipSetNationalSonic",
+    "oid": "1.3.6.1.2.1.10.7.8.4.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetNational83901": {
+    "name": "dot3ChipSetNational83901",
+    "oid": "1.3.6.1.2.1.10.7.8.4.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetNational83902": {
+    "name": "dot3ChipSetNational83902",
+    "oid": "1.3.6.1.2.1.10.7.8.4.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetNational83905": {
+    "name": "dot3ChipSetNational83905",
+    "oid": "1.3.6.1.2.1.10.7.8.4.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetNational83907": {
+    "name": "dot3ChipSetNational83907",
+    "oid": "1.3.6.1.2.1.10.7.8.4.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetNational83916": {
+    "name": "dot3ChipSetNational83916",
+    "oid": "1.3.6.1.2.1.10.7.8.4.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetNational83934": {
+    "name": "dot3ChipSetNational83934",
+    "oid": "1.3.6.1.2.1.10.7.8.4.8",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetNational83936": {
+    "name": "dot3ChipSetNational83936",
+    "oid": "1.3.6.1.2.1.10.7.8.4.9",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetFujitsu": {
+    "name": "dot3ChipSetFujitsu",
+    "oid": "1.3.6.1.2.1.10.7.8.5",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetFujitsu86950": {
+    "name": "dot3ChipSetFujitsu86950",
+    "oid": "1.3.6.1.2.1.10.7.8.5.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetFujitsu86960": {
+    "name": "dot3ChipSetFujitsu86960",
+    "oid": "1.3.6.1.2.1.10.7.8.5.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetFujitsu86964": {
+    "name": "dot3ChipSetFujitsu86964",
+    "oid": "1.3.6.1.2.1.10.7.8.5.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetFujitsu86965A": {
+    "name": "dot3ChipSetFujitsu86965A",
+    "oid": "1.3.6.1.2.1.10.7.8.5.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetFujitsu86965B": {
+    "name": "dot3ChipSetFujitsu86965B",
+    "oid": "1.3.6.1.2.1.10.7.8.5.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetDigital": {
+    "name": "dot3ChipSetDigital",
+    "oid": "1.3.6.1.2.1.10.7.8.6",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetDigitalDC21040": {
+    "name": "dot3ChipSetDigitalDC21040",
+    "oid": "1.3.6.1.2.1.10.7.8.6.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetDigital21041": {
+    "name": "dot3ChipSetDigital21041",
+    "oid": "1.3.6.1.2.1.10.7.8.6.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetDigital21140": {
+    "name": "dot3ChipSetDigital21140",
+    "oid": "1.3.6.1.2.1.10.7.8.6.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetDigital21143": {
+    "name": "dot3ChipSetDigital21143",
+    "oid": "1.3.6.1.2.1.10.7.8.6.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetDigital21340": {
+    "name": "dot3ChipSetDigital21340",
+    "oid": "1.3.6.1.2.1.10.7.8.6.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetDigital21440": {
+    "name": "dot3ChipSetDigital21440",
+    "oid": "1.3.6.1.2.1.10.7.8.6.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetDigital21540": {
+    "name": "dot3ChipSetDigital21540",
+    "oid": "1.3.6.1.2.1.10.7.8.6.7",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetTI": {
+    "name": "dot3ChipSetTI",
+    "oid": "1.3.6.1.2.1.10.7.8.7",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetTIE100": {
+    "name": "dot3ChipSetTIE100",
+    "oid": "1.3.6.1.2.1.10.7.8.7.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetTIE110": {
+    "name": "dot3ChipSetTIE110",
+    "oid": "1.3.6.1.2.1.10.7.8.7.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetTIX3100": {
+    "name": "dot3ChipSetTIX3100",
+    "oid": "1.3.6.1.2.1.10.7.8.7.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetTIX3150": {
+    "name": "dot3ChipSetTIX3150",
+    "oid": "1.3.6.1.2.1.10.7.8.7.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetTIX3270": {
+    "name": "dot3ChipSetTIX3270",
+    "oid": "1.3.6.1.2.1.10.7.8.7.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetToshiba": {
+    "name": "dot3ChipSetToshiba",
+    "oid": "1.3.6.1.2.1.10.7.8.8",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetToshibaTC35815F": {
+    "name": "dot3ChipSetToshibaTC35815F",
+    "oid": "1.3.6.1.2.1.10.7.8.8.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetLucent": {
+    "name": "dot3ChipSetLucent",
+    "oid": "1.3.6.1.2.1.10.7.8.9",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetLucentATT1MX10": {
+    "name": "dot3ChipSetLucentATT1MX10",
+    "oid": "1.3.6.1.2.1.10.7.8.9.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetLucentLUC3M08": {
+    "name": "dot3ChipSetLucentLUC3M08",
+    "oid": "1.3.6.1.2.1.10.7.8.9.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetGalileo": {
+    "name": "dot3ChipSetGalileo",
+    "oid": "1.3.6.1.2.1.10.7.8.10",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetGalileoGT48001": {
+    "name": "dot3ChipSetGalileoGT48001",
+    "oid": "1.3.6.1.2.1.10.7.8.10.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetGalileoGT48002": {
+    "name": "dot3ChipSetGalileoGT48002",
+    "oid": "1.3.6.1.2.1.10.7.8.10.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetGalileoGT48004": {
+    "name": "dot3ChipSetGalileoGT48004",
+    "oid": "1.3.6.1.2.1.10.7.8.10.3",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetGalileoGT48207": {
+    "name": "dot3ChipSetGalileoGT48207",
+    "oid": "1.3.6.1.2.1.10.7.8.10.4",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetGalileoGT48208": {
+    "name": "dot3ChipSetGalileoGT48208",
+    "oid": "1.3.6.1.2.1.10.7.8.10.5",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetGalileoGT48212": {
+    "name": "dot3ChipSetGalileoGT48212",
+    "oid": "1.3.6.1.2.1.10.7.8.10.6",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetJato": {
+    "name": "dot3ChipSetJato",
+    "oid": "1.3.6.1.2.1.10.7.8.11",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetJatoJT1001": {
+    "name": "dot3ChipSetJatoJT1001",
+    "oid": "1.3.6.1.2.1.10.7.8.11.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetXaQti": {
+    "name": "dot3ChipSetXaQti",
+    "oid": "1.3.6.1.2.1.10.7.8.12",
+    "class": "objectidentity"
+  },
+  "dot3ChipSetXaQtiXQ11800FP": {
+    "name": "dot3ChipSetXaQtiXQ11800FP",
+    "oid": "1.3.6.1.2.1.10.7.8.12.1",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "dot3ChipSetXaQtiXQ18110FP": {
+    "name": "dot3ChipSetXaQtiXQ18110FP",
+    "oid": "1.3.6.1.2.1.10.7.8.12.2",
+    "class": "objectidentity",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ietf/ETHER-CHIPSET-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:36 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "ETHER-CHIPSET-MIB"
+  }
+}

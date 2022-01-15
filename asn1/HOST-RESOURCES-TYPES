@@ -24,7 +24,6 @@ hostResourcesTypesModule MODULE-IDENTITY
   DESCRIPTION
       "This MIB module registers type definitions for
       storage types, device types, and file system types.
-
       After the initial revision, this module will be
       maintained by IANA."
   REVISION "200003060000Z"    -- 6 March 2000
@@ -217,7 +216,6 @@ hrDeviceNonVolatileMemory OBJECT-IDENTITY
     STATUS current
     DESCRIPTION
         "The device type identifier used for a non-volatile memory
-
         storage device."
     ::= { hrDeviceTypes 21 }
 

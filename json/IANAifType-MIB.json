@@ -2,25 +2,25 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "Counter32",
-      "iso",
+      "Bits",
       "Gauge32",
-      "mib-2",
-      "Unsigned32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "iso",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
+      "IpAddress",
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "mib-2",
       "Counter64",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "MibIdentifier",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -32,6 +32,170 @@
     "oid": "1.3.6.1.2.1.30",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2017-03-30 00:00",
+        "description": "Registration of new IANAifType 290."
+      },
+      {
+        "revision": "2017-01-19 00:00",
+        "description": "Registration of new IANAifType 289."
+      },
+      {
+        "revision": "2016-11-23 00:00",
+        "description": "Registration of new IANAifTypes 283-288."
+      },
+      {
+        "revision": "2016-06-16 00:00",
+        "description": "Updated IANAtunnelType DESCRIPTION per RFC 7870"
+      },
+      {
+        "revision": "2016-06-09 00:00",
+        "description": "Registration of new IANAifType 282."
+      },
+      {
+        "revision": "2016-06-08 00:00",
+        "description": "Updated description for tunnelType 17."
+      },
+      {
+        "revision": "2016-05-19 00:00",
+        "description": "Updated description for tunnelType 16."
+      },
+      {
+        "revision": "2016-05-03 00:00",
+        "description": "Registration of new IANAifType 281."
+      },
+      {
+        "revision": "2016-04-29 00:00",
+        "description": "Registration of new tunnelTypes 16 and 17."
+      },
+      {
+        "revision": "2014-09-24 00:00",
+        "description": "Registration of new IANAifType 280."
+      },
+      {
+        "revision": "2014-09-19 00:00",
+        "description": "Registration of new IANAifType 279."
+      },
+      {
+        "revision": "2014-07-03 00:00",
+        "description": "Registration of new IANAifTypes 277-278."
+      },
+      {
+        "revision": "2014-05-22 00:00",
+        "description": "Updated contact info."
+      },
+      {
+        "revision": "2012-05-17 00:00",
+        "description": "Registration of new IANAifType 272."
+      },
+      {
+        "revision": "2012-01-11 00:00",
+        "description": "Registration of new IANAifTypes 266-271."
+      },
+      {
+        "revision": "2011-12-18 00:00",
+        "description": "Registration of new IANAifTypes 263-265."
+      },
+      {
+        "revision": "2011-10-26 00:00",
+        "description": "Registration of new IANAifType 262."
+      },
+      {
+        "revision": "2011-09-07 00:00",
+        "description": "Registration of new IANAifTypes 260 and 261."
+      },
+      {
+        "revision": "2011-07-22 00:00",
+        "description": "Registration of new IANAifType 259."
+      },
+      {
+        "revision": "2011-06-03 00:00",
+        "description": "Registration of new IANAifType 258."
+      },
+      {
+        "revision": "2010-09-21 00:00",
+        "description": "Registration of new IANAifTypes 256 and 257."
+      },
+      {
+        "revision": "2010-07-21 00:00",
+        "description": "Registration of new IANAifType 255."
+      },
+      {
+        "revision": "2010-02-11 00:00",
+        "description": "Registration of new IANAifType 254."
+      },
+      {
+        "revision": "2010-02-08 00:00",
+        "description": "Registration of new IANAifTypes 252 and 253."
+      },
+      {
+        "revision": "2009-05-06 00:00",
+        "description": "Registration of new IANAifType 251."
+      },
+      {
+        "revision": "2009-02-06 00:00",
+        "description": "Registration of new IANAtunnelType 15."
+      },
+      {
+        "revision": "2008-10-09 00:00",
+        "description": "Registration of new IANAifType 250."
+      },
+      {
+        "revision": "2008-08-12 00:00",
+        "description": "Registration of new IANAifType 249."
+      },
+      {
+        "revision": "2008-07-22 00:00",
+        "description": "Registration of new IANAifTypes 247 and 248."
+      },
+      {
+        "revision": "2008-06-24 00:00",
+        "description": "Registration of new IANAifType 246."
+      },
+      {
+        "revision": "2008-05-29 00:00",
+        "description": "Registration of new IANAifType 245."
+      },
+      {
+        "revision": "2007-09-13 00:00",
+        "description": "Registration of new IANAifTypes 243 and 244."
+      },
+      {
+        "revision": "2007-05-29 00:00",
+        "description": "Changed the description for IANAifType 228."
+      },
+      {
+        "revision": "2007-03-08 00:00",
+        "description": "Registration of new IANAifType 242."
+      },
+      {
+        "revision": "2007-01-23 00:00",
+        "description": "Registration of new IANAifTypes 239, 240, and 241."
+      },
+      {
+        "revision": "2006-10-17 00:00",
+        "description": "Deprecated/Obsoleted IANAifType 230. Registration of IANAifType 238."
+      },
+      {
+        "revision": "2006-09-25 00:00",
+        "description": "Changed the description for IANA ifType 184 and added new IANA ifType 237."
+      },
+      {
+        "revision": "2006-08-17 00:00",
+        "description": "Changed the descriptions for IANAifTypes 20 and 21."
+      },
+      {
+        "revision": "2006-08-11 00:00",
+        "description": "Changed the descriptions for IANAifTypes 7, 11, 62, 69, and 117."
+      },
+      {
+        "revision": "2006-07-25 00:00",
+        "description": "Registration of new IANA ifType 236."
+      },
+      {
+        "revision": "2006-06-14 00:00",
+        "description": "Registration of new IANA ifType 235."
+      },
       {
         "revision": "2006-03-31 00:00",
         "description": "Registration of new IANA ifType 234."
@@ -62,7 +226,7 @@
       },
       {
         "revision": "2004-11-22 00:00",
-        "description": "Registration of new IANA ifType 227 per RFC4327."
+        "description": "Registration of new IANA ifType 227 per RFC4631."
       },
       {
         "revision": "2004-06-17 00:00",
@@ -332,7 +496,7 @@
           "v37": 120,
           "x25mlp": 121,
           "x25huntGroup": 122,
-          "trasnpHdlc": 123,
+          "transpHdlc": 123,
           "interleave": 124,
           "fast": 125,
           "ip": 126,
@@ -443,7 +607,59 @@
           "macSecControlledIF": 231,
           "macSecUncontrolledIF": 232,
           "aviciOpticalEther": 233,
-          "atmbond": 234
+          "atmbond": 234,
+          "voiceFGDOS": 235,
+          "mocaVersion1": 236,
+          "ieee80216WMAN": 237,
+          "adsl2plus": 238,
+          "dvbRcsMacLayer": 239,
+          "dvbTdm": 240,
+          "dvbRcsTdma": 241,
+          "x86Laps": 242,
+          "wwanPP": 243,
+          "wwanPP2": 244,
+          "voiceEBS": 245,
+          "ifPwType": 246,
+          "ilan": 247,
+          "pip": 248,
+          "aluELP": 249,
+          "gpon": 250,
+          "vdsl2": 251,
+          "capwapDot11Profile": 252,
+          "capwapDot11Bss": 253,
+          "capwapWtpVirtualRadio": 254,
+          "bits": 255,
+          "docsCableUpstreamRfPort": 256,
+          "cableDownstreamRfPort": 257,
+          "vmwareVirtualNic": 258,
+          "ieee802154": 259,
+          "otnOdu": 260,
+          "otnOtu": 261,
+          "ifVfiType": 262,
+          "g9981": 263,
+          "g9982": 264,
+          "g9983": 265,
+          "aluEpon": 266,
+          "aluEponOnu": 267,
+          "aluEponPhysicalUni": 268,
+          "aluEponLogicalLink": 269,
+          "aluGponOnu": 270,
+          "aluGponPhysicalUni": 271,
+          "vmwareNicTeam": 272,
+          "docsOfdmDownstream": 277,
+          "docsOfdmaUpstream": 278,
+          "gfast": 279,
+          "sdci": 280,
+          "xboxWireless": 281,
+          "fastdsl": 282,
+          "docsCableScte55d1FwdOob": 283,
+          "docsCableScte55d1RetOob": 284,
+          "docsCableScte55d2DsOob": 285,
+          "docsCableScte55d2UsOob": 286,
+          "docsCableNdf": 287,
+          "docsCableNdr": 288,
+          "ptm": 289,
+          "ghn": 290
         }
       }
     },
@@ -470,7 +686,10 @@
           "sixToFour": 11,
           "sixOverFour": 12,
           "isatap": 13,
-          "teredo": 14
+          "teredo": 14,
+          "ipHttps": 15,
+          "softwireMesh": 16,
+          "dsLite": 17
         }
       }
     },
@@ -478,9 +697,9 @@
   },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IANAifType-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
-      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/iana/IANAifType-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 23:19:04 2022",
+      "On host fv-az42-839 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IANAifType-MIB"
