@@ -5,29 +5,29 @@
       "colubrisMgmtV2"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
       "Counter64",
-      "Unsigned32",
-      "Integer32",
-      "iso",
       "Counter32",
+      "Unsigned32",
+      "iso",
       "OBJECT-IDENTITY",
+      "Gauge32",
       "OBJECT-TYPE",
-      "MibIdentifier",
+      "Bits",
+      "MODULE-IDENTITY",
       "TimeTicks",
       "IpAddress",
-      "Bits",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "MibIdentifier",
+      "Integer32",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
+      "MacAddress",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -322,8 +322,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hpmsm/COLUBRIS-CDP-MIB.my",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:26:47 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:39:43 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "COLUBRIS-CDP-MIB"

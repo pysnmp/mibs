@@ -8,32 +8,32 @@
       "neIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Unsigned32",
       "TimeTicks",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Integer32",
       "IpAddress",
+      "Gauge32",
       "OBJECT-TYPE",
-      "MibIdentifier"
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "VariablePointer",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "StorageType"
+      "StorageType",
+      "VariablePointer"
     ]
   },
   "f3SHGMIB": {
@@ -397,8 +397,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-SHG-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:10:20 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:24:24 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "F3-SHG-MIB"

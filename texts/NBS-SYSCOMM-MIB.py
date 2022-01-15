@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module NBS-SYSCOMM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-SYSCOMM-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 04:32:21 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 04:44:57 2022
+# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ConstraintsUnion, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ConstraintsUnion", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
-InetAddress, InetAddressPrefixLength = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressPrefixLength")
+ConstraintsIntersection, ValueSizeConstraint, ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion")
+InetAddressPrefixLength, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddress")
 nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-Bits, TimeTicks, Integer32, NotificationType, MibIdentifier, iso, ModuleIdentity, ObjectIdentity, Unsigned32, Counter64, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "TimeTicks", "Integer32", "NotificationType", "MibIdentifier", "iso", "ModuleIdentity", "ObjectIdentity", "Unsigned32", "Counter64", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Counter64, ObjectIdentity, MibIdentifier, NotificationType, ModuleIdentity, Unsigned32, IpAddress, Gauge32, Bits, iso, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Counter64", "ObjectIdentity", "MibIdentifier", "NotificationType", "ModuleIdentity", "Unsigned32", "IpAddress", "Gauge32", "Bits", "iso", "Integer32")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 nbsSyscommMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 214))
 if mibBuilder.loadTexts: nbsSyscommMib.setLastUpdated('201306060000Z')
 if mibBuilder.loadTexts: nbsSyscommMib.setOrganization('NBS')
@@ -63,4 +63,4 @@ if mibBuilder.loadTexts: nbsSyscommInetCfgChanging.setDescription("Sent when bef
 nbsSyscommInetCfgChanged = NotificationType((1, 3, 6, 1, 4, 1, 629, 214, 100, 0, 31)).setObjects(("NBS-SYSCOMM-MIB", "nbsSyscommInetAddrPrior"), ("NBS-SYSCOMM-MIB", "nbsSyscommGateAddrPrior"))
 if mibBuilder.loadTexts: nbsSyscommInetCfgChanged.setStatus('current')
 if mibBuilder.loadTexts: nbsSyscommInetCfgChanged.setDescription("Sent after changes are complete and have been applied.\n\n        This Notification's nbsCmmcSysTrapTblEntLevel is fatal(2).")
-mibBuilder.exportSymbols("NBS-SYSCOMM-MIB", nbsSyscommGateAddrOper=nbsSyscommGateAddrOper, nbsSyscommInetAddrAdmin=nbsSyscommInetAddrAdmin, nbsSyscommInetAddrPrefixAdmin=nbsSyscommInetAddrPrefixAdmin, PYSNMP_MODULE_ID=nbsSyscommMib, nbsSyscommInetSlaacAddrPrefix=nbsSyscommInetSlaacAddrPrefix, nbsSyscommInetAddrPrefixOper=nbsSyscommInetAddrPrefixOper, nbsSyscommEventGrp=nbsSyscommEventGrp, nbsSyscommInetSlaacAddr=nbsSyscommInetSlaacAddr, nbsSyscommEvents=nbsSyscommEvents, nbsSyscommInetGrp=nbsSyscommInetGrp, nbsSyscommInetAddrOper=nbsSyscommInetAddrOper, nbsSyscommInetCfgChanging=nbsSyscommInetCfgChanging, nbsSyscommInetAddrPrior=nbsSyscommInetAddrPrior, nbsSyscommGateAddrPrior=nbsSyscommGateAddrPrior, nbsSyscommGateAddrAdmin=nbsSyscommGateAddrAdmin, nbsSyscommInetCfgChanged=nbsSyscommInetCfgChanged, nbsSyscommMib=nbsSyscommMib)
+mibBuilder.exportSymbols("NBS-SYSCOMM-MIB", nbsSyscommInetAddrPrefixOper=nbsSyscommInetAddrPrefixOper, nbsSyscommInetAddrPrior=nbsSyscommInetAddrPrior, nbsSyscommInetSlaacAddrPrefix=nbsSyscommInetSlaacAddrPrefix, nbsSyscommMib=nbsSyscommMib, nbsSyscommGateAddrOper=nbsSyscommGateAddrOper, nbsSyscommInetCfgChanging=nbsSyscommInetCfgChanging, nbsSyscommEvents=nbsSyscommEvents, nbsSyscommGateAddrAdmin=nbsSyscommGateAddrAdmin, nbsSyscommGateAddrPrior=nbsSyscommGateAddrPrior, PYSNMP_MODULE_ID=nbsSyscommMib, nbsSyscommInetAddrOper=nbsSyscommInetAddrOper, nbsSyscommInetAddrAdmin=nbsSyscommInetAddrAdmin, nbsSyscommInetGrp=nbsSyscommInetGrp, nbsSyscommInetSlaacAddr=nbsSyscommInetSlaacAddr, nbsSyscommInetCfgChanged=nbsSyscommInetCfgChanged, nbsSyscommInetAddrPrefixAdmin=nbsSyscommInetAddrPrefixAdmin, nbsSyscommEventGrp=nbsSyscommEventGrp)

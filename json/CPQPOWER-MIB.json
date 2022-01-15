@@ -5,35 +5,35 @@
       "compaq"
     ],
     "IF-MIB": [
-      "ifDescr",
-      "ifIndex"
+      "ifIndex",
+      "ifDescr"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-MIB": [
+      "sysName",
       "sysDescr",
       "sysLocation",
-      "sysName",
       "sysContact"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "IpAddress",
-      "TRAP-TYPE",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Counter64",
-      "Unsigned32",
-      "iso",
-      "MODULE-IDENTITY",
       "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "iso",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "Bits",
+      "TRAP-TYPE",
       "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Bits"
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -12250,8 +12250,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/CPQPOWER-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:26:22 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:39:19 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CPQPOWER-MIB"

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module UCD-DEMO-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/UCD-DEMO-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 04:32:51 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 04:45:25 2022
+# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ConstraintsUnion, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueRangeConstraint")
+ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Counter64, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, NotificationType, TimeTicks, ObjectIdentity, IpAddress, Bits, Gauge32, Counter32, Unsigned32, MibIdentifier, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "NotificationType", "TimeTicks", "ObjectIdentity", "IpAddress", "Bits", "Gauge32", "Counter32", "Unsigned32", "MibIdentifier", "Integer32")
+Gauge32, MibIdentifier, NotificationType, ObjectIdentity, Unsigned32, Bits, Counter64, TimeTicks, ModuleIdentity, IpAddress, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, Counter32 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "NotificationType", "ObjectIdentity", "Unsigned32", "Bits", "Counter64", "TimeTicks", "ModuleIdentity", "IpAddress", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "Counter32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 ucdavis, = mibBuilder.importSymbols("UCD-SNMP-MIB", "ucdavis")
 ucdDemoMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2021, 14))
@@ -35,4 +35,4 @@ if mibBuilder.loadTexts: ucdDemoUserList.setDescription('The list of users affec
 ucdDemoPassphrase = MibScalar((1, 3, 6, 1, 4, 1, 2021, 14, 1, 1, 4), OctetString()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: ucdDemoPassphrase.setStatus('current')
 if mibBuilder.loadTexts: ucdDemoPassphrase.setDescription('The demo passphrase that ucdDemoResetKeys changes each \n\t users localized key to based on the P->Ku->Kul transformation.')
-mibBuilder.exportSymbols("UCD-DEMO-MIB", ucdDemoPublic=ucdDemoPublic, ucdDemoMIBObjects=ucdDemoMIBObjects, ucdDemoPublicString=ucdDemoPublicString, ucdDemoPassphrase=ucdDemoPassphrase, ucdDemoUserList=ucdDemoUserList, PYSNMP_MODULE_ID=ucdDemoMIB, ucdDemoResetKeys=ucdDemoResetKeys, ucdDemoMIB=ucdDemoMIB)
+mibBuilder.exportSymbols("UCD-DEMO-MIB", ucdDemoMIBObjects=ucdDemoMIBObjects, ucdDemoPublic=ucdDemoPublic, ucdDemoResetKeys=ucdDemoResetKeys, PYSNMP_MODULE_ID=ucdDemoMIB, ucdDemoMIB=ucdDemoMIB, ucdDemoPublicString=ucdDemoPublicString, ucdDemoUserList=ucdDemoUserList, ucdDemoPassphrase=ucdDemoPassphrase)

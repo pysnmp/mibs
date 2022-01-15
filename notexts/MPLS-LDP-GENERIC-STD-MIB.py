@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module MPLS-LDP-GENERIC-STD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MPLS-LDP-GENERIC-STD-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 04:09:01 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 04:23:09 2022
+# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
 mplsLdpEntityLdpId, mplsLdpEntityIndex = mibBuilder.importSymbols("MPLS-LDP-STD-MIB", "mplsLdpEntityLdpId", "mplsLdpEntityIndex")
 mplsStdMIB, = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "mplsStdMIB")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Bits, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, IpAddress, MibIdentifier, Gauge32, Unsigned32, ModuleIdentity, iso, Integer32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "IpAddress", "MibIdentifier", "Gauge32", "Unsigned32", "ModuleIdentity", "iso", "Integer32", "ObjectIdentity")
-TextualConvention, RowStatus, DisplayString, StorageType = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "RowStatus", "DisplayString", "StorageType")
+NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
+TimeTicks, Bits, iso, ModuleIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, Unsigned32, Counter32, Counter64, Gauge32, ObjectIdentity, MibIdentifier, IpAddress, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "iso", "ModuleIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "Unsigned32", "Counter32", "Counter64", "Gauge32", "ObjectIdentity", "MibIdentifier", "IpAddress", "Integer32")
+StorageType, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "RowStatus", "DisplayString", "TextualConvention")
 mplsLdpGenericStdMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 166, 7))
 mplsLdpGenericStdMIB.setRevisions(('2004-06-03 00:00',))
 if mibBuilder.loadTexts: mplsLdpGenericStdMIB.setLastUpdated('200406030000Z')
@@ -50,4 +50,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 mplsLdpGenericGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 7, 2, 1, 1)).setObjects(("MPLS-LDP-GENERIC-STD-MIB", "mplsLdpEntityGenericLabelSpace"), ("MPLS-LDP-GENERIC-STD-MIB", "mplsLdpEntityGenericIfIndexOrZero"), ("MPLS-LDP-GENERIC-STD-MIB", "mplsLdpEntityGenericLRStorageType"), ("MPLS-LDP-GENERIC-STD-MIB", "mplsLdpEntityGenericLRRowStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mplsLdpGenericGroup = mplsLdpGenericGroup.setStatus('current')
-mibBuilder.exportSymbols("MPLS-LDP-GENERIC-STD-MIB", mplsLdpGenericConformance=mplsLdpGenericConformance, mplsLdpGenericStdMIB=mplsLdpGenericStdMIB, mplsLdpEntityGenericLRStorageType=mplsLdpEntityGenericLRStorageType, mplsLdpEntityGenericLRRowStatus=mplsLdpEntityGenericLRRowStatus, mplsLdpEntityGenericLRTable=mplsLdpEntityGenericLRTable, mplsLdpEntityGenericObjects=mplsLdpEntityGenericObjects, mplsLdpGenericCompliances=mplsLdpGenericCompliances, mplsLdpGenericModuleReadOnlyCompliance=mplsLdpGenericModuleReadOnlyCompliance, PYSNMP_MODULE_ID=mplsLdpGenericStdMIB, mplsLdpGenericObjects=mplsLdpGenericObjects, mplsLdpEntityGenericIfIndexOrZero=mplsLdpEntityGenericIfIndexOrZero, mplsLdpGenericGroup=mplsLdpGenericGroup, mplsLdpEntityGenericLRMax=mplsLdpEntityGenericLRMax, mplsLdpGenericGroups=mplsLdpGenericGroups, mplsLdpEntityGenericLREntry=mplsLdpEntityGenericLREntry, mplsLdpEntityGenericLabelSpace=mplsLdpEntityGenericLabelSpace, mplsLdpGenericModuleFullCompliance=mplsLdpGenericModuleFullCompliance, mplsLdpEntityGenericLRMin=mplsLdpEntityGenericLRMin)
+mibBuilder.exportSymbols("MPLS-LDP-GENERIC-STD-MIB", mplsLdpEntityGenericObjects=mplsLdpEntityGenericObjects, mplsLdpEntityGenericLREntry=mplsLdpEntityGenericLREntry, mplsLdpEntityGenericIfIndexOrZero=mplsLdpEntityGenericIfIndexOrZero, mplsLdpEntityGenericLRMin=mplsLdpEntityGenericLRMin, mplsLdpGenericObjects=mplsLdpGenericObjects, mplsLdpEntityGenericLRMax=mplsLdpEntityGenericLRMax, mplsLdpEntityGenericLRStorageType=mplsLdpEntityGenericLRStorageType, mplsLdpGenericConformance=mplsLdpGenericConformance, mplsLdpGenericStdMIB=mplsLdpGenericStdMIB, mplsLdpEntityGenericLRRowStatus=mplsLdpEntityGenericLRRowStatus, mplsLdpGenericGroup=mplsLdpGenericGroup, mplsLdpEntityGenericLabelSpace=mplsLdpEntityGenericLabelSpace, mplsLdpGenericCompliances=mplsLdpGenericCompliances, mplsLdpEntityGenericLRTable=mplsLdpEntityGenericLRTable, PYSNMP_MODULE_ID=mplsLdpGenericStdMIB, mplsLdpGenericModuleReadOnlyCompliance=mplsLdpGenericModuleReadOnlyCompliance, mplsLdpGenericGroups=mplsLdpGenericGroups, mplsLdpGenericModuleFullCompliance=mplsLdpGenericModuleFullCompliance)

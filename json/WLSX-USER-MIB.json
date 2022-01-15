@@ -5,47 +5,47 @@
       "wlsxEnterpriseMibModules"
     ],
     "ARUBA-TC": [
-      "ArubaHTMode",
-      "ArubaPhyType",
-      "ArubaSubAuthenticationMethods",
+      "ArubaAuthenticationMethods",
       "ArubaEncryptionType",
-      "ArubaUserForwardMode",
-      "ArubaAuthenticationMethods"
+      "ArubaPhyType",
+      "ArubaHTMode",
+      "ArubaSubAuthenticationMethods",
+      "ArubaUserForwardMode"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "IpAddress",
-      "Integer32",
       "TimeTicks",
-      "Gauge32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
       "Counter64",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "snmpModules",
+      "iso",
       "Bits",
+      "MibIdentifier",
+      "Integer32",
+      "Unsigned32",
+      "Counter32",
       "OBJECT-TYPE",
+      "IpAddress",
+      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "snmpModules"
     ],
     "SNMPv2-TC": [
-      "TDomain",
-      "TestAndIncr",
-      "TEXTUAL-CONVENTION",
-      "TAddress",
-      "TimeInterval",
       "StorageType",
-      "MacAddress",
       "RowStatus",
+      "TestAndIncr",
+      "TDomain",
+      "TruthValue",
+      "TAddress",
       "DisplayString",
+      "MacAddress",
       "PhysAddress",
-      "TruthValue"
+      "TimeInterval",
+      "TEXTUAL-CONVENTION"
     ],
     "WLSX-WLAN-MIB": [
       "wlanESSID"
@@ -862,8 +862,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/WLSX-USER-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:11:42 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:25:38 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "WLSX-USER-MIB"

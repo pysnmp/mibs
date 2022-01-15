@@ -1,40 +1,40 @@
 {
   "imports": {
     "class": "imports",
+    "BROCADE-SYSTEM-MIB": [
+      "swID",
+      "swSsn"
+    ],
     "Brocade-REG-MIB": [
       "fibrechannel"
     ],
     "ENTITY-MIB": [
-      "entPhysicalName",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "entPhysicalName"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Counter64",
+      "IpAddress",
       "iso",
-      "Counter32",
-      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE",
+      "Counter32",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
-    ],
-    "SYSTEM-MIB": [
-      "swSsn",
-      "swID"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "haMIB": {
@@ -42,10 +42,6 @@
     "oid": "1.3.6.1.4.1.1588.2.1.2",
     "class": "moduleidentity",
     "revisions": [
-      {
-        "revision": "2018-05-29 12:00",
-        "description": "Updated ORGANIZATION and CONTACT-INFO with Extreme Networks"
-      },
       {
         "revision": "2002-08-16 00:00",
         "description": "The initial revision for the High Availability MIB."
@@ -117,7 +113,10 @@
           "powerSupply": 8,
           "fan": 9,
           "coreblade": 10,
-          "applicationblade": 11
+          "applicationblade": 11,
+          "sfm": 12,
+          "lineCard": 13,
+          "managementModule": 14
         }
       }
     },
@@ -530,11 +529,11 @@
         "object": "cpLastEvent"
       },
       {
-        "module": "SYSTEM-MIB",
+        "module": "BROCADE-SYSTEM-MIB",
         "object": "swID"
       },
       {
-        "module": "SYSTEM-MIB",
+        "module": "BROCADE-SYSTEM-MIB",
         "object": "swSsn"
       }
     ],
@@ -575,8 +574,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/HA-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:22:26 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:35:39 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HA-MIB"

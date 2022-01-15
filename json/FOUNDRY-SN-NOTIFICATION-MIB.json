@@ -5,91 +5,91 @@
       "dot3OamLoopbackStatus"
     ],
     "FOUNDRY-SN-AGENT-MIB": [
-      "snAgGblTrapMessage",
-      "snChasPwrSupplyDescription",
-      "snAgentBrdIndex",
-      "snChasFanDescription",
-      "snChasUnitIndex",
       "snAgentBrdModuleStatus",
-      "snChasFanIndex",
-      "fdryLicenseType",
       "snChasPwrSupplyStatus",
-      "snChasPwrSupplyIndex"
+      "snAgGblTrapMessage",
+      "snChasPwrSupplyIndex",
+      "snChasUnitIndex",
+      "snAgentBrdIndex",
+      "fdryLicenseType",
+      "snChasFanDescription",
+      "snChasPwrSupplyDescription",
+      "snChasFanIndex"
     ],
     "FOUNDRY-SN-OSPF-GROUP-MIB": [
-      "snOspfLsdbRouterId",
-      "snOspfPacketType",
+      "snOspfNbrIpAddr",
+      "snOspfVirtIfStatusAreaID",
+      "snOspfVirtNbrArea",
       "snOspfExtLsdbLimit",
+      "snOspfIfStatusIpAddress",
+      "snOspfPacketType",
+      "snOspfNbrRtrId",
+      "snOspfLsdbType",
+      "snOspfVirtNbrState",
+      "snOspfLsdbRouterId",
+      "snOspfVirtIfStatusNeighbor",
+      "snOspfPacketSrc",
+      "snOspfLsdbLsId",
       "snOspfConfigErrorType",
       "snOspfNbrState",
-      "snOspfVirtIfStatusAreaID",
-      "snOspfLsdbLsId",
-      "snOspfVirtIfStatusState",
-      "snOspfLsdbAreaId",
-      "snOspfVirtIfStatusNeighbor",
-      "snOspfVirtNbrArea",
       "snOspfIfStatusState",
-      "snOspfVirtNbrState",
-      "snOspfNbrRtrId",
-      "snOspfIfStatusIpAddress",
-      "snOspfLsdbType",
+      "snOspfLsdbAreaId",
+      "snOspfVirtIfStatusState",
       "snOspfRouterId",
-      "snOspfVirtNbrRtrId",
-      "snOspfPacketSrc",
-      "snOspfNbrIpAddr"
+      "snOspfVirtNbrRtrId"
     ],
     "FOUNDRY-SN-ROOT-MIB": [
       "foundry"
     ],
     "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB": [
       "snL4TrapLinkName",
-      "snL4MaxSessionLimit",
-      "snL4TrapRealServerPort",
-      "snL4TrapRealServerIP",
-      "snL4LinkVirtualInterface",
-      "snL4TrapRealServerName",
       "snL4TrapRealServerCurConnections",
-      "snL4TcpSynLimit"
+      "snL4MaxSessionLimit",
+      "snL4TcpSynLimit",
+      "snL4TrapRealServerIP",
+      "snL4TrapRealServerName",
+      "snL4LinkVirtualInterface",
+      "snL4TrapRealServerPort"
     ],
     "FOUNDRY-SN-SWITCH-GROUP-MIB": [
-      "snSwViolatorMacAddress",
       "snVLanByPortCfgVLanId",
-      "snSwViolatorPortNumber"
+      "snSwViolatorPortNumber",
+      "snSwViolatorMacAddress"
     ],
     "FOUNDRY-SN-WIRELESS-GROUP-MIB": [
       "wgPnPStatus"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMdName",
+      "dot1agCfmMaNetName",
       "dot1agCfmMepDbRMepState",
-      "dot1agCfmMaNetName"
+      "dot1agCfmMdName"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
       "Counter64",
-      "TimeTicks",
-      "OBJECT-TYPE",
+      "IpAddress",
       "iso",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
       "Counter32",
       "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snTraps": {
@@ -3166,8 +3166,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-NOTIFICATION-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:22:26 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:35:39 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "FOUNDRY-SN-NOTIFICATION-MIB"

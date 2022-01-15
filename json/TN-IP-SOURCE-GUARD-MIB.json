@@ -5,41 +5,41 @@
       "entPhysicalIndex"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress",
-      "InetAddressPrefixLength"
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
+      "iso",
+      "Gauge32",
       "MODULE-IDENTITY",
       "Integer32",
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "IpAddress",
-      "Counter64",
-      "Bits",
       "TimeTicks",
-      "Gauge32",
-      "MibIdentifier"
+      "Counter32",
+      "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
       "MacAddress",
       "RowStatus",
-      "TruthValue",
-      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TimeStamp",
+      "TruthValue"
     ],
     "TRANSITION-SMI": [
       "tnProducts"
@@ -458,8 +458,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/transition/TN-IP-SOURCE-GUARD-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:41:08 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:52:15 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "TN-IP-SOURCE-GUARD-MIB"

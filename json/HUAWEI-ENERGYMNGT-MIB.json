@@ -5,36 +5,36 @@
       "huaweiUtility"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Gauge32",
       "iso",
       "Counter32",
-      "Integer32",
-      "Unsigned32",
-      "MibIdentifier",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Gauge32",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
+      "DateAndTime",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "RowStatus",
-      "DateAndTime"
+      "RowStatus"
     ]
   },
   "hwEnergyMngt": {
@@ -1062,8 +1062,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-ENERGYMNGT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:27:35 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:40:28 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HUAWEI-ENERGYMNGT-MIB"

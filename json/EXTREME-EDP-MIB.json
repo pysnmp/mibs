@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "EXTREME-BASE-MIB": [
-      "ExtremeDeviceId",
-      "extremeAgent"
+      "extremeAgent",
+      "ExtremeDeviceId"
     ],
     "IF-MIB": [
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "Unsigned32",
       "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
-      "TimeTicks",
+      "NOTIFICATION-TYPE",
       "Counter64",
+      "IpAddress",
       "iso",
-      "Counter32",
-      "Integer32",
+      "Bits",
+      "MODULE-IDENTITY",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "IpAddress",
-      "Unsigned32",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE",
+      "Counter32",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue"
     ]
   },
@@ -274,8 +274,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:22:26 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:35:39 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "EXTREME-EDP-MIB"

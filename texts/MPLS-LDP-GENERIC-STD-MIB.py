@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module MPLS-LDP-GENERIC-STD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MPLS-LDP-GENERIC-STD-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 04:09:12 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 04:23:21 2022
+# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-SingleValueConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "SingleValueConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint")
+ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
 InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-mplsLdpEntityLdpId, mplsLdpEntityIndex = mibBuilder.importSymbols("MPLS-LDP-STD-MIB", "mplsLdpEntityLdpId", "mplsLdpEntityIndex")
+mplsLdpEntityIndex, mplsLdpEntityLdpId = mibBuilder.importSymbols("MPLS-LDP-STD-MIB", "mplsLdpEntityIndex", "mplsLdpEntityLdpId")
 mplsStdMIB, = mibBuilder.importSymbols("MPLS-TC-STD-MIB", "mplsStdMIB")
-NotificationGroup, ModuleCompliance, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance", "ObjectGroup")
-NotificationType, MibIdentifier, Gauge32, iso, ObjectIdentity, Bits, Counter64, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ModuleIdentity, TimeTicks, Integer32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "MibIdentifier", "Gauge32", "iso", "ObjectIdentity", "Bits", "Counter64", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ModuleIdentity", "TimeTicks", "Integer32", "IpAddress")
-TextualConvention, StorageType, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "StorageType", "DisplayString", "RowStatus")
+ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
+Counter32, Counter64, Gauge32, ModuleIdentity, IpAddress, ObjectIdentity, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, iso, MibIdentifier, TimeTicks, Bits, NotificationType, Integer32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Counter64", "Gauge32", "ModuleIdentity", "IpAddress", "ObjectIdentity", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "iso", "MibIdentifier", "TimeTicks", "Bits", "NotificationType", "Integer32")
+StorageType, DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "DisplayString", "RowStatus", "TextualConvention")
 mplsLdpGenericStdMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 166, 7))
 mplsLdpGenericStdMIB.setRevisions(('2004-06-03 00:00',))
 
@@ -67,4 +67,4 @@ mplsLdpGenericGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 166, 7, 2, 1, 1)).setOb
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     mplsLdpGenericGroup = mplsLdpGenericGroup.setStatus('current')
 if mibBuilder.loadTexts: mplsLdpGenericGroup.setDescription('Objects that apply to all MPLS LDP implementations\n           using Generic Labels as the Layer 2.')
-mibBuilder.exportSymbols("MPLS-LDP-GENERIC-STD-MIB", mplsLdpEntityGenericLRMin=mplsLdpEntityGenericLRMin, mplsLdpGenericGroups=mplsLdpGenericGroups, mplsLdpEntityGenericLRTable=mplsLdpEntityGenericLRTable, mplsLdpGenericGroup=mplsLdpGenericGroup, mplsLdpEntityGenericLRStorageType=mplsLdpEntityGenericLRStorageType, mplsLdpEntityGenericIfIndexOrZero=mplsLdpEntityGenericIfIndexOrZero, PYSNMP_MODULE_ID=mplsLdpGenericStdMIB, mplsLdpEntityGenericLabelSpace=mplsLdpEntityGenericLabelSpace, mplsLdpGenericConformance=mplsLdpGenericConformance, mplsLdpGenericStdMIB=mplsLdpGenericStdMIB, mplsLdpEntityGenericLREntry=mplsLdpEntityGenericLREntry, mplsLdpEntityGenericLRMax=mplsLdpEntityGenericLRMax, mplsLdpEntityGenericObjects=mplsLdpEntityGenericObjects, mplsLdpGenericCompliances=mplsLdpGenericCompliances, mplsLdpGenericModuleReadOnlyCompliance=mplsLdpGenericModuleReadOnlyCompliance, mplsLdpEntityGenericLRRowStatus=mplsLdpEntityGenericLRRowStatus, mplsLdpGenericObjects=mplsLdpGenericObjects, mplsLdpGenericModuleFullCompliance=mplsLdpGenericModuleFullCompliance)
+mibBuilder.exportSymbols("MPLS-LDP-GENERIC-STD-MIB", mplsLdpGenericGroups=mplsLdpGenericGroups, mplsLdpEntityGenericLRTable=mplsLdpEntityGenericLRTable, mplsLdpEntityGenericLRMin=mplsLdpEntityGenericLRMin, mplsLdpEntityGenericLREntry=mplsLdpEntityGenericLREntry, mplsLdpEntityGenericIfIndexOrZero=mplsLdpEntityGenericIfIndexOrZero, mplsLdpGenericConformance=mplsLdpGenericConformance, mplsLdpGenericModuleFullCompliance=mplsLdpGenericModuleFullCompliance, mplsLdpGenericObjects=mplsLdpGenericObjects, mplsLdpGenericStdMIB=mplsLdpGenericStdMIB, mplsLdpEntityGenericLRStorageType=mplsLdpEntityGenericLRStorageType, mplsLdpGenericCompliances=mplsLdpGenericCompliances, mplsLdpEntityGenericLRRowStatus=mplsLdpEntityGenericLRRowStatus, mplsLdpGenericModuleReadOnlyCompliance=mplsLdpGenericModuleReadOnlyCompliance, mplsLdpEntityGenericLabelSpace=mplsLdpEntityGenericLabelSpace, mplsLdpEntityGenericObjects=mplsLdpEntityGenericObjects, mplsLdpGenericGroup=mplsLdpGenericGroup, mplsLdpEntityGenericLRMax=mplsLdpEntityGenericLRMax, PYSNMP_MODULE_ID=mplsLdpGenericStdMIB)

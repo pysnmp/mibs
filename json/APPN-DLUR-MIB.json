@@ -8,30 +8,30 @@
       "snanauMIB"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "iso",
+      "Integer32",
       "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "TimeTicks",
       "Counter32",
-      "Integer32"
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "dlurMIB": {
@@ -666,8 +666,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DLUR-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:09:25 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:23:32 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "APPN-DLUR-MIB"

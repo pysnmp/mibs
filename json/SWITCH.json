@@ -3,12 +3,12 @@
     "class": "imports",
     "IF-MIB": [
       "InterfaceIndex",
-      "InterfaceIndexOrZero",
-      "ifIndex"
+      "ifIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressPrefixLength",
       "InetAddressType",
+      "InetAddressPrefixLength",
       "InetAddress"
     ],
     "RMON-MIB": [
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Gauge32",
+      "MibIdentifier",
+      "iso",
+      "Bits",
+      "mib-2",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "IpAddress",
       "Unsigned32",
       "enterprises",
-      "Bits",
-      "iso",
-      "TimeTicks",
-      "MibIdentifier",
       "Counter64",
+      "OBJECT-IDENTITY",
       "Counter32",
       "OBJECT-TYPE",
-      "Integer32",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "AutonomousType",
-      "TimeStamp",
-      "DisplayString",
-      "DateAndTime",
       "PhysAddress",
-      "RowStatus",
-      "TestAndIncr",
-      "MacAddress",
+      "DisplayString",
+      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "RowStatus",
+      "MacAddress",
+      "TimeStamp",
+      "TestAndIncr",
+      "AutonomousType",
+      "DateAndTime"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:23:28 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:36:36 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SWITCH"

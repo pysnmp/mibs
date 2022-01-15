@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module STORMSHIELD-IPSEC-STATS-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/stormshield/STORMSHIELD-IPSEC-STATS-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 04:40:10 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 04:52:12 2022
+# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Integer32, iso, Gauge32, MibIdentifier, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, IpAddress, NotificationType, ObjectIdentity, TimeTicks, Bits, Counter32, Counter64, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "iso", "Gauge32", "MibIdentifier", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "IpAddress", "NotificationType", "ObjectIdentity", "TimeTicks", "Bits", "Counter32", "Counter64", "ModuleIdentity")
-TextualConvention, DisplayString, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "TruthValue")
+Integer32, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Unsigned32, iso, Gauge32, MibIdentifier, ObjectIdentity, NotificationType, Counter32, ModuleIdentity, Counter64, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Unsigned32", "iso", "Gauge32", "MibIdentifier", "ObjectIdentity", "NotificationType", "Counter32", "ModuleIdentity", "Counter64", "IpAddress")
+DisplayString, TextualConvention, TruthValue = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "TruthValue")
 stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
 snsIPSECStats = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 13))
 snsIPSECStats.setRevisions(('2017-02-20 00:00',))
@@ -41,4 +41,4 @@ if mibBuilder.loadTexts: snsIPSECStatsSADDying.setDescription('Number of securit
 snsIPSECStatsSADDead = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 4), Counter64()).setMaxAccess("readonly")
 if mibBuilder.loadTexts: snsIPSECStatsSADDead.setStatus('current')
 if mibBuilder.loadTexts: snsIPSECStatsSADDead.setDescription('Number of dead security associations')
-mibBuilder.exportSymbols("STORMSHIELD-IPSEC-STATS-MIB", snsIPSECStatsSPD=snsIPSECStatsSPD, snsIPSECStatsSPDIn=snsIPSECStatsSPDIn, snsIPSECStatsSADMature=snsIPSECStatsSADMature, snsIPSECStatsSADDying=snsIPSECStatsSADDying, snsIPSECStats=snsIPSECStats, PYSNMP_MODULE_ID=snsIPSECStats, snsIPSECStatsSADDead=snsIPSECStatsSADDead, snsIPSECStatsSPDOut=snsIPSECStatsSPDOut, snsIPSECStatsSADLarval=snsIPSECStatsSADLarval, snsIPSECStatsSAD=snsIPSECStatsSAD)
+mibBuilder.exportSymbols("STORMSHIELD-IPSEC-STATS-MIB", snsIPSECStatsSADDead=snsIPSECStatsSADDead, snsIPSECStatsSADLarval=snsIPSECStatsSADLarval, snsIPSECStatsSAD=snsIPSECStatsSAD, snsIPSECStatsSPD=snsIPSECStatsSPD, snsIPSECStats=snsIPSECStats, snsIPSECStatsSADMature=snsIPSECStatsSADMature, snsIPSECStatsSPDOut=snsIPSECStatsSPDOut, snsIPSECStatsSADDying=snsIPSECStatsSADDying, snsIPSECStatsSPDIn=snsIPSECStatsSPDIn, PYSNMP_MODULE_ID=snsIPSECStats)

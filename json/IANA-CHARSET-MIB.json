@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "TimeTicks",
-      "IpAddress",
       "NOTIFICATION-TYPE",
       "Counter64",
-      "iso",
+      "Integer32",
       "OBJECT-TYPE",
-      "Bits",
-      "Unsigned32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
-      "mib-2",
+      "IpAddress",
+      "iso",
+      "MibIdentifier",
+      "TimeTicks",
       "Counter32",
-      "Integer32"
+      "mib-2",
+      "Unsigned32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ianaCharsetMIB": {
@@ -318,8 +318,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IANA-CHARSET-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:09:26 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:23:33 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "IANA-CHARSET-MIB"

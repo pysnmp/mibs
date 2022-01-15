@@ -12,8 +12,8 @@
       "vsanIndex"
     ],
     "ENTITY-MIB": [
-      "PhysicalIndex",
-      "entPhysicalIndex"
+      "entPhysicalIndex",
+      "PhysicalIndex"
     ],
     "IF-MIB": [
       "InterfaceIndex"
@@ -23,32 +23,32 @@
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
       "TimeTicks",
-      "Counter32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
       "IpAddress",
-      "OBJECT-TYPE",
       "Unsigned32",
       "Integer32",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "iso",
-      "NOTIFICATION-TYPE",
+      "Bits",
+      "Gauge32",
+      "Counter32",
       "Counter64",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "TestAndIncr",
       "RowStatus",
+      "TestAndIncr",
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString",
-      "TimeStamp"
+      "DisplayString"
     ]
   },
   "ciscoFcRouteMIB": {
@@ -812,8 +812,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-FC-ROUTE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:17:07 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:30:41 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-FC-ROUTE-MIB"

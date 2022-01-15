@@ -9,25 +9,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
       "TimeTicks",
-      "Counter32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "MibIdentifier",
-      "iso",
-      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "Bits",
+      "Gauge32",
+      "Counter32",
       "Counter64",
       "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "DateAndTime"
     ]
   },
   "atmAccountingInformationMIB": {
@@ -650,8 +650,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/ATM-ACCOUNTING-INFORMATION-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:17:04 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:30:38 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ATM-ACCOUNTING-INFORMATION-MIB"

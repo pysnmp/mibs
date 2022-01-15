@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module WISI-TANGRAM-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/wisi/WISI-TANGRAM-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 04:42:09 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 04:53:59 2022
+# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ConstraintsUnion, ValueSizeConstraint, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ConstraintsUnion", "ValueSizeConstraint", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup")
-MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, Counter64, iso, Unsigned32, TimeTicks, Counter32, Bits, NotificationType, Integer32, ObjectIdentity, ModuleIdentity, IpAddress, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "Counter64", "iso", "Unsigned32", "TimeTicks", "Counter32", "Bits", "NotificationType", "Integer32", "ObjectIdentity", "ModuleIdentity", "IpAddress", "Gauge32")
+ConstraintsIntersection, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint")
+NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
+NotificationType, Integer32, MibIdentifier, iso, ModuleIdentity, Bits, Counter32, ObjectIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Gauge32, IpAddress, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Integer32", "MibIdentifier", "iso", "ModuleIdentity", "Bits", "Counter32", "ObjectIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Gauge32", "IpAddress", "Unsigned32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 tangram, = mibBuilder.importSymbols("WISI-ROOT-MIB", "tangram")
 tangramMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 7465, 20, 2, 9, 0))
@@ -43,4 +43,4 @@ class FloatingPoint(TextualConvention, OctetString):
     displayHint = '63a'
     subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 63)
 
-mibBuilder.exportSymbols("WISI-TANGRAM-MIB", gtGenericObjectUsertrap=gtGenericObjectUsertrap, FloatingPoint=FloatingPoint, gtGenericNotifyUsertrap=gtGenericNotifyUsertrap, gtProcessing=gtProcessing, PYSNMP_MODULE_ID=tangramMIB, gtGeneric=gtGeneric, gtStandards=gtStandards, gtRF=gtRF, gtIP=gtIP, gtGenericNotifications=gtGenericNotifications, tangramMIB=tangramMIB, gtDVB=gtDVB, gtUnit=gtUnit, gtGenericObjects=gtGenericObjects, gtTS=gtTS)
+mibBuilder.exportSymbols("WISI-TANGRAM-MIB", gtGenericNotifyUsertrap=gtGenericNotifyUsertrap, gtIP=gtIP, gtDVB=gtDVB, gtGenericObjects=gtGenericObjects, gtStandards=gtStandards, gtProcessing=gtProcessing, gtGeneric=gtGeneric, FloatingPoint=FloatingPoint, tangramMIB=tangramMIB, PYSNMP_MODULE_ID=tangramMIB, gtGenericObjectUsertrap=gtGenericObjectUsertrap, gtRF=gtRF, gtUnit=gtUnit, gtTS=gtTS, gtGenericNotifications=gtGenericNotifications)

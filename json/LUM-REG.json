@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "enterprises",
-      "Counter32",
-      "Unsigned32",
-      "Gauge32",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "Bits",
-      "Counter64",
-      "OBJECT-TYPE",
-      "iso",
       "IpAddress",
+      "Counter64",
+      "Bits",
+      "Integer32",
+      "Counter32",
+      "NOTIFICATION-TYPE",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier"
+      "Unsigned32",
+      "MibIdentifier",
+      "iso",
+      "enterprises",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -2687,8 +2687,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/infinera/LUM-REG",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:29:09 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:41:58 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "LUM-REG"

@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Integer32",
-      "Gauge32",
-      "iso",
-      "OBJECT-IDENTITY",
-      "TRAP-TYPE",
-      "IpAddress",
-      "MibIdentifier",
-      "enterprises",
-      "Counter32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "TRAP-TYPE",
+      "Integer32",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "enterprises",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -524,8 +524,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/avtech/ROOMALERTST4E-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:12:23 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:26:14 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ROOMALERTST4E-MIB"

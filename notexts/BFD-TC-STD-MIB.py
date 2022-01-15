@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module BFD-TC-STD-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/BFD-TC-STD-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 04:09:01 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 04:23:09 2022
+# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Bits, Counter64, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, NotificationType, IpAddress, MibIdentifier, Gauge32, mib_2, Unsigned32, ModuleIdentity, iso, Integer32, ObjectIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "Counter64", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "NotificationType", "IpAddress", "MibIdentifier", "Gauge32", "mib-2", "Unsigned32", "ModuleIdentity", "iso", "Integer32", "ObjectIdentity")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+TimeTicks, Bits, iso, ModuleIdentity, NotificationType, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, Counter32, Counter64, Gauge32, ObjectIdentity, MibIdentifier, Integer32, IpAddress, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Bits", "iso", "ModuleIdentity", "NotificationType", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "Counter32", "Counter64", "Gauge32", "ObjectIdentity", "MibIdentifier", "Integer32", "IpAddress", "mib-2")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 bfdTCStdMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 223))
 bfdTCStdMib.setRevisions(('2014-08-12 00:00',))
 if mibBuilder.loadTexts: bfdTCStdMib.setLastUpdated('201408120000Z')
@@ -42,4 +42,4 @@ class BfdCtrlSourcePortNumberTC(TextualConvention, Unsigned32):
     displayHint = 'd'
     subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65535)
 
-mibBuilder.exportSymbols("BFD-TC-STD-MIB", PYSNMP_MODULE_ID=bfdTCStdMib, bfdTCStdMib=bfdTCStdMib, BfdCtrlSourcePortNumberTC=BfdCtrlSourcePortNumberTC, BfdIntervalTC=BfdIntervalTC, BfdSessIndexTC=BfdSessIndexTC, BfdMultiplierTC=BfdMultiplierTC, BfdCtrlDestPortNumberTC=BfdCtrlDestPortNumberTC)
+mibBuilder.exportSymbols("BFD-TC-STD-MIB", BfdCtrlDestPortNumberTC=BfdCtrlDestPortNumberTC, BfdMultiplierTC=BfdMultiplierTC, PYSNMP_MODULE_ID=bfdTCStdMib, bfdTCStdMib=bfdTCStdMib, BfdSessIndexTC=BfdSessIndexTC, BfdCtrlSourcePortNumberTC=BfdCtrlSourcePortNumberTC, BfdIntervalTC=BfdIntervalTC)

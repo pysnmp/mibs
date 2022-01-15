@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSCommon",
-      "adGenAOSConformance"
+      "adGenAOSConformance",
+      "adGenAOSCommon"
     ],
     "ADTRAN-MIB": [
       "adIdentityShared"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Bits",
+      "OBJECT-IDENTITY",
       "MODULE-IDENTITY",
-      "OBJECT-TYPE",
+      "Counter32",
       "MibIdentifier",
       "NOTIFICATION-TYPE",
       "TimeTicks",
-      "Gauge32",
-      "OBJECT-IDENTITY",
       "Integer32",
+      "iso",
+      "Counter64",
       "IpAddress",
       "Unsigned32",
-      "Counter64",
-      "Counter32"
+      "OBJECT-TYPE",
+      "Bits",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -708,8 +708,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-AOSCPU",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:09:53 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:24:00 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ADTRAN-AOSCPU"

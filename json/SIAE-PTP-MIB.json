@@ -12,30 +12,30 @@
       "siaeMib"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "Gauge32",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "Bits",
       "MODULE-IDENTITY",
-      "IpAddress",
+      "Gauge32",
       "Counter32",
+      "IpAddress",
       "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "MibIdentifier",
       "iso",
-      "Unsigned32"
+      "OBJECT-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "DisplayString",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ]
   },
   "ptp": {
@@ -2444,8 +2444,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/siae/SIAE-PTP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:39:26 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:51:31 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SIAE-PTP-MIB"

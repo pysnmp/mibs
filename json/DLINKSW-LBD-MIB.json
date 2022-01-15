@@ -15,29 +15,29 @@
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "TimeTicks",
       "Counter32",
-      "OBJECT-TYPE",
-      "iso",
-      "Unsigned32",
+      "OBJECT-IDENTITY",
       "IpAddress",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Unsigned32",
+      "Gauge32",
       "Counter64",
-      "MibIdentifier",
-      "Bits",
-      "OBJECT-IDENTITY"
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "dlinkSwLoopbackDetectMIB": {
@@ -511,8 +511,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dlink/DLINKSW-LBD-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 04:20:03 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 04:33:28 2022",
+      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "DLINKSW-LBD-MIB"
