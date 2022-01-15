@@ -1,3 +1,5 @@
+-- $Id: CISCO-RTTMON-MIB.my,v 3.1.4.4 1996/09/04 17:34:50 lmetzger Exp $
+-- $Source: /release/112/cvs/Xsys/MIBS/CISCO-RTTMON-MIB.my,v $
 -- *****************************************************************
 -- Response Time Monitor Mib.
 --   
@@ -6,8 +8,38 @@
 -- Copyright (c) 1995-2012, 2014-2016 by Cisco Systems, Inc.
 -- All rights reserved.
 -- *****************************************************************
+-- $Log: CISCO-RTTMON-MIB.my,v $
+-- %DNP% Revision 3.1.4.4  1996/09/04  17:34:50  lmetzger
+-- %DNP% CSCdi68018:  Second Update to Description in RTTMON mib
+-- %DNP% Branch: California_branch
+-- %DNP%
+-- %DNP% Revision 3.1.4.3  1996/08/16  18:38:07  lmetzger
+-- %DNP% CSCdi66311:  Update Descriptions in RTTMON mib
+-- %DNP% Branch: California_branch
+-- %DNP%
+-- %DNP% Revision 3.1.4.2  1996/06/11  19:38:37  snyder
+-- %DNP% CSCdi60118:  MIB doc spellink errors
+-- %DNP% Branch: California_branch
+-- %DNP%
+-- %DNP% Revision 3.1.4.1  1996/05/17  10:38:45  ppearce
+-- %DNP% Merge IbuMod into Calif
+-- %DNP%
+-- %DNP% Revision 3.1.2.1  1996/03/22  19:10:10  lmetzger
+-- %DNP% Initial Version of Response Time Reporter
+-- %DNP%
+-- %DNP% Revision 3.1  1996/03/20  01:05:49  lmetzger
+-- %DNP% Placeholder for IbuMod_Calif_branch
+-- %DNP%
+-- *****************************************************************
+-- $Endlog$
 --   
 
+-- %DNP%  FYI:  Lines containing a comment starting with the "Do Not
+-- %DNP%  Publish" prefix "%DNP%" (such as these) are automagicially
+-- %DNP%  stripped from MIBS prior to publishing on ftp and cio, and
+-- %DNP%  should be used for comments intended for cisco engineering
+-- %DNP%  eyes only, or for new product identifiers that are not yet
+-- %DNP%  announce
 
 CISCO-RTTMON-MIB DEFINITIONS ::= BEGIN
 
@@ -8982,6 +9014,9 @@ rttMonVerifyErrorNotification NOTIFICATION-TYPE
         rttMonNotification."
    ::= { rttMonNotifications 4 }
 
+-- %DNP% The rttMonEchoAdminLSPSelector object was added to address
+-- %DNP% customer problem field trial. The prior version of the MIB
+-- %DNP% has not been published externally.
 
 rttMonNotification NOTIFICATION-TYPE
     OBJECTS         {
@@ -11142,24 +11177,5 @@ ciscoStatsGroupRev10 OBJECT-GROUP
     ::= { ciscoRttMonMibGroups 58 }
 
 END
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

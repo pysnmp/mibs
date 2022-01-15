@@ -3,7 +3,7 @@
 -- This MIB helps to manage the WLANs on the controller
 -- January 2006, Devesh Pujari, Prasanna Viswakumar
 --   
--- Copyright (c) 2006, 2007, 2009-2016 by Cisco Systems Inc.
+-- Copyright (c) 2006-2007, 2009-2010, 2016-2020 by Cisco Systems Inc.
 -- All rights reserved.
 -- *******************************************************************
 
@@ -13,8 +13,9 @@ IMPORTS
     MODULE-IDENTITY,
     OBJECT-TYPE,
     Unsigned32,
-    Integer32,
-    Gauge32
+    Gauge32,
+    TimeTicks,
+    Integer32
         FROM SNMPv2-SMI
     MODULE-COMPLIANCE,
     OBJECT-GROUP
@@ -22,8 +23,8 @@ IMPORTS
     TimeStamp,
     TruthValue,
     RowStatus,
-    DisplayString,
     StorageType,
+    DisplayString,
     MacAddress
         FROM SNMPv2-TC
     SnmpAdminString
@@ -31,12 +32,14 @@ IMPORTS
     InetAddressType,
     InetAddress
         FROM INET-ADDRESS-MIB
+    CiscoURLStringOrEmpty
+        FROM CISCO-TC
     ciscoMgmt
         FROM CISCO-SMI;
 
 
 ciscoLwappWlanMIB MODULE-IDENTITY
-    LAST-UPDATED    "201504230000Z"
+    LAST-UPDATED    "202004280000Z"
     ORGANIZATION    "Cisco Systems Inc."
     CONTACT-INFO
             "Cisco Systems,
@@ -247,25 +250,32 @@ ciscoLwappWlanMIB MODULE-IDENTITY
         conference facilities.
 
         HALO (Hyperlocation)
-        
+
         Hyperlocation is a technique of calculating location using 
         Angle of Arrival(AoA) tracks 802.11 OFDM clients 
         (meaning 802.11a/g/n/ac clients) that are associated(connected) 
         on the network and is able to do so with much higher accuracy 
         than conventional Real Time Location Systems(RTLS) that rely 
         on only RSSI (RF Signal Strength).
-        
+
         PakRSSI (Packet Received Signal Strength Indicator)
-        
+
         PakRSSI is a measurement of the power present in a received radio signal.
-        
+
         POE (Power Over Ethernet)
-        
+
         Power over Ethernet or PoE describes any of several standardized 
         or ad-hoc systems which pass electrical power along with data on 
         Ethernet cabling. This allows a single cable to provide both data 
         connection and electrical power to devices such as wireless
         access points or IP cameras.
+
+        Multicast Domain Name System (mDNS)
+
+        This is the underlying protocol that is used for Service 
+        advertisement and discovery in technologies like Bonjour, 
+        Zero Touch Configuration 
+
         REFERENCE
 
         [1] Wireless LAN Medium Access Control ( MAC ) and
@@ -276,15 +286,159 @@ ciscoLwappWlanMIB MODULE-IDENTITY
 
         [3] IEEE 802.11 - The original 1 Mbit/s and 2 Mbit/s, 
         2.4 GHz RF and IR standard."
+    REVISION        "202004280000Z"
+    DESCRIPTION
+        "Added following policy value to cLWlanWifiDirectPolicyStatus
+        - xconnectNotAllow."
+    REVISION        "202004010000Z"
+    DESCRIPTION
+        "Added following entries to CLWlanConfigEntry
+        - cLWlanOpportunisticKeyCaching.
+         Added following entries to CLWlan11axConfigEntry
+        - cLWlan11axTwtBroadcastSupport."
+    REVISION        "202003310000Z"
+    DESCRIPTION
+        "Added new table
+        -cLwappAPGroupNtpConfigTable
+        Added new objects 
+        -cLAPGroupNtpAuthEnable
+        -cLAPGroupNtpIndex
+        -cLAPGroupNtpAddress
+        -cLAPGroupNtpAddressType
+        -cLAPGroupNtpAuthKeyIndex
+        -cLAPGroupNtpRowStatus
+        Added new table
+        -cLAPGroupNtpAuthKeyConfigTable
+        Added new objects 
+        -cLAPGroupNtpAuthKeyFormat
+        -cLAPGroupNtpAuthKeyListIndex
+        -cLAPGroupNtpAuthKeyString
+        -cLAPGroupNtpAuthKeyType
+        -cLAPGroupNtpAuthKeyRowStatus
+        Added new table
+        -cLAPGroupGlobalNtpServerConfigTable
+        Added new  objects 
+        -cLAPGroupGlobalNtpServerAuth
+        -cLAPGroupGlobalNtpServerIndex
+        Added new table
+        -cLAPGroupNtpServerConfigTable
+        Added new objects 
+        -cLAPGroupNtpServerAuthEnable
+        -cLAPGroupNtpServerIndex
+        Changed in cLAPGroupsHyperlocationConfigTable
+             Deprecated the following objects:
+             -cLAPGroupsPakRssiNtpAddress
+             -cLAPGroupsPakRssiNtpIpAddressType
+        Added new group 
+        -ciscoLwappApGroupNtpServerGroup
+        Added new compliance 
+        ciscoLwappWlanMIBComplianceRev12 which
+        deprecates ciscoLwappWlanMIBComplianceRev11."
+    REVISION        "201904090000Z"
+    DESCRIPTION
+        "Added following new table
+        - cLWlan11axConfigTable
+        Added new compliance objects
+        - ciscoLwappWlanMIBComplianceRev10
+        Added new compliance object group
+        - ciscoLwappWlan11axConfigGroup.
+        Added following entries to cLWlanConfigTable
+        - cLWlanMdnsMode."
+    REVISION        "201809030000Z"
+    DESCRIPTION
+        "Added following entries to cLWlanConfigTable
+        - cLWlan11kAssistedRoamingEnable 
+        - cLWlan11kNeighborListEnable
+        - cLWlan11kDualbandNeigListEnable
+        - cLWlanEapProfileName
+        - cLWlanSetEapProfileName
+        - cLWlanMaxClientsAllowedPerAP
+        - cLWlan11vDMSEnable
+        Added following entries to cLWlanConfigTable
+        - cLWlanIosAuthorizationMethodListName 
+        - cLWlanIosWebAuthAuthorizationMethodListName
+        - cLWlanIosMacOverrideMethodListName
+        Added the following conformance group
+        - ciscoLwappWlan11kConfigGroup
+        Deprecated the following Compliance group
+        - ciscoLwappWlanMIBComplianceRev10
+        Added the following Compliance group
+        - ciscoLwappWlanMIBComplianceRev11."
+    REVISION        "201807050000Z"
+    DESCRIPTION
+        "Added new table
+        -cLPolicyWlanSchedulingTable.
+        Added allowPvtGrp(4) in the object cLWlanP2PBlocking.
+        Added following objects in cLAPGroupConfigTable
+        -cLApGroupGlobalWebAuthConfig
+        -cLApGroupExternalWebAuthUrl."
+    REVISION        "201803070000Z"
+    DESCRIPTION
+        "Added the following objects to the table cLWlanConfigQosTable
+        -cLWlanWlanDSAverageDataRate
+        -cLWlanWlanUSAverageDataRate
+        -cLWlanWlanDSBurstDataRate
+        -cLWlanWlanUSBurstDataRate
+        -cLWlanWlanDSAvgRealTimeDataRate
+        -cLWlanWlanUSAvgRealTimeDataRate
+        -cLWlanWlanDSBurstRealTimeDataRate
+        -cLWlanWlanUSBurstRealTimeDataRate"
+    REVISION        "201707220000Z"
+    DESCRIPTION
+        "Removed the changes done on revision
+        201612080000Z"
+    REVISION        "201612080000Z"
+    DESCRIPTION
+        "Added the following objects
+        -cLWlanSelfAnchorEnabled
+        -cLWlan11acMuMimoEnabled
+        -cLWlanFlexibleNetflowEntry
+        -cLWlanFlexibleNetflowPolicyTypeIndex
+        -cLWlanFlexibleNetflowMonitorName
+        -cLWlanFlexibleNetflowRowStatus
+
+        Added new table
+        -cLWlanFlexibleNetflowTable
+
+        Added new compliance objects
+        -ciscoLwappWlanMIBComplianceRev9
+
+        Added new compliance object groups
+        -ciscoLwappWlanQosConfigGroup 
+        -ciscoLwappWlanConfigGroupSup4 
+        -ciscoLwappWlan11uConfigGroupsup2 
+        -ciscoLwappAPGroupsVlanConfigGroupSup1 
+        -cLAPGroupsVenueConfigGroup 
+        -cLAPGroupsMultipleVenueGroup 
+        -ciscoLwappWlanConfigClientGroupSup2 
+        -ciscoLwappWlanConfigFlexibleNetflowGroup 
+        -ciscoLwappWlanConfigGroupSup5 
+        -ciscoLwappAPGroupsVlanConfigGroupSup2 
+        -ciscoLwappWlanConfigGroupSup6 
+        -ciscoLwappWlanConfigGroupSup7 
+        -ciscoLwappWlanConfigGroupSup8 
+        -ciscoLwappWlan11vConfigGroup"
+    REVISION        "201612080000Z"
+    DESCRIPTION
+        "Added the following objects
+        - cLWlan11vBssTransEnable         
+        - cLWlan11vDisassocImmiEnable     
+        - cLWlan11vDisassocTimer          
+        - cLWlan11vOpRoamDisassocTimer    
+        Added new group    
+        - ciscoLwappWlan11vConfigGroup
+        Added new compliance 
+        ciscoLwappWlanMIBComplianceRev9 which
+        deprecates ciscoLwappWlanMIBComplianceRev8."
     REVISION        "201604070000Z"
     DESCRIPTION
         "Added new tables ciscoLwappAPGroupsHyperlocationConfig to
-         support Hyperlocation feature and ciscoLwappAPGroupsPortConfig
-         to support AP Group LAN port configurations.
-         Added new groups ciscoLwappWlanConfigGroupSup8,
-         ciscoLwappWlanConfigGroupSup9. Added new compliance 
-         ciscoLwappWlanMIBComplianceRev8 which
-         deprecates ciscoLwappWlanMIBComplianceRev7."
+        support Hyperlocation feature and ciscoLwappAPGroupsPortConfig
+        to support AP Group LAN port configurations.
+        Added new groups ciscoLwappWlanConfigGroupSup8,
+        ciscoLwappWlanConfigGroupSup9. Added new compliance 
+        ciscoLwappWlanMIBComplianceRev8 which
+        deprecates ciscoLwappWlanMIBComplianceRev7."
     REVISION        "201504230000Z"
     DESCRIPTION
         "Added Default value to the cLWlanMulticastInterface object."
@@ -430,11 +584,20 @@ ciscoLwappWlanServiceAdvertisementConfig  OBJECT IDENTIFIER
 ciscoLwappWlanHotSpot2Config  OBJECT IDENTIFIER
     ::= { ciscoLwappWlanMIBObjects 5 }
 
+ciscoLwappAPGroupNasIdConfig  OBJECT IDENTIFIER
+    ::= { ciscoLwappWlanMIBObjects 6 }
+
+ciscoLwappPolicyConfig  OBJECT IDENTIFIER
+    ::= { ciscoLwappWlanMIBObjects 7 }
+
 ciscoLwappAPGroupsHyperlocationConfig  OBJECT IDENTIFIER
     ::= { ciscoLwappWlanMIBObjects 8 }
 
 ciscoLwappAPGroupsPortConfig  OBJECT IDENTIFIER
     ::= { ciscoLwappWlanMIBObjects 9 }
+
+ciscoLwappAPGroupNtpConfig  OBJECT IDENTIFIER
+    ::= { ciscoLwappWlanMIBObjects 10 }
 
 -- ********************************************************************
 -- WLAN configuration
@@ -512,7 +675,7 @@ CLWlanConfigEntry ::= SEQUENCE {
         cLWlanStaticIpTunnelingEnabled         TruthValue,
         cLWlanKtsCacSupportEnabled             TruthValue,
         cLWlanWifiDirectPolicyStatus           INTEGER,
-        cLWlanWebAuthIPv6AclName               DisplayString,
+        cLWlanWebAuthIPv6AclName               SnmpAdminString,
         cLWlanHotSpot2Enabled                  TruthValue,
         cLWlanMaxClientsAllowedPerRadio        Unsigned32,
         cLWlanDhcpDeviceProfiling              TruthValue,
@@ -529,7 +692,20 @@ CLWlanConfigEntry ::= SEQUENCE {
         cLWlanRadiusAcctSixthServer            DisplayString,
         cLWlanSelfAnchorEnabled                TruthValue,
         cLWlanUniversalAdmin                   TruthValue,
-        cLWlan11acMuMimoEnabled                TruthValue
+        cLWlan11acMuMimoEnabled                TruthValue,
+        cLWlan11vDisassocImmiEnable            TruthValue,
+        cLWlan11vDisassocTimer                 Unsigned32,
+        cLWlan11vOpRoamDisassocTimer           Unsigned32,
+        cLWlan11kAssistedRoamingEnable         TruthValue,
+        cLWlan11kNeighborListEnable            TruthValue,
+        cLWlan11kDualbandNeigListEnable        TruthValue,
+        cLWlan11vDMSEnable                     TruthValue,
+        cLWlan11vBssTransEnable                TruthValue,
+        cLWlanEapProfileName                   SnmpAdminString,
+        cLWlanSetEapProfileName                TruthValue,
+        cLWlanMaxClientsAllowedPerAP           Unsigned32,
+        cLWlanMdnsMode                         INTEGER,
+        cLWlanOpportunisticKeyCaching          TruthValue
 }
 
 cLWlanIndex OBJECT-TYPE
@@ -912,7 +1088,8 @@ cLWlanWifiDirectPolicyStatus OBJECT-TYPE
     SYNTAX          INTEGER  {
                         disable(1),
                         allow(2),
-                        notAllow(3)
+                        notAllow(3),
+                        xconnectNotAllow(4)
                     }
     MAX-ACCESS      read-create
     STATUS          current
@@ -922,12 +1099,14 @@ cLWlanWifiDirectPolicyStatus OBJECT-TYPE
         network.
         disable(1) - WFD is completely disabled.
         allow(2)  -  allow WFD clients
-        disallow(3) - controller rejects association request from WFD
-        clients only if it has P2P IE with concurrency enabled." 
+        notAllow(3) - controller rejects association request from WFD
+        clients only if it has P2P IE with concurrency enabled.
+        xconnectNotAllow(4) - controller rejects association request from WFD
+        clients only if it has P2P IE with cross-connection enabled" 
     ::= { cLWlanConfigEntry 29 }
 
 cLWlanWebAuthIPv6AclName OBJECT-TYPE
-    SYNTAX          DisplayString (SIZE  (0..64))
+    SYNTAX          SnmpAdminString (SIZE  (0..64))
     MAX-ACCESS      read-create
     STATUS          current
     DESCRIPTION
@@ -1124,6 +1303,165 @@ cLWlan11acMuMimoEnabled OBJECT-TYPE
         A value of 'false' disables Mu Mimo mode for the WLAN."
     DEFVAL          { false } 
     ::= { cLWlanConfigEntry 66 }
+
+cLWlan11vDisassocImmiEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object indicates whether 11v BSS Transition Disassociation
+        Imminent is enabled on the controller for this WLAN.
+        A value of 'true' indicates Disassociation Imminent is enabled
+        for the WLAN.
+        A value of 'false' indicates Disassociation Imminent is disabled
+        for the WLAN."
+    DEFVAL          { false } 
+    ::= { cLWlanConfigEntry 67 }
+
+cLWlan11vDisassocTimer OBJECT-TYPE
+    SYNTAX          Unsigned32
+    UNITS           "Target Beacons Transmission Times"
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+        "This object indicates 11v BSS Transition Disassociation
+        Imminent timer for this WLAN."
+    DEFVAL          { 200 } 
+    ::= { cLWlanConfigEntry 73 }
+
+cLWlan11vOpRoamDisassocTimer OBJECT-TYPE
+    SYNTAX          Unsigned32 (0..40)
+    UNITS           "Target Beacon Transmission Times"
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+        "This object indicates 11v BSS Transition Optimized Roaming
+        Disassociation Imminent timer for this WLAN." 
+    ::= { cLWlanConfigEntry 74 }
+
+cLWlan11kAssistedRoamingEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11k Assisted Roaming Prediction
+        Optimization is enabled on the controller for this WLAN.
+        A value of 'true' enables 11k Assisted Roaming Prediction
+        A value of 'false' disables 11k Assisted Roaming Prediction"
+    DEFVAL          { false } 
+    ::= { cLWlanConfigEntry 84 }
+
+cLWlan11kNeighborListEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11k Neighbor List
+        is enabled on the controller for this WLAN.
+        A value of 'true' enables 11k Neighbor list
+        A value of 'false' disables 11k Neighbor list"
+    DEFVAL          { true } 
+    ::= { cLWlanConfigEntry 85 }
+
+cLWlan11kDualbandNeigListEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11k Neighbor List Dual Band
+        is enabled on the controller for this WLAN.
+        A value of 'true' enables 11k Neighbor list dual band
+        A value of 'false' disables 11k Neighbor list dual band"
+    DEFVAL          { false } 
+    ::= { cLWlanConfigEntry 86 }
+
+cLWlan11vDMSEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11v Directed Multicast Service
+        is enabled on the controller for this WLAN.
+        A value of 'true' indicates that 11v Directed Multicast Service
+        is enabled.
+        A value of 'false' indicates that 11v Directed Multicast
+        Service is disabled."
+    DEFVAL          { true } 
+    ::= { cLWlanConfigEntry 87 }
+
+cLWlan11vBssTransEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object indicates whether 11v BSS Transition is enabled on
+        the controller for this WLAN.
+        A value of 'true' indicates BSS Transition is enabled for the
+        WLAN.
+        A value of 'false' indicates BSS Transition is disabled for the
+        WLAN."
+    DEFVAL          { false } 
+    ::= { cLWlanConfigEntry 93 }
+
+cLWlanEapProfileName OBJECT-TYPE
+    SYNTAX          SnmpAdminString (SIZE  (0..64))
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the Eap profile name configured for
+        this WLAN." 
+    ::= { cLWlanConfigEntry 96 }
+
+cLWlanSetEapProfileName OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether eap profile name is set or not
+        on the controller for this WLAN.
+        A value of 'true' specifies eap profile name is set
+        A value of 'false' specifies eap profile name is not set"
+    DEFVAL          { false } 
+    ::= { cLWlanConfigEntry 97 }
+
+cLWlanMaxClientsAllowedPerAP OBJECT-TYPE
+    SYNTAX          Unsigned32 (0..400)
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object represents the maximum allowed clients
+        per AP radio for a WLAN."
+    DEFVAL          { 0 } 
+    ::= { cLWlanConfigEntry 98 }
+
+cLWlanMdnsMode OBJECT-TYPE
+    SYNTAX          INTEGER  {
+                        bridge(0),
+                        drop(1),
+                        gateway(2)
+                    }
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object represents the mdns mode of the WLAN
+        0 indicates  WLAN is in Bridge mode for mDNS packets 
+        1 indicates  WLAN is is Drop mode for mdns packets
+        2 indicates  WLAN is in Gateway mode for mDNS packets"
+    DEFVAL          { bridge } 
+    ::= { cLWlanConfigEntry 99 }
+
+cLWlanOpportunisticKeyCaching OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether Oppurtunistic Key Caching is
+        set or not on the controller for this WLAN.
+        A value of 'true' specifies Oppurtunistic Key Caching is set
+        A value of 'false' specifies Oppurtunistic Key Caching is not
+        set"
+    DEFVAL          { true } 
+    ::= { cLWlanConfigEntry 100 }
  
 
 -- ********************************************************************
@@ -2330,7 +2668,7 @@ cLAPGroupsHyperlocationEnable OBJECT-TYPE
     MAX-ACCESS      read-write
     STATUS          current
     DESCRIPTION
-        "This object represents the state of Hyperlocation. 
+        "This object represents the state of Hyperlocation.
         A value of 'true' indicates that Hyperlocation is enabled. 
         A value of 'false' indicates that Hyperlocation is disabled."
     DEFVAL          { false } 
@@ -2362,7 +2700,7 @@ cLAPGroupsPakRssiThresholdTrigger OBJECT-TYPE
 cLAPGroupsPakRssiNtpIpAddressType OBJECT-TYPE
     SYNTAX          InetAddressType
     MAX-ACCESS      read-write
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "This object represents the NTP server
         IP address type for Packet RSSI location feature." 
@@ -2371,11 +2709,72 @@ cLAPGroupsPakRssiNtpIpAddressType OBJECT-TYPE
 cLAPGroupsPakRssiNtpAddress OBJECT-TYPE
     SYNTAX          InetAddress
     MAX-ACCESS      read-write
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "This object represents the NTP server
         IP address for Packet RSSI location feature." 
     ::= { cLAPGroupsHyperlocationConfigEntry 5 }
+ 
+
+
+cLAPGroupConfigTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLAPGroupConfigEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "A table for configuring general parameters for an AP group"
+    ::= { ciscoLwappAPGroupsVlanConfig 6 }
+
+cLAPGroupConfigEntry OBJECT-TYPE
+    SYNTAX          CLAPGroupConfigEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "An entry in cLAPGroupConfigTable for
+        configuring general parameters for an AP group"
+    INDEX           { cLAPGroupName } 
+    ::= { cLAPGroupConfigTable 1 }
+
+CLAPGroupConfigEntry ::= SEQUENCE {
+        cLApGroupPreferMode          INTEGER,
+        cLApGroupGlobalWebAuthConfig TruthValue,
+        cLApGroupExternalWebAuthUrl  CiscoURLStringOrEmpty
+}
+
+cLApGroupPreferMode OBJECT-TYPE
+    SYNTAX          INTEGER  {
+                        ipv4(1),
+                        ipv6(2),
+                        disable(3)
+                    }
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies prefer-mode of AP-Group." 
+    ::= { cLAPGroupConfigEntry 1 }
+
+cLApGroupGlobalWebAuthConfig OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether the web authentication is set
+        per Ap Group or not.
+        A value of 'true' indicates that webauth is enabled on Ap Group.
+        A value of 'false' indicates that webauth is disabled on Ap Group."
+    DEFVAL          { false } 
+    ::= { cLAPGroupConfigEntry 2 }
+
+cLApGroupExternalWebAuthUrl OBJECT-TYPE
+    SYNTAX          CiscoURLStringOrEmpty
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the URL to which the client webpage
+        will be directed for authentication when a client joins the
+        WLAN part of an AP group."
+    DEFVAL          { "" } 
+    ::= { cLAPGroupConfigEntry 3 }
  
 
 
@@ -2953,6 +3352,186 @@ cLAPGroupsMultipleVenueRowStatus OBJECT-TYPE
     ::= { cLAPGroupsMultipleVenueEntry 3 }
  
 
+
+cLAPGroupNasIdConfigTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLAPGroupNasIdConfigEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "A table for the configuring NAS-ID for an AP group."
+    ::= { ciscoLwappAPGroupNasIdConfig 1 }
+
+cLAPGroupNasIdConfigEntry OBJECT-TYPE
+    SYNTAX          CLAPGroupNasIdConfigEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "An entry in cLAPGroupNasIdConfigTable for the configuring NAS-ID for an AP group."
+    INDEX           { cLAPGroupName } 
+    ::= { cLAPGroupNasIdConfigTable 1 }
+
+CLAPGroupNasIdConfigEntry ::= SEQUENCE {
+        cLAPGroupNasId SnmpAdminString
+}
+
+cLAPGroupNasId OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the NAS-ID to this AP group
+        NAS-ID string is sent to radius server by WLC (as radius client)
+        via authentication request, which can be used to classify users
+        to different groups then radius server can reply a customized
+        authentication response" 
+    ::= { cLAPGroupNasIdConfigEntry 1 }
+ 
+
+
+cLAPGroupsPolicyTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLAPGroupsPolicyEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "A table for the policies to be mapped
+        to each AP group on the controller.
+        Rows are added or deleted by explicit 
+        management actions initiated by the user from a
+        network management station through the 
+        cLAPGroupsPolicyRowStatus object."
+    ::= { ciscoLwappAPGroupsVlanConfig 4 }
+
+cLAPGroupsPolicyEntry OBJECT-TYPE
+    SYNTAX          CLAPGroupsPolicyEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "An entry in cLAPGroupsPolicyTable"
+    INDEX           {
+                        cLAPGroupName,
+                        cLAPGroupsPolicyWlanId,
+                        cLAPGroupsPolicyPriIndex
+                    } 
+    ::= { cLAPGroupsPolicyTable 1 }
+
+CLAPGroupsPolicyEntry ::= SEQUENCE {
+        cLAPGroupsPolicyWlanId      Unsigned32,
+        cLAPGroupsPolicyPriIndex    Unsigned32,
+        cLAPGroupsPolicyIndex       Unsigned32,
+        cLAPGroupsPolicyWlanProfile SnmpAdminString,
+        cLAPGroupsPolicyRowStatus   RowStatus
+}
+
+cLAPGroupsPolicyWlanId OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the Index of the WLAN
+        on which the Policy will get applied. The WLAN
+        should be present on the AP group." 
+    ::= { cLAPGroupsPolicyEntry 1 }
+
+cLAPGroupsPolicyPriIndex OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This object represents the Priority Index of the policy
+        configured on the AP Group. The Policies will 
+            get applied in the order of the priority index." 
+    ::= { cLAPGroupsPolicyEntry 2 }
+
+cLAPGroupsPolicyIndex OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object uniquely specifies a Policy
+        Added to an AP group." 
+    ::= { cLAPGroupsPolicyEntry 3 }
+
+cLAPGroupsPolicyWlanProfile OBJECT-TYPE
+    SYNTAX          SnmpAdminString (SIZE  (1..64))
+    MAX-ACCESS      read-only
+    STATUS          current
+    DESCRIPTION
+        "This object represents the profile name assigned
+        to this WLAN. This value is assigned during wlan 
+        creation using cLWlanProfileName." 
+    ::= { cLAPGroupsPolicyEntry 4 }
+
+cLAPGroupsPolicyRowStatus OBJECT-TYPE
+    SYNTAX          RowStatus
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the Row Status for
+        creation/deletion of a particular
+        venue entry in the table." 
+    ::= { cLAPGroupsPolicyEntry 5 }
+ 
+
+
+cLAPGroupQinqConfigTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLAPGroupQinqConfigEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "A table for the configuring QinQ for an AP group,
+        QinQ is used to append an external VLAN tag for client based on AP Group"
+    ::= { ciscoLwappAPGroupsVlanConfig 5 }
+
+cLAPGroupQinqConfigEntry OBJECT-TYPE
+    SYNTAX          CLAPGroupQinqConfigEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "An entry in cLAPGroupQinqConfigTable for the configuring QinQ for an AP group,
+        QinQ is used to append an external VLAN tag for client which
+        connected to the AP that belong to this AP Group"
+    INDEX           { cLAPGroupName } 
+    ::= { cLAPGroupQinqConfigTable 1 }
+
+CLAPGroupQinqConfigEntry ::= SEQUENCE {
+        cLAPGroupTrafficQinqEnabled TruthValue,
+        cLAPGroupDhcpQinqEnabled    TruthValue,
+        cLAPGroupQinqServiceVlanId  Integer32
+}
+
+cLAPGroupTrafficQinqEnabled OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the QinQ state for this AP group
+        QinQ is used to append an external VLAN tag for client which
+        connected to the AP that belong to this AP Group
+        - A value of 'true' indicates QinQ is enabled.
+        - A value of 'false' indicates the QinQ is disabled." 
+    ::= { cLAPGroupQinqConfigEntry 1 }
+
+cLAPGroupDhcpQinqEnabled OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the QinQ state for this AP group
+        QinQ is used to append an external VLAN tag for client which
+        connected to the AP that belong to this AP Group
+        - A value of 'true' indicates that dhcp QinQ is enabled.
+        - A value of 'false indicates that dhcp QinQ is disabled." 
+    ::= { cLAPGroupQinqConfigEntry 2 }
+
+cLAPGroupQinqServiceVlanId OBJECT-TYPE
+    SYNTAX          Integer32 (1..4095)
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the QinQ service vlan ID for this AP group" 
+    ::= { cLAPGroupQinqConfigEntry 3 }
+ 
+
 -- ********************************************************************
 -- WLAN Client Configuration
 -- ********************************************************************
@@ -3013,7 +3592,8 @@ cLWlanP2PBlocking OBJECT-TYPE
     SYNTAX          INTEGER  {
                         disable(1),
                         drop(2),
-                        forwardUp(3)
+                        forwardUp(3),
+                        allowPvtGrp(4)
                     }
     MAX-ACCESS      read-write
     STATUS          current
@@ -3031,7 +3611,11 @@ cLWlanP2PBlocking OBJECT-TYPE
                         upstream VLAN. The device 'north' of          
                         the controller can then make the          
                         decision about what to do with the          
-                        packet." 
+                        packet.
+            allowPvtGrp : The packet will be bridged if both
+                        source and destination have same 'ipsk-tag',
+                        if mac-filtering is disabled the packet
+                        will be discarded." 
     ::= { cLWlanConfigClientEntry 2 }
 
 cLWlanClientIPv6AclName OBJECT-TYPE
@@ -3100,7 +3684,15 @@ CLWlanConfigQosEntry ::= SEQUENCE {
         cLWlanSsidDSAvgRealTimeDataRate     Unsigned32,
         cLWlanSsidUSAvgRealTimeDataRate     Unsigned32,
         cLWlanSsidDSBurstRealTimeDataRate   Unsigned32,
-        cLWlanSsidUSBurstRealTimeDataRate   Unsigned32
+        cLWlanSsidUSBurstRealTimeDataRate   Unsigned32,
+        cLWlanWlanDSAverageDataRate         Unsigned32,
+        cLWlanWlanUSAverageDataRate         Unsigned32,
+        cLWlanWlanDSBurstDataRate           Unsigned32,
+        cLWlanWlanUSBurstDataRate           Unsigned32,
+        cLWlanWlanDSAvgRealTimeDataRate     Unsigned32,
+        cLWlanWlanUSAvgRealTimeDataRate     Unsigned32,
+        cLWlanWlanDSBurstRealTimeDataRate   Unsigned32,
+        cLWlanWlanUSBurstRealTimeDataRate   Unsigned32
 }
 
 cLWlanClientDSAverageDataRate OBJECT-TYPE
@@ -3258,6 +3850,94 @@ cLWlanSsidUSBurstRealTimeDataRate OBJECT-TYPE
         Data Rate per user on upstream.
         Value of 0 indicates the feature is disabled." 
     ::= { cLWlanConfigQosEntry 16 }
+
+cLWlanWlanDSAverageDataRate OBJECT-TYPE
+    SYNTAX          Unsigned32
+    UNITS           "kbytes"
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies average data rate per
+        wlan on downstream. Value of 0 indicates that 
+        feature is disabled." 
+    ::= { cLWlanConfigQosEntry 17 }
+
+cLWlanWlanUSAverageDataRate OBJECT-TYPE
+    SYNTAX          Unsigned32
+    UNITS           "kbytes"
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies average data rate per
+        wlan on upstream. Value of 0 indicates that 
+        feature is disabled." 
+    ::= { cLWlanConfigQosEntry 18 }
+
+cLWlanWlanDSBurstDataRate OBJECT-TYPE
+    SYNTAX          Unsigned32
+    UNITS           "kbytes"
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies burst data rate per
+        wlan on downstream. Value of 0 indicates 
+        that feature is disabled." 
+    ::= { cLWlanConfigQosEntry 19 }
+
+cLWlanWlanUSBurstDataRate OBJECT-TYPE
+    SYNTAX          Unsigned32
+    UNITS           "kbytes"
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies burst data rate per
+        wlan on upstream. Value of 0 indicates that 
+        feature is disabled." 
+    ::= { cLWlanConfigQosEntry 20 }
+
+cLWlanWlanDSAvgRealTimeDataRate OBJECT-TYPE
+    SYNTAX          Unsigned32
+    UNITS           "kbytes"
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies average real time data rate
+        per wlan on downstream. Value of 0 indicates that 
+        feature is disabled." 
+    ::= { cLWlanConfigQosEntry 21 }
+
+cLWlanWlanUSAvgRealTimeDataRate OBJECT-TYPE
+    SYNTAX          Unsigned32
+    UNITS           "kbytes"
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies average real time data rate
+        per wlan on upstream. Value of 0 indicates that 
+        feature is disabled." 
+    ::= { cLWlanConfigQosEntry 22 }
+
+cLWlanWlanDSBurstRealTimeDataRate OBJECT-TYPE
+    SYNTAX          Unsigned32
+    UNITS           "kbytes"
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies burst real time data rate
+        per wlan on downstream. Value of 0 indicates that 
+        feature is disabled." 
+    ::= { cLWlanConfigQosEntry 23 }
+
+cLWlanWlanUSBurstRealTimeDataRate OBJECT-TYPE
+    SYNTAX          Unsigned32
+    UNITS           "kbytes"
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies burst real time data rate
+        per wlan on upstream. Value of 0 indicates that 
+        feature is disabled." 
+    ::= { cLWlanConfigQosEntry 24 }
  
 
 -- ********************************************************************
@@ -3298,20 +3978,23 @@ cLWlanConfigIosEntry OBJECT-TYPE
     ::= { cLWlanConfigIosTable 1 }
 
 CLWlanConfigIosEntry ::= SEQUENCE {
-        cLWlanIosAccountingMethodListName       SnmpAdminString,
-        cLWlanIosAuthenticationMethodListName   SnmpAdminString,
-        cLWlanIosMacFilteringMethodListName     SnmpAdminString,
-        cLWlanIosWebAuthMethodListName          SnmpAdminString,
-        cLWlanIosQosUpStreamProfileName         SnmpAdminString,
-        cLWlanIosQosDownStreamProfileName       SnmpAdminString,
-        cLWlanIngressDHCPOption82Format         Unsigned32,
-        cLWlanIngressDHCPOption82Ascii          TruthValue,
-        cLWlanIngressDHCPOption82Rid            TruthValue,
-        cLWlanIngressDHCPOption82Enable         TruthValue,
-        cLWlanIosScanDeferPriority              Unsigned32,
-        cLWlanIosWebAuthParameterMapName        SnmpAdminString,
-        cLWlanIosQosClientUpStreamProfileName   SnmpAdminString,
-        cLWlanIosQosClientDownStreamProfileName SnmpAdminString
+        cLWlanIosAccountingMethodListName           SnmpAdminString,
+        cLWlanIosAuthenticationMethodListName       SnmpAdminString,
+        cLWlanIosMacFilteringMethodListName         SnmpAdminString,
+        cLWlanIosWebAuthMethodListName              SnmpAdminString,
+        cLWlanIosQosUpStreamProfileName             SnmpAdminString,
+        cLWlanIosQosDownStreamProfileName           SnmpAdminString,
+        cLWlanIngressDHCPOption82Format             Unsigned32,
+        cLWlanIngressDHCPOption82Ascii              TruthValue,
+        cLWlanIngressDHCPOption82Rid                TruthValue,
+        cLWlanIngressDHCPOption82Enable             TruthValue,
+        cLWlanIosScanDeferPriority                  Unsigned32,
+        cLWlanIosWebAuthParameterMapName            SnmpAdminString,
+        cLWlanIosQosClientUpStreamProfileName       SnmpAdminString,
+        cLWlanIosQosClientDownStreamProfileName     SnmpAdminString,
+        cLWlanIosAuthorizationMethodListName        SnmpAdminString,
+        cLWlanIosWebAuthAuthorizationMethodListName SnmpAdminString,
+        cLWlanIosMacOverrideMethodListName          SnmpAdminString
 }
 
 cLWlanIosAccountingMethodListName OBJECT-TYPE
@@ -3444,6 +4127,36 @@ cLWlanIosQosClientDownStreamProfileName OBJECT-TYPE
         "This object represents the profile name used for
         downstream QOS client configuration on this WLAN." 
     ::= { cLWlanConfigIosEntry 14 }
+
+cLWlanIosAuthorizationMethodListName OBJECT-TYPE
+    SYNTAX          SnmpAdminString (SIZE  (0..64))
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object represents the method list name used for
+        802.1x authorization on this WLAN. This could be 
+        LDAP, RADIUS, LOCAL AUTH." 
+    ::= { cLWlanConfigIosEntry 15 }
+
+cLWlanIosWebAuthAuthorizationMethodListName OBJECT-TYPE
+    SYNTAX          SnmpAdminString (SIZE  (0..64))
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object represents the method list name used for
+        webauth authorization on this WLAN. This could be 
+        LDAP, RADIUS, LOCAL AUTH." 
+    ::= { cLWlanConfigIosEntry 16 }
+
+cLWlanIosMacOverrideMethodListName OBJECT-TYPE
+    SYNTAX          SnmpAdminString (SIZE  (0..64))
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object represents the method list name used for
+        mab authorization on this WLAN. This could be 
+        LDAP, RADIUS, LOCAL AUTH." 
+    ::= { cLWlanConfigIosEntry 17 }
  
 
 -- ********************************************************************
@@ -3533,6 +4246,982 @@ cLWlanFlexibleNetflowRowStatus OBJECT-TYPE
     ::= { cLWlanFlexibleNetflowEntry 3 }
  
 
+
+cLPolicyConfigTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLPolicyConfigEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "A table for the native Profiling Policies
+        on the Wireless LAN controller.
+        Rows are added or deleted by explicit 
+        management actions initiated by the user from a
+        network management station through the 
+        cLPolicyRowStatus object."
+    ::= { ciscoLwappPolicyConfig 1 }
+
+cLPolicyConfigEntry OBJECT-TYPE
+    SYNTAX          CLPolicyConfigEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "An entry in cLPolicyConfigTable."
+    INDEX           { cLPolicyIndex } 
+    ::= { cLPolicyConfigTable 1 }
+
+CLPolicyConfigEntry ::= SEQUENCE {
+        cLPolicyIndex              Unsigned32,
+        cLPolicyName               SnmpAdminString,
+        cLPolicyRoleName           SnmpAdminString,
+        cLPolicyEapType            INTEGER,
+        cLPolicyAclName            SnmpAdminString,
+        cLPolicyVlanId             Unsigned32,
+        cLPolicyQosProfile         INTEGER,
+        cLPolicySessionTimeout     Unsigned32,
+        cLPolicySleepTimeout       Unsigned32,
+        cLPolicyRowStatus          RowStatus,
+        cLPolicyFlexAclName        SnmpAdminString,
+        cLPolicyAvcProfileName     SnmpAdminString,
+        cLPolicyMdnsProfileName    SnmpAdminString,
+        cLPolicyFlexVlanId         Unsigned32,
+        cLPolicyUrlAclName         SnmpAdminString,
+        cLPolicyOpendnsProfileName SnmpAdminString
+}
+
+cLPolicyIndex OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This object indicates the Index of the
+        native profiling classification policy
+        configured on the Wireless LAN Controller." 
+    ::= { cLPolicyConfigEntry 1 }
+
+cLPolicyName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies a
+        native profiling classification policy
+        configured on the Wireless LAN Controller." 
+    ::= { cLPolicyConfigEntry 2 }
+
+cLPolicyRoleName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the category of users
+        to which a Policy is to be applied." 
+    ::= { cLPolicyConfigEntry 3 }
+
+cLPolicyEapType OBJECT-TYPE
+    SYNTAX          INTEGER  {
+                        none(1),
+                        leap(2),
+                        eapFast(3),
+                        eapTls(4),
+                        peap(5)
+                    }
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies  the EAP type to be
+        applied on client." 
+    ::= { cLPolicyConfigEntry 4 }
+
+cLPolicyAclName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the ACL  to be
+        applied on client." 
+    ::= { cLPolicyConfigEntry 5 }
+
+cLPolicyVlanId OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the VLAN  to be
+        applied on client." 
+    ::= { cLPolicyConfigEntry 6 }
+
+cLPolicyQosProfile OBJECT-TYPE
+    SYNTAX          INTEGER  {
+                        none(1),
+                        silver(2),
+                        gold(3),
+                        platinum(4),
+                        bronze(5)
+                    }
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the QoS  to be
+        applied on client." 
+    ::= { cLPolicyConfigEntry 7 }
+
+cLPolicySessionTimeout OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the session timeout
+        to be applied on client." 
+    ::= { cLPolicyConfigEntry 8 }
+
+cLPolicySleepTimeout OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the sleep timeout
+        to be applied on client." 
+    ::= { cLPolicyConfigEntry 9 }
+
+cLPolicyRowStatus OBJECT-TYPE
+    SYNTAX          RowStatus
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the Row Status for
+        creation/deletion of a particular
+        policy entry in the table." 
+    ::= { cLPolicyConfigEntry 10 }
+
+cLPolicyFlexAclName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the FlexConnect ACL
+        to be applied on client using a Policy.
+        This will be effective only on locally 
+        switched WLANs." 
+    ::= { cLPolicyConfigEntry 11 }
+
+cLPolicyAvcProfileName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the avc profilename  to be
+        applied on client." 
+    ::= { cLPolicyConfigEntry 12 }
+
+cLPolicyMdnsProfileName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the MDNS profile name  to be
+        applied on client." 
+    ::= { cLPolicyConfigEntry 13 }
+
+cLPolicyFlexVlanId OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the flex VLAN  to be
+        applied on client ." 
+    ::= { cLPolicyConfigEntry 14 }
+
+cLPolicyUrlAclName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the URL ACL  to be
+        applied on client ." 
+    ::= { cLPolicyConfigEntry 15 }
+
+cLPolicyOpendnsProfileName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the opendns profile name  to be
+        applied on client ." 
+    ::= { cLPolicyConfigEntry 16 }
+ 
+
+
+cLPolicyDeviceTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLPolicyDeviceEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "A table for the device types to be
+        added in each native Profiling Policy
+        on the controller.
+        Rows are added or deleted by explicit 
+        management actions initiated by the user from a
+        network management station through the 
+        cLPolicyDeviceRowStatus object."
+    ::= { ciscoLwappPolicyConfig 2 }
+
+cLPolicyDeviceEntry OBJECT-TYPE
+    SYNTAX          CLPolicyDeviceEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "An entry in cLPolicyConfigTable."
+    INDEX           {
+                        cLPolicyIndex,
+                        cLPolicyDeviceIndex
+                    } 
+    ::= { cLPolicyDeviceTable 1 }
+
+CLPolicyDeviceEntry ::= SEQUENCE {
+        cLPolicyDeviceIndex     Unsigned32,
+        cLPolicyDeviceName      SnmpAdminString,
+        cLPolicyDeviceRowStatus RowStatus
+}
+
+cLPolicyDeviceIndex OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This object indicates the index of the device
+        type configured on the policy." 
+    ::= { cLPolicyDeviceEntry 1 }
+
+cLPolicyDeviceName OBJECT-TYPE
+    SYNTAX          SnmpAdminString
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies name of the device
+        configured on the policy." 
+    ::= { cLPolicyDeviceEntry 2 }
+
+cLPolicyDeviceRowStatus OBJECT-TYPE
+    SYNTAX          RowStatus
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the Row Status for
+        creation/deletion of a particular
+        device entry in the table." 
+    ::= { cLPolicyDeviceEntry 3 }
+ 
+
+
+cLPolicyActiveHoursTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLPolicyActiveHoursEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "A table for the active hours to be
+        added in each native Profiling Policy
+        on the controller.
+        Rows are added or deleted by explicit 
+        management actions initiated by the user from a
+        network management station through the 
+        cLPolicyActiveHoursRowStatus object."
+    ::= { ciscoLwappPolicyConfig 3 }
+
+cLPolicyActiveHoursEntry OBJECT-TYPE
+    SYNTAX          CLPolicyActiveHoursEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "An entry in cLPolicyActiveHoursTable."
+    INDEX           {
+                        cLPolicyIndex,
+                        cLPolicyActiveDay
+                    } 
+    ::= { cLPolicyActiveHoursTable 1 }
+
+CLPolicyActiveHoursEntry ::= SEQUENCE {
+        cLPolicyActiveDay            INTEGER,
+        cLPolicyActiveStartTime      TimeTicks,
+        cLPolicyActiveEndTime        TimeTicks,
+        cLPolicyActiveHoursRowStatus RowStatus
+}
+
+cLPolicyActiveDay OBJECT-TYPE
+    SYNTAX          INTEGER  {
+                        mon(1),
+                        tue(2),
+                        wed(3),
+                        thu(4),
+                        fri(5),
+                        sat(6),
+                        sun(7)
+                    }
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the Index of the day
+        for which active hours is configured on the policy." 
+    ::= { cLPolicyActiveHoursEntry 1 }
+
+cLPolicyActiveStartTime OBJECT-TYPE
+    SYNTAX          TimeTicks
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies a start of active hours
+        for a day added to a Policy." 
+    ::= { cLPolicyActiveHoursEntry 2 }
+
+cLPolicyActiveEndTime OBJECT-TYPE
+    SYNTAX          TimeTicks
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies a end of active hours
+        for a day added to a Policy." 
+    ::= { cLPolicyActiveHoursEntry 3 }
+
+cLPolicyActiveHoursRowStatus OBJECT-TYPE
+    SYNTAX          RowStatus
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the Row Status for
+        creation/deletion of a particular
+         entry in the table." 
+    ::= { cLPolicyActiveHoursEntry 4 }
+ 
+
+-- ********************************************************************
+-- *   WLAN 11ax Config Table
+-- ********************************************************************
+
+cLWlan11axConfigTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLWlan11axConfigEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This table represents the WLAN configuration for
+        the 802.11ax APs that have joined this controller.
+
+        The creation of a new row in cLWlanConfigTable,
+        through an explicit network management action,
+        results in creation of an entry in this table.
+        Similarly, deletion of a row in
+        cLWlanConfigTable through user action causes the
+        deletion of corresponding row in this table.
+
+        This table has an one-to-one relationship with
+        cLWlanConfigTable. There exists an entry in this
+        table for each corresponding entry in the
+        cLWlanConfigTable."
+    ::= { ciscoLwappWlanConfig 9 }
+
+cLWlan11axConfigEntry OBJECT-TYPE
+    SYNTAX          CLWlan11axConfigEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "Each entry represents a conceptual row in this
+        table and provides the information about the
+        clients associated on the WLAN, uniquely identified by
+        the cLWlanIndex."
+    INDEX           { cLWlanIndex } 
+    ::= { cLWlan11axConfigTable 1 }
+
+CLWlan11axConfigEntry ::= SEQUENCE {
+        cLWlan11axMuMimoUplinkEnable    TruthValue,
+        cLWlan11axMuMimoDownlinkEnable  TruthValue,
+        cLWlan11axOfdmaUplinkEnable     TruthValue,
+        cLWlan11axOfdmaDownlinkEnable   TruthValue,
+        cLWlan11axTargetWaketimeEnable  TruthValue,
+        cLWlan11axBssColorModeEnable    TruthValue,
+        cLWlan11axBssColorCode          Unsigned32,
+        cLWlan11axBssPartialColorEnable TruthValue,
+        cLWlan11axTwtBroadcastSupport   TruthValue
+}
+
+cLWlan11axMuMimoUplinkEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11ax Multi User Multiple Input
+        Multiple output Uplink is enabled or disabled for the WLAN.
+        MIMO is an antenna technology for wireless communications in 
+        which multiple antennas are used at both the source 
+        (transmitter) and the destination (receiver).The 802.11ax 
+        Multi-user MIMO allow more users to claim MIMO simultaneously.
+
+        A value of 'true' indicates that 11ax MU MIMO uplink is enabled
+        on WLAN.
+        A value of 'false' indicates that 11ax MU MIMO uplink is 
+        disabled on the WLAN."
+    DEFVAL          { false } 
+    ::= { cLWlan11axConfigEntry 1 }
+
+cLWlan11axMuMimoDownlinkEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11ax Multi User Multiple Input
+        Multiple Output Downlink is enabled or disabled for the WLAN.
+        MIMO is an antenna technology for wireless communications in 
+        which multiple antennas are used at both the source
+        (transmitter) and the destination (receiver).The 802.11ax
+        Multi-user MIMO allow more users to claim MIMO simultaneously.
+
+        A value of 'true' indicates that 11ax MU MIMO Downlink is 
+        enabled on the WLAN.
+        A value of 'false' indicates that 11ax MU MIMO Downlink is 
+        disabled on the WLAN"
+    DEFVAL          { false } 
+    ::= { cLWlan11axConfigEntry 2 }
+
+cLWlan11axOfdmaUplinkEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11ax Orthogonal Frequency
+        Division Multiple Access uplink is enabled or disabled for the
+        WLAN.OFDMA allows multiple users to transmit simultaneously
+        and share the available bandwidth of a channel where each user
+        is allotted a portion of the available spectrum.This allows the
+        access point to satisfy the data rate requirements of each 
+        individual user.
+        A value of 'true' indicates that 11ax OFDMA Uplink is enabled
+        on the WLAN.
+        A value of 'false' indicates that 11ax OFDMA Uplink is 
+        disabled on the WLAN."
+    DEFVAL          { false } 
+    ::= { cLWlan11axConfigEntry 3 }
+
+cLWlan11axOfdmaDownlinkEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11ax Orthogonal Frequency
+        Division Multiple Access downlink is enabled or disabled for 
+        the WLAN. OFDMA allows multiple users to transmit 
+        simultaneously and share the available bandwidth of a channel
+        where each user is allotted a portion of the available 
+        spectrum.This allows the access point to satisfy the data rate
+        requirements of each individual user.
+
+        A value of 'true' indicates that 11ax OFDMA Downlink is 
+        enabled on the WLAN.
+        A value of 'false' indicates that 11ax OFDMA Downlink is 
+        disabled on the WLAN."
+    DEFVAL          { false } 
+    ::= { cLWlan11axConfigEntry 4 }
+
+cLWlan11axTargetWaketimeEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11ax TargetWaketime is enabled
+        or disabled for the WLAN.
+        Target Wake Time (TWT) is a function that permits an AP to 
+        define a specific time or set of times for individual stations
+        (associated to this wlan) to access the medium.
+
+        A value of 'true' indicates that 11ax TargetWaketime is 
+        enabled on the WLAN.
+        A value of 'false' indicates that 11ax TargetWaketime is 
+        disabled on the WLAN."
+    DEFVAL          { false } 
+    ::= { cLWlan11axConfigEntry 5 }
+
+cLWlan11axBssColorModeEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11ax Basic service set color
+        mode is enabled or disabled for the WLAN.
+        BSS Coloring is a method of reducing medium contention overhead
+        due to overlapping basic service set (OBSS) and spatial reuse.
+        802.11ax pre-amble assigns a BSS color value(0-255)to each AP 
+        so that stations can differentiate between BSSs and new channel 
+        access behavior will be assigned based on the color detected.
+        Thereby decreasing interference.
+
+        A value of 'true' indicates that 11ax Bss color mode is enabled
+        on the WLAN.
+        A value of 'false' indicates tha 11ax Bss color mode is 
+        disabled on the WLAN."
+    DEFVAL          { false } 
+    ::= { cLWlan11axConfigEntry 6 }
+
+cLWlan11axBssColorCode OBJECT-TYPE
+    SYNTAX          Unsigned32 (0..255)
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies 11ax Basic service set color code value
+        (0-255) of the WLAN.
+        BSS Coloring is a method of reducing medium contention overhead 
+        due to overlapping basic service set (OBSS) and spatial reuse.
+        802.11ax pre-amble assigns a BSS color value(0-255)to each AP 
+        so that stations can differentiate between BSSs and new channel
+        access behavior will be assigned based on the color detected.
+        Thereby decreasing interference." 
+    ::= { cLWlan11axConfigEntry 7 }
+
+cLWlan11axBssPartialColorEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11ax Basic service set Partial
+        color mode is enabled or disabled for the WLAN.
+        BSS Partial Colorig is method of BSS coloring in which a
+        receiving station identifies the BSS from the AP so that the
+        station can use the channel access rules or reduce power 
+        consumption.
+        A value of 'true' indicates 11ax Bss Partial color mode is
+        enabled on the WLAN.
+        A value of 'false' indicates 11ax Bss Partial color mode is
+        disabled on the WLAN."
+    DEFVAL          { false } 
+    ::= { cLWlan11axConfigEntry 8 }
+
+cLWlan11axTwtBroadcastSupport OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether 11ax TargetWaketime broadcast
+        support is enabled or disabled for the WLAN.
+        Target Wake Time (TWT) broadcast support is a function that 
+        permits an AP to support broadcast method on a wlan for an 
+        individual station (associated to this wlan) to access the 
+        medium.
+
+        A value of 'true' indicates that 11ax TargetWaketime 
+        broadcast support is enabled on the WLAN.
+        A value of 'false' indicates that 11ax TargetWaketime
+        broadcast support is disabled on the WLAN."
+    DEFVAL          { true } 
+    ::= { cLWlan11axConfigEntry 9 }
+ 
+
+-- ***********************************************
+-- Wlan Scheduling Table
+-- ***********************************************
+
+cLPolicyWlanSchedulingTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLPolicyWlanSchedulingEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This table represents the WLAN scheduling on
+        the controller.
+        Rows are added or deleted by explicit 
+        management actions initiated by the user from a
+        network management station through the 
+        cLPolicyWlanSchedulingRowStatus object."
+    ::= { ciscoLwappPolicyConfig 4 }
+
+cLPolicyWlanSchedulingEntry OBJECT-TYPE
+    SYNTAX          CLPolicyWlanSchedulingEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "Each entry in this table represents the
+        configuration attributes of 
+        cLPolicyWlanSchedulingTable."
+    INDEX           {
+                        cLPolicyIndex,
+                        cLPolicyWlanSchedulingDay
+                    } 
+    ::= { cLPolicyWlanSchedulingTable 1 }
+
+CLPolicyWlanSchedulingEntry ::= SEQUENCE {
+        cLPolicyWlanSchedulingDay       INTEGER,
+        cLPolicyWlanSchedulingStatus    TruthValue,
+        cLPolicyWlanSchedulingStartTime TimeTicks,
+        cLPolicyWlanSchedulingEndTime   TimeTicks,
+        cLPolicyWlanSchedulingRowStatus RowStatus
+}
+
+cLPolicyWlanSchedulingDay OBJECT-TYPE
+    SYNTAX          INTEGER  {
+                        mon(1),
+                        tue(2),
+                        wed(3),
+                        thu(4),
+                        fri(5),
+                        sat(6),
+                        sun(7)
+                    }
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the day for which WLAN
+        scheduling is configured on the policy." 
+    ::= { cLPolicyWlanSchedulingEntry 1 }
+
+cLPolicyWlanSchedulingStatus OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies scheduling status per WLAN.
+        A value of 'true' indicates that scheduling status is
+        enabled on a WLAN.
+        A value of 'false' indicates that scheduling status is
+        disabled on a WLAN." 
+    ::= { cLPolicyWlanSchedulingEntry 2 }
+
+cLPolicyWlanSchedulingStartTime OBJECT-TYPE
+    SYNTAX          TimeTicks
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies a start of WLAN scheduling
+        hours for a day added to a Policy." 
+    ::= { cLPolicyWlanSchedulingEntry 3 }
+
+cLPolicyWlanSchedulingEndTime OBJECT-TYPE
+    SYNTAX          TimeTicks
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies a end of WLAN scheduling hours
+        for a day added to a Policy." 
+    ::= { cLPolicyWlanSchedulingEntry 4 }
+
+cLPolicyWlanSchedulingRowStatus OBJECT-TYPE
+    SYNTAX          RowStatus
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This is the status column for this row and is
+        used to create and delete specific instances 
+        of rows in this table." 
+    ::= { cLPolicyWlanSchedulingEntry 5 }
+ 
+
+-- ************************************************************
+-- Ap-Group NTP server MIB
+-- ************************************************************
+--   
+-- ********************************************************************
+-- Configuration of AP-Group Network Time Protocol Server List
+-- ********************************************************************
+
+cLwappAPGroupNtpConfigTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLAPGroupNtpConfigEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This table represents the NTP-server configuration
+        for AP-Group.
+        The creation of a new row in cLwappAPGroupNtpConfigTable,
+        through an explicit network management action,
+        results in creation of an entry in this table.
+        Similarly, deletion of a row in
+        cLwappAPGroupNtpConfigTable through user action causes the
+        deletion of corresponding rows in this table."
+    ::= { ciscoLwappAPGroupNtpConfig 1 }
+
+cLAPGroupNtpConfigEntry OBJECT-TYPE
+    SYNTAX          CLAPGroupNtpConfigEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "Each entry in this table represents AP-Group NTP
+        server info.
+        A maximum of 32 entries can be added."
+    INDEX           { cLAPGroupNtpIndex } 
+    ::= { cLwappAPGroupNtpConfigTable 1 }
+
+CLAPGroupNtpConfigEntry ::= SEQUENCE {
+        cLAPGroupNtpIndex        Unsigned32,
+        cLAPGroupNtpAddressType  InetAddressType,
+        cLAPGroupNtpAddress      InetAddress,
+        cLAPGroupNtpAuthKeyIndex Unsigned32,
+        cLAPGroupNtpAuthEnable   TruthValue,
+        cLAPGroupNtpRowStatus    RowStatus
+}
+
+cLAPGroupNtpIndex OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the index value
+        at which NTP server is to be created." 
+    ::= { cLAPGroupNtpConfigEntry 1 }
+
+cLAPGroupNtpAddressType OBJECT-TYPE
+    SYNTAX          InetAddressType
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the IP address
+        type (IPv4 or IPv6) of the NTP Server" 
+    ::= { cLAPGroupNtpConfigEntry 2 }
+
+cLAPGroupNtpAddress OBJECT-TYPE
+    SYNTAX          InetAddress
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the IP address
+        of the NTP Server" 
+    ::= { cLAPGroupNtpConfigEntry 3 }
+
+cLAPGroupNtpAuthKeyIndex OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies key-index for NTP server
+        authentication."
+    DEFVAL          { 0 } 
+    ::= { cLAPGroupNtpConfigEntry 4 }
+
+cLAPGroupNtpAuthEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies authentication for NTP server
+        - A value of 'true' indicates  authentication is enabled.
+        - A value of 'false' indicates authentication is disabled."
+    DEFVAL          { false } 
+    ::= { cLAPGroupNtpConfigEntry 5 }
+
+cLAPGroupNtpRowStatus OBJECT-TYPE
+    SYNTAX          RowStatus
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies row-status for
+        creation/deletion of NTP server entry." 
+    ::= { cLAPGroupNtpConfigEntry 6 }
+ 
+
+-- ********************************************************************
+-- Configuration of AP-Group Network Time Protocol Auth key List
+-- ********************************************************************
+
+cLAPGroupNtpAuthKeyConfigTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLAPGroupNtpAuthKeyConfigEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "The table represents configuration for authentication-key
+        list to be 
+        used with AP-Group NTP server list.
+        The creation of a new row in cLAPGroupNtpAuthKeyConfigTable,
+        through an explicit network management action,
+        results in creation of an entry in this table.
+        Similarly, deletion of a row in
+        cLAPGroupNtpAuthKeyConfigTable through user action causes the
+        deletion of corresponding rows in this table."
+    ::= { ciscoLwappAPGroupNtpConfig 2 }
+
+cLAPGroupNtpAuthKeyConfigEntry OBJECT-TYPE
+    SYNTAX          CLAPGroupNtpAuthKeyConfigEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "Each entry in this table represents AP-Group NTP
+        authentication key parameter. 
+        A total of 32 entries can be added."
+    INDEX           { cLAPGroupNtpAuthKeyListIndex } 
+    ::= { cLAPGroupNtpAuthKeyConfigTable 1 }
+
+CLAPGroupNtpAuthKeyConfigEntry ::= SEQUENCE {
+        cLAPGroupNtpAuthKeyListIndex Unsigned32,
+        cLAPGroupNtpAuthKeyFormat    INTEGER,
+        cLAPGroupNtpAuthKeyString    OCTET STRING,
+        cLAPGroupNtpAuthKeyType      INTEGER,
+        cLAPGroupNtpAuthKeyRowStatus RowStatus
+}
+
+cLAPGroupNtpAuthKeyListIndex OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the index of the
+        auth-key." 
+    ::= { cLAPGroupNtpAuthKeyConfigEntry 1 }
+
+cLAPGroupNtpAuthKeyFormat OBJECT-TYPE
+    SYNTAX          INTEGER  {
+                        ascii(1),
+                        hex(2)
+                    }
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether the auth-key is ascii or hex" 
+    ::= { cLAPGroupNtpAuthKeyConfigEntry 2 }
+
+cLAPGroupNtpAuthKeyString OBJECT-TYPE
+    SYNTAX          OCTET STRING
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the value of auth-key string" 
+    ::= { cLAPGroupNtpAuthKeyConfigEntry 3 }
+
+cLAPGroupNtpAuthKeyType OBJECT-TYPE
+    SYNTAX          INTEGER  {
+                        md5(1),
+                        sha1(2)
+                    }
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies whether the auth-key is md5 or sha1" 
+    ::= { cLAPGroupNtpAuthKeyConfigEntry 4 }
+
+cLAPGroupNtpAuthKeyRowStatus OBJECT-TYPE
+    SYNTAX          RowStatus
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies row-status for
+        creation/deletion for AP-Group auth-key entry." 
+    ::= { cLAPGroupNtpAuthKeyConfigEntry 5 }
+ 
+
+-- ********************************************************************
+-- Configuration of AP-Group Network Time Protocol Server
+-- ********************************************************************
+
+cLAPGroupNtpServerConfigTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLAPGroupNtpServerConfigEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This table represents configuration of
+        NTP-server for each AP Group."
+    ::= { ciscoLwappAPGroupNtpConfig 3 }
+
+cLAPGroupNtpServerConfigEntry OBJECT-TYPE
+    SYNTAX          CLAPGroupNtpServerConfigEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "Each entry in this table represents NTP server used
+        by AP-Group."
+    INDEX           {
+                        cLAPGroupName,
+                        cLAPGroupNtpServerIndex
+                    } 
+    ::= { cLAPGroupNtpServerConfigTable 1 }
+
+CLAPGroupNtpServerConfigEntry ::= SEQUENCE {
+        cLAPGroupNtpServerIndex      Unsigned32,
+        cLAPGroupNtpServerAuthEnable TruthValue,
+        cLAPGroupNtpServerRowStatus  RowStatus
+}
+
+cLAPGroupNtpServerIndex OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This object specifies the NTP server index
+        to be used for AP-Group." 
+    ::= { cLAPGroupNtpServerConfigEntry 1 }
+
+cLAPGroupNtpServerAuthEnable OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-write
+    STATUS          current
+    DESCRIPTION
+        "This object specifies authentication for NTP for AP-Group
+        - A value of 'true' indicates authentication is enabled.
+        - A value of 'false' indicates authentication is disabled."
+    DEFVAL          { false } 
+    ::= { cLAPGroupNtpServerConfigEntry 2 }
+
+cLAPGroupNtpServerRowStatus OBJECT-TYPE
+    SYNTAX          RowStatus
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies row-status for
+        creation/deletion for NTP AP-Group entry." 
+    ::= { cLAPGroupNtpServerConfigEntry 3 }
+ 
+
+-- ********************************************************************
+-- Configuration of global NTP server for AP-Group
+-- ********************************************************************
+
+cLAPGroupGlobalNtpServerConfigTable OBJECT-TYPE
+    SYNTAX          SEQUENCE OF CLAPGroupGlobalNtpServerConfigEntry 
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "The table represents NTP-server configuration to be used
+        as global AP Group."
+    ::= { ciscoLwappAPGroupNtpConfig 4 }
+
+cLAPGroupGlobalNtpServerConfigEntry OBJECT-TYPE
+    SYNTAX          CLAPGroupGlobalNtpServerConfigEntry
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "Each entry in this table represents
+        AP-Group NTP Server to be used for global configuration."
+    INDEX           { cLAPGroupGlobalNtpServerIndex } 
+    ::= { cLAPGroupGlobalNtpServerConfigTable 1 }
+
+CLAPGroupGlobalNtpServerConfigEntry ::= SEQUENCE {
+        cLAPGroupGlobalNtpServerIndex     Unsigned32,
+        cLAPGroupGlobalNtpServerAuth      TruthValue,
+        cLAPGroupGlobalNtpServerRowStatus RowStatus
+}
+
+cLAPGroupGlobalNtpServerIndex OBJECT-TYPE
+    SYNTAX          Unsigned32
+    MAX-ACCESS      not-accessible
+    STATUS          current
+    DESCRIPTION
+        "This object specifies NTP server index to be
+        mapped as global AP-Group NTP server." 
+    ::= { cLAPGroupGlobalNtpServerConfigEntry 1 }
+
+cLAPGroupGlobalNtpServerAuth OBJECT-TYPE
+    SYNTAX          TruthValue
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies authentication for global
+        AP-Group NTP server
+        - A value of 'true' indicates authentication is enabled.
+        - A value of 'false' indicates authentication is disabled."
+    DEFVAL          { false } 
+    ::= { cLAPGroupGlobalNtpServerConfigEntry 2 }
+
+cLAPGroupGlobalNtpServerRowStatus OBJECT-TYPE
+    SYNTAX          RowStatus
+    MAX-ACCESS      read-create
+    STATUS          current
+    DESCRIPTION
+        "This object specifies row-status for
+        creation/deletion for global NTP AP-Group entry." 
+    ::= { cLAPGroupGlobalNtpServerConfigEntry 3 }
+ 
+
+-- ************************************************************
+-- Ap-Group NTP server MIB ends here
+-- ************************************************************
+--   
 -- ********************************************************************
 -- *    Compliance statements
 -- ********************************************************************
@@ -3755,7 +5444,7 @@ ciscoLwappWlanMIBComplianceRev7 MODULE-COMPLIANCE
     ::= { ciscoLwappWlanMIBCompliances 8 }
 
 ciscoLwappWlanMIBComplianceRev8 MODULE-COMPLIANCE
-    STATUS          current
+    STATUS          deprecated
     DESCRIPTION
         "The compliance statement for the SNMP entities that
         implement the ciscoLwappWlanMIB module."
@@ -3785,6 +5474,148 @@ ciscoLwappWlanMIBComplianceRev8 MODULE-COMPLIANCE
                         ciscoLwappWlanConfigGroupSup8
                     }
     ::= { ciscoLwappWlanMIBCompliances 9 }
+
+ciscoLwappWlanMIBComplianceRev9 MODULE-COMPLIANCE
+    STATUS          deprecated
+    DESCRIPTION
+        "The compliance statement for the SNMP entities that
+        implement the ciscoLwappWlanMIB module."
+    MODULE          -- this module
+    MANDATORY-GROUPS {
+                        ciscoLwappWlanConfigGroupSup1,
+                        ciscoLwappWlanConfigClientGroup,
+                        ciscoLwappWlanConfigGroupSup2,
+                        ciscoLwappWlanConfigClientGroupSup1,
+                        ciscoLwappWlanConfigGroupSup3,
+                        ciscoLwappWlan11uConfigGroupsup1,
+                        ciscoLwappWlanServiceAdvertisementConfigGroup,
+                        ciscoLwappWlanHotSpot2ConfigGroup,
+                        ciscoLwappWlanIosConfigGroup,
+                        ciscoLwappWlanQosConfigGroup,
+                        ciscoLwappWlan11uConfigGroupsup2,
+                        ciscoLwappWlanHotSpot2ConfigGroupSup1,
+                        ciscoLwappAPGroupsVlanConfigGroupSup1,
+                        cLAPGroupsVenueConfigGroup,
+                        cLAPGroupsMultipleVenueGroup,
+                        ciscoLwappWlanConfigClientGroupSup2,
+                        ciscoLwappWlanConfigFlexibleNetflowGroup,
+                        ciscoLwappWlanConfigGroupSup5,
+                        ciscoLwappAPGroupsVlanConfigGroupSup2,
+                        ciscoLwappWlanConfigGroupSup6,
+                        ciscoLwappWlanConfigGroupSup7,
+                        ciscoLwappWlanConfigGroupSup8,
+                        ciscoLwappWlan11vConfigGroup
+                    }
+    ::= { ciscoLwappWlanMIBCompliances 10 }
+
+ciscoLwappWlanMIBComplianceRev10 MODULE-COMPLIANCE
+    STATUS          deprecated
+    DESCRIPTION
+        "The compliance statement for the SNMP entities that
+        implement the ciscoLwappWlanMIB module."
+    MODULE          -- this module
+    MANDATORY-GROUPS {
+                        ciscoLwappWlanConfigGroupSup1,
+                        ciscoLwappWlanConfigClientGroup,
+                        ciscoLwappWlanConfigGroupSup2,
+                        ciscoLwappWlanConfigClientGroupSup1,
+                        ciscoLwappWlanConfigGroupSup3,
+                        ciscoLwappWlan11uConfigGroupsup1,
+                        ciscoLwappWlanServiceAdvertisementConfigGroup,
+                        ciscoLwappWlanHotSpot2ConfigGroup,
+                        ciscoLwappWlanIosConfigGroup,
+                        ciscoLwappWlanQosConfigGroup,
+                        ciscoLwappWlan11uConfigGroupsup2,
+                        ciscoLwappWlanHotSpot2ConfigGroupSup1,
+                        ciscoLwappAPGroupsVlanConfigGroupSup1,
+                        cLAPGroupsVenueConfigGroup,
+                        cLAPGroupsMultipleVenueGroup,
+                        ciscoLwappWlanConfigClientGroupSup2,
+                        ciscoLwappWlanConfigFlexibleNetflowGroup,
+                        ciscoLwappWlanConfigGroupSup5,
+                        ciscoLwappAPGroupsVlanConfigGroupSup2,
+                        ciscoLwappWlanConfigGroupSup6,
+                        ciscoLwappWlanConfigGroupSup7,
+                        ciscoLwappWlanConfigGroupSup8,
+                        ciscoLwappWlan11vConfigGroup,
+                        ciscoLwappApGroupConfigGroup,
+                        ciscoLwappPolicyConfigGroup
+                    }
+    ::= { ciscoLwappWlanMIBCompliances 11 }
+
+ciscoLwappWlanMIBComplianceRev11 MODULE-COMPLIANCE
+    STATUS          deprecated
+    DESCRIPTION
+        "The compliance statement for the SNMP entities that
+        implement the ciscoLwappWlanMIB module."
+    MODULE          -- this module
+    MANDATORY-GROUPS {
+                        ciscoLwappWlanConfigGroupSup1,
+                        ciscoLwappWlanConfigClientGroup,
+                        ciscoLwappWlanConfigGroupSup2,
+                        ciscoLwappWlanConfigClientGroupSup1,
+                        ciscoLwappWlanConfigGroupSup3,
+                        ciscoLwappWlan11uConfigGroupsup1,
+                        ciscoLwappWlanServiceAdvertisementConfigGroup,
+                        ciscoLwappWlanHotSpot2ConfigGroup,
+                        ciscoLwappWlanIosConfigGroup,
+                        ciscoLwappWlanQosConfigGroup,
+                        ciscoLwappWlan11uConfigGroupsup2,
+                        ciscoLwappWlanHotSpot2ConfigGroupSup1,
+                        ciscoLwappAPGroupsVlanConfigGroupSup1,
+                        cLAPGroupsVenueConfigGroup,
+                        cLAPGroupsMultipleVenueGroup,
+                        ciscoLwappWlanConfigClientGroupSup2,
+                        ciscoLwappWlanConfigFlexibleNetflowGroup,
+                        ciscoLwappWlanConfigGroupSup5,
+                        ciscoLwappAPGroupsVlanConfigGroupSup2,
+                        ciscoLwappWlanConfigGroupSup6,
+                        ciscoLwappWlanConfigGroupSup7,
+                        ciscoLwappWlanConfigGroupSup8,
+                        ciscoLwappWlan11vConfigGroup,
+                        ciscoLwappApGroupConfigGroup,
+                        ciscoLwappPolicyConfigGroup,
+                        ciscoLwappWlan11kConfigGroup
+                    }
+    ::= { ciscoLwappWlanMIBCompliances 12 }
+
+ciscoLwappWlanMIBComplianceRev12 MODULE-COMPLIANCE
+    STATUS          current
+    DESCRIPTION
+        "The compliance statement for the SNMP entities that
+        implement the ciscoLwappWlanMIB module."
+    MODULE          -- this module
+    MANDATORY-GROUPS {
+                        ciscoLwappWlanConfigGroupSup1,
+                        ciscoLwappWlanConfigClientGroup,
+                        ciscoLwappWlanConfigGroupSup2,
+                        ciscoLwappWlanConfigClientGroupSup1,
+                        ciscoLwappWlanConfigGroupSup3,
+                        ciscoLwappWlan11uConfigGroupsup1,
+                        ciscoLwappWlanServiceAdvertisementConfigGroup,
+                        ciscoLwappWlanHotSpot2ConfigGroup,
+                        ciscoLwappWlanIosConfigGroup,
+                        ciscoLwappWlanQosConfigGroup,
+                        ciscoLwappWlan11uConfigGroupsup2,
+                        ciscoLwappWlanHotSpot2ConfigGroupSup1,
+                        ciscoLwappAPGroupsVlanConfigGroupSup1,
+                        cLAPGroupsVenueConfigGroup,
+                        cLAPGroupsMultipleVenueGroup,
+                        ciscoLwappWlanConfigClientGroupSup2,
+                        ciscoLwappWlanConfigFlexibleNetflowGroup,
+                        ciscoLwappWlanConfigGroupSup5,
+                        ciscoLwappAPGroupsVlanConfigGroupSup2,
+                        ciscoLwappWlanConfigGroupSup6,
+                        ciscoLwappWlanConfigGroupSup7,
+                        ciscoLwappWlanConfigGroupSup8,
+                        ciscoLwappWlan11vConfigGroup,
+                        ciscoLwappApGroupConfigGroup,
+                        ciscoLwappPolicyConfigGroup,
+                        ciscoLwappWlan11kConfigGroup,
+                        ciscoLwappWlan11axConfigGroup,
+                        ciscoLwappApGroupNtpServerGroup
+                    }
+    ::= { ciscoLwappWlanMIBCompliances 13 }
 
 -- ********************************************************************
 -- *    Units of conformance
@@ -3904,7 +5735,12 @@ ciscoLwappWlanConfigGroupSup3 OBJECT-GROUP
                         cLWlanScanDeferTime,
                         cLWlanLanSubType,
                         cLWlanWebAuthOnMacFilterFailureEnabled,
-                        cLWlanStaticIpTunnelingEnabled
+                        cLWlanStaticIpTunnelingEnabled,
+                        cLWlanEapProfileName,
+                        cLWlanSetEapProfileName,
+                        cLWlanMaxClientsAllowedPerAP,
+                        cLWlanMdnsMode,
+                        cLWlanOpportunisticKeyCaching
                     }
     STATUS          current
     DESCRIPTION
@@ -3990,7 +5826,10 @@ ciscoLwappWlanIosConfigGroup OBJECT-GROUP
                         cLWlanIosScanDeferPriority,
                         cLWlanIosWebAuthParameterMapName,
                         cLWlanIosQosClientUpStreamProfileName,
-                        cLWlanIosQosClientDownStreamProfileName
+                        cLWlanIosQosClientDownStreamProfileName,
+                        cLWlanIosAuthorizationMethodListName,
+                        cLWlanIosWebAuthAuthorizationMethodListName,
+                        cLWlanIosMacOverrideMethodListName
                     }
     STATUS          current
     DESCRIPTION
@@ -4016,7 +5855,15 @@ ciscoLwappWlanQosConfigGroup OBJECT-GROUP
                         cLWlanSsidDSAvgRealTimeDataRate,
                         cLWlanSsidUSAvgRealTimeDataRate,
                         cLWlanSsidDSBurstRealTimeDataRate,
-                        cLWlanSsidUSBurstRealTimeDataRate
+                        cLWlanSsidUSBurstRealTimeDataRate,
+                        cLWlanWlanDSAverageDataRate,
+                        cLWlanWlanUSAverageDataRate,
+                        cLWlanWlanDSBurstDataRate,
+                        cLWlanWlanUSBurstDataRate,
+                        cLWlanWlanDSAvgRealTimeDataRate,
+                        cLWlanWlanUSAvgRealTimeDataRate,
+                        cLWlanWlanDSBurstRealTimeDataRate,
+                        cLWlanWlanUSBurstRealTimeDataRate
                     }
     STATUS          current
     DESCRIPTION
@@ -4188,12 +6035,12 @@ ciscoLwappWlanConfigGroupSup6 OBJECT-GROUP
     ::= { ciscoLwappWlanMIBGroups 24 }
 
 ciscoLwappWlanConfigGroupSup7 OBJECT-GROUP
-    OBJECTS         { 
-                      cLAPGroupsHyperlocationEnable,
-                      cLAPGroupsPakRssiThreshold,
-                      cLAPGroupsPakRssiThresholdTrigger,
-                      cLAPGroupsPakRssiNtpIpAddressType,
-                      cLAPGroupsPakRssiNtpAddress 
+    OBJECTS         {
+                        cLAPGroupsHyperlocationEnable,
+                        cLAPGroupsPakRssiThreshold,
+                        cLAPGroupsPakRssiThresholdTrigger,
+                        cLAPGroupsPakRssiNtpIpAddressType,
+                        cLAPGroupsPakRssiNtpAddress
                     }
     STATUS          current
     DESCRIPTION
@@ -4203,13 +6050,13 @@ ciscoLwappWlanConfigGroupSup7 OBJECT-GROUP
     ::= { ciscoLwappWlanMIBGroups 25 }
 
 ciscoLwappWlanConfigGroupSup8 OBJECT-GROUP
-    OBJECTS         { 
-                      cLAPGroupsLANPortStatus,
-                      cLAPGroupsLANPortPoeStatus,
-                      cLAPGroupsLANPortRlanName,
-                      cLAPGroupsLANPortRowStatus,
-                      cLAPGroupsExtModuleStatus,
-                      cLAPGroupsExtModuleRlanName	 
+    OBJECTS         {
+                        cLAPGroupsLANPortStatus,
+                        cLAPGroupsLANPortPoeStatus,
+                        cLAPGroupsLANPortRlanName,
+                        cLAPGroupsLANPortRowStatus,
+                        cLAPGroupsExtModuleStatus,
+                        cLAPGroupsExtModuleRlanName
                     }
     STATUS          current
     DESCRIPTION
@@ -4218,36 +6065,131 @@ ciscoLwappWlanConfigGroupSup8 OBJECT-GROUP
         to be passed to an LWAPP AP."
     ::= { ciscoLwappWlanMIBGroups 26 }
 
+ciscoLwappWlan11vConfigGroup OBJECT-GROUP
+    OBJECTS         {
+                        cLWlan11vBssTransEnable,
+                        cLWlan11vDisassocImmiEnable,
+                        cLWlan11vDisassocTimer,
+                        cLWlan11vOpRoamDisassocTimer,
+                        cLWlan11vDMSEnable
+                    }
+    STATUS          current
+    DESCRIPTION
+        "This collection of objects represents 802.11v BSS Transistion
+        related configuration of WLANs on the controller
+        to be passed to an AP."
+    ::= { ciscoLwappWlanMIBGroups 27 }
+
+ciscoLwappApGroupConfigGroup OBJECT-GROUP
+    OBJECTS         {
+                        cLAPGroupNasId,
+                        cLApGroupPreferMode,
+                        cLApGroupGlobalWebAuthConfig,
+                        cLApGroupExternalWebAuthUrl,
+                        cLAPGroupsPolicyIndex,
+                        cLAPGroupsPolicyWlanProfile,
+                        cLAPGroupsPolicyRowStatus,
+                        cLAPGroupTrafficQinqEnabled,
+                        cLAPGroupDhcpQinqEnabled,
+                        cLAPGroupQinqServiceVlanId
+                    }
+    STATUS          current
+    DESCRIPTION
+        "This collection of objects represents AP group related
+        configuration of WLANs on the controller."
+    ::= { ciscoLwappWlanMIBGroups 28 }
+
+ciscoLwappPolicyConfigGroup OBJECT-GROUP
+    OBJECTS         {
+                        cLPolicyName,
+                        cLPolicyRoleName,
+                        cLPolicyEapType,
+                        cLPolicyAclName,
+                        cLPolicyVlanId,
+                        cLPolicyQosProfile,
+                        cLPolicySessionTimeout,
+                        cLPolicySleepTimeout,
+                        cLPolicyRowStatus,
+                        cLPolicyFlexAclName,
+                        cLPolicyAvcProfileName,
+                        cLPolicyMdnsProfileName,
+                        cLPolicyFlexVlanId,
+                        cLPolicyUrlAclName,
+                        cLPolicyOpendnsProfileName,
+                        cLPolicyDeviceName,
+                        cLPolicyDeviceRowStatus,
+                        cLPolicyActiveStartTime,
+                        cLPolicyActiveEndTime,
+                        cLPolicyActiveHoursRowStatus,
+                        cLPolicyWlanSchedulingStatus,
+                        cLPolicyWlanSchedulingStartTime,
+                        cLPolicyWlanSchedulingEndTime,
+                        cLPolicyWlanSchedulingRowStatus
+                    }
+    STATUS          current
+    DESCRIPTION
+        "This collection of objects represents Policy related
+        configuration of WLANs on the controller."
+    ::= { ciscoLwappWlanMIBGroups 29 }
+
+ciscoLwappWlan11kConfigGroup OBJECT-GROUP
+    OBJECTS         {
+                        cLWlan11kAssistedRoamingEnable,
+                        cLWlan11kNeighborListEnable,
+                        cLWlan11kDualbandNeigListEnable
+                    }
+    STATUS          current
+    DESCRIPTION
+        "This collection of objects represent the
+        configuration of AP Groups 11k on the controller 
+        to be passed to an LWAPP AP."
+    ::= { ciscoLwappWlanMIBGroups 30 }
+
+ciscoLwappWlan11axConfigGroup OBJECT-GROUP
+    OBJECTS         {
+                        cLWlan11axMuMimoUplinkEnable,
+                        cLWlan11axMuMimoDownlinkEnable,
+                        cLWlan11axOfdmaUplinkEnable,
+                        cLWlan11axOfdmaDownlinkEnable,
+                        cLWlan11axTargetWaketimeEnable,
+                        cLWlan11axBssColorModeEnable,
+                        cLWlan11axBssColorCode,
+                        cLWlan11axBssPartialColorEnable,
+                        cLWlan11axTwtBroadcastSupport
+                    }
+    STATUS          current
+    DESCRIPTION
+        "This collection of objects represents 802.11ax
+        related configuration of WLANs on the controller
+        to be passed to an AP."
+    ::= { ciscoLwappWlanMIBGroups 31 }
+
+ciscoLwappApGroupNtpServerGroup OBJECT-GROUP
+    OBJECTS         {
+                        cLAPGroupNtpIndex,
+                        cLAPGroupNtpAddress,
+                        cLAPGroupNtpAddressType,
+                        cLAPGroupNtpAuthKeyIndex,
+                        cLAPGroupNtpAuthEnable,
+                        cLAPGroupNtpRowStatus,
+                        cLAPGroupNtpAuthKeyFormat,
+                        cLAPGroupNtpAuthKeyListIndex,
+                        cLAPGroupNtpAuthKeyString,
+                        cLAPGroupNtpAuthKeyType,
+                        cLAPGroupNtpAuthKeyRowStatus,
+                        cLAPGroupGlobalNtpServerAuth,
+                        cLAPGroupGlobalNtpServerRowStatus,
+                        cLAPGroupGlobalNtpServerIndex,
+                        cLAPGroupNtpServerAuthEnable,
+                        cLAPGroupNtpServerRowStatus,
+                        cLAPGroupNtpServerIndex
+                    }
+    STATUS          current
+    DESCRIPTION
+        "This collection of objects represents NTP
+        related configuration for AP-Group on the controller."
+    ::= { ciscoLwappWlanMIBGroups 32 }
+
 END
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
