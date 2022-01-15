@@ -1,13 +1,3 @@
---
---
--- Copyright (c) 2001, 2002 by Cisco Systems, Inc.
---
--- Notification Log MIB 
---
--- RFC3014
---
---
-
 NOTIFICATION-LOG-MIB DEFINITIONS ::= BEGIN
 
 IMPORTS
@@ -32,6 +22,7 @@ notificationLogMIB MODULE-IDENTITY
                   Email: ramk@cisco.com"
     DESCRIPTION
      "The MIB module for logging SNMP Notifications, that is, Traps
+
      and Informs."
 -- Revision History
 
@@ -39,7 +30,6 @@ notificationLogMIB MODULE-IDENTITY
        DESCRIPTION  "This is the initial version of this MIB.
                Published as RFC 3014"
     ::= { mib-2 92 }
-
 
 notificationLogMIBObjects OBJECT IDENTIFIER ::= { notificationLogMIB 1 }
 
@@ -98,7 +88,6 @@ nlmConfigGlobalAgeOut OBJECT-TYPE
      reliability and completeness of data seen by each manager."
     DEFVAL { 1440 }  -- 24 hours
     ::= { nlmConfig 2 }
-
 
 --
 -- Basic Log Configuration Table
@@ -313,13 +302,13 @@ nlmStatsLogNotificationsBumped OBJECT-TYPE
      nlmConfigGlobalAgeOut."
     ::= { nlmStatsLogEntry 2 }
 
-
 --
 -- Log Section
 --
 
 --
 -- Log Table
+
 --
 
 nlmLogTable OBJECT-TYPE
@@ -367,7 +356,6 @@ nlmLogEntry OBJECT-TYPE
      does not log that Notification in that log."
     INDEX       { nlmLogName, nlmLogIndex }
     ::= { nlmLogTable 1 }
-
 
 NlmLogEntry ::= SEQUENCE {
     nlmLogIndex                Unsigned32,
@@ -417,6 +405,7 @@ nlmLogEngineID OBJECT-TYPE
     STATUS      current
     DESCRIPTION
      "The identification of the SNMP engine at which the Notification
+
      originated.
 
      If the log can contain Notifications from only one engine
@@ -513,6 +502,7 @@ nlmLogVariableEntry OBJECT-TYPE
     ::= { nlmLogVariableTable 1 }
 
 NlmLogVariableEntry ::= SEQUENCE {
+
     nlmLogVariableIndex              Unsigned32,
     nlmLogVariableID                 OBJECT IDENTIFIER,
     nlmLogVariableValueType          INTEGER,
@@ -524,7 +514,7 @@ NlmLogVariableEntry ::= SEQUENCE {
     nlmLogVariableIpAddressVal       IpAddress,
     nlmLogVariableOidVal             OBJECT IDENTIFIER,
     nlmLogVariableCounter64Val       Counter64,
-    nlmLogVariableOpaqueVal          OCTET STRING
+    nlmLogVariableOpaqueVal          Opaque
 }
 
 nlmLogVariableIndex OBJECT-TYPE
@@ -609,6 +599,7 @@ nlmLogVariableIpAddressVal OBJECT-TYPE
 
      IPv6 addresses are represented using TAddress or
      InetAddress, and so the underlying datatype is
+
      OCTET STRING, and their value would be stored in
      the nlmLogVariableOctetStringVal column."
     ::= { nlmLogVariableEntry 9 }
@@ -630,13 +621,12 @@ nlmLogVariableCounter64Val OBJECT-TYPE
     ::= { nlmLogVariableEntry 11 }
 
 nlmLogVariableOpaqueVal OBJECT-TYPE
-    SYNTAX      OCTET STRING
+    SYNTAX      Opaque
     MAX-ACCESS  read-only
     STATUS      current
     DESCRIPTION
      "The value when nlmLogVariableType is 'opaque'."
     ::= { nlmLogVariableEntry 12 }
-
 
 --
 -- Conformance
@@ -690,7 +680,6 @@ notificationLogMIBCompliance MODULE-COMPLIANCE
           "This group is mandatory on systems that keep wall clock
           date and time and should not be implemented on systems that
           do not have a wall clock date."
-
      ::= { notificationLogMIBCompliances 1 }
 
 -- Units of Conformance
