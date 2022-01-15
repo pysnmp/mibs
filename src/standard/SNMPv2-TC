@@ -1,32 +1,58 @@
--- *****************************************************************
--- SNMPv2-TC.my:  SNMPv2 Textual Conventions
---
--- May 1994, Jeffrey T. Johnson
---
--- Copyright (c) 1994,1996 by cisco Systems, Inc.
--- All rights reserved.
--- 
--- *****************************************************************
---
---  This file was extracted from RFC 1903
---  All macro definitions have been removed because they are
---  predefined in the mib compiler
-
-
 SNMPv2-TC DEFINITIONS ::= BEGIN
 
 IMPORTS
-    ObjectSyntax, TimeTicks
-        FROM SNMPv2-SMI;
-
+    TimeTicks         FROM SNMPv2-SMI;
 
 -- definition of textual conventions
+
+TEXTUAL-CONVENTION MACRO ::=
+
+BEGIN
+    TYPE NOTATION ::=
+                  DisplayPart
+                  "STATUS" Status
+                  "DESCRIPTION" Text
+                  ReferPart
+                  "SYNTAX" Syntax
+
+    VALUE NOTATION ::=
+                   value(VALUE Syntax)      -- adapted ASN.1
+
+    DisplayPart ::=
+                  "DISPLAY-HINT" Text
+                | empty
+
+    Status ::=
+                  "current"
+                | "deprecated"
+                | "obsolete"
+
+    ReferPart ::=
+                  "REFERENCE" Text
+                | empty
+
+    -- a character string as defined in [2]
+    Text ::= value(IA5String)
+
+    Syntax ::=   -- Must be one of the following:
+                       -- a base type (or its refinement), or
+                       -- a BITS pseudo-type
+                  type
+                | "BITS" "{" NamedBits "}"
+
+    NamedBits ::= NamedBit
+                | NamedBits "," NamedBit
+
+    NamedBit ::=  identifier "(" number ")" -- number is nonnegative
+
+END
 
 DisplayString ::= TEXTUAL-CONVENTION
     DISPLAY-HINT "255a"
     STATUS       current
     DESCRIPTION
             "Represents textual information taken from the NVT ASCII
+
             character set, as defined in pages 4, 10-11 of RFC 854.
 
             To summarize RFC 854, the NVT ASCII repertoire specifies:
@@ -56,14 +82,12 @@ DisplayString ::= TEXTUAL-CONVENTION
             characters in length."
     SYNTAX       OCTET STRING (SIZE (0..255))
 
-
 PhysAddress ::= TEXTUAL-CONVENTION
     DISPLAY-HINT "1x:"
     STATUS       current
     DESCRIPTION
             "Represents media- or physical-level addresses."
     SYNTAX       OCTET STRING
-
 
 MacAddress ::= TEXTUAL-CONVENTION
     DISPLAY-HINT "1x:"
@@ -75,7 +99,6 @@ MacAddress ::= TEXTUAL-CONVENTION
             802.5 (in contrast to other 802.x protocols) requires MAC
             addresses to be transmitted most significant bit first."
     SYNTAX       OCTET STRING (SIZE (6))
-
 
 TruthValue ::= TEXTUAL-CONVENTION
     STATUS       current
@@ -113,7 +136,6 @@ TestAndIncr ::= TEXTUAL-CONVENTION
             generated value."
     SYNTAX       INTEGER (0..2147483647)
 
-
 AutonomousType ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
@@ -122,7 +144,6 @@ AutonomousType ::= TEXTUAL-CONVENTION
             with further MIB definitions, or define a particular type of
             protocol or hardware."
     SYNTAX       OBJECT IDENTIFIER
-
 
 InstancePointer ::= TEXTUAL-CONVENTION
     STATUS       obsolete
@@ -137,14 +158,12 @@ InstancePointer ::= TEXTUAL-CONVENTION
             VariablePointer and RowPointer, respectively."
     SYNTAX       OBJECT IDENTIFIER
 
-
 VariablePointer ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
             "A pointer to a specific object instance.  For example,
             sysContact.0 or ifInOctets.3."
     SYNTAX       OBJECT IDENTIFIER
-
 
 RowPointer ::= TEXTUAL-CONVENTION
     STATUS       current
@@ -157,7 +176,6 @@ RowPointer ::= TEXTUAL-CONVENTION
             ifTable (note that if ifIndex were not-accessible, then
             ifDescr.3 would be used instead)."
     SYNTAX       OBJECT IDENTIFIER
-
 
 RowStatus ::= TEXTUAL-CONVENTION
     STATUS       current
@@ -174,12 +192,16 @@ RowStatus ::= TEXTUAL-CONVENTION
 
                  - `notInService', which indicates that the conceptual
                  row exists in the agent, but is unavailable for use by
-                 the managed device (see NOTE below);
+                 the managed device (see NOTE below); 'notInService' has
+                 no implication regarding the internal consistency of
+                 the row, availability of resources, or consistency with
+                 the current state of the managed device;
 
                  - `notReady', which indicates that the conceptual row
                  exists in the agent, but is missing information
                  necessary in order to be available for use by the
-                 managed device;
+                 managed device (i.e., one or more required columns in
+                 the conceptual row have not been instanciated);
 
                  - `createAndGo', which is supplied by a management
                  station wishing to create a new instance of a
@@ -191,7 +213,6 @@ RowStatus ::= TEXTUAL-CONVENTION
                  station wishing to create a new instance of a
                  conceptual row (but not make it available for use by
                  the managed device); and,
-
                  - `destroy', which is supplied by a management station
                  wishing to delete all of the instances associated with
                  an existing conceptual row.
@@ -204,10 +225,10 @@ RowStatus ::= TEXTUAL-CONVENTION
             has only three states:  it is either available for use by
             the managed device (the status column has value `active');
             it is not available for use by the managed device, though
-            the agent has sufficient information to make it so (the
-            status column has value `notInService'); or, it is not
-            available for use by the managed device, and an attempt to
-            make it so would fail because the agent has insufficient
+            the agent has sufficient information to attempt to make it
+            so (the status column has value `notInService'); or, it is
+            not available for use by the managed device, and an attempt
+            to make it so would fail because the agent has insufficient
             information (the state column has value `notReady').
 
                                      NOTE WELL
@@ -231,15 +252,12 @@ RowStatus ::= TEXTUAL-CONVENTION
                  received, or if the varbind sets the status to a value
                  other than 'active'.
 
-
             Also note that whenever any elements of a row exist, the
             RowStatus column must also exist.
-
 
             To summarize the effect of having a conceptual row with a
             status column having a SYNTAX clause value of RowStatus,
             consider the following state diagram:
-
 
                                          STATE
               +--------------+-----------+-------------+-------------
@@ -262,18 +280,18 @@ column to     |         Value|   entValue|             |
 active        |              |           |             |
               |              |     or    |             |
               |              |           |             |
-              |              |see 2   ->D|          ->D|          ->D
+              |              |see 2   ->D|see 8     ->D|          ->D
 --------------+--------------+-----------+-------------+-------------
 set status    |inconsistent- |inconsist- |noError      |noError   ->C
 column to     |         Value|   entValue|             |
 notInService  |              |           |             |
               |              |     or    |             |      or
               |              |           |             |
-              |              |see 3   ->C|          ->C|wrongValue
+              |              |see 3   ->C|          ->C|see 6
 --------------+--------------+-----------+-------------+-------------
-set status    |noError       |noError    |noError      |noError
-column to     |              |           |             |
-destroy       |           ->A|        ->A|          ->A|          ->A
+set status    |noError       |noError    |noError      |noError   ->A
+column to     |              |           |             |      or
+destroy       |           ->A|        ->A|          ->A|see 7
 --------------+--------------+-----------+-------------+-------------
 set any other |see 4         |noError    |noError      |see 5
 column to some|              |           |             |
@@ -285,10 +303,11 @@ value         |              |      see 1|          ->C|          ->D
 
             (2) if other variable bindings included in the same PDU,
             provide values for all columns which are missing but
-            required, then return noError and goto D.
+            required, and all columns have acceptable values, then
+            return noError and goto D.
 
             (3) if other variable bindings included in the same PDU,
-            provide values for all columns which are missing but
+            provide legal values for all columns which are missing but
             required, then return noError and goto C.
 
             (4) at the discretion of the agent, the return value may be
@@ -314,10 +333,30 @@ value         |              |      see 1|          ->C|          ->D
             (5) depending on the MIB definition for the column/table,
             either noError or inconsistentValue may be returned.
 
-            NOTE: Other processing of the set request may result in a
-            response other than noError being returned, e.g.,
-            wrongValue, noCreation, etc.
+            (6) the return value can indicate one of the following
+            errors:
 
+                 wrongValue: because the agent does not support
+                 notInService (e.g., an agent which does not support
+                 createAndWait), or
+
+                 inconsistentValue: because the agent is unable to take
+                 the row out of service at this time, perhaps because it
+                 is in use and cannot be de-activated.
+
+            (7) the return value can indicate the following error:
+
+                 inconsistentValue: because the agent is unable to
+                 remove the row at this time, perhaps because it is in
+                 use and cannot be de-activated.
+
+            (8) the transition to D can fail, e.g., if the values of the
+            conceptual row are inconsistent, then the error code would
+            be inconsistentValue.
+
+            NOTE: Other processing of (this and other varbinds of) the
+            set request may result in a response other than noError
+            being returned, e.g., wrongValue, noCreation, etc.
 
                               Conceptual Row Creation
 
@@ -358,6 +397,7 @@ value         |              |      see 1|          ->C|          ->D
 
             Finally, the management station could select a pseudo-random
             number to use as the index.  In the event that this index
+
             was already in use and an inconsistentValue was returned in
             response to the management protocol set operation, the
             management station should simply select a new pseudo-random
@@ -477,10 +517,10 @@ value         |              |      see 1|          ->C|          ->D
             the conceptual row is created, a `noError' response is
             returned, and the status column is immediately set to either
             `notInService' or `notReady', depending on whether it has
-            sufficient information to make the conceptual row available
-            for use by the managed device.  If there is sufficient
-            information available, then the status column is set to
-            `notInService'; otherwise, if there is insufficient
+            sufficient information to (attempt to) make the conceptual
+            row available for use by the managed device.  If there is
+            sufficient information available, then the status column is
+            set to `notInService'; otherwise, if there is insufficient
             information, then the status column is set to `notReady'.
             Regardless, we proceed to interaction 3.
 
@@ -543,7 +583,6 @@ value         |              |      see 1|          ->C|          ->D
             protocol set operation fails with an error of
             `inconsistentValue'.
 
-
                                      NOTE WELL
 
                  A conceptual row having a status column with value
@@ -570,7 +609,7 @@ value         |              |      see 1|          ->C|          ->D
             time should be long enough to allow for human response time
             (including `think time') between the creation of the
             conceptual row and the setting of the status to `active'.
-            In the absense of such information in the DESCRIPTION
+            In the absence of such information in the DESCRIPTION
             clause, it is suggested that this period be approximately 5
             minutes in length.  This removal action applies not only to
             newly-created rows, but also to previously active rows which
@@ -578,21 +617,19 @@ value         |              |      see 1|          ->C|          ->D
             prolonged period exceeding that which is considered normal
             for such a conceptual row.
 
-
                              Conceptual Row Suspension
 
             When a conceptual row is `active', the management station
             may issue a management protocol set operation which sets the
             instance of the status column to `notInService'.  If the
             agent is unwilling to do so, the set operation fails with an
-            error of `wrongValue'.  Otherwise, the conceptual row is
-            taken out of service, and a `noError' response is returned.
-            It is the responsibility of the DESCRIPTION clause of the
-            status column to indicate under what circumstances the
-            status column should be taken out of service (e.g., in order
-            for the value of some other column of the same conceptual
-            row to be modified).
-
+            error of `wrongValue' or `inconsistentValue'.  Otherwise,
+            the conceptual row is taken out of service, and a `noError'
+            response is returned.  It is the responsibility of the
+            DESCRIPTION clause of the status column to indicate under
+            what circumstances the status column should be taken out of
+            service (e.g., in order for the value of some other column
+            of the same conceptual row to be modified).
 
                               Conceptual Row Deletion
 
@@ -604,18 +641,14 @@ value         |              |      see 1|          ->C|          ->D
             `notInService' or `active'.)  If the operation succeeds,
             then all instances associated with the conceptual row are
             immediately removed."
-
-
     SYNTAX       INTEGER {
                      -- the following two values are states:
                      -- these values may be read or written
                      active(1),
                      notInService(2),
-
                      -- the following value is a state:
                      -- this value may be read, but not written
                      notReady(3),
-
                      -- the following three values are
                      -- actions: these values may be written,
                      --   but are never read
@@ -624,23 +657,30 @@ value         |              |      see 1|          ->C|          ->D
                      destroy(6)
                  }
 
-
 TimeStamp ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
             "The value of the sysUpTime object at which a specific
             occurrence happened.  The specific occurrence must be
-            defined in the description of any object defined using this
-            type."
-    SYNTAX       TimeTicks
 
+            defined in the description of any object defined using this
+            type.
+
+            If sysUpTime is reset to zero as a result of a re-
+            initialization of the network management (sub)system, then
+            the values of all TimeStamp objects are also reset.
+            However, after approximately 497 days without a re-
+            initialization, the sysUpTime object will reach 2^^32-1 and
+            then increment around to zero; in this case, existing values
+            of TimeStamp objects do not change.  This can lead to
+            ambiguities in the value of TimeStamp objects."
+    SYNTAX       TimeTicks
 
 TimeInterval ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
             "A period of time, measured in units of 0.01 seconds."
     SYNTAX       INTEGER (0..2147483647)
-
 
 DateAndTime ::= TEXTUAL-CONVENTION
     DISPLAY-HINT "2d-1d-1d,1d:1d:1d.1d,1a1d:1d"
@@ -650,7 +690,7 @@ DateAndTime ::= TEXTUAL-CONVENTION
 
             field  octets  contents                  range
             -----  ------  --------                  -----
-              1      1-2   year                      0..65536
+              1      1-2   year*                     0..65536
               2       3    month                     1..12
               3       4    day                       1..31
               4       5    hour                      0..23
@@ -659,8 +699,12 @@ DateAndTime ::= TEXTUAL-CONVENTION
                            (use 60 for leap-second)
               7       8    deci-seconds              0..9
               8       9    direction from UTC        '+' / '-'
-              9      10    hours from UTC            0..11
+              9      10    hours from UTC*           0..13
              10      11    minutes from UTC          0..59
+
+            * Notes:
+            - the value of year is in network-byte order
+            - daylight saving time in New Zealand is +13
 
             For example, Tuesday May 26, 1992 at 1:30:15 PM EDT would be
             displayed as:
@@ -670,7 +714,6 @@ DateAndTime ::= TEXTUAL-CONVENTION
             Note that if only local time is known, then timezone
             information (fields 8-10) is not present."
     SYNTAX       OCTET STRING (SIZE (8 | 11))
-
 
 StorageType ::= TEXTUAL-CONVENTION
     STATUS       current
@@ -683,10 +726,11 @@ StorageType ::= TEXTUAL-CONVENTION
             cannot be changed nor deleted.
 
             If the value of an object with this syntax is either
-            permanent(4) or readOnly(5), it cannot be modified.
+            permanent(4) or readOnly(5), it cannot be written.
             Conversely, if the value is either other(1), volatile(2) or
             nonVolatile(3), it cannot be modified to be permanent(4) or
-            readOnly(5).
+            readOnly(5).  (All illegal modifications result in a
+            'wrongValue' error.)
 
             Every usage of this textual convention is required to
             specify the columnar objects which a permanent(4) row must
@@ -699,30 +743,30 @@ StorageType ::= TEXTUAL-CONVENTION
                      readOnly(5)     -- e.g., completely in ROM
                  }
 
-
 TDomain ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
           "Denotes a kind of transport service.
 
           Some possible values, such as snmpUDPDomain, are defined in
-          'Transport Mappings for Version 2 of the Simple Network
-          Management Protocol (SNMPv2)'."
+          the SNMPv2-TM MIB module.  Other possible values are defined
+          in other MIB modules."
+    REFERENCE    "The SNMPv2-TM MIB module is defined in RFC 1906."
     SYNTAX       OBJECT IDENTIFIER
-
 
 TAddress ::= TEXTUAL-CONVENTION
     STATUS       current
     DESCRIPTION
           "Denotes a transport service address.
 
-          For snmpUDPDomain, a TAddress is 6 octets long, the initial 4
-          octets containing the IP-address in network-byte order and the
-          last 2 containing the UDP port in network-byte order.  Consult
-          'Transport Mappings for Version 2 of the Simple Network
-          Management Protocol (SNMPv2)' for further information on
-          snmpUDPDomain."
+          A TAddress value is always interpreted within the context of a
+          TDomain value.  Thus, each definition of a TDomain value must
+          be accompanied by a definition of a textual convention for use
+          with that TDomain.  Some possible textual conventions, such as
+          SnmpUDPAddress for snmpUDPDomain, are defined in the SNMPv2-TM
+          MIB module.  Other possible textual conventions are defined in
+          other MIB modules."
+    REFERENCE    "The SNMPv2-TM MIB module is defined in RFC 1906."
     SYNTAX       OCTET STRING (SIZE (1..255))
-
 
 END
