@@ -15,25 +15,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Bits",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
       "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "Unsigned32",
+      "Bits",
       "Gauge32",
-      "iso",
+      "OBJECT-TYPE",
       "MODULE-IDENTITY",
+      "Integer32",
       "Counter32",
-      "Counter64"
+      "iso",
+      "IpAddress",
+      "Counter64",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "DisplayString",
       "TruthValue",
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hh3c3GModem": {
@@ -2162,7 +2162,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/comware/HH3C-3GMODEM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:33:55 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:14:51 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

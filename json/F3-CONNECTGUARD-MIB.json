@@ -5,31 +5,31 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "SfpMediaType",
-      "VlanTagType",
-      "TrafficDirection",
-      "PerfCounter64",
-      "CmPmBinAction",
-      "F3DisplayString",
-      "OperationalState",
-      "VlanPriority",
-      "PriorityMapMode",
-      "VlanId",
-      "EthernetPortSpeed",
       "AdminState",
+      "PerfCounter64",
       "EthernetMediaType",
+      "VlanEthertype",
+      "VlanTagType",
+      "PriorityMapMode",
+      "CmPmIntervalType",
       "SecondaryState",
       "AfpTagControl",
+      "CmPmBinAction",
       "SfpConnectorValue",
-      "VlanEthertype",
-      "CmPmIntervalType"
+      "EthernetPortSpeed",
+      "VlanPriority",
+      "VlanId",
+      "SfpMediaType",
+      "F3DisplayString",
+      "TrafficDirection",
+      "OperationalState"
     ],
     "CM-ENTITY-MIB": [
       "neIndex",
       "shelfIndex",
-      "networkElementEntry",
+      "slotIndex",
       "f3UsbHostIndex",
-      "slotIndex"
+      "networkElementEntry"
     ],
     "CM-FACILITY-MIB": [
       "cmFlowEntry"
@@ -38,8 +38,8 @@
       "PhysicalIndex"
     ],
     "F3-FPM-MIB": [
-      "f3NetFlowPointEntry",
-      "f3AccFlowPointEntry"
+      "f3AccFlowPointEntry",
+      "f3NetFlowPointEntry"
     ],
     "IEEE8021-SECY-MIB": [
       "SecySCI"
@@ -52,36 +52,36 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Gauge32",
-      "iso",
       "Unsigned32",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "Integer32",
-      "MibIdentifier"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "StorageType",
       "VariablePointer",
-      "TEXTUAL-CONVENTION",
-      "MacAddress",
       "DisplayString",
-      "RowStatus",
+      "StorageType",
       "DateAndTime",
-      "TimeStamp"
+      "RowStatus",
+      "TimeStamp",
+      "TruthValue",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3ConnectGuardMIB": {
@@ -3841,7 +3841,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-CONNECTGUARD-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:26:48 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:08:02 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

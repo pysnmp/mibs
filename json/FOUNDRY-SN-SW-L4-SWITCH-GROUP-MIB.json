@@ -16,23 +16,23 @@
     ],
     "SNMPv2-SMI": [
       "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
       "OBJECT-IDENTITY",
-      "Bits",
+      "MibIdentifier",
+      "Counter64",
       "IpAddress",
       "iso",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
-      "Gauge32"
+      "Unsigned32",
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "snL4": {
@@ -5714,7 +5714,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:38:19 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:19:01 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

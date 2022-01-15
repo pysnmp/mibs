@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "IEEE8021-TC-MIB": [
-      "IEEE8021PbbComponentIdentifier",
       "ieee802dot1mibs",
+      "IEEE8021PbbComponentIdentifier",
       "IEEE8021PriorityValue"
     ],
     "IF-MIB": [
@@ -14,36 +14,36 @@
       "LldpV2DestAddressTableIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "systemGroup"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
+      "Counter32",
       "Unsigned32",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter64",
-      "Gauge32",
       "iso",
+      "Gauge32",
+      "TimeTicks",
       "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Integer32"
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TruthValue",
-      "TimeInterval",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "RowStatus",
       "MacAddress",
-      "RowStatus"
+      "DisplayString",
+      "TimeInterval",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ieee8021CnMib": {
@@ -1777,7 +1777,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IEEE8021-CN-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:25:57 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:10 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

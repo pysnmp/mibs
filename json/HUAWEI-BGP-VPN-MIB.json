@@ -8,16 +8,16 @@
       "hwDatacomm"
     ],
     "IF-MIB": [
-      "ifName",
-      "ifIndex"
+      "ifIndex",
+      "ifName"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "MPLS-L3VPN-STD-MIB": [
-      "mplsL3VpnVrfPerfCurrNumRoutes",
-      "mplsL3VpnVrfConfMidRteThresh"
+      "mplsL3VpnVrfConfMidRteThresh",
+      "mplsL3VpnVrfPerfCurrNumRoutes"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
@@ -25,24 +25,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "iso",
-      "Bits",
       "TimeTicks",
-      "IpAddress"
+      "Gauge32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hwBgpMIB": {
@@ -3769,7 +3769,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/HUAWEI-BGP-VPN-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:44:13 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:23:54 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

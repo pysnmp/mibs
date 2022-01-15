@@ -4,58 +4,58 @@
     "BFD-TC-STD-MIB": [
       "BfdIntervalTC",
       "BfdCtrlDestPortNumberTC",
-      "BfdMultiplierTC",
       "BfdCtrlSourcePortNumberTC",
+      "BfdMultiplierTC",
       "BfdSessIndexTC"
     ],
     "DIFFSERV-DSCP-TC": [
       "IndexIntegerNextFree"
     ],
     "IANA-BFD-TC-STD-MIB": [
-      "IANAbfdDiagTC",
       "IANAbfdSessAuthenticationKeyTC",
       "IANAbfdSessTypeTC",
+      "IANAbfdSessOperModeTC",
       "IANAbfdSessStateTC",
       "IANAbfdSessAuthenticationTypeTC",
-      "IANAbfdSessOperModeTC"
+      "IANAbfdDiagTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
+      "InetPortNumber",
       "InetAddressType",
-      "InetPortNumber"
+      "InetAddress"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Integer32",
       "Unsigned32",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter64",
-      "Gauge32",
-      "mib-2",
+      "Counter32",
       "iso",
+      "mib-2",
+      "Gauge32",
+      "TimeTicks",
       "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Integer32"
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "TimeStamp",
-      "TruthValue",
       "StorageType",
+      "TruthValue",
+      "RowStatus",
+      "TimeStamp",
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bfdMIB": {
@@ -1498,7 +1498,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/BFD-STD-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:25:57 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

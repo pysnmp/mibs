@@ -5,38 +5,38 @@
       "aiEnterpriseMibModules"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Bits",
-      "Counter64",
-      "MODULE-IDENTITY",
       "Integer32",
-      "NOTIFICATION-TYPE",
-      "Gauge32",
-      "Unsigned32",
-      "snmpModules",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "TimeTicks",
-      "iso",
+      "Counter64",
       "MibIdentifier",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
+      "snmpModules",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "Gauge32",
+      "Bits",
+      "TimeTicks",
+      "IpAddress",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DateAndTime",
-      "TimeInterval",
-      "PhysAddress",
-      "TestAndIncr",
       "MacAddress",
-      "StorageType",
-      "DisplayString",
+      "TimeInterval",
       "TruthValue",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "StorageType",
+      "TestAndIncr",
+      "PhysAddress",
+      "DisplayString",
+      "DateAndTime",
+      "RowStatus"
     ]
   },
   "aiMIB": {
@@ -10687,7 +10687,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/arubaos/AI-AP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:27:52 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:09:08 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

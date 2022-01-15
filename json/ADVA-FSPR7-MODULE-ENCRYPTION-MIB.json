@@ -2,59 +2,59 @@
   "imports": {
     "class": "imports",
     "ADVA-FSPR7-MIB": [
+      "entityEqptPortNo",
+      "entityEqptSlotNo",
       "entityFacilityClassName",
-      "entityFacilitySlotNo",
+      "entityFacilityExtNo",
       "entityEqptClassName",
       "entityFacilityShelfNo",
-      "entityEqptExtNo",
-      "entityFacilityExtNo",
       "entityEqptShelfNo",
-      "entityEqptPortNo",
+      "entityFacilitySlotNo",
       "entityFacilityPortNo",
-      "entityEqptSlotNo"
+      "entityEqptExtNo"
     ],
     "ADVA-FSPR7-TC-MIB": [
       "FspR7RlsActionCaps",
-      "FspR7SnmpHexString",
+      "FspR7RequestErrorTypeAes",
       "FspR7Unsigned32Caps",
       "FspR7RequestErrorType",
       "FspR7RlsAction",
-      "FspR7RequestErrorTypeAes"
+      "FspR7SnmpHexString"
     ],
     "ADVA-MIB": [
+      "EntityIndex",
       "entityIndex",
-      "fspR7",
-      "EntityIndex"
+      "fspR7"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Gauge32",
+      "Unsigned32",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "iso",
       "IpAddress",
-      "Unsigned32",
-      "Bits",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "Integer32",
-      "MibIdentifier"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString",
       "DateAndTime",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "moduleEncryptionMIB": {
@@ -2700,7 +2700,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-FSPR7-MODULE-ENCRYPTION-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:26:48 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:08:01 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

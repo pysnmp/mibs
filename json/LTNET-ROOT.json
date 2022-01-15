@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "Gauge32",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "TimeTicks",
-      "Unsigned32",
       "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "iso",
-      "OBJECT-TYPE"
+      "enterprises",
+      "Gauge32",
+      "Integer32",
+      "MODULE-IDENTITY",
+      "Bits",
+      "TimeTicks",
+      "Counter32",
+      "IpAddress",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ltnetRoot": {
@@ -50,7 +50,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/LTNET-ROOT",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:29:57 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:10:54 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

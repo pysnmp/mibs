@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module DISMAN-NSLOOKUP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DISMAN-NSLOOKUP-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 19:25:35 2022
+# Produced by pysmi-1.1.8 at Sat Jan 15 20:06:47 2022
 # On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
-InetAddress, InetAddressType = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress", "InetAddressType")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
+InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
-Bits, iso, ModuleIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, IpAddress, NotificationType, Gauge32, mib_2, TimeTicks, ObjectIdentity, MibIdentifier, Unsigned32 = mibBuilder.importSymbols("SNMPv2-SMI", "Bits", "iso", "ModuleIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "IpAddress", "NotificationType", "Gauge32", "mib-2", "TimeTicks", "ObjectIdentity", "MibIdentifier", "Unsigned32")
-DisplayString, TextualConvention, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention", "RowStatus")
+NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
+mib_2, ObjectIdentity, Integer32, Counter32, Gauge32, IpAddress, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, ModuleIdentity, Bits, Counter64, MibIdentifier, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "mib-2", "ObjectIdentity", "Integer32", "Counter32", "Gauge32", "IpAddress", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "ModuleIdentity", "Bits", "Counter64", "MibIdentifier", "NotificationType", "iso")
+DisplayString, RowStatus, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "RowStatus", "TextualConvention")
 lookupMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 82))
 lookupMIB.setRevisions(('2006-06-13 00:00', '2000-09-21 00:00',))
 if mibBuilder.loadTexts: lookupMIB.setLastUpdated('200606130000Z')
@@ -66,4 +66,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 lookupGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 82, 2, 2, 1)).setObjects(("DISMAN-NSLOOKUP-MIB", "lookupMaxConcurrentRequests"), ("DISMAN-NSLOOKUP-MIB", "lookupPurgeTime"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlOperStatus"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlTargetAddressType"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlTargetAddress"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlTime"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlRc"), ("DISMAN-NSLOOKUP-MIB", "lookupCtlRowStatus"), ("DISMAN-NSLOOKUP-MIB", "lookupResultsAddressType"), ("DISMAN-NSLOOKUP-MIB", "lookupResultsAddress"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     lookupGroup = lookupGroup.setStatus('current')
-mibBuilder.exportSymbols("DISMAN-NSLOOKUP-MIB", lookupConformance=lookupConformance, lookupCompliance=lookupCompliance, lookupResultsTable=lookupResultsTable, lookupCtlOperationName=lookupCtlOperationName, lookupCtlRowStatus=lookupCtlRowStatus, lookupMaxConcurrentRequests=lookupMaxConcurrentRequests, lookupResultsEntry=lookupResultsEntry, lookupGroups=lookupGroups, lookupCtlEntry=lookupCtlEntry, lookupCtlOwnerIndex=lookupCtlOwnerIndex, lookupCtlTargetAddressType=lookupCtlTargetAddressType, lookupCtlTime=lookupCtlTime, PYSNMP_MODULE_ID=lookupMIB, lookupCtlRc=lookupCtlRc, lookupResultsAddress=lookupResultsAddress, lookupMIB=lookupMIB, lookupGroup=lookupGroup, lookupResultsIndex=lookupResultsIndex, lookupMinimumCompliance=lookupMinimumCompliance, lookupCtlOperStatus=lookupCtlOperStatus, lookupCtlTargetAddress=lookupCtlTargetAddress, lookupResultsAddressType=lookupResultsAddressType, lookupPurgeTime=lookupPurgeTime, lookupObjects=lookupObjects, lookupCompliances=lookupCompliances, lookupCtlTable=lookupCtlTable)
+mibBuilder.exportSymbols("DISMAN-NSLOOKUP-MIB", lookupCtlOwnerIndex=lookupCtlOwnerIndex, lookupCtlTargetAddressType=lookupCtlTargetAddressType, lookupCtlTable=lookupCtlTable, lookupCtlEntry=lookupCtlEntry, lookupMaxConcurrentRequests=lookupMaxConcurrentRequests, lookupCtlRc=lookupCtlRc, lookupResultsEntry=lookupResultsEntry, lookupObjects=lookupObjects, lookupCtlTargetAddress=lookupCtlTargetAddress, lookupCtlRowStatus=lookupCtlRowStatus, lookupCompliance=lookupCompliance, lookupGroup=lookupGroup, lookupCtlOperationName=lookupCtlOperationName, lookupPurgeTime=lookupPurgeTime, lookupConformance=lookupConformance, lookupCtlOperStatus=lookupCtlOperStatus, lookupResultsAddressType=lookupResultsAddressType, PYSNMP_MODULE_ID=lookupMIB, lookupMIB=lookupMIB, lookupCompliances=lookupCompliances, lookupMinimumCompliance=lookupMinimumCompliance, lookupGroups=lookupGroups, lookupResultsIndex=lookupResultsIndex, lookupResultsAddress=lookupResultsAddress, lookupCtlTime=lookupCtlTime, lookupResultsTable=lookupResultsTable)

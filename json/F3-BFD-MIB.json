@@ -5,24 +5,24 @@
       "fsp150cm"
     ],
     "BFD-STD-MIB": [
-      "bfdSessIndex",
-      "bfdSessEntry"
+      "bfdSessEntry",
+      "bfdSessIndex"
     ],
     "CM-COMMON-MIB": [
-      "OperationalState",
+      "AdminState",
+      "SecondaryState",
       "VlanPriority",
       "VlanId",
-      "AdminState",
-      "SecondaryState"
+      "OperationalState"
     ],
     "CM-ENTITY-MIB": [
       "neIndex"
     ],
     "F3-L3-MIB": [
-      "f3VrfEntry",
-      "f3L3TrafficOspfInterfaceEntry",
       "f3L3TrafficBgpPeerEntry",
-      "f3L3TrafficIPInterfaceEntry"
+      "f3L3TrafficOspfInterfaceEntry",
+      "f3L3TrafficIPInterfaceEntry",
+      "f3VrfEntry"
     ],
     "IANA-BFD-TC-STD-MIB": [
       "IANAbfdSessStateTC"
@@ -31,33 +31,33 @@
       "Ipv6Address"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "OBJECT-TYPE",
       "Gauge32",
-      "iso",
       "Unsigned32",
+      "Counter32",
+      "MibIdentifier",
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "iso",
       "IpAddress",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "Integer32",
-      "MibIdentifier"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "TruthValue",
       "VariablePointer",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus"
+      "StorageType",
+      "RowStatus",
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "f3BfdMIB": {
@@ -808,7 +808,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BFD-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:26:48 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:08:01 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

@@ -7,27 +7,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-TYPE",
-      "Integer32",
       "NOTIFICATION-TYPE",
-      "Bits",
-      "Unsigned32",
-      "Counter32",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "Integer32",
       "iso",
-      "enterprises",
       "TimeTicks",
-      "IpAddress"
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "Counter64",
+      "Bits",
+      "enterprises",
+      "IpAddress",
+      "Counter32",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "RowStatus"
     ]
   },
   "hwISMCommon": {
@@ -1024,7 +1024,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/ISM-HUAWEI-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:44:13 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:23:53 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

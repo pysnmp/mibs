@@ -2,26 +2,26 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Bits",
-      "Counter32",
-      "OBJECT-IDENTITY",
       "iso",
-      "MibIdentifier",
+      "Bits",
       "enterprises",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Integer32",
       "IpAddress",
-      "OBJECT-TYPE"
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "Gauge32",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -774,7 +774,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ionodes/IONODES-IONSERIES-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:45:47 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:25:24 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

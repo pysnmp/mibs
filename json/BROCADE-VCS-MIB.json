@@ -8,34 +8,34 @@
       "FcWwn"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "Counter32",
-      "Counter64",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
+      "MibIdentifier",
+      "Counter64",
       "IpAddress",
       "iso",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Gauge32"
+      "Counter32",
+      "Integer32",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "brocadeVcsMIB": {
@@ -496,7 +496,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/BROCADE-VCS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:38:19 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:19:01 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

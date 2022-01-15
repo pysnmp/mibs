@@ -8,48 +8,48 @@
       "tmnxSRNotifyPrefix"
     ],
     "ALCATEL-IND1-TIMETRA-TC-MIB": [
-      "TmnxOperState",
+      "TmnxActionType",
       "TmnxAdminState",
-      "TItemDescription",
       "TNamedItem",
-      "TmnxPortID",
+      "TItemDescription",
       "TNamedItemOrEmpty",
-      "TmnxActionType"
+      "TmnxPortID",
+      "TmnxOperState"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "iso",
-      "IpAddress",
-      "Gauge32",
-      "TimeTicks",
-      "Counter32",
       "Integer32",
-      "Unsigned32",
-      "Counter64",
+      "Counter32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
+      "iso",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY"
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "TimeTicks",
+      "IpAddress",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
+      "TimeStamp",
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "DisplayString",
+      "TruthValue",
+      "RowStatus",
       "MacAddress",
       "TimeInterval",
-      "TEXTUAL-CONVENTION",
-      "RowPointer",
-      "RowStatus",
-      "TimeStamp",
-      "TruthValue",
-      "DateAndTime"
+      "RowPointer"
     ]
   },
   "tmnxChassisMIBModule": {
@@ -8570,7 +8570,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALCATEL-IND1-TIMETRA-CHASSIS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:50:04 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:29:35 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

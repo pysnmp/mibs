@@ -5,52 +5,52 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "ifIndex",
+      "InterfaceIndexOrZero",
       "InterfaceIndex",
-      "InterfaceIndexOrZero"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "NETGEAR-REF-MIB": [
-      "AgentPortMask",
-      "ng7000managedswitch"
+      "ng7000managedswitch",
+      "AgentPortMask"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qVlanIndex",
       "VlanIndex",
+      "dot1qFdbId",
       "VlanId",
-      "dot1qFdbId"
+      "dot1qVlanIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "IpAddress",
-      "Gauge32",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
       "Counter64",
-      "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Integer32",
-      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "iso",
       "Unsigned32",
-      "TimeTicks"
+      "Integer32",
+      "Gauge32",
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Bits",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "RowStatus",
       "TruthValue",
+      "DateAndTime",
       "MacAddress",
+      "RowStatus",
+      "DisplayString",
       "PhysAddress",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "fastPathSwitching": {
@@ -13309,7 +13309,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:48:58 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:28:24 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

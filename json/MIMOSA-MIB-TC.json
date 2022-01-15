@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Unsigned32",
-      "Bits",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "IpAddress",
-      "Gauge32",
       "Counter32",
-      "OBJECT-TYPE",
-      "Integer32",
+      "MibIdentifier",
+      "IpAddress",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "iso",
+      "Counter64",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "mimosaMibTC": {
@@ -99,7 +99,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mimosa/MIMOSA-MIB-TC",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:48:27 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:27:51 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

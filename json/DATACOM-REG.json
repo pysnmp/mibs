@@ -2,35 +2,35 @@
   "imports": {
     "class": "imports",
     "DATACOM-SMI": [
-      "datacomManagementCards",
+      "datacomDevices",
+      "datacomAccessDevices",
       "datacomModems",
       "datacomModules",
-      "datacomAccessDevices",
-      "datacomDevices"
+      "datacomManagementCards"
     ],
     "SNMPv2-CONF": [
       "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
+      "iso",
       "Integer32",
-      "IpAddress",
-      "Unsigned32",
       "TimeTicks",
-      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
       "Gauge32",
       "Counter64",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "Bits",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "iso"
+      "MODULE-IDENTITY",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "datacomRegistrationModule": {
@@ -1746,7 +1746,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/datacom/DATACOM-REG.mib",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:35:15 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:16:01 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

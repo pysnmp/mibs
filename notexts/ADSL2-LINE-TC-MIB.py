@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ADSL2-LINE-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ADSL2-LINE-TC-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 19:25:34 2022
+# Produced by pysmi-1.1.8 at Sat Jan 15 20:06:47 2022
 # On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
+ValueRangeConstraint, ValueSizeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-transmission, ModuleIdentity, iso, Counter64, Counter32, MibScalar, MibTable, MibTableRow, MibTableColumn, Integer32, IpAddress, MibIdentifier, NotificationType, Gauge32, ObjectIdentity, TimeTicks, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "transmission", "ModuleIdentity", "iso", "Counter64", "Counter32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Integer32", "IpAddress", "MibIdentifier", "NotificationType", "Gauge32", "ObjectIdentity", "TimeTicks", "Unsigned32", "Bits")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+ObjectIdentity, Integer32, Counter32, Gauge32, IpAddress, TimeTicks, transmission, MibScalar, MibTable, MibTableRow, MibTableColumn, Unsigned32, ModuleIdentity, Bits, Counter64, MibIdentifier, NotificationType, iso = mibBuilder.importSymbols("SNMPv2-SMI", "ObjectIdentity", "Integer32", "Counter32", "Gauge32", "IpAddress", "TimeTicks", "transmission", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Unsigned32", "ModuleIdentity", "Bits", "Counter64", "MibIdentifier", "NotificationType", "iso")
+DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 adsl2TCMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 238, 2))
 adsl2TCMIB.setRevisions(('2006-10-04 00:00',))
 if mibBuilder.loadTexts: adsl2TCMIB.setLastUpdated('200610040000Z')
@@ -119,4 +119,4 @@ class Adsl2ChPtmStatus(TextualConvention, Bits):
     status = 'current'
     namedValues = NamedValues(("noDefect", 0), ("outOfSync", 1))
 
-mibBuilder.exportSymbols("ADSL2-LINE-TC-MIB", Adsl2LConfProfPmMode=Adsl2LConfProfPmMode, Adsl2MaxBer=Adsl2MaxBer, Adsl2LdsfResult=Adsl2LdsfResult, Adsl2Direction=Adsl2Direction, Adsl2LastTransmittedState=Adsl2LastTransmittedState, Adsl2ScMaskUs=Adsl2ScMaskUs, Adsl2ScMaskDs=Adsl2ScMaskDs, Adsl2Tssi=Adsl2Tssi, Adsl2TransmissionModeType=Adsl2TransmissionModeType, Adsl2PowerMngState=Adsl2PowerMngState, Adsl2ChPtmStatus=Adsl2ChPtmStatus, Adsl2LineLdsf=Adsl2LineLdsf, Adsl2LineStatus=Adsl2LineStatus, Adsl2Unit=Adsl2Unit, Adsl2SymbolProtection=Adsl2SymbolProtection, Adsl2ConfPmsForce=Adsl2ConfPmsForce, Adsl2RfiDs=Adsl2RfiDs, Adsl2RaMode=Adsl2RaMode, PYSNMP_MODULE_ID=adsl2TCMIB, Adsl2PsdMaskUs=Adsl2PsdMaskUs, Adsl2PsdMaskDs=Adsl2PsdMaskDs, adsl2TCMIB=adsl2TCMIB, Adsl2ChAtmStatus=Adsl2ChAtmStatus, Adsl2OperationModes=Adsl2OperationModes, Adsl2InitResult=Adsl2InitResult)
+mibBuilder.exportSymbols("ADSL2-LINE-TC-MIB", adsl2TCMIB=adsl2TCMIB, Adsl2RaMode=Adsl2RaMode, Adsl2PsdMaskDs=Adsl2PsdMaskDs, Adsl2TransmissionModeType=Adsl2TransmissionModeType, Adsl2Direction=Adsl2Direction, Adsl2MaxBer=Adsl2MaxBer, Adsl2OperationModes=Adsl2OperationModes, Adsl2ChAtmStatus=Adsl2ChAtmStatus, Adsl2Unit=Adsl2Unit, Adsl2LConfProfPmMode=Adsl2LConfProfPmMode, Adsl2ChPtmStatus=Adsl2ChPtmStatus, Adsl2InitResult=Adsl2InitResult, Adsl2RfiDs=Adsl2RfiDs, Adsl2ScMaskUs=Adsl2ScMaskUs, Adsl2LastTransmittedState=Adsl2LastTransmittedState, Adsl2PowerMngState=Adsl2PowerMngState, Adsl2PsdMaskUs=Adsl2PsdMaskUs, Adsl2LineLdsf=Adsl2LineLdsf, Adsl2Tssi=Adsl2Tssi, Adsl2SymbolProtection=Adsl2SymbolProtection, PYSNMP_MODULE_ID=adsl2TCMIB, Adsl2ScMaskDs=Adsl2ScMaskDs, Adsl2LineStatus=Adsl2LineStatus, Adsl2ConfPmsForce=Adsl2ConfPmsForce, Adsl2LdsfResult=Adsl2LdsfResult)

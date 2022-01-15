@@ -8,34 +8,34 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
       "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "Bits",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-IDENTITY",
       "Counter32",
       "Unsigned32",
-      "Bits",
-      "TimeTicks",
-      "Integer32",
-      "Counter64",
-      "NOTIFICATION-TYPE"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
+      "RowStatus",
+      "TimeStamp",
       "TEXTUAL-CONVENTION",
       "MacAddress",
-      "TimeStamp",
-      "RowStatus",
-      "DisplayString",
       "TimeInterval",
-      "TruthValue"
+      "TruthValue",
+      "DisplayString"
     ]
   },
   "ltp8xStandalone": {
@@ -1373,7 +1373,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/eltex/ELTEX-LTP8X-STANDALONE",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:37:12 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:17:55 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

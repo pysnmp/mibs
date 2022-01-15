@@ -13,25 +13,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
       "Counter32",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Integer32",
+      "iso",
+      "Gauge32",
       "IpAddress",
       "OBJECT-TYPE",
-      "Counter64",
-      "Gauge32",
-      "Integer32"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TimeInterval",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TimeInterval"
     ]
   },
   "ciscoRadiusExtMIB": {
@@ -773,7 +773,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-RADIUS-EXT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:33:12 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:14:07 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

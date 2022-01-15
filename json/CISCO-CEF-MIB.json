@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "CISCO-CEF-TC": [
-      "CefAdjacencySource",
-      "CefAdminStatus",
-      "CefCCType",
-      "CefCCAction",
-      "CefAdjLinkType",
-      "CefCCStatus",
-      "CefOperStatus",
-      "CefFailureReason",
-      "CefPathType",
-      "CefForwardingElementSpecialType",
       "CefIpVersion",
       "CefMplsLabelList",
-      "CefPrefixSearchState"
+      "CefAdminStatus",
+      "CefCCStatus",
+      "CefCCAction",
+      "CefAdjacencySource",
+      "CefCCType",
+      "CefForwardingElementSpecialType",
+      "CefOperStatus",
+      "CefPrefixSearchState",
+      "CefPathType",
+      "CefAdjLinkType",
+      "CefFailureReason"
     ],
     "CISCO-SMI": [
       "ciscoMgmt"
@@ -50,27 +50,27 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MibIdentifier",
-      "Gauge32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "TimeTicks",
       "Counter32",
-      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Integer32",
+      "iso",
+      "Gauge32",
       "IpAddress",
       "OBJECT-TYPE",
-      "Counter64",
-      "Integer32"
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TimeStamp",
       "TruthValue",
       "RowStatus",
-      "TimeStamp",
+      "DisplayString",
       "TestAndIncr"
     ]
   },
@@ -2962,7 +2962,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-CEF-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:33:11 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:14:06 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

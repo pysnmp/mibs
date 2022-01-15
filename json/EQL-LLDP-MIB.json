@@ -14,32 +14,32 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Counter32",
-      "Gauge32",
-      "iso",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "enterprises",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "MODULE-IDENTITY",
       "Integer32",
-      "Bits",
+      "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
       "OBJECT-IDENTITY",
-      "MibIdentifier"
+      "Bits",
+      "Gauge32",
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "OBJECT-TYPE",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TimeInterval",
       "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "TimeInterval",
+      "DisplayString",
+      "MacAddress"
     ]
   },
   "eqlLldpMib": {
@@ -339,7 +339,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/equallogic/EQL-LLDP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:37:47 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:18:28 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

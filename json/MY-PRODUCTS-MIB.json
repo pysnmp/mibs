@@ -4,29 +4,29 @@
     "MY-SMI": [
       "mySwitchProducts",
       "myRouterProducts",
-      "myWirelessProducts",
-      "myModules"
+      "myModules",
+      "myWirelessProducts"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "iso",
-      "Integer32",
+      "MibIdentifier",
+      "Gauge32",
       "TimeTicks",
+      "Integer32",
+      "Bits",
       "NOTIFICATION-TYPE",
-      "OBJECT-IDENTITY",
+      "OBJECT-TYPE",
+      "Counter32",
       "MODULE-IDENTITY",
       "Unsigned32",
-      "Bits",
-      "Gauge32",
+      "OBJECT-IDENTITY",
+      "iso",
       "IpAddress",
-      "Counter32",
-      "OBJECT-TYPE",
-      "Counter64",
-      "MibIdentifier"
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -722,7 +722,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ruijie/MY-PRODUCTS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:54:25 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:33:54 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

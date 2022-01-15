@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "Bits",
       "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "iso",
+      "TimeTicks",
+      "IpAddress",
+      "OBJECT-TYPE",
       "Unsigned32",
       "OBJECT-IDENTITY",
       "MibIdentifier",
-      "Counter32",
+      "Gauge32",
       "Counter64",
-      "OBJECT-TYPE",
-      "Gauge32"
+      "Bits",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nwDecIVRouter": {
@@ -3028,7 +3028,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-DECIV-ROUTER-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:37:40 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:18:22 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

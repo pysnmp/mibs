@@ -6,21 +6,21 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
+      "OBJECT-TYPE",
       "IpAddress",
+      "iso",
       "MibIdentifier",
-      "TimeTicks",
-      "enterprises",
-      "Unsigned32",
-      "Counter32",
+      "Bits",
       "Integer32",
       "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
+      "Counter64",
+      "enterprises",
+      "TimeTicks",
       "Gauge32",
-      "OBJECT-TYPE"
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -926,7 +926,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ixsystems/FREENAS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:45:54 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:25:31 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

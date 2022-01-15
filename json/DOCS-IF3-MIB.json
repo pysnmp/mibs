@@ -8,22 +8,22 @@
       "NodeName"
     ],
     "DOCS-CABLE-DEVICE-MIB": [
-      "docsDevEvId",
-      "docsDevEvLevel",
       "docsDevEvText",
-      "docsDevEvLastTime"
+      "docsDevEvId",
+      "docsDevEvLastTime",
+      "docsDevEvLevel"
     ],
     "DOCS-IF-MIB": [
-      "TenthdB",
-      "DocsisQosVersion",
-      "DocsisUpstreamType",
       "DocsEqualizerData",
-      "TenthdBmV"
+      "TenthdBmV",
+      "DocsisQosVersion",
+      "TenthdB",
+      "DocsisUpstreamType"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero",
-      "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -36,37 +36,37 @@
       "SnmpTagList"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
       "sysName"
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "Bits",
-      "MibIdentifier",
-      "TimeTicks",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "Counter64",
-      "Gauge32",
+      "Integer32",
+      "Counter32",
       "iso",
+      "Gauge32",
+      "TimeTicks",
       "MODULE-IDENTITY",
+      "MibIdentifier",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Counter32",
-      "Integer32"
+      "Bits",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "TruthValue",
       "StorageType",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "RowStatus",
       "MacAddress",
-      "RowStatus"
+      "DateAndTime",
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "docsIf3Mib": {
@@ -5172,7 +5172,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/DOCS-IF3-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:25:57 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:09 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

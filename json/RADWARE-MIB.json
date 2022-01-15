@@ -12,28 +12,28 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "TRAP-TYPE",
-      "Bits",
-      "Integer32",
       "IpAddress",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "iso",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "TimeTicks",
       "MODULE-IDENTITY",
-      "enterprises"
+      "TRAP-TYPE",
+      "Counter64",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "enterprises",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Unsigned32",
+      "Bits",
+      "Counter32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "TimeStamp"
+      "TimeStamp",
+      "PhysAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "TruthValue": {
@@ -18490,7 +18490,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/radware/RADWARE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:53:33 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:33:02 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

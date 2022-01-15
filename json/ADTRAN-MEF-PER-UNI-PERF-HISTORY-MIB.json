@@ -2,19 +2,19 @@
   "imports": {
     "class": "imports",
     "ADTRAN-AOS": [
-      "adGenAOSMef",
-      "adGenAOSConformance"
+      "adGenAOSConformance",
+      "adGenAOSMef"
     ],
     "ADTRAN-MIB": [
       "adIdentity"
     ],
     "HC-PerfHist-TC-MIB": [
-      "HCPerfTotalCount",
-      "HCPerfTimeElapsed",
-      "HCPerfValidIntervals",
       "HCPerfIntervalCount",
+      "HCPerfTimeElapsed",
+      "HCPerfTotalCount",
       "HCPerfInvalidIntervals",
-      "HCPerfCurrentCount"
+      "HCPerfCurrentCount",
+      "HCPerfValidIntervals"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -25,20 +25,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "IpAddress",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "Integer32",
       "Unsigned32",
       "Counter32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "IpAddress",
       "Bits",
-      "Integer32",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "iso"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -850,7 +850,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adtran/ADTRAN-MEF-PER-UNI-PERF-HISTORY-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:26:20 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:07:31 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

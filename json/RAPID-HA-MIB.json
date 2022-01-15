@@ -5,29 +5,29 @@
       "rapidstream"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "IpAddress",
+      "OBJECT-TYPE",
       "enterprises",
-      "Counter64",
-      "Gauge32",
-      "Integer32",
-      "Unsigned32",
+      "iso",
       "OBJECT-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "TimeTicks",
+      "MibIdentifier",
       "Counter32",
       "Bits",
-      "iso",
       "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "TimeTicks"
+      "Unsigned32",
+      "Gauge32",
+      "MODULE-IDENTITY",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION"
     ]
   },
@@ -432,7 +432,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-HA-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:50:38 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:30:10 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

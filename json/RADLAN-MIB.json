@@ -2,11 +2,11 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "dot1dBasePortEntry",
       "MacAddress",
-      "dot1dBasePort",
       "Timeout",
-      "BridgeId"
+      "BridgeId",
+      "dot1dBasePort",
+      "dot1dBasePortEntry"
     ],
     "IEEE8021-PAE-MIB": [
       "PaeControlledPortStatus",
@@ -22,50 +22,50 @@
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
+      "VlanIndex",
       "PortList",
-      "dot1qFdbId",
-      "VlanIndex"
+      "dot1qFdbId"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "IpAddress",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
-      "OBJECT-IDENTITY",
-      "Gauge32",
-      "iso",
       "OBJECT-TYPE",
-      "Counter32",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "Bits",
       "enterprises",
+      "MibIdentifier",
+      "iso",
+      "Integer32",
       "NOTIFICATION-TYPE",
-      "TimeTicks",
       "Counter64",
-      "Integer32"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Unsigned32",
+      "TimeTicks"
     ],
     "SNMPv2-SMI-v1": [
-      "Integer-32",
       "Counter-32",
-      "Unsigned-32"
+      "Unsigned-32",
+      "Integer-32"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "SNMPv2-TC-v1": [
       "RowStatus",
-      "DisplayString",
-      "RowPointer",
       "PhysAddress",
+      "RowPointer",
       "TimeInterval",
       "TruthValue",
+      "DisplayString",
       "DateAndTime"
     ]
   },
@@ -8659,7 +8659,7 @@
   "meta": {
     "comments": [
       "ASN.1 source https://pysnmp.github.io:443/mibs/asn1/RADLAN-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:37:12 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:17:55 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

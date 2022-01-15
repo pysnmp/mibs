@@ -22,28 +22,28 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "TimeTicks",
-      "Gauge32",
-      "enterprises",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "MODULE-IDENTITY",
       "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "Counter32",
+      "Bits",
       "OBJECT-TYPE",
-      "iso",
+      "MODULE-IDENTITY",
       "IpAddress",
+      "MibIdentifier",
+      "Unsigned32",
+      "enterprises",
+      "iso",
       "OBJECT-IDENTITY",
-      "Integer32"
+      "Gauge32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString",
-      "MacAddress",
+      "TruthValue",
       "RowStatus",
-      "TruthValue"
+      "MacAddress"
     ]
   },
   "hmConfiguration": {
@@ -14361,7 +14361,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hirschmann/HMPRIV-MGMT-SNMP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:40:50 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:21:10 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

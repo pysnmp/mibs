@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module IPV6-UDP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/IPV6-UDP-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 19:25:46 2022
+# Produced by pysmi-1.1.8 at Sat Jan 15 20:06:58 2022
 # On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint", "ConstraintsUnion")
 Ipv6Address, Ipv6IfIndexOrZero = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address", "Ipv6IfIndexOrZero")
 NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, mib_2, Counter32, experimental, TimeTicks, IpAddress, ObjectIdentity, iso, ModuleIdentity, Integer32, Unsigned32, Bits, NotificationType, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "mib-2", "Counter32", "experimental", "TimeTicks", "IpAddress", "ObjectIdentity", "iso", "ModuleIdentity", "Integer32", "Unsigned32", "Bits", "NotificationType", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+TimeTicks, experimental, MibIdentifier, ModuleIdentity, Unsigned32, NotificationType, iso, mib_2, Integer32, Bits, Counter32, Gauge32, ObjectIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "experimental", "MibIdentifier", "ModuleIdentity", "Unsigned32", "NotificationType", "iso", "mib-2", "Integer32", "Bits", "Counter32", "Gauge32", "ObjectIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 ipv6UdpMIB = ModuleIdentity((1, 3, 6, 1, 3, 87))
 ipv6UdpMIB.setRevisions(('2017-02-22 00:00', '1998-01-29 00:00',))
 
@@ -49,4 +49,4 @@ ipv6UdpGroup = ObjectGroup((1, 3, 6, 1, 3, 87, 2, 2, 1)).setObjects(("IPV6-UDP-M
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     ipv6UdpGroup = ipv6UdpGroup.setStatus('obsolete')
 if mibBuilder.loadTexts: ipv6UdpGroup.setDescription('The group of objects providing management of\n         UDP over IPv6.\n\n         This group is obsoleted by several groups in UDP-MIB.')
-mibBuilder.exportSymbols("IPV6-UDP-MIB", ipv6UdpCompliances=ipv6UdpCompliances, ipv6UdpMIB=ipv6UdpMIB, ipv6UdpGroups=ipv6UdpGroups, ipv6UdpConformance=ipv6UdpConformance, ipv6UdpGroup=ipv6UdpGroup, PYSNMP_MODULE_ID=ipv6UdpMIB, ipv6UdpIfIndex=ipv6UdpIfIndex, udp=udp, ipv6UdpEntry=ipv6UdpEntry, ipv6UdpLocalAddress=ipv6UdpLocalAddress, ipv6UdpCompliance=ipv6UdpCompliance, ipv6UdpTable=ipv6UdpTable, ipv6UdpLocalPort=ipv6UdpLocalPort)
+mibBuilder.exportSymbols("IPV6-UDP-MIB", ipv6UdpCompliances=ipv6UdpCompliances, ipv6UdpCompliance=ipv6UdpCompliance, ipv6UdpIfIndex=ipv6UdpIfIndex, ipv6UdpEntry=ipv6UdpEntry, ipv6UdpGroup=ipv6UdpGroup, ipv6UdpGroups=ipv6UdpGroups, ipv6UdpTable=ipv6UdpTable, ipv6UdpLocalPort=ipv6UdpLocalPort, udp=udp, ipv6UdpConformance=ipv6UdpConformance, PYSNMP_MODULE_ID=ipv6UdpMIB, ipv6UdpMIB=ipv6UdpMIB, ipv6UdpLocalAddress=ipv6UdpLocalAddress)

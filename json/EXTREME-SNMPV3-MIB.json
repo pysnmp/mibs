@@ -12,25 +12,25 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Unsigned32",
-      "Counter32",
-      "Counter64",
+      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Bits",
+      "MibIdentifier",
+      "Counter64",
       "IpAddress",
       "iso",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
-      "MibIdentifier",
-      "Gauge32"
+      "Unsigned32",
+      "Integer32",
+      "Counter32",
+      "Gauge32",
+      "Bits",
+      "MODULE-IDENTITY",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "extremeSnmpv3": {
@@ -133,7 +133,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/extreme/EXTREME-BASE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:38:19 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:19:01 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

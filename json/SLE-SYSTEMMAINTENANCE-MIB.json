@@ -5,33 +5,33 @@
       "sleMgmt"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType"
+      "InetAddressType",
+      "InetAddress"
     ],
     "SLE-TC-MIB": [
-      "SleControlStatusType",
-      "SleControlRequestResultType"
+      "SleControlRequestResultType",
+      "SleControlStatusType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP",
       "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Unsigned32",
       "TimeTicks",
-      "iso",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
       "Counter32",
       "OBJECT-IDENTITY",
-      "Gauge32",
       "MibIdentifier",
-      "Counter64"
+      "Bits",
+      "iso",
+      "IpAddress",
+      "Integer32",
+      "Counter64",
+      "Gauge32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "MacAddress",
@@ -16953,7 +16953,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/dasan/SLE-SYSTEMMAINTENANCE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 19:35:00 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 20:15:48 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
