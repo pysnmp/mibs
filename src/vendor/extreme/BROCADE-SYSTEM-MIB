@@ -2,13 +2,13 @@
 -- Title: Switch System MIB.
 --
 
-SYSTEM-MIB DEFINITIONS ::= BEGIN
+BROCADE-SYSTEM-MIB DEFINITIONS ::= BEGIN
 
   IMPORTS
       DisplayString, TEXTUAL-CONVENTION, TruthValue
       FROM SNMPv2-TC
       Integer32, OBJECT-TYPE, OBJECT-IDENTITY,
-      MODULE-IDENTITY
+      MODULE-IDENTITY, IpAddress, Counter32
       FROM SNMPv2-SMI
 	  SwSensorIndex, SwPortIndex
       FROM Brocade-TC

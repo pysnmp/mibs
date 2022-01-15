@@ -1,36 +1,33 @@
--- MIB File: HA.mib
 HA-MIB DEFINITIONS ::= BEGIN 
 IMPORTS
     MODULE-IDENTITY, OBJECT-TYPE, NOTIFICATION-TYPE,
     Integer32, IpAddress
         FROM SNMPv2-SMI
     fibrechannel  FROM Brocade-REG-MIB
-	swID, swSsn FROM SYSTEM-MIB
+	swID, swSsn FROM BROCADE-SYSTEM-MIB
     entPhysicalIndex, entPhysicalName FROM ENTITY-MIB
     DisplayString
         FROM SNMPv2-TC;
 
 
 	haMIB	MODULE-IDENTITY
-        LAST-UPDATED "201805291200Z" -- May 29, 2018 12:00pm
-        ORGANIZATION "Extreme Networks, Inc."
-        CONTACT-INFO
-             "Postal:  Extreme Networks, Inc.
-                       6480 Via Del Oro
-                       San Jose, CA 95119 USA
-              Phone:   +1 408 579-2800
-              E-mail:  support@extremenetworks.com
-              WWW:     http://www.extremenetworks.com"
+		LAST-UPDATED "200208160000Z"    -- Aug. 16, 2002
+		ORGANIZATION "Brocade Communications Systems, Inc.,"
+		CONTACT-INFO "Customer Support Group
+			      Brocade Communications Systems,
+			      1745 Technology Drive,
+			      San Jose, CA 95110 U.S.A
+			      Tel: +1-408-392-6061
+			      Fax: +1-408-392-6656
+			      Email: support@Brocade.COM
+			      WEB: www.brocade.com"
 
 		DESCRIPTION
 		"The MIB module High Availability MIB.
-		Copyright (c) 2018 Extreme Networks, Inc.
+		Copyright (c) 2002-2003 Brocade Communications Systems, Inc.
 				All rights reserved."
 
 
-        REVISION "201805291200Z" -- May 29, 2018 12:00pm
-        DESCRIPTION	
-        "Updated ORGANIZATION and CONTACT-INFO with Extreme Networks"
 		REVISION "200208160000Z"    -- Aug. 16, 2002
 		DESCRIPTION
 		"The initial revision for the High Availability MIB."
@@ -86,7 +83,10 @@ IMPORTS
 				powerSupply(8),
 				fan(9),
 				coreblade(10),
-                applicationblade(11)
+                applicationblade(11),
+				sfm(12),
+ 				lineCard(13),
+ 				managementModule(14)
             }
 
 	fruTable	OBJECT-TYPE
@@ -276,7 +276,7 @@ IMPORTS
 			"Gives the factory part num of the FRU object"
 		::= { fruHistoryEntry 6 }
 
-	fruHistoryFactorySerialNum	OBJECT-TYPE
+fruHistoryFactorySerialNum	OBJECT-TYPE
 			SYNTAX 	DisplayString
 			MAX-ACCESS	read-only
 			STATUS	current
@@ -284,9 +284,6 @@ IMPORTS
 			"Gives the factory serial num of the FRU object"
 		::= { fruHistoryEntry 7 }
 
- --
- -- Control Processor (aka MM) table
- --
 	cpTable   	OBJECT-TYPE
 			SYNTAX	SEQUENCE OF CPEntry
 			MAX-ACCESS	not-accessible
@@ -371,13 +368,6 @@ IMPORTS
 			"The last event related to this control card"
 		::= { cpEntry 5 }
 
- --
- -- Blade Processor (aka LC) table
- --
- --
- -- Notifications
- --
-
 	haMIBTraps	OBJECT IDENTIFIER ::= { haMIB 2 }
 	haMIBTrapPrefix OBJECT IDENTIFIER ::= { haMIBTraps 0 }
 
@@ -404,5 +394,3 @@ IMPORTS
 			"This trap is sent when a FRU is added or removed"
 		::= { haMIBTrapPrefix 3 }
 END
-
-
