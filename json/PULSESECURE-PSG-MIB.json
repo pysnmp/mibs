@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "iso",
-      "OBJECT-TYPE",
-      "Counter32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "TimeTicks",
       "enterprises",
-      "MibIdentifier",
-      "Integer32",
+      "TimeTicks",
+      "Unsigned32",
+      "IpAddress",
       "Bits",
+      "NOTIFICATION-TYPE",
+      "iso",
       "OBJECT-IDENTITY",
-      "Gauge32"
+      "Counter32",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
+      "Counter64",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "pulsesecure_gateway": {
@@ -1280,8 +1280,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pulse/PULSESECURE-PSG-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:34:20 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 18:13:58 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "PULSESECURE-PSG-MIB"

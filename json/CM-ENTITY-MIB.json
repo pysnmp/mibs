@@ -5,12 +5,12 @@
       "fsp150cm"
     ],
     "CM-COMMON-MIB": [
-      "TDMFrequencySourceType",
-      "CmPmIntervalType",
       "UsbOperationalMode",
-      "VlanId",
-      "OperationalState",
       "AdminState",
+      "VlanId",
+      "CmPmIntervalType",
+      "TDMFrequencySourceType",
+      "OperationalState",
       "SecondaryState",
       "RestartType"
     ],
@@ -21,34 +21,34 @@
       "PhysicalIndex"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "iso",
-      "Unsigned32",
-      "MibIdentifier",
-      "Bits",
-      "Counter32",
       "Gauge32",
-      "OBJECT-TYPE",
+      "MibIdentifier",
       "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
       "IpAddress",
+      "OBJECT-TYPE",
+      "Counter64",
+      "Integer32",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "iso",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
-      "Integer32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
       "TruthValue",
+      "StorageType",
+      "DisplayString",
+      "VariablePointer",
       "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "VariablePointer",
-      "StorageType"
+      "RowStatus"
     ]
   },
   "cmEntityMIB": {
@@ -21184,8 +21184,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-ENTITY-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:09:33 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:50:41 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CM-ENTITY-MIB"

@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
+      "dot1dStpPortEntry",
       "Timeout",
-      "BridgeId",
       "dot1dStpPort",
-      "dot1dStpPortEntry"
+      "BridgeId"
     ],
     "IEEE8021-CFM-MIB": [
       "dot1agCfmMaIndex",
       "dot1agCfmMdIndex",
       "dot1agCfmMepIdentifier",
-      "Dot1agCfmMepId",
-      "dot1agCfmMepDbRMepIdentifier"
+      "dot1agCfmMepDbRMepIdentifier",
+      "Dot1agCfmMepId"
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xAuthConfigEntry"
@@ -31,38 +31,38 @@
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
+      "VlanId",
       "VlanIndex",
       "dot1qVlanStaticEntry",
-      "VlanId"
+      "PortList"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Bits",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
       "enterprises",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
-      "Integer32",
-      "iso",
-      "IpAddress",
+      "Counter64",
+      "Bits",
       "Gauge32",
       "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Unsigned32",
+      "Counter32",
+      "IpAddress",
+      "Integer32",
+      "iso"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "TruthValue",
       "TEXTUAL-CONVENTION",
-      "MacAddress",
-      "DisplayString",
-      "RowStatus"
+      "RowStatus",
+      "DisplayString"
     ]
   },
   "ecs3510_28tMIB": {
@@ -29346,8 +29346,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgecos/ECS3510-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:19:27 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:59:58 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ECS3510-MIB"

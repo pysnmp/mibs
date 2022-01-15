@@ -5,48 +5,48 @@
       "ciscoMgmt"
     ],
     "CISCO-WIRELESS-TC-MIB": [
-      "CwrFixedPointScale",
+      "CwrCollectionStatus",
+      "CwrUpdateTime",
+      "CwrThreshLimitType",
       "CwrCollectionAction",
       "P2mpSnapshotAttribute",
-      "CwrCollectionStatus",
-      "CwrThreshLimitType",
+      "P2mpRadioSignalAttribute",
+      "CwrFixedPointScale",
       "CwrFixedPointPrecision",
-      "CwrFixedPointValue",
-      "CwrUpdateTime",
-      "P2mpRadioSignalAttribute"
+      "CwrFixedPointValue"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "OwnerString"
+      "OwnerString",
+      "ifIndex"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "Gauge32",
       "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "iso",
-      "Unsigned32",
-      "Integer32",
       "IpAddress",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "Unsigned32",
       "TimeTicks",
-      "MODULE-IDENTITY"
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
-      "DisplayString",
       "TimeInterval",
-      "MacAddress"
+      "TruthValue",
+      "DisplayString",
+      "MacAddress",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "ciscoWirelessRfMetricsMIB": {
@@ -1671,8 +1671,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WIRELESS-P2MP-RF-METRICS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:16:05 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:56:47 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-WIRELESS-P2MP-RF-METRICS-MIB"

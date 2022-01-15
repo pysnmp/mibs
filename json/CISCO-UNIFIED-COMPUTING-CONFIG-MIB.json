@@ -5,25 +5,25 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoNetworkAddress",
-      "TimeIntervalSec",
-      "Unsigned64",
       "CiscoInetAddressMask",
-      "CiscoAlarmSeverity"
+      "CiscoNetworkAddress",
+      "CiscoAlarmSeverity",
+      "Unsigned64",
+      "TimeIntervalSec"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "ciscoUnifiedComputingMIBObjects",
+      "CucsManagedObjectDn",
       "CucsManagedObjectId",
-      "CucsManagedObjectDn"
+      "ciscoUnifiedComputingMIBObjects"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsMoMoClassId",
+      "CucsLsConfigState",
       "CucsConfigSorterDirection",
       "CucsTrigAckMode",
-      "CucsConfigImpactResponseState",
-      "CucsLsConfigState",
       "CucsLsConfigIssues",
-      "CucsTrigAckChanges"
+      "CucsConfigImpactResponseState",
+      "CucsTrigAckChanges",
+      "CucsMoMoClassId"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv4",
@@ -37,30 +37,30 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "Bits",
-      "MibIdentifier",
-      "Unsigned32",
-      "iso",
-      "Integer32",
       "IpAddress",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Gauge32",
+      "Integer32",
+      "iso",
+      "Counter64",
+      "Unsigned32",
       "TimeTicks",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "RowPointer",
-      "TEXTUAL-CONVENTION",
-      "TimeStamp",
+      "TimeInterval",
+      "TruthValue",
       "DisplayString",
-      "DateAndTime",
       "MacAddress",
-      "TimeInterval"
+      "TEXTUAL-CONVENTION",
+      "DateAndTime",
+      "TimeStamp"
     ]
   },
   "cucsConfigObjects": {
@@ -476,8 +476,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-CONFIG-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:16:03 2022",
-      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:56:45 2022",
+      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-UNIFIED-COMPUTING-CONFIG-MIB"
