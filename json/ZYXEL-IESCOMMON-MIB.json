@@ -2,9 +2,9 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
-      "Timeout",
+      "BridgeId",
       "MacAddress",
-      "BridgeId"
+      "Timeout"
     ],
     "IF-MIB": [
       "ifIndex"
@@ -13,31 +13,31 @@
       "PortList"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
-      "IpAddress",
-      "Unsigned32",
-      "MibIdentifier",
-      "TimeTicks",
-      "Bits",
-      "iso",
       "Gauge32",
-      "OBJECT-IDENTITY",
       "NOTIFICATION-TYPE",
-      "OBJECT-TYPE",
       "TRAP-TYPE",
+      "OBJECT-IDENTITY",
       "Counter32",
-      "Integer32"
+      "Counter64",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Bits",
+      "IpAddress",
+      "Integer32",
+      "TimeTicks",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
       "DisplayString",
-      "RowStatus",
-      "PhysAddress"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "RowStatus"
     ],
     "ZYXEL-MIB": [
       "iesSeries",
@@ -3206,8 +3206,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/zyxel/ZYXEL-IESCOMMON-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:33:25 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:39:58 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ZYXEL-IESCOMMON-MIB"

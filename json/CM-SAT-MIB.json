@@ -6,18 +6,18 @@
     ],
     "CM-COMMON-MIB": [
       "CmPmBinAction",
+      "VlanPriority",
       "VlanId",
-      "OperationalState",
       "MepDestinationType",
+      "OperationalState",
       "AdminState",
-      "SecondaryState",
-      "VlanPriority"
+      "SecondaryState"
     ],
     "CM-ENTITY-MIB": [
-      "networkElementEntry",
-      "shelfIndex",
+      "slotIndex",
       "neIndex",
-      "slotIndex"
+      "networkElementEntry",
+      "shelfIndex"
     ],
     "CM-FACILITY-MIB": [
       "PolicerColorMode"
@@ -26,39 +26,39 @@
       "EsaProbePktIntervalType"
     ],
     "IEEE8021-CFM-MIB": [
-      "Dot1agCfmMepIdOrZero",
-      "dot1agCfmMepEntry"
+      "dot1agCfmMepEntry",
+      "Dot1agCfmMepIdOrZero"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "MODULE-IDENTITY",
+      "OBJECT-IDENTITY",
       "Unsigned32",
+      "iso",
+      "MibIdentifier",
+      "Bits",
+      "Counter32",
       "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
+      "MODULE-IDENTITY",
       "TimeTicks",
       "Counter64",
-      "iso",
-      "Bits",
-      "OBJECT-IDENTITY",
-      "Counter32",
-      "IpAddress"
+      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "StorageType",
-      "DisplayString",
-      "MacAddress",
       "RowStatus",
-      "VariablePointer",
+      "DisplayString",
+      "TruthValue",
+      "MacAddress",
       "TEXTUAL-CONVENTION",
       "DateAndTime",
-      "TruthValue"
+      "VariablePointer",
+      "StorageType"
     ]
   },
   "cmServiceActivationMIB": {
@@ -2221,8 +2221,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/CM-SAT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:05:56 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:09:31 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CM-SAT-MIB"

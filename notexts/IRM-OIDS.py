@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module IRM-OIDS (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/IRM-OIDS
-# Produced by pysmi-1.1.8 at Sat Jan 15 17:15:47 2022
-# On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 17:20:14 2022
+# On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueRangeConstraint, ConstraintsUnion, ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint")
 cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, ModuleIdentity, Unsigned32, Bits, MibIdentifier, Gauge32, Integer32, ObjectIdentity, IpAddress, TimeTicks, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Counter64, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "Unsigned32", "Bits", "MibIdentifier", "Gauge32", "Integer32", "ObjectIdentity", "IpAddress", "TimeTicks", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Counter64", "NotificationType")
+iso, ModuleIdentity, MibIdentifier, Bits, TimeTicks, ObjectIdentity, Integer32, Counter32, NotificationType, Gauge32, Counter64, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "MibIdentifier", "Bits", "TimeTicks", "ObjectIdentity", "Integer32", "Counter32", "NotificationType", "Gauge32", "Counter64", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 commsDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1))
 layerMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 2))
@@ -36,4 +36,4 @@ sysRepeaters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 3))
 sysBridges = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 4))
 sysRouters = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 5))
 sysIntDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 1, 1, 2, 6))
-mibBuilder.exportSymbols("IRM-OIDS", router=router, subsystem=subsystem, bridge=bridge, commonRev1=commonRev1, subSysMMAC=subSysMMAC, sysRouters=sysRouters, nb30Rev1=nb30Rev1, dl=dl, sysIntDev=sysIntDev, sysOtherType=sysOtherType, ups=ups, repeaterRev1=repeaterRev1, sysRepeaters=sysRepeaters, common=common, commsDevice=commsDevice, subSysDevice=subSysDevice, product=product, repeater=repeater, repeaterRev2=repeaterRev2, sysOIDs=sysOIDs, sysChassis=sysChassis, sysBridges=sysBridges, layerMgmt=layerMgmt, backplaneProtocol=backplaneProtocol)
+mibBuilder.exportSymbols("IRM-OIDS", sysRouters=sysRouters, repeaterRev1=repeaterRev1, commsDevice=commsDevice, sysOIDs=sysOIDs, repeater=repeater, common=common, subSysMMAC=subSysMMAC, ups=ups, commonRev1=commonRev1, bridge=bridge, subsystem=subsystem, nb30Rev1=nb30Rev1, sysRepeaters=sysRepeaters, subSysDevice=subSysDevice, layerMgmt=layerMgmt, backplaneProtocol=backplaneProtocol, dl=dl, sysChassis=sysChassis, router=router, sysOtherType=sysOtherType, sysIntDev=sysIntDev, product=product, repeaterRev2=repeaterRev2, sysBridges=sysBridges)

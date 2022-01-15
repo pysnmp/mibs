@@ -11,39 +11,39 @@
       "juniRouterName"
     ],
     "Juniper-TC": [
-      "JuniInterfaceLocation",
       "JuniLogSeverity",
-      "JuniEnable"
+      "JuniEnable",
+      "JuniInterfaceLocation"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
+      "IpAddress",
+      "Counter32",
       "OBJECT-TYPE",
       "MibIdentifier",
       "Unsigned32",
-      "iso",
+      "Integer32",
+      "MODULE-IDENTITY",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "Counter32",
-      "Counter64",
-      "IpAddress",
-      "TimeTicks",
+      "iso",
       "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY"
+      "Bits",
+      "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "PhysAddress",
       "RowStatus",
       "TEXTUAL-CONVENTION",
-      "TimeInterval",
+      "DisplayString",
       "TruthValue",
-      "DateAndTime",
-      "DisplayString"
+      "TimeInterval",
+      "DateAndTime"
     ]
   },
   "juniDhcpMIB": {
@@ -6483,8 +6483,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-DHCP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:22:39 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:28:23 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Juniper-DHCP-MIB"

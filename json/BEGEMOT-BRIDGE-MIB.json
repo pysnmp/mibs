@@ -5,38 +5,38 @@
       "begemot"
     ],
     "BRIDGE-MIB": [
-      "Timeout",
-      "BridgeId"
+      "BridgeId",
+      "Timeout"
     ],
     "IF-MIB": [
       "InterfaceIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "OBJECT-TYPE",
-      "Counter32",
-      "iso",
-      "Bits",
-      "Counter64",
-      "Unsigned32",
       "MibIdentifier",
-      "TimeTicks",
-      "mib-2",
-      "MODULE-IDENTITY",
-      "Gauge32",
+      "OBJECT-TYPE",
       "IpAddress",
+      "Integer32",
+      "NOTIFICATION-TYPE",
+      "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "NOTIFICATION-TYPE"
+      "mib-2",
+      "Bits",
+      "Counter32",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "iso"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
       "DisplayString",
+      "MacAddress",
+      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "RowStatus"
     ]
   },
@@ -1342,8 +1342,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/pfsense/BEGEMOT-BRIDGE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:27:36 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:33:39 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "BEGEMOT-BRIDGE-MIB"

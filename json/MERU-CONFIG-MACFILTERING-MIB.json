@@ -8,35 +8,35 @@
       "mwConfiguration"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Counter32",
-      "Gauge32",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
-      "OBJECT-TYPE",
-      "enterprises",
       "Counter64",
+      "Integer32",
       "Unsigned32",
+      "TimeTicks",
+      "Gauge32",
+      "IpAddress",
+      "Bits",
+      "MODULE-IDENTITY",
+      "MibIdentifier",
       "iso",
       "OBJECT-IDENTITY",
-      "Bits",
-      "IpAddress",
-      "MODULE-IDENTITY"
+      "enterprises",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "RowStatus",
+      "DateAndTime",
       "DisplayString",
       "MacAddress",
-      "TEXTUAL-CONVENTION",
-      "DateAndTime",
+      "TimeStamp",
       "TimeInterval",
-      "RowStatus",
-      "TruthValue",
-      "TimeStamp"
+      "TruthValue"
     ]
   },
   "mwConfigMacFiltering": {
@@ -222,8 +222,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fortinet/MERU-CONFIG-MACFILTERING-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:17:01 2022",
-      "On host fv-az39-968 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:21:35 2022",
+      "On host fv-az74-933 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MERU-CONFIG-MACFILTERING-MIB"
