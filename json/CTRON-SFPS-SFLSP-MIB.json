@@ -2,41 +2,41 @@
   "imports": {
     "class": "imports",
     "CTRON-SFPS-INCLUDE-MIB": [
-      "vlanSflspTracePathAPI",
       "vlanSflspArea",
-      "vlanSflspLsdb",
-      "vlanSflspTracePathInternal",
       "vlanSflspInterfaces",
-      "vlanSflspGeneralVariables",
-      "vlanSflsp1stHop",
-      "vlanSflspLSDBFlood",
-      "vlanSflspLSPStats",
+      "vlanSflspTracePathInternal",
       "vlanSflspIfMetric",
-      "vlanSflspNeighbors"
+      "vlanSflspNeighbors",
+      "vlanSflsp1stHop",
+      "vlanSflspTracePathAPI",
+      "vlanSflspLSPStats",
+      "vlanSflspLsdb",
+      "vlanSflspGeneralVariables",
+      "vlanSflspLSDBFlood"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
+      "Gauge32",
       "Bits",
-      "MODULE-IDENTITY",
-      "Counter32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
       "Integer32",
       "Counter64",
-      "NOTIFICATION-TYPE",
       "OBJECT-TYPE",
-      "IpAddress",
-      "TimeTicks",
+      "MODULE-IDENTITY",
       "iso",
-      "Gauge32",
-      "Unsigned32"
+      "IpAddress",
+      "MibIdentifier",
+      "Counter32",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "SfpsAddress": {
@@ -1873,8 +1873,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/enterasys/CTRON-SFPS-SFLSP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:00:53 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 18:01:54 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CTRON-SFPS-SFLSP-MIB"

@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module MPLS-TC-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MPLS-TC-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 17:49:25 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 17:49:34 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ConstraintsUnion, ValueSizeConstraint, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsUnion", "ValueSizeConstraint", "SingleValueConstraint", "ConstraintsIntersection")
+ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-transmission, Counter64, Counter32, ObjectIdentity, TimeTicks, Gauge32, Integer32, MibIdentifier, NotificationType, Unsigned32, IpAddress, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "transmission", "Counter64", "Counter32", "ObjectIdentity", "TimeTicks", "Gauge32", "Integer32", "MibIdentifier", "NotificationType", "Unsigned32", "IpAddress", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "ModuleIdentity")
+TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, transmission, ModuleIdentity, iso, ObjectIdentity, IpAddress, Counter64, Bits, Counter32, NotificationType, Unsigned32, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "transmission", "ModuleIdentity", "iso", "ObjectIdentity", "IpAddress", "Counter64", "Bits", "Counter32", "NotificationType", "Unsigned32", "Gauge32", "MibIdentifier")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 mplsTCMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 9999, 1))
 mplsTCMIB.setRevisions(('2001-01-04 12:00',))
@@ -89,4 +89,4 @@ class MplsTunnelInstanceIndex(TextualConvention, Unsigned32):
     status = 'current'
     subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65535)
 
-mibBuilder.exportSymbols("MPLS-TC-MIB", mplsTCMIB=mplsTCMIB, MplsInitialCreationSource=MplsInitialCreationSource, MplsLSPID=MplsLSPID, MplsTunnelAffinity=MplsTunnelAffinity, MplsBitRate=MplsBitRate, MplsLdpGenAddr=MplsLdpGenAddr, MplsTunnelInstanceIndex=MplsTunnelInstanceIndex, MplsLdpLabelTypes=MplsLdpLabelTypes, mplsMIB=mplsMIB, MplsLdpIdentifier=MplsLdpIdentifier, MplsExtendedTunnelId=MplsExtendedTunnelId, MplsPathIndexOrZero=MplsPathIndexOrZero, PYSNMP_MODULE_ID=mplsTCMIB, MplsPathIndex=MplsPathIndex, MplsAtmVcIdentifier=MplsAtmVcIdentifier, MplsLabel=MplsLabel, MplsLsrIdentifier=MplsLsrIdentifier, MplsBurstSize=MplsBurstSize, MplsPortNumber=MplsPortNumber, MplsTunnelIndex=MplsTunnelIndex)
+mibBuilder.exportSymbols("MPLS-TC-MIB", MplsAtmVcIdentifier=MplsAtmVcIdentifier, MplsTunnelIndex=MplsTunnelIndex, PYSNMP_MODULE_ID=mplsTCMIB, MplsBitRate=MplsBitRate, MplsLdpLabelTypes=MplsLdpLabelTypes, mplsTCMIB=mplsTCMIB, MplsTunnelInstanceIndex=MplsTunnelInstanceIndex, mplsMIB=mplsMIB, MplsPathIndex=MplsPathIndex, MplsBurstSize=MplsBurstSize, MplsLsrIdentifier=MplsLsrIdentifier, MplsLabel=MplsLabel, MplsPortNumber=MplsPortNumber, MplsPathIndexOrZero=MplsPathIndexOrZero, MplsLdpGenAddr=MplsLdpGenAddr, MplsInitialCreationSource=MplsInitialCreationSource, MplsTunnelAffinity=MplsTunnelAffinity, MplsLSPID=MplsLSPID, MplsLdpIdentifier=MplsLdpIdentifier, MplsExtendedTunnelId=MplsExtendedTunnelId)

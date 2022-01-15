@@ -8,10 +8,10 @@
       "NbsCmmcChannelBand"
     ],
     "NBS-MIB": [
-      "NbsTcMilliDb",
-      "nbs",
       "NbsTcMHz",
       "NbsTcMicroAmp",
+      "nbs",
+      "NbsTcMilliDb",
       "NbsTcTemperature"
     ],
     "SNMPv2-CONF": [
@@ -19,24 +19,24 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "iso",
-      "Counter32",
-      "Counter64",
       "OBJECT-IDENTITY",
-      "Gauge32"
+      "OBJECT-TYPE",
+      "Bits",
+      "Integer32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "Counter32",
+      "Unsigned32",
+      "IpAddress",
+      "Gauge32",
+      "iso",
+      "MODULE-IDENTITY",
+      "TimeTicks",
+      "Counter64"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "nbsSigLaneMib": {
@@ -554,8 +554,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/mrv/NBS-SIGLANE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:09:59 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 18:13:03 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NBS-SIGLANE-MIB"

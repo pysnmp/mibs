@@ -2,13 +2,13 @@
   "imports": {
     "class": "imports",
     "IANATn3270eTC-MIB": [
+      "IANATn3270eAddrType",
       "IANATn3270DeviceType",
-      "IANATn3270eClientType",
-      "IANATn3270ResourceType",
+      "IANATn3270eAddress",
       "IANATn3270eLogData",
       "IANATn3270Functions",
-      "IANATn3270eAddress",
-      "IANATn3270eAddrType"
+      "IANATn3270ResourceType",
+      "IANATn3270eClientType"
     ],
     "SNA-NAU-MIB": [
       "snanauMIB"
@@ -17,33 +17,33 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "TimeTicks",
-      "Counter32",
       "Gauge32",
-      "iso",
-      "Counter64",
-      "Integer32",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
       "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "OBJECT-TYPE",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Bits",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Integer32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "RowStatus",
+      "TestAndIncr",
+      "TEXTUAL-CONVENTION",
       "DateAndTime",
       "DisplayString",
-      "TestAndIncr",
-      "TEXTUAL-CONVENTION"
+      "RowStatus"
     ],
     "SYSAPPL-MIB": [
       "Utf8String"
@@ -1998,8 +1998,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/TN3270E-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:49:49 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:49:58 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "TN3270E-MIB"

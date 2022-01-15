@@ -9,44 +9,44 @@
       "IANACharset"
     ],
     "IANA-PRINTER-MIB": [
-      "PrtChannelTypeTC",
-      "PrtAlertTrainingLevelTC",
-      "PrtOutputTypeTC",
-      "PrtConsoleColorTC",
-      "PrtMarkerSuppliesTypeTC",
-      "PrtMarkerMarkTechTC",
-      "PrtCoverStatusTC",
-      "PrtAlertGroupTC",
-      "PrtAlertCodeTC",
-      "PrtGeneralResetTC",
-      "PrtInputTypeTC",
       "PrtMediaPathTypeTC",
+      "PrtAlertTrainingLevelTC",
+      "PrtAlertGroupTC",
       "PrtInterpreterLangFamilyTC",
-      "PrtConsoleDisableTC"
+      "PrtChannelTypeTC",
+      "PrtMarkerSuppliesTypeTC",
+      "PrtInputTypeTC",
+      "PrtOutputTypeTC",
+      "PrtCoverStatusTC",
+      "PrtGeneralResetTC",
+      "PrtConsoleColorTC",
+      "PrtConsoleDisableTC",
+      "PrtMarkerMarkTechTC",
+      "PrtAlertCodeTC"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
-      "mib-2",
       "Gauge32",
-      "iso",
-      "Counter64",
       "Unsigned32",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "iso",
       "OBJECT-TYPE",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "Bits",
+      "Counter64",
+      "Counter32",
       "NOTIFICATION-TYPE",
+      "mib-2",
+      "TimeTicks",
+      "Integer32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
@@ -4495,8 +4495,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/Printer-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:49:49 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:49:58 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Printer-MIB"

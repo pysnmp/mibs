@@ -6,25 +6,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "Unsigned32",
-      "Counter32",
-      "IpAddress",
       "Integer32",
-      "Bits",
+      "OBJECT-IDENTITY",
       "MibIdentifier",
-      "iso",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Counter64",
-      "Gauge32",
+      "Unsigned32",
       "enterprises",
-      "NOTIFICATION-TYPE"
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
+      "Bits",
+      "IpAddress",
+      "Counter64",
+      "MODULE-IDENTITY",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "rittal": {
@@ -41,8 +41,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rittal/RITTAL-SMI",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:15:18 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 18:18:32 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RITTAL-SMI-MIB"

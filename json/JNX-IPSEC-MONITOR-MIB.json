@@ -2,22 +2,22 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "JUNIPER-IPSEC-FLOW-MON-MIB": [
-      "JnxEncryptAlgo",
       "JnxIkeHashAlgo",
+      "JnxAuthAlgo",
       "JnxIkeNegoMode",
-      "JnxIkePeerRole",
-      "JnxIkePeerType",
-      "JnxSAType",
       "JnxRemotePeerType",
-      "JnxDiffHellmanGrp",
+      "JnxSAType",
       "JnxKeyType",
+      "JnxDiffHellmanGrp",
       "JnxEncapMode",
       "JnxIkeAuthMethod",
-      "JnxAuthAlgo"
+      "JnxEncryptAlgo",
+      "JnxIkePeerRole",
+      "JnxIkePeerType"
     ],
     "JUNIPER-SMI": [
       "jnxMibs"
@@ -30,25 +30,25 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "Counter64",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
       "Integer32",
       "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TimeInterval",
-      "TEXTUAL-CONVENTION"
+      "DisplayString"
     ]
   },
   "jnxIpSecMonitorMIB": {
@@ -1126,8 +1126,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JNX-IPSEC-MONITOR-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:08:18 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 18:11:12 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "JNX-IPSEC-MONITOR-MIB"

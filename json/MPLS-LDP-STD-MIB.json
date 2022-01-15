@@ -7,51 +7,51 @@
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddress",
       "InetAddressPrefixLength",
-      "InetPortNumber"
+      "InetPortNumber",
+      "InetAddress"
     ],
     "MPLS-LSR-STD-MIB": [
       "MplsIndexType"
     ],
     "MPLS-TC-STD-MIB": [
-      "mplsStdMIB",
-      "MplsLspType",
-      "MplsLdpLabelType",
       "MplsLsrIdentifier",
-      "MplsRetentionMode",
+      "MplsLdpLabelType",
       "MplsLabelDistributionMethod",
-      "MplsLdpIdentifier"
+      "MplsLspType",
+      "mplsStdMIB",
+      "MplsLdpIdentifier",
+      "MplsRetentionMode"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "TimeTicks",
       "Gauge32",
-      "iso",
       "Unsigned32",
-      "Counter64",
-      "Integer32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
+      "iso",
       "OBJECT-TYPE",
+      "MibIdentifier",
       "MODULE-IDENTITY",
       "Bits",
+      "Counter64",
       "NOTIFICATION-TYPE",
+      "Counter32",
+      "TimeTicks",
+      "Integer32",
       "IpAddress"
     ],
     "SNMPv2-TC": [
       "TimeStamp",
-      "TimeInterval",
-      "RowStatus",
-      "DisplayString",
-      "TruthValue",
+      "TEXTUAL-CONVENTION",
       "StorageType",
-      "TEXTUAL-CONVENTION"
+      "TruthValue",
+      "DisplayString",
+      "TimeInterval",
+      "RowStatus"
     ]
   },
   "mplsLdpStdMIB": {
@@ -2173,8 +2173,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MPLS-LDP-STD-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:49:49 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:49:58 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MPLS-LDP-STD-MIB"

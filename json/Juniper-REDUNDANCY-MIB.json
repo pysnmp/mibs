@@ -13,27 +13,27 @@
       "sysUpTime"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "Gauge32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
-      "Bits",
-      "Counter64",
-      "Counter32",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
       "OBJECT-TYPE",
+      "TimeTicks",
+      "MibIdentifier",
+      "Counter32",
       "Integer32",
       "iso",
-      "MibIdentifier",
-      "OBJECT-IDENTITY"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "MODULE-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
-      "DisplayString",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
-      "RowStatus",
-      "TEXTUAL-CONVENTION"
+      "DisplayString",
+      "DateAndTime",
+      "RowStatus"
     ]
   },
   "juniRedundancyMIB": {
@@ -814,8 +814,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-REDUNDANCY-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:08:17 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 18:11:12 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Juniper-REDUNDANCY-MIB"

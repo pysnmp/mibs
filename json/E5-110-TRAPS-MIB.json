@@ -2,8 +2,8 @@
   "imports": {
     "class": "imports",
     "E5-110-IESCOMMON-MIB": [
-      "iesSlotId",
-      "iesChassisId"
+      "iesChassisId",
+      "iesSlotId"
     ],
     "E5-110-MIB": [
       "e5x110"
@@ -16,24 +16,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "OBJECT-IDENTITY",
-      "Counter64",
-      "MibIdentifier",
-      "Unsigned32",
-      "Integer32",
-      "Gauge32",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Bits",
-      "TimeTicks",
-      "IpAddress",
       "NOTIFICATION-TYPE",
-      "iso"
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter32",
+      "Gauge32",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "trap": {
@@ -703,8 +703,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/calix/E5-110-TRAPS-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:53:09 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 17:53:37 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "E5-110-TRAPS-MIB"

@@ -1,18 +1,18 @@
 #
 # PySNMP MIB module RAPID-CITY-BAY-STACK (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nortel/RAPID-CITY-BAY-STACK
-# Produced by pysmi-1.1.8 at Sat Jan 15 18:11:54 2022
-# On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner
+# Produced by pysmi-1.1.8 at Sat Jan 15 18:14:58 2022
+# On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsUnion, ConstraintsIntersection, ValueRangeConstraint, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "ConstraintsIntersection", "ValueRangeConstraint", "SingleValueConstraint", "ValueSizeConstraint")
+ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint")
 rcBayStack, = mibBuilder.importSymbols("RAPID-CITY", "rcBayStack")
 rcMltId, = mibBuilder.importSymbols("RC-MLT-MIB", "rcMltId")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-iso, MibScalar, MibTable, MibTableRow, MibTableColumn, Gauge32, Counter64, Integer32, TimeTicks, IpAddress, ObjectIdentity, Bits, MibIdentifier, Counter32, ModuleIdentity, Unsigned32, NotificationType = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Gauge32", "Counter64", "Integer32", "TimeTicks", "IpAddress", "ObjectIdentity", "Bits", "MibIdentifier", "Counter32", "ModuleIdentity", "Unsigned32", "NotificationType")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+Counter64, ModuleIdentity, IpAddress, Integer32, Bits, Counter32, MibIdentifier, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, NotificationType, TimeTicks, iso, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "ModuleIdentity", "IpAddress", "Integer32", "Bits", "Counter32", "MibIdentifier", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "NotificationType", "TimeTicks", "iso", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 rcBayStackMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2272, 40, 1))
 rcBayStackMIB.setRevisions(('2004-09-29 00:00', '2004-07-20 00:00',))
 
@@ -48,4 +48,4 @@ if mibBuilder.loadTexts: rcBayStackSshDsaHostKeyStatus.setDescription('This obje
 rcMltConfigError = NotificationType((1, 3, 6, 1, 4, 1, 2272, 40, 1, 21, 0, 1)).setObjects(("RC-MLT-MIB", "rcMltId"))
 if mibBuilder.loadTexts: rcMltConfigError.setStatus('current')
 if mibBuilder.loadTexts: rcMltConfigError.setDescription('An rcMltConfigError trap indicates that one of the\n                       ports in a multi-link trunk was connected to a remote\n                       port that was not also configured as a trunk.  The\n                       trap indicates that the specified trunk has also been\n                       automatically disabled.')
-mibBuilder.exportSymbols("RAPID-CITY-BAY-STACK", rcBayStackTraps=rcBayStackTraps, rcBayStackObjects=rcBayStackObjects, rcBayStackTftpExt=rcBayStackTftpExt, rcBayStackSshSessionTable=rcBayStackSshSessionTable, rcBayStackMIB=rcBayStackMIB, rcBayStackSshSessionIp=rcBayStackSshSessionIp, rcBayStackSshDsaHostKeyStatus=rcBayStackSshDsaHostKeyStatus, rcMltConfigError=rcMltConfigError, PYSNMP_MODULE_ID=rcBayStackMIB, rcBayStackTraps0=rcBayStackTraps0, rcBayStackSshExt=rcBayStackSshExt, rcBayStackTftpAction=rcBayStackTftpAction, rcBayStackSshSessionEntry=rcBayStackSshSessionEntry, rcBayStackSshSessionId=rcBayStackSshSessionId)
+mibBuilder.exportSymbols("RAPID-CITY-BAY-STACK", rcBayStackSshSessionTable=rcBayStackSshSessionTable, rcBayStackMIB=rcBayStackMIB, rcBayStackSshDsaHostKeyStatus=rcBayStackSshDsaHostKeyStatus, rcBayStackObjects=rcBayStackObjects, rcBayStackSshExt=rcBayStackSshExt, rcBayStackSshSessionEntry=rcBayStackSshSessionEntry, rcBayStackSshSessionId=rcBayStackSshSessionId, rcBayStackTftpAction=rcBayStackTftpAction, PYSNMP_MODULE_ID=rcBayStackMIB, rcMltConfigError=rcMltConfigError, rcBayStackTraps=rcBayStackTraps, rcBayStackTftpExt=rcBayStackTftpExt, rcBayStackSshSessionIp=rcBayStackSshSessionIp, rcBayStackTraps0=rcBayStackTraps0)

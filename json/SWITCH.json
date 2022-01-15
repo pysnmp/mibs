@@ -2,14 +2,14 @@
   "imports": {
     "class": "imports",
     "IF-MIB": [
-      "InterfaceIndexOrZero",
+      "InterfaceIndex",
       "ifIndex",
-      "InterfaceIndex"
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
       "InetAddressType",
-      "InetAddressPrefixLength"
+      "InetAddressPrefixLength",
+      "InetAddress"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -23,34 +23,34 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "mib-2",
-      "Bits",
-      "Integer32",
-      "iso",
-      "Unsigned32",
-      "OBJECT-TYPE",
       "enterprises",
-      "Gauge32",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "OBJECT-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "iso",
+      "Bits",
+      "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "mib-2",
+      "Counter64",
       "Counter32",
-      "IpAddress"
+      "OBJECT-TYPE",
+      "Gauge32"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TimeStamp",
-      "PhysAddress",
-      "RowStatus",
       "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "AutonomousType",
       "DisplayString",
+      "TruthValue",
       "DateAndTime",
+      "TimeStamp",
+      "RowStatus",
       "MacAddress",
-      "TestAndIncr",
-      "AutonomousType"
+      "TestAndIncr"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,8 +93201,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:02:21 2022",
-      "On host fv-az77-149 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 18:03:36 2022",
+      "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SWITCH"
