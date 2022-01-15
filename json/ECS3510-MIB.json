@@ -2,17 +2,17 @@
   "imports": {
     "class": "imports",
     "BRIDGE-MIB": [
+      "dot1dStpPort",
       "dot1dStpPortEntry",
-      "BridgeId",
       "Timeout",
-      "dot1dStpPort"
+      "BridgeId"
     ],
     "IEEE8021-CFM-MIB": [
-      "dot1agCfmMepIdentifier",
-      "dot1agCfmMdIndex",
-      "dot1agCfmMaIndex",
       "Dot1agCfmMepId",
-      "dot1agCfmMepDbRMepIdentifier"
+      "dot1agCfmMepIdentifier",
+      "dot1agCfmMaIndex",
+      "dot1agCfmMepDbRMepIdentifier",
+      "dot1agCfmMdIndex"
     ],
     "IEEE8021-PAE-MIB": [
       "dot1xAuthConfigEntry"
@@ -31,9 +31,9 @@
       "EnabledStatus"
     ],
     "Q-BRIDGE-MIB": [
-      "PortList",
-      "VlanIndex",
       "dot1qVlanStaticEntry",
+      "VlanIndex",
+      "PortList",
       "VlanId"
     ],
     "SNMPv2-CONF": [
@@ -41,26 +41,26 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-TYPE",
-      "Counter32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
+      "TimeTicks",
       "MODULE-IDENTITY",
+      "iso",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Bits",
+      "OBJECT-IDENTITY",
+      "MibIdentifier",
+      "Integer32",
+      "OBJECT-TYPE",
       "enterprises",
       "IpAddress",
-      "Bits",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter64",
-      "MibIdentifier",
-      "TimeTicks",
-      "Integer32",
-      "Unsigned32"
+      "Counter32",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TruthValue",
       "RowStatus",
+      "TruthValue",
       "MacAddress",
       "TEXTUAL-CONVENTION"
     ]
@@ -29346,7 +29346,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/edgecos/ECS3510-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:00:58 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:36:43 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

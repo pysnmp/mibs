@@ -5,23 +5,23 @@
       "IANAipRouteProtocol"
     ],
     "IF-MIB": [
-      "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "InterfaceIndex",
+      "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetAddress",
-      "InetAddressType",
       "InetAddressPrefixLength",
-      "InetAutonomousSystemNumber"
+      "InetAddressType",
+      "InetAutonomousSystemNumber",
+      "InetAddress"
     ],
     "IP-FORWARD-MIB": [
       "inetCidrRouteEntry"
     ],
     "IP-MIB": [
       "ipv6RouterAdvertEntry",
+      "ipv6InterfaceEntry",
       "ipAddressEntry",
-      "ipNetToPhysicalEntry",
-      "ipv6InterfaceEntry"
+      "ipNetToPhysicalEntry"
     ],
     "LINKSYS-IP": [
       "ipSpec"
@@ -34,29 +34,29 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
-      "zeroDotZero",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "IpAddress",
-      "Integer32",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "Bits",
       "MibIdentifier",
-      "TimeTicks",
+      "iso",
+      "Gauge32",
+      "IpAddress",
+      "Unsigned32",
+      "mib-2",
+      "Counter32",
+      "MODULE-IDENTITY",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "zeroDotZero",
+      "Bits",
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
-      "TEXTUAL-CONVENTION",
       "RowStatus",
+      "DisplayString",
       "TimeInterval",
-      "DisplayString"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "rlIPv6": {
@@ -2151,7 +2151,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-IPv6",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:12:25 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:48:05 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

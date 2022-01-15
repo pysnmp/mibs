@@ -2,51 +2,51 @@
   "imports": {
     "class": "imports",
     "NETSCREEN-OSPF-MIB": [
-      "nsOspfRouterId",
+      "nsOspfIfState",
+      "nsOspfNbrRtrId",
       "nsOspfVirtIfNeighbor",
-      "nsOspfVirtNbrArea",
-      "nsOspfNbrAddressLessIndex",
-      "nsOspfVirtNbrRtrId",
-      "nsOspfIfIpAddress",
-      "nsOspfVirtIfState",
+      "nsOspfNbrIpAddr",
       "nsOspfNbrState",
-      "nsOspfLsdbType",
+      "nsOspfVirtNbrState",
+      "nsOspfAddressLessIf",
+      "nsOspfIfIpAddress",
+      "nsOspfLsdbRouterId",
       "nsOspfVirtIfAreaId",
       "nsOspfExtLsdbLimit",
-      "nsOspfIfState",
-      "nsOspfLsdbRouterId",
+      "nsOspfLsdbType",
+      "nsOspfVirtIfState",
       "nsOspf",
-      "nsOspfNbrIpAddr",
-      "nsOspfAddressLessIf",
-      "nsOspfLsdbLsid",
-      "nsOspfVirtNbrState",
+      "nsOspfRouterId",
+      "nsOspfVirtNbrRtrId",
+      "nsOspfNbrAddressLessIndex",
       "nsOspfLsdbAreaId",
-      "nsOspfNbrRtrId"
+      "nsOspfLsdbLsid",
+      "nsOspfVirtNbrArea"
     ],
     "NETSCREEN-TRAP-MIB": [
-      "netscreenTrapType",
-      "netscreenTrapDesc"
+      "netscreenTrapDesc",
+      "netscreenTrapType"
     ],
     "SNMPv2-CONF": [
+      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "Bits",
-      "Integer32",
       "MODULE-IDENTITY",
-      "iso",
-      "Counter32",
-      "IpAddress",
+      "NOTIFICATION-TYPE",
+      "Bits",
       "TimeTicks",
       "Counter64",
+      "Gauge32",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
+      "Integer32",
+      "Counter32",
       "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "Unsigned32"
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "iso",
+      "IpAddress"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -778,7 +778,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/screenos/NETSCREEN-OSPF-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:19:07 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:54:41 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

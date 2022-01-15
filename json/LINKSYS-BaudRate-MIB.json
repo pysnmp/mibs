@@ -9,24 +9,24 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "Counter64",
+      "MibIdentifier",
       "iso",
-      "NOTIFICATION-TYPE",
       "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
       "IpAddress",
       "Unsigned32",
+      "Counter32",
+      "MODULE-IDENTITY",
       "Bits",
-      "MibIdentifier",
-      "TimeTicks",
       "OBJECT-TYPE",
-      "MODULE-IDENTITY"
+      "Counter64",
+      "TimeTicks",
+      "NOTIFICATION-TYPE",
+      "Integer32",
+      "OBJECT-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlRs232": {
@@ -114,7 +114,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/linksys/LINKSYS-BaudRate-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:12:26 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:48:05 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

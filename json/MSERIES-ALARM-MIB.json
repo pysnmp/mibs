@@ -5,37 +5,37 @@
       "mseries"
     ],
     "MSERIES-TC": [
-      "AlarmPerceivedSeverity",
       "PortType",
+      "AlarmProbableCause",
       "UnitType",
-      "AlarmNotificationType",
-      "AlarmProbableCause"
+      "AlarmPerceivedSeverity",
+      "AlarmNotificationType"
     ],
     "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "Counter32",
+      "iso",
       "Counter64",
-      "MibIdentifier",
-      "OBJECT-IDENTITY",
-      "Bits",
-      "OBJECT-TYPE",
-      "IpAddress",
       "Gauge32",
+      "Unsigned32",
+      "TimeTicks",
       "NOTIFICATION-TYPE",
       "Integer32",
-      "TimeTicks",
-      "iso"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "Bits",
+      "OBJECT-TYPE",
+      "MODULE-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "DisplayString",
       "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DateAndTime"
     ]
   },
   "smartAlarm": {
@@ -1010,7 +1010,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/smartoptics/MSERIES-ALARM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:19:42 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:55:17 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

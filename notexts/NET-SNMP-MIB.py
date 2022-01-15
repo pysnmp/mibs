@@ -1,15 +1,15 @@
 #
 # PySNMP MIB module NET-SNMP-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netsnmp/NET-SNMP-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 18:13:26 2022
+# Produced by pysmi-1.1.8 at Sat Jan 15 19:49:04 2022
 # On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+OctetString, Integer, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "OctetString", "Integer", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, ValueSizeConstraint, ConstraintsIntersection, ConstraintsUnion, SingleValueConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "ValueSizeConstraint", "ConstraintsIntersection", "ConstraintsUnion", "SingleValueConstraint")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
 NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-ModuleIdentity, NotificationType, ObjectIdentity, Counter32, Counter64, Unsigned32, enterprises, MibScalar, MibTable, MibTableRow, MibTableColumn, Bits, iso, Integer32, TimeTicks, MibIdentifier, Gauge32, IpAddress = mibBuilder.importSymbols("SNMPv2-SMI", "ModuleIdentity", "NotificationType", "ObjectIdentity", "Counter32", "Counter64", "Unsigned32", "enterprises", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Bits", "iso", "Integer32", "TimeTicks", "MibIdentifier", "Gauge32", "IpAddress")
+NotificationType, Bits, enterprises, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ModuleIdentity, Integer32, Counter32, Counter64, Gauge32, TimeTicks, MibIdentifier, iso = mibBuilder.importSymbols("SNMPv2-SMI", "NotificationType", "Bits", "enterprises", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ModuleIdentity", "Integer32", "Counter32", "Counter64", "Gauge32", "TimeTicks", "MibIdentifier", "iso")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 netSnmp = ModuleIdentity((1, 3, 6, 1, 4, 1, 8072))
 netSnmp.setRevisions(('2002-01-30 00:00',))
@@ -28,4 +28,4 @@ netSnmpNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 4, 1))
 netSnmpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 5))
 netSnmpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 5, 1))
 netSnmpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 8072, 5, 2))
-mibBuilder.exportSymbols("NET-SNMP-MIB", netSnmpAgentOIDs=netSnmpAgentOIDs, netSnmpCompliances=netSnmpCompliances, netSnmpObjects=netSnmpObjects, netSnmpEnumerations=netSnmpEnumerations, PYSNMP_MODULE_ID=netSnmp, netSnmp=netSnmp, netSnmpNotificationPrefix=netSnmpNotificationPrefix, netSnmpConformance=netSnmpConformance, netSnmpModuleIDs=netSnmpModuleIDs, netSnmpGroups=netSnmpGroups, netSnmpDomains=netSnmpDomains, netSnmpNotifications=netSnmpNotifications, netSnmpNotificationObjects=netSnmpNotificationObjects, netSnmpPlaypen=netSnmpPlaypen, netSnmpExperimental=netSnmpExperimental)
+mibBuilder.exportSymbols("NET-SNMP-MIB", PYSNMP_MODULE_ID=netSnmp, netSnmpModuleIDs=netSnmpModuleIDs, netSnmpGroups=netSnmpGroups, netSnmpConformance=netSnmpConformance, netSnmpCompliances=netSnmpCompliances, netSnmpExperimental=netSnmpExperimental, netSnmpPlaypen=netSnmpPlaypen, netSnmp=netSnmp, netSnmpDomains=netSnmpDomains, netSnmpNotificationPrefix=netSnmpNotificationPrefix, netSnmpNotificationObjects=netSnmpNotificationObjects, netSnmpAgentOIDs=netSnmpAgentOIDs, netSnmpNotifications=netSnmpNotifications, netSnmpObjects=netSnmpObjects, netSnmpEnumerations=netSnmpEnumerations)

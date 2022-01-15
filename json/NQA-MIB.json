@@ -2,24 +2,24 @@
   "imports": {
     "class": "imports",
     "HUAWEI-ETHOAM-MIB": [
-      "HWDot1agCfmRelayActionFieldValue",
       "HWDot1agCfmIngressActionFieldValue",
-      "HWDot1agCfmEgressActionFieldValue"
+      "HWDot1agCfmEgressActionFieldValue",
+      "HWDot1agCfmRelayActionFieldValue"
     ],
     "HUAWEI-MIB": [
       "hwDatacomm"
     ],
     "IEEE802171-CFM-MIB": [
-      "Dot1agCfmMepIdOrZero",
       "Dot1agCfmMaintDomainName",
+      "Dot1agCfmMepIdOrZero",
       "Dot1agCfmMaintAssocName"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
       "InetAddressType",
+      "InetPortNumber",
       "InetAddress"
     ],
     "P-BRIDGE-MIB": [
@@ -32,38 +32,38 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "NOTIFICATION-GROUP",
-      "NOTIFICATION-TYPE",
-      "IpAddress",
-      "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "TimeTicks",
+      "Counter64",
+      "OBJECT-TYPE",
       "Integer32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "Counter32",
+      "MibIdentifier",
+      "MODULE-IDENTITY",
+      "Gauge32",
+      "NOTIFICATION-GROUP",
+      "OBJECT-IDENTITY",
       "iso",
       "Bits",
+      "TimeTicks",
       "mib-2",
-      "Counter64",
-      "Counter32",
-      "Unsigned32",
-      "OBJECT-TYPE"
+      "IpAddress"
     ],
     "SNMPv2-TC": [
+      "MacAddress",
       "DisplayString",
-      "TimeStamp",
-      "RowStatus",
+      "TEXTUAL-CONVENTION",
       "TruthValue",
       "StorageType",
-      "TEXTUAL-CONVENTION",
+      "DateAndTime",
       "TimeInterval",
-      "MacAddress",
-      "DateAndTime"
+      "RowStatus",
+      "TimeStamp"
     ]
   },
   "nqa": {
@@ -14427,7 +14427,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/NQA-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:08:28 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:44:12 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

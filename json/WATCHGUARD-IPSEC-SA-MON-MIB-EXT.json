@@ -5,39 +5,39 @@
       "ifIndex"
     ],
     "IPSEC-ISAKMP-IKE-DOI-TC": [
-      "IpsecDoiEspTransform",
       "IpsecDoiIpcompTransform",
       "IpsecDoiSecProtocolId",
-      "IpsecDoiAhTransform",
-      "IpsecDoiAuthAlgorithm",
+      "IpsecDoiEspTransform",
       "IpsecDoiEncapsulationMode",
-      "IpsecDoiIdentType"
+      "IpsecDoiIdentType",
+      "IpsecDoiAuthAlgorithm",
+      "IpsecDoiAhTransform"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter32",
-      "MibIdentifier",
-      "Unsigned32",
-      "iso",
       "enterprises",
-      "Bits",
-      "IpAddress",
-      "TimeTicks",
+      "MibIdentifier",
+      "iso",
       "Integer32",
-      "MODULE-IDENTITY",
-      "Counter64",
+      "TimeTicks",
       "Gauge32",
-      "NOTIFICATION-TYPE",
+      "IpAddress",
       "OBJECT-IDENTITY",
-      "OBJECT-TYPE"
+      "MODULE-IDENTITY",
+      "OBJECT-TYPE",
+      "Bits",
+      "Counter64",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue"
+      "TruthValue",
+      "TEXTUAL-CONVENTION"
     ],
     "WATCHGUARD-SMI": [
       "watchguard"
@@ -2235,7 +2235,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/watchguard/WATCHGUARD-IPSEC-SA-MON-MIB-EXT",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:21:50 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:57:27 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

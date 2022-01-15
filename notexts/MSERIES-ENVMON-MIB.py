@@ -1,17 +1,17 @@
 #
 # PySNMP MIB module MSERIES-ENVMON-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/smartoptics/MSERIES-ENVMON-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 18:19:40 2022
+# Produced by pysmi-1.1.8 at Sat Jan 15 19:55:15 2022
 # On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ConstraintsUnion")
+ConstraintsUnion, SingleValueConstraint, ValueRangeConstraint, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueRangeConstraint", "ConstraintsIntersection", "ValueSizeConstraint")
 mseries, = mibBuilder.importSymbols("MSERIES-MIB", "mseries")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Integer32, Bits, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, ModuleIdentity, ObjectIdentity, iso, TimeTicks, NotificationType, IpAddress, Unsigned32, Counter64, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Bits", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "ModuleIdentity", "ObjectIdentity", "iso", "TimeTicks", "NotificationType", "IpAddress", "Unsigned32", "Counter64", "MibIdentifier")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
+ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
+Counter64, TimeTicks, ModuleIdentity, Counter32, IpAddress, Bits, MibIdentifier, ObjectIdentity, Unsigned32, MibScalar, MibTable, MibTableRow, MibTableColumn, iso, NotificationType, Integer32, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Counter64", "TimeTicks", "ModuleIdentity", "Counter32", "IpAddress", "Bits", "MibIdentifier", "ObjectIdentity", "Unsigned32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "iso", "NotificationType", "Integer32", "Gauge32")
+TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
 smartEnvMon = ModuleIdentity((1, 3, 6, 1, 4, 1, 30826, 1, 4))
 smartEnvMon.setRevisions(('2014-02-15 10:34',))
 if mibBuilder.loadTexts: smartEnvMon.setLastUpdated('201402151034Z')
@@ -37,4 +37,4 @@ smartEnvMonBasicComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 30826, 1, 4, 2, 2,
 
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     smartEnvMonBasicComplV1 = smartEnvMonBasicComplV1.setStatus('current')
-mibBuilder.exportSymbols("MSERIES-ENVMON-MIB", smartEnvMonMIBConformance=smartEnvMonMIBConformance, smartEnvMonBasicComplV1=smartEnvMonBasicComplV1, smartEnvMonObjects=smartEnvMonObjects, smartEnvMonTemperatureGroupV1=smartEnvMonTemperatureGroupV1, smartEnvMonCompliances=smartEnvMonCompliances, smartEnvMonTemperatureEntry=smartEnvMonTemperatureEntry, smartEnvMonGroups=smartEnvMonGroups, smartEnvMonTemperatureIndex=smartEnvMonTemperatureIndex, smartEnvMon=smartEnvMon, smartEnvMonTemperatureValue=smartEnvMonTemperatureValue, smartEnvMonTemperatureTable=smartEnvMonTemperatureTable, PYSNMP_MODULE_ID=smartEnvMon, smartEnvMonTemperatureDescr=smartEnvMonTemperatureDescr)
+mibBuilder.exportSymbols("MSERIES-ENVMON-MIB", smartEnvMonTemperatureTable=smartEnvMonTemperatureTable, smartEnvMonBasicComplV1=smartEnvMonBasicComplV1, smartEnvMonTemperatureGroupV1=smartEnvMonTemperatureGroupV1, smartEnvMonMIBConformance=smartEnvMonMIBConformance, smartEnvMonObjects=smartEnvMonObjects, smartEnvMonCompliances=smartEnvMonCompliances, smartEnvMonTemperatureValue=smartEnvMonTemperatureValue, smartEnvMon=smartEnvMon, smartEnvMonTemperatureIndex=smartEnvMonTemperatureIndex, PYSNMP_MODULE_ID=smartEnvMon, smartEnvMonTemperatureDescr=smartEnvMonTemperatureDescr, smartEnvMonGroups=smartEnvMonGroups, smartEnvMonTemperatureEntry=smartEnvMonTemperatureEntry)

@@ -3,30 +3,30 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-MIB": [
-      "sysLocation",
+      "sysName",
       "sysContact",
-      "sysName"
+      "sysLocation"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
+      "Bits",
+      "Unsigned32",
+      "OBJECT-IDENTITY",
+      "iso",
+      "Integer32",
+      "Gauge32",
+      "OBJECT-TYPE",
+      "TimeTicks",
       "IpAddress",
       "MibIdentifier",
-      "TimeTicks",
       "Counter32",
-      "Gauge32",
-      "Counter64",
-      "Unsigned32",
-      "Integer32",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
+      "NOTIFICATION-TYPE",
       "enterprises",
-      "iso",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "MODULE-IDENTITY",
+      "Counter64"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -6377,7 +6377,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/carel/KELVIN-pCOWeb-Chiller-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:53:51 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:29:47 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

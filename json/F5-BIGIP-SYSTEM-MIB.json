@@ -2,10 +2,10 @@
   "imports": {
     "class": "imports",
     "F5-BIGIP-COMMON-MIB": [
-      "bigipCompliances",
-      "LongDisplayString",
       "bigipTrafficMgmt",
-      "bigipGroups"
+      "bigipGroups",
+      "LongDisplayString",
+      "bigipCompliances"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
@@ -14,31 +14,31 @@
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Bits",
+      "TimeTicks",
+      "MibIdentifier",
+      "enterprises",
+      "Integer32",
+      "IpAddress",
       "Gauge32",
       "Counter64",
-      "Counter32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Opaque",
-      "Integer32",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY",
+      "Opaque"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "MacAddress"
     ]
   },
   "bigipSystem": {
@@ -401,6 +401,16 @@
     "oid": "1.3.6.1.4.1.3375.2.1.1.2.36",
     "class": "objectidentity"
   },
+  "sysGlobalSipsessionStat": {
+    "name": "sysGlobalSipsessionStat",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37",
+    "class": "objectidentity"
+  },
+  "sysGlobalSiprouterStat": {
+    "name": "sysGlobalSiprouterStat",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38",
+    "class": "objectidentity"
+  },
   "sysGlobalFwNatDynamicPoolStat": {
     "name": "sysGlobalFwNatDynamicPoolStat",
     "oid": "1.3.6.1.4.1.3375.2.1.1.2.39",
@@ -409,6 +419,16 @@
   "sysGlobalFwNatDynamicPoolFailureStat": {
     "name": "sysGlobalFwNatDynamicPoolFailureStat",
     "oid": "1.3.6.1.4.1.3375.2.1.1.2.40",
+    "class": "objectidentity"
+  },
+  "sysGlobalFwNatStaticSourceTranslationPoolStat": {
+    "name": "sysGlobalFwNatStaticSourceTranslationPoolStat",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41",
+    "class": "objectidentity"
+  },
+  "sysGlobalFwNatStaticDestinationTranslationPoolStat": {
+    "name": "sysGlobalFwNatStaticDestinationTranslationPoolStat",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42",
     "class": "objectidentity"
   },
   "sysAdminIp": {
@@ -714,6 +734,11 @@
   "sysVlanxStat": {
     "name": "sysVlanxStat",
     "oid": "1.3.6.1.4.1.3375.2.1.2.13.7",
+    "class": "objectidentity"
+  },
+  "sysVlanIfcStat": {
+    "name": "sysVlanIfcStat",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8",
     "class": "objectidentity"
   },
   "sysFecStat": {
@@ -1609,6 +1634,81 @@
   "bigipi15800_N": {
     "name": "bigipi15800_N",
     "oid": "1.3.6.1.4.1.3375.2.1.3.4.132",
+    "class": "objectidentity"
+  },
+  "bigipi10610": {
+    "name": "bigipi10610",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.133",
+    "class": "objectidentity"
+  },
+  "bigipi10810": {
+    "name": "bigipi10810",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.134",
+    "class": "objectidentity"
+  },
+  "ykVprC2400": {
+    "name": "ykVprC2400",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.135",
+    "class": "objectidentity"
+  },
+  "ykVprB2250": {
+    "name": "ykVprB2250",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.136",
+    "class": "objectidentity"
+  },
+  "ykVprB2150": {
+    "name": "ykVprB2150",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.137",
+    "class": "objectidentity"
+  },
+  "yki2600": {
+    "name": "yki2600",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.138",
+    "class": "objectidentity"
+  },
+  "yki2800": {
+    "name": "yki2800",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.139",
+    "class": "objectidentity"
+  },
+  "yki4600": {
+    "name": "yki4600",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.140",
+    "class": "objectidentity"
+  },
+  "yki4800": {
+    "name": "yki4800",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.141",
+    "class": "objectidentity"
+  },
+  "yki5600": {
+    "name": "yki5600",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.142",
+    "class": "objectidentity"
+  },
+  "yki5800": {
+    "name": "yki5800",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.143",
+    "class": "objectidentity"
+  },
+  "yki7600": {
+    "name": "yki7600",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.144",
+    "class": "objectidentity"
+  },
+  "yki7800": {
+    "name": "yki7800",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.145",
+    "class": "objectidentity"
+  },
+  "yki10600": {
+    "name": "yki10600",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.146",
+    "class": "objectidentity"
+  },
+  "yki10800": {
+    "name": "yki10800",
+    "oid": "1.3.6.1.4.1.3375.2.1.3.4.147",
     "class": "objectidentity"
   },
   "unknown": {
@@ -4624,6 +4724,54 @@
     "maxaccess": "read-only",
     "status": "deprecated"
   },
+  "sysHttpStatV20Reqs": {
+    "name": "sysHttpStatV20Reqs",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.4.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysHttpStatV30Reqs": {
+    "name": "sysHttpStatV30Reqs",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.4.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysHttpStatV20Resp": {
+    "name": "sysHttpStatV20Resp",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.4.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysHttpStatV30Resp": {
+    "name": "sysHttpStatV30Resp",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.4.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "sysIcmpStatResetStats": {
     "name": "sysIcmpStatResetStats",
     "oid": "1.3.6.1.4.1.3375.2.1.1.2.5.1",
@@ -6796,6 +6944,366 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "sysClientsslStatAesBulkOffload": {
+    "name": "sysClientsslStatAesBulkOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.106",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatAesGcmBulkOffload": {
+    "name": "sysClientsslStatAesGcmBulkOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.107",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatChacha20Poly1305BulkOffld": {
+    "name": "sysClientsslStatChacha20Poly1305BulkOffld",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.108",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatDesBulkOffload": {
+    "name": "sysClientsslStatDesBulkOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.109",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatRc4BulkOffload": {
+    "name": "sysClientsslStatRc4BulkOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.110",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatCamelliaBulkOffload": {
+    "name": "sysClientsslStatCamelliaBulkOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.111",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatMd5DigestOffload": {
+    "name": "sysClientsslStatMd5DigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.112",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatShaDigestOffload": {
+    "name": "sysClientsslStatShaDigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.113",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatSha224Digest": {
+    "name": "sysClientsslStatSha224Digest",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.114",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatSha224DigestOffload": {
+    "name": "sysClientsslStatSha224DigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.115",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatSha256Digest": {
+    "name": "sysClientsslStatSha256Digest",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.116",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatSha256DigestOffload": {
+    "name": "sysClientsslStatSha256DigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.117",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatSha384Digest": {
+    "name": "sysClientsslStatSha384Digest",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.118",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatSha384DigestOffload": {
+    "name": "sysClientsslStatSha384DigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.119",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatSha512Digest": {
+    "name": "sysClientsslStatSha512Digest",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.120",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatSha512DigestOffload": {
+    "name": "sysClientsslStatSha512DigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.121",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatDhGroupP256": {
+    "name": "sysClientsslStatDhGroupP256",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.122",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatDhGroupP256Offload": {
+    "name": "sysClientsslStatDhGroupP256Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.123",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatDhGroupP384": {
+    "name": "sysClientsslStatDhGroupP384",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.124",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatDhGroupP384Offload": {
+    "name": "sysClientsslStatDhGroupP384Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.125",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatDhGroupX25519": {
+    "name": "sysClientsslStatDhGroupX25519",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.126",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatDhGroupX25519Offload": {
+    "name": "sysClientsslStatDhGroupX25519Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.127",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatRsaKeySize1024": {
+    "name": "sysClientsslStatRsaKeySize1024",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.128",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatRsaKeySize1024Offload": {
+    "name": "sysClientsslStatRsaKeySize1024Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.129",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatRsaKeySize2048": {
+    "name": "sysClientsslStatRsaKeySize2048",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.130",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatRsaKeySize2048Offload": {
+    "name": "sysClientsslStatRsaKeySize2048Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.131",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatRsaKeySize4096": {
+    "name": "sysClientsslStatRsaKeySize4096",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.132",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatRsaKeySize4096Offload": {
+    "name": "sysClientsslStatRsaKeySize4096Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.133",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatTotalHandshakesSoftware": {
+    "name": "sysClientsslStatTotalHandshakesSoftware",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.134",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysClientsslStatTotalHandshakesOffload": {
+    "name": "sysClientsslStatTotalHandshakesOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.9.135",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "sysServersslStatResetStats": {
     "name": "sysServersslStatResetStats",
     "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.1",
@@ -7915,6 +8423,366 @@
   "sysServersslStatChacha20Poly1305Bulk": {
     "name": "sysServersslStatChacha20Poly1305Bulk",
     "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.94",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatAesBulkOffload": {
+    "name": "sysServersslStatAesBulkOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.95",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatAesGcmBulkOffload": {
+    "name": "sysServersslStatAesGcmBulkOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.96",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatChacha20Poly1305BulkOffld": {
+    "name": "sysServersslStatChacha20Poly1305BulkOffld",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.97",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatDesBulkOffload": {
+    "name": "sysServersslStatDesBulkOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.98",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatRc4BulkOffload": {
+    "name": "sysServersslStatRc4BulkOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.99",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatCamelliaBulkOffload": {
+    "name": "sysServersslStatCamelliaBulkOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.100",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatMd5DigestOffload": {
+    "name": "sysServersslStatMd5DigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.101",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatShaDigestOffload": {
+    "name": "sysServersslStatShaDigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.102",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatSha224Digest": {
+    "name": "sysServersslStatSha224Digest",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.103",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatSha224DigestOffload": {
+    "name": "sysServersslStatSha224DigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.104",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatSha256Digest": {
+    "name": "sysServersslStatSha256Digest",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.105",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatSha256DigestOffload": {
+    "name": "sysServersslStatSha256DigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.106",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatSha384Digest": {
+    "name": "sysServersslStatSha384Digest",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.107",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatSha384DigestOffload": {
+    "name": "sysServersslStatSha384DigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.108",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatSha512Digest": {
+    "name": "sysServersslStatSha512Digest",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.109",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatSha512DigestOffload": {
+    "name": "sysServersslStatSha512DigestOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.110",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatDhGroupP256": {
+    "name": "sysServersslStatDhGroupP256",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.111",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatDhGroupP256Offload": {
+    "name": "sysServersslStatDhGroupP256Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.112",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatDhGroupP384": {
+    "name": "sysServersslStatDhGroupP384",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.113",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatDhGroupP384Offload": {
+    "name": "sysServersslStatDhGroupP384Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.114",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatDhGroupX25519": {
+    "name": "sysServersslStatDhGroupX25519",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.115",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatDhGroupX25519Offload": {
+    "name": "sysServersslStatDhGroupX25519Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.116",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatRsaKeySize1024": {
+    "name": "sysServersslStatRsaKeySize1024",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.117",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatRsaKeySize1024Offload": {
+    "name": "sysServersslStatRsaKeySize1024Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.118",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatRsaKeySize2048": {
+    "name": "sysServersslStatRsaKeySize2048",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.119",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatRsaKeySize2048Offload": {
+    "name": "sysServersslStatRsaKeySize2048Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.120",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatRsaKeySize4096": {
+    "name": "sysServersslStatRsaKeySize4096",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.121",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatRsaKeySize4096Offload": {
+    "name": "sysServersslStatRsaKeySize4096Offload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.122",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatTotalHandshakesSoftware": {
+    "name": "sysServersslStatTotalHandshakesSoftware",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.123",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysServersslStatTotalHandshakesOffload": {
+    "name": "sysServersslStatTotalHandshakesOffload",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.10.124",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -27423,6 +28291,258 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "sysGlobalDiametersessionStatTotRequestReceived": {
+    "name": "sysGlobalDiametersessionStatTotRequestReceived",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotRequestSent": {
+    "name": "sysGlobalDiametersessionStatTotRequestSent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotDiscardUnroutable": {
+    "name": "sysGlobalDiametersessionStatTotDiscardUnroutable",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotRespondUnroutable": {
+    "name": "sysGlobalDiametersessionStatTotRespondUnroutable",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatAveRequestLatency": {
+    "name": "sysGlobalDiametersessionStatAveRequestLatency",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatAveAnswerLatency": {
+    "name": "sysGlobalDiametersessionStatAveAnswerLatency",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatAvePeerDelay": {
+    "name": "sysGlobalDiametersessionStatAvePeerDelay",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatAveRoundTripTime": {
+    "name": "sysGlobalDiametersessionStatAveRoundTripTime",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatCurTrafficRate": {
+    "name": "sysGlobalDiametersessionStatCurTrafficRate",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatCurErrorAnswerRatio": {
+    "name": "sysGlobalDiametersessionStatCurErrorAnswerRatio",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatCurTimeoutRatio": {
+    "name": "sysGlobalDiametersessionStatCurTimeoutRatio",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotAnswerResultCodeReceived1xxx": {
+    "name": "sysGlobalDiametersessionStatTotAnswerResultCodeReceived1xxx",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotAnswerResultCodeReceived2xxx": {
+    "name": "sysGlobalDiametersessionStatTotAnswerResultCodeReceived2xxx",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotAnswerResultCodeReceived3xxx": {
+    "name": "sysGlobalDiametersessionStatTotAnswerResultCodeReceived3xxx",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotAnswerResultCodeReceived4xxx": {
+    "name": "sysGlobalDiametersessionStatTotAnswerResultCodeReceived4xxx",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotAnswerResultCodeReceived5xxx": {
+    "name": "sysGlobalDiametersessionStatTotAnswerResultCodeReceived5xxx",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotAnswerResultCodeSent1xxx": {
+    "name": "sysGlobalDiametersessionStatTotAnswerResultCodeSent1xxx",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotAnswerResultCodeSent2xxx": {
+    "name": "sysGlobalDiametersessionStatTotAnswerResultCodeSent2xxx",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotAnswerResultCodeSent3xxx": {
+    "name": "sysGlobalDiametersessionStatTotAnswerResultCodeSent3xxx",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotAnswerResultCodeSent4xxx": {
+    "name": "sysGlobalDiametersessionStatTotAnswerResultCodeSent4xxx",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiametersessionStatTotAnswerResultCodeSent5xxx": {
+    "name": "sysGlobalDiametersessionStatTotAnswerResultCodeSent5xxx",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.35.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "sysGlobalDiameterrouterStatResetStats": {
     "name": "sysGlobalDiameterrouterStatResetStats",
     "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.1",
@@ -27435,9 +28555,429 @@
     "maxaccess": "read-write",
     "status": "current"
   },
+  "sysGlobalDiameterrouterStatTotMessgesIn": {
+    "name": "sysGlobalDiameterrouterStatTotMessgesIn",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesInRetry": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesInRetry",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesOut": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesOut",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesCannotReturn": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesCannotReturn",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesRouted": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesRouted",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesUnroutable": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesUnroutable",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesDropped": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesDropped",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesQueueFull": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesQueueFull",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesNoConnection": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesNoConnection",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesConnectionClosed": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesConnectionClosed",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesInternalError": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesInternalError",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesPersistInUse": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesPersistInUse",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesStandbyDropped": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesStandbyDropped",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesMaxRetries": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesMaxRetries",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesInCloned": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesInCloned",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMessagesReturned": {
+    "name": "sysGlobalDiameterrouterStatTotMessagesReturned",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotPayloadBytesIn": {
+    "name": "sysGlobalDiameterrouterStatTotPayloadBytesIn",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotPayloadBytesOut": {
+    "name": "sysGlobalDiameterrouterStatTotPayloadBytesOut",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatCurIncomingStreams": {
+    "name": "sysGlobalDiameterrouterStatCurIncomingStreams",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatCurOutgoingStreams": {
+    "name": "sysGlobalDiameterrouterStatCurOutgoingStreams",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotIncomingStreams": {
+    "name": "sysGlobalDiameterrouterStatTotIncomingStreams",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotOutgoingStreams": {
+    "name": "sysGlobalDiameterrouterStatTotOutgoingStreams",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotFailedOutgoingStreams": {
+    "name": "sysGlobalDiameterrouterStatTotFailedOutgoingStreams",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatCurIncomingConnections": {
+    "name": "sysGlobalDiameterrouterStatCurIncomingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatCurOutgoingConnections": {
+    "name": "sysGlobalDiameterrouterStatCurOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatCurAutoInitOutgoingConnections": {
+    "name": "sysGlobalDiameterrouterStatCurAutoInitOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotIncomingConnections": {
+    "name": "sysGlobalDiameterrouterStatTotIncomingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotOutgoingConnections": {
+    "name": "sysGlobalDiameterrouterStatTotOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotAutoInitOutgoingConnections": {
+    "name": "sysGlobalDiameterrouterStatTotAutoInitOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotFailedOutgoingConnections": {
+    "name": "sysGlobalDiameterrouterStatTotFailedOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotFailedAutoInitOutgoingConnections": {
+    "name": "sysGlobalDiameterrouterStatTotFailedAutoInitOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatCurPassthruConnections": {
+    "name": "sysGlobalDiameterrouterStatCurPassthruConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotPassthruConnections": {
+    "name": "sysGlobalDiameterrouterStatTotPassthruConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotFailedPassthruConnections": {
+    "name": "sysGlobalDiameterrouterStatTotFailedPassthruConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotPassthruBytes": {
+    "name": "sysGlobalDiameterrouterStatTotPassthruBytes",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "sysGlobalDiameterrouterStatCurPendingRequests": {
     "name": "sysGlobalDiameterrouterStatCurPendingRequests",
-    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.2",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.37",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -27449,7 +28989,7 @@
   },
   "sysGlobalDiameterrouterStatTotExpiredPendingRequests": {
     "name": "sysGlobalDiameterrouterStatTotExpiredPendingRequests",
-    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.3",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.38",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -27461,7 +29001,7 @@
   },
   "sysGlobalDiameterrouterStatTotDroppedUnexpectedAnswers": {
     "name": "sysGlobalDiameterrouterStatTotDroppedUnexpectedAnswers",
-    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.4",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.39",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -27473,7 +29013,1243 @@
   },
   "sysGlobalDiameterrouterStatTotDroppedLateAnswers": {
     "name": "sysGlobalDiameterrouterStatTotDroppedLateAnswers",
-    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.5",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalDiameterrouterStatTotMsgsDroppedForceOffline": {
+    "name": "sysGlobalDiameterrouterStatTotMsgsDroppedForceOffline",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.36.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatResetStats": {
+    "name": "sysGlobalSipsessionStatResetStats",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatRequests": {
+    "name": "sysGlobalSipsessionStatRequests",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatResponses": {
+    "name": "sysGlobalSipsessionStatResponses",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatBadmsgs": {
+    "name": "sysGlobalSipsessionStatBadmsgs",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatBadmsgsReq": {
+    "name": "sysGlobalSipsessionStatBadmsgsReq",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatDrops": {
+    "name": "sysGlobalSipsessionStatDrops",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatDropsReq": {
+    "name": "sysGlobalSipsessionStatDropsReq",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatInvite": {
+    "name": "sysGlobalSipsessionStatInvite",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatAck": {
+    "name": "sysGlobalSipsessionStatAck",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatBye": {
+    "name": "sysGlobalSipsessionStatBye",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatCancel": {
+    "name": "sysGlobalSipsessionStatCancel",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatOptions": {
+    "name": "sysGlobalSipsessionStatOptions",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatRegisterReq": {
+    "name": "sysGlobalSipsessionStatRegisterReq",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatPrack": {
+    "name": "sysGlobalSipsessionStatPrack",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatSubscribe": {
+    "name": "sysGlobalSipsessionStatSubscribe",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatNotify": {
+    "name": "sysGlobalSipsessionStatNotify",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatPublish": {
+    "name": "sysGlobalSipsessionStatPublish",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatInfo": {
+    "name": "sysGlobalSipsessionStatInfo",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatRefer": {
+    "name": "sysGlobalSipsessionStatRefer",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatMessage": {
+    "name": "sysGlobalSipsessionStatMessage",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatUpdateReq": {
+    "name": "sysGlobalSipsessionStatUpdateReq",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatService": {
+    "name": "sysGlobalSipsessionStatService",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatBenotify": {
+    "name": "sysGlobalSipsessionStatBenotify",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatNegotiate": {
+    "name": "sysGlobalSipsessionStatNegotiate",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatOther": {
+    "name": "sysGlobalSipsessionStatOther",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatProvisional": {
+    "name": "sysGlobalSipsessionStatProvisional",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatSuccessful": {
+    "name": "sysGlobalSipsessionStatSuccessful",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatRedirection": {
+    "name": "sysGlobalSipsessionStatRedirection",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatClientFailures": {
+    "name": "sysGlobalSipsessionStatClientFailures",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatServerFailures": {
+    "name": "sysGlobalSipsessionStatServerFailures",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatGlobalFailures": {
+    "name": "sysGlobalSipsessionStatGlobalFailures",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatBadRequest": {
+    "name": "sysGlobalSipsessionStatBadRequest",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatBadRequest400Sent": {
+    "name": "sysGlobalSipsessionStatBadRequest400Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatNotFound": {
+    "name": "sysGlobalSipsessionStatNotFound",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatNotFound404Sent": {
+    "name": "sysGlobalSipsessionStatNotFound404Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatRequestEntityTooLarge": {
+    "name": "sysGlobalSipsessionStatRequestEntityTooLarge",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatRequestEntityTooLarge413Sent": {
+    "name": "sysGlobalSipsessionStatRequestEntityTooLarge413Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatUnsupportedUriScheme": {
+    "name": "sysGlobalSipsessionStatUnsupportedUriScheme",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatUnsupportedUriScheme416Sent": {
+    "name": "sysGlobalSipsessionStatUnsupportedUriScheme416Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatTemporarilyUnavailable": {
+    "name": "sysGlobalSipsessionStatTemporarilyUnavailable",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatTemporarilyUnavailable480Sent": {
+    "name": "sysGlobalSipsessionStatTemporarilyUnavailable480Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatTransactionDoesNotExist": {
+    "name": "sysGlobalSipsessionStatTransactionDoesNotExist",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatTransactionDoesNotExist481Sent": {
+    "name": "sysGlobalSipsessionStatTransactionDoesNotExist481Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatLoopDetected": {
+    "name": "sysGlobalSipsessionStatLoopDetected",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatLoopDetected482Sent": {
+    "name": "sysGlobalSipsessionStatLoopDetected482Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatTooManyHops": {
+    "name": "sysGlobalSipsessionStatTooManyHops",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatTooManyHops483Sent": {
+    "name": "sysGlobalSipsessionStatTooManyHops483Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatAddressIncomplete": {
+    "name": "sysGlobalSipsessionStatAddressIncomplete",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatAddressIncomplete484Sent": {
+    "name": "sysGlobalSipsessionStatAddressIncomplete484Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatNotAcceptableHere": {
+    "name": "sysGlobalSipsessionStatNotAcceptableHere",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatNotAcceptableHere488Sent": {
+    "name": "sysGlobalSipsessionStatNotAcceptableHere488Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatServerInternalError": {
+    "name": "sysGlobalSipsessionStatServerInternalError",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatServerInternalError500Sent": {
+    "name": "sysGlobalSipsessionStatServerInternalError500Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatNotImplemented": {
+    "name": "sysGlobalSipsessionStatNotImplemented",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatNotImplemented501Sent": {
+    "name": "sysGlobalSipsessionStatNotImplemented501Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatServiceUnavailable": {
+    "name": "sysGlobalSipsessionStatServiceUnavailable",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatServiceUnavailable503Sent": {
+    "name": "sysGlobalSipsessionStatServiceUnavailable503Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatVersionNotSupported": {
+    "name": "sysGlobalSipsessionStatVersionNotSupported",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatVersionNotSupported505Sent": {
+    "name": "sysGlobalSipsessionStatVersionNotSupported505Sent",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.37.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatResetStats": {
+    "name": "sysGlobalSiprouterStatResetStats",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessgesIn": {
+    "name": "sysGlobalSiprouterStatTotMessgesIn",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesInRetry": {
+    "name": "sysGlobalSiprouterStatTotMessagesInRetry",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesOut": {
+    "name": "sysGlobalSiprouterStatTotMessagesOut",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesCannotReturn": {
+    "name": "sysGlobalSiprouterStatTotMessagesCannotReturn",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesRouted": {
+    "name": "sysGlobalSiprouterStatTotMessagesRouted",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesUnroutable": {
+    "name": "sysGlobalSiprouterStatTotMessagesUnroutable",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesDropped": {
+    "name": "sysGlobalSiprouterStatTotMessagesDropped",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesQueueFull": {
+    "name": "sysGlobalSiprouterStatTotMessagesQueueFull",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesNoConnection": {
+    "name": "sysGlobalSiprouterStatTotMessagesNoConnection",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesConnectionClosed": {
+    "name": "sysGlobalSiprouterStatTotMessagesConnectionClosed",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesInternalError": {
+    "name": "sysGlobalSiprouterStatTotMessagesInternalError",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesPersistInUse": {
+    "name": "sysGlobalSiprouterStatTotMessagesPersistInUse",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesStandbyDropped": {
+    "name": "sysGlobalSiprouterStatTotMessagesStandbyDropped",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesMaxRetries": {
+    "name": "sysGlobalSiprouterStatTotMessagesMaxRetries",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesInCloned": {
+    "name": "sysGlobalSiprouterStatTotMessagesInCloned",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotMessagesReturned": {
+    "name": "sysGlobalSiprouterStatTotMessagesReturned",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotPayloadBytesIn": {
+    "name": "sysGlobalSiprouterStatTotPayloadBytesIn",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotPayloadBytesOut": {
+    "name": "sysGlobalSiprouterStatTotPayloadBytesOut",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatCurIncomingStreams": {
+    "name": "sysGlobalSiprouterStatCurIncomingStreams",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatCurOutgoingStreams": {
+    "name": "sysGlobalSiprouterStatCurOutgoingStreams",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotIncomingStreams": {
+    "name": "sysGlobalSiprouterStatTotIncomingStreams",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotOutgoingStreams": {
+    "name": "sysGlobalSiprouterStatTotOutgoingStreams",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotFailedOutgoingStreams": {
+    "name": "sysGlobalSiprouterStatTotFailedOutgoingStreams",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatCurIncomingConnections": {
+    "name": "sysGlobalSiprouterStatCurIncomingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatCurOutgoingConnections": {
+    "name": "sysGlobalSiprouterStatCurOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatCurAutoInitOutgoingConnections": {
+    "name": "sysGlobalSiprouterStatCurAutoInitOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotIncomingConnections": {
+    "name": "sysGlobalSiprouterStatTotIncomingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotOutgoingConnections": {
+    "name": "sysGlobalSiprouterStatTotOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotAutoInitOutgoingConnections": {
+    "name": "sysGlobalSiprouterStatTotAutoInitOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotFailedOutgoingConnections": {
+    "name": "sysGlobalSiprouterStatTotFailedOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotFailedAutoInitOutgoingConnections": {
+    "name": "sysGlobalSiprouterStatTotFailedAutoInitOutgoingConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatCurPassthruConnections": {
+    "name": "sysGlobalSiprouterStatCurPassthruConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotPassthruConnections": {
+    "name": "sysGlobalSiprouterStatTotPassthruConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotFailedPassthruConnections": {
+    "name": "sysGlobalSiprouterStatTotFailedPassthruConnections",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotPassthruBytes": {
+    "name": "sysGlobalSiprouterStatTotPassthruBytes",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatCurrPendingCalls": {
+    "name": "sysGlobalSiprouterStatCurrPendingCalls",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatCurrActiveCalls": {
+    "name": "sysGlobalSiprouterStatCurrActiveCalls",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotSuccessfulCalls": {
+    "name": "sysGlobalSiprouterStatTotSuccessfulCalls",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotRejectedCalls": {
+    "name": "sysGlobalSiprouterStatTotRejectedCalls",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatTotCancelledCalls": {
+    "name": "sysGlobalSiprouterStatTotCancelledCalls",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatActiveRegistrations": {
+    "name": "sysGlobalSiprouterStatActiveRegistrations",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatRejectedRegistrations": {
+    "name": "sysGlobalSiprouterStatRejectedRegistrations",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.38.43",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -30361,6 +33137,318 @@
     "maxaccess": "read-only",
     "status": "current"
   },
+  "sysFwNatStaticDestinationTranslationPoolStatResetStats": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatResetStats",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatTransReqs": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatTransReqs",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatTransReqFails": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatTransReqFails",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatBidirReqs": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatBidirReqs",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatBidirReqFails": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatBidirReqFails",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatErrAddrTrans": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatErrAddrTrans",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatErrPortTrans": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatErrPortTrans",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatErrFlowCollis": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatErrFlowCollis",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatErrCfgMismtch": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatErrCfgMismtch",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatErrMemory": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatErrMemory",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatSubscrIdLkps": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatSubscrIdLkps",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatSubscrIdNotFd": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatSubscrIdNotFd",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticDestinationTranslationPoolStatSubscrIdErrs": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatSubscrIdErrs",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.42.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatResetStats": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatResetStats",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatTransReqs": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatTransReqs",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatTransReqFails": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatTransReqFails",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatBidirReqs": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatBidirReqs",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatBidirReqFails": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatBidirReqFails",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatErrAddrTrans": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatErrAddrTrans",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatErrPortTrans": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatErrPortTrans",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatErrFlowCollis": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatErrFlowCollis",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatErrCfgMismtch": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatErrCfgMismtch",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatErrMemory": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatErrMemory",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatSubscrIdLkps": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatSubscrIdLkps",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatSubscrIdNotFd": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatSubscrIdNotFd",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatSubscrIdErrs": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatSubscrIdErrs",
+    "oid": "1.3.6.1.4.1.3375.2.1.1.2.41.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
   "sysTmmPagesStatResetStats": {
     "name": "sysTmmPagesStatResetStats",
     "oid": "1.3.6.1.4.1.3375.2.1.8.4.1",
@@ -30468,6 +33556,257 @@
   "sysTmmPagesStatPagesAvail": {
     "name": "sysTmmPagesStatPagesAvail",
     "oid": "1.3.6.1.4.1.3375.2.1.8.4.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatNumber": {
+    "name": "sysVlanIfcStatNumber",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatTable": {
+    "name": "sysVlanIfcStatTable",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "sysVlanIfcStatEntry": {
+    "name": "sysVlanIfcStatEntry",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatName",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "sysVlanIfcStatName": {
+    "name": "sysVlanIfcStatName",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LongDisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatInDiscards": {
+    "name": "sysVlanIfcStatInDiscards",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatInErrors": {
+    "name": "sysVlanIfcStatInErrors",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatInUnknownProtos": {
+    "name": "sysVlanIfcStatInUnknownProtos",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatOutDiscards": {
+    "name": "sysVlanIfcStatOutDiscards",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatOutErrors": {
+    "name": "sysVlanIfcStatOutErrors",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatHcInOctets": {
+    "name": "sysVlanIfcStatHcInOctets",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatHcInUcastPkts": {
+    "name": "sysVlanIfcStatHcInUcastPkts",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatHcInMulticastPkts": {
+    "name": "sysVlanIfcStatHcInMulticastPkts",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatHcInBroadcastPkts": {
+    "name": "sysVlanIfcStatHcInBroadcastPkts",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatHcOutOctets": {
+    "name": "sysVlanIfcStatHcOutOctets",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.11",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatHcOutUcastPkts": {
+    "name": "sysVlanIfcStatHcOutUcastPkts",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.12",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatHcOutMulticastPkts": {
+    "name": "sysVlanIfcStatHcOutMulticastPkts",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.13",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatHcOutBroadcastPkts": {
+    "name": "sysVlanIfcStatHcOutBroadcastPkts",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.14",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatPvaInPkts": {
+    "name": "sysVlanIfcStatPvaInPkts",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.15",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatPvaInOctets": {
+    "name": "sysVlanIfcStatPvaInOctets",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.16",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatPvaOutPkts": {
+    "name": "sysVlanIfcStatPvaOutPkts",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.17",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "sysVlanIfcStatPvaOutOctets": {
+    "name": "sysVlanIfcStatPvaOutOctets",
+    "oid": "1.3.6.1.4.1.3375.2.1.2.13.8.2.1.18",
     "nodetype": "column",
     "class": "objecttype",
     "syntax": {
@@ -31494,6 +34833,22 @@
       {
         "module": "F5-BIGIP-SYSTEM-MIB",
         "object": "sysHttpStatRespBucket64k"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysHttpStatV20Reqs"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysHttpStatV30Reqs"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysHttpStatV20Resp"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysHttpStatV30Resp"
       }
     ],
     "status": "current"
@@ -32258,6 +35613,126 @@
       {
         "module": "F5-BIGIP-SYSTEM-MIB",
         "object": "sysClientsslStatChacha20Poly1305Bulk"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatAesBulkOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatAesGcmBulkOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatChacha20Poly1305BulkOffld"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatDesBulkOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatRc4BulkOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatCamelliaBulkOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatMd5DigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatShaDigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatSha224Digest"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatSha224DigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatSha256Digest"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatSha256DigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatSha384Digest"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatSha384DigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatSha512Digest"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatSha512DigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatDhGroupP256"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatDhGroupP256Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatDhGroupP384"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatDhGroupP384Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatDhGroupX25519"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatDhGroupX25519Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatRsaKeySize1024"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatRsaKeySize1024Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatRsaKeySize2048"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatRsaKeySize2048Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatRsaKeySize4096"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatRsaKeySize4096Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatTotalHandshakesSoftware"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysClientsslStatTotalHandshakesOffload"
       }
     ],
     "status": "current"
@@ -32642,6 +36117,126 @@
       {
         "module": "F5-BIGIP-SYSTEM-MIB",
         "object": "sysServersslStatChacha20Poly1305Bulk"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatAesBulkOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatAesGcmBulkOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatChacha20Poly1305BulkOffld"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatDesBulkOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatRc4BulkOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatCamelliaBulkOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatMd5DigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatShaDigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatSha224Digest"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatSha224DigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatSha256Digest"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatSha256DigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatSha384Digest"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatSha384DigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatSha512Digest"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatSha512DigestOffload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatDhGroupP256"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatDhGroupP256Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatDhGroupP384"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatDhGroupP384Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatDhGroupX25519"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatDhGroupX25519Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatRsaKeySize1024"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatRsaKeySize1024Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatRsaKeySize2048"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatRsaKeySize2048Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatRsaKeySize4096"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatRsaKeySize4096Offload"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatTotalHandshakesSoftware"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysServersslStatTotalHandshakesOffload"
       }
     ],
     "status": "current"
@@ -38994,6 +42589,90 @@
       {
         "module": "F5-BIGIP-SYSTEM-MIB",
         "object": "sysGlobalDiametersessionStatTotRetransmissionIrule"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotRequestReceived"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotRequestSent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotDiscardUnroutable"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotRespondUnroutable"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatAveRequestLatency"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatAveAnswerLatency"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatAvePeerDelay"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatAveRoundTripTime"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatCurTrafficRate"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatCurErrorAnswerRatio"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatCurTimeoutRatio"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotAnswerResultCodeReceived1xxx"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotAnswerResultCodeReceived2xxx"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotAnswerResultCodeReceived3xxx"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotAnswerResultCodeReceived4xxx"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotAnswerResultCodeReceived5xxx"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotAnswerResultCodeSent1xxx"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotAnswerResultCodeSent2xxx"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotAnswerResultCodeSent3xxx"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotAnswerResultCodeSent4xxx"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiametersessionStatTotAnswerResultCodeSent5xxx"
       }
     ],
     "status": "current"
@@ -39006,6 +42685,146 @@
       {
         "module": "F5-BIGIP-SYSTEM-MIB",
         "object": "sysGlobalDiameterrouterStatResetStats"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessgesIn"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesInRetry"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesOut"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesCannotReturn"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesRouted"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesUnroutable"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesDropped"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesQueueFull"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesNoConnection"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesConnectionClosed"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesInternalError"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesPersistInUse"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesStandbyDropped"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesMaxRetries"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesInCloned"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMessagesReturned"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotPayloadBytesIn"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotPayloadBytesOut"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatCurIncomingStreams"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatCurOutgoingStreams"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotIncomingStreams"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotOutgoingStreams"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotFailedOutgoingStreams"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatCurIncomingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatCurOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatCurAutoInitOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotIncomingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotAutoInitOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotFailedOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotFailedAutoInitOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatCurPassthruConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotPassthruConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotFailedPassthruConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotPassthruBytes"
       },
       {
         "module": "F5-BIGIP-SYSTEM-MIB",
@@ -39022,13 +42841,441 @@
       {
         "module": "F5-BIGIP-SYSTEM-MIB",
         "object": "sysGlobalDiameterrouterStatTotDroppedLateAnswers"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalDiameterrouterStatTotMsgsDroppedForceOffline"
+      }
+    ],
+    "status": "current"
+  },
+  "sysGlobalSipsessionStatGroup": {
+    "name": "sysGlobalSipsessionStatGroup",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.132",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatResetStats"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatRequests"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatResponses"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatBadmsgs"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatBadmsgsReq"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatDrops"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatDropsReq"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatInvite"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatAck"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatBye"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatCancel"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatOptions"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatRegisterReq"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatPrack"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatSubscribe"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatNotify"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatPublish"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatInfo"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatRefer"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatMessage"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatUpdateReq"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatService"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatBenotify"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatNegotiate"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatOther"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatProvisional"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatSuccessful"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatRedirection"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatClientFailures"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatServerFailures"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatGlobalFailures"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatBadRequest"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatBadRequest400Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatNotFound"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatNotFound404Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatRequestEntityTooLarge"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatRequestEntityTooLarge413Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatUnsupportedUriScheme"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatUnsupportedUriScheme416Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatTemporarilyUnavailable"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatTemporarilyUnavailable480Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatTransactionDoesNotExist"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatTransactionDoesNotExist481Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatLoopDetected"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatLoopDetected482Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatTooManyHops"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatTooManyHops483Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatAddressIncomplete"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatAddressIncomplete484Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatNotAcceptableHere"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatNotAcceptableHere488Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatServerInternalError"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatServerInternalError500Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatNotImplemented"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatNotImplemented501Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatServiceUnavailable"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatServiceUnavailable503Sent"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatVersionNotSupported"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSipsessionStatVersionNotSupported505Sent"
+      }
+    ],
+    "status": "current"
+  },
+  "sysGlobalSiprouterStatGroup": {
+    "name": "sysGlobalSiprouterStatGroup",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.133",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatResetStats"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessgesIn"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesInRetry"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesOut"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesCannotReturn"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesRouted"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesUnroutable"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesDropped"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesQueueFull"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesNoConnection"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesConnectionClosed"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesInternalError"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesPersistInUse"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesStandbyDropped"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesMaxRetries"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesInCloned"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotMessagesReturned"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotPayloadBytesIn"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotPayloadBytesOut"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatCurIncomingStreams"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatCurOutgoingStreams"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotIncomingStreams"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotOutgoingStreams"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotFailedOutgoingStreams"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatCurIncomingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatCurOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatCurAutoInitOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotIncomingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotAutoInitOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotFailedOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotFailedAutoInitOutgoingConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatCurPassthruConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotPassthruConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotFailedPassthruConnections"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotPassthruBytes"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatCurrPendingCalls"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatCurrActiveCalls"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotSuccessfulCalls"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotRejectedCalls"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatTotCancelledCalls"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatActiveRegistrations"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysGlobalSiprouterStatRejectedRegistrations"
       }
     ],
     "status": "current"
   },
   "sysGlobalIpsecalgStatGroup": {
     "name": "sysGlobalIpsecalgStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.132",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.134",
     "class": "objectgroup",
     "objects": [
       {
@@ -39060,7 +43307,7 @@
   },
   "sysLsnPoolFailureStatGroup": {
     "name": "sysLsnPoolFailureStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.133",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.135",
     "class": "objectgroup",
     "objects": [
       {
@@ -39084,7 +43331,7 @@
   },
   "sysPlaneStatGroup": {
     "name": "sysPlaneStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.134",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.136",
     "class": "objectgroup",
     "objects": [
       {
@@ -39120,7 +43367,7 @@
   },
   "sysSwitchDdmStatGroup": {
     "name": "sysSwitchDdmStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.135",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.137",
     "class": "objectgroup",
     "objects": [
       {
@@ -39296,7 +43543,7 @@
   },
   "sysTmmProcStatGroup": {
     "name": "sysTmmProcStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.136",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.138",
     "class": "objectgroup",
     "objects": [
       {
@@ -39324,7 +43571,7 @@
   },
   "sysCertificateFileObjectGroup": {
     "name": "sysCertificateFileObjectGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.137",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.139",
     "class": "objectgroup",
     "objects": [
       {
@@ -39356,7 +43603,7 @@
   },
   "sysCertValidatorOcspGroup": {
     "name": "sysCertValidatorOcspGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.138",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.140",
     "class": "objectgroup",
     "objects": [
       {
@@ -39436,7 +43683,7 @@
   },
   "sysJoinCertValidatorGroup": {
     "name": "sysJoinCertValidatorGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.139",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.141",
     "class": "objectgroup",
     "objects": [
       {
@@ -39456,7 +43703,7 @@
   },
   "sysCertValidatorOcspStatGroup": {
     "name": "sysCertValidatorOcspStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.140",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.142",
     "class": "objectgroup",
     "objects": [
       {
@@ -39548,7 +43795,7 @@
   },
   "sysCertStatusObjectGroup": {
     "name": "sysCertStatusObjectGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.141",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.143",
     "class": "objectgroup",
     "objects": [
       {
@@ -39572,7 +43819,7 @@
   },
   "sysCertOrderManagerGroup": {
     "name": "sysCertOrderManagerGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.142",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.144",
     "class": "objectgroup",
     "objects": [
       {
@@ -39632,7 +43879,7 @@
   },
   "sysCertOrderManagerStatGroup": {
     "name": "sysCertOrderManagerStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.143",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.145",
     "class": "objectgroup",
     "objects": [
       {
@@ -39700,7 +43947,7 @@
   },
   "sysJoinCertOrderManagerGroup": {
     "name": "sysJoinCertOrderManagerGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.144",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.146",
     "class": "objectgroup",
     "objects": [
       {
@@ -39740,7 +43987,7 @@
   },
   "sysJoinCertOrderManagerStatGroup": {
     "name": "sysJoinCertOrderManagerStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.145",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.147",
     "class": "objectgroup",
     "objects": [
       {
@@ -39788,7 +44035,7 @@
   },
   "sysFwNatDynamicPoolStatGroup": {
     "name": "sysFwNatDynamicPoolStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.146",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.148",
     "class": "objectgroup",
     "objects": [
       {
@@ -39928,7 +44175,7 @@
   },
   "sysFwNatDynamicPoolFailureStatGroup": {
     "name": "sysFwNatDynamicPoolFailureStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.147",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.149",
     "class": "objectgroup",
     "objects": [
       {
@@ -39950,9 +44197,129 @@
     ],
     "status": "current"
   },
+  "sysFwNatStaticDestinationTranslationPoolStatGroup": {
+    "name": "sysFwNatStaticDestinationTranslationPoolStatGroup",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.150",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatResetStats"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatTransReqs"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatTransReqFails"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatBidirReqs"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatBidirReqFails"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatErrAddrTrans"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatErrPortTrans"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatErrFlowCollis"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatErrCfgMismtch"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatErrMemory"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatSubscrIdLkps"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatSubscrIdNotFd"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticDestinationTranslationPoolStatSubscrIdErrs"
+      }
+    ],
+    "status": "current"
+  },
+  "sysFwNatStaticSourceTranslationPoolStatGroup": {
+    "name": "sysFwNatStaticSourceTranslationPoolStatGroup",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.151",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatResetStats"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatTransReqs"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatTransReqFails"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatBidirReqs"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatBidirReqFails"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatErrAddrTrans"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatErrPortTrans"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatErrFlowCollis"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatErrCfgMismtch"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatErrMemory"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatSubscrIdLkps"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatSubscrIdNotFd"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysFwNatStaticSourceTranslationPoolStatSubscrIdErrs"
+      }
+    ],
+    "status": "current"
+  },
   "sysTmmPagesStatGroup": {
     "name": "sysTmmPagesStatGroup",
-    "oid": "1.3.6.1.4.1.3375.2.5.2.1.148",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.152",
     "class": "objectgroup",
     "objects": [
       {
@@ -39982,10 +44349,94 @@
     ],
     "status": "current"
   },
+  "sysVlanIfcStatGroup": {
+    "name": "sysVlanIfcStatGroup",
+    "oid": "1.3.6.1.4.1.3375.2.5.2.1.153",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatNumber"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatName"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatInDiscards"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatInErrors"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatInUnknownProtos"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatOutDiscards"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatOutErrors"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatHcInOctets"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatHcInUcastPkts"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatHcInMulticastPkts"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatHcInBroadcastPkts"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatHcOutOctets"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatHcOutUcastPkts"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatHcOutMulticastPkts"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatHcOutBroadcastPkts"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatPvaInPkts"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatPvaInOctets"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatPvaOutPkts"
+      },
+      {
+        "module": "F5-BIGIP-SYSTEM-MIB",
+        "object": "sysVlanIfcStatPvaOutOctets"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-BIGIP-SYSTEM-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:02:42 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:38:29 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

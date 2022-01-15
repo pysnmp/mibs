@@ -3,13 +3,13 @@
     "class": "imports",
     "IF-MIB": [
       "InterfaceIndex",
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressType",
-      "InetAddressPrefixLength",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressPrefixLength"
     ],
     "RMON-MIB": [
       "OwnerString"
@@ -18,39 +18,39 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "OBJECT-GROUP",
       "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "enterprises",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
       "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "MibIdentifier",
-      "iso",
-      "Bits",
-      "MODULE-IDENTITY",
       "Integer32",
-      "IpAddress",
-      "mib-2",
       "Counter64",
+      "Bits",
       "Counter32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "Gauge32"
+      "MODULE-IDENTITY",
+      "iso",
+      "mib-2",
+      "Gauge32",
+      "NOTIFICATION-TYPE",
+      "IpAddress",
+      "enterprises",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "PhysAddress",
-      "AutonomousType",
       "DisplayString",
       "TruthValue",
+      "MacAddress",
+      "PhysAddress",
+      "TestAndIncr",
+      "RowStatus",
       "DateAndTime",
       "TimeStamp",
-      "RowStatus",
-      "MacAddress",
-      "TestAndIncr"
+      "TEXTUAL-CONVENTION",
+      "AutonomousType"
     ],
     "VRRP-MIB": [
       "VrId"
@@ -93201,7 +93201,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/fs/SWITCH",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:03:36 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:39:24 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

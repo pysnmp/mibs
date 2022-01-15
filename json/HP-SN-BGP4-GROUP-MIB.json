@@ -5,24 +5,24 @@
       "snBgp4"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Integer32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "IpAddress",
-      "Counter64",
-      "iso",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Bits",
-      "Counter32"
+      "Bits"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -4289,7 +4289,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HP-SN-MIBS",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:06:48 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:42:36 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

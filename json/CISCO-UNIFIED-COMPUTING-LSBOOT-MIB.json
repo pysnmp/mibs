@@ -5,49 +5,49 @@
       "ciscoMgmt"
     ],
     "CISCO-TC": [
-      "CiscoInetAddressMask",
       "Unsigned64",
+      "TimeIntervalSec",
+      "CiscoInetAddressMask",
       "CiscoNetworkAddress",
-      "CiscoAlarmSeverity",
-      "TimeIntervalSec"
+      "CiscoAlarmSeverity"
     ],
     "CISCO-UNIFIED-COMPUTING-MIB": [
-      "CucsManagedObjectDn",
+      "ciscoUnifiedComputingMIBObjects",
       "CucsManagedObjectId",
-      "ciscoUnifiedComputingMIBObjects"
+      "CucsManagedObjectDn"
     ],
     "CISCO-UNIFIED-COMPUTING-TC-MIB": [
-      "CucsLsbootAccessType",
-      "CucsLsbootUsbExternalImageType",
-      "CucsLsbootLanType",
-      "CucsLsbootEmbeddedLocalDiskImageType",
-      "CucsLsbootIScsiImagePathType",
-      "CucsLsbootLocalLunImagePathType",
-      "CucsLsbootUsbInternalImageType",
-      "CucsLsbootVirtualMediaType",
-      "CucsLsbootIScsiType",
-      "CucsLsbootSanCatSanImageType",
-      "CucsLsbootDefaultLocalImageType",
       "CucsLsbootLocalDiskImagePathType",
-      "CucsLsbootPurpose",
+      "CucsPolicyPolicyOwner",
+      "CucsLsbootUsbExternalImageType",
       "CucsLsbootSanImageType",
-      "CucsLsbootEmbeddedLocalDiskImagePathType",
-      "CucsLsbootIScsiAccess",
-      "CucsLsbootEmbeddedLocalLunImageType",
-      "CucsLsbootLanAccess",
-      "CucsLsbootStorageAccess",
-      "CucsLsbootLocalHddImageType",
-      "CucsLsbootLanBootProt",
-      "CucsLsbootSanAccess",
-      "CucsLsbootSanImagePathType",
-      "CucsLsbootUsbFlashStorageImageType",
-      "CucsLsbootLanImagePathType",
-      "CucsLsbootSanCatSanImagePathType",
-      "CucsLsbootLocalDiskImageType",
-      "CucsLsbootStorageType",
+      "CucsLsbootIScsiImagePathType",
+      "CucsLsbootIScsiType",
+      "CucsLsbootLocalLunImagePathType",
+      "CucsLsbootVirtualMediaType",
+      "CucsLsbootLanType",
       "CucsLsbootSanType",
+      "CucsLsbootUsbInternalImageType",
+      "CucsLsbootEmbeddedLocalDiskImageType",
+      "CucsLsbootStorageAccess",
+      "CucsLsbootUsbFlashStorageImageType",
+      "CucsLsbootSanCatSanImageType",
+      "CucsLsbootSanAccess",
       "CucsLsbootADefBootMode",
-      "CucsPolicyPolicyOwner"
+      "CucsLsbootLanAccess",
+      "CucsLsbootSanImagePathType",
+      "CucsLsbootSanCatSanImagePathType",
+      "CucsLsbootEmbeddedLocalLunImageType",
+      "CucsLsbootAccessType",
+      "CucsLsbootLocalHddImageType",
+      "CucsLsbootStorageType",
+      "CucsLsbootEmbeddedLocalDiskImagePathType",
+      "CucsLsbootLanBootProt",
+      "CucsLsbootDefaultLocalImageType",
+      "CucsLsbootLanImagePathType",
+      "CucsLsbootPurpose",
+      "CucsLsbootIScsiAccess",
+      "CucsLsbootLocalDiskImageType"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddressIPv6",
@@ -57,34 +57,34 @@
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
+      "MibIdentifier",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
       "TimeTicks",
+      "Counter32",
+      "MODULE-IDENTITY",
       "IpAddress",
       "OBJECT-TYPE",
-      "Bits",
+      "Counter64",
       "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "Counter32"
+      "Integer32"
     ],
     "SNMPv2-TC": [
+      "TimeInterval",
+      "DisplayString",
+      "TruthValue",
+      "MacAddress",
+      "RowPointer",
       "TimeStamp",
       "DateAndTime",
-      "TEXTUAL-CONVENTION",
-      "TimeInterval",
-      "TruthValue",
-      "RowPointer",
-      "MacAddress",
-      "DisplayString"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cucsLsbootObjects": {
@@ -2768,7 +2768,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-UNIFIED-COMPUTING-LSBOOT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:57:25 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:33:15 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

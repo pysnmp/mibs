@@ -3,25 +3,25 @@
     "class": "imports",
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "enterprises",
-      "iso",
-      "NOTIFICATION-TYPE",
       "Bits",
+      "TimeTicks",
+      "MibIdentifier",
+      "Integer32",
+      "enterprises",
+      "IpAddress",
       "Gauge32",
       "Counter64",
-      "Counter32",
-      "IpAddress",
-      "OBJECT-TYPE",
       "OBJECT-IDENTITY",
-      "TimeTicks",
-      "Integer32",
-      "MibIdentifier"
+      "OBJECT-TYPE",
+      "iso",
+      "Counter32",
+      "NOTIFICATION-TYPE",
+      "Unsigned32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -100,6 +100,54 @@
   "bigipNotifyObjPort": {
     "name": "bigipNotifyObjPort",
     "oid": "1.3.6.1.4.1.3375.2.4.1.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bigipNotifyObjHostName": {
+    "name": "bigipNotifyObjHostName",
+    "oid": "1.3.6.1.4.1.3375.2.4.1.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bigipNotifyObjSeverity": {
+    "name": "bigipNotifyObjSeverity",
+    "oid": "1.3.6.1.4.1.3375.2.4.1.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bigipNotifyObjEventId": {
+    "name": "bigipNotifyObjEventId",
+    "oid": "1.3.6.1.4.1.3375.2.4.1.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "bigipNotifyObjTimestamp": {
+    "name": "bigipNotifyObjTimestamp",
+    "oid": "1.3.6.1.4.1.3375.2.4.1.7",
     "nodetype": "scalar",
     "class": "objecttype",
     "syntax": {
@@ -2527,6 +2575,498 @@
     ],
     "status": "current"
   },
+  "bigipMrfPeerDelayHealthChanged": {
+    "name": "bigipMrfPeerDelayHealthChanged",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.202",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipMrfPeerOutgoingRateLimitChanged": {
+    "name": "bigipMrfPeerOutgoingRateLimitChanged",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.203",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipMrfPeerIncomingRateLimitChanged": {
+    "name": "bigipMrfPeerIncomingRateLimitChanged",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.204",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipCertExpiration": {
+    "name": "bigipCertExpiration",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.205",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipMrfPeerErrorsHealthChanged": {
+    "name": "bigipMrfPeerErrorsHealthChanged",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.206",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipMrfPeerTimeoutsHealthChanged": {
+    "name": "bigipMrfPeerTimeoutsHealthChanged",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.207",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipMrfPeerHealthChanged": {
+    "name": "bigipMrfPeerHealthChanged",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.208",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipMrfPeerConnectionStateChanged": {
+    "name": "bigipMrfPeerConnectionStateChanged",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.209",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipSctpActivePathDown": {
+    "name": "bigipSctpActivePathDown",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.210",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipSctpPathRestored": {
+    "name": "bigipSctpPathRestored",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.211",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipGeoredundancyOffline": {
+    "name": "bigipGeoredundancyOffline",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.212",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipGeoredundancyConnected": {
+    "name": "bigipGeoredundancyConnected",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.213",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipGeoredundancyReloadReceiving": {
+    "name": "bigipGeoredundancyReloadReceiving",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.214",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipGeoredundancyReloadSending": {
+    "name": "bigipGeoredundancyReloadSending",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.215",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipGeoredundancyWatchdogAlive": {
+    "name": "bigipGeoredundancyWatchdogAlive",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.216",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipGeoredundancyWatchdogExpired": {
+    "name": "bigipGeoredundancyWatchdogExpired",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.217",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipExternalLinkDown": {
+    "name": "bigipExternalLinkDown",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.218",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipExternalLinkUp": {
+    "name": "bigipExternalLinkUp",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.219",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipFipsDeviceHighTemperature": {
+    "name": "bigipFipsDeviceHighTemperature",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.220",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipFipsDeviceCriticalTemperature": {
+    "name": "bigipFipsDeviceCriticalTemperature",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.221",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      }
+    ],
+    "status": "current"
+  },
+  "bigipFipsDeviceNormalTemperature": {
+    "name": "bigipFipsDeviceNormalTemperature",
+    "oid": "1.3.6.1.4.1.3375.2.4.0.222",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjMsg"
+      }
+    ],
+    "status": "current"
+  },
   "bigipNotificationCompliance": {
     "name": "bigipNotificationCompliance",
     "oid": "1.3.6.1.4.1.3375.2.5.1.4",
@@ -2559,6 +3099,22 @@
       {
         "module": "F5-BIGIP-COMMON-MIB",
         "object": "bigipNotifyObjPort"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjHostName"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjSeverity"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjEventId"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipNotifyObjTimestamp"
       }
     ],
     "status": "current"
@@ -3379,6 +3935,90 @@
       {
         "module": "F5-BIGIP-COMMON-MIB",
         "object": "bigipIPsecTunnelDown"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipMrfPeerDelayHealthChanged"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipMrfPeerOutgoingRateLimitChanged"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipMrfPeerIncomingRateLimitChanged"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipCertExpiration"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipMrfPeerErrorsHealthChanged"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipMrfPeerTimeoutsHealthChanged"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipMrfPeerHealthChanged"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipMrfPeerConnectionStateChanged"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipSctpActivePathDown"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipSctpPathRestored"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipGeoredundancyOffline"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipGeoredundancyConnected"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipGeoredundancyReloadReceiving"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipGeoredundancyReloadSending"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipGeoredundancyWatchdogAlive"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipGeoredundancyWatchdogExpired"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipExternalLinkDown"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipExternalLinkUp"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipFipsDeviceHighTemperature"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipFipsDeviceCriticalTemperature"
+      },
+      {
+        "module": "F5-BIGIP-COMMON-MIB",
+        "object": "bigipFipsDeviceNormalTemperature"
       }
     ],
     "status": "current"
@@ -3404,7 +4044,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/f5/F5-BIGIP-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:02:42 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:38:29 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

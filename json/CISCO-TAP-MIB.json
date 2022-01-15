@@ -5,43 +5,43 @@
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
-      "InetAddressPrefixLength",
       "InetAddressType",
+      "InetAddressPrefixLength",
+      "InetPortNumber",
       "InetAddress"
     ],
     "SNMP-FRAMEWORK-MIB": [
       "SnmpAdminString"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE",
       "OBJECT-GROUP",
-      "MODULE-COMPLIANCE"
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Counter64",
+      "MibIdentifier",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "enterprises",
       "OBJECT-IDENTITY",
+      "iso",
+      "Unsigned32",
       "TimeTicks",
+      "MODULE-IDENTITY",
+      "Counter32",
       "IpAddress",
       "OBJECT-TYPE",
-      "enterprises",
-      "Bits",
-      "Gauge32",
-      "MibIdentifier",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Integer32",
-      "Counter32"
+      "Counter64",
+      "Integer32"
     ],
     "SNMPv2-TC": [
-      "DateAndTime",
+      "DisplayString",
       "TruthValue",
       "RowStatus",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString"
+      "DateAndTime",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "cTapMIB": {
@@ -1412,7 +1412,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-TAP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:57:24 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:33:14 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

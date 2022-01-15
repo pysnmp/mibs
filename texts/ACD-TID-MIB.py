@@ -1,16 +1,16 @@
 #
 # PySNMP MIB module ACD-TID-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/accedian/ACD-TID-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 17:50:17 2022
+# Produced by pysmi-1.1.8 at Sat Jan 15 19:26:15 2022
 # On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
 acdMibs, = mibBuilder.importSymbols("ACCEDIAN-SMI", "acdMibs")
-OctetString, ObjectIdentifier, Integer = mibBuilder.importSymbols("ASN1", "OctetString", "ObjectIdentifier", "Integer")
+Integer, OctetString, ObjectIdentifier = mibBuilder.importSymbols("ASN1", "Integer", "OctetString", "ObjectIdentifier")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueSizeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection, ValueRangeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection", "ValueRangeConstraint")
-ModuleCompliance, NotificationGroup, ObjectGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ModuleCompliance", "NotificationGroup", "ObjectGroup")
-Counter32, Unsigned32, Integer32, NotificationType, Counter64, MibIdentifier, IpAddress, ObjectIdentity, Gauge32, MibScalar, MibTable, MibTableRow, MibTableColumn, TimeTicks, Bits, iso, ModuleIdentity = mibBuilder.importSymbols("SNMPv2-SMI", "Counter32", "Unsigned32", "Integer32", "NotificationType", "Counter64", "MibIdentifier", "IpAddress", "ObjectIdentity", "Gauge32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "TimeTicks", "Bits", "iso", "ModuleIdentity")
+ConstraintsUnion, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsUnion", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsIntersection")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+Integer32, Counter32, Unsigned32, Counter64, ObjectIdentity, NotificationType, IpAddress, ModuleIdentity, Bits, MibScalar, MibTable, MibTableRow, MibTableColumn, MibIdentifier, iso, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "Integer32", "Counter32", "Unsigned32", "Counter64", "ObjectIdentity", "NotificationType", "IpAddress", "ModuleIdentity", "Bits", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "MibIdentifier", "iso", "TimeTicks", "Gauge32")
 DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
 acdTid = ModuleIdentity((1, 3, 6, 1, 4, 1, 22420, 2, 14))
 acdTid.setRevisions(('2011-11-11 01:00',))
@@ -74,4 +74,4 @@ acdTidCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 22420, 2, 14, 2, 1, 1)).s
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     acdTidCompliance = acdTidCompliance.setStatus('current')
 if mibBuilder.loadTexts: acdTidCompliance.setDescription('The compliance statement for support of the ACD-TID-MIB module.')
-mibBuilder.exportSymbols("ACD-TID-MIB", acdTidTableGroup=acdTidTableGroup, acdTidMIBObjects=acdTidMIBObjects, acdTidInfoDescr=acdTidInfoDescr, acdTidInfoType=acdTidInfoType, acdTidGeneralGroup=acdTidGeneralGroup, acdTidInfoIndex=acdTidInfoIndex, acdTidGroups=acdTidGroups, acdTidNotifications=acdTidNotifications, acdTid=acdTid, acdTidCompliances=acdTidCompliances, acdTidGeneral=acdTidGeneral, acdTidInfoEntry=acdTidInfoEntry, acdTidInfo=acdTidInfo, PYSNMP_MODULE_ID=acdTid, acdTidInfoLastChangeTid=acdTidInfoLastChangeTid, acdTidInfoOID=acdTidInfoOID, acdTidInfoTable=acdTidInfoTable, acdTidCfgLastChangeTid=acdTidCfgLastChangeTid, acdTidConformance=acdTidConformance, AcdTidType=AcdTidType, acdTidCompliance=acdTidCompliance, acdTidStatusLastChangeTid=acdTidStatusLastChangeTid)
+mibBuilder.exportSymbols("ACD-TID-MIB", acdTidInfoLastChangeTid=acdTidInfoLastChangeTid, acdTidMIBObjects=acdTidMIBObjects, acdTidStatusLastChangeTid=acdTidStatusLastChangeTid, acdTidCfgLastChangeTid=acdTidCfgLastChangeTid, acdTidInfoIndex=acdTidInfoIndex, acdTidInfoDescr=acdTidInfoDescr, acdTidCompliances=acdTidCompliances, acdTidInfoTable=acdTidInfoTable, acdTidInfoType=acdTidInfoType, acdTidConformance=acdTidConformance, acdTidGroups=acdTidGroups, acdTidGeneralGroup=acdTidGeneralGroup, acdTidInfo=acdTidInfo, acdTidInfoOID=acdTidInfoOID, acdTidInfoEntry=acdTidInfoEntry, acdTid=acdTid, acdTidCompliance=acdTidCompliance, acdTidGeneral=acdTidGeneral, acdTidNotifications=acdTidNotifications, acdTidTableGroup=acdTidTableGroup, AcdTidType=AcdTidType, PYSNMP_MODULE_ID=acdTid)

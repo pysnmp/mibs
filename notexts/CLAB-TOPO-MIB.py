@@ -1,19 +1,19 @@
 #
 # PySNMP MIB module CLAB-TOPO-MIB (http://snmplabs.com/pysmi)
 # ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/CLAB-TOPO-MIB
-# Produced by pysmi-1.1.8 at Sat Jan 15 17:49:35 2022
+# Produced by pysmi-1.1.8 at Sat Jan 15 19:25:34 2022
 # On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner
 # Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]
 #
-ObjectIdentifier, Integer, OctetString = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "Integer", "OctetString")
+Integer, ObjectIdentifier, OctetString = mibBuilder.importSymbols("ASN1", "Integer", "ObjectIdentifier", "OctetString")
 NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ConstraintsIntersection, SingleValueConstraint, ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion = mibBuilder.importSymbols("ASN1-REFINEMENT", "ConstraintsIntersection", "SingleValueConstraint", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion")
+ValueSizeConstraint, ValueRangeConstraint, ConstraintsUnion, SingleValueConstraint, ConstraintsIntersection = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueSizeConstraint", "ValueRangeConstraint", "ConstraintsUnion", "SingleValueConstraint", "ConstraintsIntersection")
 clabCommonMibs, = mibBuilder.importSymbols("CLAB-DEF-MIB", "clabCommonMibs")
 InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
 SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-TimeTicks, Integer32, MibScalar, MibTable, MibTableRow, MibTableColumn, ModuleIdentity, iso, ObjectIdentity, IpAddress, Counter64, Bits, Counter32, NotificationType, Unsigned32, Gauge32, MibIdentifier = mibBuilder.importSymbols("SNMPv2-SMI", "TimeTicks", "Integer32", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ModuleIdentity", "iso", "ObjectIdentity", "IpAddress", "Counter64", "Bits", "Counter32", "NotificationType", "Unsigned32", "Gauge32", "MibIdentifier")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
+ObjectGroup, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "NotificationGroup", "ModuleCompliance")
+iso, ModuleIdentity, Counter64, MibScalar, MibTable, MibTableRow, MibTableColumn, Counter32, Integer32, IpAddress, MibIdentifier, NotificationType, Gauge32, ObjectIdentity, TimeTicks, Unsigned32, Bits = mibBuilder.importSymbols("SNMPv2-SMI", "iso", "ModuleIdentity", "Counter64", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "Counter32", "Integer32", "IpAddress", "MibIdentifier", "NotificationType", "Gauge32", "ObjectIdentity", "TimeTicks", "Unsigned32", "Bits")
+TextualConvention, DisplayString, RowStatus = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString", "RowStatus")
 clabTopoMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4491, 4, 2))
 clabTopoMib.setRevisions(('2017-06-15 00:00', '2009-01-21 00:00', '2006-12-07 17:00',))
 if mibBuilder.loadTexts: clabTopoMib.setLastUpdated('201706150000Z')
@@ -52,4 +52,4 @@ if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
 clabTopoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 4, 2, 2, 2, 1)).setObjects(("CLAB-TOPO-MIB", "clabTopoFiberNodeCfgNodeDescr"), ("CLAB-TOPO-MIB", "clabTopoFiberNodeCfgRowStatus"), ("CLAB-TOPO-MIB", "clabTopoChFnCfgRowStatus"))
 if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
     clabTopoGroup = clabTopoGroup.setStatus('current')
-mibBuilder.exportSymbols("CLAB-TOPO-MIB", clabTopoChFnCfgTable=clabTopoChFnCfgTable, clabTopoMibObjects=clabTopoMibObjects, clabTopoFiberNodeCfgRowStatus=clabTopoFiberNodeCfgRowStatus, clabTopoCompliance=clabTopoCompliance, clabTopoChFnCfgRowStatus=clabTopoChFnCfgRowStatus, clabTopoFiberNodeCfgTable=clabTopoFiberNodeCfgTable, clabTopoFiberNodeCfgEntry=clabTopoFiberNodeCfgEntry, clabTopoGroup=clabTopoGroup, PYSNMP_MODULE_ID=clabTopoMib, clabTopoFiberNodeCfgNodeDescr=clabTopoFiberNodeCfgNodeDescr, clabTopoMib=clabTopoMib, clabTopoMibCompliances=clabTopoMibCompliances, NodeName=NodeName, clabTopoMibGroups=clabTopoMibGroups, clabTopoChFnCfgEntry=clabTopoChFnCfgEntry, clabTopoFiberNodeCfgNodeName=clabTopoFiberNodeCfgNodeName, clabTopoChFnCfgChIfIndex=clabTopoChFnCfgChIfIndex, clabTopoMibConformance=clabTopoMibConformance)
+mibBuilder.exportSymbols("CLAB-TOPO-MIB", clabTopoMibConformance=clabTopoMibConformance, clabTopoMibObjects=clabTopoMibObjects, clabTopoChFnCfgRowStatus=clabTopoChFnCfgRowStatus, clabTopoFiberNodeCfgEntry=clabTopoFiberNodeCfgEntry, clabTopoChFnCfgChIfIndex=clabTopoChFnCfgChIfIndex, clabTopoMibCompliances=clabTopoMibCompliances, clabTopoMibGroups=clabTopoMibGroups, clabTopoGroup=clabTopoGroup, clabTopoChFnCfgEntry=clabTopoChFnCfgEntry, PYSNMP_MODULE_ID=clabTopoMib, clabTopoCompliance=clabTopoCompliance, clabTopoFiberNodeCfgNodeDescr=clabTopoFiberNodeCfgNodeDescr, NodeName=NodeName, clabTopoFiberNodeCfgNodeName=clabTopoFiberNodeCfgNodeName, clabTopoMib=clabTopoMib, clabTopoChFnCfgTable=clabTopoChFnCfgTable, clabTopoFiberNodeCfgTable=clabTopoFiberNodeCfgTable, clabTopoFiberNodeCfgRowStatus=clabTopoFiberNodeCfgRowStatus)

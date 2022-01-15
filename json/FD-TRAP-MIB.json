@@ -5,9 +5,9 @@
       "epon"
     ],
     "FD-OLT-MIB": [
-      "linkOnLineStatus",
+      "linkIdExhaust",
       "onuIdExhaust",
-      "linkIdExhaust"
+      "linkOnLineStatus"
     ],
     "FD-ONU-MIB": [
       "onuOnLineStatus",
@@ -15,26 +15,26 @@
       "uniPortLink"
     ],
     "FD-PERFORMANCE-MIB": [
-      "onuTrafficChangeVal",
+      "swSniPortTrafficChangeVal",
       "oltTrafficChangeVal",
-      "swSniPortTrafficChangeVal"
+      "onuTrafficChangeVal"
     ],
     "FD-SWITCH-MIB": [
       "sfpPlugStauts",
       "swPortLinkState"
     ],
     "FD-SYSTEM-MIB": [
-      "userPermission",
-      "userAccessDeviceMap",
-      "ponCardRunningStatus",
-      "nonAuthOnuMac",
-      "userName",
-      "userPassword",
-      "loginTimeout",
       "powerStatusBit",
+      "loginTimeout",
+      "userPassword",
+      "userName",
+      "ponCardRunningStatus",
+      "userAccessDeviceMap",
+      "fanStatusBit",
       "userEntryRowStatus",
       "userId",
-      "fanStatusBit"
+      "userPermission",
+      "nonAuthOnuMac"
     ],
     "RMON-MIB": [
       "alarmValue"
@@ -44,20 +44,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "MODULE-IDENTITY",
+      "Counter32",
+      "Integer32",
+      "OBJECT-IDENTITY",
       "Gauge32",
       "Bits",
-      "OBJECT-TYPE",
-      "iso",
-      "NOTIFICATION-TYPE",
-      "Counter32",
       "IpAddress",
-      "MibIdentifier",
-      "Unsigned32",
+      "MODULE-IDENTITY",
       "TimeTicks",
-      "Integer32",
-      "OBJECT-IDENTITY"
+      "Unsigned32",
+      "MibIdentifier",
+      "Counter64",
+      "NOTIFICATION-TYPE",
+      "iso",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -416,7 +416,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cdata/FD-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 17:54:01 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:29:57 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

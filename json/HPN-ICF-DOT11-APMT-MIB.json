@@ -2,45 +2,45 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
+      "hpnicfDot11",
       "HpnicfDot11TxPwrLevelScopeType",
-      "hpnicfDot11APElementIndex",
       "HpnicfDot11RadioScopeType",
-      "HpnicfDot11RadioElementIndex",
+      "HpnicfDot11SSIDStringType",
+      "hpnicfDot11APElementIndex",
+      "HpnicfDot11NotifyReasonType",
       "HpnicfDot11ChannelScopeType",
       "HpnicfDot11RFModeType",
+      "HpnicfDot11RadioElementIndex",
       "HpnicfDot11ServicePolicyIDType",
-      "hpnicfDot11",
-      "HpnicfDot11NotifyReasonType",
-      "HpnicfDot11MACModeType",
-      "HpnicfDot11SSIDStringType",
-      "HpnicfDot11ObjectIDType"
+      "HpnicfDot11ObjectIDType",
+      "HpnicfDot11MACModeType"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
       "Gauge32",
+      "OBJECT-TYPE",
+      "Counter32",
+      "Counter64",
+      "MibIdentifier",
+      "iso",
       "MODULE-IDENTITY",
+      "TimeTicks",
+      "Unsigned32",
+      "NOTIFICATION-TYPE",
       "Integer32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "NOTIFICATION-TYPE",
-      "TimeTicks",
       "IpAddress",
-      "Counter64",
-      "Unsigned32",
-      "iso",
-      "OBJECT-TYPE",
-      "Bits",
-      "Counter32"
+      "Bits"
     ],
     "SNMPv2-TC": [
-      "MacAddress",
-      "TEXTUAL-CONVENTION",
       "TruthValue",
+      "DateAndTime",
+      "MacAddress",
       "DisplayString",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION"
     ]
   },
   "hpnicfDot11APMT": {
@@ -8424,7 +8424,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-APMT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:06:49 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:42:36 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],

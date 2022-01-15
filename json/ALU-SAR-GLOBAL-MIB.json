@@ -2,28 +2,28 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "iso",
-      "MODULE-IDENTITY",
-      "Integer32",
+      "Bits",
+      "NOTIFICATION-TYPE",
       "MibIdentifier",
-      "Counter64",
-      "Unsigned32",
-      "Counter32",
+      "iso",
       "IpAddress",
       "TimeTicks",
-      "Bits",
-      "NOTIFICATION-TYPE"
+      "Counter32",
+      "Gauge32",
+      "Integer32",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ],
     "TIMETRA-GLOBAL-MIB": [
       "tmnxBasedProducts"
@@ -318,7 +318,7 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/nokia/ALU-SAR-GLOBAL-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 18:14:29 2022",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 19:50:02 2022",
       "On host fv-az121-65 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
