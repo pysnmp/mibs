@@ -15,39 +15,16 @@ dirs:
 	mkdir -p output/json/ || true
 	mkdir -p log || true
 
-compilerfc: dirs $(RFC)
+standard: dirs $(RFC)
 	@# Compile mibs
 
-	for u in $(RFC); do echo $$u; cp -f $$u output/asn1/; done
-
-#Compile with notexts	
-	poetry run mibdump \
-	--ignore-errors \
-	--cache-directory=.pycache \
-	--mib-source=file://$$(pwd)/src/standard --mib-source=https://pysnmp.github.io:443/mibs/asn1/@mib@ \
-	--destination-directory=./output/notexts \
-	$(notdir $(RFC))
-#Compile with notext	
-	poetry run mibdump \
-	--ignore-errors \
- 	--cache-directory=.pycache \
-	--mib-source=file://$$(pwd)/src/standard --mib-source=https://pysnmp.github.io:443/mibs/asn1/@mib@ \
-	--destination-directory=./output/texts \
-	--generate-mib-texts --keep-texts-layout \
-	$(notdir $(RFC))
-
-	poetry run mibdump \
-	--ignore-errors \
- 	--cache-directory=.pycache \
-	--mib-source=file://$$(pwd)/src/standard --mib-source=https://pysnmp.github.io:443/mibs/asn1/@mib@ \
-	--destination-directory=./output/json --destination-format=json \
-	$(notdir $(RFC))
+	./scripts/vendor.sh standard
 
 
 vendor:
-	./scripts/vendor.sh
+	./scripts/vendor.sh vendor
 
-index: compilerfc vendor ##generate index
+index: standard vendor ##generate index
 	touch output/.nojekyll
 	poetry run python index.py
 
