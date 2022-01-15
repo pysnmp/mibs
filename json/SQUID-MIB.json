@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "INET-ADDRESS-MIB": [
-      "InetAddressType",
-      "InetAddress"
+      "InetAddress",
+      "InetAddressType"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "Integer32",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "enterprises",
-      "OBJECT-TYPE",
-      "MibIdentifier",
       "Gauge32",
+      "Integer32",
+      "MibIdentifier",
+      "Unsigned32",
+      "Counter32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "IpAddress",
+      "TimeTicks",
+      "iso",
       "NOTIFICATION-TYPE",
-      "Counter32"
+      "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "enterprises",
+      "Bits"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -1387,8 +1387,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/squid/SQUID-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:26:28 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:54:10 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "SQUID-MIB"

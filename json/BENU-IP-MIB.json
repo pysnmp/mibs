@@ -5,28 +5,28 @@
       "benuPlatform"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "Bits",
-      "NOTIFICATION-TYPE",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "OBJECT-TYPE",
-      "IpAddress",
+      "Unsigned32",
+      "iso",
       "MibIdentifier",
+      "IpAddress",
+      "Counter32",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Integer32",
+      "OBJECT-TYPE",
+      "Bits",
+      "OBJECT-IDENTITY",
       "Gauge32",
       "TimeTicks",
-      "Unsigned32",
-      "iso"
+      "NOTIFICATION-TYPE"
     ],
     "SNMPv2-TC": [
-      "TEXTUAL-CONVENTION",
-      "DisplayString"
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "bIPMIB": {
@@ -506,8 +506,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/benuos/BENU-IP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:02:45 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:27:56 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "BENU-IP-MIB"

@@ -5,23 +5,23 @@
       "dlurDlusSessnStatus"
     ],
     "APPN-MIB": [
-      "appnIsInP2SFmdBytes",
-      "appnMIB",
+      "appnIsInS2PNonFmdPius",
+      "appnGroups",
       "appnLocalTgCpCpSession",
+      "appnLocalTgOperational",
       "appnLsOperState",
       "appnIsInS2PFmdBytes",
-      "appnIsInSessUpTime",
-      "appnLocalTgOperational",
-      "appnGroups",
-      "appnPortOperState",
-      "appnCompliances",
       "appnObjects",
+      "appnIsInP2SNonFmdPius",
+      "appnCompliances",
       "appnIsInS2PNonFmdBytes",
-      "appnIsInP2SNonFmdBytes",
+      "appnIsInSessUpTime",
+      "appnPortOperState",
+      "appnIsInP2SFmdBytes",
       "appnIsInP2SFmdPius",
-      "appnIsInS2PNonFmdPius",
-      "appnIsInS2PFmdPius",
-      "appnIsInP2SNonFmdPius"
+      "appnMIB",
+      "appnIsInP2SNonFmdBytes",
+      "appnIsInS2PFmdPius"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -29,20 +29,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
       "OBJECT-TYPE",
-      "Counter32",
-      "Bits",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -369,8 +369,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/APPN-TRAP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:06:29 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:32:20 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "APPN-TRAP-MIB"

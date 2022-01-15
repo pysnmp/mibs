@@ -2,33 +2,33 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "Integer32",
-      "MODULE-IDENTITY",
-      "Counter64",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
       "iso",
-      "OBJECT-TYPE",
-      "experimental",
       "Bits",
-      "Gauge32",
-      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Counter64",
+      "experimental",
       "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "IpAddress"
+      "IpAddress",
+      "Gauge32",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "RowStatus",
-      "TimeStamp",
       "DisplayString",
-      "TruthValue"
+      "TruthValue",
+      "TimeStamp"
     ]
   },
   "msdpMIB": {
@@ -1413,8 +1413,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/MSDP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:00:03 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:25:04 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "MSDP-MIB"

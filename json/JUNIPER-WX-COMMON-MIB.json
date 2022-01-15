@@ -2,36 +2,36 @@
   "imports": {
     "class": "imports",
     "JUNIPER-WX-GLOBAL-REG": [
-      "jnxWxCommonMib",
-      "jnxWxModules"
+      "jnxWxModules",
+      "jnxWxCommonMib"
     ],
     "JUNIPER-WX-GLOBAL-TC": [
       "TcChassisType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
-      "Gauge32",
-      "OBJECT-IDENTITY",
-      "Integer32",
-      "OBJECT-TYPE",
-      "Bits",
-      "IpAddress",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
       "iso",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
+      "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
       "Counter64",
-      "TimeTicks",
-      "Counter32"
+      "IpAddress",
+      "OBJECT-IDENTITY",
+      "Bits",
+      "Integer32",
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "jnxWxCommonMibModule": {
@@ -422,8 +422,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/JUNIPER-WX-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:18:10 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:45:35 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "JUNIPER-WX-COMMON-MIB"

@@ -9,20 +9,20 @@
       "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "iso",
+      "NOTIFICATION-TYPE",
       "Bits",
-      "Unsigned32",
-      "Integer32",
-      "IpAddress",
-      "TimeTicks",
-      "MODULE-IDENTITY",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "Counter64",
-      "iso",
-      "MibIdentifier",
+      "Unsigned32",
       "Counter32",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE"
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY"
     ],
     "SNMPv2-TC": [
       "DisplayString",
@@ -10933,8 +10933,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/ADVA-FSPR7-TC-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:00:50 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:25:53 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ADVA-FSPR7-TC-MIB"

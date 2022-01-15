@@ -2,30 +2,30 @@
   "imports": {
     "class": "imports",
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP"
+      "OBJECT-GROUP",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
       "Gauge32",
-      "enterprises",
-      "MODULE-IDENTITY",
-      "Counter32",
-      "Counter64",
-      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
       "OBJECT-TYPE",
-      "TimeTicks",
-      "Bits",
+      "MODULE-IDENTITY",
+      "Counter64",
       "Unsigned32",
+      "NOTIFICATION-TYPE",
       "IpAddress",
+      "Bits",
+      "enterprises",
+      "iso",
+      "TimeTicks",
       "MibIdentifier",
       "Integer32",
-      "iso",
-      "OBJECT-IDENTITY"
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hp": {
@@ -48,6 +48,10 @@
     "oid": "1.3.6.1.4.1.11.2.17.1",
     "class": "moduleidentity",
     "revisions": [
+      {
+        "revision": "2005-09-28 00:00",
+        "description": "Added definition of trap 58916872"
+      },
       {
         "revision": "1996-07-08 00:00",
         "description": "Initial revision published as part of hp-unix MIB. Updated to add support for SNMPv2 Security Proxy. Updated to use the SNMPv2 SMI."
@@ -264,7 +268,15 @@
     "class": "objecttype",
     "syntax": {
       "type": "OCTET STRING",
-      "class": "type"
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 16,
+            "max": 16
+          }
+        ]
+      }
     },
     "maxaccess": "accessible-for-notify",
     "status": "current"
@@ -298,11 +310,35 @@
     "oid": "1.3.6.1.4.1.11.2.17.1.0",
     "class": "objectidentity"
   },
+  "hpOVMessageTrap": {
+    "name": "hpOVMessageTrap",
+    "oid": "1.3.6.1.4.1.11.2.17.1.0.58916872",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "HPOV-NNM-MIB",
+        "object": "openViewSourceId"
+      },
+      {
+        "module": "HPOV-NNM-MIB",
+        "object": "openViewSourceName"
+      },
+      {
+        "module": "HPOV-NNM-MIB",
+        "object": "openViewData"
+      },
+      {
+        "module": "HPOV-NNM-MIB",
+        "object": "openViewSeverity"
+      }
+    ],
+    "status": "current"
+  },
   "meta": {
     "comments": [
-      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/alcatel/HPOV-NNM-MIB",
-      "Produced by pysmi-1.1.8 at Thu Jan 13 23:34:30 2022",
-      "On host fv-az83-250 platform Linux version 5.11.0-1025-azure by user runner",
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPOV-NNM-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:41:17 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HPOV-NNM-MIB"

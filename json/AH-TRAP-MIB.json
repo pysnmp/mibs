@@ -1,0 +1,1786 @@
+{
+  "imports": {
+    "class": "imports",
+    "AH-SMI-MIB": [
+      "ahAPTrap",
+      "AhMACProtocol",
+      "AhNodeID",
+      "AhString"
+    ],
+    "SNMPv2-CONF": [
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
+    ],
+    "SNMPv2-SMI": [
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "TimeTicks",
+      "Gauge32",
+      "Bits",
+      "iso",
+      "MibIdentifier",
+      "Counter32",
+      "TruthValue",
+      "OBJECT-IDENTITY",
+      "Unsigned32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "Integer32",
+      "IpAddress"
+    ],
+    "SNMPv2-TC": [
+      "DisplayString",
+      "TEXTUAL-CONVENTION"
+    ]
+  },
+  "AhAuthenticationMethod": {
+    "name": "AhAuthenticationMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "cwp": 0,
+          "open": 1,
+          "wep-open": 2,
+          "wep-shared": 3,
+          "wpa-psk": 4,
+          "wpa2-psk": 5,
+          "wpa-8021x": 6,
+          "wpa2-8021X": 7,
+          "wpa-auto-psk": 8,
+          "dynamic-wep": 10,
+          "x8021x": 11
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AhEncrytionMethod": {
+    "name": "AhEncrytionMethod",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "aes": 0,
+          "tkip": 1,
+          "wep": 2,
+          "non": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ahTrapModule": {
+    "name": "ahTrapModule",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1",
+    "class": "moduleidentity"
+  },
+  "ahNotificationVarBind": {
+    "name": "ahNotificationVarBind",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2",
+    "class": "objectidentity"
+  },
+  "AhState": {
+    "name": "AhState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ahUp": 1,
+          "ahDown": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "AhProbableCause": {
+    "name": "AhProbableCause",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "ahClear": 0,
+          "ahUnknown": 1,
+          "ahFlashFailure": 2,
+          "ahFanFailure": 3,
+          "ahPowerSupplyFailure": 4,
+          "ahSoftwareUpgradeFailure": 5,
+          "ahRadioFailure": 6,
+          "ahConfFailure": 7
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ahFailureTrap": {
+    "name": "ahFailureTrap",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.1",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahSeverity"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahProbableCause"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahFailureSet"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahThresholdCrossingEvent": {
+    "name": "ahThresholdCrossingEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.2",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCurValue"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahThresholdHigh"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahThresholdLow"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahStateChangeEvent": {
+    "name": "ahStateChangeEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.3",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPreviousState"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCurrentState"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahConnectionChangeEvent": {
+    "name": "ahConnectionChangeEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.4",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIfIndex"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectType"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahRemoteId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCurrentState"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahSSID"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCLientIP"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientHostName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientUserName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientAuthMethod"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientEncryptionMethod"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientMACProtocol"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientVLAN"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientUserProfId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientChannel"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientCWPUsed"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahBSSID"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAssociationTime"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIfName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIDPRSSI"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahIDPStationEvent": {
+    "name": "ahIDPStationEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.5",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIfIndex"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahStationType"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahRemoteId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIDPType"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIDPChannel"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIDPRSSI"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIDPStationData"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIDPCompliance"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahSSID"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahRemoved"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIDPInNet"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahClientInfoEvent": {
+    "name": "ahClientInfoEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.6",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahSSID"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientMAC"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCLientIP"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientHostName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientUserName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahPoEEvent": {
+    "name": "ahPoEEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.7",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPowerSrc"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPoEEth0On"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPoEEth0Pwr"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPoEEth0MaxSpeed"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPoEWifi0Setting"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPoEEth1On"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPoEEth1Pwr"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPoEEth1MaxSpeed"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPoEWifi1Setting"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahPoEWifi2Setting"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahChannelPowerChangeEvent": {
+    "name": "ahChannelPowerChangeEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.8",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIfIndex"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahRadioChannel"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahRadioTxPower"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahBeaconInterval"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahIDPMitigateEvent": {
+    "name": "ahIDPMitigateEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.9",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIfIndex"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahRemoteId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahBSSID"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahDiscoverAge"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahUpdateAge"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahRemoved"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahInterferenceMapAlertEvent": {
+    "name": "ahInterferenceMapAlertEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.10",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIfIndex"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahInterferenceThreshold"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahRunningAverageInterference"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahShortTermInterference"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahSnapshotInterference"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCRCErrRateThreshold"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCRCErrRate"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahSeverity"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahFailureSet"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahBandwidthSentinelEvent": {
+    "name": "ahBandwidthSentinelEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.11",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIfIndex"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientMAC"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahBandwidthSentinelStatus"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahGuaranteedBandwidth"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahActualBandwidth"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahBandwidthSentinelAction"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahAlarmMsgMapAlertEvent": {
+    "name": "ahAlarmMsgMapAlertEvent",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.1.12",
+    "class": "notificationtype",
+    "objects": [
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPId"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAPName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahIfIndex"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahObjectName"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahLevel"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahClientMAC"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahSSID"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahAlarmAlertType"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahThresholdValue"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahShortTermValue"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahSnapshotValue"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahFailureSet"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahCode"
+      },
+      {
+        "module": "AH-TRAP-MIB",
+        "object": "ahTrapDesc"
+      }
+    ],
+    "status": "current"
+  },
+  "ahAPId": {
+    "name": "ahAPId",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.1",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhNodeID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahAPName": {
+    "name": "ahAPName",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.2",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahSeverity": {
+    "name": "ahSeverity",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.3",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "critical": 5,
+          "major": 4,
+          "minor": 3,
+          "info": 2,
+          "undetermined": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahObjectName": {
+    "name": "ahObjectName",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.4",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 64
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahProbableCause": {
+    "name": "ahProbableCause",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.5",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhProbableCause",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahCurValue": {
+    "name": "ahCurValue",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.6",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahThresholdHigh": {
+    "name": "ahThresholdHigh",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.7",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahThresholdLow": {
+    "name": "ahThresholdLow",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.8",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahPreviousState": {
+    "name": "ahPreviousState",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.9",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhState",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahCurrentState": {
+    "name": "ahCurrentState",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.10",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhState",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahTrapDesc": {
+    "name": "ahTrapDesc",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.11",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahCode": {
+    "name": "ahCode",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.12",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahIfIndex": {
+    "name": "ahIfIndex",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.13",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahObjectType": {
+    "name": "ahObjectType",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.14",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "clientLink": 1,
+          "neighborLink": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahRemoteId": {
+    "name": "ahRemoteId",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.15",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhNodeID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahIDPType": {
+    "name": "ahIDPType",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.16",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "rogue": 1,
+          "valid": 2,
+          "external": 3
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahIDPChannel": {
+    "name": "ahIDPChannel",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.17",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahIDPRSSI": {
+    "name": "ahIDPRSSI",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.18",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahIDPCompliance": {
+    "name": "ahIDPCompliance",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.19",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open-policy": 1,
+          "wep-policy": 2,
+          "wpa-policy": 4,
+          "wmm-policy": 8,
+          "oui-policy": 16,
+          "ssid-policy": 32,
+          "short-preamble-policy": 64,
+          "short-beacon-policy": 128,
+          "ad-hoc-policy": 256
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahSSID": {
+    "name": "ahSSID",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.20",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 32
+          }
+        ]
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahStationType": {
+    "name": "ahStationType",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.21",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "station-ap": 1,
+          "station-client": 2
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahIDPStationData": {
+    "name": "ahIDPStationData",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.22",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "open-policy": 1,
+          "wep-policy": 2,
+          "wpa-policy": 4,
+          "wmm-policy": 8,
+          "short-preamble-policy": 64,
+          "short-beacon-policy": 128,
+          "ad-hoc-policy": 256
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahRemoved": {
+    "name": "ahRemoved",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.23",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "removed-false": 0,
+          "removed-true": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahClientMAC": {
+    "name": "ahClientMAC",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.24",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhNodeID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahCLientIP": {
+    "name": "ahCLientIP",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.25",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahClientHostName": {
+    "name": "ahClientHostName",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.26",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahClientUserName": {
+    "name": "ahClientUserName",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.27",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahPowerSrc": {
+    "name": "ahPowerSrc",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.28",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "adaptor": 0,
+          "poe": 1
+        }
+      }
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahPoEEth0On": {
+    "name": "ahPoEEth0On",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.29",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahPoEEth0Pwr": {
+    "name": "ahPoEEth0Pwr",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.30",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahPoEEth1On": {
+    "name": "ahPoEEth1On",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.31",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahPoEEth1Pwr": {
+    "name": "ahPoEEth1Pwr",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.32",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "ahRadioChannel": {
+    "name": "ahRadioChannel",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.33",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahRadioTxPower": {
+    "name": "ahRadioTxPower",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.34",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahClientAuthMethod": {
+    "name": "ahClientAuthMethod",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.35",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhAuthenticationMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahClientEncryptionMethod": {
+    "name": "ahClientEncryptionMethod",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.36",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhEncrytionMethod",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahClientMACProtocol": {
+    "name": "ahClientMACProtocol",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.37",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhMACProtocol",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahClientVLAN": {
+    "name": "ahClientVLAN",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.38",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahClientUserProfId": {
+    "name": "ahClientUserProfId",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.39",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahClientChannel": {
+    "name": "ahClientChannel",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.40",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahClientCWPUsed": {
+    "name": "ahClientCWPUsed",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.41",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahBSSID": {
+    "name": "ahBSSID",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.42",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhNodeID",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahPoEEth0MaxSpeed": {
+    "name": "ahPoEEth0MaxSpeed",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.43",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkdown": 1,
+          "eth10": 2,
+          "eth100": 3,
+          "eth1000": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahPoEEth1MaxSpeed": {
+    "name": "ahPoEEth1MaxSpeed",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.44",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "linkdown": 1,
+          "eth10": 2,
+          "eth100": 3,
+          "eth1000": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahPoEWifi0Setting": {
+    "name": "ahPoEWifi0Setting",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.45",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "linkdown": 1,
+          "config": 2,
+          "tx2rx3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahPoEWifi1Setting": {
+    "name": "ahPoEWifi1Setting",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.46",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "linkdown": 1,
+          "config": 2,
+          "tx2rx3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahPoEWifi2Setting": {
+    "name": "ahPoEWifi2Setting",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.47",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "invalid": 0,
+          "linkdown": 1,
+          "config": 2,
+          "tx2rx3": 3
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahAssociationTime": {
+    "name": "ahAssociationTime",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.48",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahIDPInNet": {
+    "name": "ahIDPInNet",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.49",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahDiscoverAge": {
+    "name": "ahDiscoverAge",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.50",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahUpdateAge": {
+    "name": "ahUpdateAge",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.51",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahRunningAverageInterference": {
+    "name": "ahRunningAverageInterference",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.52",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahShortTermInterference": {
+    "name": "ahShortTermInterference",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.53",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahSnapshotInterference": {
+    "name": "ahSnapshotInterference",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.54",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahFailureSet": {
+    "name": "ahFailureSet",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.55",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahInterferenceThreshold": {
+    "name": "ahInterferenceThreshold",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.56",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahCRCErrRateThreshold": {
+    "name": "ahCRCErrRateThreshold",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.57",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahCRCErrRate": {
+    "name": "ahCRCErrRate",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.58",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahBandwidthSentinelStatus": {
+    "name": "ahBandwidthSentinelStatus",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.59",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "alert": 0,
+          "clear": 1,
+          "bad": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahGuaranteedBandwidth": {
+    "name": "ahGuaranteedBandwidth",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.60",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahActualBandwidth": {
+    "name": "ahActualBandwidth",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.61",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahBandwidthSentinelAction": {
+    "name": "ahBandwidthSentinelAction",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.62",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahBeaconInterval": {
+    "name": "ahBeaconInterval",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.63",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahLevel": {
+    "name": "ahLevel",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.64",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "interface": 1,
+          "client": 2
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahAlarmAlertType": {
+    "name": "ahAlarmAlertType",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.65",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "crcrate": 0,
+          "txdroprate": 1,
+          "txretryrate": 2,
+          "rxdroprate": 3,
+          "airtime": 4
+        }
+      }
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahThresholdValue": {
+    "name": "ahThresholdValue",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.66",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahShortTermValue": {
+    "name": "ahShortTermValue",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.67",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahSnapshotValue": {
+    "name": "ahSnapshotValue",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.68",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "ahIfName": {
+    "name": "ahIfName",
+    "oid": "1.3.6.1.4.1.26928.1.1.1.1.2.69",
+    "nodetype": "scalar",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AhString",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/aerohive/AH-TRAP-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:25:59 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "AH-TRAP-MIB"
+  }
+}

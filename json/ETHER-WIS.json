@@ -5,45 +5,45 @@
       "ifIndex"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
+      "OBJECT-GROUP",
       "NOTIFICATION-GROUP",
-      "OBJECT-GROUP"
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "transmission",
-      "Counter64",
-      "Counter32",
-      "TimeTicks",
-      "OBJECT-IDENTITY",
-      "iso",
-      "OBJECT-TYPE",
       "Bits",
+      "TimeTicks",
       "Gauge32",
-      "MibIdentifier",
+      "OBJECT-TYPE",
+      "Counter64",
       "Unsigned32",
+      "MibIdentifier",
+      "OBJECT-IDENTITY",
+      "transmission",
+      "Counter32",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "Integer32",
-      "IpAddress"
+      "IpAddress",
+      "iso",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
       "DisplayString"
     ],
     "SONET-MIB": [
-      "sonetFarEndLineStuff2",
-      "sonetMediumLineCoding",
-      "sonetMediumStuff2",
-      "sonetFarEndPathStuff2",
-      "sonetMediumCircuitIdentifier",
-      "sonetLineStuff2",
+      "sonetSESthresholdSet",
       "sonetMediumLineType",
       "sonetSectionStuff2",
-      "sonetMediumType",
-      "sonetSESthresholdSet",
+      "sonetLineStuff2",
       "sonetPathCurrentWidth",
       "sonetPathStuff2",
-      "sonetMediumLoopbackConfig"
+      "sonetMediumStuff2",
+      "sonetMediumLoopbackConfig",
+      "sonetMediumLineCoding",
+      "sonetFarEndLineStuff2",
+      "sonetMediumType",
+      "sonetFarEndPathStuff2",
+      "sonetMediumCircuitIdentifier"
     ]
   },
   "etherWisMIB": {
@@ -494,8 +494,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/standard/ETHER-WIS",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:00:04 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:25:04 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "ETHER-WIS"

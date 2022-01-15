@@ -3,13 +3,13 @@
     "class": "imports",
     "DS3-MIB": [
       "dsx3FarEndCurrentEntry",
+      "dsx3FarEndConfigEntry",
       "dsx3FarEndIntervalEntry",
-      "dsx3FarEndTotalEntry",
-      "dsx3FarEndConfigEntry"
+      "dsx3FarEndTotalEntry"
     ],
     "IF-MIB": [
-      "ifIndex",
-      "InterfaceIndexOrZero"
+      "InterfaceIndexOrZero",
+      "ifIndex"
     ],
     "Juniper-MIBs": [
       "juniMibs"
@@ -19,35 +19,35 @@
     ],
     "PerfHist-TC-MIB": [
       "PerfCurrentCount",
-      "PerfIntervalCount",
-      "PerfTotalCount"
+      "PerfTotalCount",
+      "PerfIntervalCount"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "MODULE-IDENTITY",
-      "MibIdentifier",
+      "iso",
+      "Counter32",
+      "Unsigned32",
+      "OBJECT-TYPE",
       "Gauge32",
+      "MibIdentifier",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "IpAddress",
+      "Bits",
       "OBJECT-IDENTITY",
       "Integer32",
-      "OBJECT-TYPE",
-      "IpAddress",
-      "iso",
-      "Unsigned32",
-      "NOTIFICATION-TYPE",
-      "Bits",
-      "Counter64",
-      "TimeTicks",
-      "Counter32"
+      "TimeTicks"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TruthValue",
       "DisplayString",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "TruthValue"
     ]
   },
   "juniDs3MIB": {
@@ -1106,8 +1106,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/juniper/Juniper-DS3-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:18:09 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:45:35 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "Juniper-DS3-MIB"

@@ -8,15 +8,15 @@
       "InterfaceIndex"
     ],
     "INET-ADDRESS-MIB": [
-      "InetZoneIndex",
-      "InetAddress",
-      "InetAddressPrefixLength",
       "InetAddressType",
-      "InetVersion"
+      "InetVersion",
+      "InetAddressPrefixLength",
+      "InetAddress",
+      "InetZoneIndex"
     ],
     "IP-MIB": [
-      "IpAddressStatusTC",
-      "IpAddressOriginTC"
+      "IpAddressOriginTC",
+      "IpAddressStatusTC"
     ],
     "SNMPv2-CONF": [
       "OBJECT-GROUP",
@@ -24,33 +24,33 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "mib-2",
-      "IpAddress",
-      "Bits",
-      "Gauge32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
       "OBJECT-TYPE",
-      "Counter32",
-      "zeroDotZero",
+      "MODULE-IDENTITY",
+      "mib-2",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "Integer32",
+      "Unsigned32",
+      "iso",
+      "Bits",
+      "MibIdentifier",
+      "zeroDotZero",
+      "TimeTicks",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "RowStatus",
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "TruthValue",
-      "PhysAddress",
-      "TestAndIncr",
       "RowPointer",
+      "TimeStamp",
       "StorageType",
-      "TimeStamp"
+      "TruthValue",
+      "TestAndIncr",
+      "DisplayString",
+      "PhysAddress",
+      "RowStatus",
+      "TEXTUAL-CONVENTION"
     ]
   },
   "rlIp": {
@@ -334,8 +334,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCOSB-rlIP-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:06:31 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:32:21 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCOSB-rlIP-MIB"

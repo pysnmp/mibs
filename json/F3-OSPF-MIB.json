@@ -1,0 +1,1124 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-IP-MIB": [
+      "cmIpInterfaceEntry",
+      "ipManagementTunnelEntry"
+    ],
+    "OSPF-MIB": [
+      "OspfAuthenticationType",
+      "DesignatedRouterPriority",
+      "HelloRange",
+      "RouterID",
+      "ospfNbrEntry",
+      "AreaID"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType",
+      "RowStatus",
+      "DisplayString"
+    ]
+  },
+  "f3OspfMIB": {
+    "name": "f3OspfMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.35",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2014-10-06 00:00",
+        "description": " Notes from release 201410060000Z, (1) MIB version ready for release FSP150CC 6.6.CC."
+      }
+    ]
+  },
+  "OspfMetricType": {
+    "name": "OspfMetricType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "e1": 1,
+          "e2": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OspfRedistributionType": {
+    "name": "OspfRedistributionType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "rip": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OspfState": {
+    "name": "OspfState",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "enabled": 1,
+          "disabled": 2,
+          "passive": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OspfAreaType": {
+    "name": "OspfAreaType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "normal": 1,
+          "stub": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "OspfRole": {
+    "name": "OspfRole",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "bdr": 1,
+          "dr": 2,
+          "drother": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f3OspfConfigObjects": {
+    "name": "f3OspfConfigObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1",
+    "class": "objectidentity"
+  },
+  "f3OspfConformance": {
+    "name": "f3OspfConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.2",
+    "class": "objectidentity"
+  },
+  "f3OspfRouterTable": {
+    "name": "f3OspfRouterTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3OspfRouterEntry": {
+    "name": "f3OspfRouterEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfRouterIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3OspfRouterIndex": {
+    "name": "f3OspfRouterIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RouterID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3OspfRouterMetricType": {
+    "name": "f3OspfRouterMetricType",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfMetricType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfRouterMetric": {
+    "name": "f3OspfRouterMetric",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777214
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfRouterRedistributionType": {
+    "name": "f3OspfRouterRedistributionType",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfRedistributionType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfRouterNumAttachedAreas": {
+    "name": "f3OspfRouterNumAttachedAreas",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3OspfRouterAreaBdrRtrStatus": {
+    "name": "f3OspfRouterAreaBdrRtrStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfRouterStorageType": {
+    "name": "f3OspfRouterStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfRouterRowStatus": {
+    "name": "f3OspfRouterRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfAreaTable": {
+    "name": "f3OspfAreaTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3OspfAreaEntry": {
+    "name": "f3OspfAreaEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfAreaId",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3OspfAreaId": {
+    "name": "f3OspfAreaId",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3OspfAreaType": {
+    "name": "f3OspfAreaType",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfAreaType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfAreaAuthType": {
+    "name": "f3OspfAreaAuthType",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfAuthenticationType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfAreaDefaultCost": {
+    "name": "f3OspfAreaDefaultCost",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Unsigned32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 0,
+            "max": 16777215
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfAreaSpfRuns": {
+    "name": "f3OspfAreaSpfRuns",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Counter32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3OspfAreaLsaCount": {
+    "name": "f3OspfAreaLsaCount",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Gauge32",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3OspfAreaStorageType": {
+    "name": "f3OspfAreaStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.2.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfAreaRowStatus": {
+    "name": "f3OspfAreaRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.2.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtTable": {
+    "name": "f3OspfIpInterfaceExtTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtEntry": {
+    "name": "f3OspfIpInterfaceExtEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3OspfIpInterfaceExtEntry",
+      "module": "F3-OSPF-MIB",
+      "object": "cmIpInterfaceEntry"
+    },
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtStatus": {
+    "name": "f3OspfIpInterfaceExtStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtAreaId": {
+    "name": "f3OspfIpInterfaceExtAreaId",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtIfType": {
+    "name": "f3OspfIpInterfaceExtIfType",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "nbma": 2,
+          "pointToPoint": 3,
+          "pointToMultipoint": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtHelloInterval": {
+    "name": "f3OspfIpInterfaceExtHelloInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtRtrDeadInterval": {
+    "name": "f3OspfIpInterfaceExtRtrDeadInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtRetransInterval": {
+    "name": "f3OspfIpInterfaceExtRetransInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtRtrPriority": {
+    "name": "f3OspfIpInterfaceExtRtrPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtCost": {
+    "name": "f3OspfIpInterfaceExtCost",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtAuthType": {
+    "name": "f3OspfIpInterfaceExtAuthType",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfAuthenticationType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtAuthKey": {
+    "name": "f3OspfIpInterfaceExtAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.3.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtTable": {
+    "name": "f3OspfIpMgmtTunnelExtTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtEntry": {
+    "name": "f3OspfIpMgmtTunnelExtEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3OspfIpMgmtTunnelExtEntry",
+      "module": "F3-OSPF-MIB",
+      "object": "ipManagementTunnelEntry"
+    },
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtStatus": {
+    "name": "f3OspfIpMgmtTunnelExtStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfState",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "enabled",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtAreaId": {
+    "name": "f3OspfIpMgmtTunnelExtAreaId",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "AreaID",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "00000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtIfType": {
+    "name": "f3OspfIpMgmtTunnelExtIfType",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "broadcast": 1,
+          "nbma": 2,
+          "pointToPoint": 3,
+          "pointToMultipoint": 5
+        }
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtHelloInterval": {
+    "name": "f3OspfIpMgmtTunnelExtHelloInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "HelloRange",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 10,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtRtrDeadInterval": {
+    "name": "f3OspfIpMgmtTunnelExtRtrDeadInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 40,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtRetransInterval": {
+    "name": "f3OspfIpMgmtTunnelExtRetransInterval",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": 5,
+        "format": "decimal"
+      }
+    },
+    "units": "seconds",
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtRtrPriority": {
+    "name": "f3OspfIpMgmtTunnelExtRtrPriority",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DesignatedRouterPriority",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": 1,
+        "format": "decimal"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtCost": {
+    "name": "f3OspfIpMgmtTunnelExtCost",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type",
+      "constraints": {
+        "range": [
+          {
+            "min": 1,
+            "max": 65535
+          }
+        ]
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtAuthType": {
+    "name": "f3OspfIpMgmtTunnelExtAuthType",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfAuthenticationType",
+      "class": "type"
+    },
+    "default": {
+      "default": {
+        "value": "none",
+        "format": "enum"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtAuthKey": {
+    "name": "f3OspfIpMgmtTunnelExtAuthKey",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.4.1.10",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OCTET STRING",
+      "class": "type",
+      "constraints": {
+        "size": [
+          {
+            "min": 0,
+            "max": 16
+          }
+        ]
+      }
+    },
+    "default": {
+      "default": {
+        "value": "0000000000000000",
+        "format": "hex"
+      }
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3OspfNbrExtTable": {
+    "name": "f3OspfNbrExtTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3OspfNbrExtEntry": {
+    "name": "f3OspfNbrExtEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3OspfNbrExtEntry",
+      "module": "F3-OSPF-MIB",
+      "object": "ospfNbrEntry"
+    },
+    "status": "current"
+  },
+  "f3OspfNbrExtRole": {
+    "name": "f3OspfNbrExtRole",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "OspfRole",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3OspfCompliances": {
+    "name": "f3OspfCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.2.1",
+    "class": "objectidentity"
+  },
+  "f3OspfGroups": {
+    "name": "f3OspfGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.2.2",
+    "class": "objectidentity"
+  },
+  "f3OspfCompliance": {
+    "name": "f3OspfCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.2.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3OspfRouterGroup",
+        "module": "F3-OSPF-MIB"
+      },
+      {
+        "object": "f3OspfAreaGroup",
+        "module": "F3-OSPF-MIB"
+      },
+      {
+        "object": "f3OspfIpInterfaceExtGroup",
+        "module": "F3-OSPF-MIB"
+      },
+      {
+        "object": "f3OspfIpMgmtTunnelExtGroup",
+        "module": "F3-OSPF-MIB"
+      },
+      {
+        "object": "f3OspfNbrExtGroup",
+        "module": "F3-OSPF-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3OspfRouterGroup": {
+    "name": "f3OspfRouterGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.2.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfRouterMetricType"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfRouterMetric"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfRouterRedistributionType"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfRouterNumAttachedAreas"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfRouterAreaBdrRtrStatus"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfRouterStorageType"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfRouterRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "f3OspfAreaGroup": {
+    "name": "f3OspfAreaGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.2.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfAreaType"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfAreaAuthType"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfAreaDefaultCost"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfAreaSpfRuns"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfAreaLsaCount"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfAreaStorageType"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfAreaRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "f3OspfIpInterfaceExtGroup": {
+    "name": "f3OspfIpInterfaceExtGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.2.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpInterfaceExtStatus"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpInterfaceExtAreaId"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpInterfaceExtIfType"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpInterfaceExtHelloInterval"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpInterfaceExtRtrDeadInterval"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpInterfaceExtRetransInterval"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpInterfaceExtRtrPriority"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpInterfaceExtCost"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpInterfaceExtAuthType"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpInterfaceExtAuthKey"
+      }
+    ],
+    "status": "current"
+  },
+  "f3OspfIpMgmtTunnelExtGroup": {
+    "name": "f3OspfIpMgmtTunnelExtGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.2.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpMgmtTunnelExtStatus"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpMgmtTunnelExtAreaId"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpMgmtTunnelExtIfType"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpMgmtTunnelExtHelloInterval"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpMgmtTunnelExtRtrDeadInterval"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpMgmtTunnelExtRetransInterval"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpMgmtTunnelExtRtrPriority"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpMgmtTunnelExtCost"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpMgmtTunnelExtAuthType"
+      },
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfIpMgmtTunnelExtAuthKey"
+      }
+    ],
+    "status": "current"
+  },
+  "f3OspfNbrExtGroup": {
+    "name": "f3OspfNbrExtGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.35.2.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-OSPF-MIB",
+        "object": "f3OspfNbrExtRole"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-OSPF-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:25:53 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "F3-OSPF-MIB"
+  }
+}

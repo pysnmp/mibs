@@ -1,0 +1,1488 @@
+{
+  "imports": {
+    "class": "imports",
+    "ADVA-MIB": [
+      "fsp150cm"
+    ],
+    "CM-COMMON-MIB": [
+      "PerfCounter64"
+    ],
+    "CM-ENTITY-MIB": [
+      "neIndex",
+      "slotIndex",
+      "networkElementEntry",
+      "shelfIndex"
+    ],
+    "CM-FACILITY-MIB": [
+      "cmMPFlowIndex",
+      "cmFlowIndex",
+      "cmFlowEntry",
+      "cmEthernetAccPortIndex"
+    ],
+    "CM-PERFORMANCE-MIB": [
+      "cmFlowStatsEntry",
+      "cmFlowHistoryEntry"
+    ],
+    "SNMPv2-CONF": [
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP",
+      "MODULE-COMPLIANCE"
+    ],
+    "SNMPv2-SMI": [
+      "OBJECT-TYPE",
+      "iso",
+      "Unsigned32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Counter32",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "IpAddress",
+      "Integer32",
+      "MODULE-IDENTITY"
+    ],
+    "SNMPv2-TC": [
+      "TEXTUAL-CONVENTION",
+      "TruthValue",
+      "StorageType",
+      "RowStatus",
+      "VariablePointer",
+      "DisplayString",
+      "MacAddress"
+    ]
+  },
+  "f3BridgeMIB": {
+    "name": "f3BridgeMIB",
+    "oid": "1.3.6.1.4.1.2544.1.12.26",
+    "class": "moduleidentity",
+    "revisions": [
+      {
+        "revision": "2012-10-09 00:00",
+        "description": " Notes from release 201210090000Z, (1)MIB version ready for release FSP150CC 5.6CC."
+      }
+    ]
+  },
+  "LearningControl": {
+    "name": "LearningControl",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "macbased": 2,
+          "flowbased": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "ProtectLearningControl": {
+    "name": "ProtectLearningControl",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "none": 1,
+          "discard": 2,
+          "block": 3
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LearningAction": {
+    "name": "LearningAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "block": 1,
+          "forward": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "LearningEntryType": {
+    "name": "LearningEntryType",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "static": 1,
+          "dynamic": 2
+        }
+      }
+    },
+    "status": "current"
+  },
+  "FlowLearningConfigAction": {
+    "name": "FlowLearningConfigAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "noAction": 1,
+          "flushFwdTable": 2,
+          "clearBlock": 3,
+          "resetAgingTimer": 4
+        }
+      }
+    },
+    "status": "current"
+  },
+  "RetrieveMacAction": {
+    "name": "RetrieveMacAction",
+    "class": "textualconvention",
+    "type": {
+      "type": "INTEGER",
+      "class": "type",
+      "constraints": {
+        "enumeration": {
+          "notApllicable": 0,
+          "retrieveMac": 1
+        }
+      }
+    },
+    "status": "current"
+  },
+  "f3BridgeConfigObjects": {
+    "name": "f3BridgeConfigObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1",
+    "class": "objectidentity"
+  },
+  "f3BridgeStatsObjects": {
+    "name": "f3BridgeStatsObjects",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2",
+    "class": "objectidentity"
+  },
+  "f3BridgeConformance": {
+    "name": "f3BridgeConformance",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3",
+    "class": "objectidentity"
+  },
+  "f3FlowLearningConfigTable": {
+    "name": "f3FlowLearningConfigTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3FlowLearningConfigEntry": {
+    "name": "f3FlowLearningConfigEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3FlowLearningConfigEntry",
+      "module": "F3-BRIDGE-MIB",
+      "object": "cmFlowEntry"
+    },
+    "status": "current"
+  },
+  "f3FlowLearningConfigAccIfLearningCtrl": {
+    "name": "f3FlowLearningConfigAccIfLearningCtrl",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningControl",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowLearningConfigNetIfLearningCtrl": {
+    "name": "f3FlowLearningConfigNetIfLearningCtrl",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningControl",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowLearningConfigAccMaxFwdEntries": {
+    "name": "f3FlowLearningConfigAccMaxFwdEntries",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowLearningConfigNetMaxFwdEntries": {
+    "name": "f3FlowLearningConfigNetMaxFwdEntries",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowLearningConfigAccIfProtectLearningCtrl": {
+    "name": "f3FlowLearningConfigAccIfProtectLearningCtrl",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProtectLearningControl",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowLearningConfigNetIfProtectLearningCtrl": {
+    "name": "f3FlowLearningConfigNetIfProtectLearningCtrl",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "ProtectLearningControl",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowLearningConfigAgingTimer": {
+    "name": "f3FlowLearningConfigAgingTimer",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowLearningConfigTableFullAction": {
+    "name": "f3FlowLearningConfigTableFullAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1.1.8",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowLearningConfigAction": {
+    "name": "f3FlowLearningConfigAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.1.1.9",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "FlowLearningConfigAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FlowStaticFwdEntTable": {
+    "name": "f3FlowStaticFwdEntTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3FlowStaticFwdEntEntry": {
+    "name": "f3FlowStaticFwdEntEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetAccPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowStaticFwdEntDestMac",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "f3FlowStaticFwdEntDestMac": {
+    "name": "f3FlowStaticFwdEntDestMac",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3FlowStaticFwdEntDestPort": {
+    "name": "f3FlowStaticFwdEntDestPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3FlowStaticFwdEntAction": {
+    "name": "f3FlowStaticFwdEntAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3FlowStaticFwdEntStorageType": {
+    "name": "f3FlowStaticFwdEntStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3FlowStaticFwdEntRowStatus": {
+    "name": "f3FlowStaticFwdEntRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3FlowStaticFwdValid": {
+    "name": "f3FlowStaticFwdValid",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.2.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowFdbTable": {
+    "name": "f3FlowFdbTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.3",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3FlowFdbEntry": {
+    "name": "f3FlowFdbEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.3.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "shelfIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "slotIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmEthernetAccPortIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowFdbDestMac",
+        "implied": 1
+      }
+    ],
+    "status": "current"
+  },
+  "f3FlowFdbDestMac": {
+    "name": "f3FlowFdbDestMac",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.3.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3FlowFdbDestPort": {
+    "name": "f3FlowFdbDestPort",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.3.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowFdbAction": {
+    "name": "f3FlowFdbAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.3.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowFdbEntryType": {
+    "name": "f3FlowFdbEntryType",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.3.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningEntryType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3MPFlowStaticFwdTable": {
+    "name": "f3MPFlowStaticFwdTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.4",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3MPFlowStaticFwdEntry": {
+    "name": "f3MPFlowStaticFwdEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.4.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmMPFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowStaticFwdMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3MPFlowStaticFwdMacAddress": {
+    "name": "f3MPFlowStaticFwdMacAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.4.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3MPFlowStaticFwdFP": {
+    "name": "f3MPFlowStaticFwdFP",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.4.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3MPFlowStaticFwdControlAction": {
+    "name": "f3MPFlowStaticFwdControlAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.4.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3MPFlowStaticFwdValid": {
+    "name": "f3MPFlowStaticFwdValid",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.4.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3MPFlowStaticFwdStorageType": {
+    "name": "f3MPFlowStaticFwdStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.4.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3MPFlowStaticFwdRowStatus": {
+    "name": "f3MPFlowStaticFwdRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.4.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3MPFlowFDBTable": {
+    "name": "f3MPFlowFDBTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.5",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3MPFlowFDBEntry": {
+    "name": "f3MPFlowFDBEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.5.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmMPFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowFDBMacAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3MPFlowFDBMacAddress": {
+    "name": "f3MPFlowFDBMacAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.5.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3MPFlowFDBFP": {
+    "name": "f3MPFlowFDBFP",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.5.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3MPFlowFDBType": {
+    "name": "f3MPFlowFDBType",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.5.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningEntryType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3MPFlowFDBControlAction": {
+    "name": "f3MPFlowFDBControlAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.5.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningAction",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FwdTSizeProfileTable": {
+    "name": "f3FwdTSizeProfileTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.6",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3FwdTSizeProfileEntry": {
+    "name": "f3FwdTSizeProfileEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.6.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FwdTSizeProfileIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3FwdTSizeProfileIndex": {
+    "name": "f3FwdTSizeProfileIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.6.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3FwdTSizeProfileName": {
+    "name": "f3FwdTSizeProfileName",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.6.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3FwdTSizeProfileTableSize": {
+    "name": "f3FwdTSizeProfileTableSize",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.6.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "Integer32",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3MultiGroupRegistrationTable": {
+    "name": "f3MultiGroupRegistrationTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.7",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3MultiGroupRegistrationEntry": {
+    "name": "f3MultiGroupRegistrationEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.7.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmMPFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRMulticastAddress",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3MGRMulticastAddress": {
+    "name": "f3MGRMulticastAddress",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.7.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "MacAddress",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3MGRFPList": {
+    "name": "f3MGRFPList",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.7.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "DisplayString",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3MGRGroupAction": {
+    "name": "f3MGRGroupAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.7.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningAction",
+      "class": "type"
+    },
+    "maxaccess": "read-write",
+    "status": "current"
+  },
+  "f3MGRGroupType": {
+    "name": "f3MGRGroupType",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.7.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "LearningEntryType",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3MGRGroupValid": {
+    "name": "f3MGRGroupValid",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.7.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "TruthValue",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3MGRGroupStorageType": {
+    "name": "f3MGRGroupStorageType",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.7.1.6",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "StorageType",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3MGRGroupRowStatus": {
+    "name": "f3MGRGroupRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.7.1.7",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3MGRFPMemberTable": {
+    "name": "f3MGRFPMemberTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.8",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3MGRFPMemberEntry": {
+    "name": "f3MGRFPMemberEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.8.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "indices": [
+      {
+        "module": "CM-ENTITY-MIB",
+        "object": "neIndex",
+        "implied": 0
+      },
+      {
+        "module": "CM-FACILITY-MIB",
+        "object": "cmMPFlowIndex",
+        "implied": 0
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRMulticastAddress",
+        "implied": 0
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRFPIndex",
+        "implied": 0
+      }
+    ],
+    "status": "current"
+  },
+  "f3MGRFPIndex": {
+    "name": "f3MGRFPIndex",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.8.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "VariablePointer",
+      "class": "type"
+    },
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3MGRFPIndexRowStatus": {
+    "name": "f3MGRFPIndexRowStatus",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.8.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RowStatus",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "networkElementBridgeParamsTable": {
+    "name": "networkElementBridgeParamsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.9",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "networkElementBridgeParamsEntry": {
+    "name": "networkElementBridgeParamsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.9.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "networkElementBridgeParamsEntry",
+      "module": "F3-BRIDGE-MIB",
+      "object": "networkElementEntry"
+    },
+    "status": "current"
+  },
+  "neBridgeParamsRtrvMacAction": {
+    "name": "neBridgeParamsRtrvMacAction",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.1.9.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "RetrieveMacAction",
+      "class": "type"
+    },
+    "maxaccess": "read-create",
+    "status": "current"
+  },
+  "f3FlowLearningStatsTable": {
+    "name": "f3FlowLearningStatsTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.1",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3FlowLearningStatsEntry": {
+    "name": "f3FlowLearningStatsEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.1.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3FlowLearningStatsEntry",
+      "module": "F3-BRIDGE-MIB",
+      "object": "cmFlowStatsEntry"
+    },
+    "status": "current"
+  },
+  "f3FlowLearningStatsMacTableFlushes": {
+    "name": "f3FlowLearningStatsMacTableFlushes",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.1.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowLearningStatsFDStaticBlock": {
+    "name": "f3FlowLearningStatsFDStaticBlock",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.1.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowLearningStatsFDHairPin": {
+    "name": "f3FlowLearningStatsFDHairPin",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.1.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowLearningStatsFDNoDest": {
+    "name": "f3FlowLearningStatsFDNoDest",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.1.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowLearningStatsMacTableDiscards": {
+    "name": "f3FlowLearningStatsMacTableDiscards",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.1.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowLearningHistoryTable": {
+    "name": "f3FlowLearningHistoryTable",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.2",
+    "nodetype": "table",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "status": "current"
+  },
+  "f3FlowLearningHistoryEntry": {
+    "name": "f3FlowLearningHistoryEntry",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.2.1",
+    "nodetype": "row",
+    "class": "objecttype",
+    "maxaccess": "not-accessible",
+    "augmention": {
+      "name": "f3FlowLearningHistoryEntry",
+      "module": "F3-BRIDGE-MIB",
+      "object": "cmFlowHistoryEntry"
+    },
+    "status": "current"
+  },
+  "f3FlowLearningHistoryMacTableFlushes": {
+    "name": "f3FlowLearningHistoryMacTableFlushes",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.2.1.1",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowLearningHistoryFDStaticBlock": {
+    "name": "f3FlowLearningHistoryFDStaticBlock",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.2.1.2",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowLearningHistoryFDHairPin": {
+    "name": "f3FlowLearningHistoryFDHairPin",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.2.1.3",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowLearningHistoryFDNoDest": {
+    "name": "f3FlowLearningHistoryFDNoDest",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.2.1.4",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3FlowLearningHistoryMacTableDiscards": {
+    "name": "f3FlowLearningHistoryMacTableDiscards",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.2.2.1.5",
+    "nodetype": "column",
+    "class": "objecttype",
+    "syntax": {
+      "type": "PerfCounter64",
+      "class": "type"
+    },
+    "maxaccess": "read-only",
+    "status": "current"
+  },
+  "f3BridgeCompliances": {
+    "name": "f3BridgeCompliances",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.1",
+    "class": "objectidentity"
+  },
+  "f3BridgeGroups": {
+    "name": "f3BridgeGroups",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2",
+    "class": "objectidentity"
+  },
+  "f3BridgeCompliance": {
+    "name": "f3BridgeCompliance",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.1.1",
+    "class": "modulecompliance",
+    "modulecompliance": [
+      {
+        "object": "f3FlowLearningConfigGroup",
+        "module": "F3-BRIDGE-MIB"
+      },
+      {
+        "object": "f3FlowStaticFwdEntGroup",
+        "module": "F3-BRIDGE-MIB"
+      },
+      {
+        "object": "f3FlowLearningStatsGroup",
+        "module": "F3-BRIDGE-MIB"
+      },
+      {
+        "object": "f3FlowLearningHistoryGroup",
+        "module": "F3-BRIDGE-MIB"
+      },
+      {
+        "object": "f3FlowFdbGroup",
+        "module": "F3-BRIDGE-MIB"
+      },
+      {
+        "object": "f3MPFlowStaticFwdGroup",
+        "module": "F3-BRIDGE-MIB"
+      },
+      {
+        "object": "f3MPFlowFDBGroup",
+        "module": "F3-BRIDGE-MIB"
+      },
+      {
+        "object": "f3FwdTSizeProfileGroup",
+        "module": "F3-BRIDGE-MIB"
+      },
+      {
+        "object": "f3MGGroupFPGroup",
+        "module": "F3-BRIDGE-MIB"
+      },
+      {
+        "object": "f3NetworkElementBridgeParamsGroup",
+        "module": "F3-BRIDGE-MIB"
+      }
+    ],
+    "status": "current"
+  },
+  "f3FlowLearningConfigGroup": {
+    "name": "f3FlowLearningConfigGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2.1",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningConfigAccIfLearningCtrl"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningConfigNetIfLearningCtrl"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningConfigAccMaxFwdEntries"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningConfigNetMaxFwdEntries"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningConfigAccIfProtectLearningCtrl"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningConfigNetIfProtectLearningCtrl"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningConfigAgingTimer"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningConfigTableFullAction"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningConfigAction"
+      }
+    ],
+    "status": "current"
+  },
+  "f3FlowStaticFwdEntGroup": {
+    "name": "f3FlowStaticFwdEntGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2.2",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowStaticFwdEntDestPort"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowStaticFwdEntAction"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowStaticFwdEntStorageType"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowStaticFwdEntRowStatus"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowStaticFwdValid"
+      }
+    ],
+    "status": "current"
+  },
+  "f3FlowLearningStatsGroup": {
+    "name": "f3FlowLearningStatsGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2.3",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningStatsMacTableFlushes"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningStatsFDStaticBlock"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningStatsFDHairPin"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningStatsFDNoDest"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningStatsMacTableDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "f3FlowLearningHistoryGroup": {
+    "name": "f3FlowLearningHistoryGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2.4",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningHistoryMacTableFlushes"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningHistoryFDStaticBlock"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningHistoryFDHairPin"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningHistoryFDNoDest"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowLearningHistoryMacTableDiscards"
+      }
+    ],
+    "status": "current"
+  },
+  "f3FlowFdbGroup": {
+    "name": "f3FlowFdbGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2.5",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowFdbDestPort"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowFdbAction"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FlowFdbEntryType"
+      }
+    ],
+    "status": "current"
+  },
+  "f3MPFlowStaticFwdGroup": {
+    "name": "f3MPFlowStaticFwdGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2.6",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowStaticFwdMacAddress"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowStaticFwdFP"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowStaticFwdControlAction"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowStaticFwdValid"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowStaticFwdStorageType"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowStaticFwdRowStatus"
+      }
+    ],
+    "status": "current"
+  },
+  "f3MPFlowFDBGroup": {
+    "name": "f3MPFlowFDBGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2.7",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowFDBMacAddress"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowFDBFP"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowFDBType"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MPFlowFDBControlAction"
+      }
+    ],
+    "status": "current"
+  },
+  "f3FwdTSizeProfileGroup": {
+    "name": "f3FwdTSizeProfileGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2.8",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FwdTSizeProfileIndex"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FwdTSizeProfileName"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3FwdTSizeProfileTableSize"
+      }
+    ],
+    "status": "current"
+  },
+  "f3MGGroupFPGroup": {
+    "name": "f3MGGroupFPGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2.9",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRMulticastAddress"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRFPList"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRGroupAction"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRGroupType"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRGroupValid"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRGroupRowStatus"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRFPIndex"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRFPIndexRowStatus"
+      },
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "f3MGRGroupStorageType"
+      }
+    ],
+    "status": "current"
+  },
+  "f3NetworkElementBridgeParamsGroup": {
+    "name": "f3NetworkElementBridgeParamsGroup",
+    "oid": "1.3.6.1.4.1.2544.1.12.26.3.2.10",
+    "class": "objectgroup",
+    "objects": [
+      {
+        "module": "F3-BRIDGE-MIB",
+        "object": "neBridgeParamsRtrvMacAction"
+      }
+    ],
+    "status": "current"
+  },
+  "meta": {
+    "comments": [
+      "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/adva/F3-BRIDGE-MIB",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:25:53 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
+      "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
+    ],
+    "module": "F3-BRIDGE-MIB"
+  }
+}

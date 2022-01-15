@@ -3,8 +3,8 @@
     "class": "imports",
     "BASIS-MIB": [
       "bbIfCnf",
-      "bbIfStateGrp",
-      "bbIfCnt"
+      "bbIfCnt",
+      "bbIfStateGrp"
     ],
     "CISCOWAN-SMI": [
       "ciscoWan"
@@ -15,20 +15,20 @@
       "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "IpAddress",
-      "Gauge32",
-      "Unsigned32",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "Integer32",
       "OBJECT-TYPE",
-      "Counter32",
-      "Bits",
+      "MODULE-IDENTITY",
       "NOTIFICATION-TYPE",
-      "iso"
+      "Gauge32",
+      "OBJECT-IDENTITY",
+      "Integer32",
+      "Bits",
+      "Unsigned32",
+      "iso",
+      "IpAddress",
+      "MibIdentifier",
+      "TimeTicks",
+      "Counter64",
+      "Counter32"
     ],
     "SNMPv2-TC": [
       "TEXTUAL-CONVENTION",
@@ -803,8 +803,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/cisco/CISCO-WAN-BBIF-PORT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:06:33 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:32:24 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CISCO-WAN-BBIF-PORT-MIB"

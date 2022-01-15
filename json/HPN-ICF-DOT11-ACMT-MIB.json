@@ -2,38 +2,38 @@
   "imports": {
     "class": "imports",
     "HPN-ICF-DOT11-REF-MIB": [
-      "HpnicfDot11TunnelSecSchemType",
+      "hpnicfDot11",
       "HpnicfDot11ObjectIDType",
       "HpnicfDot11MACModeType",
-      "hpnicfDot11"
+      "HpnicfDot11TunnelSecSchemType"
     ],
     "IANAifType-MIB": [
       "IANAifType"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "Counter64",
-      "IpAddress",
-      "MODULE-IDENTITY",
-      "TimeTicks",
-      "Bits",
-      "Unsigned32",
+      "Gauge32",
       "OBJECT-TYPE",
-      "Integer32",
-      "iso",
       "OBJECT-IDENTITY",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Unsigned32",
       "NOTIFICATION-TYPE",
+      "IpAddress",
+      "Bits",
+      "TimeTicks",
+      "iso",
       "MibIdentifier",
-      "Counter32",
-      "Gauge32"
+      "Integer32",
+      "Counter32"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
       "MacAddress",
-      "TEXTUAL-CONVENTION"
+      "TEXTUAL-CONVENTION",
+      "DisplayString"
     ]
   },
   "hpnicfDot11ACMT": {
@@ -1643,8 +1643,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/hp/HPN-ICF-DOT11-ACMT-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:14:32 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:41:19 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "HPN-ICF-DOT11-ACMT-MIB"

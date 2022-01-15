@@ -9,31 +9,31 @@
       "CienaGlobalState"
     ],
     "SNMPv2-CONF": [
-      "MODULE-COMPLIANCE",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "MODULE-COMPLIANCE"
     ],
     "SNMPv2-SMI": [
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "OBJECT-TYPE",
-      "Gauge32",
-      "MibIdentifier",
-      "Bits",
-      "Counter64",
-      "Counter32",
-      "TimeTicks",
-      "IpAddress",
       "MODULE-IDENTITY",
+      "Integer32",
+      "IpAddress",
+      "Gauge32",
+      "Bits",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
       "OBJECT-IDENTITY",
       "iso",
-      "Integer32"
+      "Unsigned32",
+      "Counter64",
+      "TimeTicks",
+      "Counter32",
+      "OBJECT-TYPE"
     ],
     "SNMPv2-TC": [
-      "TruthValue",
       "TEXTUAL-CONVENTION",
-      "DisplayString",
+      "TruthValue",
+      "RowStatus",
       "MacAddress",
-      "RowStatus"
+      "DisplayString"
     ]
   },
   "cienaCesRsvpteMIB": {
@@ -756,8 +756,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/ciena/CIENA-CES-RSVPTE-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:04:01 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:29:26 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "CIENA-CES-RSVPTE-MIB"

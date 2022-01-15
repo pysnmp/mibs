@@ -10,17 +10,17 @@
       "hwDatacomm"
     ],
     "IEEE802171-CFM-MIB": [
-      "Dot1agCfmMaintAssocName",
       "Dot1agCfmMepIdOrZero",
-      "Dot1agCfmMaintDomainName"
+      "Dot1agCfmMaintDomainName",
+      "Dot1agCfmMaintAssocName"
     ],
     "IF-MIB": [
       "InterfaceIndexOrZero"
     ],
     "INET-ADDRESS-MIB": [
-      "InetPortNumber",
+      "InetAddressType",
       "InetAddress",
-      "InetAddressType"
+      "InetPortNumber"
     ],
     "P-BRIDGE-MIB": [
       "EnabledStatus"
@@ -38,32 +38,32 @@
     ],
     "SNMPv2-SMI": [
       "Unsigned32",
-      "MODULE-IDENTITY",
-      "Integer32",
-      "NOTIFICATION-GROUP",
-      "Bits",
-      "Counter64",
-      "OBJECT-IDENTITY",
-      "OBJECT-TYPE",
-      "NOTIFICATION-TYPE",
-      "Counter32",
-      "mib-2",
-      "iso",
-      "MibIdentifier",
-      "Gauge32",
+      "TimeTicks",
       "IpAddress",
-      "TimeTicks"
+      "NOTIFICATION-TYPE",
+      "Gauge32",
+      "Counter64",
+      "OBJECT-TYPE",
+      "iso",
+      "MODULE-IDENTITY",
+      "Bits",
+      "NOTIFICATION-GROUP",
+      "Integer32",
+      "mib-2",
+      "Counter32",
+      "OBJECT-IDENTITY",
+      "MibIdentifier"
     ],
     "SNMPv2-TC": [
-      "DisplayString",
-      "TEXTUAL-CONVENTION",
-      "RowStatus",
       "TimeInterval",
       "TruthValue",
+      "MacAddress",
       "DateAndTime",
-      "TimeStamp",
+      "DisplayString",
+      "RowStatus",
       "StorageType",
-      "MacAddress"
+      "TEXTUAL-CONVENTION",
+      "TimeStamp"
     ]
   },
   "nqa": {
@@ -14427,8 +14427,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/huawei/NQA-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:15:35 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:42:51 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NQA-MIB"

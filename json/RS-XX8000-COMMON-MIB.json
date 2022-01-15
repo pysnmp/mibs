@@ -2,29 +2,29 @@
   "imports": {
     "class": "imports",
     "RS-COMMON-MIB": [
-      "rsRegModules",
-      "rsProdBroadcastTransmitter"
+      "rsProdBroadcastTransmitter",
+      "rsRegModules"
     ],
     "SNMPv2-CONF": [
       "MODULE-COMPLIANCE",
-      "OBJECT-GROUP",
-      "NOTIFICATION-GROUP"
+      "NOTIFICATION-GROUP",
+      "OBJECT-GROUP"
     ],
     "SNMPv2-SMI": [
-      "IpAddress",
-      "Counter64",
       "Counter32",
-      "Integer32",
-      "NOTIFICATION-TYPE",
-      "Unsigned32",
-      "Bits",
-      "OBJECT-TYPE",
-      "OBJECT-IDENTITY",
-      "TimeTicks",
-      "MibIdentifier",
-      "Gauge32",
       "iso",
-      "MODULE-IDENTITY"
+      "OBJECT-IDENTITY",
+      "IpAddress",
+      "TimeTicks",
+      "Integer32",
+      "MibIdentifier",
+      "OBJECT-TYPE",
+      "NOTIFICATION-TYPE",
+      "MODULE-IDENTITY",
+      "Counter64",
+      "Gauge32",
+      "Bits",
+      "Unsigned32"
     ],
     "SNMPv2-TC": [
       "DateAndTime",
@@ -2977,8 +2977,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/rs/RS-XX8000-COMMON-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:25:09 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:52:51 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "RS-XX8000-COMMON-MIB"

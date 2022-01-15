@@ -5,52 +5,52 @@
       "IANAifType"
     ],
     "IF-MIB": [
-      "ifIndex",
+      "InterfaceIndex",
       "InterfaceIndexOrZero",
-      "InterfaceIndex"
+      "ifIndex"
     ],
     "INET-ADDRESS-MIB": [
       "InetAddress",
       "InetAddressType"
     ],
     "NETGEAR-REF-MIB": [
-      "AgentPortMask",
-      "ng7000managedswitch"
+      "ng7000managedswitch",
+      "AgentPortMask"
     ],
     "Q-BRIDGE-MIB": [
-      "dot1qVlanIndex",
-      "VlanId",
+      "VlanIndex",
       "dot1qFdbId",
-      "VlanIndex"
+      "dot1qVlanIndex",
+      "VlanId"
     ],
     "SNMPv2-CONF": [
-      "NOTIFICATION-GROUP",
-      "MODULE-COMPLIANCE"
+      "MODULE-COMPLIANCE",
+      "NOTIFICATION-GROUP"
     ],
     "SNMPv2-SMI": [
-      "iso",
+      "Unsigned32",
       "Gauge32",
       "OBJECT-IDENTITY",
-      "MibIdentifier",
-      "Counter64",
-      "NOTIFICATION-TYPE",
       "IpAddress",
-      "OBJECT-TYPE",
-      "MODULE-IDENTITY",
-      "Unsigned32",
-      "TimeTicks",
+      "Counter32",
+      "Counter64",
+      "iso",
       "Bits",
-      "Integer32",
-      "Counter32"
+      "MODULE-IDENTITY",
+      "NOTIFICATION-TYPE",
+      "MibIdentifier",
+      "TimeTicks",
+      "OBJECT-TYPE",
+      "Integer32"
     ],
     "SNMPv2-TC": [
       "RowStatus",
-      "TruthValue",
-      "PhysAddress",
-      "TEXTUAL-CONVENTION",
       "MacAddress",
-      "DisplayString",
-      "DateAndTime"
+      "TEXTUAL-CONVENTION",
+      "PhysAddress",
+      "TruthValue",
+      "DateAndTime",
+      "DisplayString"
     ]
   },
   "fastPathSwitching": {
@@ -13309,8 +13309,8 @@
   "meta": {
     "comments": [
       "ASN.1 source file:///home/runner/work/mibs/mibs/src/vendor/netgear/NETGEAR-SWITCHING-MIB",
-      "Produced by pysmi-1.1.8 at Sat Jan 15 15:20:07 2022",
-      "On host fv-az36-128 platform Linux version 5.11.0-1025-azure by user runner",
+      "Produced by pysmi-1.1.8 at Sat Jan 15 16:47:38 2022",
+      "On host fv-az126-328 platform Linux version 5.11.0-1025-azure by user runner",
       "Using Python version 3.10.1 (main, Dec 22 2021, 10:45:09) [GCC 9.3.0]"
     ],
     "module": "NETGEAR-SWITCHING-MIB"
